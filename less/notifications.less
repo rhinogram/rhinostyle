@@ -1,0 +1,65 @@
+// File: notifications.less
+// Note: 
+
+
+// -------------------------
+// Notify
+// -------------------------
+
+
+.notify {
+  &:extend(.position-relative);
+  border-radius: @notify-border-radius;
+  color: @notify-text;
+  font-weight: @notify-font-weight;
+  margin-bottom: @margin-small;
+  max-width: 50.0rem;
+  padding: @notify-padding;
+
+  > .icon {
+    margin-right: @margin-xsmall;
+  }
+}
+
+
+// -------------------------
+// Notify Modifiers
+// -------------------------
+
+
+.notify--default {
+  background: @gray-dark;
+}
+
+.notify--success {
+  background: @brand-success;
+}
+
+
+
+// -------------------------
+// Notify Close
+// -------------------------
+
+
+.notify__close {
+  &:extend(.close all);
+  &:extend(.position-absolute);
+  float: none !important;
+  right: 0.8rem;
+}
+
+
+// -------------------------
+// Notify Link
+// -------------------------
+
+.notify__link {
+  color: @notify-text;
+  //font-weight: @alert-link-font-weight;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

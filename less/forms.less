@@ -1,0 +1,470 @@
+// File: forms.less
+// Note: 
+
+
+// -------------------------
+// Forms
+// -------------------------
+
+
+fieldset {
+  border: 0;
+  margin: 0;
+  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+  // so we reset that to ensure it behaves more like a standard block element.
+  // See https://github.com/twbs/bootstrap/issues/12359.
+  min-width: 0;
+  padding: 0;
+}
+
+legend {
+  border: 0;
+  border-bottom: 1px solid @legend-border-color;
+  color: @legend-color;
+  display: block;
+  font-size: (@font-size-base * 1.5);
+  line-height: inherit;
+  margin-bottom: @line-height-computed;
+  padding: 0;
+  width: 100%;
+}
+
+label {
+  &:extend(.inline-block);
+  font-weight: @font-weight-semibold;
+  margin-bottom: 0.5rem;
+}
+
+
+// -------------------------
+// Normalize Form Controls
+// -------------------------
+
+
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
+
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  box-sizing: border-box;
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  line-height: normal;
+  margin: @margin-xsmall 0 0;
+}
+
+input[type="file"] {
+  &:extend(.block);
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+  &:extend(.block);
+  width: 100%;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Focus for file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  &:extend(.tab-focus);
+}
+
+.form-control {
+  &:extend(.block);
+  background-color: @input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid @input-border;
+  border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  color: @input-color;
+  font-size: @font-size-base;
+  height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  line-height: @line-height-base;
+  padding: @padding-base-vertical @padding-small-horizontal;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  vertical-align: middle;
+  width: 100%;
+  -webkit-appearance: none;
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  //.form-control-focus();
+  &:focus {
+    &:extend(.tab-focus);
+  }
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: @input-bg-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
+}
+
+
+// -------------------------
+// iOS Search Inputs
+// -------------------------
+
+
+// This overrides the extra rounded corners on search inputs in iOS so that our
+// `.form-control` class can properly style them. Note that this cannot simply
+// be added to `.form-control` as it's not specific enough. For details, see
+// https://github.com/twbs/bootstrap/issues/11586.
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+
+// -------------------------
+// iOS Temporal Inputs
+// -------------------------
+
+
+// In Mobile Safari, setting `display: block` on temporal inputs causes the
+// text within the input to become vertically misaligned. As a workaround, we
+// set a pixel line-height that matches the given height of the input, but only
+// for Safari. See https://bugs.webkit.org/show_bug.cgi?id=139848
+//
+// Note that as of 8.3, iOS doesn't support `datetime` or `week`.
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"] {
+    &.form-control {
+      line-height: @input-height-base;
+    }
+
+    &.input-sm,
+    .input-group-sm & {
+      line-height: @input-height-small;
+    }
+
+    &.input-lg,
+    .input-group-lg & {
+      line-height: @input-height-large;
+    }
+  }
+}
+
+
+// -------------------------
+// Form Groups
+// -------------------------
+
+
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group {
+  margin-bottom: @form-group-margin-bottom;
+}
+
+
+// -------------------------
+// Static Form Controls
+// -------------------------
+
+
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
+.form-control-static {
+  // Remove default margin from `p`
+  margin-bottom: 0;
+  min-height: (@line-height-computed + @font-size-base);
+  // Size it appropriately next to real form controls
+  padding-bottom: @padding-base-vertical;
+  padding-top: @padding-base-vertical;
+
+  &.input-lg,
+  &.input-sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+// -------------------------
+// Form Control Sizing
+// -------------------------
+
+
+// Build on `.form-control` with modifier classes to decrease or increase the
+// height and font-size of form controls.
+//
+// The `.form-group-* form-control` variations are sadly duplicated to avoid the
+// issue documented in https://github.com/twbs/bootstrap/issues/15074.
+
+.input-sm {
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
+}
+
+/*.form-group-sm {
+  .form-control {
+    border-radius: @input-border-radius-small;
+    font-size: @font-size-small;
+    height: @input-height-small;
+    line-height: @line-height-small;
+    padding: @padding-small-vertical @padding-small-horizontal;
+  }
+  select.form-control {
+    height: @input-height-small;
+    line-height: @input-height-small;
+  }
+  textarea.form-control,
+  select[multiple].form-control {
+    height: auto;
+  }
+  .form-control-static {
+    font-size: @font-size-small;
+    height: @input-height-small;
+    line-height: @line-height-small;
+    min-height: (@line-height-computed + @font-size-small);
+    padding: (@padding-small-vertical + 1) @padding-small-horizontal;
+  }
+}*/
+
+.input-lg {
+  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
+}
+
+/*.form-group-lg {
+  .form-control {
+    border-radius: @input-border-radius-large;
+    font-size: @font-size-large;
+    height: @input-height-large;
+    line-height: @line-height-large;
+    padding: @padding-large-vertical @padding-large-horizontal;
+  }
+  select.form-control {
+    height: @input-height-large;
+    line-height: @input-height-large;
+  }
+  textarea.form-control,
+  select[multiple].form-control {
+    height: auto;
+  }
+  .form-control-static {
+    font-size: @font-size-large;
+    height: @input-height-large;
+    line-height: @line-height-large;
+    min-height: (@line-height-computed + @font-size-large);
+    padding: @padding-large-vertical @padding-large-horizontal;
+  }
+}*/
+
+
+// -------------------------
+// Fauxbox & Fauxdio
+// -------------------------
+
+
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+    opacity: @opacity-disabled;
+  }
+}
+
+.fauxbox,
+.fauxdio {
+  &:extend(.block);
+  &:extend(.position-relative);
+  margin-bottom: @margin-base;
+  margin-top: @margin-base;
+  label {
+    cursor: pointer;
+    //display: inline;
+    font-weight: normal;
+    margin-bottom: 0;
+    min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+    user-select: none;
+  }
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: @cursor-disabled;
+      opacity: @opacity-disabled;
+    }
+  }
+}
+
+
+.fauxbox {
+  padding-left: 0;
+  input {
+    display: none;
+    &:checked+label:before {
+      .svg-bg-add-fill("@{svg-path}checkmark.svg", @brand-primary);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 1.6rem 1.6rem;
+    }
+  }
+  label {
+    &:before {
+      &:extend(.position-relative);
+      &:extend(.text-center);
+      content: "";
+      background-color: @white;
+      border: 1px solid @border-color-base;
+      display: inline-block;
+      height: 1.7rem;
+      left: 0.5px;
+      line-height: 1.3rem;
+      margin: 0.1rem @margin-small 0.1rem 0;
+      padding: 0;
+      speak: none;
+      top: -0.1rem;
+      vertical-align: middle;
+      width: 1.7rem;
+    }
+  }
+}
+
+.fauxdio {
+  padding-left: 0;
+  input{
+    display: none;
+    &:checked+label:before {
+      background-color: @brand-primary;
+    }
+  }
+  label {
+    &:before {
+      &:extend(.position-relative);
+      background-color: @white;
+      border: 0.3rem solid @white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px @border-color-base;
+      content: "";
+      display: inline-block;
+      height: 1.6rem;
+      left: 0.2rem;
+      margin: 0 @margin-base 0 0;
+      top: 0.3rem;
+      width: 1.6rem;
+    }
+  }
+  
+}
+
+.fauxbox--inline,
+.fauxdio--inline {
+  display: inline-block;
+  margin-right: @margin-large;
+}
+
+
+// -------------------------
+// Placeholder
+// -------------------------
+
+
+[placeholder] {
+  &:extend(.text-overflow);
+}
+
+&::-moz-placeholder {
+  color: @input-color-placeholder;
+  opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+}
+&:-ms-input-placeholder { color: @input-color-placeholder; } // Internet Explorer 10+
+&::-webkit-input-placeholder  { color: @input-color-placeholder; } // Safari and Chrome
+
+
+// -------------------------
+// Selectpicker
+// -------------------------
+
+
+.selectpicker {
+  &:extend(.position-relative);
+  vertical-align: middle;
+  select {
+    cursor: pointer;
+    &:extend(.text-overflow);
+    border-radius: @border-radius-base;
+    display: block;
+    height: @line-height-computed + (@padding-base-vertical * 2) + 0.2rem; // match default button's height
+    line-height: @line-height-base;
+    padding: @padding-base-vertical 30px @padding-base-vertical @padding-base-horizontal; // match default button's padding
+    width: 100%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    &::-ms-expand {
+      display: none;
+      background-color: transparent;
+      border: 0;
+    }
+  }
+  &::after {
+    &:extend(.pointer-events-none);
+    &:extend(.position-absolute);
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1.4rem 1.4rem;
+    height: 1.4rem;
+    right: @padding-base-horizontal;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.4rem;
+  }
+}
+
+.selectpicker--sm {
+  select {
+    border-radius: @border-radius-small;
+    font-size: @font-size-small;
+    height: (@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 0.2rem; // match default button's height
+    line-height: @line-height-small;
+    padding: @padding-small-vertical 30px @padding-small-vertical @padding-small-horizontal; // match small button's padding
+  }
+  &::after {
+    right: @padding-small-horizontal;
+  }
+}
+
+.selectpicker--default {
+  select {
+    background-color: @white;
+    border: 1px solid @btn-default-border;
+    color: @text-color;
+  }
+  &::after {
+    .svg-bg-add-fill("@{svg-path}chevron-down.svg", @text-color);
+  }
+}

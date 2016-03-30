@@ -1,0 +1,23 @@
+// File: alerts.less
+// Note: alerts mixin
+
+
+// -------------------------
+// Alerts Mixin
+// -------------------------
+
+
+.alert-variant(@background; @border; @text-color) {
+  background-color: @background;
+  border-color: @border;
+  color: @text-color;
+  text-shadow: 0 0 1px white;
+  
+  .alert__link {
+    color: @text-color;
+  }
+}
+
+
+
+

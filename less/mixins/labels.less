@@ -1,0 +1,33 @@
+// File: labels.less
+// Note: labels mixin
+
+
+// -------------------------
+// Labels Mixin
+// -------------------------
+
+
+.label-variant(@color) {
+  background-color: @color;
+  border: 1px solid @color;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: darken(@color, 10%);
+    }
+  }
+}
+
+.label-variant-outline(@color:@text-color) {
+  background-color: @white;
+  border: 1px solid @color;
+  color: @color;
+  
+  &[href] {
+    &:hover,
+    &:focus {
+      color: darken(@color, 10%);
+    }
+  }
+}

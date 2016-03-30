@@ -1,0 +1,22 @@
+// File: text-emphais.less
+// Note: text emphasis mixin
+
+
+// -------------------------
+// Text Emphasis Mixin
+// -------------------------
+
+
+.text-emphasis-variant(@color) {
+  color: @color;
+
+  a&,
+  .btn--link& {
+    color: @color;
+  }
+
+  a&:hover,
+  .btn--link&:hover {
+    color: darken(@color, 10%);
+  }
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>RhinoStyles: Homepage</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400">
+    <link rel="stylesheet" href="css/rhinostyles-docs.css">
+  </head>
+  <body>
+<nav id="site-navigation" class="site-navigation">
+      <ul class="site-navigation__nav">
+      <li>
+        <a href="" class="site-navigation__nav__btn">Introduction</a>
+      </li>
+      <li>
+        <a href="buttons/" class="site-navigation__nav__btn">Buttons</a>
+      </li>
+      <li>
+        <a href="feedback/" class="site-navigation__nav__btn">Feedback</a>
+      </li>
+    </ul>
+
+
+</nav>
+<div id="site-overlay" class="site-overlay"></div>
+<div class="site-wrapper">
+  <header class="site-header">
+    <div id="site-header__menu" class="site-header__menu">
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+    </div>
+  </header>
+  <main class="site-content">
+    
+  
+<h1 class="site-headline">RhinoStyles</h1>
+
+
+
+
+
+  </main>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="js/rhinostyles-docs.js"></script>
+    <script>
+      $(document).ready(function() {
+          
+        function loop() {
+
+          // nav toggling below 1200px
+          if(window.matchMedia("(max-width: 1199px)").matches) {
+            $('html').removeClass('navigation-is-locked');
+            $('#site-header__menu').click(function(){
+              $('#site-navigation').scrollTop(0);
+              $('html').addClass('navigation-is-open');
+            });
+            $('#site-overlay').click(function(){
+              $('html').removeClass('navigation-is-open');
+            });
+          }
+
+          // lock nav in open position at 1200px
+          if(window.matchMedia("(min-width: 1200px)").matches) {
+            $('html').removeClass('navigation-is-open');
+            $('html').addClass('navigation-is-locked');
+          }
+
+          requestAnimationFrame(loop);
+        }
+
+        loop();
+
+
+        // Handle active navigation
+
+        var split = (document.location.hostname == "localhost") ? 1:2;
+
+        var navLocation = location.pathname.split("/")[split];
+
+        if (navLocation) {
+          $('.site-navigation__nav a[href^="' + navLocation + '"]').addClass('active');
+        } else {
+          $('.site-navigation__nav a[href=""').addClass('active');
+        }
+
+
+        // SVG loader
+
+        boomsvgloader.load('svg/sprite.svg');
+
+
+      });
+    </script>
+  </body>
+  </html>
+

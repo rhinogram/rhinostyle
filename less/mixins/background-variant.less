@@ -1,0 +1,21 @@
+// File: background-variant.less
+// Note: background variant mixin
+
+
+// -------------------------
+// Background Variant Mixin
+// -------------------------
+
+
+.bg-variant(@color) {
+  background-color: @color;
+  
+  a&:hover,
+  a&:focus {
+    background-color: darken(@color, 10%);
+  }
+}
+
+
+
+

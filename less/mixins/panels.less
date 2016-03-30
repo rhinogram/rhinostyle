@@ -1,0 +1,37 @@
+// File: panels.less
+// Note: panels mixin
+
+
+// -------------------------
+// Panels Mixin
+// -------------------------
+
+
+.panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+  border-color: @border;
+
+  & > .panel__heading {
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+    color: @heading-text-color;
+
+    + .panel__collapse > .panel__body {
+      border-top-color: @border;
+    }
+    
+    .badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }
+  }
+
+  & > .panel__footer {
+    + .panel__collapse > .panel__body {
+      border-bottom-color: @border;
+    }
+  }
+}
+
+
+
+

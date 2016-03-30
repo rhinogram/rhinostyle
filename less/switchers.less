@@ -1,0 +1,144 @@
+// File: switchers.less
+// Note: 
+
+
+// -------------------------
+// Switcher
+// -------------------------
+
+
+.switcher {
+  &:extend(.inline-block);
+  &:extend(.user-select-none);
+  height: @switcher-height;
+  width: @switcher-width;
+}
+
+
+// -------------------------
+// Switcher Modifiers
+// -------------------------
+
+
+.switcher--disabled {
+  &:extend(.cursor-not-allowed);
+  &:extend(.pointer-events-none);
+  opacity: 0.5;
+}
+
+
+// -------------------------
+// Switcher Icon
+// -------------------------
+
+
+.switcher__icon {
+  top: 0;
+}
+
+
+// -------------------------
+// Switcher Inner
+// -------------------------
+
+
+.switcher__inner {
+  font-size: 0;
+  height: @switcher-height;
+  transform: translateX(-50%);
+  transition: transform 250ms @trans-timing-cubic;
+  width: 200%;
+}
+
+
+// -------------------------
+// Switcher Input
+// -------------------------
+
+
+.switcher__input {
+  display: none;
+}
+
+
+// -------------------------
+// Switcher Label
+// -------------------------
+
+
+.switcher__label {
+  &:extend(.block);
+  &:extend(.cursor-pointer all);
+  &:extend(.position-relative);
+  border-radius: @switcher-border-radius;
+  height: @switcher-height;
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  word-spacing: 0;
+  z-index: 20;
+  
+  .switcher__input:checked ~ & {
+    .switcher__inner {
+      transform: translateX(0);
+    }
+    .switcher__off::after {
+      transform: translateX(-@switcher-toggler-width - (@switcher-toggler-margin * 2));
+    }
+  }
+}
+
+
+// -------------------------
+// Switcher On/Off
+// -------------------------
+
+.switcher__off, .switcher__on {
+  &:extend(.position-relative);
+  &:extend(.text-center);
+  align-items: center;
+  color: @white;
+  display: inline-flex;
+  font-size: 1.6rem;
+  height: 100%;
+  justify-content: center;
+  line-height: @switcher-state-line-height;
+  width: 50%;
+}
+
+.switcher__off {
+  background-color: @gray;
+  padding-left: @switcher-state-padding;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    .switcher__toggler;
+  }
+}
+
+.switcher__on {
+  background-color: @brand-success;
+  padding-right: @switcher-state-padding;
+}
+
+
+// -------------------------
+// Switcher Toggler
+// -------------------------
+
+
+.switcher__toggler {
+  &:extend(.position-absolute);
+  &:extend(.text-center);
+  background-color: @white;
+  border-radius: 2px;
+  height: @switcher-toggler-height;
+  left: 0;
+  margin: @switcher-toggler-margin;
+  transition: transform 250ms @trans-timing-cubic;
+  transform: translateX(0);
+  width: @switcher-toggler-width;
+  z-index: 10;
+}
+

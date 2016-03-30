@@ -1,0 +1,282 @@
+// File: panels.less
+// Note: 
+
+
+// -------------------------
+// Panel
+// -------------------------
+
+
+.panel {
+  background-color: @panel-bg;
+  border: 1px solid transparent;
+  border-radius: @panel-border-radius;
+  //box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  margin-bottom: @line-height-computed;
+}
+
+
+// -------------------------
+// Panel Modifiers
+// -------------------------
+
+
+/*.panel--danger {
+  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}*/
+.panel--default {
+  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+/*.panel--info {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.panel--primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.panel--success {
+  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.panel--warning {
+  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}*/
+
+
+// -------------------------
+// Panel Body
+// -------------------------
+
+
+.panel__body {
+  &:extend(.clearfix all);
+  padding: @panel-body-padding;
+}
+
+
+// -------------------------
+// Panel Heading
+// -------------------------
+
+
+.panel__heading {
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: @panel-border-radius;
+  border-top-right-radius: @panel-border-radius;
+  padding: @panel-heading-padding;
+}
+
+
+// -------------------------
+// Panel Heading Title
+// -------------------------
+
+
+.panel__heading__title {
+  color: inherit;
+  font-size: @font-size-h5;
+  font-weight: @headings-font-weight;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+}
+
+
+// -------------------------
+// Panel Footer
+// -------------------------
+
+
+.panel__footer {
+  background-color: @panel-footer-bg;
+  border-bottom-left-radius: @panel-border-radius;
+  border-bottom-right-radius: @panel-border-radius;
+  border-top: 1px solid @panel-inner-border;
+  padding: @panel-footer-padding;
+}
+
+
+/*
+
+// -------------------------
+// Panel With List Groups
+// -------------------------
+
+
+.panel {
+  > .list-group,
+  > .panel__collapse > .list-group {
+    margin-bottom: 0;
+
+    .list-group__item {
+      border-radius: 0;
+      border-width: 1px 0;
+    }
+
+    // Add border top radius for first one
+    &:first-child {
+      .list-group__item:first-child {
+        border-top: 0;
+        border-top-left-radius: @panel-border-radius;
+        border-top-right-radius: @panel-border-radius;
+      }
+    }
+
+    // Add border bottom radius for last one
+    &:last-child {
+      .list-group__item:last-child {
+        border-bottom: 0;
+        border-bottom-left-radius: @panel-border-radius;
+        border-bottom-right-radius: @panel-border-radius;
+      }
+    }
+  }
+
+  > .panel__heading + .panel__collapse > .list-group {
+    .list-group__item:first-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+// Collapse space between when there's no additional content.
+
+.panel__heading + .list-group {
+  .list-group__item:first-child {
+    border-top-width: 0;
+  }
+}
+
+.list-group + .panel__footer {
+  border-top-width: 0;
+}
+
+
+// -------------------------
+// Panel With Table
+// -------------------------
+// Place a non-bordered `.table` within a panel (not within a `.panel__body`) and
+// watch it go full width.
+
+.panel {
+  > .table,
+  > .table-responsive > .table,
+  > .panel__collapse > .table {
+    margin-bottom: 0;
+
+    caption {
+      padding-left: @panel-body-padding;
+      padding-right: @panel-body-padding;
+    }
+  }
+
+  // Add border top radius for first one
+  > .table:first-child,
+  > .table-responsive:first-child > .table:first-child {
+    border-top-left-radius: @panel-border-radius;
+    border-top-right-radius: @panel-border-radius;
+
+    > thead:first-child,
+    > tbody:first-child {
+      > tr:first-child {
+        border-top-left-radius: @panel-border-radius;
+        border-top-right-radius: @panel-border-radius;
+
+        td:first-child,
+        th:first-child {
+          border-top-left-radius: @panel-border-radius;
+        }
+        td:last-child,
+        th:last-child {
+          border-top-right-radius: @panel-border-radius;
+        }
+      }
+    }
+  }
+
+  // Add border bottom radius for last one
+  > .table:last-child,
+  > .table-responsive:last-child > .table:last-child {
+    border-bottom-left-radius: @panel-border-radius;
+    border-bottom-right-radius: @panel-border-radius;
+
+    > tbody:last-child,
+    > tfoot:last-child {
+      > tr:last-child {
+        border-bottom-left-radius: @panel-border-radius;
+        border-bottom-right-radius: @panel-border-radius;
+
+        td:first-child,
+        th:first-child {
+          border-bottom-left-radius: @panel-border-radius;
+        }
+        td:last-child,
+        th:last-child {
+          border-bottom-right-radius: @panel-border-radius;
+        }
+      }
+    }
+  }
+
+  > .panel__body + .table,
+  > .panel__body + .table-responsive,
+  > .table + .panel__body,
+  > .table-responsive + .panel__body {
+    border-top: 1px solid @table-border-color;
+  }
+
+  > .table > tbody:first-child > tr:first-child th,
+  > .table > tbody:first-child > tr:first-child td {
+    border-top: 0;
+  }
+
+  > .table--bordered,
+  > .table-responsive > .table--bordered {
+    border: 0;
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  > .table-responsive {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+*/

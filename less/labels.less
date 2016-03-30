@@ -1,0 +1,70 @@
+// File: labels.less
+// Note: Extends Bootstrap labels.less
+
+
+// -------------------------
+// Labels
+// -------------------------
+
+
+.label {
+  &:extend(.position-relative);
+  &:extend(.text-center);
+  &:extend(.text-nowrap);
+  border-radius: @border-radius-small;
+  color: @label-color;
+  display: inline-block;
+  font-size: 75%;
+  font-weight: @font-weight-bold;
+  line-height: 1;
+  padding: @label-padding;
+  top: -0.1rem;
+  vertical-align: baseline;
+
+  // Add hover effects, but only for links
+  a& {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: @label-link-hover-color;
+      text-decoration: none;
+    }
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+
+// -------------------------
+// Label Modifiers
+// -------------------------
+
+
+.label--danger {
+  .label-variant(@label-danger-bg);
+}
+
+.label--default {
+  .label-variant(@label-default-bg);
+}
+
+.label--info {
+  .label-variant(@label-info-bg);
+}
+
+.label--primary {
+  .label-variant(@label-primary-bg);
+}
+
+.label--success {
+  .label-variant(@label-success-bg);
+}
+
+.label--warning {
+  .label-variant(@label-warning-bg);
+}
+
+
+

@@ -1,0 +1,78 @@
+// File: utilities-colors.less
+// Note: 
+
+
+// -------------------------
+// Background Colors
+// -------------------------
+
+
+.bg-primary {
+  .bg-variant(@brand-primary);
+  color: @white;
+}
+
+.bg-success {
+  .bg-variant(@state-success-bg);
+}
+
+.bg-info {
+  .bg-variant(@state-info-bg);
+}
+
+.bg-warning {
+  .bg-variant(@state-warning-bg);
+}
+
+.bg-danger {
+  .bg-variant(@state-danger-bg);
+}
+
+
+// -------------------------
+// Text Brand Colors (Pure)
+// -------------------------
+
+
+.text-brand-danger {
+  color: @brand-danger;
+}
+
+.text-brand-info {
+  color: @brand-info;
+}
+
+.text-brand-success {
+  color: @brand-success;
+}
+
+
+// -------------------------
+// Text Brand Colors (Darker)
+// -------------------------
+
+
+.text-danger {
+  .text-emphasis-variant(@state-danger-text);
+}
+
+.text-info {
+  .text-emphasis-variant(@state-info-text);
+}
+
+.text-muted {
+  color: @text-muted;
+}
+
+.text-primary {
+  .text-emphasis-variant(@brand-primary);
+}
+
+.text-success {
+  .text-emphasis-variant(@state-success-text);
+}
+
+.text-warning {
+  .text-emphasis-variant(@state-warning-text);
+}
+

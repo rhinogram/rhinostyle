@@ -1,0 +1,252 @@
+// File: rhinostyles-docs.less
+// Note: Documentation styles
+
+@import 'rhinostyles';
+
+body {
+  background: white;
+  min-height: 100vh;
+}
+
+// -------------------------
+// Site Content
+// -------------------------
+
+
+.site-content {
+  &:extend(.position-relative);
+  overflow-x: hidden;
+  padding: @grid-gutter-width/2;
+  @media (min-width: @screen-lg-min) {
+    padding: @grid-gutter-width;
+  }
+}
+
+
+// -------------------------
+// Site Header
+// -------------------------
+
+
+.site-header {
+  align-items: center;
+  background-color: @gray-lightest;
+  display: flex;
+  padding: @padding-half-gutter;
+  transition: transform 250ms @trans-timing-cubic;
+  /*
+  html.navigation-is-locked breakpoint
+  hide menu button
+  */
+  @media(min-width: 1200px){
+    display: none;
+  }
+}
+
+.site-header__menu {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: @margin-half-gutter;
+  
+}
+
+.site-header__menu__bar {
+  background-color: @gray-dark;
+  height: 0.3rem;
+  width: 2.2rem;
+  &+& {
+    margin-top: 0.3rem;
+  }
+}
+
+
+// -------------------------
+// Site Headline
+// -------------------------
+
+
+.site-headline {
+  margin-bottom: 4rem;
+}
+
+
+// -------------------------
+// Site Navigation
+// -------------------------
+
+
+@zindex-site-navigation:    1036;
+@zindex-site-overlay:       1034;
+@site-navigation-bg:        white;
+@site-navigation-width:     26.8rem;
+
+
+.site-navigation {
+  background-color: @site-navigation-bg;
+  bottom: 0;
+  transform: translateX(-@site-navigation-width);
+  min-height: 100%;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  transition: transform 250ms @trans-timing-cubic;
+  width: @site-navigation-width;
+  z-index: @zindex-site-navigation;
+  -webkit-overflow-scrolling: touch;
+  .no-touch & {
+    overflow-y: auto;
+  }
+  /*
+  html.navigation-is-locked breakpoint
+  keeps nav from transitioning from left on page load
+  */
+  @media(min-width: 1200px) {
+    transform: translateX(0);
+  }
+}
+
+
+.site-navigation__nav {
+  &:extend(.list-unstyled);
+  padding-top: @grid-gutter-width/2;
+  @media (min-width: @screen-lg-min) {
+    padding-top: 2.8rem;
+  }
+  > li {
+    padding: 0 @grid-gutter-width/2;
+    &:not(:first-child) {
+      margin-top: 0.6rem;
+    }
+    @media (min-width: @screen-lg-min) {
+      //padding-left: @grid-gutter-width;
+    }
+  }
+}
+
+.site-navigation__nav__btn {
+  border-radius: 0.4rem;
+  color: @gray-dark;
+  display: block;
+  font-weight: @font-weight-light;
+  padding: @padding-medium @padding-half-gutter;
+  transition: background-color 250ms @trans-timing-cubic;
+  .no-touch &:hover,
+  .no-touch &:focus {
+    background-color: @gray-lighter;
+    box-shadow: none;
+  }
+  &.active {
+    background-color: #ccebf3 !important;
+  }
+}
+
+
+.site-navigation__squid {
+  display: none;
+  position: relative;
+  svg {
+    height: 220px;
+    //margin-bottom: -1.6rem;
+    //margin-top: -16.2rem;
+    width: 100%;
+  }
+}
+
+
+// -------------------------
+// Site Overlay
+// -------------------------
+
+
+.site-overlay {
+  background-color: black;
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  //transition: opacity 250ms @trans-timing-cubic;
+  width: 100vw;
+  z-index: -1;
+}
+
+
+// -------------------------
+// Site Scaffolding
+// -------------------------
+
+
+html.navigation-is-open {
+  body {
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+  .site-overlay {
+    opacity: 0.05;
+    z-index: @zindex-site-overlay;
+  }
+}
+
+html.navigation-is-open {
+  .site-navigation {
+    transform: translateX(0);
+  }
+  .site-wrapper {
+    transform: translateX(@site-navigation-width);
+  }
+}
+
+html.navigation-is-locked {
+  .site-navigation {
+    transform: translateX(0);
+  }
+  .site-wrapper {
+    margin-left: @site-navigation-width;
+    transform: translateX(0) !important;
+  }
+}
+
+
+// -------------------------
+// Site Section
+// -------------------------
+
+
+.site-section {
+  margin-bottom: 6rem;
+}
+
+
+// -------------------------
+// Site Subheadline
+// -------------------------
+
+
+.site-subheadline {
+  font-weight: @font-weight-light;
+  margin-bottom: 2.4rem;
+}
+
+
+// -------------------------
+// Site Wrapper
+// -------------------------
+
+
+.site-wrapper {
+  overflow-x: hidden;
+  position: relative;
+  transition: transform 250ms @trans-timing-cubic;
+  /*
+  html.navigation-is-locked breakpoint
+  keeps wrapper from transitioning from left on page load
+  */
+  @media(min-width: 1200px){
+    margin-left: @site-navigation-width;
+    transform: translateX(0) !important;
+  }
+}

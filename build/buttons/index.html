@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>RhinoStyles: Buttons</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400">
+    <link rel="stylesheet" href="../css/rhinostyles-docs.css">
+  </head>
+  <body>
+<nav id="site-navigation" class="site-navigation">
+      <ul class="site-navigation__nav">
+      <li>
+        <a href="../" class="site-navigation__nav__btn">Introduction</a>
+      </li>
+      <li>
+        <a href="../buttons/" class="site-navigation__nav__btn">Buttons</a>
+      </li>
+      <li>
+        <a href="../feedback/" class="site-navigation__nav__btn">Feedback</a>
+      </li>
+    </ul>
+
+
+</nav>
+<div id="site-overlay" class="site-overlay"></div>
+<div class="site-wrapper">
+  <header class="site-header">
+    <div id="site-header__menu" class="site-header__menu">
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+    </div>
+  </header>
+  <main class="site-content">
+    
+  
+<h1 class="site-headline">Buttons</h1>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Button Tags</h3>
+  <a class="btn btn--default" href="#" role="button">Anchor</a>
+  <button class="btn btn--default" type="submit">Button</button>
+  <input class="btn btn--default" type="button" value="Input">
+  <input class="btn btn--default" type="submit" value="Submit">
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Button Color Modifiers</h3>
+  <button type="button" class="btn btn--default">Default</button>
+  <button type="button" class="btn btn--primary">Primary</button>
+  <button type="button" class="btn btn--success">Success</button>
+  <button type="button" class="btn btn--info">Info</button>
+  <button type="button" class="btn btn--warning">Warning</button>
+  <button type="button" class="btn btn--danger">Danger</button>
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Button Size Modifiers</h3>
+  <button type="button" class="btn btn--lg btn--default">Large</button>
+  <button type="button" class="btn btn--default">Default</button>
+  <button type="button" class="btn btn--sm btn--default">Small</button>
+  <button type="button" class="btn btn--xs btn--default">Extra Small</button>
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Button Type Modifiers</h3>
+  <div class="m-b-md">
+    <h5><em>Icon-only Buttons</em></h5>
+    <button type="button" class="btn btn--default btn--icon"><svg class="icon"><use xlink:href="#icon-heart"/></svg></button>
+    <button type="button" class="btn btn--default btn--icon"><svg class="icon"><use xlink:href="#icon-house"/></svg></button>
+    <button type="button" class="btn btn--default btn--icon"><svg class="icon"><use xlink:href="#icon-cog"/></svg></button>
+  </div>
+  <h5><em>Link Buttons</em></h5>
+  <button type="button" class="btn btn--default btn--link">Link</button>
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Button States</h3>
+  <div class="m-b">
+    <button type="button" class="btn btn--default">Default</button>
+    <button type="button" class="btn btn--default active">Default Active</button>
+    <button type="button" class="btn btn--default disabled">Default Disabled</button>
+  </div>
+  <div class="m-b">
+    <button type="button" class="btn btn--primary">Primary</button>
+    <button type="button" class="btn btn--primary active">Primary Active</button>
+    <button type="button" class="btn btn--primary disabled">Primary Disabled</button>
+  </div>
+  <div class="m-b">
+    <button type="button" class="btn btn--success">Success</button>
+    <button type="button" class="btn btn--success active">Success Active</button>
+    <button type="button" class="btn btn--success disabled">Success Disabled</button>
+  </div>
+  <div class="m-b">
+    <button type="button" class="btn btn--info">Info</button>
+    <button type="button" class="btn btn--info active">Info Active</button>
+    <button type="button" class="btn btn--info disabled">Info Disabled</button>
+  </div>
+  <div class="m-b">
+    <button type="button" class="btn btn--warning">Warning</button>
+    <button type="button" class="btn btn--warning active">Warning Active</button>
+    <button type="button" class="btn btn--warning disabled">Warning Disabled</button>
+  </div>
+  <div>
+    <button type="button" class="btn btn--danger">Danger</button>
+    <button type="button" class="btn btn--danger active">Danger Active</button>
+    <button type="button" class="btn btn--danger disabled">Danger Disabled</button>
+  </div>
+
+</section>
+
+  </main>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="../js/rhinostyles-docs.js"></script>
+    <script>
+      $(document).ready(function() {
+          
+        function loop() {
+
+          // nav toggling below 1200px
+          if(window.matchMedia("(max-width: 1199px)").matches) {
+            $('html').removeClass('navigation-is-locked');
+            $('#site-header__menu').click(function(){
+              $('#site-navigation').scrollTop(0);
+              $('html').addClass('navigation-is-open');
+            });
+            $('#site-overlay').click(function(){
+              $('html').removeClass('navigation-is-open');
+            });
+          }
+
+          // lock nav in open position at 1200px
+          if(window.matchMedia("(min-width: 1200px)").matches) {
+            $('html').removeClass('navigation-is-open');
+            $('html').addClass('navigation-is-locked');
+          }
+
+          requestAnimationFrame(loop);
+        }
+
+        loop();
+
+
+        // Handle active navigation
+
+        var split = (document.location.hostname == "localhost") ? 1:2;
+
+        var navLocation = location.pathname.split("/")[split];
+
+        if (navLocation) {
+          $('.site-navigation__nav a[href^="../' + navLocation + '"]').addClass('active');
+        } else {
+          $('.site-navigation__nav a[href=""').addClass('active');
+        }
+
+
+        // SVG loader
+
+        boomsvgloader.load('../svg/sprite.svg');
+
+
+      });
+    </script>
+  </body>
+  </html>
+

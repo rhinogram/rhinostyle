@@ -1,0 +1,42 @@
+// File: list-group.less
+// Note: list group mixin
+
+
+// -------------------------
+// List Group Mixin
+// -------------------------
+
+
+.list-group-item-variant(@state; @background; @color) {
+  .list-group__item--@{state} {
+    background-color: @background;
+    color: @color;
+
+    a&,
+    button& {
+      color: @color;
+
+      .list-group__item__heading {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: darken(@background, 5%);
+        color: @color;
+      }
+      
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        background-color: @color;
+        border-color: @color;
+        color: @white;
+      }
+    }
+  }
+}
+
+
+
+

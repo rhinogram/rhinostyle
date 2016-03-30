@@ -1,0 +1,51 @@
+// File: carets.less
+// Note: 
+
+
+// -------------------------
+// Caret
+// -------------------------
+
+.caret-down,
+.caret-left,
+.caret-right,
+.caret-up {
+  &:extend(.inline-block);
+  &:extend(.position-relative);
+  height: 0;
+  margin-left: 0.2rem;
+  top: -0.1rem;
+  vertical-align: middle;
+  width: 0;
+}
+
+.caret-down {
+  border-left:  @caret-width-base solid transparent;
+  border-right: @caret-width-base solid transparent;
+  border-top:   @caret-width-base dashed;
+}
+
+.caret-left {
+  border-bottom: @caret-width-base solid transparent;
+  border-right: @caret-width-base solid;
+  border-top: @caret-width-base solid transparent;
+}
+
+.caret-right {
+  border-bottom: @caret-width-base solid transparent;
+  border-left: @caret-width-base solid;
+  border-top: @caret-width-base solid transparent;
+  margin-left: 0.3rem;
+}
+
+.caret-up {
+  border-bottom: @caret-width-base solid;
+  border-left:  @caret-width-base solid transparent;
+  border-right: @caret-width-base solid transparent;
+}
+
+
+
+
+
+

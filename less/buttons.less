@@ -1,0 +1,248 @@
+// File: buttons.less
+// Note: 
+
+
+// -------------------------
+// Button
+// -------------------------
+
+
+.btn {
+  
+  &:extend(.inline-block);
+  &:extend(.text-center);
+  &:extend(.text-nowrap);
+  &:extend(.user-select-none);
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: @btn-font-weight;
+  margin-bottom: 0; // For input.btn
+  touch-action: manipulation;
+  vertical-align: middle;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+
+  /*&,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      &:extend(.tab-focus);
+    }
+  }*/
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @btn-default-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:extend(.cursor-not-allowed);
+    box-shadow: none;
+    opacity: 0.5;
+  }
+
+  &:focus{
+    &:extend(.tab-focus);
+  }
+
+  a& {
+    &.disabled,
+    fieldset[disabled] & {
+      &:extend(.pointer-events-none); // Future-proof disabling of clicks on `<a>` elements
+    }
+  }
+
+  > .icon {
+    font-size: @font-size-base + 0.2rem;
+  }
+}
+
+
+// -------------------------
+// Button Modifiers (Block)
+// -------------------------
+
+
+.btn--block {
+  &:extend(.block);
+  width: 100%;
+}
+
+.btn--block + .btn--block {
+  margin-top: @margin-small;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn--block {
+    width: 100%;
+  }
+}
+
+
+// -------------------------
+// Button Modifiers (Color)
+// -------------------------
+
+
+.btn--danger {
+  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
+
+.btn--default {
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+
+.btn--info {
+  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+
+.btn--primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+.btn--success {
+  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+}
+
+.btn--warning {
+  .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+
+// override default, may want to change .btn-variant mixin instead
+.btn--default {
+  &:focus,
+  &.focus {
+    background-color: @gray-lightest;
+    border-color: darken(@gray-lightest, 25%);
+  }
+  &:hover {
+    background-color: @gray-lightest;
+    border-color: darken(@gray-lightest, 25%);
+  }
+}
+
+
+// -------------------------
+// Button Modifiers (Icons)
+// -------------------------
+// Buttons that only have an icon and no text.
+
+
+.btn--icon {
+  padding-left: @padding-base;
+  padding-right: @padding-base;
+  &.btn--lg {
+    padding-left: @padding-large;
+    padding-right: @padding-large;
+  }
+  &.btn--sm {
+    padding-left: @padding-small + 0.1rem;
+    padding-right: @padding-small + 0.1rem;
+  }
+  &.btn--xs {
+    padding-left: @padding-xsmall - 0.1rem;
+    padding-right: @padding-xsmall - 0.1rem;
+  }
+}
+
+
+// -------------------------
+// Button Modifiers (Link)
+// -------------------------
+// Button padding and sizing but looks like an anchor
+
+
+.btn--link {
+  border-radius: 0;
+  color: @link-color;
+  font-weight: normal;
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// -------------------------
+// Button Modifiers (Sizes)
+// -------------------------
+
+
+.btn--lg {
+  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+  > .icon {
+    font-size: @font-size-large + 0.2rem;
+  }
+}
+
+.btn--sm {
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  > .icon {
+    font-size: @font-size-small + 0.2rem;
+  }
+}
+
+.btn--xs {
+  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  > .icon {
+    font-size: @font-size-small + 0.2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

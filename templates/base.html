@@ -1,0 +1,19 @@
+{% include "opening.html" %}
+<nav id="site-navigation" class="site-navigation">
+  {% include "navigation.html" %}
+</nav>
+<div id="site-overlay" class="site-overlay"></div>
+<div class="site-wrapper">
+  <header class="site-header">
+    <div id="site-header__menu" class="site-header__menu">
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+    </div>
+  </header>
+  <main class="site-content">
+    {% block body %}{% endblock %}
+  </main>
+</div>
+{% include "closing.html" %}
+

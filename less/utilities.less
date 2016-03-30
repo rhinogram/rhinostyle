@@ -1,0 +1,239 @@
+// File: utilities.less
+// Note: 
+
+
+// -------------------------
+// Block
+// -------------------------
+
+
+.block {
+  display: block;
+}
+
+
+// -------------------------
+// Center Block
+// -------------------------
+
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// -------------------------
+// Clearfix
+// -------------------------
+
+
+.clearfix {
+  &::before,
+  &::after {
+    content: " "; // 1
+    display: table; // 2
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+
+// -------------------------
+// Cursors
+// -------------------------
+// see http://codepen.io/chriscoyier/pen/uCwfB
+
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+// -------------------------
+// Invisible
+// -------------------------
+
+
+.invisible {
+  visibility: hidden;
+}
+
+
+// -------------------------
+// Inline Block
+// -------------------------
+
+
+.inline-block {
+  display: inline-block;
+}
+
+
+// -------------------------
+// Floats
+// -------------------------
+
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+
+// -------------------------
+// Focus
+// --------------------------
+
+
+.focus {
+  border-color: @border-color-focus;
+  box-shadow: @border-shadow-focus;
+  outline: 0;
+}
+
+
+// -------------------------
+// Hide
+// -------------------------
+
+
+.hide {
+  display: none !important;
+}
+
+
+// -------------------------
+// Overflow
+// -------------------------
+
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+
+// -------------------------
+// Pointer Events
+// -------------------------
+
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+
+// -------------------------
+// Position
+// -------------------------
+
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-relative {
+  position: relative;
+}
+
+
+// -------------------------
+// Show
+// -------------------------
+
+
+.show {
+  display: block !important;
+}
+
+
+// -------------------------
+// Tab Focus
+// -------------------------
+
+
+.tab-focus {
+  .tab-focus();
+}
+
+
+
+// -------------------------
+// Text Alignment
+// -------------------------
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+// -------------------------
+// Text Overflow
+// -------------------------
+
+
+.text-overflow {
+  &:extend(.text-nowrap);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+// -------------------------
+// Text Transformation
+// -------------------------
+
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+
+// -------------------------
+// User Select
+// -------------------------
+
+
+.user-select-none {
+  user-select: none;
+}
+
+

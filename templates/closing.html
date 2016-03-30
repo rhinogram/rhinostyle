@@ -1,0 +1,53 @@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="{{rootPath}}js/rhinostyles-docs.js"></script>
+    <script>
+      $(document).ready(function() {
+          
+        function loop() {
+
+          // nav toggling below 1200px
+          if(window.matchMedia("(max-width: 1199px)").matches) {
+            $('html').removeClass('navigation-is-locked');
+            $('#site-header__menu').click(function(){
+              $('#site-navigation').scrollTop(0);
+              $('html').addClass('navigation-is-open');
+            });
+            $('#site-overlay').click(function(){
+              $('html').removeClass('navigation-is-open');
+            });
+          }
+
+          // lock nav in open position at 1200px
+          if(window.matchMedia("(min-width: 1200px)").matches) {
+            $('html').removeClass('navigation-is-open');
+            $('html').addClass('navigation-is-locked');
+          }
+
+          requestAnimationFrame(loop);
+        }
+
+        loop();
+
+
+        // Handle active navigation
+
+        var split = (document.location.hostname == "localhost") ? 1:2;
+
+        var navLocation = location.pathname.split("/")[split];
+
+        if (navLocation) {
+          $('.site-navigation__nav a[href^="{{rootPath}}' + navLocation + '"]').addClass('active');
+        } else {
+          $('.site-navigation__nav a[href=""').addClass('active');
+        }
+
+
+        // SVG loader
+
+        boomsvgloader.load('{{rootPath}}svg/sprite.svg');
+
+
+      });
+    </script>
+  </body>
+  </html>
