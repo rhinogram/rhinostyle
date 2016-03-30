@@ -8,7 +8,7 @@
 
 
 .dropdown {
-  &:extend(.inline-block);
+  display: inline-block;
   &:extend(.position-relative);
   &.is-open {
     .dropdown__menu {
@@ -68,7 +68,7 @@
 
   &::after,
   &::before {
-    &:extend(.inline-block);
+    display: inline-block;
     &:extend(.position-absolute);
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
