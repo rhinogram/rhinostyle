@@ -8,18 +8,17 @@
 
 
 .btn {
-  
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  user-select: none;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   cursor: pointer;
+  display: inline-block;
   font-weight: @btn-font-weight;
   margin-bottom: 0; // For input.btn
+  text-align: center;
   touch-action: manipulation;
+  user-select: none;
   vertical-align: middle;
+  white-space: nowrap;
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
 
   /*&,
@@ -41,15 +40,15 @@
   &:active,
   &.active {
     background-image: none;
-    box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    box-shadow: inset 0 .3rem .5rem rgba(0,0,0,.125);
     outline: 0;
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    cursor: not-allowed;
     box-shadow: none;
+    cursor: not-allowed;
     opacity: 0.5;
   }
 
@@ -60,7 +59,7 @@
   a& {
     &.disabled,
     fieldset[disabled] & {
-      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+      pointer-events: none;
     }
   }
 
@@ -135,12 +134,12 @@ input[type="button"] {
 /*.btn--default {
   &:focus,
   &.focus {
-    background-color: @gray-lightest;
-    border-color: darken(@gray-lightest, 25%);
+    background-color: @gray-lighter;
+    //border-color: darken(@gray-lightest, 25%);
   }
   &:hover {
-    background-color: @gray-lightest;
-    border-color: darken(@gray-lightest, 25%);
+    background-color: @gray-lighter;
+    //border-color: darken(@gray-lightest, 25%);
   }
 }*/
 

@@ -77,12 +77,13 @@ body {
 
 @zindex-site-navigation:    1036;
 @zindex-site-overlay:       1034;
-@site-navigation-bg:        white;
+@site-navigation-bg:        @brand-secondary;
 @site-navigation-width:     26.8rem;
 
 
 .site-navigation {
   background-color: @site-navigation-bg;
+  background-image: linear-gradient(135deg, @brand-secondary 0, darken(@brand-secondary,15%) 100%);
   bottom: 0;
   transform: translateX(-@site-navigation-width);
   min-height: 100%;
@@ -125,18 +126,18 @@ body {
 
 .site-navigation__nav__btn {
   border-radius: 0.4rem;
-  color: @gray-dark;
+  color: @white;
   display: block;
   font-weight: @font-weight-light;
   padding: @padding-medium @padding-half-gutter;
   transition: background-color 250ms @trans-timing-cubic;
   .no-touch &:hover,
   .no-touch &:focus {
-    background-color: @gray-lightest;
+    background-color: lighten(@brand-secondary,6%);
     box-shadow: none;
   }
   &.active {
-    background-color: @gray-lighter !important;
+    background-color: lighten(@brand-secondary,10%) !important;
   }
 }
 
@@ -217,6 +218,30 @@ html.navigation-is-locked {
 .site-subheadline {
   font-weight: @font-weight-light;
   margin-bottom: 2.4rem;
+}
+
+
+// -------------------------
+// Site Swatches
+// -------------------------
+
+
+.site-swatch {
+  border: 1px solid @gray-light;
+  display: inline-block;
+  margin: 0 @margin-large @margin-large 0;
+  max-width: 20rem;
+  padding: @padding-small;
+  width: 100%;
+}
+
+.site-swatch__sample {
+  height: 12rem;
+}
+
+.site-swatch__text {
+  padding: @padding-large 0 @padding-small 0;
+  text-align: center;
 }
 
 

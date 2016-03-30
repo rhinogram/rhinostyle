@@ -6,26 +6,60 @@
 // Background Colors
 // -------------------------
 
+/*
+@gray-dark:                 #696969;
+@gray:                      #999999;
+@gray-light:                #cccccc;
+@gray-lighter:              #ececec;
+@gray-lightest:             #f6f6f6;*/
 
-.bg-primary {
-  .bg-variant(@brand-primary);
-  color: @white;
+
+.bg-accent {
+  .bg-variant(@brand-accent);
 }
 
-.bg-success {
-  .bg-variant(@state-success-bg);
+.bg-danger {
+  .bg-variant(@state-danger-bg);
+}
+
+.bg-gray {
+  .bg-variant(@gray);
+}
+
+.bg-gray-dark {
+  .bg-variant(@gray-dark);
+}
+
+.bg-gray-light {
+  .bg-variant(@gray-light);
+}
+
+.bg-gray-lighter {
+  .bg-variant(@gray-lighter);
+}
+
+.bg-gray-lightest {
+  .bg-variant(@gray-lightest);
 }
 
 .bg-info {
   .bg-variant(@state-info-bg);
 }
 
-.bg-warning {
-  .bg-variant(@state-warning-bg);
+.bg-primary {
+  .bg-variant(@brand-primary);
 }
 
-.bg-danger {
-  .bg-variant(@state-danger-bg);
+.bg-secondary {
+  .bg-variant(@brand-secondary);
+}
+
+.bg-success {
+  .bg-variant(@state-success-bg);
+}
+
+.bg-warning {
+  .bg-variant(@state-warning-bg);
 }
 
 
@@ -60,10 +94,6 @@
   .text-emphasis-variant(@state-info-text);
 }
 
-.text-muted {
-  color: @text-muted;
-}
-
 .text-primary {
   .text-emphasis-variant(@brand-primary);
 }
@@ -76,3 +106,12 @@
   .text-emphasis-variant(@state-warning-text);
 }
 
+
+// -------------------------
+// Text Muted
+// -------------------------
+
+
+.text-muted {
+  color: @text-muted;
+}
