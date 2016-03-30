@@ -1330,10 +1330,6 @@ fieldset[disabled] .btn--secondary.active {
   padding-left: 0.7rem;
   padding-right: 0.7rem;
 }
-.btn--icon.btn--xs {
-  padding-left: 0.3rem;
-  padding-right: 0.3rem;
-}
 .btn--link {
   border-radius: 0;
   color: #4078BE;
@@ -1382,15 +1378,6 @@ fieldset[disabled] .btn--link:focus {
   padding: 0.5rem 1rem;
 }
 .btn--sm > .icon {
-  font-size: 1.4rem;
-}
-.btn--xs {
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  padding: 0.3rem 0.6rem;
-}
-.btn--xs > .icon {
   font-size: 1.4rem;
 }
 .caret-down,
