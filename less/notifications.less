@@ -8,7 +8,7 @@
 
 
 .notify {
-  &:extend(.position-relative);
+  position: relative;
   border-radius: @notify-border-radius;
   color: @notify-text;
   font-weight: @notify-font-weight;
@@ -44,7 +44,7 @@
 
 .notify__close {
   &:extend(.close all);
-  &:extend(.position-absolute);
+  position: absolute;
   float: none !important;
   right: 0.8rem;
 }

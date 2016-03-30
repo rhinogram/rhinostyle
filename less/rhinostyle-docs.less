@@ -1,7 +1,7 @@
-// File: rhinostyles-docs.less
+// File: rhinostyle-docs.less
 // Note: Documentation styles
 
-@import 'rhinostyles';
+@import 'rhinostyle';
 
 body {
   background: white;
@@ -14,7 +14,7 @@ body {
 
 
 .site-content {
-  &:extend(.position-relative);
+  position: relative;
   overflow-x: hidden;
   padding: @grid-gutter-width/2;
   @media (min-width: @screen-lg-min) {
@@ -132,23 +132,11 @@ body {
   transition: background-color 250ms @trans-timing-cubic;
   .no-touch &:hover,
   .no-touch &:focus {
-    background-color: @gray-lighter;
+    background-color: @gray-lightest;
     box-shadow: none;
   }
   &.active {
-    background-color: #ccebf3 !important;
-  }
-}
-
-
-.site-navigation__squid {
-  display: none;
-  position: relative;
-  svg {
-    height: 220px;
-    //margin-bottom: -1.6rem;
-    //margin-top: -16.2rem;
-    width: 100%;
+    background-color: @gray-lighter !important;
   }
 }
 

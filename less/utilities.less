@@ -33,7 +33,7 @@
   &::before,
   &::after {
     content: " "; // 1
-    display: table; // 2
+    display: table; // 2no
   }
 
   &::after {
@@ -203,7 +203,7 @@
 
 
 .text-overflow {
-  &:extend(.text-nowrap);
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }

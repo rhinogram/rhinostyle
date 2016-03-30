@@ -9,7 +9,7 @@
 
 .switcher {
   display: inline-block;
-  &:extend(.user-select-none);
+  user-select: none;
   height: @switcher-height;
   width: @switcher-width;
 }
@@ -21,8 +21,8 @@
 
 
 .switcher--disabled {
-  &:extend(.cursor-not-allowed);
-  &:extend(.pointer-events-none);
+  cursor: not-allowed;
+  pointer-events: none;
   opacity: 0.5;
 }
 
@@ -67,9 +67,9 @@
 
 
 .switcher__label {
-  &:extend(.block);
-  &:extend(.cursor-pointer all);
-  &:extend(.position-relative);
+  display: block;
+  cursor: pointer;
+  position: relative;
   border-radius: @switcher-border-radius;
   height: @switcher-height;
   margin-bottom: 0;
@@ -94,8 +94,8 @@
 // -------------------------
 
 .switcher__off, .switcher__on {
-  &:extend(.position-relative);
-  &:extend(.text-center);
+  position: relative;
+  text-align: center;
   align-items: center;
   color: @white;
   display: inline-flex;
@@ -129,8 +129,8 @@
 
 
 .switcher__toggler {
-  &:extend(.position-absolute);
-  &:extend(.text-center);
+  position: absolute;
+  text-align: center;
   background-color: @white;
   border-radius: 2px;
   height: @switcher-toggler-height;

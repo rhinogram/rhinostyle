@@ -2,6 +2,9 @@
 // Note: 
 
 
+// look at forms - may be able to remove radio and checkboxes
+
+
 // -------------------------
 // Alerts
 // -------------------------
@@ -68,9 +71,13 @@
 
 @btn-link-disabled-color:        @gray-light;
 
+@btn-accent-color:               @white;
+@btn-accent-bg:                  @brand-accent;
+@btn-accent-border:              @brand-accent;
+
 @btn-danger-color:               @white;
 @btn-danger-bg:                  @brand-danger;
-@btn-danger-border:              darken(@btn-danger-bg, 5%);
+@btn-danger-border:              @brand-danger;
 
 @btn-default-color:              @text-color;
 @btn-default-bg:                 @white;
@@ -78,19 +85,23 @@
 
 @btn-info-color:                 @white;
 @btn-info-bg:                    @brand-info;
-@btn-info-border:                darken(@btn-info-bg, 5%);
+@btn-info-border:                @brand-info;
 
 @btn-primary-color:              @white;
 @btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             darken(@btn-primary-bg, 5%);
+@btn-primary-border:             @brand-primary;
+
+@btn-secondary-color:            @white;
+@btn-secondary-bg:               @brand-secondary;
+@btn-secondary-border:           @brand-secondary;
 
 @btn-success-color:              @white;
 @btn-success-bg:                 @brand-success;
-@btn-success-border:             darken(@btn-success-bg, 5%);
+@btn-success-border:             @brand-success;
 
 @btn-warning-color:              @white;
 @btn-warning-bg:                 @brand-warning;
-@btn-warning-border:             darken(@btn-warning-bg, 5%);
+@btn-warning-border:             @brand-warning;
 
 @btn-border-radius-base:         @border-radius-base;
 @btn-border-radius-large:        @border-radius-large;
@@ -113,6 +124,7 @@
 
 
 // Brand colors
+@brand-accent:              #FFA573;
 @brand-primary:             #4078BE;
 @brand-secondary:           #41D6C3;
 @brand-success:             #669900;
@@ -248,10 +260,12 @@
 // -------------------------
 
 
+@label-accent-bg:           @brand-accent;
 @label-danger-bg:           @brand-danger;
 @label-default-bg:          darken(@gray-light,5%);
 @label-info-bg:             @brand-info;
 @label-primary-bg:          @brand-primary;
+@label-secondary-bg:        @brand-secondary;
 @label-success-bg:          @brand-success;
 @label-warning-bg:          @brand-warning;
 

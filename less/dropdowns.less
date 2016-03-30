@@ -9,7 +9,7 @@
 
 .dropdown {
   display: inline-block;
-  &:extend(.position-relative);
+  position: relative;
   &.is-open {
     .dropdown__menu {
       opacity: 1;
@@ -26,8 +26,8 @@
 
 
 .dropdown__menu {
-  &:extend(.block);
-  &:extend(.position-absolute);
+  display: block;
+  position: absolute;
   &:extend(.pull-left);
   &:extend(.text-left);
   background-color: @dropdown-bg;
@@ -49,9 +49,9 @@
 
   // Links within the dropdown menu
   > li > a {
-    &:extend(.block);
+    display: block;
     cursor: pointer;
-    &:extend(.text-nowrap);
+    white-space: nowrap;
     color: @dropdown-link-color;
     clear: both;
     font-weight: normal;
@@ -69,7 +69,7 @@
   &::after,
   &::before {
     display: inline-block;
-    &:extend(.position-absolute);
+    position: absolute;
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
     content: "";

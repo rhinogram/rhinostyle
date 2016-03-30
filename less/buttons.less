@@ -10,9 +10,9 @@
 .btn {
   
   display: inline-block;
-  &:extend(.text-center);
-  &:extend(.text-nowrap);
-  &:extend(.user-select-none);
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   cursor: pointer;
@@ -48,7 +48,7 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    &:extend(.cursor-not-allowed);
+    cursor: not-allowed;
     box-shadow: none;
     opacity: 0.5;
   }
@@ -60,7 +60,7 @@
   a& {
     &.disabled,
     fieldset[disabled] & {
-      &:extend(.pointer-events-none); // Future-proof disabling of clicks on `<a>` elements
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
     }
   }
 
@@ -76,7 +76,7 @@
 
 
 .btn--block {
-  &:extend(.block);
+  display: block;
   width: 100%;
 }
 
@@ -99,32 +99,40 @@ input[type="button"] {
 // -------------------------
 
 
-.btn--danger {
-  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+.btn--accent {
+  .button-variant(@btn-accent-color; @btn-accent-bg; @btn-accent-border);
 }
+
+/*.btn--danger {
+  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}*/
 
 .btn--default {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
 
-.btn--info {
+/*.btn--info {
   .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
-}
+}*/
 
 .btn--primary {
   .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
 
-.btn--success {
-  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+.btn--secondary {
+  .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
 }
 
-.btn--warning {
+/*.btn--success {
+  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+}*/
+
+/*.btn--warning {
   .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
-}
+}*/
 
 // override default, may want to change .btn-variant mixin instead
-.btn--default {
+/*.btn--default {
   &:focus,
   &.focus {
     background-color: @gray-lightest;
@@ -134,7 +142,7 @@ input[type="button"] {
     background-color: @gray-lightest;
     border-color: darken(@gray-lightest, 25%);
   }
-}
+}*/
 
 
 // -------------------------

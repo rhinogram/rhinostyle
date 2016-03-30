@@ -81,7 +81,7 @@ gulp.task('js', function() {
     'node_modules/boomsvgloader/dist/js/boomsvgloader.min.js',
     paths.js.src
     ])
-    .pipe(gulp_concat('rhinostyles-docs.js'))
+    .pipe(gulp_concat('rhinostyle-docs.js'))
     .pipe(gulp_uglify())
     .pipe(gulp.dest(paths.js.build)) // build docs
     .pipe(gulp_duration('building js'))
@@ -123,7 +123,7 @@ gulp.task('metalsmith', function() {
 
 // Styles for Distribution
 gulp.task('styles', function() {
-  return gulp.src(['less/rhinostyles.less'])
+  return gulp.src(['less/rhinostyle.less'])
     .pipe(gulp_less({ compress: true }))
     .pipe(gulp_autoprefixer({ browsers: ['last 2 versions','ie 10'], cascade: false }))
     .pipe(gulp_cssnano())
@@ -135,7 +135,7 @@ gulp.task('styles', function() {
 
 // Styles for Documentation
 gulp.task('styles_docs', function() {
-  return gulp.src(['less/rhinostyles-docs.less'])
+  return gulp.src(['less/rhinostyle-docs.less'])
     .pipe(gulp_less({ compress: false }))
     .pipe(gulp_autoprefixer({ browsers: ['last 2 versions','ie 10'], cascade: false }))
     .pipe(gulp.dest(paths.styles_docs.build))

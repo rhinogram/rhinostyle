@@ -48,14 +48,14 @@
 
 // Shell div to position the modal with bottom padding
 .modal__dialog {
-  &:extend(.position-relative);
+  position: relative;
   margin: @margin-medium;
   width: auto;
 }
 
 // Actual modal
 .modal__content {
-  &:extend(.position-relative);
+  position: relative;
   background-clip: padding-box;
   background-color: @modal-content-bg;
   border: 1px solid @modal-content-border-color;
@@ -101,7 +101,7 @@
 }
 
 .modal__body {
-  &:extend(.position-relative);
+  position: relative;
   padding: @modal-inner-padding;
 }
 
@@ -128,7 +128,7 @@
 
 // Measure scrollbar width for padding body during modal show/hide
 .modal-scrollbar-measure {
-  &:extend(.position-absolute);
+  position: absolute;
   height: 5.0rem;
   overflow: scroll;
   top: -9999px;

@@ -59,12 +59,12 @@ input[type="checkbox"] {
 }
 
 input[type="file"] {
-  &:extend(.block);
+  display: block;
 }
 
 // Make range inputs behave like textual form controls
 input[type="range"] {
-  &:extend(.block);
+  display: block;
   width: 100%;
 }
 
@@ -82,7 +82,7 @@ input[type="checkbox"]:focus {
 }
 
 .form-control {
-  &:extend(.block);
+  display: block;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
@@ -300,8 +300,8 @@ input[type="checkbox"] {
 
 .fauxbox,
 .fauxdio {
-  &:extend(.block);
-  &:extend(.position-relative);
+  display: block;
+  position: relative;
   margin-bottom: @margin-base;
   margin-top: @margin-base;
   label {
@@ -335,8 +335,8 @@ input[type="checkbox"] {
   }
   label {
     &:before {
-      &:extend(.position-relative);
-      &:extend(.text-center);
+      position: relative;
+      text-align: center;
       content: "";
       background-color: @white;
       border: 1px solid @border-color-base;
@@ -364,7 +364,7 @@ input[type="checkbox"] {
   }
   label {
     &:before {
-      &:extend(.position-relative);
+      position: relative;
       background-color: @white;
       border: 0.3rem solid @white;
       border-radius: 50%;
@@ -411,7 +411,7 @@ input[type="checkbox"] {
 
 
 .selectpicker {
-  &:extend(.position-relative);
+  position: relative;
   vertical-align: middle;
   select {
     cursor: pointer;
@@ -431,8 +431,8 @@ input[type="checkbox"] {
     }
   }
   &::after {
-    &:extend(.pointer-events-none);
-    &:extend(.position-absolute);
+    pointer-events: none;
+    position: absolute;
     content: "";
     background-repeat: no-repeat;
     background-position: center center;
