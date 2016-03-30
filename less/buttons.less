@@ -24,15 +24,13 @@
   /*&,
   &:active,
   &.active {
-    &:focus,
-    &.focus {
+    &:focus {
       &:extend(.tab-focus);
     }
   }*/
 
   &:hover,
-  &:focus,
-  &.focus {
+  &:focus {
     color: @btn-default-color;
     text-decoration: none;
   }
@@ -132,8 +130,7 @@ input[type="button"] {
 
 // override default, may want to change .btn-variant mixin instead
 /*.btn--default {
-  &:focus,
-  &.focus {
+  &:focus {
     background-color: @gray-lighter;
     //border-color: darken(@gray-lightest, 25%);
   }

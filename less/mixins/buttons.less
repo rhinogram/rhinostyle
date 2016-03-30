@@ -12,8 +12,7 @@
   //border-color: @border;
   color: @color;
 
-  &:focus,
-  &.focus {
+  &:focus {
     background-color: darken(@background, 10%);
     //border-color: darken(@border, 25%);
     color: @color;
@@ -27,14 +26,13 @@
 
   &:active,
   &.active,
-  .open > .dropdown-toggle& {
+  .open > .dropdown__toggle& {
     background-color: darken(@background, 10%);
     //border-color: darken(@border, 12%);
     color: @color;
 
     &:hover,
-    &:focus,
-    &.focus {
+    &:focus {
       background-color: darken(@background, 12%);
       //border-color: darken(@border, 25%);
       color: @color;
@@ -43,7 +41,7 @@
 
   &:active,
   &.active,
-  .open > .dropdown-toggle& {
+  .open > .dropdown__toggle& {
     background-image: none;
   }
   
@@ -53,7 +51,6 @@
     &,
     &:hover,
     &:focus,
-    &.focus,
     &:active,
     &.active {
       background-color: @background;
