@@ -456,11 +456,11 @@ a.bg-accent:focus {
   background-color: #ff8440;
 }
 .bg-danger {
-  background-color: #fef7f7;
+  background-color: #cb2027;
 }
 a.bg-danger:hover,
 a.bg-danger:focus {
-  background-color: #f7cacc;
+  background-color: #9f191f;
 }
 .bg-gray {
   background-color: #999999;
