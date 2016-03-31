@@ -2493,6 +2493,7 @@ body {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  background-color: #f6f6f6;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -2500,11 +2501,18 @@ body {
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  background-color: #f6f6f6;
-  background-image: linear-gradient(45deg, #fbfbfb 25%, transparent 0), linear-gradient(45deg, transparent 75%, #fbfbfb 0), linear-gradient(45deg, #fbfbfb 25%, transparent 0), linear-gradient(45deg, transparent 75%, #fbfbfb 0);
-  background-position: 0 0, .5rem .5rem,
+  /*@temp: lighten(@gray-lightest, 2%);
+
+  background-color: @gray-lightest;
+  background-image:
+    linear-gradient(45deg, @temp 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, @temp 0),
+    linear-gradient(45deg, @temp 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, @temp 0);
+  background-position:
+    0 0, .5rem .5rem,
     .5rem .5rem, 1rem 1rem;
-  background-size: 1rem 1rem;
+    background-size: 1rem 1rem;*/
 }
 .site-header__logo {
   position: relative;
