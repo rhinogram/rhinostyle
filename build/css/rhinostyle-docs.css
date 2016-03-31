@@ -1937,7 +1937,7 @@ fieldset[disabled] .fauxdio label {
   display: none;
 }
 .fauxbox input:checked + label:before {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%234078BE%22%20d%3D%22M13.272%2027.2a2.227%202.227%200%200%201-1.778-.885l-5.718-7.549a2.23%202.23%200%201%201%203.557-2.693l3.762%204.966%209.459-15.186a2.233%202.233%200%200%201%203.074-.714%202.228%202.228%200%200%201%20.712%203.072L15.167%2026.147a2.224%202.224%200%200%201-1.794%201.05c-.034.002-.067.002-.101.002z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("../dist/svg/checkmark.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1.6rem 1.6rem;
@@ -2047,7 +2047,7 @@ fieldset[disabled] .fauxdio label {
   color: #696969;
 }
 .selectpicker--default::after {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23696969%22%20d%3D%22M26.285%2013.305c-.764.784-8.807%208.447-8.807%208.447a2.062%202.062%200%200%201-1.478.627%202.05%202.05%200%200%201-1.478-.627s-8.044-7.663-8.809-8.447c-.763-.784-.816-2.193%200-3.031.818-.837%201.957-.902%202.956%200L16%2017.305l7.329-7.029c1.002-.902%202.142-.837%202.956%200%20.818.837.767%202.247%200%203.03z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("../dist/svg/chevron-down.svg");
 }
 .notify {
   border-radius: 0.4rem;
