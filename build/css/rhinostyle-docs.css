@@ -2673,7 +2673,19 @@ html.navigation-is-locked .site-wrapper {
   width: 100%;
 }
 .site-swatch__sample {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 12rem;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.site-swatch__sample > .icon {
+  font-size: 6rem;
 }
 .site-swatch__text {
   padding: 1.2rem 0 0.6rem 0;
