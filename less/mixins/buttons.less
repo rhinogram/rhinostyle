@@ -54,7 +54,7 @@
     &:active,
     &.active {
       background-color: @background;
-      border-color: @border;
+      //border-color: @border;
     }
   }
 
@@ -62,6 +62,42 @@
     background-color: @color;
     color: @background;
   }
+}
+
+.button-outline-variant(@color; @background; @border; @hover-color) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > .dropdown__toggle& {
+    color: @hover-color;
+    background-color: @color;
+    border-color: @color;
+  }
+  &:active,
+  &.active,
+  .open > .dropdown__toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      color: @color;
+      background-color: @background;
+    border-color: @color;
+    }
+  }
+
 }
 
 

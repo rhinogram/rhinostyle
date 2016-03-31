@@ -35,19 +35,19 @@
     text-decoration: none;
   }
 
-  &:active,
+  /*&:active,
   &.active {
     background-image: none;
     box-shadow: inset 0 .3rem .5rem rgba(0,0,0,.125);
     outline: 0;
-  }
+  }*/
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
     box-shadow: none;
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
   &:focus{
@@ -128,18 +128,6 @@ input[type="button"] {
   .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
 }*/
 
-// override default, may want to change .btn-variant mixin instead
-/*.btn--default {
-  &:focus {
-    background-color: @gray-lighter;
-    //border-color: darken(@gray-lightest, 25%);
-  }
-  &:hover {
-    background-color: @gray-lighter;
-    //border-color: darken(@gray-lightest, 25%);
-  }
-}*/
-
 
 // -------------------------
 // Button Modifiers (Icons)
@@ -203,6 +191,28 @@ input[type="button"] {
       text-decoration: none;
     }
   }
+}
+
+
+// -------------------------
+// Button Modifiers (Sizes)
+// -------------------------
+
+
+.btn--accent-outline {
+  .button-outline-variant(@brand-accent; transparent; @brand-accent; @white);
+}
+
+.btn--default-outline {
+  .button-outline-variant(@btn-default-color; transparent; @btn-default-border; @white);
+}
+
+.btn--primary-outline {
+  .button-outline-variant(@brand-primary; transparent; @brand-primary; @white);
+}
+
+.btn--secondary-outline {
+  .button-outline-variant(@brand-secondary; transparent; @brand-secondary; @white);
 }
 
 
