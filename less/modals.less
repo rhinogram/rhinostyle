@@ -55,13 +55,13 @@
 
 // Actual modal
 .modal__content {
-  position: relative;
   background-clip: padding-box;
   background-color: @modal-content-bg;
   border: 1px solid @modal-content-border-color;
   border-radius: @border-radius-large;
   box-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.5);
   outline: 0;
+  position: relative;
 }
 
 // Modal background
@@ -101,15 +101,15 @@
 }
 
 .modal__body {
-  position: relative;
   padding: @modal-inner-padding;
+  position: relative;
 }
 
 .modal__footer {
   &:extend(.clearfix all);
-  &:extend(.text-right);
   border-top: 1px solid @modal-footer-border-color;
   padding: @modal-inner-padding;
+  text-align: right;
 
   // Properly space out buttons
   .btn + .btn {
@@ -128,30 +128,31 @@
 
 // Measure scrollbar width for padding body during modal show/hide
 .modal-scrollbar-measure {
-  position: absolute;
   height: 5.0rem;
   overflow: scroll;
+  position: absolute;
   top: -9999px;
   width: 5.0rem;
 }
 
 // Scale up the modal
 @media (min-width: @screen-sm-min) {
-  // Automatically set modal's width for larger viewports
   .modal__dialog {
-    width: @modal-md;
     margin: 3.0rem auto;
+    width: @modal-md;
   }
   .modal__content {
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.5);
   }
-
-  // Modal sizes
-  .modal--sm { width: @modal-sm; }
+  .modal--sm {
+    width: @modal-sm;
+  }
 }
 
 @media (min-width: @screen-md-min) {
-  .modal--lg { width: @modal-lg; }
+  .modal--lg { 
+    width: @modal-lg;
+  }
 }
 
 

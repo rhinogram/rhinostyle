@@ -9,8 +9,8 @@
 
 .switcher {
   display: inline-block;
-  user-select: none;
   height: @switcher-height;
+  user-select: none;
   width: @switcher-width;
 }
 
@@ -22,8 +22,8 @@
 
 .switcher--disabled {
   cursor: not-allowed;
-  pointer-events: none;
   opacity: 0.5;
+  pointer-events: none;
 }
 
 
@@ -67,12 +67,12 @@
 
 
 .switcher__label {
-  display: block;
-  cursor: pointer;
-  position: relative;
   border-radius: @switcher-border-radius;
+  cursor: pointer;
+  display: block;
   height: @switcher-height;
   margin-bottom: 0;
+  position: relative;
   overflow: hidden;
   width: 100%;
   word-spacing: 0;
@@ -94,8 +94,6 @@
 // -------------------------
 
 .switcher__off, .switcher__on {
-  position: relative;
-  text-align: center;
   align-items: center;
   color: @white;
   display: inline-flex;
@@ -103,6 +101,8 @@
   height: 100%;
   justify-content: center;
   line-height: @switcher-state-line-height;
+  position: relative;
+  text-align: center;
   width: 50%;
 }
 
@@ -129,13 +129,13 @@
 
 
 .switcher__toggler {
-  position: absolute;
-  text-align: center;
   background-color: @white;
   border-radius: 2px;
   height: @switcher-toggler-height;
   left: 0;
   margin: @switcher-toggler-margin;
+  position: absolute;
+  text-align: center;
   transition: transform 250ms @trans-timing-cubic;
   transform: translateX(0);
   width: @switcher-toggler-width;

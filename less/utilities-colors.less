@@ -64,27 +64,13 @@
 
 
 // -------------------------
-// Text Brand Colors (Pure)
-// -------------------------
-
-
-.text-brand-danger {
-  color: @brand-danger;
-}
-
-.text-brand-info {
-  color: @brand-info;
-}
-
-.text-brand-success {
-  color: @brand-success;
-}
-
-
-// -------------------------
 // Text Brand Colors (Darker)
 // -------------------------
 
+
+.text-accent {
+  .text-emphasis-variant(@brand-accent);
+}
 
 .text-danger {
   .text-emphasis-variant(@state-danger-text);
@@ -96,6 +82,10 @@
 
 .text-primary {
   .text-emphasis-variant(@brand-primary);
+}
+
+.text-secondary {
+  .text-emphasis-variant(@brand-secondary);
 }
 
 .text-success {

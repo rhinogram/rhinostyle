@@ -8,9 +8,6 @@
 
 
 .label {
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
   border-radius: @border-radius-small;
   color: @label-color;
   display: inline-block;
@@ -18,15 +15,18 @@
   font-weight: @font-weight-bold;
   line-height: 1;
   padding: @label-padding;
+  position: relative;
+  text-align: center;
   top: -0.1rem;
   vertical-align: baseline;
+  white-space: nowrap;
 
   // Add hover effects, but only for links
   a& {
     &:hover,
     &:focus {
-      cursor: pointer;
       color: @label-link-hover-color;
+      cursor: pointer;
       text-decoration: none;
     }
   }

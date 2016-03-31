@@ -26,15 +26,14 @@
 
 
 .dropdown__menu {
-  display: block;
-  position: absolute;
-  &:extend(.pull-left);
-  &:extend(.text-left);
+  text-align: left;
   background-color: @dropdown-bg;
   background-clip: padding-box;
   border: 1px solid @dropdown-border;
   border-radius: @border-radius-base;
   box-shadow: @shadow-depth-1;
+  display: block;
+  float: left;
   font-size: @font-size-base;
   left: 0;
   list-style: none;
@@ -42,6 +41,7 @@
   min-width: 160px;
   opacity: 0;
   padding: @padding-small-vertical 0;
+  position: absolute;
   top: 90%;
   transition: opacity 250ms @trans-timing-cubic,
               transform 500ms @trans-timing-cubic;
@@ -49,14 +49,14 @@
 
   // Links within the dropdown menu
   > li > a {
-    display: block;
-    cursor: pointer;
-    white-space: nowrap;
-    color: @dropdown-link-color;
     clear: both;
+    color: @dropdown-link-color;
+    cursor: pointer;
+    display: block;
     font-weight: normal;
     line-height: @line-height-base;
     padding: @dropdown-padding;
+    white-space: nowrap;
     &:hover,
     &:focus {
       background-color: @dropdown-link-hover-bg;
@@ -68,12 +68,12 @@
 
   &::after,
   &::before {
-    display: inline-block;
-    position: absolute;
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
     content: "";
+    display: inline-block;
     left: @padding-base-horizontal;
+    position: absolute;
   }
 
   &::after {
@@ -111,10 +111,10 @@
 
 
 .dropdown__menu__divider {
-  &:extend(.overflow-hidden);
   background-color: @gray-lighter;
   height: 0.1rem;
   margin: @margin-xsmall 0;
+  overflow: hidden;
 }
 
 

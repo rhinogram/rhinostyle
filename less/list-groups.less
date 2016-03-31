@@ -20,12 +20,12 @@
 
 
 .list-group__item {
-  display: block;
-  position: relative;
   background-color: @list-group-bg;
   border: 1px solid @list-group-border;
+  display: block;
   margin-bottom: -1px;
   padding: @padding-medium @padding-half-gutter;
+  position: relative;
 
   // Active
   &.active,
@@ -88,7 +88,7 @@ button.list-group__item {
 }
 
 button.list-group__item {
-  &:extend(.text-left);
+  text-align: left;
   width: 100%;
 }
 
