@@ -149,6 +149,7 @@ gulp.task('svgicons', function () {
   return gulp.src(paths.svg.src)
     .pipe(gulp_imagemin())
     .pipe(gulp.dest(paths.svg.dist))
+    .pipe(gulp.dest(paths.svg.build))
     .pipe(gulp_svg_sprite({
       'shape': {
         'id': {

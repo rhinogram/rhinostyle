@@ -32,22 +32,44 @@ body {
   align-items: center;
   background-color: @gray-lightest;
   display: flex;
-  padding: @padding-half-gutter;
+  padding: @padding-medium;
   transition: transform 250ms @trans-timing-cubic;
-  /*
-  html.navigation-is-locked breakpoint
-  hide menu button
-  */
-  @media(min-width: 1200px){
-    display: none;
+
+  @temp: lighten(@gray-lightest, 2%);
+
+  background-color: @gray-lightest;
+  background-image:
+    linear-gradient(45deg, @temp 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, @temp 0),
+    linear-gradient(45deg, @temp 25%, transparent 0),
+    linear-gradient(45deg, transparent 75%, @temp 0);
+  background-position:
+    0 0, .5rem .5rem,
+    .5rem .5rem, 1rem 1rem;
+    background-size: 1rem 1rem;
+}
+
+.site-header__logo  {
+  //max-width: 8rem;
+  position: relative;
+  top: -.2rem;
+  > img {
+    display: block;
+    height: 4.6rem;
+    max-width: 100%;
   }
 }
 
 .site-header__menu {
   cursor: pointer;
-  display: inline-block;
   margin-right: @margin-half-gutter;
-  
+  /*
+  html.navigation-is-locked breakpoint
+  hide menu button
+  */
+  @media(min-width: @screen-lg-min){
+    display: none;
+  }
 }
 
 .site-header__menu__bar {
@@ -59,6 +81,20 @@ body {
   }
 }
 
+.site-header__title {
+  color: @brand-primary;
+  //letter-spacing: .1rem;
+  flex: 1;
+  font-size: 2.8rem;
+  font-weight: @font-weight-semibold;
+  position: relative;
+  text-shadow: 1px 1px 1px @white;
+  top: .2rem;
+  > span {
+    font-weight: @font-weight-light;
+  }
+}
+
 
 // -------------------------
 // Site Headline
@@ -66,6 +102,7 @@ body {
 
 
 .site-headline {
+  //color: @brand-accent;
   margin-bottom: 4rem;
 }
 
@@ -110,9 +147,6 @@ body {
 .site-navigation__nav {
   &:extend(.list-unstyled);
   padding-top: @grid-gutter-width/2;
-  @media (min-width: @screen-lg-min) {
-    padding-top: 2.8rem;
-  }
   > li {
     padding: 0 @grid-gutter-width/2;
     &:not(:first-child) {
@@ -216,6 +250,7 @@ html.navigation-is-locked {
 
 
 .site-subheadline {
+  //color: @brand-accent;
   font-weight: @font-weight-light;
   margin-bottom: 2.4rem;
 }
