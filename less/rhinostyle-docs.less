@@ -8,6 +8,10 @@ body {
   min-height: 100vh;
 }
 
+code {
+  color: @brand-accent;
+}
+
 // -------------------------
 // Site Content
 // -------------------------
@@ -17,9 +21,31 @@ body {
   position: relative;
   overflow-x: hidden;
   padding: @grid-gutter-width/2;
-  @media (min-width: @screen-lg-min) {
+  @media (min-width: @screen-sm-min) {
     padding: @grid-gutter-width;
   }
+}
+
+
+// -------------------------
+// Site Copy
+// -------------------------
+
+
+.site-copy {
+  max-width: 80rem;
+}
+
+
+// -------------------------
+// Site Grid
+// -------------------------
+
+
+.site-grid {
+  background: @gray-lighter;
+  border: 1px solid @gray-dark;
+  height: 4rem;
 }
 
 
