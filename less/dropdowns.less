@@ -8,15 +8,37 @@
 
 
 .dropdown {
-  display: inline-block;
-  position: relative;
-  &.is-open {
-    .dropdown__menu {
-      opacity: 1;
-      transform: translateY(0.4rem);
-      //visibility: visible;
-    }
+  &:extend(.inline-block);
+  &:extend(.position-relative);
+}
+
+// Open state for the dropdown
+.open {
+  > .dropdown__menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(.4rem);
+    visibility: visible;
   }
+
+  // Remove the outline when :focus is triggered
+  > a {
+    outline: 0;
+  }
+}
+
+// -------------------------
+// Dropdown Header
+// -------------------------
+
+
+.dropdown__header {
+  color: @dropdown-header-color;
+  display: block;
+  font-size: @font-size-small;
+  line-height: @line-height-base;
+  padding: @dropdown-padding;
+  white-space: nowrap;
 }
 
 
@@ -26,37 +48,39 @@
 
 
 .dropdown__menu {
-  text-align: left;
+  &:extend(.block);
+  //&:extend(.invisible);
+  &:extend(.position-absolute);
+  &:extend(.pull-left);
+  &:extend(.text-left);
   background-color: @dropdown-bg;
   background-clip: padding-box;
   border: 1px solid @dropdown-border;
   border-radius: @border-radius-base;
   box-shadow: @shadow-depth-1;
-  display: block;
-  float: left;
   font-size: @font-size-base;
   left: 0;
   list-style: none;
   margin: 0.2rem 0 0;
-  min-width: 160px;
+  //min-width: 160px;
   opacity: 0;
   padding: @padding-small-vertical 0;
-  position: absolute;
   top: 90%;
   transition: opacity 250ms @trans-timing-cubic,
               transform 500ms @trans-timing-cubic;
+  visibility: hidden;
   z-index: @zindex-dropdown;
 
   // Links within the dropdown menu
   > li > a {
-    clear: both;
+    &:extend(.block);
+    &:extend(.cursor-pointer);
+    &:extend(.text-nowrap);
     color: @dropdown-link-color;
-    cursor: pointer;
-    display: block;
+    clear: both;
     font-weight: normal;
     line-height: @line-height-base;
     padding: @dropdown-padding;
-    white-space: nowrap;
     &:hover,
     &:focus {
       background-color: @dropdown-link-hover-bg;
@@ -66,14 +90,26 @@
     }
   }
 
+  // Active state
+  > .active > a {
+    &,
+    &:hover,
+    &:focus {
+      color: @dropdown-link-active-color;
+      text-decoration: none;
+      outline: 0;
+      background-color: @dropdown-link-active-bg;
+    }
+  }
+
   &::after,
   &::before {
+    &:extend(.inline-block);
+    &:extend(.position-absolute);
     border-left: 1rem solid transparent;
     border-right: 1rem solid transparent;
     content: "";
-    display: inline-block;
     left: @padding-base-horizontal;
-    position: absolute;
   }
 
   &::after {
@@ -111,10 +147,10 @@
 
 
 .dropdown__menu__divider {
+  &:extend(.overflow-hidden);
   background-color: @gray-lighter;
   height: 0.1rem;
   margin: @margin-xsmall 0;
-  overflow: hidden;
 }
 
 

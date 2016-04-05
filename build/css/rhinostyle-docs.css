@@ -336,7 +336,9 @@ img {
 @-ms-viewport {
   width: auto !important;
 }
-.block {
+.block,
+.dropdown__menu,
+.dropdown__menu > li > a {
   display: block;
 }
 .center-block {
@@ -355,38 +357,48 @@ img {
 .cursor-not-allowed {
   cursor: not-allowed;
 }
-.cursor-pointer {
+.cursor-pointer,
+.dropdown__menu > li > a {
   cursor: pointer;
 }
 .invisible {
   visibility: hidden;
 }
-.inline-block {
+.inline-block,
+.dropdown,
+.dropdown__menu::after,
+.dropdown__menu::before {
   display: inline-block;
 }
 .pull-right {
   float: right !important;
 }
-.pull-left {
+.pull-left,
+.dropdown__menu {
   float: left !important;
 }
 .hide {
   display: none !important;
 }
-.overflow-hidden {
+.overflow-hidden,
+.dropdown__menu__divider {
   overflow: hidden;
 }
 .pointer-events-none {
   pointer-events: none;
 }
-.position-absolute {
+.position-absolute,
+.dropdown__menu,
+.dropdown__menu::after,
+.dropdown__menu::before {
   position: absolute;
 }
 .position-fixed,
 .dropdown-backdrop {
   position: fixed;
 }
-.position-relative {
+.position-relative,
+.dropdown {
   position: relative;
 }
 .show {
@@ -410,10 +422,12 @@ input[type="checkbox"]:focus,
 .text-justify {
   text-align: justify;
 }
-.text-left {
+.text-left,
+.dropdown__menu {
   text-align: left;
 }
-.text-nowrap {
+.text-nowrap,
+.dropdown__menu > li > a {
   white-space: nowrap;
 }
 .text-right {
@@ -1601,47 +1615,49 @@ button.notify__close {
   cursor: pointer;
   -webkit-appearance: none;
 }
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
-.dropdown.is-open .dropdown__menu {
+.open > .dropdown__menu {
+  display: block;
   opacity: 1;
   -webkit-transform: translateY(0.4rem);
   transform: translateY(0.4rem);
+  visibility: visible;
+}
+.open > a {
+  outline: 0;
+}
+.dropdown__header {
+  color: #cccccc;
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.42857143;
+  padding: 0.6rem 1.4rem;
+  white-space: nowrap;
 }
 .dropdown__menu {
-  text-align: left;
   background-color: #ffffff;
   background-clip: padding-box;
   border: 1px solid #cccccc;
   border-radius: 0.4rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
-  display: block;
-  float: left;
   font-size: 1.4rem;
   left: 0;
   list-style: none;
   margin: 0.2rem 0 0;
-  min-width: 160px;
   opacity: 0;
   padding: 0.5rem 0;
-  position: absolute;
   top: 90%;
   transition: opacity 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 500ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: opacity 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), transform 500ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: opacity 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), transform 500ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 500ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  visibility: hidden;
   z-index: 1000;
 }
 .dropdown__menu > li > a {
-  clear: both;
   color: #696969;
-  cursor: pointer;
-  display: block;
+  clear: both;
   font-weight: normal;
   line-height: 1.42857143;
   padding: 0.6rem 1.4rem;
-  white-space: nowrap;
 }
 .dropdown__menu > li > a:hover,
 .dropdown__menu > li > a:focus {
@@ -1650,14 +1666,20 @@ button.notify__close {
   outline: none;
   text-decoration: none;
 }
+.dropdown__menu > .active > a,
+.dropdown__menu > .active > a:hover,
+.dropdown__menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #4078BE;
+}
 .dropdown__menu::after,
 .dropdown__menu::before {
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
   content: "";
-  display: inline-block;
   left: 1.2rem;
-  position: absolute;
 }
 .dropdown__menu::after {
   border-bottom: 1rem solid #FFFFFF;
@@ -1680,7 +1702,6 @@ button.notify__close {
   background-color: #ececec;
   height: 0.1rem;
   margin: 0.4rem 0;
-  overflow: hidden;
 }
 .dropdown__toggle:active,
 .dropdown__toggle:focus {
@@ -3217,7 +3238,7 @@ code {
 }
 .site-grid {
   background: #ececec;
-  border: 1px solid #696969;
+  border: 1px solid #cccccc;
   height: 4rem;
 }
 .site-header {
@@ -3423,6 +3444,7 @@ html.navigation-is-locked .site-wrapper {
   text-align: center;
 }
 .site-wrapper {
+  min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
