@@ -7,19 +7,19 @@
 // -------------------------
 
 
-.button-variant(@color; @background; @border) {
+.button-variant(@color; @background; @border; @darken:10%) {
   background-color: @background;
   //border-color: @border;
   color: @color;
 
   &:focus {
-    background-color: darken(@background, 10%);
+    background-color: darken(@background, @darken);
     //border-color: darken(@border, 25%);
     color: @color;
   }
 
   &:hover {
-    background-color: darken(@background, 10%);
+    background-color: darken(@background, @darken);
     //border-color: darken(@border, 12%);
     color: @color;
   }
@@ -27,13 +27,13 @@
   &:active,
   &.active,
   .open > .dropdown__toggle& {
-    background-color: darken(@background, 10%);
+    background-color: darken(@background, @darken);
     //border-color: darken(@border, 12%);
     color: @color;
 
     &:hover,
     &:focus {
-      background-color: darken(@background, 12%);
+      background-color: darken(@background, @darken);
       //border-color: darken(@border, 25%);
       color: @color;
     }
@@ -65,18 +65,18 @@
 }
 
 .button-outline-variant(@color; @background; @border; @hover-color) {
-  color: @color;
   background-color: @background;
   border-color: @border;
+  color: @color;
   &:hover,
   &:focus,
   &.focus,
   &:active,
   &.active,
   .open > .dropdown__toggle& {
-    color: @hover-color;
     background-color: @color;
     border-color: @color;
+    color: @hover-color;
   }
   &:active,
   &.active,
@@ -92,9 +92,9 @@
     &.focus,
     &:active,
     &.active {
-      color: @color;
       background-color: @background;
-    border-color: @color;
+      border-color: @color;
+      color: @color;
     }
   }
 
