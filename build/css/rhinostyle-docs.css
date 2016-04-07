@@ -2528,12 +2528,12 @@ fieldset[disabled] .rhinodio label {
   display: none;
 }
 .rhinobox input:checked + label::before {
-  background-color: #4078BE;
+  background-color: #41D6C3;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat;
   background-position: center .1rem;
   background-size: 1.2rem 1.2rem;
-  border-color: #4078BE;
+  border-color: #41D6C3;
 }
 .rhinobox label::before {
   background-color: #ffffff;
@@ -2560,7 +2560,7 @@ fieldset[disabled] .rhinodio label {
   display: none;
 }
 .rhinodio input:checked + label::before {
-  background-color: #4078BE;
+  background-color: #41D6C3;
 }
 .rhinodio label::before {
   background-color: #ffffff;
