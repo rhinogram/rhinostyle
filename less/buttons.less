@@ -77,9 +77,9 @@
   width: 100%;
 }
 
-.btn--block + .btn--block {
+/*.btn--block + .btn--block {
   margin-top: @margin-small;
-}
+}*/
 
 // Specificity overrides
 input[type="submit"],
@@ -138,10 +138,12 @@ input[type="button"] {
 .btn--icon {
   padding-left: @padding-base;
   padding-right: @padding-base;
+
   &.btn--lg {
     padding-left: @padding-large;
     padding-right: @padding-large;
   }
+  
   &.btn--sm {
     padding-left: @padding-small + 0.1rem;
     padding-right: @padding-small + 0.1rem;
@@ -223,6 +225,7 @@ input[type="button"] {
 
 .btn--lg {
   .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+  
   > .icon {
     font-size: @font-size-large + 0.2rem;
   }
@@ -230,6 +233,7 @@ input[type="button"] {
 
 .btn--sm {
   .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  
   > .icon {
     font-size: @font-size-small + 0.2rem;
   }

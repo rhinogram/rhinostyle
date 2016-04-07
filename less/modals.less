@@ -95,7 +95,7 @@
 }
 
 .modal__header__title {
-  &:extend(.text-overflow);
+  .text-overflow;
   line-height: @modal-title-line-height;
   margin: 0;
 }
@@ -116,10 +116,12 @@
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
     margin-left: @margin-small;
   }
+
   // but override that for button groups
   .btn-group .btn + .btn {
     margin-left: -0.1rem;
   }
+
   // and override it for block buttons as well
   .btn-block + .btn-block {
     margin-left: 0;
@@ -141,9 +143,11 @@
     margin: 3.0rem auto;
     width: @modal-md;
   }
+
   .modal__content {
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.5);
   }
+  
   .modal--sm {
     width: @modal-sm;
   }

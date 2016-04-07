@@ -12,10 +12,10 @@ table {
 }
 
 th {
-  text-align: left;
-  &:extend(.text-uppercase);
   font-size: 1.2rem;
   font-weight: @font-weight-semibold;
+  text-align: left;
+  text-transform: uppercase;
 }
 
 .table {
@@ -161,12 +161,12 @@ table {
   font-weight: @font-weight-bold;
 
   &.ascending::after {
-    &:extend(.caret-down);
+    .caret-down;
     content: "";
   }
 
   &.descending::after {
-    &:extend(.caret-up);
+    .caret-up;
     content: "";
   }
 }

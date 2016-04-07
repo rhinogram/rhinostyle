@@ -35,11 +35,13 @@
     border-color: @list-group-active-border;
     color: @list-group-active-color;
     z-index: 2; // Place active items above their siblings for proper border styling
+
     .list-group__item__heading,
     .list-group__item__heading > small,
     .list-group__item__heading > .small {
       color: inherit;
     }
+
     .list-group__item__text {
       color: @list-group-active-text-color;
     }
@@ -52,9 +54,11 @@
     background-color: @list-group-disabled-bg;
     color: @list-group-disabled-color;
     cursor: @cursor-disabled;
+
     .list-group__item__heading {
       color: inherit;
     }
+
     .list-group__item__text {
       color: @list-group-disabled-text-color;
     }
@@ -63,6 +67,7 @@
   &:first-child {
     .border-top-radius(@list-group-border-radius);
   }
+
   &:last-child {
     .border-bottom-radius(@list-group-border-radius);
     margin-bottom: 0;
@@ -76,12 +81,14 @@
 a.list-group__item,
 button.list-group__item {
   color: @list-group-link-color;
+
   &:hover,
   &:focus {
     background-color: @list-group-hover-bg;
     color: @list-group-link-hover-color;
     text-decoration: none;
   }
+  
   .list-group__item__heading {
     color: @list-group-link-heading-color;
   }

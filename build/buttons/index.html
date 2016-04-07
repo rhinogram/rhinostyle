@@ -83,11 +83,14 @@
     <button type="button" class="btn btn--secondary">Secondary</button>
     <button type="button" class="btn btn--accent">Accent</button>
   </div>
-  <div>
+  <div class="m-b">
     <button type="button" class="btn btn--default-outline">Default</button>
     <button type="button" class="btn btn--primary-outline">Primary</button>
     <button type="button" class="btn btn--secondary-outline">Secondary</button>
     <button type="button" class="btn btn--accent-outline">Accent</button>
+  </div>
+  <div>
+    <button type="button" class="btn btn--link">Link</button>
   </div>
 </section>
 
@@ -130,7 +133,12 @@
 <section class="site-section">
   <h3 class="site-subheadline">Button Type Modifiers</h3>
   <div class="m-b-md">
-    <h5><em>Icon-only Buttons</em></h5>
+    <h5 class="site-miniheadline">Block Buttons</h5>
+    <p class="site-copy">Add the <code>btn--block</code> modifier to create block level button.</p>
+    <button type="button" class="btn btn--default btn--block">Block Button</button>
+  </div>
+  <div>
+    <h5 class="site-miniheadline">Icon-Only Buttons</h5>
     <p class="site-copy">Add the <code>btn--icon</code> modifier when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.</p>
     <button type="button" class="btn btn--default btn--icon">
       <svg class="icon"><use xlink:href="#icon-sms"/></svg>
@@ -151,10 +159,6 @@
       <svg class="icon"><use xlink:href="#icon-search"/></svg>
     </button>
   </div>
-  <h5><em>Link Buttons</em></h5>
-  <p class="site-copy">Add the <code>btn--link</code> modifier when you want a button to look like a link. They have the padding and size of regular buttons.</p>
-  <button type="button" class="btn btn--default">Regular Button</button>
-  <button type="button" class="btn btn--link">Link Button</button>
 </section>
 
 <section class="site-section">

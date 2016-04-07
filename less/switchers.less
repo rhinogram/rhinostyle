@@ -79,9 +79,11 @@
   z-index: 20;
   
   .switcher__input:checked ~ & {
+
     .switcher__inner {
       transform: translateX(0);
     }
+    
     .switcher__off::after {
       transform: translateX(-@switcher-toggler-width - (@switcher-toggler-margin * 2));
     }

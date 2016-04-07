@@ -304,6 +304,7 @@ input[type="checkbox"] {
   position: relative;
   margin-bottom: @margin-base;
   margin-top: @margin-base;
+
   label {
     cursor: pointer;
     //display: inline;
@@ -312,6 +313,7 @@ input[type="checkbox"] {
     min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
     user-select: none;
   }
+
   &.disabled,
   fieldset[disabled] & {
     label {
@@ -324,8 +326,10 @@ input[type="checkbox"] {
 
 .fauxbox {
   padding-left: 0;
+
   input {
     display: none;
+
     &:checked+label:before {
       .svg-bg-add-fill("@{svg-path}checkmark.svg", @brand-primary);
       background-repeat: no-repeat;
@@ -333,6 +337,7 @@ input[type="checkbox"] {
       background-size: 1.6rem 1.6rem;
     }
   }
+
   label {
     &:before {
       background-color: @white;
@@ -356,12 +361,15 @@ input[type="checkbox"] {
 
 .fauxdio {
   padding-left: 0;
-  input{
+
+  input {
     display: none;
+
     &:checked+label:before {
       background-color: @brand-primary;
     }
   }
+
   label {
     &:before {
       background-color: @white;
@@ -394,7 +402,7 @@ input[type="checkbox"] {
 
 
 [placeholder] {
-  &:extend(.text-overflow);
+  .text-overflow;
 }
 
 &::-moz-placeholder {
@@ -413,10 +421,11 @@ input[type="checkbox"] {
 .selectpicker {
   position: relative;
   vertical-align: middle;
+
   select {
-    cursor: pointer;
-    &:extend(.text-overflow);
+    .text-overflow;
     border-radius: @border-radius-base;
+    cursor: pointer;
     display: block;
     height: @line-height-computed + (@padding-base-vertical * 2) + 0.2rem; // match default button's height
     line-height: @line-height-base;
@@ -424,20 +433,22 @@ input[type="checkbox"] {
     width: 100%;
     -moz-appearance: none;
     -webkit-appearance: none;
+
     &::-ms-expand {
       display: none;
       background-color: transparent;
       border: 0;
     }
   }
+
   &::after {
-    pointer-events: none;
-    position: absolute;
-    content: "";
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.4rem 1.4rem;
+    content: "";
     height: 1.4rem;
+    pointer-events: none;
+    position: absolute;
     right: @padding-base-horizontal;
     top: 50%;
     transform: translateY(-50%);
@@ -453,6 +464,7 @@ input[type="checkbox"] {
     line-height: @line-height-small;
     padding: @padding-small-vertical 30px @padding-small-vertical @padding-small-horizontal; // match small button's padding
   }
+
   &::after {
     right: @padding-small-horizontal;
   }
@@ -464,6 +476,7 @@ input[type="checkbox"] {
     border: 1px solid @btn-default-border;
     color: @text-color;
   }
+  
   &::after {
     .svg-bg-add-fill("@{svg-path}chevron-down.svg", @text-color);
   }
