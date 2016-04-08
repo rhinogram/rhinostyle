@@ -398,7 +398,7 @@ a:focus,
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus,
-.form-control:focus {
+.form__control:focus {
   border-color: #66afe9;
   box-shadow: inset 0 0 1px rgba(0,0,0,.075), 0 0 0.4rem rgba(102, 175, 233, 0.75);
   outline: 0;
@@ -1376,7 +1376,6 @@ fieldset[disabled] .btn--secondary-outline.active {
 .caret-up {
   display: inline-block;
   height: 0;
-  margin-left: 0.2rem;
   position: relative;
   top: -0.1rem;
   vertical-align: middle;
@@ -1448,6 +1447,17 @@ button.notify__close {
 .open > a {
   outline: 0;
 }
+/*.dropdown--block {
+  display: block;
+  > .btn {
+    display: block;
+    text-align: left;
+    width: 100%;
+    > [class^="caret-"],[class*=" caret-"] {
+      float: right;
+    }
+  }
+}*/
 .dropdown__header {
   color: #d2d2d2;
   display: block;
@@ -2335,7 +2345,7 @@ select[multiple],
 select[size] {
   height: auto;
 }
-.form-control {
+.form__control {
   display: block;
   background-color: #ffffff;
   background-image: none;
@@ -2351,96 +2361,93 @@ select[size] {
   width: 100%;
   -webkit-appearance: none;
 }
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
+.form__control[disabled],
+.form__control[readonly],
+fieldset[disabled] .form__control {
   background-color: #ececec;
   opacity: 1;
 }
-.form-control[disabled],
-fieldset[disabled] .form-control {
+.form__control[disabled],
+fieldset[disabled] .form__control {
   cursor: not-allowed;
 }
-textarea.form-control {
+textarea.form__control {
   height: auto;
 }
 input[type="search"] {
   -webkit-appearance: none;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"].form-control,
-  input[type="time"].form-control,
-  input[type="datetime-local"].form-control,
-  input[type="month"].form-control {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"] {
+    /*&.input-sm,
+    .input-group-sm & {
+      line-height: @input-height-small;
+    }
+
+    &.input-lg,
+    .input-group-lg & {
+      line-height: @input-height-large;
+    }*/
+  }
+  input[type="date"].form__control,
+  input[type="time"].form__control,
+  input[type="datetime-local"].form__control,
+  input[type="month"].form__control {
     line-height: 3.68571429rem;
   }
-  input[type="date"].input-sm,
-  input[type="time"].input-sm,
-  input[type="datetime-local"].input-sm,
-  input[type="month"].input-sm,
-  .input-group-sm input[type="date"],
-  .input-group-sm input[type="time"],
-  .input-group-sm input[type="datetime-local"],
-  .input-group-sm input[type="month"] {
-    line-height: 3rem;
-  }
-  input[type="date"].input-lg,
-  input[type="time"].input-lg,
-  input[type="datetime-local"].input-lg,
-  input[type="month"].input-lg,
-  .input-group-lg input[type="date"],
-  .input-group-lg input[type="time"],
-  .input-group-lg input[type="datetime-local"],
-  .input-group-lg input[type="month"] {
-    line-height: 4.2666666rem;
-  }
 }
-.form-group {
+.form__group {
   margin-bottom: 2.28571429rem;
 }
-.form-control-static {
+[placeholder] {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+::-moz-placeholder {
+  color: #c8c8c8;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #c8c8c8;
+}
+::-webkit-input-placeholder {
+  color: #c8c8c8;
+}
+.form__control-static {
   margin-bottom: 0;
   min-height: 3.88571429rem;
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
+  /*&.input-lg,
+  &.input-sm {
+    padding-left: 0;
+    padding-right: 0;
+  }*/
 }
-.form-control-static.input-lg,
-.form-control-static.input-sm {
-  padding-left: 0;
-  padding-right: 0;
-}
-.input-sm {
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
-  height: 3rem;
-  line-height: 1.5;
-  padding: 0.5rem 1rem;
-}
-select.input-sm {
-  height: 3rem;
-  line-height: 3rem;
-}
-textarea.input-sm,
-select[multiple].input-sm {
-  height: auto;
-}
-/*.form-group-sm {
-  .form-control {
+/*.input-sm {
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
+}*/
+/*.form__group--sm {
+  .form__control {
     border-radius: @input-border-radius-small;
     font-size: @font-size-small;
     height: @input-height-small;
     line-height: @line-height-small;
     padding: @padding-small-vertical @padding-small-horizontal;
   }
-  select.form-control {
+  select.form__control {
     height: @input-height-small;
     line-height: @input-height-small;
   }
-  textarea.form-control,
-  select[multiple].form-control {
+  textarea.form__control,
+  select[multiple].form__control {
     height: auto;
   }
-  .form-control-static {
+  .form__control-static {
     font-size: @font-size-small;
     height: @input-height-small;
     line-height: @line-height-small;
@@ -2448,38 +2455,26 @@ select[multiple].input-sm {
     padding: (@padding-small-vertical + 1) @padding-small-horizontal;
   }
 }*/
-.input-lg {
-  border-radius: 0.5rem;
-  font-size: 2rem;
-  height: 4.2666666rem;
-  line-height: 1.3333333;
-  padding: 0.7rem 1.4rem;
-}
-select.input-lg {
-  height: 4.2666666rem;
-  line-height: 4.2666666rem;
-}
-textarea.input-lg,
-select[multiple].input-lg {
-  height: auto;
-}
-/*.form-group-lg {
-  .form-control {
+/*.input-lg {
+  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
+}*/
+/*.form__group--lg {
+  .form__control {
     border-radius: @input-border-radius-large;
     font-size: @font-size-large;
     height: @input-height-large;
     line-height: @line-height-large;
     padding: @padding-large-vertical @padding-large-horizontal;
   }
-  select.form-control {
+  select.form__control {
     height: @input-height-large;
     line-height: @input-height-large;
   }
-  textarea.form-control,
-  select[multiple].form-control {
+  textarea.form__control,
+  select[multiple].form__control {
     height: auto;
   }
-  .form-control-static {
+  .form__control-static {
     font-size: @font-size-large;
     height: @input-height-large;
     line-height: @line-height-large;
@@ -2582,45 +2577,26 @@ fieldset[disabled] .rhinodio label {
   display: inline-block;
   margin-right: 1.2rem;
 }
-[placeholder] {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-::-moz-placeholder {
-  color: #c8c8c8;
-  opacity: 1;
-}
-:-ms-input-placeholder {
-  color: #c8c8c8;
-}
-::-webkit-input-placeholder {
-  color: #c8c8c8;
-}
-.selectpicker {
+.rhinoselect {
   position: relative;
   vertical-align: middle;
 }
-.selectpicker select {
+.rhinoselect > select {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 0.4rem;
   cursor: pointer;
-  display: block;
-  height: 3.68571429rem;
-  line-height: 1.42857143;
-  padding: 0.6rem 30px 0.6rem 1.2rem;
-  width: 100%;
+  padding-right: 3rem;
+  position: relative;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
-.selectpicker select::-ms-expand {
+.rhinoselect > select::-ms-expand {
   display: none;
   background-color: transparent;
   border: 0;
 }
-.selectpicker::after {
+.rhinoselect::after {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 1.4rem 1.4rem;
@@ -2634,22 +2610,7 @@ fieldset[disabled] .rhinodio label {
   transform: translateY(-50%);
   width: 1.4rem;
 }
-.selectpicker--sm select {
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
-  height: 3rem;
-  line-height: 1.5;
-  padding: 0.5rem 30px 0.5rem 1rem;
-}
-.selectpicker--sm::after {
-  right: 1rem;
-}
-.selectpicker--default select {
-  background-color: #ffffff;
-  border: 1px solid #acacac;
-  color: #6c6c6c;
-}
-.selectpicker--default::after {
+.rhinoselect--default::after {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M12%2019.5c-.294%200-.573-.13-.763-.354l-11-13a1%201%200%200%201%201.526-1.292L12%2016.952%2022.237%204.854a1%201%200%201%201%201.526%201.291l-11%2013A.997.997%200%200%201%2012%2019.5z%22%2F%3E%3C%2Fsvg%3E");
 }
 .notify {
@@ -2888,7 +2849,6 @@ table th[class*="col-"] {
 .table__sortable.is-sorting.ascending::after {
   display: inline-block;
   height: 0;
-  margin-left: 0.2rem;
   position: relative;
   top: -0.1rem;
   vertical-align: middle;
@@ -2901,7 +2861,6 @@ table th[class*="col-"] {
 .table__sortable.is-sorting.descending::after {
   display: inline-block;
   height: 0;
-  margin-left: 0.2rem;
   position: relative;
   top: -0.1rem;
   vertical-align: middle;

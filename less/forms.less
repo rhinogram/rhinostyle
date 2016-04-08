@@ -81,7 +81,48 @@ input[type="checkbox"]:focus {
   &:extend(.tab-focus);
 }
 
-.form-control {
+
+// -------------------------
+// Form
+// -------------------------
+
+
+.form {}
+
+
+// -------------------------
+// Form Modifiers
+// -------------------------
+
+
+
+
+// -------------------------
+// Form Controls
+// -------------------------
+
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+
+.form__control {
   display: block;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -98,7 +139,7 @@ input[type="checkbox"]:focus {
   -webkit-appearance: none;
 
   // Customize the `:focus` state to imitate native WebKit styles.
-  //.form-control-focus();
+  //.form__control-focus();
   &:focus {
     &:extend(.tab-focus);
   }
@@ -133,8 +174,8 @@ input[type="checkbox"]:focus {
 
 
 // This overrides the extra rounded corners on search inputs in iOS so that our
-// `.form-control` class can properly style them. Note that this cannot simply
-// be added to `.form-control` as it's not specific enough. For details, see
+// `.form__control` class can properly style them. Note that this cannot simply
+// be added to `.form__control` as it's not specific enough. For details, see
 // https://github.com/twbs/bootstrap/issues/11586.
 
 input[type="search"] {
@@ -159,11 +200,11 @@ input[type="search"] {
   input[type="time"],
   input[type="datetime-local"],
   input[type="month"] {
-    &.form-control {
+    &.form__control {
       line-height: @input-height-base;
     }
 
-    &.input-sm,
+    /*&.input-sm,
     .input-group-sm & {
       line-height: @input-height-small;
     }
@@ -171,22 +212,38 @@ input[type="search"] {
     &.input-lg,
     .input-group-lg & {
       line-height: @input-height-large;
-    }
+    }*/
   }
 }
 
 
 // -------------------------
-// Form Groups
+// Form Group
 // -------------------------
-
-
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
 
-.form-group {
+
+.form__group {
   margin-bottom: @form-group-margin-bottom;
 }
+
+
+// -------------------------
+// Placeholder
+// -------------------------
+
+
+[placeholder] {
+  .text-overflow;
+}
+
+&::-moz-placeholder {
+  color: @input-color-placeholder;
+  opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+}
+&:-ms-input-placeholder { color: @input-color-placeholder; } // Internet Explorer 10+
+&::-webkit-input-placeholder  { color: @input-color-placeholder; } // Safari and Chrome
 
 
 // -------------------------
@@ -197,7 +254,7 @@ input[type="search"] {
 // Apply class to a `p` element to make any string of text align with labels in
 // a horizontal form layout.
 
-.form-control-static {
+.form__control-static {
   // Remove default margin from `p`
   margin-bottom: 0;
   min-height: (@line-height-computed + @font-size-base);
@@ -205,11 +262,11 @@ input[type="search"] {
   padding-bottom: @padding-base-vertical;
   padding-top: @padding-base-vertical;
 
-  &.input-lg,
+  /*&.input-lg,
   &.input-sm {
     padding-left: 0;
     padding-right: 0;
-  }
+  }*/
 }
 
 
@@ -218,33 +275,33 @@ input[type="search"] {
 // -------------------------
 
 
-// Build on `.form-control` with modifier classes to decrease or increase the
+// Build on `.form__control` with modifier classes to decrease or increase the
 // height and font-size of form controls.
 //
-// The `.form-group-* form-control` variations are sadly duplicated to avoid the
+// The `.form__group-* form__control` variations are sadly duplicated to avoid the
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 
-.input-sm {
+/*.input-sm {
   .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
-}
+}*/
 
-/*.form-group-sm {
-  .form-control {
+/*.form__group--sm {
+  .form__control {
     border-radius: @input-border-radius-small;
     font-size: @font-size-small;
     height: @input-height-small;
     line-height: @line-height-small;
     padding: @padding-small-vertical @padding-small-horizontal;
   }
-  select.form-control {
+  select.form__control {
     height: @input-height-small;
     line-height: @input-height-small;
   }
-  textarea.form-control,
-  select[multiple].form-control {
+  textarea.form__control,
+  select[multiple].form__control {
     height: auto;
   }
-  .form-control-static {
+  .form__control-static {
     font-size: @font-size-small;
     height: @input-height-small;
     line-height: @line-height-small;
@@ -253,27 +310,27 @@ input[type="search"] {
   }
 }*/
 
-.input-lg {
+/*.input-lg {
   .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
-}
+}*/
 
-/*.form-group-lg {
-  .form-control {
+/*.form__group--lg {
+  .form__control {
     border-radius: @input-border-radius-large;
     font-size: @font-size-large;
     height: @input-height-large;
     line-height: @line-height-large;
     padding: @padding-large-vertical @padding-large-horizontal;
   }
-  select.form-control {
+  select.form__control {
     height: @input-height-large;
     line-height: @input-height-large;
   }
-  textarea.form-control,
-  select[multiple].form-control {
+  textarea.form__control,
+  select[multiple].form__control {
     height: auto;
   }
-  .form-control-static {
+  .form__control-static {
     font-size: @font-size-large;
     height: @input-height-large;
     line-height: @line-height-large;
@@ -401,40 +458,23 @@ input[type="checkbox"] {
 
 
 // -------------------------
-// Placeholder
+// Rhinoselect
 // -------------------------
+// Must wrap select element with "rhinoselect" class in order to use ::after pseudo element
+// for chevron down.
 
 
-[placeholder] {
-  .text-overflow;
-}
+.rhinoselect {
 
-&::-moz-placeholder {
-  color: @input-color-placeholder;
-  opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
-}
-&:-ms-input-placeholder { color: @input-color-placeholder; } // Internet Explorer 10+
-&::-webkit-input-placeholder  { color: @input-color-placeholder; } // Safari and Chrome
-
-
-// -------------------------
-// Selectpicker
-// -------------------------
-
-
-.selectpicker {
   position: relative;
   vertical-align: middle;
 
-  select {
+  > select {
     .text-overflow;
-    border-radius: @border-radius-base;
     cursor: pointer;
-    display: block;
-    height: @line-height-computed + (@padding-base-vertical * 2) + 0.2rem; // match default button's height
-    line-height: @line-height-base;
-    padding: @padding-base-vertical 30px @padding-base-vertical @padding-base-horizontal; // match default button's padding
-    width: 100%;
+    padding-right: 3rem;
+    position: relative;
+
     -moz-appearance: none;
     -webkit-appearance: none;
 
@@ -460,28 +500,16 @@ input[type="checkbox"] {
   }
 }
 
-.selectpicker--sm {
-  select {
-    border-radius: @border-radius-small;
-    font-size: @font-size-small;
-    height: (@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 0.2rem; // match default button's height
-    line-height: @line-height-small;
-    padding: @padding-small-vertical 30px @padding-small-vertical @padding-small-horizontal; // match small button's padding
-  }
 
-  &::after {
-    right: @padding-small-horizontal;
-  }
-}
+// -------------------------
+// Rhinoselect Modifiers
+// -------------------------
 
-.selectpicker--default {
-  select {
-    background-color: @white;
-    border: 1px solid @btn-default-border;
-    color: @text-color;
-  }
-  
+
+.rhinoselect--default {
   &::after {
     .svg-bg-add-fill("@{svg-path}chevron-down.svg", @text-color);
   }
 }
+
+
