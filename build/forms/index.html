@@ -74,6 +74,13 @@
   <main class="site-content">
     
   
+<!-- 
+form control static
+switcher modifiers
+check/radio modifiers
+
+-->
+
 <h1 class="site-headline">Forms</h1>
 
 <section class="site-section">
@@ -143,8 +150,8 @@
         <div class="form__group">
           <label for="" class="block">Switcher</label>
           <div class="switcher">
-            <input type="checkbox" checked class="switcher__input" id="switcher-demo">
-            <label class="switcher__label" for="switcher-demo">
+            <input type="checkbox" checked class="switcher__input" id="exampleSwitcher1">
+            <label class="switcher__label" for="exampleSwitcher1">
               <div class="switcher__inner">
                 <div class="switcher__on">
                   <svg class="switcher__icon icon icon-checkmark"><use xlink:href="#icon-checkmark"/></svg>
@@ -170,20 +177,102 @@
 
 <section class="site-section">
   
-  <h3 class="site-subheadline">Inline Form</h3>
+  <h3 class="site-subheadline">Form Modifiers</h3>
   
-  <form class="form form--inline">
-    <div class="form__group inline-block">
-      <label for="exampleInputEmail2">Email address</label>
-      <input type="email" class="form__control" id="exampleInputEmail2" placeholder="Enter email">
-    </div>
-    <div class="form__group">
-      <label for="exampleInputPassword2">Password</label>
-      <input type="password" class="form__control" id="exampleInputPassword2" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn--default">Sign in</button>
-  </form>
+
+  <div class="m-b-md">
+    <h5 class="site-miniheadline">Inline Form</h5>
+    <p class="site-copy">Add the <code>form--inline</code> modifier to create inline form.</p>
+    <form class="form form--inline">
+      <div class="form__group inline-block">
+        <label for="exampleInputEmail2">Email Address</label>
+        <input type="email" class="form__control" id="exampleInputEmail2" placeholder="Enter email">
+      </div>
+      <div class="form__group">
+        <label for="exampleInputPassword2">Password</label>
+        <input type="password" class="form__control" id="exampleInputPassword2" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn--default">Sign In</button>
+    </form>
+  </div>
+
+</section>
+
+
+<section class="site-section">
   
+  <h3 class="site-subheadline">Rhinobox (Checkbox)</h3>
+  <p class="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
+
+  <div class="m-b-md">
+    <div class="rhinobox">
+      <input type="checkbox" id="exampleCheckbox11">
+      <label for="exampleCheckbox11">Checkbox One</label>
+    </div>
+    <div class="rhinobox">
+      <input type="checkbox" id="exampleCheckbox12">
+      <label for="exampleCheckbox12">Checkbox Two</label>
+    </div>
+    <div class="rhinobox">
+      <input type="checkbox" id="exampleCheckbox13">
+      <label for="exampleCheckbox13">Checkbox Three</label>
+    </div>
+  </div>
+
+  <p class="site-copy">Add the <code>rhinobox--inline</code> modifier to create inline checkboxes.</p>
+  <div class="m-b-md">
+    <div class="rhinobox rhinobox--inline">
+      <input type="checkbox" id="exampleCheckbox21">
+      <label for="exampleCheckbox21">Checkbox One</label>
+    </div>
+    <div class="rhinobox rhinobox--inline">
+      <input type="checkbox" id="exampleCheckbox22">
+      <label for="exampleCheckbox22">Checkbox Two</label>
+    </div>
+    <div class="rhinobox rhinobox--inline">
+      <input type="checkbox" id="exampleCheckbox23">
+      <label for="exampleCheckbox23">Checkbox Three</label>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="site-section">
+  
+  <h3 class="site-subheadline">Rhinodio (Radio)</h3>
+  <p class="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
+
+  <div class="m-b-md">
+    <div class="rhinodio">
+      <input type="radio" name="exampleRadio1" id="exampleRadio11">
+      <label for="exampleRadio11">Radio One</label>
+    </div>
+    <div class="rhinodio">
+      <input type="radio" name="exampleRadio1" id="exampleRadio12">
+      <label for="exampleRadio12">Radio Two</label>
+    </div>
+    <div class="rhinodio">
+      <input type="radio" name="exampleRadio1" id="exampleRadio13">
+      <label for="exampleRadio13">Radio Three</label>
+    </div>
+  </div>
+
+  <p class="site-copy">Add the <code>rhinodio--inline</code> modifier to create inline radios.</p>
+  <div class="m-b-md">
+    <div class="rhinodio rhinodio--inline">
+      <input type="radio" name="exampleRadio2" id="exampleRadio21">
+      <label for="exampleRadio21">Radio One</label>
+    </div>
+    <div class="rhinodio rhinodio--inline">
+      <input type="radio" name="exampleRadio2" id="exampleRadio22">
+      <label for="exampleRadio22">Radio Two</label>
+    </div>
+    <div class="rhinodio rhinodio--inline">
+      <input type="radio" name="exampleRadio2" id="exampleRadio23">
+      <label for="exampleRadio23">Radio Three</label>
+    </div>
+  </div>
 
 </section>
 
