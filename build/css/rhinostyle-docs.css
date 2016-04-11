@@ -267,13 +267,13 @@ html {
 body {
   background-color: #ffffff;
   color: #6c6c6c;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 1.42857143;
 }
 b,
 strong {
-  font-weight: 700;
+  font-weight: 900;
 }
 h1,
 h2,
@@ -1368,7 +1368,7 @@ fieldset[disabled] .btn--secondary-outline.active {
 }
 .callout__heading {
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 .caret-down,
 .caret-left,
@@ -2323,7 +2323,7 @@ legend {
 }
 label {
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 input[type="search"] {
@@ -2834,7 +2834,7 @@ table {
 }
 th {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 700;
   text-align: left;
   text-transform: uppercase;
 }
@@ -2916,7 +2916,7 @@ table th[class*="col-"] {
 }
 .table__sortable.is-sorting {
   background-color: #f9f9f9;
-  font-weight: 700;
+  font-weight: 900;
 }
 .table__sortable.is-sorting.ascending::after {
   display: inline-block;
@@ -3028,7 +3028,7 @@ h5,
 h6 {
   color: inherit;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 900;
   line-height: 1.1;
 }
 h1 small,
@@ -3410,7 +3410,7 @@ code {
   -ms-flex: 1;
   flex: 1;
   font-size: 2.8rem;
-  font-weight: 500;
+  font-weight: 700;
   position: relative;
   text-shadow: 1px 1px 1px #ffffff;
   top: .2rem;
@@ -3525,6 +3525,7 @@ html.navigation-is-locked .site-wrapper {
   margin-bottom: 6rem;
 }
 .site-subheadline {
+  font-size: 2.6rem;
   font-weight: 300;
   margin-bottom: 2.4rem;
 }
