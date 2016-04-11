@@ -173,10 +173,10 @@ input[type="checkbox"]:focus {
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
-  border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  border-radius: @input-border-radius;
   color: @input-color;
   font-size: @font-size-base;
-  height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  height: @input-height-base;
   line-height: @line-height-base;
   padding: @padding-base-vertical @padding-small-horizontal;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -188,11 +188,6 @@ input[type="checkbox"]:focus {
     &:extend(.tab-focus);
   }
 
-  // Disabled and read-only inputs
-  //
-  // HTML5 says that controls under a fieldset > legend:first-child won't be
-  // disabled if the fieldset is disabled. Due to implementation difficulty, we
-  // don't honor that edge case; we style them as disabled anyway.
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
@@ -205,7 +200,6 @@ input[type="checkbox"]:focus {
     cursor: @cursor-disabled;
   }
 
-  // Reset height for textareas
   textarea& {
     height: auto;
   }
@@ -217,22 +211,41 @@ input[type="checkbox"]:focus {
 // -------------------------
 
 
+.form__control--lg {
+  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
+}
+
+.form__control--sm {
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
+}
+
 // Apply class to a `p` element to make any string of text align with labels in
 // a horizontal form layout.
 
 .form__control--static {
-  // Remove default margin from `p`
   margin-bottom: 0;
   min-height: (@line-height-computed + @font-size-base);
-  // Size it appropriately next to real form controls
   padding-bottom: @padding-base-vertical;
   padding-top: @padding-base-vertical;
 
-  /*&.input-lg,
-  &.input-sm {
+  &.form__control--lg,
+  &.form__control--sm {
     padding-left: 0;
     padding-right: 0;
-  }*/
+  }
+}
+
+
+// -------------------------
+// Form Group
+// -------------------------
+
+
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form__group {
+  margin-bottom: @form-group-margin-bottom;
 }
 
 
@@ -274,29 +287,16 @@ input[type="search"] {
       line-height: @input-height-base;
     }
 
-    /*&.input-sm,
+    /*&.form__control--sm,
     .form__input-group__sm & {
       line-height: @input-height-small;
     }
 
-    &.input-lg,
+    &.form__control--lg,
     .form__input-group__lg & {
       line-height: @input-height-large;
     }*/
   }
-}
-
-
-// -------------------------
-// Form Group
-// -------------------------
-
-
-// Designed to help with the organization and spacing of vertical forms. For
-// horizontal forms, use the predefined grid classes.
-
-.form__group {
-  margin-bottom: @form-group-margin-bottom;
 }
 
 
@@ -309,12 +309,22 @@ input[type="search"] {
   .text-overflow;
 }
 
+// Override Firefox's unusual default opacity
+// see https://github.com/twbs/bootstrap/pull/11526
 &::-moz-placeholder {
   color: @input-color-placeholder;
-  opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  opacity: 1;
 }
-&:-ms-input-placeholder { color: @input-color-placeholder; } // Internet Explorer 10+
-&::-webkit-input-placeholder  { color: @input-color-placeholder; } // Safari and Chrome
+
+// Internet Explorer 10+
+&:-ms-input-placeholder {
+  color: @input-color-placeholder;
+}
+
+// Safari and Chrome
+&::-webkit-input-placeholder {
+  color: @input-color-placeholder;
+}
 
 
 // -------------------------
@@ -328,7 +338,7 @@ input[type="search"] {
 // The `.form__group-* form__control` variations are sadly duplicated to avoid the
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 
-/*.input-sm {
+/*.form__control--sm {
   .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
 }*/
 
@@ -357,7 +367,7 @@ input[type="search"] {
   }
 }*/
 
-/*.input-lg {
+/*.form__control--lg {
   .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
 }*/
 
@@ -527,9 +537,9 @@ input[type="checkbox"] {
     -webkit-appearance: none;
 
     &::-ms-expand {
-      display: none;
       background-color: transparent;
       border: 0;
+      display: none;
     }
   }
 
@@ -545,6 +555,7 @@ input[type="checkbox"] {
     top: 50%;
     transform: translateY(-50%);
     width: 1.4rem;
+    .svg-bg-add-fill("@{svg-path}chevron-down.svg", @text-color);
   }
 }
 
@@ -554,9 +565,16 @@ input[type="checkbox"] {
 // -------------------------
 
 
-.rhinoselect--default {
+/*.rhinoselect--default {
   &::after {
-    .svg-bg-add-fill("@{svg-path}chevron-down.svg", @text-color);
+    .svg-bg-add-fill("@{svg-path}chevron-down.svg", red);
+  }
+}*/
+
+.rhinoselect--sm {
+  &::after {
+    background-size: 1.2rem 1.2rem;
+    right: @padding-small-horizontal;
   }
 }
 
