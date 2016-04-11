@@ -2807,6 +2807,9 @@ fieldset[disabled] .rhinodio label {
 .notify > .icon {
   margin-right: 0.4rem;
 }
+.notify--danger {
+  background: #cb2027;
+}
 .notify--default {
   background: #6c6c6c;
 }
