@@ -76,15 +76,15 @@ check/radio modifiers
 
         <div class="form__group">
           <label for="" class="block">Switcher</label>
-          <div class="switcher">
-            <input type="checkbox" checked class="switcher__input" id="exampleSwitcher1">
-            <label class="switcher__label" for="exampleSwitcher1">
-              <div class="switcher__inner">
-                <div class="switcher__on">
-                  <svg class="switcher__icon icon icon-checkmark"><use xlink:href="#icon-checkmark"/></svg>
+          <div class="rhinoswitcher">
+            <input type="checkbox" checked class="rhinoswitcher__input" id="exampleSwitcher1">
+            <label class="rhinoswitcher__label" for="exampleSwitcher1">
+              <div class="rhinoswitcher__inner">
+                <div class="rhinoswitcher__on">
+                  <svg class="rhinoswitcher__icon icon icon-checkmark"><use xlink:href="#icon-checkmark"/></svg>
                 </div>
-                <div class="switcher__off">
-                  <svg class="switcher__icon icon icon-close"><use xlink:href="#icon-close"/></svg>
+                <div class="rhinoswitcher__off">
+                  <svg class="rhinoswitcher__icon icon icon-close"><use xlink:href="#icon-close"/></svg>
                 </div>
               </div>
             </label>
@@ -94,8 +94,6 @@ check/radio modifiers
         <button type="submit" class="btn btn--primary">Submit Form</button>
 
       </form>
-
-
 
     </div> <!-- /col -->
   </div> <!-- /row -->
@@ -122,6 +120,41 @@ check/radio modifiers
     </form>
   </div>
 
+</section>
+
+
+<section class="site-section">
+  
+  <h3 class="site-subheadline">Form Controls</h3>
+
+  <div class="row">
+    <div class="col-sm-10">
+
+      <input type="text" class="form__control" id="" placeholder=".form__control">
+      <br>
+      <input type="text" class="form__control form__control--sm" id="" placeholder=".form__control .form__control--sm">
+      <br>
+      <div class="rhinoselect">
+        <select class="form__control" id="">
+          <option value="" selected="">.form__control</option>
+          <option value="">Option Two</option>
+          <option value="">Option Three</option>
+          <option value="">Option Four</option>
+        </select>
+      </div>
+      <br>
+      <div class="rhinoselect rhinoselect--sm">
+        <select class="form__control form__control--sm" id="">
+          <option value="" selected="">.form__control .form__control--sm</option>
+          <option value="">Option Two</option>
+          <option value="">Option Three</option>
+          <option value="">Option Four</option>
+        </select>
+      </div>
+
+    </div>
+  </div>
+  
 </section>
 
 
@@ -252,3 +285,29 @@ check/radio modifiers
 
 </section>
 
+
+<section class="site-section">
+  
+  <h3 class="site-subheadline">Form Switchers</h3>
+
+  <div class="m-b-md">
+    <h5 class="site-miniheadline">Rhinoswitcher</h5>
+    <p class="site-copy">Our custom radio element is called <code>rhinoswitcher</code>.</p>
+
+    <div class="rhinoswitcher">
+      <input type="checkbox" checked class="rhinoswitcher__input" id="exampleSwitcher2">
+      <label class="rhinoswitcher__label" for="exampleSwitcher2">
+        <div class="rhinoswitcher__inner">
+          <div class="rhinoswitcher__on">
+            <svg class="rhinoswitcher__icon icon icon-checkmark"><use xlink:href="#icon-checkmark"/></svg>
+          </div>
+          <div class="rhinoswitcher__off">
+            <svg class="rhinoswitcher__icon icon icon-close"><use xlink:href="#icon-close"/></svg>
+          </div>
+        </div>
+      </label>
+    </div>
+
+  </div>
+
+</section>
