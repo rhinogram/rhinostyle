@@ -3431,6 +3431,7 @@ code {
   margin-bottom: 4rem;
 }
 .site-miniheadline {
+  font-weight: 700;
   font-size: 2rem;
 }
 .site-navigation {
