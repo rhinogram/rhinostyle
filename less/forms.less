@@ -101,9 +101,15 @@ input[type="checkbox"]:focus {
   @media (min-width: @screen-sm-min) {
     // Inline-block all the things for "inline"
     .form__group {
-      display: inline-block;
+      align-items: center;
+      display: inline-flex;
       margin-bottom: 0;
       vertical-align: middle;
+
+      > label {
+        margin-bottom: 0;
+        margin-right: @margin-small;
+      }
     }
 
     // In navbar-form, allow folks to *not* use `.form-group`
