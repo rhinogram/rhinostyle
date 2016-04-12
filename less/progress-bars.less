@@ -1,0 +1,81 @@
+// File: progress-bars.less
+// Note: 
+
+
+// -------------------------
+// Progress Bar
+// -------------------------
+
+
+.progress-bar {
+  border-radius: @progress-bar-radius;
+  box-shadow: @progress-bar-inset-shadow;
+  height: @progress-bar-height;
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0); // Chrome overflow bug fix - trigger hardware acceleration
+}
+
+
+// -------------------------
+// Progress Bar Modifiers (Color)
+// -------------------------
+
+
+.progress-bar--default { background-color: @gray-light; }
+.progress-bar--primary { background-color: @brand-primary; }
+.progress-bar--secondary { background-color: @brand-secondary; }
+
+.progress-bar--success-to-danger {
+  @crazyprogress: @brand-success, @brand-warning 75%, @brand-danger;
+  background-image: svg-gradient(to right, @crazyprogress); // LESSCSS function
+}
+
+
+// -------------------------
+// Progress Bar Modifiers (Size)
+// -------------------------
+
+
+.progress-bar--sm {
+  height: @progress-bar-height-sm;
+  .progress-bar__bar__label {
+    font-size: 1.1rem;
+  }
+}
+
+
+// -------------------------
+// Progress Bar - Bar
+// -------------------------
+
+
+.progress-bar__bar {
+  background-color: @gray-lighter;
+  bottom: 0;
+  box-shadow: @progress-bar-inset-shadow;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform 500ms ease-out;
+}
+
+
+// -------------------------
+// Progress Bar - Bar Label
+// -------------------------
+
+
+.progress-bar__bar__label {
+  color: @white;
+  cursor: default;
+  padding: 0 @padding-xsmall;
+  position: absolute;
+  right: 100%;
+  top: -.1rem;
+  user-select: none;
+}
+
+
+

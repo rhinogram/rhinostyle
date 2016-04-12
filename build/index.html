@@ -46,6 +46,9 @@
         <a href="popovers/" class="site-navigation__nav__btn">Popovers</a>
       </li>
       <li>
+        <a href="progressbars/" class="site-navigation__nav__btn">Progress Bars</a>
+      </li>
+      <li>
         <a href="utilities/" class="site-navigation__nav__btn">Utilities</a>
       </li>
     </ul>
@@ -83,6 +86,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script src="js/rhinostyle-docs.js"></script>
     <script>
+      
       $(document).ready(function() {
           
         function loop() {
@@ -127,6 +131,38 @@
         // SVG loader
 
         boomsvgloader.load('svg/sprite.svg');
+
+
+        // progress bars - send to random position
+
+        $('.progress-bar').each(function(){
+          var position = Math.floor(Math.random()*100);
+          if(position<4) { position = 4; }
+          // add % to label
+          if($(this).find('.progress-bar__bar__label').length > 0) {
+            $(this).find('.progress-bar__bar__label').html(position+'%');
+          }
+          // position bar
+          $(this).find('.progress-bar__bar').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress-bar__bar').css('-webkit-transform','translateX('+position+'%)');
+        });
+
+
+        // progress bars - click progress bar to transition
+
+        $(".progress-bar").on("click", function(e) {
+          var offset = $(this).offset(),
+              position = Math.floor((e.pageX - offset.left)/$(this).width()*100) + 1;
+          // check for label
+          if($(this).find('.progress-bar__bar__label').length > 0) {
+            // add % to label
+            $(this).find('.progress-bar__bar__label').html(position+'%');
+            if (position < 3 ) { position = 3; }
+          }
+          // position bar
+          $(this).find('.progress-bar__bar').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress-bar__bar').css('-webkit-transform','translateX('+position+'%)');
+        });
 
 
       });
