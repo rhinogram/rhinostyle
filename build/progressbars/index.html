@@ -85,20 +85,28 @@
   <div class="row">
     <div class="col-sm-10">
 
-      <div class="progress-bar progress-bar--default">
-        <div class="progress-bar__bar"></div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--default">
+          <div class="progress-bar__slider"></div>
+        </div>
       </div>
       <br>
-      <div class="progress-bar progress-bar--primary">
-        <div class="progress-bar__bar"></div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--primary">
+          <div class="progress-bar__slider"></div>
+        </div>
       </div>
       <br>
-      <div class="progress-bar progress-bar--secondary">
-        <div class="progress-bar__bar"></div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--secondary">
+          <div class="progress-bar__slider"></div>
+        </div>
       </div>
       <br>
-      <div class="progress-bar progress-bar--success-to-danger">
-        <div class="progress-bar__bar"></div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--success-to-danger">
+          <div class="progress-bar__slider"></div>
+        </div>
       </div>
 
     </div>
@@ -112,13 +120,17 @@
     <div class="col-sm-10">
       
       <p>Small</p>
-      <div class="progress-bar progress-bar--primary progress-bar--sm">
-        <div class="progress-bar__bar"></div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--primary progress-bar--sm">
+          <div class="progress-bar__slider"></div>
+        </div>
       </div>
       <br>
       <p>Default</p>
-      <div class="progress-bar progress-bar--secondary">
-        <div class="progress-bar__bar"></div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--secondary">
+          <div class="progress-bar__slider"></div>
+        </div>
       </div>
 
     </div>
@@ -134,16 +146,20 @@
     <div class="col-sm-10">
       
       <p>Small size with label</p>
-      <div class="progress-bar progress-bar--primary progress-bar--sm">
-        <div class="progress-bar__bar">
-          <div class="progress-bar__bar__label">0%</div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--primary progress-bar--sm">
+          <div class="progress-bar__slider">
+            <div class="progress-bar__slider__label">0%</div>
+          </div>
         </div>
       </div>
       <br>
       <p>Default size with label</p>
-      <div class="progress-bar progress-bar--secondary">
-        <div class="progress-bar__bar">
-          <div class="progress-bar__bar__label">0%</div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar progress-bar--secondary">
+          <div class="progress-bar__slider">
+            <div class="progress-bar__slider__label">0%</div>
+          </div>
         </div>
       </div>
 
@@ -210,12 +226,12 @@
           var position = Math.floor(Math.random()*100);
           if(position<4) { position = 4; }
           // add % to label
-          if($(this).find('.progress-bar__bar__label').length > 0) {
-            $(this).find('.progress-bar__bar__label').html(position+'%');
+          if($(this).find('.progress-bar__slider__label').length > 0) {
+            $(this).find('.progress-bar__slider__label').html(position+'%');
           }
           // position bar
-          $(this).find('.progress-bar__bar').css('transform','translateX('+position+'%)'); 
-          $(this).find('.progress-bar__bar').css('-webkit-transform','translateX('+position+'%)');
+          $(this).find('.progress-bar__slider').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress-bar__slider').css('-webkit-transform','translateX('+position+'%)');
         });
 
 
@@ -225,14 +241,14 @@
           var offset = $(this).offset(),
               position = Math.floor((e.pageX - offset.left)/$(this).width()*100) + 1;
           // check for label
-          if($(this).find('.progress-bar__bar__label').length > 0) {
+          if($(this).find('.progress-bar__slider__label').length > 0) {
             // add % to label
-            $(this).find('.progress-bar__bar__label').html(position+'%');
+            $(this).find('.progress-bar__slider__label').html(position+'%');
             if (position < 3 ) { position = 3; }
           }
           // position bar
-          $(this).find('.progress-bar__bar').css('transform','translateX('+position+'%)'); 
-          $(this).find('.progress-bar__bar').css('-webkit-transform','translateX('+position+'%)');
+          $(this).find('.progress-bar__slider').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress-bar__slider').css('-webkit-transform','translateX('+position+'%)');
         });
 
 

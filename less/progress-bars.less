@@ -7,16 +7,23 @@
 // -------------------------
 
 
-.progress-bar {
-  backface-visibility: hidden;
-  background-clip: padding-box;
-  background-size: cover;
+// This wrapper class doesn't follow BEM b/c it is a utility at this point
+.progress-bar-wrapper {
+  //backface-visibility: hidden;
   border-radius: @progress-bar-radius;
+  overflow: hidden;
+  transform: translateZ(0); // Chrome overflow bug fix - trigger hardware acceleration
+}
+
+.progress-bar {
+  //backface-visibility: hidden;
+  //background-clip: padding-box;
+  background-size: cover;
   box-shadow: @progress-bar-inset-shadow;
   height: @progress-bar-height;
-  overflow: hidden;
   position: relative;
-  transform: translateZ(0); // Chrome overflow bug fix - trigger hardware acceleration
+  transform: translateZ(0); // Firefox overflow bug - trigger hardware acceleration
+  
 }
 
 
@@ -43,22 +50,22 @@
 .progress-bar--sm {
   height: @progress-bar-height-sm;
 
-  .progress-bar__bar {
+  .progress-bar__slider {
     height: @progress-bar-height-sm;
   }
 
-  .progress-bar__bar__label {
+  .progress-bar__slider__label {
     font-size: 1.1rem;
   }
 }
 
 
 // -------------------------
-// Progress Bar - Bar
+// Progress Bar Slider
 // -------------------------
 
 
-.progress-bar__bar {
+.progress-bar__slider {
   background: @gray-lighter;
   backface-visibility: hidden;
   box-shadow: @progress-bar-inset-shadow;
@@ -68,11 +75,11 @@
 
 
 // -------------------------
-// Progress Bar - Bar Label
+// Progress Bar Slider Label
 // -------------------------
 
 
-.progress-bar__bar__label {
+.progress-bar__slider__label {
   color: @white;
   cursor: default;
   padding: 0 @padding-xsmall;

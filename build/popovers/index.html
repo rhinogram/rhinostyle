@@ -139,12 +139,12 @@
           var position = Math.floor(Math.random()*100);
           if(position<4) { position = 4; }
           // add % to label
-          if($(this).find('.progress-bar__bar__label').length > 0) {
-            $(this).find('.progress-bar__bar__label').html(position+'%');
+          if($(this).find('.progress-bar__slider__label').length > 0) {
+            $(this).find('.progress-bar__slider__label').html(position+'%');
           }
           // position bar
-          $(this).find('.progress-bar__bar').css('transform','translateX('+position+'%)'); 
-          $(this).find('.progress-bar__bar').css('-webkit-transform','translateX('+position+'%)');
+          $(this).find('.progress-bar__slider').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress-bar__slider').css('-webkit-transform','translateX('+position+'%)');
         });
 
 
@@ -154,14 +154,14 @@
           var offset = $(this).offset(),
               position = Math.floor((e.pageX - offset.left)/$(this).width()*100) + 1;
           // check for label
-          if($(this).find('.progress-bar__bar__label').length > 0) {
+          if($(this).find('.progress-bar__slider__label').length > 0) {
             // add % to label
-            $(this).find('.progress-bar__bar__label').html(position+'%');
+            $(this).find('.progress-bar__slider__label').html(position+'%');
             if (position < 3 ) { position = 3; }
           }
           // position bar
-          $(this).find('.progress-bar__bar').css('transform','translateX('+position+'%)'); 
-          $(this).find('.progress-bar__bar').css('-webkit-transform','translateX('+position+'%)');
+          $(this).find('.progress-bar__slider').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress-bar__slider').css('-webkit-transform','translateX('+position+'%)');
         });
 
 
