@@ -9,6 +9,7 @@
 
 .progress-bar {
   background-clip: padding-box;
+  backface-visibility: hidden;
   border-radius: @progress-bar-radius;
   box-shadow: @progress-bar-inset-shadow;
   height: @progress-bar-height;
@@ -40,6 +41,11 @@
 
 .progress-bar--sm {
   height: @progress-bar-height-sm;
+
+  .progress-bar__bar {
+    height: @progress-bar-height-sm;
+  }
+
   .progress-bar__bar__label {
     font-size: 1.1rem;
   }
@@ -53,12 +59,9 @@
 
 .progress-bar__bar {
   background: @gray-lighter;
-  bottom: 0;
+  backface-visibility: hidden;
   box-shadow: @progress-bar-inset-shadow;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  height: @progress-bar-height;
   transition: transform 500ms ease-out;
 }
 
