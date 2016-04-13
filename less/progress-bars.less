@@ -8,6 +8,7 @@
 
 
 .progress-bar {
+  background-clip: padding-box;
   border-radius: @progress-bar-radius;
   box-shadow: @progress-bar-inset-shadow;
   height: @progress-bar-height;
@@ -22,9 +23,9 @@
 // -------------------------
 
 
-.progress-bar--default { background-color: @gray-light; }
-.progress-bar--primary { background-color: @brand-primary; }
-.progress-bar--secondary { background-color: @brand-secondary; }
+.progress-bar--default { background: @gray-light; }
+.progress-bar--primary { background: @brand-primary; }
+.progress-bar--secondary { background: @brand-secondary; }
 
 .progress-bar--success-to-danger {
   @crazyprogress: @brand-success, @brand-warning 75%, @brand-danger;
@@ -51,7 +52,7 @@
 
 
 .progress-bar__bar {
-  background-color: @gray-lighter;
+  background: @gray-lighter;
   bottom: 0;
   box-shadow: @progress-bar-inset-shadow;
   left: 0;
