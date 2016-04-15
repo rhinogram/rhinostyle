@@ -880,6 +880,7 @@ input[type="button"].btn--block {
 }
 .btn--accent {
   background-color: #FFA573;
+  border-color: #FFA573;
   color: #ffffff;
 }
 .btn--accent:focus {
@@ -936,6 +937,7 @@ fieldset[disabled] .btn--accent.active {
 }*/
 .btn--default {
   background-color: #ececec;
+  border-color: #d2d2d2;
   color: #6c6c6c;
 }
 .btn--default:focus {
@@ -992,6 +994,7 @@ fieldset[disabled] .btn--default.active {
 }*/
 .btn--primary {
   background-color: #4078BE;
+  border-color: #4078BE;
   color: #ffffff;
 }
 .btn--primary:focus {
@@ -1045,6 +1048,7 @@ fieldset[disabled] .btn--primary.active {
 }
 .btn--secondary {
   background-color: #41D6C3;
+  border-color: #41D6C3;
   color: #ffffff;
 }
 .btn--secondary:focus {
