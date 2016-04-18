@@ -1150,6 +1150,9 @@ fieldset[disabled] .btn--link:focus {
   color: #d2d2d2;
   text-decoration: none;
 }
+.btn--link.btn--icon {
+  text-decoration: none;
+}
 .btn--accent-outline {
   background-color: transparent;
   border-color: #FFA573;
