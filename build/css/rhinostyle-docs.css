@@ -1422,17 +1422,28 @@ button.notify__close {
 .open > a {
   outline: 0;
 }
-/*.dropdown--block {
+.dropdown--block {
   display: block;
-  > .btn {
-    display: block;
-    text-align: left;
-    width: 100%;
-    > [class^="caret-"],[class*=" caret-"] {
-      float: right;
-    }
-  }
-}*/
+}
+.dropdown--block .dropdown__toggle {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  width: 100%;
+  /*> [class^="caret-"],[class*=" caret-"] {
+      margin-left: auto;
+    }*/
+}
+.dropdown--block .dropdown__menu {
+  width: 100%;
+}
 .dropdown__header {
   color: #d2d2d2;
   display: block;
