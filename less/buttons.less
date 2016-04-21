@@ -97,9 +97,9 @@ input[type="button"] {
 // -------------------------
 
 
-.btn--accent {
+/*.btn--accent {
   .button-variant(@btn-accent-color; @btn-accent-bg; @btn-accent-border);
-}
+}*/
 
 /*.btn--danger {
   .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
@@ -183,7 +183,7 @@ input[type="button"] {
   &:focus {
     background-color: transparent;
     color: @link-hover-color;
-    text-decoration: @link-hover-decoration;
+    text-decoration: none;
   }
 
   &[disabled],
@@ -208,20 +208,12 @@ input[type="button"] {
 // -------------------------
 
 
-.btn--accent-outline {
-  .button-outline-variant(@brand-accent; transparent; @brand-accent; @white);
-}
-
 .btn--default-outline {
   .button-outline-variant(@btn-default-outline-color; transparent; @btn-default-outline-border; @white);
 }
 
 .btn--primary-outline {
   .button-outline-variant(@brand-primary; transparent; @brand-primary; @white);
-}
-
-.btn--secondary-outline {
-  .button-outline-variant(@brand-secondary; transparent; @brand-secondary; @white);
 }
 
 
