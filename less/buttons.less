@@ -39,7 +39,7 @@
   &:active,
   &.active {
     background-image: none;
-    box-shadow: inset 0 .3rem .5rem rgba(0,0,0,.125);
+    box-shadow: inset 0 -.2rem 0rem rgba(0,0,0,.25);
     outline: 0;
   }
 
@@ -109,12 +109,20 @@ input[type="button"] {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border; 6%);
 }
 
+.btn--default-outline {
+  .button-outline-variant(@btn-default-outline-color; transparent; @btn-default-outline-border; @white);
+}
+
 /*.btn--info {
   .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
 }*/
 
 .btn--primary {
   .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+.btn--primary-outline {
+  .button-outline-variant(@brand-primary; transparent; @brand-primary; @white);
 }
 
 .btn--secondary {
@@ -128,6 +136,7 @@ input[type="button"] {
 /*.btn--warning {
   .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
 }*/
+
 
 
 // -------------------------
@@ -198,22 +207,6 @@ input[type="button"] {
   &.btn--icon {
     text-decoration: none;
   }
-}
-
-
-
-
-// -------------------------
-// Button Modifiers (Sizes)
-// -------------------------
-
-
-.btn--default-outline {
-  .button-outline-variant(@btn-default-outline-color; transparent; @btn-default-outline-border; @white);
-}
-
-.btn--primary-outline {
-  .button-outline-variant(@brand-primary; transparent; @brand-primary; @white);
 }
 
 
