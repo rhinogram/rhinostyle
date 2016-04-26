@@ -792,8 +792,8 @@ a.u-text-warning:hover,
   background: url("../animation/sprite.svg") 0 0 no-repeat;
   background-color: #0987cd;
   background-size: cover;
-  width: 760px;
-  height: 880px;
+  display: block;
+  padding-top: 115.8%;
 }
 .btn {
   background-image: none;
