@@ -35,7 +35,12 @@ var paths =  {
     'src': 'less/**/*.less',
     'dist': 'dist/css/'
   },
-  'svg': {
+  'svg_animations': {
+    'src': 'animation/*.svg',
+    'dist': 'dist/animation/',
+    'build': 'build/animation/'
+  },
+  'svg_icons': {
     'src': 'svg/*.svg',
     'dist': 'dist/svg/',
     'build': 'build/svg/'
@@ -54,6 +59,7 @@ nunjucks.configure('templates/', {watch: false});
 // -------------------------------------------------
 // --------------------- TASKS ---------------------
 // -------------------------------------------------
+
 
 
 // Browser-Sync
@@ -144,12 +150,46 @@ gulp.task('styles_docs', function() {
 });
 
 
-// SVG Icons
-gulp.task('svgicons', function () {
-  return gulp.src(paths.svg.src)
+// SVG Animations
+gulp.task('svg_animations', function () {
+  return gulp.src(paths.svg_animations.src)
     .pipe(gulp_imagemin())
-    .pipe(gulp.dest(paths.svg.dist))
-    .pipe(gulp.dest(paths.svg.build))
+    .pipe(gulp.dest(paths.svg_animations.dist))
+    .pipe(gulp.dest(paths.svg_animations.build))
+    .pipe(gulp_svg_sprite({
+      'shape': {
+        'id': {
+          'generator': 'icon-'
+        }
+      },
+      'mode': {
+        'css': {
+          'dest': '',
+          'example': true,
+          'bust': false,
+          'sprite': 'sprite.svg',
+          'layout': 'horizontal'
+        }
+      },
+      'svg': {
+        'xmlDeclaration': false,
+        'doctypeDeclaration': false,
+        'dimensionAttributes': false
+      }
+    }))
+    .pipe(gulp.dest(paths.svg_animations.dist)) // distribution
+    .pipe(gulp.dest(paths.svg_animations.build)) // build docs
+    .pipe(gulp_duration('building svg animations'))
+    .pipe(reload({stream:true}));
+});
+
+
+// SVG Icons
+gulp.task('svg_icons', function () {
+  return gulp.src(paths.svg_icons.src)
+    .pipe(gulp_imagemin())
+    .pipe(gulp.dest(paths.svg_icons.dist))
+    .pipe(gulp.dest(paths.svg_icons.build))
     .pipe(gulp_svg_sprite({
       'shape': {
         'id': {
@@ -169,8 +209,8 @@ gulp.task('svgicons', function () {
         'dimensionAttributes': false
       }
     }))
-    .pipe(gulp.dest(paths.svg.dist)) // distribution
-    .pipe(gulp.dest(paths.svg.build)) // build docs
+    .pipe(gulp.dest(paths.svg_icons.dist)) // distribution
+    .pipe(gulp.dest(paths.svg_icons.build)) // build docs
     .pipe(gulp_duration('building svg icons'))
     .pipe(reload({stream:true}));
 });
@@ -182,7 +222,8 @@ gulp.task('server', ['browser-sync'], function() {
   gulp.watch(paths.js.src, ['js']);
   gulp.watch(paths.styles.src, ['styles']);
   gulp.watch(paths.styles_docs.src, ['styles_docs']);
-  gulp.watch(paths.svg.src, ['svgicons']);
+  gulp.watch(paths.svg_animations.src, ['svg_animations']);
+  gulp.watch(paths.svg_icons.src, ['svg_icons']);
   gulp.watch(['src/**/*', 'templates/**/*'], ['metalsmith']).on('change', function() {
     force_build = true;
   });
@@ -196,7 +237,7 @@ gulp.task('website', function () {
 
 
 // Default
-gulp.task('default', ['metalsmith', 'js', 'styles', 'svgicons', 'styles_docs']);
+gulp.task('default', ['metalsmith', 'js', 'styles', 'svg_animations', 'svg_icons', 'styles_docs']);
 
 
 

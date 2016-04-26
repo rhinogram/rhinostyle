@@ -788,6 +788,13 @@ a.u-text-warning:hover,
 @tooltip-color:               @white;
 @tooltip-opacity:             .9;
 @tooltip-max-width:           200px;*/
+.rhino-animation {
+  background: url("../animation/sprite-9d59623f.svg") 0 0 no-repeat;
+  background-color: #0987cd;
+  background-size: cover;
+  width: 760px;
+  height: 880px;
+}
 .btn {
   background-image: none;
   border: 1px solid transparent;
