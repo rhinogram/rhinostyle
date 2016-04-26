@@ -36,9 +36,9 @@ var paths =  {
     'dist': 'dist/css/'
   },
   'svg_animations': {
-    'src': 'animation/*.svg',
-    'dist': 'dist/animation/',
-    'build': 'build/animation/'
+    'src': 'svg_animation/*.svg',
+    'dist': 'dist/svg_animation/',
+    'build': 'build/svg_animation/'
   },
   'svg_icons': {
     'src': 'svg/*.svg',
