@@ -8,13 +8,20 @@
 
 
 .rhino-animation {
-  background: url("../animation/sprite.svg") 0 0 no-repeat;
-  background-color: #0987cd;
+  background-color: @brand-primary;
+  background-image: url("../animation/sprite.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
   background-size: cover;
   display: block;
-  padding-top: 115.8%; // top padding = (h / w) * 100 
+  max-width: 760px;
+  position: relative;
   //height: 880px;
   //width: 760px;
+  &::before {
+
+    content: "";
+    display: block;
+    padding-top: 115.79%; // top padding = (h / w) * 100 
+  }
 }
-
-

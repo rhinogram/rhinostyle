@@ -789,11 +789,19 @@ a.u-text-warning:hover,
 @tooltip-opacity:             .9;
 @tooltip-max-width:           200px;*/
 .rhino-animation {
-  background: url("../animation/sprite.svg") 0 0 no-repeat;
-  background-color: #0987cd;
+  background-color: #0081c6;
+  background-image: url("../animation/sprite.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
   background-size: cover;
   display: block;
-  padding-top: 115.8%;
+  max-width: 760px;
+  position: relative;
+}
+.rhino-animation::before {
+  content: "";
+  display: block;
+  padding-top: 115.79%;
 }
 .btn {
   background-image: none;

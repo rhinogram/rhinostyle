@@ -179,6 +179,21 @@
         });
 
 
+        // animation testing
+
+        var totalFrames = 51,
+            speed = 3,
+            rhinoEase = new SteppedEase(totalFrames),
+            finalPosition = '100% 0px';
+
+        var rhinoTL = new TimelineMax()
+        rhinoTL.to('.rhino-animation', speed, {
+            backgroundPosition: finalPosition,
+            ease: rhinoEase,
+            repeat: -1
+        })
+
+
       });
     </script>
   </body>
