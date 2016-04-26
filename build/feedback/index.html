@@ -10,8 +10,10 @@
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400"> -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900' rel='stylesheet'>
     <link href="../css/rhinostyle-docs.css" rel="stylesheet" >
+    <script src="../scripts/vendor.bundle.js"></script>
   </head>
   <body>
+
 <nav id="site-navigation" class="site-navigation">
       
     <ul class="site-navigation__nav">
@@ -148,13 +150,11 @@
   </main>
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script src="../js/rhinostyle-docs.js"></script>
+    <script src="../scripts/rhinostyle.js"></script>
+    <script src="../scripts/rhinostyle-docs.js"></script>
     <script>
-      
       $(document).ready(function() {
-          
         function loop() {
-
           // nav toggling below 1200px
           if(window.matchMedia("(max-width: 1199px)").matches) {
             $('html').removeClass('navigation-is-locked');
@@ -178,9 +178,7 @@
 
         loop();
 
-
         // Handle active navigation
-
         var split = (document.location.hostname == "localhost") ? 1:2;
 
         var navLocation = location.pathname.split("/")[split];
@@ -191,9 +189,7 @@
           $('.site-navigation__nav a[href=""').addClass('active');
         }
 
-
         // SVG loader
-
         boomsvgloader.load('../svg/sprite.svg');
 
 
@@ -233,4 +229,5 @@
     </script>
   </body>
   </html>
+
 

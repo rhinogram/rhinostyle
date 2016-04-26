@@ -2444,7 +2444,7 @@ fieldset[disabled] .rhinodio label {
 }
 .rhinobox input:checked + label::before {
   background-color: #41D6C3;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("../dist/svg/checkmark.svg");
   background-repeat: no-repeat;
   background-position: center .1rem;
   background-size: 1.2rem 1.2rem;
@@ -2528,7 +2528,7 @@ fieldset[disabled] .rhinodio label {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 1.4rem;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M12%2019.5c-.294%200-.573-.13-.763-.354l-11-13a1%201%200%200%201%201.526-1.292L12%2016.952%2022.237%204.854a1%201%200%201%201%201.526%201.291l-11%2013A.997.997%200%200%201%2012%2019.5z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("../dist/svg/chevron-down.svg");
 }
 /*.rhinoselect--default {
   &::after {
