@@ -158,8 +158,8 @@ gulp.task('svg_animations', function () {
     .pipe(gulp.dest(paths.svg_animations.build))
     .pipe(gulp_svg_sprite({
       'shape': {
-        'id': {
-          'generator': 'icon-'
+        'spacing': {
+          'box': 'content',
         }
       },
       'mode': {
