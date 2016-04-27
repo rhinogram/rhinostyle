@@ -325,11 +325,11 @@ a[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }
-img {
+/*img {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
-}
+}*/
 [role="button"] {
   cursor: pointer;
 }
@@ -788,26 +788,45 @@ a.u-text-warning:hover,
 @tooltip-color:               @white;
 @tooltip-opacity:             .9;
 @tooltip-max-width:           200px;*/
-.rhino-animation {
-  background-color: #0081c6;
+/*.rhino-animation {
+  background-color: @brand-primary;
   background-image: url("../svg_animation/sprite.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
+  //background-size: cover;
   background-size: 5200% 100%;
   display: inline-block;
   position: relative;
   width: 200px;
+  //height: 880px;
+  //width: 760px;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 115.79%; // top padding = (h / w) * 100 
+  }
 }
-.rhino-animation::before {
-  content: "";
-  display: block;
-  padding-top: 115.79%;
-}
+
+
 .rhino-animation--md {
   width: 320px;
 }
+
 .rhino-animation--lg {
   width: 480px;
+}*/
+.rhino-animation {
+  background-color: #0081c6;
+  max-width: 480px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.rhino-animation__image {
+  height: 100%;
+  width: 5200%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .btn {
   background-image: none;

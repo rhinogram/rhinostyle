@@ -82,9 +82,11 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <div class="rhino-animation"></div>
-    <div class="rhino-animation rhino-animation--md"></div>
-    <div class="rhino-animation rhino-animation--lg"></div>
+    <div class="rhino-animation">
+    	<img class="rhino-animation__image" src="svg_animation/sprite.svg" alt="" />
+    </div>
+    <!-- <div class="rhino-animation rhino-animation--md"></div>
+    <div class="rhino-animation rhino-animation--lg"></div> -->
   </div>
 </div>
 
@@ -98,6 +100,8 @@
     <script>
       
       $(document).ready(function() {
+
+        
           
         function loop() {
 
@@ -123,19 +127,6 @@
         }
 
         loop();
-
-
-        // Handle active navigation
-
-        var split = (document.location.hostname == "localhost") ? 1:2;
-
-        var navLocation = location.pathname.split("/")[split];
-
-        if (navLocation) {
-          $('.site-navigation__nav a[href^="' + navLocation + '"]').addClass('active');
-        } else {
-          $('.site-navigation__nav a[href=""').addClass('active');
-        }
 
 
         // SVG loader
@@ -177,7 +168,7 @@
 
         // animation testing
 
-        var totalFrames = 51,
+        /*var totalFrames = 51,
             speed = 3,
             rhinoEase = new SteppedEase(totalFrames),
             finalPosition = '100% 0px';
@@ -186,7 +177,32 @@
         rhinoTL.to('.rhino-animation', speed, {
             backgroundPosition: finalPosition,
             ease: rhinoEase
-        })
+        })*/
+
+        var totalFrames = 51, // 52 total frames minus 1
+            speed = 3,
+            rhinoEase = new SteppedEase(totalFrames),
+            finalPosition = '-98.07%'; // total width of svg (39520) minus width of 1 frame (760) * 100
+
+        var rhinoTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoTL.to('.rhino-animation__image', speed, {
+          x: finalPosition,
+          ease: rhinoEase,
+          roundProps: 'x' // not working
+        });
+
+
+        // Handle active navigation
+
+        var split = (document.location.hostname == "localhost") ? 1:2;
+
+        var navLocation = location.pathname.split("/")[split];
+
+        if (navLocation) {
+          $('.site-navigation__nav a[href^="' + navLocation + '"]').addClass('active');
+        } else {
+          $('.site-navigation__nav a[href=""').addClass('active');
+        }
 
 
       });

@@ -7,7 +7,7 @@
 // -------------------------
 
 
-.rhino-animation {
+/*.rhino-animation {
   background-color: @brand-primary;
   background-image: url("../svg_animation/sprite.svg");
   background-position: 0 0;
@@ -33,4 +33,22 @@
 
 .rhino-animation--lg {
   width: 480px;
+}*/
+
+
+.rhino-animation {
+  background-color: @brand-primary;
+  max-width: 480px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.rhino-animation__image {
+  height: 100%;
+  //left: 0;
+  //position: absolute;
+  //top: 0;
+  width: 5200%; // total frames * 100
+  backface-visibility: hidden;
 }
