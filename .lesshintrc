@@ -1,0 +1,25 @@
+{
+    "depthLevel": {
+      "enabled": true,
+      "depth": 3
+    },
+    "qualifyingElement": {
+        "enabled": false,
+        "allowWithId": false,
+        "allowWithClass": false,
+        "allowWithAttribute": false
+    },
+    "selectorNaming": {
+        "enabled": true,
+        "disallowUppercase": true,
+        "disallowUnderscore": false
+    },
+    "idSelector": {
+        "enabled": false,
+        "exclude": []
+    },
+    "zeroUnit": {
+        "enabled": false,
+        "style": "keep_unit"
+    }
+}

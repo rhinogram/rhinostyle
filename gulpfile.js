@@ -11,6 +11,7 @@ var browser_sync      = require('browser-sync'),
     gulp_ghpages      = require('gulp-gh-pages'),
     gulp_imagemin     = require('gulp-imagemin'),
     gulp_less         = require('gulp-less'),
+    gulp_lesshint     = require('gulp-lesshint'),
     gulp_svg_sprite   = require('gulp-svg-sprite'),
     gulp_uglify       = require('gulp-uglify');
     Metalsmith        = require('metalsmith'),
@@ -150,8 +151,16 @@ gulp.task('styles_docs', function() {
 });
 
 
+// Style Linting
+gulp.task('styles_lint', function() {
+  return gulp.src('less/dropdowns.less')
+    .pipe(gulp_lesshint())
+    .pipe(gulp_lesshint.reporter());
+});
+
+
 // SVG Animations
-gulp.task('svg_animations', function () {
+gulp.task('svg_animations', function() {
   return gulp.src(paths.svg_animations.src)
     .pipe(gulp_imagemin())
     .pipe(gulp.dest(paths.svg_animations.dist))
@@ -185,7 +194,7 @@ gulp.task('svg_animations', function () {
 
 
 // SVG Icons
-gulp.task('svg_icons', function () {
+gulp.task('svg_icons', function() {
   return gulp.src(paths.svg_icons.src)
     .pipe(gulp_imagemin())
     .pipe(gulp.dest(paths.svg_icons.dist))
@@ -230,7 +239,7 @@ gulp.task('server', ['browser-sync'], function() {
 });
 
 // Website
-gulp.task('website', function () {
+gulp.task('website', function() {
   return gulp.src('./build/**/*')
     .pipe(gulp_ghpages());
 });

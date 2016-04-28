@@ -15,6 +15,7 @@
     "gulp-gh-pages": "0.5.4",
     "gulp-imagemin": "^2.4.0",
     "gulp-less": "^3.0.3",
+    "gulp-lesshint": "^1.1.0",
     "gulp-svg-sprite": "^1.2.19",
     "gulp-uglify": "^1.4.2",
     "metalsmith": "^2.1.0",
@@ -25,7 +26,9 @@
     "metalsmith-layouts": "^1.5.4",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-rootpath": "^0.1.7",
-    "nunjucks": "^2.3.0"
+    "nunjucks": "^2.3.0",
+    "stylelint": "^6.2.2",
+    "stylelint-config-standard": "^6.0.0"
   },
   "files": [
     "README.md",

@@ -1,5 +1,5 @@
 // File: animations.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -7,47 +7,14 @@
 // -------------------------
 
 
-/*.rhino-animation {
-  background-color: @brand-primary;
-  background-image: url("../svg_animation/sprite.svg");
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  //background-size: cover;
-  background-size: 5200% 100%;
-  display: inline-block;
-  position: relative;
-  width: 200px;
-  //height: 880px;
-  //width: 760px;
-  &::before {
-    content: "";
-    display: block;
-    padding-top: 115.79%; // top padding = (h / w) * 100 
-  }
-}
-
-
-.rhino-animation--md {
-  width: 320px;
-}
-
-.rhino-animation--lg {
-  width: 480px;
-}*/
-
-
 .rhino-animation {
   background-color: @brand-primary;
-  max-width: 480px;
+  max-width: 4.8rem;
   overflow: hidden;
   position: relative;
 }
 
 .rhino-animation__image {
   height: 100%;
-  //left: 0;
-  //position: absolute;
-  //top: 0;
   width: 5200%; // total frames * 100
-  backface-visibility: hidden;
 }
