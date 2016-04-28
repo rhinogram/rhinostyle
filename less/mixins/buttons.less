@@ -14,13 +14,13 @@
 
   &:focus {
     background-color: darken(@background, @darken);
-    //border-color: darken(@border, 25%);
+    border-color: darken(@border, @darken);
     color: @color;
   }
 
   &:hover {
     background-color: darken(@background, @darken);
-    //border-color: darken(@border, 12%);
+    border-color: darken(@border, @darken);
     color: @color;
   }
 
@@ -28,13 +28,13 @@
   &.active,
   .open > .dropdown__toggle& {
     background-color: darken(@background, @darken);
-    //border-color: darken(@border, 12%);
+    border-color: darken(@border, @darken);
     color: @color;
 
     &:hover,
     &:focus {
       background-color: darken(@background, @darken);
-      //border-color: darken(@border, 25%);
+      border-color: darken(@border, @darken);
       color: @color;
     }
   }

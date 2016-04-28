@@ -7,8 +7,8 @@
 // -------------------------
 
 
-// .modal-open      - body class for killing the scroll
-// .modal           - container to scroll within
+// .modal-open       - body class for killing the scroll
+// .modal            - container to scroll within
 // .modal__dialog    - positioning shell for the actual modal
 // .modal__content   - actual modal w/ bg and corners and shit
 
@@ -31,12 +31,12 @@
   -webkit-overflow-scrolling: touch;
 
   &.fade .modal__dialog {
-    transform:  scale(1.15);
+    //transform:  scale(1.15);
     transition: transform 100ms @modal-easing;
   }
 
   &.in .modal__dialog {
-    transform:  scale(1);
+    //transform:  scale(1);
     transition: transform 300ms @modal-easing;
   }
 }
@@ -46,12 +46,24 @@
   overflow-y: auto;
 }
 
+
+// -------------------------
+// Modal Dialog
+// -------------------------
+
+
 // Shell div to position the modal with bottom padding
 .modal__dialog {
-  position: relative;
   margin: @margin-medium;
+  position: relative;
   width: auto;
 }
+
+
+// -------------------------
+// Modal Content
+// -------------------------
+
 
 // Actual modal
 .modal__content {
@@ -59,10 +71,16 @@
   background-color: @modal-content-bg;
   border: 1px solid @modal-content-border-color;
   border-radius: @border-radius-large;
-  box-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.5);
+  box-shadow: @shadow-depth-3;
   outline: 0;
   position: relative;
 }
+
+
+// -------------------------
+// Modal Backdrop
+// -------------------------
+
 
 // Modal background
 .modal__backdrop {
@@ -84,6 +102,12 @@
   }
 }
 
+
+// -------------------------
+// Modal Header
+// -------------------------
+
+
 .modal__header {
   border-bottom: 1px solid @modal-header-border-color;
   min-height: (@modal-title-padding + @modal-title-line-height);
@@ -100,14 +124,26 @@
   margin: 0;
 }
 
+
+// -------------------------
+// Modal Body
+// -------------------------
+
+
 .modal__body {
   padding: @modal-inner-padding;
   position: relative;
 }
 
+
+// -------------------------
+// Modal Footer
+// -------------------------
+
+
 .modal__footer {
-  &:extend(.u-clearfix all);
-  border-top: 1px solid @modal-footer-border-color;
+  //&:extend(.u-clearfix all);
+  //border-top: 1px solid @modal-footer-border-color;
   padding: @modal-inner-padding;
   text-align: right;
 
@@ -128,6 +164,12 @@
   }
 }
 
+
+// -------------------------
+// Modal Scrollbar Measure
+// -------------------------
+
+
 // Measure scrollbar width for padding body during modal show/hide
 .modal-scrollbar-measure {
   height: 5.0rem;
@@ -137,6 +179,12 @@
   width: 5.0rem;
 }
 
+
+// -------------------------
+// Modal Responsiveness
+// -------------------------
+
+
 // Scale up the modal
 @media (min-width: @screen-sm-min) {
   .modal__dialog {
@@ -144,17 +192,17 @@
     width: @modal-md;
   }
 
-  .modal__content {
+  /*.modal__content {
     box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.5);
-  }
+  }*/
   
-  .modal--sm {
+  .modal__dialog--sm {
     width: @modal-sm;
   }
 }
 
 @media (min-width: @screen-md-min) {
-  .modal--lg { 
+  .modal__dialog--lg { 
     width: @modal-lg;
   }
 }
