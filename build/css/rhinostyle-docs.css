@@ -315,9 +315,9 @@ a[disabled] {
 select:focus,
 a:focus,
 .btn:focus,
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus,
+input[type='file']:focus,
+input[type='radio']:focus,
+input[type='checkbox']:focus,
 .form__control:focus {
   border-color: #66afe9;
   box-shadow: inset 0 0 1px rgba(0,0,0,.075), 0 0 0.4rem rgba(102, 175, 233, 0.75);
@@ -1328,8 +1328,8 @@ button.notify__close {
   top: 0;
   z-index: 990;
 }
-[class^="col-"],
-[class*=" col-"] {
+[class^='col-'],
+[class*='col-'] {
   -webkit-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
@@ -1352,7 +1352,7 @@ button.notify__close {
   margin-left: -1.5rem;
   margin-right: -1.5rem;
 }
-.row [class*="col-"] {
+.row [class*='col-'] {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
@@ -1360,7 +1360,7 @@ button.notify__close {
   margin-left: -0.7rem;
   margin-right: -0.7rem;
 }
-.row--condensed [class*="col-"] {
+.row--condensed [class*='col-'] {
   padding-left: 0.7rem;
   padding-right: 0.7rem;
 }
@@ -2081,24 +2081,27 @@ label {
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
-input[type="search"] {
+input[type='search'] {
   box-sizing: border-box;
 }
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   line-height: normal;
   margin: 0.4rem 0 0;
 }
-input[type="file"] {
+input[type='file'] {
   display: block;
 }
-input[type="range"] {
+input[type='range'] {
   display: block;
   width: 100%;
 }
 select[multiple],
 select[size] {
   height: auto;
+}
+.form {
+  position: relative;
 }
 @media (min-width: 768px) {
   .form--inline .form__group {
@@ -2126,35 +2129,35 @@ select[size] {
   .form--inline .rhinodio,
   .form--inline .rhinobox {
     display: inline-block;
-    margin-top: 0;
     margin-bottom: 0;
+    margin-top: 0;
     vertical-align: middle;
   }
   .form--inline .rhinodio label,
   .form--inline .rhinobox label {
     padding-left: 0;
   }
-  .form--inline .rhinodio input[type="radio"],
-  .form--inline .rhinobox input[type="checkbox"] {
-    position: relative;
+  .form--inline .rhinodio input[type='radio'],
+  .form--inline .rhinobox input[type='checkbox'] {
     margin-left: 0;
+    position: relative;
   }
 }
 .form__control {
-  display: block;
+  -webkit-appearance: none;
   background-color: #ffffff;
   background-image: none;
   border: 1px solid #d2d2d2;
   border-radius: 0.4rem;
   color: #6c6c6c;
+  display: block;
   font-size: 1.6rem;
   height: 3.68571429rem;
   line-height: 1.42857143;
   padding: 0.6rem 1rem;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s, box-shadow cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s;
   vertical-align: middle;
   width: 100%;
-  -webkit-appearance: none;
 }
 .form__control[disabled],
 .form__control[readonly],
@@ -2213,14 +2216,14 @@ select[multiple].form__control--sm {
 .form__group {
   margin-bottom: 2.28571429rem;
 }
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: none;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime-local"],
-  input[type="month"] {
+  input[type='date'],
+  input[type='time'],
+  input[type='datetime-local'],
+  input[type='month'] {
     /*&.form__control--sm,
     .form__input-group__sm & {
       line-height: @input-height-small;
@@ -2231,10 +2234,10 @@ input[type="search"] {
       line-height: @input-height-large;
     }*/
   }
-  input[type="date"].form__control,
-  input[type="time"].form__control,
-  input[type="datetime-local"].form__control,
-  input[type="month"].form__control {
+  input[type='date'].form__control,
+  input[type='time'].form__control,
+  input[type='datetime-local'].form__control,
+  input[type='month'].form__control {
     line-height: 3.68571429rem;
   }
 }
@@ -2307,21 +2310,21 @@ input[type="search"] {
     padding: @padding-large-vertical @padding-large-horizontal;
   }
 }*/
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"].disabled,
-input[type="checkbox"].disabled,
-fieldset[disabled] input[type="radio"],
-fieldset[disabled] input[type="checkbox"] {
+input[type='radio'][disabled],
+input[type='checkbox'][disabled],
+input[type='radio'].disabled,
+input[type='checkbox'].disabled,
+fieldset[disabled] input[type='radio'],
+fieldset[disabled] input[type='checkbox'] {
   cursor: not-allowed;
   opacity: 0.5;
 }
 .rhinobox,
 .rhinodio {
   display: block;
-  position: relative;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
+  position: relative;
 }
 .rhinobox label,
 .rhinodio label {
@@ -2350,15 +2353,15 @@ fieldset[disabled] .rhinodio label {
 .rhinobox input:checked + label::before {
   background-color: #41D6C3;
   background-image: url("../dist/svg/checkmark.svg");
+  background-position: center 0.1rem;
   background-repeat: no-repeat;
-  background-position: center .1rem;
   background-size: 1.2rem 1.2rem;
   border-color: #41D6C3;
 }
 .rhinobox label::before {
   background-color: #ffffff;
   border: 1px solid #d2d2d2;
-  content: "";
+  content: '';
   display: inline-block;
   height: 1.7rem;
   left: 0.5px;
@@ -2387,7 +2390,7 @@ fieldset[disabled] .rhinodio label {
   border: 0.2rem solid #ffffff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #d2d2d2;
-  content: "";
+  content: '';
   display: inline-block;
   height: 1.6rem;
   left: 0.2rem;
@@ -2407,13 +2410,13 @@ fieldset[disabled] .rhinodio label {
   vertical-align: middle;
 }
 .rhinoselect > select {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  padding-right: 3rem;
   -moz-appearance: none;
   -webkit-appearance: none;
+  cursor: pointer;
+  overflow: hidden;
+  padding-right: 3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rhinoselect > select::-ms-expand {
   background-color: transparent;
@@ -2421,10 +2424,10 @@ fieldset[disabled] .rhinodio label {
   display: none;
 }
 .rhinoselect::after {
-  background-repeat: no-repeat;
   background-position: center center;
+  background-repeat: no-repeat;
   background-size: 1.4rem 1.4rem;
-  content: "";
+  content: '';
   height: 1.4rem;
   pointer-events: none;
   position: absolute;
@@ -2437,7 +2440,7 @@ fieldset[disabled] .rhinodio label {
 }
 /*.rhinoselect--default {
   &::after {
-    .svg-bg-add-fill("@{svg-path}chevron-down.svg", red);
+    .svg-bg-add-fill('@{svg-path}chevron-down.svg', red);
   }
 }*/
 .rhinoselect--sm::after {
@@ -2476,6 +2479,14 @@ fieldset[disabled] .rhinodio label {
 .rhinoswitcher__input {
   display: none;
 }
+.rhinoswitcher__input:checked ~ .rhinoswitcher__label .rhinoswitcher__inner {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.rhinoswitcher__input:checked ~ .rhinoswitcher__label .rhinoswitcher__off::after {
+  -webkit-transform: translateX(-2.4rem);
+  transform: translateX(-2.4rem);
+}
 .rhinoswitcher__label {
   border-radius: 0.3rem;
   cursor: pointer;
@@ -2487,14 +2498,6 @@ fieldset[disabled] .rhinodio label {
   width: 100%;
   word-spacing: 0;
   z-index: 20;
-}
-.rhinoswitcher__input:checked ~ .rhinoswitcher__label .rhinoswitcher__inner {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-}
-.rhinoswitcher__input:checked ~ .rhinoswitcher__label .rhinoswitcher__off::after {
-  -webkit-transform: translateX(-2.4rem);
-  transform: translateX(-2.4rem);
 }
 .rhinoswitcher__off,
 .rhinoswitcher__on {
@@ -2521,20 +2524,20 @@ fieldset[disabled] .rhinodio label {
   z-index: 2;
 }
 .rhinoswitcher__off::after {
-  content: "";
+  content: '';
   background-color: #ffffff;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: 2rem;
   left: 0;
   margin: 0.2rem;
   position: absolute;
   text-align: center;
   top: 0;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
   width: 2rem;
   z-index: 10;
 }
@@ -2544,18 +2547,18 @@ fieldset[disabled] .rhinodio label {
 }
 .rhinoswitcher__toggler {
   background-color: #ffffff;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: 2rem;
   left: 0;
   margin: 0.2rem;
   position: absolute;
   text-align: center;
   top: 0;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
   width: 2rem;
   z-index: 10;
 }

@@ -1,5 +1,5 @@
 // File: forms.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -48,23 +48,23 @@ label {
 
 
 // Override content-box in Normalize (* isn't specific enough)
-input[type="search"] {
+input[type='search'] {
   box-sizing: border-box;
 }
 
 // Position radios and checkboxes better
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   line-height: normal;
   margin: @margin-xsmall 0 0;
 }
 
-input[type="file"] {
+input[type='file'] {
   display: block;
 }
 
 // Make range inputs behave like textual form controls
-input[type="range"] {
+input[type='range'] {
   display: block;
   width: 100%;
 }
@@ -76,9 +76,9 @@ select[size] {
 }
 
 // Focus for file, radio, and checkbox
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
+input[type='file']:focus,
+input[type='radio']:focus,
+input[type='checkbox']:focus {
   &:extend(.u-tab-focus);
 }
 
@@ -88,7 +88,9 @@ input[type="checkbox"]:focus {
 // -------------------------
 
 
-.form {}
+.form {
+  position: relative;
+}
 
 
 // -------------------------
@@ -100,7 +102,7 @@ input[type="checkbox"]:focus {
 
   // Kick in the inline
   @media (min-width: @screen-sm-min) {
-    // Inline-block all the things for "inline"
+    // Inline-block all the things for 'inline'
     .form__group {
       align-items: center;
       display: inline-flex;
@@ -131,18 +133,18 @@ input[type="checkbox"]:focus {
     .rhinodio,
     .rhinobox {
       display: inline-block;
-      margin-top: 0;
       margin-bottom: 0;
+      margin-top: 0;
       vertical-align: middle;
 
       label {
         padding-left: 0;
       }
     }
-    .rhinodio input[type="radio"],
-    .rhinobox input[type="checkbox"] {
-      position: relative;
+    .rhinodio input[type='radio'],
+    .rhinobox input[type='checkbox'] {
       margin-left: 0;
+      position: relative;
     }
 
   }
@@ -159,37 +161,37 @@ input[type="checkbox"]:focus {
 //
 // select
 // textarea
-// input[type="text"]
-// input[type="password"]
-// input[type="datetime"]
-// input[type="datetime-local"]
-// input[type="date"]
-// input[type="month"]
-// input[type="time"]
-// input[type="week"]
-// input[type="number"]
-// input[type="email"]
-// input[type="url"]
-// input[type="search"]
-// input[type="tel"]
-// input[type="color"]
+// input[type='text']
+// input[type='password']
+// input[type='datetime']
+// input[type='datetime-local']
+// input[type='date']
+// input[type='month']
+// input[type='time']
+// input[type='week']
+// input[type='number']
+// input[type='email']
+// input[type='url']
+// input[type='search']
+// input[type='tel']
+// input[type='color']
 
 
 .form__control {
-  display: block;
+  -webkit-appearance: none;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
   border-radius: @input-border-radius;
   color: @input-color;
+  display: block;
   font-size: @font-size-base;
   height: @input-height-base;
   line-height: @line-height-base;
   padding: @padding-base-vertical @padding-small-horizontal;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color @trans-timing-cubic 0.15s, box-shadow @trans-timing-cubic 0.15s;
   vertical-align: middle;
   width: 100%;
-  -webkit-appearance: none;
 
   &:focus {
     &:extend(.u-tab-focus);
@@ -267,7 +269,7 @@ input[type="checkbox"]:focus {
 // https://github.com/twbs/bootstrap/issues/11586.
 
 
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: none;
 }
 
@@ -286,10 +288,10 @@ input[type="search"] {
 
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime-local"],
-  input[type="month"] {
+  input[type='date'],
+  input[type='time'],
+  input[type='datetime-local'],
+  input[type='month'] {
     &.form__control {
       line-height: @input-height-base;
     }
@@ -409,8 +411,8 @@ input[type="search"] {
 // -------------------------
 
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type='radio'],
+input[type='checkbox'] {
   &[disabled],
   &.disabled,
   fieldset[disabled] & {
@@ -422,9 +424,9 @@ input[type="checkbox"] {
 .rhinobox,
 .rhinodio {
   display: block;
-  position: relative;
   margin-bottom: @margin-small;
   margin-top: @margin-small;
+  position: relative;
 
   label {
     cursor: pointer;
@@ -453,9 +455,9 @@ input[type="checkbox"] {
 
     &:checked+label::before {
       background-color: @form-element-color;
-      .svg-bg-add-fill("@{svg-path}checkmark.svg", @white);
+      .svg-bg-add-fill('@{svg-path}checkmark.svg', @white);
+      background-position: center 0.1rem;
       background-repeat: no-repeat;
-      background-position: center .1rem;
       background-size: 1.2rem 1.2rem;
       border-color: @form-element-color;
     }
@@ -465,7 +467,7 @@ input[type="checkbox"] {
     &::before {
       background-color: @white;
       border: 1px solid @border-color-base;
-      content: "";
+      content: '';
       display: inline-block;
       height: 1.7rem;
       left: 0.5px;
@@ -500,7 +502,7 @@ input[type="checkbox"] {
       border: 0.2rem solid @white;
       border-radius: 50%;
       box-shadow: 0 0 0 1px @border-color-base;
-      content: "";
+      content: '';
       display: inline-block;
       height: 1.6rem;
       left: 0.2rem;
@@ -511,7 +513,6 @@ input[type="checkbox"] {
       width: 1.6rem;
     }
   }
-  
 }
 
 .rhinobox--inline,
@@ -526,7 +527,7 @@ input[type="checkbox"] {
 // -------------------------
 
 
-// Must wrap select element with "rhinoselect" container in order to use ::after
+// Must wrap select element with 'rhinoselect' container in order to use ::after
 // pseudo element for chevron down.
 
 
@@ -536,12 +537,13 @@ input[type="checkbox"] {
   vertical-align: middle;
 
   > select {
-    .u-text-overflow;
-    cursor: pointer;
-    padding-right: 3rem;
-
     -moz-appearance: none;
     -webkit-appearance: none;
+    cursor: pointer;
+    overflow: hidden;
+    padding-right: 3rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &::-ms-expand {
       background-color: transparent;
@@ -551,10 +553,10 @@ input[type="checkbox"] {
   }
 
   &::after {
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
     background-size: 1.4rem 1.4rem;
-    content: "";
+    content: '';
     height: 1.4rem;
     pointer-events: none;
     position: absolute;
@@ -562,7 +564,7 @@ input[type="checkbox"] {
     top: 50%;
     transform: translateY(-50%);
     width: 1.4rem;
-    .svg-bg-add-fill("@{svg-path}chevron-down.svg", @text-color);
+    .svg-bg-add-fill('@{svg-path}chevron-down.svg', @text-color);
   }
 }
 
@@ -574,7 +576,7 @@ input[type="checkbox"] {
 
 /*.rhinoselect--default {
   &::after {
-    .svg-bg-add-fill("@{svg-path}chevron-down.svg", red);
+    .svg-bg-add-fill('@{svg-path}chevron-down.svg', red);
   }
 }*/
 
@@ -647,6 +649,16 @@ input[type="checkbox"] {
   display: none;
 }
 
+.rhinoswitcher__input:checked ~ .rhinoswitcher__label {
+  .rhinoswitcher__inner {
+    transform: translateX(0);
+  }
+
+  .rhinoswitcher__off::after {
+    transform: translateX(-@switcher-toggler-width - (@switcher-toggler-margin * 2));
+  }
+}
+
 
 // -------------------------
 // Rhinoswitcher Label
@@ -664,24 +676,17 @@ input[type="checkbox"] {
   width: 100%;
   word-spacing: 0;
   z-index: 20;
-  
-  .rhinoswitcher__input:checked ~ & {
-    .rhinoswitcher__inner {
-      transform: translateX(0);
-    }
-    
-    .rhinoswitcher__off::after {
-      transform: translateX(-@switcher-toggler-width - (@switcher-toggler-margin * 2));
-    }
-  }
 }
+
+
 
 
 // -------------------------
 // Rhinoswitcher On/Off
 // -------------------------
 
-.rhinoswitcher__off, .rhinoswitcher__on {
+.rhinoswitcher__off,
+.rhinoswitcher__on {
   align-items: center;
   color: @white;
   display: inline-flex;
@@ -700,7 +705,7 @@ input[type="checkbox"] {
   z-index: 2;
 
   &::after {
-    content: "";
+    content: '';
     .rhinoswitcher__toggler;
   }
 }
@@ -718,15 +723,15 @@ input[type="checkbox"] {
 
 .rhinoswitcher__toggler {
   background-color: @white;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: @switcher-toggler-height;
   left: 0;
   margin: @switcher-toggler-margin;
   position: absolute;
   text-align: center;
   top: 0;
-  transition: transform 250ms @trans-timing-cubic;
   transform: translateX(0);
+  transition: transform 250ms @trans-timing-cubic;
   width: @switcher-toggler-width;
   z-index: 10;
 }
