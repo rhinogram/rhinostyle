@@ -35,11 +35,18 @@ let force_build = true;
 
 nunjucks.configure('./src/templates', { watch: false });
 
+// -------------------------
+// All Tasks
+// -------------------------
 gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['animations', 'icons', 'dist:scripts', 'dist:styles']);
 gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
 
+
+// -------------------------
+// Animations
+// -------------------------
 gulp.task('animations', () => {
   const path = paths.animations;
 
@@ -74,6 +81,10 @@ gulp.task('animations', () => {
     .pipe(reload({ stream: true }));
 });
 
+
+// -------------------------
+// Browswer Sync
+// -------------------------
 gulp.task('browser-sync', () => {
   browserSync.init({
     server: {
@@ -82,6 +93,10 @@ gulp.task('browser-sync', () => {
   });
 });
 
+
+// -------------------------
+// Clean
+// -------------------------
 gulp.task('clean', () => {
   return del([
     './build/**/*',
@@ -89,6 +104,10 @@ gulp.task('clean', () => {
   ]);
 });
 
+
+// -------------------------
+// Dist Scripts
+// -------------------------
 gulp.task('dist:scripts', (callback) => {
   webpack(distConfig, (err, stats) => {
     if (err) {
@@ -107,6 +126,10 @@ gulp.task('dist:scripts', (callback) => {
   });
 });
 
+
+// -------------------------
+// Dist Styles
+// -------------------------
 gulp.task('dist:styles', () => {
   const path = paths.styles;
 
@@ -119,11 +142,19 @@ gulp.task('dist:styles', () => {
     .pipe(reload({ stream: true }));
 });
 
+
+// -------------------------
+// Docs Deploy
+// -------------------------
 gulp.task('dosc:deploy', function () {
   return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
 
+
+// -------------------------
+// Docs React
+// -------------------------
 gulp.task('docs:react', (callback) => {
   webpack(docsConfig, (err, stats) => {
     if (err) {
@@ -143,6 +174,10 @@ gulp.task('docs:react', (callback) => {
   });
 });
 
+
+// -------------------------
+// Docs Scripts
+// -------------------------
 gulp.task('docs:scripts', () => {
   const path = paths.scripts;
 
@@ -157,6 +192,10 @@ gulp.task('docs:scripts', () => {
     .pipe(reload({ stream: true }));
 });
 
+
+// -------------------------
+// Docs Serve
+// -------------------------
 gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   nunjucks.configure('./src/templates', { watch: true });
 
@@ -171,6 +210,10 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   });
 });
 
+
+// -------------------------
+// Docs Site
+// -------------------------
 gulp.task('docs:site', () => {
   const path = paths.metalsmith;
 
@@ -195,6 +238,10 @@ gulp.task('docs:site', () => {
   });
 });
 
+
+// -------------------------
+// Docs Styles
+// -------------------------
 gulp.task('docs:styles', () => {
   const path = paths.styles;
 
@@ -206,6 +253,10 @@ gulp.task('docs:styles', () => {
     .pipe(reload({ stream: true }));
 });
 
+
+// -------------------------
+// Icons
+// -------------------------
 gulp.task('icons', () => {
   const path = paths.icons;
 
@@ -238,8 +289,12 @@ gulp.task('icons', () => {
     .pipe(reload({ stream: true }));
 });
 
+
+// -------------------------
+// Style Linting
+// -------------------------
 gulp.task('styles:lint', () => {
-  return gulp.src('./src/less/dropdown.less')
+  return gulp.src('./src/less/list-groups.less')
     .pipe(lesshint())
     .pipe(lesshint.reporter());
 });
