@@ -11,6 +11,7 @@ import concat       from 'gulp-concat';
 import uglify       from 'gulp-uglify';
 import ghPages      from 'gulp-gh-pages';
 import gutil        from 'gulp-util';
+import lesshint     from 'gulp-lesshint';
 
 import webpack      from 'webpack';
 import browserSync  from 'browser-sync';
@@ -241,4 +242,10 @@ gulp.task('icons', () => {
     .pipe(gulp.dest(path.build))
     .pipe(duration('Built Icons'))
     .pipe(reload({ stream: true }));
+});
+
+gulp.task('styles:lint', () => {
+  return gulp.src('./src/less/dropdown.less')
+    .pipe(lesshint())
+    .pipe(lesshint.reporter());
 });

@@ -1,5 +1,5 @@
 // File: animations.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -8,12 +8,13 @@
 
 
 .rhino-animation {
-    background: url("../animation/sprite-9d59623f.svg") 0 0 no-repeat;
-    background-color: #0987cd;
-    background-size: cover;
-    width: 760px;
-    height: 880px;
+  background-color: @brand-primary;
+  max-width: 4.8rem;
+  overflow: hidden;
+  position: relative;
 }
 
-
-
+.rhino-animation__image {
+  height: 100%;
+  width: 5200%; // total frames * 100
+}

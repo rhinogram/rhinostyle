@@ -1,4 +1,4 @@
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="{{rootPath}}scripts/rhinostyle.js"></script>
     <script src="{{rootPath}}scripts/rhinostyle-docs.js"></script>
     <script>
@@ -41,9 +41,7 @@
         // SVG loader
         boomsvgloader.load('{{rootPath}}svg/sprite.svg');
 
-
         // progress bars - send to random position
-
         $('.progress-bar').each(function(){
           var position = Math.floor(Math.random()*100);
           if(position<4) { position = 4; }
@@ -58,7 +56,6 @@
 
 
         // progress bars - click progress bar to transition
-
         $(".progress-bar").on("click", function(e) {
           var offset = $(this).offset(),
               position = Math.floor((e.pageX - offset.left)/$(this).width()*100) + 1;
@@ -74,6 +71,41 @@
         });
 
 
+        // animation testing
+        /*var totalFrames = 51,
+            speed = 3,
+            rhinoEase = new SteppedEase(totalFrames),
+            finalPosition = '100% 0px';
+
+        var rhinoTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoTL.to('.rhino-animation', speed, {
+            backgroundPosition: finalPosition,
+            ease: rhinoEase
+        })*/
+
+        var totalFrames = 51, // 52 total frames minus 1
+            speed = 3,
+            rhinoEase = new SteppedEase(totalFrames),
+            finalPosition = '-98.07%'; // total width of svg (39520) minus width of 1 frame (760) * 100
+
+        var rhinoTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoTL.to('.rhino-animation__image', speed, {
+          x: finalPosition,
+          ease: rhinoEase,
+          roundProps: 'x' // not working
+        });
+
+
+        // Handle active navigation
+        var split = (document.location.hostname == "localhost") ? 1:2;
+
+        var navLocation = location.pathname.split("/")[split];
+
+        if (navLocation) {
+          $('.site-navigation__nav a[href^="{{rootPath}}' + navLocation + '"]').addClass('active');
+        } else {
+          $('.site-navigation__nav a[href=""').addClass('active');
+        }
       });
     </script>
   </body>
