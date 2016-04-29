@@ -13,10 +13,8 @@ const BookApp = React.createClass({
 
         <section className="site-section">
           <h3 className="site-subheadline">Button Tags</h3>
-          <Button label="Button" type="default" />
+          <Button label="Anchor" type="default" />
           <button className="btn btn--default" type="submit">Button</button>
-          <input className="btn btn--default"  value="Input" />
-          <input className="btn btn--default" type="submit" value="Submit" />
         </section>
 
         <section className="site-section">
@@ -138,4 +136,4 @@ const BookApp = React.createClass({
   }
 });
 
-render(<BookApp />, document.getElementById('js-button-app'));
+render(<BookApp />, document.getElementById('js-app'));

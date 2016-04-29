@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG CSS sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		<style>i{text-indent:200%;white-space:nowrap;overflow:hidden;display:inline-block}</style>
+		
+<!--
+	
+Sprite CSS
+====================================================================================================
+This is an all-in-one inline version of the CSS necessary to use the SVG sprite. 
+
+-->
+
+<style type="text/css">
+.svg-icon-flag01 {
+	background: url("sprite.svg") 0 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag02 {
+	background: url("sprite.svg") 1.9607843137254901% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag03 {
+	background: url("sprite.svg") 3.9215686274509802% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag04 {
+	background: url("sprite.svg") 5.882352941176471% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag05 {
+	background: url("sprite.svg") 7.8431372549019605% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag06 {
+	background: url("sprite.svg") 9.803921568627452% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag07 {
+	background: url("sprite.svg") 11.764705882352942% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag08 {
+	background: url("sprite.svg") 13.72549019607843% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag09 {
+	background: url("sprite.svg") 15.686274509803921% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag10 {
+	background: url("sprite.svg") 17.647058823529413% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag11 {
+	background: url("sprite.svg") 19.607843137254903% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag12 {
+	background: url("sprite.svg") 21.568627450980394% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag13 {
+	background: url("sprite.svg") 23.529411764705884% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag14 {
+	background: url("sprite.svg") 25.49019607843137% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag15 {
+	background: url("sprite.svg") 27.45098039215686% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag16 {
+	background: url("sprite.svg") 29.41176470588235% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag17 {
+	background: url("sprite.svg") 31.372549019607842% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag18 {
+	background: url("sprite.svg") 33.333333333333336% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag19 {
+	background: url("sprite.svg") 35.294117647058826% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag20 {
+	background: url("sprite.svg") 37.254901960784316% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag21 {
+	background: url("sprite.svg") 39.21568627450981% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag22 {
+	background: url("sprite.svg") 41.1764705882353% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag23 {
+	background: url("sprite.svg") 43.13725490196079% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag24 {
+	background: url("sprite.svg") 45.09803921568628% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag25 {
+	background: url("sprite.svg") 47.05882352941177% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag26 {
+	background: url("sprite.svg") 49.01960784313726% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag27 {
+	background: url("sprite.svg") 50.98039215686274% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag28 {
+	background: url("sprite.svg") 52.94117647058823% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag29 {
+	background: url("sprite.svg") 54.90196078431372% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag30 {
+	background: url("sprite.svg") 56.86274509803921% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag31 {
+	background: url("sprite.svg") 58.8235294117647% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag32 {
+	background: url("sprite.svg") 60.78431372549019% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag33 {
+	background: url("sprite.svg") 62.745098039215684% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag34 {
+	background: url("sprite.svg") 64.70588235294117% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag35 {
+	background: url("sprite.svg") 66.66666666666667% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag36 {
+	background: url("sprite.svg") 68.62745098039215% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag37 {
+	background: url("sprite.svg") 70.58823529411765% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag38 {
+	background: url("sprite.svg") 72.54901960784314% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag39 {
+	background: url("sprite.svg") 74.50980392156863% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag40 {
+	background: url("sprite.svg") 76.47058823529412% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag41 {
+	background: url("sprite.svg") 78.43137254901961% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag42 {
+	background: url("sprite.svg") 80.3921568627451% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag43 {
+	background: url("sprite.svg") 82.3529411764706% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag44 {
+	background: url("sprite.svg") 84.31372549019608% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag45 {
+	background: url("sprite.svg") 86.27450980392157% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag46 {
+	background: url("sprite.svg") 88.23529411764706% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag47 {
+	background: url("sprite.svg") 90.19607843137256% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag48 {
+	background: url("sprite.svg") 92.15686274509804% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag49 {
+	background: url("sprite.svg") 94.11764705882354% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag50 {
+	background: url("sprite.svg") 96.07843137254902% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag51 {
+	background: url("sprite.svg") 98.03921568627452% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+.svg-icon-flag52 {
+	background: url("sprite.svg") 100% 0 no-repeat;
+	width: 760px;
+	height: 880px;
+}
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG CSS sprite preview</h1>
+			<p>This preview features the generated SVG file as a conventional CSS sprite. The shapes are displayed as background images of several <code>&lt;i&gt;</code> elements.</p>
+		</header>
+		<section>
+			
+<!--
+	
+Conventional CSS sprite
+====================================================================================================
+This technique uses CSS classes to display portions of the sprite as background image of
+appropriately sized elements.
+
+-->
+
+			<ul>
+				
+				<li title="icon-flag01">
+					<div class="icon-box">
+						
+						<!-- icon-flag01 -->
+						<i class="svg-icon-flag01">icon-flag01</i>
+						
+					</div>
+					<h2>icon-flag01</h2>
+				</li>
+				<li title="icon-flag02">
+					<div class="icon-box">
+						
+						<!-- icon-flag02 -->
+						<i class="svg-icon-flag02">icon-flag02</i>
+						
+					</div>
+					<h2>icon-flag02</h2>
+				</li>
+				<li title="icon-flag03">
+					<div class="icon-box">
+						
+						<!-- icon-flag03 -->
+						<i class="svg-icon-flag03">icon-flag03</i>
+						
+					</div>
+					<h2>icon-flag03</h2>
+				</li>
+				<li title="icon-flag04">
+					<div class="icon-box">
+						
+						<!-- icon-flag04 -->
+						<i class="svg-icon-flag04">icon-flag04</i>
+						
+					</div>
+					<h2>icon-flag04</h2>
+				</li>
+				<li title="icon-flag05">
+					<div class="icon-box">
+						
+						<!-- icon-flag05 -->
+						<i class="svg-icon-flag05">icon-flag05</i>
+						
+					</div>
+					<h2>icon-flag05</h2>
+				</li>
+				<li title="icon-flag06">
+					<div class="icon-box">
+						
+						<!-- icon-flag06 -->
+						<i class="svg-icon-flag06">icon-flag06</i>
+						
+					</div>
+					<h2>icon-flag06</h2>
+				</li>
+				<li title="icon-flag07">
+					<div class="icon-box">
+						
+						<!-- icon-flag07 -->
+						<i class="svg-icon-flag07">icon-flag07</i>
+						
+					</div>
+					<h2>icon-flag07</h2>
+				</li>
+				<li title="icon-flag08">
+					<div class="icon-box">
+						
+						<!-- icon-flag08 -->
+						<i class="svg-icon-flag08">icon-flag08</i>
+						
+					</div>
+					<h2>icon-flag08</h2>
+				</li>
+				<li title="icon-flag09">
+					<div class="icon-box">
+						
+						<!-- icon-flag09 -->
+						<i class="svg-icon-flag09">icon-flag09</i>
+						
+					</div>
+					<h2>icon-flag09</h2>
+				</li>
+				<li title="icon-flag10">
+					<div class="icon-box">
+						
+						<!-- icon-flag10 -->
+						<i class="svg-icon-flag10">icon-flag10</i>
+						
+					</div>
+					<h2>icon-flag10</h2>
+				</li>
+				<li title="icon-flag11">
+					<div class="icon-box">
+						
+						<!-- icon-flag11 -->
+						<i class="svg-icon-flag11">icon-flag11</i>
+						
+					</div>
+					<h2>icon-flag11</h2>
+				</li>
+				<li title="icon-flag12">
+					<div class="icon-box">
+						
+						<!-- icon-flag12 -->
+						<i class="svg-icon-flag12">icon-flag12</i>
+						
+					</div>
+					<h2>icon-flag12</h2>
+				</li>
+				<li title="icon-flag13">
+					<div class="icon-box">
+						
+						<!-- icon-flag13 -->
+						<i class="svg-icon-flag13">icon-flag13</i>
+						
+					</div>
+					<h2>icon-flag13</h2>
+				</li>
+				<li title="icon-flag14">
+					<div class="icon-box">
+						
+						<!-- icon-flag14 -->
+						<i class="svg-icon-flag14">icon-flag14</i>
+						
+					</div>
+					<h2>icon-flag14</h2>
+				</li>
+				<li title="icon-flag15">
+					<div class="icon-box">
+						
+						<!-- icon-flag15 -->
+						<i class="svg-icon-flag15">icon-flag15</i>
+						
+					</div>
+					<h2>icon-flag15</h2>
+				</li>
+				<li title="icon-flag16">
+					<div class="icon-box">
+						
+						<!-- icon-flag16 -->
+						<i class="svg-icon-flag16">icon-flag16</i>
+						
+					</div>
+					<h2>icon-flag16</h2>
+				</li>
+				<li title="icon-flag17">
+					<div class="icon-box">
+						
+						<!-- icon-flag17 -->
+						<i class="svg-icon-flag17">icon-flag17</i>
+						
+					</div>
+					<h2>icon-flag17</h2>
+				</li>
+				<li title="icon-flag18">
+					<div class="icon-box">
+						
+						<!-- icon-flag18 -->
+						<i class="svg-icon-flag18">icon-flag18</i>
+						
+					</div>
+					<h2>icon-flag18</h2>
+				</li>
+				<li title="icon-flag19">
+					<div class="icon-box">
+						
+						<!-- icon-flag19 -->
+						<i class="svg-icon-flag19">icon-flag19</i>
+						
+					</div>
+					<h2>icon-flag19</h2>
+				</li>
+				<li title="icon-flag20">
+					<div class="icon-box">
+						
+						<!-- icon-flag20 -->
+						<i class="svg-icon-flag20">icon-flag20</i>
+						
+					</div>
+					<h2>icon-flag20</h2>
+				</li>
+				<li title="icon-flag21">
+					<div class="icon-box">
+						
+						<!-- icon-flag21 -->
+						<i class="svg-icon-flag21">icon-flag21</i>
+						
+					</div>
+					<h2>icon-flag21</h2>
+				</li>
+				<li title="icon-flag22">
+					<div class="icon-box">
+						
+						<!-- icon-flag22 -->
+						<i class="svg-icon-flag22">icon-flag22</i>
+						
+					</div>
+					<h2>icon-flag22</h2>
+				</li>
+				<li title="icon-flag23">
+					<div class="icon-box">
+						
+						<!-- icon-flag23 -->
+						<i class="svg-icon-flag23">icon-flag23</i>
+						
+					</div>
+					<h2>icon-flag23</h2>
+				</li>
+				<li title="icon-flag24">
+					<div class="icon-box">
+						
+						<!-- icon-flag24 -->
+						<i class="svg-icon-flag24">icon-flag24</i>
+						
+					</div>
+					<h2>icon-flag24</h2>
+				</li>
+				<li title="icon-flag25">
+					<div class="icon-box">
+						
+						<!-- icon-flag25 -->
+						<i class="svg-icon-flag25">icon-flag25</i>
+						
+					</div>
+					<h2>icon-flag25</h2>
+				</li>
+				<li title="icon-flag26">
+					<div class="icon-box">
+						
+						<!-- icon-flag26 -->
+						<i class="svg-icon-flag26">icon-flag26</i>
+						
+					</div>
+					<h2>icon-flag26</h2>
+				</li>
+				<li title="icon-flag27">
+					<div class="icon-box">
+						
+						<!-- icon-flag27 -->
+						<i class="svg-icon-flag27">icon-flag27</i>
+						
+					</div>
+					<h2>icon-flag27</h2>
+				</li>
+				<li title="icon-flag28">
+					<div class="icon-box">
+						
+						<!-- icon-flag28 -->
+						<i class="svg-icon-flag28">icon-flag28</i>
+						
+					</div>
+					<h2>icon-flag28</h2>
+				</li>
+				<li title="icon-flag29">
+					<div class="icon-box">
+						
+						<!-- icon-flag29 -->
+						<i class="svg-icon-flag29">icon-flag29</i>
+						
+					</div>
+					<h2>icon-flag29</h2>
+				</li>
+				<li title="icon-flag30">
+					<div class="icon-box">
+						
+						<!-- icon-flag30 -->
+						<i class="svg-icon-flag30">icon-flag30</i>
+						
+					</div>
+					<h2>icon-flag30</h2>
+				</li>
+				<li title="icon-flag31">
+					<div class="icon-box">
+						
+						<!-- icon-flag31 -->
+						<i class="svg-icon-flag31">icon-flag31</i>
+						
+					</div>
+					<h2>icon-flag31</h2>
+				</li>
+				<li title="icon-flag32">
+					<div class="icon-box">
+						
+						<!-- icon-flag32 -->
+						<i class="svg-icon-flag32">icon-flag32</i>
+						
+					</div>
+					<h2>icon-flag32</h2>
+				</li>
+				<li title="icon-flag33">
+					<div class="icon-box">
+						
+						<!-- icon-flag33 -->
+						<i class="svg-icon-flag33">icon-flag33</i>
+						
+					</div>
+					<h2>icon-flag33</h2>
+				</li>
+				<li title="icon-flag34">
+					<div class="icon-box">
+						
+						<!-- icon-flag34 -->
+						<i class="svg-icon-flag34">icon-flag34</i>
+						
+					</div>
+					<h2>icon-flag34</h2>
+				</li>
+				<li title="icon-flag35">
+					<div class="icon-box">
+						
+						<!-- icon-flag35 -->
+						<i class="svg-icon-flag35">icon-flag35</i>
+						
+					</div>
+					<h2>icon-flag35</h2>
+				</li>
+				<li title="icon-flag36">
+					<div class="icon-box">
+						
+						<!-- icon-flag36 -->
+						<i class="svg-icon-flag36">icon-flag36</i>
+						
+					</div>
+					<h2>icon-flag36</h2>
+				</li>
+				<li title="icon-flag37">
+					<div class="icon-box">
+						
+						<!-- icon-flag37 -->
+						<i class="svg-icon-flag37">icon-flag37</i>
+						
+					</div>
+					<h2>icon-flag37</h2>
+				</li>
+				<li title="icon-flag38">
+					<div class="icon-box">
+						
+						<!-- icon-flag38 -->
+						<i class="svg-icon-flag38">icon-flag38</i>
+						
+					</div>
+					<h2>icon-flag38</h2>
+				</li>
+				<li title="icon-flag39">
+					<div class="icon-box">
+						
+						<!-- icon-flag39 -->
+						<i class="svg-icon-flag39">icon-flag39</i>
+						
+					</div>
+					<h2>icon-flag39</h2>
+				</li>
+				<li title="icon-flag40">
+					<div class="icon-box">
+						
+						<!-- icon-flag40 -->
+						<i class="svg-icon-flag40">icon-flag40</i>
+						
+					</div>
+					<h2>icon-flag40</h2>
+				</li>
+				<li title="icon-flag41">
+					<div class="icon-box">
+						
+						<!-- icon-flag41 -->
+						<i class="svg-icon-flag41">icon-flag41</i>
+						
+					</div>
+					<h2>icon-flag41</h2>
+				</li>
+				<li title="icon-flag42">
+					<div class="icon-box">
+						
+						<!-- icon-flag42 -->
+						<i class="svg-icon-flag42">icon-flag42</i>
+						
+					</div>
+					<h2>icon-flag42</h2>
+				</li>
+				<li title="icon-flag43">
+					<div class="icon-box">
+						
+						<!-- icon-flag43 -->
+						<i class="svg-icon-flag43">icon-flag43</i>
+						
+					</div>
+					<h2>icon-flag43</h2>
+				</li>
+				<li title="icon-flag44">
+					<div class="icon-box">
+						
+						<!-- icon-flag44 -->
+						<i class="svg-icon-flag44">icon-flag44</i>
+						
+					</div>
+					<h2>icon-flag44</h2>
+				</li>
+				<li title="icon-flag45">
+					<div class="icon-box">
+						
+						<!-- icon-flag45 -->
+						<i class="svg-icon-flag45">icon-flag45</i>
+						
+					</div>
+					<h2>icon-flag45</h2>
+				</li>
+				<li title="icon-flag46">
+					<div class="icon-box">
+						
+						<!-- icon-flag46 -->
+						<i class="svg-icon-flag46">icon-flag46</i>
+						
+					</div>
+					<h2>icon-flag46</h2>
+				</li>
+				<li title="icon-flag47">
+					<div class="icon-box">
+						
+						<!-- icon-flag47 -->
+						<i class="svg-icon-flag47">icon-flag47</i>
+						
+					</div>
+					<h2>icon-flag47</h2>
+				</li>
+				<li title="icon-flag48">
+					<div class="icon-box">
+						
+						<!-- icon-flag48 -->
+						<i class="svg-icon-flag48">icon-flag48</i>
+						
+					</div>
+					<h2>icon-flag48</h2>
+				</li>
+				<li title="icon-flag49">
+					<div class="icon-box">
+						
+						<!-- icon-flag49 -->
+						<i class="svg-icon-flag49">icon-flag49</i>
+						
+					</div>
+					<h2>icon-flag49</h2>
+				</li>
+				<li title="icon-flag50">
+					<div class="icon-box">
+						
+						<!-- icon-flag50 -->
+						<i class="svg-icon-flag50">icon-flag50</i>
+						
+					</div>
+					<h2>icon-flag50</h2>
+				</li>
+				<li title="icon-flag51">
+					<div class="icon-box">
+						
+						<!-- icon-flag51 -->
+						<i class="svg-icon-flag51">icon-flag51</i>
+						
+					</div>
+					<h2>icon-flag51</h2>
+				</li>
+				<li title="icon-flag52">
+					<div class="icon-box">
+						
+						<!-- icon-flag52 -->
+						<i class="svg-icon-flag52">icon-flag52</i>
+						
+					</div>
+					<h2>icon-flag52</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Fri, 29 Apr 2016 21:17:31 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

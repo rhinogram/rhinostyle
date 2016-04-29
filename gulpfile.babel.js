@@ -16,6 +16,7 @@ import lesshint     from 'gulp-lesshint';
 import webpack      from 'webpack';
 import browserSync  from 'browser-sync';
 import del          from 'del';
+import child        from 'child_process';
 
 import Metalsmith   from 'metalsmith';
 import nunjucks     from 'nunjucks';
@@ -34,9 +35,9 @@ let force_build = true;
 
 nunjucks.configure('./src/templates', { watch: false });
 
-gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site']);
+gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['animations', 'icons', 'dist:scripts', 'dist:styles']);
-gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:styles', 'docs:site']);
+gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
 
 gulp.task('animations', () => {
@@ -123,34 +124,26 @@ gulp.task('dosc:deploy', function () {
     .pipe(ghPages());
 });
 
-gulp.task('docs:react', () => {
-  docsConfig.devtool = 'source-map';
-  docsConfig.plugins.push(
-    new webpack.DefinePlugin({
-      __DEV__: true,
-      'process.env': {
-        NODE_ENV: '"development"'
-      }
-    })
-  );
-
-  let compiler = webpack(docsConfig);
-
-  compiler.watch(200, (err, stats) => {
-    if(err) {
+gulp.task('docs:react', (callback) => {
+  webpack(docsConfig, (err, stats) => {
+    if (err) {
       throw new gutil.PluginError('webpack', err);
     }
 
-    gutil.log('[webpack]', stats.toString({}));
-    gutil.log('[webpack]', new Date());
-    gutil.log('THIS IS FOR DEVELOPMENT ONLY.');
-    gutil.log('PLEASE BUILD NORMALLY BEFORE COMMITTING.');
+    stats = stats.toString();
 
+    // Remove dropping unused statements and individual modules built
+    const tester = /Dropping unused(.*?)\n|\n(.*?)\[built\]/g;
+    stats = stats.replace(tester, '');
+    gutil.log('[webpack]', stats);
+    gutil.log('[webpack]', new Date());
+
+    callback();
     browserSync.reload();
   });
 });
 
-gulp.task('docs:scripts', ['docs:react'], () => {
+gulp.task('docs:scripts', () => {
   const path = paths.scripts;
 
   return gulp.src([
@@ -167,11 +160,12 @@ gulp.task('docs:scripts', ['docs:react'], () => {
 gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   nunjucks.configure('./src/templates', { watch: true });
 
-  gulp.watch(paths.scripts.build, ['docs:scripts']);
-  gulp.watch(paths.styles.src, ['dist:styles']);
-  gulp.watch(paths.styles.docSrc, ['docs:styles']);
   gulp.watch(paths.animations.src, ['animations']);
   gulp.watch(paths.icons.src, ['icons']);
+  gulp.watch(paths.styles.src, ['dist:styles']);
+  gulp.watch(paths.scripts.docSrc, ['docs:scripts']);
+  gulp.watch(paths.scripts.cmpSrc, ['docs:react']);
+  gulp.watch(paths.styles.docAll, ['docs:styles']);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
     force_build = true;
   });
