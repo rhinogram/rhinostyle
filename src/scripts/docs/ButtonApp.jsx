@@ -13,9 +13,9 @@ const BookApp = React.createClass({
 
         <section className="site-section">
           <h3 className="site-subheadline">Button Tags</h3>
-          <Button label="Button" type="default" />
+          <Button label="Anchor" type="default" />
           <button className="btn btn--default" type="submit">Button</button>
-          <input className="btn btn--default"  value="Input" />
+          <input className="btn btn--default" type="button" value="Input" />
           <input className="btn btn--default" type="submit" value="Submit" />
         </section>
 
