@@ -183,24 +183,29 @@
             ease: rhinoEase
         })*/
 
-        var totalFlagFrames = 51, // 52 total frames minus 1
-            totalLoginFrames = 64, // 65 total frames minus 1
-            speed = 3,
-            rhinoFlagEase = new SteppedEase(totalFlagFrames),
-            finalFlagPosition = '-98.07%', // total width of svg (39520) minus width of 1 frame (760) / 39520 * 100
-            rhinoLoginEase = new SteppedEase(totalLoginFrames),
-            finalLoginPosition = '-98.46%'; // total width of svg (49400) minus width of 1 frame (760) / 49400 * 100
+        var rhinoFlagFrames = 51, // 52 total frames minus 1
+            rhinoFlagEase = new SteppedEase(rhinoFlagFrames),
+            rhiniFlagPosition = '-98.07%', // total width of svg (39520) minus width of 1 frame (760px) / 39520 * 100
+            rhinoFlagSpeed = 3,
+
+            rhinoLoginFrames = 64, // 65 total frames minus 1
+            rhinoLoginEase = new SteppedEase(rhinoLoginFrames),
+            rhinoLoginPosition = '-98.46%', // total width of svg (37700) minus width of 1 frame (580px) / 37700 * 100
+            rhinoLoginSpeed = 3;
+            
+            
+            
             
 
         var rhinoFlagTL = new TimelineMax({repeat:-1,repeatDelay:2});
-        rhinoFlagTL.to('.rhino-animation__flag', speed, {
-          x: finalFlagPosition,
+        rhinoFlagTL.to('.rhino-animation__flag', rhinoFlagSpeed, {
+          x: rhiniFlagPosition,
           ease: rhinoFlagEase
         });
 
         var rhinoLoginTL = new TimelineMax({repeat:-1,repeatDelay:2});
-        rhinoLoginTL.to('.rhino-animation__login', speed, {
-          x: finalLoginPosition,
+        rhinoLoginTL.to('.rhino-animation__login', rhinoLoginSpeed, {
+          x: rhinoLoginPosition,
           ease: rhinoLoginEase
         });
 

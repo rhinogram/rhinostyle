@@ -102,7 +102,7 @@ gulp.task('animation:login', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Flag Animation'))
+    .pipe(duration('Built Flag Login'))
     .pipe(reload({ stream: true }));
 });
 
