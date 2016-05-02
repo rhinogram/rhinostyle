@@ -11,7 +11,8 @@ export default {
   devTool: 'cheap-module-source-map',
   entry: {
     vendor: dependencies,
-    button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx')
+    button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
+    icon: path.join(__dirname, '../src/scripts/docs/IconApp.jsx')
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
