@@ -39,11 +39,12 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 // All Tasks
 // -------------------------
-gulp.task('animations', ['animation:flag']);
-gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
-gulp.task('dist', ['animations', 'icons', 'dist:scripts', 'dist:styles']);
-gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('animations', ['animation:flag','animation:login']);
+gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles']);
+gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
+gulp.task('website', ['docs:deply']);
 
 
 // -------------------------
@@ -172,7 +173,7 @@ gulp.task('dist:styles', () => {
 // -------------------------
 // Docs Deploy
 // -------------------------
-gulp.task('dosc:deploy', function () {
+gulp.task('docs:deploy', function () {
   return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
