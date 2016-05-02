@@ -1,9 +1,9 @@
 import React      from 'react';
 import { render } from 'react-dom';
 
-import { Button } from '../components';
+import { Button, Icon } from '../components';
 
-const BookApp = React.createClass({
+const ButtonApp = React.createClass({
   displayName: 'Rhinostyle Button Example',
 
   render() {
@@ -41,18 +41,18 @@ const BookApp = React.createClass({
           </div>
           <div className="u-m-b">
             <Button label="Large" size="large" />
-            <Button label={<span><svg className="icon"><use xlinkHref="#icon-cog" /></svg> Large</span>} size="large" />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-cog" /></svg>} size="large" iconOnly={true} />
+            <Button label={<span><Icon icon="cog" /> Large</span>} size="large" />
+            <Button label={<Icon icon="cog" />} size="large" iconOnly={true} />
           </div>
           <div className="u-m-b">
             <Button label="Default" />
-            <Button label={<span><svg className="icon"><use xlinkHref="#icon-cog" /></svg> Default</span>} />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-cog" /></svg>} iconOnly={true} />
+            <Button label={<span><Icon icon="cog" /> Default</span>} />
+            <Button label={<Icon icon="cog" />} iconOnly={true} />
           </div>
           <div>
             <Button label="Small" size="small" />
-            <Button label={<span><svg className="icon"><use xlinkHref="#icon-cog" /></svg> Small</span>} size="small" />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-cog" /></svg>} size="small" iconOnly={true} />
+            <Button label={<span><Icon icon="cog" /> Small</span>} size="small" />
+            <Button label={<Icon icon="cog" />} size="small" iconOnly={true} />
           </div>
         </section>
 
@@ -69,12 +69,12 @@ const BookApp = React.createClass({
           </div>
           <div>
             <h5 className="site-miniheadline">Icon-Only Buttons</h5>
-            <p className="site-copy">Add <code>iconOnly={'{true}'}</code> when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance. Be sure you pass your icon in as the label, <code>label={'{<svg className="icon"><use xlinkHref="#icon-sms"></svg>}'}</code>.</p>
-            <Button label={<svg className="icon"><use xlinkHref="#icon-sms" /></svg>} iconOnly={true} />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-email" /></svg>} type="primary" iconOnly={true} />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-cog" /></svg>} type="secondary" iconOnly={true} />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-clock" /></svg>} outline={true} iconOnly={true} />
-            <Button label={<svg className="icon"><use xlinkHref="#icon-pencil" /></svg>} outline={true} type="primary" iconOnly={true} />
+            <p className="site-copy">Add <code>iconOnly={'{true}'}</code> when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance. Be sure you pass your icon in as the label, <code>label={'{<Icon icon="cog" />}'}</code>.</p>
+            <Button label={<Icon icon="sms" />} iconOnly={true} />
+            <Button label={<Icon icon="email" />} type="primary" iconOnly={true} />
+            <Button label={<Icon icon="cog" />} type="secondary" iconOnly={true} />
+            <Button label={<Icon icon="clock" />} outline={true} iconOnly={true} />
+            <Button label={<Icon icon="pencil" />} outline={true} type="primary" iconOnly={true} />
           </div>
         </section>
 
@@ -111,4 +111,4 @@ const BookApp = React.createClass({
   }
 });
 
-render(<BookApp />, document.getElementById('js-app'));
+render(<ButtonApp />, document.getElementById('js-app'));
