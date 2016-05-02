@@ -704,9 +704,13 @@ a.u-text-warning:hover,
   overflow: hidden;
   position: relative;
 }
-.rhino-animation__image {
+.rhino-animation__flag {
   height: 100%;
   width: 5200%;
+}
+.rhino-animation__login {
+  height: 100%;
+  width: 6500%;
 }
 .btn {
   background-image: none;

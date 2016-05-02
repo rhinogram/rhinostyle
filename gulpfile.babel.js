@@ -77,6 +77,35 @@ gulp.task('animation:flag', () => {
     .pipe(reload({ stream: true }));
 });
 
+gulp.task('animation:login', () => {
+  const path = paths.animation_login;
+
+  return gulp.src(path.src)
+    .pipe(changed(path.dist))
+    .pipe(imagemin())
+    .pipe(gulp.dest(path.dist))
+    .pipe(gulp.dest(path.build))
+    .pipe(svgSprite({
+      mode: {
+        css: {
+          dest: '',
+          bust: false,
+          sprite: 'sprite.svg',
+          layout: 'horizontal'
+        }
+      },
+      svg: {
+        xmlDeclaration: false,
+        doctypeDeclaration: false,
+        dimensionAttributes: false
+      }
+    }))
+    .pipe(gulp.dest(path.dist))
+    .pipe(gulp.dest(path.build))
+    .pipe(duration('Built Flag Animation'))
+    .pipe(reload({ stream: true }));
+});
+
 
 // -------------------------
 // Browswer Sync
