@@ -6,7 +6,8 @@ import svgSprite    from 'gulp-svg-sprite';
 import duration     from 'gulp-duration';
 import less         from 'gulp-less';
 import autoprefixer from 'gulp-autoprefixer';
-import minify       from 'gulp-cssnano';
+import changed      from 'gulp-changed';
+import cssnano      from 'gulp-cssnano';
 import concat       from 'gulp-concat';
 import uglify       from 'gulp-uglify';
 import ghPages      from 'gulp-gh-pages';
@@ -20,10 +21,10 @@ import child        from 'child_process';
 
 import Metalsmith   from 'metalsmith';
 import nunjucks     from 'nunjucks';
-import changed      from 'metalsmith-changed';
-import inPlace      from 'metalsmith-in-place';
-import rootpath     from 'metalsmith-rootpath';
-import layouts      from 'metalsmith-layouts';
+import msChanged    from 'metalsmith-changed';
+import msInPlace    from 'metalsmith-in-place';
+import msRootpath   from 'metalsmith-rootpath';
+import msLayouts    from 'metalsmith-layouts';
 
 import { paths }  from './config/gulpConfig';
 import distConfig from './config/webpack.dist.config.js';
@@ -51,6 +52,7 @@ gulp.task('animations', () => {
   const path = paths.animations;
 
   return gulp.src(path.src)
+    .pipe(changed(path.dist))
     .pipe(imagemin())
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
@@ -136,7 +138,7 @@ gulp.task('dist:styles', () => {
   return gulp.src(path.src)
     .pipe(less({ compress: true }))
     .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }))
-    .pipe(minify())
+    .pipe(cssnano())
     .pipe(gulp.dest(path.dist))
     .pipe(duration('Built Dist Styles'))
     .pipe(reload({ stream: true }));
@@ -220,10 +222,10 @@ gulp.task('docs:site', () => {
   return Metalsmith(__dirname)
   .source('./src/pages')
   .clean(false)
-  .use(changed({ force: force_build }))
-  .use(inPlace({ engine: 'nunjucks' }))
-  .use(rootpath())
-  .use(layouts({
+  .use(msChanged({ force: force_build }))
+  .use(msInPlace({ engine: 'nunjucks' }))
+  .use(msRootpath())
+  .use(msLayouts({
     engine:    'nunjucks',
     directory: './src/templates',
     default:   'default.html'
