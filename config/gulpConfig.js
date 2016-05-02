@@ -1,8 +1,8 @@
 export const paths = {
-  animations: {
-    src:   './src/animation/*.svg',
-    dist:  './dist/animation/',
-    build: './build/animation/'
+  animation_flag: {
+    src:   './src/animation/flag/*.svg',
+    dist:  './dist/animation/flag/',
+    build: './build/animation/flag/'
   },
   metalsmith: {
     pages:     './src/pages/**/*.html',

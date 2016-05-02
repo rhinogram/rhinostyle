@@ -39,17 +39,17 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 // All Tasks
 // -------------------------
-gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
-gulp.task('dist', ['animations', 'icons', 'dist:scripts', 'dist:styles']);
-gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('default', ['animation:flag', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('dist', ['animation:flag', 'icons', 'dist:scripts', 'dist:styles']);
+gulp.task('docs', ['animation:flag', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
 
 
 // -------------------------
 // Animations
 // -------------------------
-gulp.task('animations', () => {
-  const path = paths.animations;
+gulp.task('animation:flag', () => {
+  const path = paths.animation_flag;
 
   return gulp.src(path.src)
     .pipe(changed(path.dist))
@@ -73,7 +73,7 @@ gulp.task('animations', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Animations'))
+    .pipe(duration('Built Flag Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -195,7 +195,7 @@ gulp.task('docs:scripts', () => {
 gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   nunjucks.configure('./src/templates', { watch: true });
 
-  gulp.watch(paths.animations.src, ['animations']);
+  //gulp.watch(paths.animations.src, ['animations']);
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
   gulp.watch(paths.scripts.docSrc, ['docs:scripts']);
