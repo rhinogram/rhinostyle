@@ -44,7 +44,7 @@ gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'd
 gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles']);
 gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
-gulp.task('website', ['docs:deply']);
+gulp.task('website', ['docs:deploy']);
 
 
 // -------------------------
