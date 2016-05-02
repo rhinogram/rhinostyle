@@ -20,11 +20,11 @@ import del          from 'del';
 import child        from 'child_process';
 
 import Metalsmith   from 'metalsmith';
-import nunjucks     from 'nunjucks';
 import msChanged    from 'metalsmith-changed';
 import msInPlace    from 'metalsmith-in-place';
 import msRootpath   from 'metalsmith-rootpath';
 import msLayouts    from 'metalsmith-layouts';
+import nunjucks     from 'nunjucks';
 
 import { paths }  from './config/gulpConfig';
 import distConfig from './config/webpack.dist.config.js';
@@ -57,15 +57,9 @@ gulp.task('animations', () => {
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
     .pipe(svgSprite({
-      shape: {
-        id: {
-          generator: 'icon-'
-        }
-      },
       mode: {
         css: {
           dest: '',
-          example: true,
           bust: false,
           sprite: 'sprite.svg',
           layout: 'horizontal'

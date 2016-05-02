@@ -750,6 +750,9 @@ a.btn.disabled,
 fieldset[disabled] a.btn {
   pointer-events: none;
 }
+.btn + .btn {
+  margin-left: 0.6rem;
+}
 .btn > .icon {
   font-size: 1.8rem;
 }

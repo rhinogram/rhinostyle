@@ -17,7 +17,7 @@ export const paths = {
   styles: {
     src:    './src/less/rhinostyle.less',
     docSrc: './src/less/rhinostyle-docs.less',
-    docAll: './src/less/',
+    docAll: './src/less/*.less',
     dist:   './dist/css/',
     build:  './build/css/'
   },
