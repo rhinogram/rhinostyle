@@ -6,7 +6,8 @@ import svgSprite    from 'gulp-svg-sprite';
 import duration     from 'gulp-duration';
 import less         from 'gulp-less';
 import autoprefixer from 'gulp-autoprefixer';
-import minify       from 'gulp-cssnano';
+import changed      from 'gulp-changed';
+import cssnano      from 'gulp-cssnano';
 import concat       from 'gulp-concat';
 import uglify       from 'gulp-uglify';
 import ghPages      from 'gulp-gh-pages';
@@ -19,11 +20,11 @@ import del          from 'del';
 import child        from 'child_process';
 
 import Metalsmith   from 'metalsmith';
+import msChanged    from 'metalsmith-changed';
+import msInPlace    from 'metalsmith-in-place';
+import msRootpath   from 'metalsmith-rootpath';
+import msLayouts    from 'metalsmith-layouts';
 import nunjucks     from 'nunjucks';
-import changed      from 'metalsmith-changed';
-import inPlace      from 'metalsmith-in-place';
-import rootpath     from 'metalsmith-rootpath';
-import layouts      from 'metalsmith-layouts';
 
 import { paths }  from './config/gulpConfig';
 import distConfig from './config/webpack.dist.config.js';
@@ -38,6 +39,7 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 // All Tasks
 // -------------------------
+gulp.task('animations', ['animation:flag']);
 gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['animations', 'icons', 'dist:scripts', 'dist:styles']);
 gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
@@ -47,23 +49,18 @@ gulp.task('server', ['docs:serve']);
 // -------------------------
 // Animations
 // -------------------------
-gulp.task('animations', () => {
-  const path = paths.animations;
+gulp.task('animation:flag', () => {
+  const path = paths.animation_flag;
 
   return gulp.src(path.src)
+    .pipe(changed(path.dist))
     .pipe(imagemin())
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
     .pipe(svgSprite({
-      shape: {
-        id: {
-          generator: 'icon-'
-        }
-      },
       mode: {
         css: {
           dest: '',
-          example: true,
           bust: false,
           sprite: 'sprite.svg',
           layout: 'horizontal'
@@ -77,7 +74,7 @@ gulp.task('animations', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Animations'))
+    .pipe(duration('Built Flag Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -136,7 +133,7 @@ gulp.task('dist:styles', () => {
   return gulp.src(path.src)
     .pipe(less({ compress: true }))
     .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }))
-    .pipe(minify())
+    .pipe(cssnano())
     .pipe(gulp.dest(path.dist))
     .pipe(duration('Built Dist Styles'))
     .pipe(reload({ stream: true }));
@@ -199,7 +196,7 @@ gulp.task('docs:scripts', () => {
 gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   nunjucks.configure('./src/templates', { watch: true });
 
-  gulp.watch(paths.animations.src, ['animations']);
+  //gulp.watch(paths.animations.src, ['animations']);
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
   gulp.watch(paths.scripts.docSrc, ['docs:scripts']);
@@ -220,10 +217,10 @@ gulp.task('docs:site', () => {
   return Metalsmith(__dirname)
   .source('./src/pages')
   .clean(false)
-  .use(changed({ force: force_build }))
-  .use(inPlace({ engine: 'nunjucks' }))
-  .use(rootpath())
-  .use(layouts({
+  .use(msChanged({ force: force_build }))
+  .use(msInPlace({ engine: 'nunjucks' }))
+  .use(msRootpath())
+  .use(msLayouts({
     engine:    'nunjucks',
     directory: './src/templates',
     default:   'default.html'
