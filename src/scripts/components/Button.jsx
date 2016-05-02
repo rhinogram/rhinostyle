@@ -5,6 +5,7 @@ const Button = React.createClass({
   displayName: 'RhinoButton',
 
   propTypes: {
+    block:    React.PropTypes.bool,
     classes:  React.PropTypes.string,
     click:    React.PropTypes.func,
     disabled: React.PropTypes.bool,
@@ -17,17 +18,18 @@ const Button = React.createClass({
 
   getDefaultProps() {
     return {
+      block:    false,
       click:    () => {},
       disabled: false,
       iconOnly: false,
       outline:  false,
       size:     'normal',
-      type:     'primary'
+      type:     'default'
     };
   },
 
   render() {
-    const { classes, click, disabled, iconOnly, label, outline, size, type, ...props } = this.props;
+    const { block, classes, click, disabled, iconOnly, label, outline, size, type, ...props } = this.props;
     const cx = classNames('btn', classes, {
       'btn--default':   (type==='default' && !outline),
       'btn--primary':   (type==='primary' && !outline),
@@ -40,6 +42,7 @@ const Button = React.createClass({
       'btn--accent-outline':    (type==='accent' && outline),
       'btn--sm': size==='small',
       'btn--lg': size==='large',
+      'btn--block': block,
       'btn--icon': iconOnly,
       'disabled': disabled
     });
