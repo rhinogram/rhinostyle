@@ -39,9 +39,10 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 // All Tasks
 // -------------------------
-gulp.task('default', ['animation:flag', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
-gulp.task('dist', ['animation:flag', 'icons', 'dist:scripts', 'dist:styles']);
-gulp.task('docs', ['animation:flag', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('animations', ['animation:flag']);
+gulp.task('default', ['animations', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('dist', ['animations', 'icons', 'dist:scripts', 'dist:styles']);
+gulp.task('docs', ['animations', 'icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
 
 
