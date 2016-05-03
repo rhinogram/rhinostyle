@@ -704,13 +704,29 @@ a.u-text-warning:hover,
   overflow: hidden;
   position: relative;
 }
+.rhino-animation::before {
+  content: "";
+  display: block;
+}
+.rhino-animation--flag::before {
+  padding-top: 115.789474%;
+}
+.rhino-animation--login::before {
+  padding-top: 79.31%;
+}
 .rhino-animation__flag {
-  height: 100%;
-  width: 5200%;
+  height: 5200%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .rhino-animation__login {
-  height: 100%;
-  width: 6500%;
+  height: 6500%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .btn {
   background-image: none;

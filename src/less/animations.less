@@ -12,16 +12,40 @@
   max-width: 48rem;
   overflow: hidden;
   position: relative;
+
+  &::before {
+  	content: "";
+  	display: block;
+  }
 }
 
+.rhino-animation--flag {
+	&::before {
+    padding-top: 115.789474%; // 880px height / 760px width * 100
+  }
+}
+
+.rhino-animation--login {
+  &::before {
+    padding-top: 79.31%; // 580px height / 460px width * 100
+  }
+}
+
+
 .rhino-animation__flag {
-  height: 100%;
-  width: 5200%; // total frames * 100
+  height: 5200%; // total frames * 100
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .rhino-animation__login {
-  height: 100%;
-  width: 6500%; // total frames * 100
+  height: 6500%; // total frames * 100
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 

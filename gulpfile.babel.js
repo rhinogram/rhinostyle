@@ -64,7 +64,7 @@ gulp.task('animation:flag', () => {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'horizontal'
+          layout: 'vertical'
         }
       },
       svg: {
@@ -93,7 +93,7 @@ gulp.task('animation:login', () => {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'horizontal'
+          layout: 'vertical'
         }
       },
       svg: {
