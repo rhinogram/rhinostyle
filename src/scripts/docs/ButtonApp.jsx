@@ -1,7 +1,16 @@
-import React      from 'react';
-import { render } from 'react-dom';
+import React    from 'react';
+import ReactDOM from 'react-dom';
 
 import { Button, Icon } from '../components';
+
+import Playground from 'component-playground';
+
+const buttonExample = require("raw!./examples/Button.example.txt");
+const exampleScope  = {
+  React:  React,
+  ReactDOM: ReactDOM,
+  Button: Button
+};
 
 const ButtonApp = React.createClass({
   displayName: 'Rhinostyle Button Example',
@@ -106,9 +115,14 @@ const ButtonApp = React.createClass({
             <Button label="Primary Outline Disabled" type="primary" outline={true} classes="disabled" />
           </div>
         </section>
+
+        <section>
+          <h4>Try it out!</h4>
+          <Playground codeText={buttonExample} scope={exampleScope} noRender={false} />
+        </section>
       </div>
     );
   }
 });
 
-render(<ButtonApp />, document.getElementById('js-app'));
+ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));
