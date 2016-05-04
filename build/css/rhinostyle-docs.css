@@ -1212,7 +1212,7 @@ button.close {
 }
 .dropdown__toggle:active,
 .dropdown__toggle:focus {
-  outline: none !important;
+  outline: none;
 }
 .dropdown-backdrop {
   bottom: 0;
@@ -3204,8 +3204,8 @@ code {
   padding: 0 .4rem;
 }
 .site-content {
-  position: relative;
   padding: 1.5rem;
+  position: relative;
 }
 @media (min-width: 768px) {
   .site-content {
@@ -3213,8 +3213,8 @@ code {
   }
 }
 .site-copy {
-  max-width: 80rem;
   margin-bottom: 2rem;
+  max-width: 80rem;
 }
 .site-grid {
   background: #ececec;
@@ -3293,25 +3293,25 @@ code {
   margin-bottom: 4rem;
 }
 .site-miniheadline {
-  font-weight: 700;
   font-size: 2rem;
+  font-weight: 700;
 }
 .site-navigation {
+  -webkit-overflow-scrolling: touch;
   background-color: #41d6c3;
   background-image: linear-gradient(135deg, #41d6c3 0, #24a796 100%);
   bottom: 0;
-  -webkit-transform: translateX(-26.8rem);
-  transform: translateX(-26.8rem);
   min-height: 100%;
   overflow-y: scroll;
   position: fixed;
   top: 0;
+  -webkit-transform: translateX(-26.8rem);
+  transform: translateX(-26.8rem);
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   width: 26.8rem;
   z-index: 1036;
-  -webkit-overflow-scrolling: touch;
   /*
   html.navigation-is-locked breakpoint
   keeps nav from transitioning from left on page load
@@ -3355,13 +3355,13 @@ code {
   background-color: #6bdfd0 !important;
 }
 .site-modal .modal {
-  position: relative;
-  top: auto;
-  right: auto;
   bottom: auto;
-  left: auto;
-  z-index: 1;
   display: block;
+  left: auto;
+  position: relative;
+  right: auto;
+  top: auto;
+  z-index: 1;
 }
 .site-overlay {
   background-color: black;
@@ -3374,9 +3374,9 @@ code {
   z-index: -1;
 }
 html.navigation-is-open body {
-  overflow: hidden;
   bottom: 0;
   left: 0;
+  overflow: hidden;
   position: fixed;
   right: 0;
   top: 0;

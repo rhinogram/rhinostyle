@@ -41,10 +41,10 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 gulp.task('animations', ['animation:flag','animation:login']);
 gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
-gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles']);
-gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
+gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
-gulp.task('styles', ['docs:styles', 'dist:styles']);
+gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
 gulp.task('website', ['docs:deploy']);
 
 

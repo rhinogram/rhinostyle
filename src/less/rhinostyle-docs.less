@@ -21,9 +21,8 @@ code {
 
 
 .site-content {
+  padding: @grid-gutter-width / 2;
   position: relative;
-  //overflow-x: hidden;
-  padding: @grid-gutter-width/2;
   @media (min-width: @screen-sm-min) {
     padding: @grid-gutter-width;
   }
@@ -36,8 +35,8 @@ code {
 
 
 .site-copy {
-  max-width: 80rem;
   margin-bottom: 2rem;
+  max-width: 80rem;
 }
 
 
@@ -79,7 +78,7 @@ code {
     background-size: 1rem 1rem;*/
 }
 
-.site-header__logo  {
+.site-header__logo {
   //max-width: 8rem;
   position: relative;
   top: -.2rem;
@@ -97,7 +96,7 @@ code {
   html.navigation-is-locked breakpoint
   hide menu button
   */
-  @media(min-width: @screen-lg-min){
+  @media(min-width: @screen-lg-min) {
     display: none;
   }
 }
@@ -143,8 +142,8 @@ code {
 
 .site-miniheadline {
   //color: @brand-primary;
-  font-weight: @font-weight-semibold;
   font-size: 2rem;
+  font-weight: @font-weight-semibold;
 }
 
 
@@ -160,21 +159,23 @@ code {
 
 
 .site-navigation {
+  -webkit-overflow-scrolling: touch;
   background-color: @site-navigation-bg;
-  background-image: linear-gradient(135deg, @brand-secondary 0, darken(@brand-secondary,15%) 100%);
+  background-image: linear-gradient(135deg, @brand-secondary 0, darken(@brand-secondary, 15%) 100%);
   bottom: 0;
-  transform: translateX(-@site-navigation-width);
   min-height: 100%;
   overflow-y: scroll;
   position: fixed;
   top: 0;
+  transform: translateX(-@site-navigation-width);
   transition: transform 250ms @trans-timing-cubic;
   width: @site-navigation-width;
   z-index: @zindex-site-navigation;
-  -webkit-overflow-scrolling: touch;
+
   .no-touch & {
     overflow-y: auto;
   }
+
   /*
   html.navigation-is-locked breakpoint
   keeps nav from transitioning from left on page load
@@ -187,12 +188,15 @@ code {
 
 .site-navigation__nav {
   &:extend(.list-unstyled);
-  padding-top: @grid-gutter-width/2;
+  padding-top: @grid-gutter-width / 2;
+
   > li {
-    padding: 0 @grid-gutter-width/2;
+    padding: 0 @grid-gutter-width / 2;
+
     &:not(:first-child) {
       margin-top: .6rem;
     }
+
     @media (min-width: @screen-lg-min) {
       //padding-left: @grid-gutter-width;
     }
@@ -209,11 +213,11 @@ code {
   transition: background-color 250ms @trans-timing-cubic;
   .no-touch &:hover,
   .no-touch &:focus {
-    background-color: lighten(@brand-secondary,6%);
+    background-color: lighten(@brand-secondary, 6%);
     box-shadow: none;
   }
   &.active {
-    background-color: lighten(@brand-secondary,10%) !important;
+    background-color: lighten(@brand-secondary, 10%) !important;
   }
 }
 
@@ -224,13 +228,13 @@ code {
 
 
 .site-modal .modal {
-    position: relative;
-    top: auto;
-    right: auto;
     bottom: auto;
-    left: auto;
-    z-index: 1;
     display: block;
+    left: auto;
+    position: relative;
+    right: auto;
+    top: auto;
+    z-index: 1;
 }
 
 
@@ -259,13 +263,14 @@ code {
 
 html.navigation-is-open {
   body {
-    overflow: hidden;
     bottom: 0;
     left: 0;
+    overflow: hidden;
     position: fixed;
     right: 0;
     top: 0;
   }
+
   .site-overlay {
     opacity: .05;
     z-index: @zindex-site-overlay;
@@ -276,6 +281,7 @@ html.navigation-is-open {
   .site-navigation {
     transform: translateX(0);
   }
+
   .site-wrapper {
     transform: translateX(@site-navigation-width);
   }
@@ -285,6 +291,7 @@ html.navigation-is-locked {
   .site-navigation {
     transform: translateX(0);
   }
+
   .site-wrapper {
     margin-left: @site-navigation-width;
     transform: translateX(0) !important;
@@ -361,7 +368,7 @@ html.navigation-is-locked {
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load
   */
-  @media(min-width: 1200px){
+  @media(min-width: 1200px) {
     margin-left: @site-navigation-width;
     transform: translateX(0) !important;
   }
