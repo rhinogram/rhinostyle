@@ -21,5 +21,17 @@
     "zeroUnit": {
         "enabled": false,
         "style": "keep_unit"
-    }
+    },
+    "hexLength": {
+        "enabled": true,
+        "style": "short"
+    },
+    "decimalZero": {
+        "enabled": true,
+        "style": "none"
+    },
+    "importantRule": {
+        "enabled": false
+    },
+    "excludedFiles": ["utilities-spacing.less"]
 }

@@ -19,12 +19,12 @@
   > .dropdown__menu {
     display: block;
     opacity: 1;
-    transform: translateY(0.4rem);
+    transform: translateY(.4rem);
     visibility: visible;
   }
 
   > .dropdown__menu--top {
-    transform: translateY(-0.4rem);
+    transform: translateY(-.4rem);
   }
 
   // Remove the outline when :focus is triggered
@@ -91,7 +91,7 @@
   font-size: 1.4rem;
   left: 0;
   list-style: none;
-  margin: 0.2rem 0 0;
+  margin: .2rem 0 0;
   //min-width: 160px;
   opacity: 0;
   padding: @padding-small-vertical 0;
@@ -143,9 +143,9 @@
     border-right: 0;
     content: '';
     left: 1.2rem;
-    padding: 0.6rem;
+    padding: .6rem;
     position: absolute;
-    top: -0.7rem;
+    top: -.7rem;
     transform: rotate(45deg);
     z-index: -1;
   }
@@ -178,7 +178,7 @@
     border-left: 0;
     border-right: inherit;
     border-top: 0;
-    bottom: -0.7rem;
+    bottom: -.7rem;
     top: auto;
   }
 }
@@ -190,7 +190,7 @@
 
 .dropdown__menu__divider {
   background-color: @gray-lighter;
-  height: 0.1rem;
+  height: .1rem;
   margin: @margin-xsmall 0;
   overflow: hidden;
 }
@@ -204,7 +204,7 @@
 .dropdown__toggle {
   &:active,
   &:focus {
-    outline: none !important;
+    outline: none;
   }
 }
 

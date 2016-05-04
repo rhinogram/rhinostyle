@@ -33,7 +33,7 @@ label {
   color: @gray;
   display: inline-block;
   font-weight: @font-weight-semibold;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 
@@ -189,7 +189,7 @@ input[type='checkbox']:focus {
   height: @input-height-base;
   line-height: @line-height-base;
   padding: @padding-base-vertical @padding-small-horizontal;
-  transition: border-color @trans-timing-cubic 0.15s, box-shadow @trans-timing-cubic 0.15s;
+  transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   vertical-align: middle;
   width: 100%;
 
@@ -456,7 +456,7 @@ input[type='checkbox'] {
     &:checked+label::before {
       background-color: @form-element-color;
       .svg-bg-add-fill('@{svg-path}checkmark.svg', @white);
-      background-position: center 0.1rem;
+      background-position: center .1rem;
       background-repeat: no-repeat;
       background-size: 1.2rem 1.2rem;
       border-color: @form-element-color;
@@ -470,14 +470,14 @@ input[type='checkbox'] {
       content: '';
       display: inline-block;
       height: 1.7rem;
-      left: 0.5px;
+      left: .5px;
       line-height: 1.3rem;
-      margin: 0.1rem @margin-small 0.1rem 0;
+      margin: .1rem @margin-small .1rem 0;
       padding: 0;
       position: relative;
       speak: none;
       text-align: center;
-      top: -0.1rem;
+      top: -.1rem;
       transition: background-color 250ms @trans-timing-cubic;
       vertical-align: middle;
       width: 1.7rem;
@@ -499,16 +499,16 @@ input[type='checkbox'] {
   label {
     &::before {
       background-color: @white;
-      border: 0.2rem solid @white;
+      border: .2rem solid @white;
       border-radius: 50%;
       box-shadow: 0 0 0 1px @border-color-base;
       content: '';
       display: inline-block;
       height: 1.6rem;
-      left: 0.2rem;
+      left: .2rem;
       margin: 0 @margin-base 0 0;
       position: relative;
-      top: 0.3rem;
+      top: .3rem;
       transition: background-color 250ms @trans-timing-cubic;
       width: 1.6rem;
     }
@@ -611,7 +611,7 @@ input[type='checkbox'] {
 
 .rhinoswitcher--disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: .5;
   pointer-events: none;
 }
 
@@ -723,7 +723,7 @@ input[type='checkbox'] {
 
 .rhinoswitcher__toggler {
   background-color: @white;
-  border-radius: 0.2rem;
+  border-radius: .2rem;
   height: @switcher-toggler-height;
   left: 0;
   margin: @switcher-toggler-margin;

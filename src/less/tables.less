@@ -1,5 +1,5 @@
 // File: tables.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -18,7 +18,7 @@ th {
   text-transform: uppercase;
 }
 
-.table {
+.table { // lesshint depthLevel: false
   margin-bottom: @line-height-computed;
   max-width: 100%;
   width: 100%;
@@ -72,7 +72,7 @@ th {
 // Reset default table behavior
 
 
-table col[class*="col-"] {
+table col[class*='col-'] {
   display: table-column;
   float: none;
   position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
@@ -81,7 +81,7 @@ table col[class*="col-"] {
 table {
   td,
   th {
-    &[class*="col-"] {
+    &[class*='col-'] {
       display: table-cell;
       float: none;
       position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
@@ -95,7 +95,7 @@ table {
 // -------------------------
 
 
-.table--bordered {
+.table--bordered { // lesshint depthLevel: false
   border: 1px solid @table-border-color;
 
   > thead,
@@ -123,7 +123,7 @@ table {
   }
 }
 
-.table--condensed {
+.table--condensed { // lesshint depthLevel: false
   > thead,
   > tbody,
   > tfoot {
@@ -151,7 +151,7 @@ table {
 .table__sortable {
   cursor: pointer;
 
-  &:hover { 
+  &:hover {
     background-color: @gray-lighter;
   }
 }
@@ -162,12 +162,12 @@ table {
 
   &.ascending::after {
     .caret-down;
-    content: "";
+    content: '';
   }
 
   &.descending::after {
     .caret-up;
-    content: "";
+    content: '';
   }
 }
 
@@ -195,22 +195,21 @@ table {
 
 
 .table-responsive {
+  -webkit-overflow-scrolling: touch;
   background-color: @white;
   border: 1px solid @table-border-color;
   border-radius: @border-radius-base;
-  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 
-  @media screen and (max-width: @screen-xs-max) {
+  @media screen and (max-width: @screen-xs-max) { // lesshint depthLevel: false
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
-    margin-bottom: (@line-height-computed * 0.75);
+    margin-bottom: (@line-height-computed * .75);
     overflow-y: hidden;
     width: 100%;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
 
     // Tighten up spacing
-    > .table {
+    > .table { // lesshint depthLevel: false
       margin-bottom: 0;
 
       // Ensure the content doesn't wrap
@@ -227,13 +226,13 @@ table {
     }
 
     // Special overrides for the bordered tables
-    > .table--bordered {
+    > .table--bordered { // lesshint depthLevel: false
       border: 0;
 
       // Nuke the appropriate borders so that the parent can handle them
       > thead,
       > tbody,
-      > tfoot {
+      > tfoot { // lesshint depthLevel: false
         > tr {
           > th:first-child,
           > td:first-child {

@@ -1,5 +1,5 @@
 // File: list-groups.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -9,7 +9,7 @@
 
 
 .list-group {
-  margin-bottom: 2.0rem;
+  margin-bottom: 2rem;
   padding-left: 0;
 }
 
@@ -19,7 +19,7 @@
 // -------------------------
 
 
-.list-group__item {
+.list-group__item { // lesshint depthLevel: false
   background-color: @list-group-bg;
   border: 1px solid @list-group-border;
   display: block;
@@ -63,7 +63,7 @@
       color: @list-group-disabled-text-color;
     }
   }
-  
+
   &:first-child {
     .border-top-radius(@list-group-border-radius);
   }
@@ -74,6 +74,10 @@
   }
 }
 
+
+// -------------------------
+// Button List Group Item
+// -------------------------
 // Use anchor or button elements instead of `li`s or `div`s to create interactive items.
 // Includes an extra `.active` modifier class for showing selected items.
 
@@ -88,7 +92,7 @@ button.list-group__item {
     color: @list-group-link-hover-color;
     text-decoration: none;
   }
-  
+
   .list-group__item__heading {
     color: @list-group-link-heading-color;
   }
@@ -119,7 +123,7 @@ button.list-group__item {
 
 
 .list-group__item__heading {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   margin-top: 0;
 }
 

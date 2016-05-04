@@ -1,5 +1,5 @@
 // File: modals.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -19,6 +19,7 @@
 
 // Container that the modal scrolls within
 .modal {
+  -webkit-overflow-scrolling: touch;
   bottom: 0;
   display: none;
   left: 0;
@@ -28,7 +29,6 @@
   right: 0;
   top: 0;
   z-index: @zindex-modal;
-  -webkit-overflow-scrolling: touch;
 
   &.fade .modal__dialog {
     //transform:  scale(1.15);
@@ -115,7 +115,7 @@
 }
 
 .modal__header .close {
-  margin-top: -0.2rem;
+  margin-top: -.2rem;
 }
 
 .modal__header__title {
@@ -155,7 +155,7 @@
 
   // but override that for button groups
   .btn-group .btn + .btn {
-    margin-left: -0.1rem;
+    margin-left: -.1rem;
   }
 
   // and override it for block buttons as well
@@ -172,11 +172,11 @@
 
 // Measure scrollbar width for padding body during modal show/hide
 .modal-scrollbar-measure {
-  height: 5.0rem;
+  height: 5rem;
   overflow: scroll;
   position: absolute;
   top: -9999px;
-  width: 5.0rem;
+  width: 5rem;
 }
 
 
@@ -188,21 +188,21 @@
 // Scale up the modal
 @media (min-width: @screen-sm-min) {
   .modal__dialog {
-    margin: 3.0rem auto;
+    margin: 3rem auto;
     width: @modal-md;
   }
 
   /*.modal__content {
-    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.5);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.5);
   }*/
-  
+
   .modal__dialog--sm {
     width: @modal-sm;
   }
 }
 
 @media (min-width: @screen-md-min) {
-  .modal__dialog--lg { 
+  .modal__dialog--lg {
     width: @modal-lg;
   }
 }

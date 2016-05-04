@@ -41,9 +41,10 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 gulp.task('animations', ['animation:flag','animation:login']);
 gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
-gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles']);
-gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
+gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
+gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
 gulp.task('website', ['docs:deploy']);
 
 
@@ -64,7 +65,7 @@ gulp.task('animation:flag', () => {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'horizontal'
+          layout: 'vertical'
         }
       },
       svg: {
@@ -93,7 +94,7 @@ gulp.task('animation:login', () => {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'horizontal'
+          layout: 'vertical'
         }
       },
       svg: {
@@ -104,7 +105,7 @@ gulp.task('animation:login', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Flag Login'))
+    .pipe(duration('Built Login Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -321,7 +322,7 @@ gulp.task('icons', () => {
 // Style Linting
 // -------------------------
 gulp.task('styles:lint', () => {
-  return gulp.src('./src/less/list-groups.less')
+  return gulp.src('./src/less/**/*.less')
     .pipe(lesshint())
     .pipe(lesshint.reporter());
 });
