@@ -3,7 +3,8 @@ import path    from 'path';
 
 const dependencies = [
   'react',
-  'classnames'
+  'classnames',
+  'component-playground'
 ];
 
 export default {
@@ -28,13 +29,20 @@ export default {
     ]
   },
   resolve: {
+    alias: {
+      'react': path.join(__dirname, '../', 'node_modules', 'react')
+    },
     extensions: ['', '.js', '.jsx']
   },
   plugins: [
-    new webpack.DefinePlugin({ 'process.env': { 'NODE_ENV': JSON.stringify('production') } }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: false })
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })
   ]
 }
