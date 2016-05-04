@@ -44,6 +44,7 @@ gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'd
 gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles']);
 gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('server', ['docs:serve']);
+gulp.task('styles', ['docs:styles', 'dist:styles']);
 gulp.task('website', ['docs:deploy']);
 
 
@@ -321,7 +322,7 @@ gulp.task('icons', () => {
 // Style Linting
 // -------------------------
 gulp.task('styles:lint', () => {
-  return gulp.src('./src/less/normalize.less')
+  return gulp.src('./src/less/variables.less')
     .pipe(lesshint())
     .pipe(lesshint.reporter());
 });

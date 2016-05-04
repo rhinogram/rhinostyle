@@ -195,17 +195,6 @@
 
 
         // animation testing
-        /*var totalFrames = 51,
-            speed = 3,
-            rhinoEase = new SteppedEase(totalFrames),
-            finalPosition = '100% 0px';
-
-        var rhinoTL = new TimelineMax({repeat:-1,repeatDelay:2});
-        rhinoTL.to('.rhino-animation', speed, {
-            backgroundPosition: finalPosition,
-            ease: rhinoEase
-        })*/
-
         var rhinoFlagFrames = 51, // 52 total frames minus 1
             rhinoFlagEase = new SteppedEase(rhinoFlagFrames),
             rhiniFlagPosition = '-98.07%', // total width of svg (39520) minus width of 1 frame (760px) / 39520 * 100
@@ -216,10 +205,6 @@
             rhinoLoginPosition = '-98.46%', // total width of svg (37700) minus width of 1 frame (580px) / 37700 * 100
             rhinoLoginSpeed = 3;
             
-            
-            
-            
-
         var rhinoFlagTL = new TimelineMax({repeat:-1,repeatDelay:2});
         rhinoFlagTL.to('.rhino-animation__flag', rhinoFlagSpeed, {
           y: rhiniFlagPosition,

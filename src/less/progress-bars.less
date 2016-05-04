@@ -1,5 +1,5 @@
 // File: progress-bars.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -23,7 +23,6 @@
   height: @progress-bar-height;
   position: relative;
   transform: translateZ(0); // Firefox overflow bug - trigger hardware acceleration
-  
 }
 
 
@@ -32,9 +31,17 @@
 // -------------------------
 
 
-.progress-bar--default { background: @gray-light; }
-.progress-bar--primary { background: @brand-primary; }
-.progress-bar--secondary { background: @brand-secondary; }
+.progress-bar--default {
+  background: @gray-light;
+}
+
+.progress-bar--primary {
+  background: @brand-primary;
+}
+
+.progress-bar--secondary {
+  background: @brand-secondary;
+}
 
 .progress-bar--success-to-danger {
   @crazyprogress: @brand-success, @brand-warning 75%, @brand-danger;
@@ -66,8 +73,8 @@
 
 
 .progress-bar__slider {
-  background: @gray-lighter;
   backface-visibility: hidden;
+  background: @gray-lighter;
   box-shadow: @progress-bar-inset-shadow;
   height: @progress-bar-height;
   transition: transform 500ms ease-out;
@@ -85,7 +92,7 @@
   padding: 0 @padding-xsmall;
   position: absolute;
   right: 100%;
-  top: -.1rem;
+  top: -0.1rem;
   user-select: none;
 }
 

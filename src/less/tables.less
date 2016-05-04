@@ -1,5 +1,5 @@
 // File: tables.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -72,7 +72,7 @@ th {
 // Reset default table behavior
 
 
-table col[class*="col-"] {
+table col[class*='col-'] {
   display: table-column;
   float: none;
   position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
@@ -81,7 +81,7 @@ table col[class*="col-"] {
 table {
   td,
   th {
-    &[class*="col-"] {
+    &[class*='col-'] {
       display: table-cell;
       float: none;
       position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
@@ -151,7 +151,7 @@ table {
 .table__sortable {
   cursor: pointer;
 
-  &:hover { 
+  &:hover {
     background-color: @gray-lighter;
   }
 }
@@ -162,12 +162,12 @@ table {
 
   &.ascending::after {
     .caret-down;
-    content: "";
+    content: '';
   }
 
   &.descending::after {
     .caret-up;
-    content: "";
+    content: '';
   }
 }
 
@@ -195,19 +195,18 @@ table {
 
 
 .table-responsive {
+  -webkit-overflow-scrolling: touch;
   background-color: @white;
   border: 1px solid @table-border-color;
   border-radius: @border-radius-base;
-  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 
   @media screen and (max-width: @screen-xs-max) {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
     margin-bottom: (@line-height-computed * 0.75);
     overflow-y: hidden;
     width: 100%;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
 
     // Tighten up spacing
     > .table {

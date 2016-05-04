@@ -25,5 +25,6 @@
     "hexLength": {
         "enabled": true,
         "style": "short"
-    }
+    },
+    "excludedFiles": ["print.less","rhinostyle-docs.less","tables.less","utilities-responsive.less","utilities-spacing.less"]
 }

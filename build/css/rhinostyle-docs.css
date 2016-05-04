@@ -1,8 +1,8 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-family: sans-serif;
 }
 body {
   margin: 0;
@@ -67,9 +67,9 @@ small {
 }
 sub,
 sup {
-  position: relative;
   font-size: 75%;
   line-height: 0;
+  position: relative;
   vertical-align: baseline;
 }
 sup {
@@ -118,9 +118,9 @@ select {
   text-transform: none;
 }
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -136,21 +136,21 @@ input::-moz-focus-inner {
 input {
   line-height: normal;
 }
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   box-sizing: border-box;
   padding: 0;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: textfield;
   box-sizing: content-box;
 }
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 fieldset {
@@ -1185,17 +1185,14 @@ fieldset[disabled] .btn--link:focus {
   padding: 0 0.4rem;
 }
 .close:hover,
-.close:focus,
-.notify__close:hover,
-.notify__close:focus {
+.close:focus {
   color: inherit;
   cursor: pointer;
   opacity: 0.75;
   outline: none;
   text-decoration: none;
 }
-button.close,
-button.notify__close {
+button.close {
   -webkit-appearance: none;
   background: transparent;
   border: 0;
@@ -2628,6 +2625,7 @@ a.label:focus {
   overflow: hidden;
 }
 .modal {
+  -webkit-overflow-scrolling: touch;
   bottom: 0;
   display: none;
   left: 0;
@@ -2637,7 +2635,6 @@ a.label:focus {
   right: 0;
   top: 0;
   z-index: 1050;
-  -webkit-overflow-scrolling: touch;
 }
 .modal.fade .modal__dialog {
   transition: -webkit-transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
@@ -2687,8 +2684,7 @@ a.label:focus {
   min-height: 2.92857143rem;
   padding: 1.5rem;
 }
-.modal__header .close,
-.modal__header .notify__close {
+.modal__header .close {
   margin-top: -0.2rem;
 }
 .modal__header__title {
@@ -2717,15 +2713,15 @@ a.label:focus {
   margin-left: 0;
 }
 .modal-scrollbar-measure {
-  height: 5.0rem;
+  height: 5rem;
   overflow: scroll;
   position: absolute;
   top: -9999px;
-  width: 5.0rem;
+  width: 5rem;
 }
 @media (min-width: 768px) {
   .modal__dialog {
-    margin: 3.0rem auto;
+    margin: 3rem auto;
     width: 600px;
   }
   /*.modal__content {
@@ -2745,7 +2741,7 @@ a.label:focus {
   color: #ffffff;
   font-weight: 300;
   margin-bottom: 0.6rem;
-  max-width: 50.0rem;
+  max-width: 50rem;
   padding: 1.2rem 3.2rem 1.2rem 1.2rem;
   position: relative;
 }
@@ -2762,10 +2758,24 @@ a.label:focus {
   background: #41D6C3;
 }
 .notify__close {
-  float: none !important;
+  float: none;
   position: absolute;
   right: 0.8rem;
   top: 1rem;
+}
+.notify__close:hover,
+.notify__close:focus {
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.75;
+  outline: none;
+  text-decoration: none;
+}
+button.notify__close {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 .notify__link {
   color: #ffffff;

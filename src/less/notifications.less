@@ -1,5 +1,5 @@
 // File: notifications.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -12,7 +12,7 @@
   color: @notify-text;
   font-weight: @notify-font-weight;
   margin-bottom: @margin-small;
-  max-width: 50.0rem;
+  max-width: 50rem;
   padding: @notify-padding;
   position: relative;
 
@@ -47,11 +47,27 @@
 
 
 .notify__close {
-  &:extend(.close all);
-  float: none !important;
+  &:extend(.close);
+  float: none;
   position: absolute;
   right: 0.8rem;
   top: 1rem;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.75;
+    outline: none;
+    text-decoration: none;
+  }
+
+  button& {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
 }
 
 
