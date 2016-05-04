@@ -1,0 +1,14 @@
+var ComponentExample = React.createClass({
+  render() {
+    return (
+      <div>
+        <h4>Button</h4>
+        <Button label="Default" />
+        <Button label="Primary" type="primary" />
+        <Button label="Secondary" type="secondary" />
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<ComponentExample />, mountNode);
