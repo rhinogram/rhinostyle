@@ -26,5 +26,9 @@
         "enabled": true,
         "style": "short"
     },
+    "decimalZero": {
+        "enabled": true,
+        "style": "none"
+    },
     "excludedFiles": ["print.less","rhinostyle-docs.less","tables.less","utilities-responsive.less","utilities-spacing.less"]
 }

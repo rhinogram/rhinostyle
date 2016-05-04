@@ -1,5 +1,5 @@
 // File: variables.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -42,7 +42,7 @@
 @badge-line-height:           1;
 @badge-link-hover-color:      @white;
 @badge-min-width:             1.8rem;
-@badge-vertical-padding:      0.3rem;
+@badge-vertical-padding:      .3rem;
 
 
 // -------------------------
@@ -52,11 +52,11 @@
 
 @border-color-base:             @gray-light;
 @border-color-focus:            #66afe9;
-@border-radius-base:            0.4rem;
-@border-radius-large:           0.5rem;
-@border-radius-small:           0.3rem;
-@border-shadow-focus:           ~"inset 0 0 1px rgba(0,0,0,.075), 0 0 0.4rem @{border-shadow-color-focus}";
-@border-shadow-color-focus:     rgba(red(@border-color-focus), green(@border-color-focus), blue(@border-color-focus),.75);
+@border-radius-base:            .4rem;
+@border-radius-large:           .5rem;
+@border-radius-small:           .3rem;
+@border-shadow-focus:           ~'inset 0 0 1px rgba(0, 0, 0, .075), 0 0 .4rem @{border-shadow-color-focus}';
+@border-shadow-color-focus:     rgba(red(@border-color-focus), green(@border-color-focus), blue(@border-color-focus), .75);
 
 
 // -------------------------
@@ -125,12 +125,12 @@
 
 
 // Brand colors
-@brand-accent:              #FFA573;
+@brand-accent:              #ffa573;
 @brand-primary:             #0081c6;
-@brand-secondary:           #41D6C3;
-@brand-success:             #83C400;
+@brand-secondary:           #41d6c3;
+@brand-success:             #83c400;
 @brand-info:                #5bc0de;
-@brand-warning:             #ffcc33;
+@brand-warning:             #fc3;
 @brand-danger:              #cb2027;
 
 // Black Gray White
@@ -140,7 +140,7 @@
 @gray-light:                #d2d2d2;
 @gray-lighter:              #ececec;
 @gray-lightest:             #f9f9f9;
-@white:                     #ffffff;
+@white:                     #fff;
 
 
 // -------------------------
@@ -148,38 +148,38 @@
 // -------------------------
 
 // buttons and inputs vertical
-@padding-large-vertical:    0.7rem;
-@padding-base-vertical:     0.6rem;
-@padding-small-vertical:    0.5rem;
-@padding-xs-vertical:       0.3rem;
+@padding-large-vertical:    .7rem;
+@padding-base-vertical:     .6rem;
+@padding-small-vertical:    .5rem;
+@padding-xs-vertical:       .3rem;
 
 // buttons and inputs horizontal
 @padding-large-horizontal:  1.4rem;
 @padding-base-horizontal:   1.2rem;
 @padding-small-horizontal:  1.0rem;
-@padding-xs-horizontal:     0.6rem;
+@padding-xs-horizontal:     .6rem;
 
 // fine-tune component padding
 @padding-half-gutter:       @grid-gutter-width / 2; // 15px
 @padding-large:             1.2rem;
 @padding-medium:            1.0rem;
-@padding-base:              0.8rem;
-@padding-small:             0.6rem;
-@padding-xsmall:            0.4rem;
+@padding-base:              .8rem;
+@padding-small:             .6rem;
+@padding-xsmall:            .4rem;
 
 // fine-tune component margin
 @margin-half-gutter:        @grid-gutter-width / 2; // 15px
 @margin-large:              1.2rem;
 @margin-medium:             1.0rem;
-@margin-base:               0.8rem;
-@margin-small:              0.6rem;
-@margin-xsmall:             0.4rem;
+@margin-base:               .8rem;
+@margin-small:              .6rem;
+@margin-xsmall:             .4rem;
 
 @component-active-color:    @white; // global color for active items (e.g., navs or dropdowns)
 @component-active-bg:       @brand-primary; //global bgcolor for active items (e.g., navs or dropdowns)
 
-@caret-width-base:          0.5rem; // width of the `border` for generating carets that indicator dropdowns
-@caret-width-large:         0.6rem;
+@caret-width-base:          .5rem; // width of the `border` for generating carets that indicator dropdowns
+@caret-width-large:         .6rem;
 
 
 // -------------------------
@@ -222,7 +222,7 @@
 
 @grid-gutter-width:             3.0rem; // 30px
 @grid-gutter-width-condensed:   1.4rem; // 14px
-@grid-gutter-width-xcondensed:  0.6rem; // 6px
+@grid-gutter-width-xcondensed:  .6rem; // 6px
 
 
 // -------------------------
@@ -240,14 +240,14 @@
 @input-border-radius-large:      @border-radius-large;
 @input-border-radius-small:      @border-radius-small;
 @input-color:                    @text-color;
-@input-color-placeholder:        darken(@gray-light,4%);
+@input-color-placeholder:        darken(@gray-light, 4%);
 @input-group-addon-bg:           @gray-lighter; // bg color for textual input addons
 @input-group-addon-border-color: @input-border; // border color for textual input addons
 
 // Form control `.form-control` heights
-@input-height-base:              @line-height-computed + (@padding-base-vertical * 2) + 0.2rem;
-@input-height-large:             (@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 0.2rem;
-@input-height-small:             (@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 0.2rem;
+@input-height-base:              @line-height-computed + (@padding-base-vertical * 2) + .2rem;
+@input-height-large:             (@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + .2rem;
+@input-height-small:             (@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + .2rem;
 
 @form-group-margin-bottom:       @line-height-computed;
 
@@ -264,7 +264,7 @@
 
 @label-accent-bg:           @brand-accent;
 @label-danger-bg:           @brand-danger;
-@label-default-bg:          darken(@gray-light,5%);
+@label-default-bg:          darken(@gray-light, 5%);
 @label-info-bg:             @brand-info;
 @label-primary-bg:          @brand-primary;
 @label-secondary-bg:        @brand-secondary;
@@ -274,9 +274,9 @@
 @label-color:               @white;
 @label-link-hover-color:    @white;
 
-@label-padding-bottom:      0.2rem;
-@label-padding-sides:       0.5rem;
-@label-padding-top:         0.2rem;
+@label-padding-bottom:      .2rem;
+@label-padding-sides:       .5rem;
+@label-padding-top:         .2rem;
 
 @label-padding:             @label-padding-top @label-padding-sides @label-padding-bottom;
 
@@ -328,15 +328,15 @@
 @modal-content-bg:            @white;
 @modal-content-border-color:  @gray-lighter;
 
-@modal-easing:                cubic-bezier(0.465, 0.183, 0.153, 0.946);
+@modal-easing:                cubic-bezier(.465, .183, .153, .946);
 
 @modal-footer-border-color:   @modal-content-border-color;
 @modal-header-border-color:   @modal-content-border-color;
 @modal-inner-padding:         @padding-half-gutter;
 
-@modal-lg:                    900px;
-@modal-md:                    600px;
-@modal-sm:                    300px;
+@modal-lg:                    90rem;
+@modal-md:                    60rem;
+@modal-sm:                    30rem;
 
 @modal-title-padding:         @padding-half-gutter;
 @modal-title-line-height:     @line-height-base;
@@ -388,7 +388,7 @@
 // -------------------------
 
 
-@opacity-disabled:          0.5;
+@opacity-disabled:          .5;
 
 
 // -------------------------
@@ -498,7 +498,7 @@
 @progress-bar-radius:       1rem;
 @progress-bar-height:       2.0rem;
 @progress-bar-height-sm:    1.4rem;
-@progress-bar-inset-shadow: inset 0 0.5rem 0.5rem rgba(0,0,0,0.05);
+@progress-bar-inset-shadow: inset 0 .5rem .5rem rgba(0, 0, 0, .05);
 
 
 
@@ -521,9 +521,9 @@
 // Shadows
 // -------------------------
 
-@shadow-depth-1: 0 0.2rem  0.5rem  rgba(0, 0, 0, 0.20);
-@shadow-depth-2: 0 0.5rem  1.5rem  rgba(0, 0, 0, 0.20);
-@shadow-depth-3: 0 1.0rem  2.5rem  rgba(0, 0, 0, 0.20);
+@shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .20);
+@shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .20);
+@shadow-depth-3: 0 1.0rem  2.5rem  rgba(0, 0, 0, .20);
 
 
 
@@ -543,27 +543,27 @@
 
 
 @state-danger-text:              @brand-danger;
-@state-danger-bg:                lighten(@brand-danger,52%);
-@state-danger-border:            lighten(@brand-danger,45%);
+@state-danger-bg:                lighten(@brand-danger, 52%);
+@state-danger-border:            lighten(@brand-danger, 45%);
 
-@state-info-text:                darken(@brand-info,15%);
-@state-info-bg:                  lighten(@brand-info,37%);
-@state-info-border:              lighten(@brand-info,27%);
+@state-info-text:                darken(@brand-info, 15%);
+@state-info-bg:                  lighten(@brand-info, 37%);
+@state-info-border:              lighten(@brand-info, 27%);
 
 @state-success-text:             @brand-success;
-@state-success-bg:               lighten(@brand-success,68%);
-@state-success-border:           lighten(@brand-success,40%);
+@state-success-bg:               lighten(@brand-success, 68%);
+@state-success-border:           lighten(@brand-success, 40%);
 
-@state-warning-text:             darken(@brand-warning,12%);
-@state-warning-bg:               lighten(@brand-warning,38%);
-@state-warning-border:           lighten(@brand-warning,28%);
+@state-warning-text:             darken(@brand-warning, 12%);
+@state-warning-bg:               lighten(@brand-warning, 38%);
+@state-warning-border:           lighten(@brand-warning, 28%);
 
 
 // -------------------------
 // SVG
 // -------------------------
 
-@svg-path:                       "../dist/svg/";
+@svg-path:                       '../../dist/svg/';
 
 
 // -------------------------
@@ -576,7 +576,7 @@
 @switcher-state-line-height:     @switcher-height;
 @switcher-state-padding:         2.0rem;
 @switcher-toggler-height:        2.0rem;
-@switcher-toggler-margin:        0.2rem;
+@switcher-toggler-margin:        .2rem;
 @switcher-toggler-width:         2.0rem;
 @switcher-width:                 5.2rem;
 
@@ -588,13 +588,13 @@
 
 @table-bg:                      transparent; // default background color used for all tables.
 @table-bg-accent:               @gray-lightest; // background color used for `.table-striped`
-@table-bg-hover:                darken(@gray-lightest,2%);
+@table-bg-hover:                darken(@gray-lightest, 2%);
 @table-bg-active:               @table-bg-hover;
 
 @table-border-color:            @border-color-base;
 
 @table-cell-padding:            1.0rem; // padding for `<th>`s and `<td>`s
-@table-condensed-cell-padding:  0.6rem; // padding for cells in `.table-condensed`
+@table-condensed-cell-padding:  .6rem; // padding for cells in `.table-condensed`
 
 
 // -------------------------
@@ -615,7 +615,7 @@
 // -------------------------
 
 
-@trans-timing-cubic:          cubic-bezier(.43,.41,.22,.91);
+@trans-timing-cubic:          cubic-bezier(.43, .41, .22, .91);
 
 
 // -------------------------
@@ -642,9 +642,9 @@
 
 
 @font-family-base:        @font-family-sans-serif;
-@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-monospace:   Menlo, Monaco, Consolas, 'Courier New', monospace;
 @font-family-sans-serif:  'Lato','Helvetica Neue', Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-serif:       Georgia, 'Times New Roman', Times, serif;
 
 @font-size-root:          10px;
 

@@ -322,7 +322,7 @@ gulp.task('icons', () => {
 // Style Linting
 // -------------------------
 gulp.task('styles:lint', () => {
-  return gulp.src('./src/less/variables.less')
+  return gulp.src('./src/less/**/*.less')
     .pipe(lesshint())
     .pipe(lesshint.reporter());
 });

@@ -138,22 +138,22 @@
 
 .u-hidden-xs {
   @media (max-width: @screen-xs-max) {
-    .responsive-invisibility();
+    display: none !important;
   }
 }
 .u-hidden-sm {
   @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-    .responsive-invisibility();
+    display: none !important;
   }
 }
 .u-hidden-md {
   @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-    .responsive-invisibility();
+    display: none !important;
   }
 }
 .u-hidden-lg {
   @media (min-width: @screen-lg-min) {
-    .responsive-invisibility();
+    display: none !important;
   }
 }
 
@@ -188,6 +188,6 @@
 
 .u-hidden-print {
   @media print {
-    .responsive-invisibility();
+    display: none !important;
   }
 }
