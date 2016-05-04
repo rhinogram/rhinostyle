@@ -1,5 +1,5 @@
 // File: list-groups.less
-// Note: 
+// Note:
 
 
 // -------------------------
@@ -9,7 +9,7 @@
 
 
 .list-group {
-  margin-bottom: 2.0rem;
+  margin-bottom: 2rem;
   padding-left: 0;
 }
 
@@ -27,43 +27,6 @@
   padding: @padding-medium @padding-half-gutter;
   position: relative;
 
-  // Active
-  &.active,
-  &.active:hover,
-  &.active:focus {
-    background-color: @list-group-active-bg;
-    border-color: @list-group-active-border;
-    color: @list-group-active-color;
-    z-index: 2; // Place active items above their siblings for proper border styling
-
-    .list-group__item__heading,
-    .list-group__item__heading > small,
-    .list-group__item__heading > .u-small {
-      color: inherit;
-    }
-
-    .list-group__item__text {
-      color: @list-group-active-text-color;
-    }
-  }
-
-  // Disabled
-  &.disabled,
-  &.disabled:hover,
-  &.disabled:focus {
-    background-color: @list-group-disabled-bg;
-    color: @list-group-disabled-color;
-    cursor: @cursor-disabled;
-
-    .list-group__item__heading {
-      color: inherit;
-    }
-
-    .list-group__item__text {
-      color: @list-group-disabled-text-color;
-    }
-  }
-  
   &:first-child {
     .border-top-radius(@list-group-border-radius);
   }
@@ -74,6 +37,47 @@
   }
 }
 
+// Active
+.list-group__item.active,
+.list-group__item.active:hover,
+.list-group__item.active:focus {
+  background-color: @list-group-active-bg;
+  border-color: @list-group-active-border;
+  color: @list-group-active-color;
+  z-index: 2; // Place active items above their siblings for proper border styling
+
+  .list-group__item__heading,
+  .list-group__item__heading > small,
+  .list-group__item__heading > .u-small {
+    color: inherit;
+  }
+
+  .list-group__item__text {
+    color: @list-group-active-text-color;
+  }
+}
+
+// Disabled
+.list-group__item.disabled,
+.list-group__item.disabled:hover,
+.list-group__item.disabled:focus {
+  background-color: @list-group-disabled-bg;
+  color: @list-group-disabled-color;
+  cursor: @cursor-disabled;
+
+  .list-group__item__heading {
+    color: inherit;
+  }
+
+  .list-group__item__text {
+    color: @list-group-disabled-text-color;
+  }
+}
+
+
+// -------------------------
+// Button List Group Item
+// -------------------------
 // Use anchor or button elements instead of `li`s or `div`s to create interactive items.
 // Includes an extra `.active` modifier class for showing selected items.
 
@@ -88,7 +92,7 @@ button.list-group__item {
     color: @list-group-link-hover-color;
     text-decoration: none;
   }
-  
+
   .list-group__item__heading {
     color: @list-group-link-heading-color;
   }

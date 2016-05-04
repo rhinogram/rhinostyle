@@ -21,5 +21,9 @@
     "zeroUnit": {
         "enabled": false,
         "style": "keep_unit"
+    },
+    "hexLength": {
+        "enabled": true,
+        "style": "short"
     }
 }

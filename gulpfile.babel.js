@@ -321,7 +321,7 @@ gulp.task('icons', () => {
 // Style Linting
 // -------------------------
 gulp.task('styles:lint', () => {
-  return gulp.src('./src/less/list-groups.less')
+  return gulp.src('./src/less/normalize.less')
     .pipe(lesshint())
     .pipe(lesshint.reporter());
 });
