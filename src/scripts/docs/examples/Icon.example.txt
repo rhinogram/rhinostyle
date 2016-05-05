@@ -2,7 +2,7 @@ var ComponentExample = React.createClass({
   render() {
     return (
       <div>
-        <h4>Button</h4>
+        <h4>Icon</h4>
         <Icon icon="cog" />
         <Icon icon="chevron-right" />
         <Icon icon="warning" />
