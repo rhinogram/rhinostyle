@@ -1,0 +1,14 @@
+var ComponentExample = React.createClass({
+  render() {
+    return (
+      <div>
+        <h4>Button</h4>
+        <Icon icon="cog" />
+        <Icon icon="chevron-right" />
+        <Icon icon="warning" />
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<ComponentExample />, mountNode);

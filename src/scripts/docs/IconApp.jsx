@@ -1,7 +1,16 @@
-import React      from 'react';
-import { render } from 'react-dom';
+import React    from 'react';
+import ReactDOM from 'react-dom';
 
 import { Icon } from '../components';
+
+import Playground from 'component-playground';
+
+const iconExample = require("raw!./examples/Icon.example.txt");
+const exampleScope  = {
+  React:  React,
+  ReactDOM: ReactDOM,
+  Icon: Icon
+};
 
 const IconApp = React.createClass({
   displayName: 'Rhinostyle Icon Example',
@@ -161,9 +170,14 @@ const IconApp = React.createClass({
             <div className="site-swatch__text"><strong>Warning</strong></div>
           </div>
         </section>
+
+        <section>
+          <h4>Try it out!</h4>
+          <Playground codeText={iconExample} scope={exampleScope} noRender={false} />
+        </section>
       </div>
     );
   }
 });
 
-render(<IconApp />, document.getElementById('js-app'));
+ReactDOM.render(<IconApp />, document.getElementById('js-app'));
