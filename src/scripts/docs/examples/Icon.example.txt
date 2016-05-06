@@ -1,8 +1,7 @@
 var ComponentExample = React.createClass({
   render() {
     return (
-      <div>
-        <h4>Icon</h4>
+      <div style={{fontSize:'4rem'}}>
         <Icon icon="cog" />
         <Icon icon="chevron-right" />
         <Icon icon="warning" />

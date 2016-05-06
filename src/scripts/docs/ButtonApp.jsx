@@ -20,29 +20,23 @@ const ButtonApp = React.createClass({
       <div>
         <h1 className="site-headline">Buttons</h1>
 
-        <section className="site-section">
+        {/*<section className="site-section">
           <h3 className="site-subheadline">Button Tags</h3>
           <Button label="Anchor" />
-        </section>
+        </section>*/}
 
         <section className="site-section">
-          <h3 className="site-subheadline">Button Color Modifiers</h3>
-          <div className="u-m-b">
+          <h3 className="site-subheadline">Button Types</h3>
             <Button label="Default" type="default" />
             <Button label="Primary" type="primary" />
             <Button label="Secondary" type="secondary" />
-          </div>
-          <div className="u-m-b">
             <Button label="Default Outline" type="default" outline={true} />
             <Button label="Primry Outline" type="primary" outline={true} />
-          </div>
-          <div>
             <Button label="Link" type="link" />
-          </div>
         </section>
 
         <section className="site-section">
-          <h3 className="site-subheadline">Button Size Modifiers</h3>
+          <h3 className="site-subheadline">Button Sizes</h3>
           <div className="u-m-b">
             <Button label="Large" size="large" />
             <Button label="Default" />
@@ -66,12 +60,12 @@ const ButtonApp = React.createClass({
         </section>
 
         <section className="site-section">
-          <h3 className="site-subheadline">Button Type Modifiers</h3>
+          <h3 className="site-subheadline">Button Modifiers</h3>
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Block Buttons</h5>
             <p className="site-copy">Add <code>block={'{true}'}</code> to create a block level button.</p>
             <div className="row">
-              <div className="col-sm-10">
+              <div className="col-sm-8">
                 <Button label="Block Button" block={true} />
               </div>
             </div>
@@ -117,9 +111,11 @@ const ButtonApp = React.createClass({
         </section>
 
         <section>
-          <h4>Try it out!</h4>
+          <h3 className="site-subheadline">Playground</h3>
           <Playground codeText={buttonExample} scope={exampleScope} noRender={false} />
         </section>
+
+        
       </div>
     );
   }

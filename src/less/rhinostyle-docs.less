@@ -373,3 +373,115 @@ html.navigation-is-locked {
     transform: translateX(0) !important;
   }
 }
+
+
+// -------------------------
+// Code Mirror Playground
+// -------------------------
+
+
+.cm-s-monokai.CodeMirror {
+  margin-bottom: @margin-half-gutter;
+}
+
+.cm-s-monokai.CodeMirror {
+  background: @gray-lightest;
+  color: @gray;
+  margin-bottom: @margin-half-gutter;
+}
+
+.cm-s-monokai div.CodeMirror-selected {
+  background: #49483E !important;
+}
+
+.cm-s-monokai.CodeMirror ::selection {
+  background: rgba(73, 72, 62, .99);
+}
+
+.cm-s-monokai.CodeMirror ::-moz-selection {
+  background: rgba(73, 72, 62, .99);
+}
+
+.cm-s-monokai .CodeMirror-gutters {
+  background: #272822;
+  border-right: 0px;
+}
+
+.cm-s-monokai .CodeMirror-guttermarker {
+  color: white;
+}
+
+.cm-s-monokai .CodeMirror-guttermarker-subtle {
+  color: #d0d0d0;
+}
+
+.cm-s-monokai .CodeMirror-linenumber {
+  color: #d0d0d0;
+}
+
+.cm-s-monokai .CodeMirror-cursor {
+  border-left: 1px solid @gray-dark !important;
+}
+
+.cm-s-monokai span.cm-comment {
+  color: #75715e;
+}
+
+.cm-s-monokai span.cm-atom {
+  color: #ae81ff;
+}
+
+.cm-s-monokai span.cm-number {
+  color: #ae81ff;
+}
+
+.cm-s-monokai span.cm-property,
+.cm-s-monokai span.cm-attribute {
+  color: @gray;
+}
+
+.cm-s-monokai span.cm-keyword {
+  color: @brand-accent;
+}
+
+.cm-s-monokai span.cm-string {
+  color: @brand-secondary;
+}
+
+.cm-s-monokai span.cm-variable {
+  color: @gray;
+}
+
+.cm-s-monokai span.cm-variable-2 {
+  color: #9effff;
+}
+
+.cm-s-monokai span.cm-def {
+  color: #fd971f;
+}
+
+.cm-s-monokai span.cm-bracket {
+  color: #f8f8f2;
+}
+
+.cm-s-monokai span.cm-tag {
+  color: @brand-accent;
+}
+
+.cm-s-monokai span.cm-link {
+  color: #ae81ff;
+}
+
+.cm-s-monokai span.cm-error {
+  background: @brand-accent;
+  color: #f8f8f0;
+}
+
+.cm-s-monokai .CodeMirror-activeline-background {
+  background: #373831 !important;
+}
+
+.cm-s-monokai .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

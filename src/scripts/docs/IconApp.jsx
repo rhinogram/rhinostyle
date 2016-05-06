@@ -172,7 +172,7 @@ const IconApp = React.createClass({
         </section>
 
         <section>
-          <h4>Try it out!</h4>
+          <h3 className="site-subheadline">Playground</h3>
           <Playground codeText={iconExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
