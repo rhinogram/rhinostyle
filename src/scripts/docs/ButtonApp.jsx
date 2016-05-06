@@ -64,11 +64,7 @@ const ButtonApp = React.createClass({
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Block Buttons</h5>
             <p className="site-copy">Add <code>block={'{true}'}</code> to create a block level button.</p>
-            <div className="row">
-              <div className="col-sm-8">
-                <Button label="Block Button" block={true} />
-              </div>
-            </div>
+            <Button label="Block Button" block={true} />
           </div>
           <div>
             <h5 className="site-miniheadline">Icon-Only Buttons</h5>

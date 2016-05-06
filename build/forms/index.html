@@ -83,7 +83,9 @@
   </header>
   <main class="site-content" id="js-app">
     
-  
+<div class="row">
+  <div class="col-md-10">
+    
 <!-- 
 form control static
 switcher modifiers
@@ -97,88 +99,85 @@ check/radio modifiers
   
   <h3 class="site-subheadline">Basic Form</h3>
 
-  <div class="row">
-    <div class="col-sm-10">
 
-      <form class="form">
-          
-        <div class="form__group">
-          <label for="exampleInputEmail1">Email Address</label>
-          <input type="email" class="form__control" id="exampleInputEmail1" placeholder="Email">
-        </div>
+  <form class="form">
+      
+    <div class="form__group">
+      <label for="exampleInputEmail1">Email Address</label>
+      <input type="email" class="form__control" id="exampleInputEmail1" placeholder="Email">
+    </div>
 
-        <div class="form__group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form__control" id="exampleInputPassword1" placeholder="Password">
-        </div>
+    <div class="form__group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form__control" id="exampleInputPassword1" placeholder="Password">
+    </div>
 
-        <div class="form__group">
-          <label for="">Select</label>
-          <div class="rhinoselect">
-            <select class="form__control" id="exampleSelect2">
-              <option value="" selected="">Option One</option>
-              <option value="">Option Two</option>
-              <option value="">Option Three</option>
-              <option value="">Option Four</option>
-            </select>
+    <div class="form__group">
+      <label for="">Select</label>
+      <div class="rhinoselect">
+        <select class="form__control" id="exampleSelect2">
+          <option value="" selected="">Option One</option>
+          <option value="">Option Two</option>
+          <option value="">Option Three</option>
+          <option value="">Option Four</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form__group">
+      <label for="" class="u-block">Checkboxes</label>
+      <div class="rhinobox rhinobox--inline">
+        <input type="checkbox" id="exampleCheckbox1" checked>
+        <label for="exampleCheckbox1">Checkbox One</label>
+      </div>
+      <div class="rhinobox rhinobox--inline">
+        <input type="checkbox" id="exampleCheckbox2">
+        <label for="exampleCheckbox2">Checkbox Two</label>
+      </div>
+      <div class="rhinobox rhinobox--inline">
+        <input type="checkbox" id="exampleCheckbox3">
+        <label for="exampleCheckbox3">Checkbox Three</label>
+      </div>
+    </div>
+
+    <div class="form__group">
+      <label for="" class="u-block">Radios</label>
+      <div class="rhinodio rhinodio--inline">
+        <input type="radio" name="exampleRadio" id="exampleRadio1">
+        <label for="exampleRadio1">Radio One</label>
+      </div>
+      <div class="rhinodio rhinodio--inline">
+        <input type="radio" name="exampleRadio" id="exampleRadio2" checked>
+        <label for="exampleRadio2">Radio Two</label>
+      </div>
+      <div class="rhinodio rhinodio--inline">
+        <input type="radio" name="exampleRadio" id="exampleRadio3">
+        <label for="exampleRadio3">Radio Three</label>
+      </div>
+    </div>
+
+    <div class="form__group">
+      <label for="" class="u-block">Switcher</label>
+      <div class="rhinoswitcher">
+        <input type="checkbox" checked class="rhinoswitcher__input" id="exampleSwitcher1">
+        <label class="rhinoswitcher__label" for="exampleSwitcher1">
+          <div class="rhinoswitcher__inner">
+            <div class="rhinoswitcher__on">
+              <svg class="rhinoswitcher__icon icon icon-checkmark"><use xlink:href="#icon-checkmark"/></svg>
+            </div>
+            <div class="rhinoswitcher__off">
+              <svg class="rhinoswitcher__icon icon icon-close"><use xlink:href="#icon-close"/></svg>
+            </div>
           </div>
-        </div>
+        </label>
+      </div>
+    </div>
 
-        <div class="form__group">
-          <label for="" class="u-block">Checkboxes</label>
-          <div class="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox1" checked>
-            <label for="exampleCheckbox1">Checkbox One</label>
-          </div>
-          <div class="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox2">
-            <label for="exampleCheckbox2">Checkbox Two</label>
-          </div>
-          <div class="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox3">
-            <label for="exampleCheckbox3">Checkbox Three</label>
-          </div>
-        </div>
+    <button type="submit" class="btn btn--secondary">Submit Form</button>
 
-        <div class="form__group">
-          <label for="" class="u-block">Radios</label>
-          <div class="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio1">
-            <label for="exampleRadio1">Radio One</label>
-          </div>
-          <div class="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio2" checked>
-            <label for="exampleRadio2">Radio Two</label>
-          </div>
-          <div class="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio3">
-            <label for="exampleRadio3">Radio Three</label>
-          </div>
-        </div>
+  </form>
 
-        <div class="form__group">
-          <label for="" class="u-block">Switcher</label>
-          <div class="rhinoswitcher">
-            <input type="checkbox" checked class="rhinoswitcher__input" id="exampleSwitcher1">
-            <label class="rhinoswitcher__label" for="exampleSwitcher1">
-              <div class="rhinoswitcher__inner">
-                <div class="rhinoswitcher__on">
-                  <svg class="rhinoswitcher__icon icon icon-checkmark"><use xlink:href="#icon-checkmark"/></svg>
-                </div>
-                <div class="rhinoswitcher__off">
-                  <svg class="rhinoswitcher__icon icon icon-close"><use xlink:href="#icon-close"/></svg>
-                </div>
-              </div>
-            </label>
-          </div>
-        </div>
 
-        <button type="submit" class="btn btn--secondary">Submit Form</button>
-
-      </form>
-
-    </div> <!-- /col -->
-  </div> <!-- /row -->
 
 </section>
 
@@ -209,33 +208,29 @@ check/radio modifiers
   
   <h3 class="site-subheadline">Form Controls</h3>
 
-  <div class="row">
-    <div class="col-sm-10">
 
-      <input type="text" class="form__control" id="" placeholder=".form__control">
-      <br>
-      <input type="text" class="form__control form__control--sm" id="" placeholder=".form__control .form__control--sm">
-      <br>
-      <div class="rhinoselect">
-        <select class="form__control" id="">
-          <option value="" selected="">.form__control</option>
-          <option value="">Option Two</option>
-          <option value="">Option Three</option>
-          <option value="">Option Four</option>
-        </select>
-      </div>
-      <br>
-      <div class="rhinoselect rhinoselect--sm">
-        <select class="form__control form__control--sm" id="">
-          <option value="" selected="">.form__control .form__control--sm</option>
-          <option value="">Option Two</option>
-          <option value="">Option Three</option>
-          <option value="">Option Four</option>
-        </select>
-      </div>
-
-    </div>
+  <input type="text" class="form__control" id="" placeholder=".form__control">
+  <br>
+  <input type="text" class="form__control form__control--sm" id="" placeholder=".form__control .form__control--sm">
+  <br>
+  <div class="rhinoselect">
+    <select class="form__control" id="">
+      <option value="" selected="">.form__control</option>
+      <option value="">Option Two</option>
+      <option value="">Option Three</option>
+      <option value="">Option Four</option>
+    </select>
   </div>
+  <br>
+  <div class="rhinoselect rhinoselect--sm">
+    <select class="form__control form__control--sm" id="">
+      <option value="" selected="">.form__control .form__control--sm</option>
+      <option value="">Option Two</option>
+      <option value="">Option Three</option>
+      <option value="">Option Four</option>
+    </select>
+  </div>
+
   
 </section>
 
@@ -328,40 +323,34 @@ check/radio modifiers
   
   <h3 class="site-subheadline">Form Selects</h3>
 
-  <div class="row">
-    <div class="col-sm-10">
-
-      <div class="u-m-b-md">
-        <h5 class="site-miniheadline">Rhinoselect</h5>
-        <p class="site-copy">Our custom select element is called <strong>rhinoselect</strong>. Simply wrap a <code>select</code> element (containing the standard <code>form__control</code> class) in a container and give it the <code>rhinoselect</code> class.</p>
-        <div class="form__group">
-          <div class="rhinoselect rhinoselect--deffault">
-            <select class="form__control" id="exampleSelect2">
-              <option value="" selected="">Option One</option>
-              <option value="">Option Two</option>
-              <option value="">Option Three</option>
-              <option value="">Option Four</option>
-            </select>
-          </div>
-        </div>      
+  <div class="u-m-b-md">
+    <h5 class="site-miniheadline">Rhinoselect</h5>
+    <p class="site-copy">Our custom select element is called <strong>rhinoselect</strong>. Simply wrap a <code>select</code> element (containing the standard <code>form__control</code> class) in a container and give it the <code>rhinoselect</code> class.</p>
+    <div class="form__group">
+      <div class="rhinoselect rhinoselect--deffault">
+        <select class="form__control" id="exampleSelect2">
+          <option value="" selected="">Option One</option>
+          <option value="">Option Two</option>
+          <option value="">Option Three</option>
+          <option value="">Option Four</option>
+        </select>
       </div>
+    </div>      
+  </div>
 
-      <div class="u-m-b-md">
-        <h5 class="site-miniheadline">Small Rhinoselect</h5>
-        <p class="site-copy">Add the <code>rhinoselect--sm</code> modifier to the <code>rhinoselect</code> class.<br>
-        Add the <code>form__conrol--sm</code> modifier to the <code>form__control</code> class.</p>
-        <div class="form__group">
-          <div class="rhinoselect rhinoselect--sm">
-            <select class="form__control form__control--sm" id="exampleSelect2">
-              <option value="" selected="">Option One</option>
-              <option value="">Option Two</option>
-              <option value="">Option Three</option>
-              <option value="">Option Four</option>
-            </select>
-          </div>
-        </div>
+  <div class="u-m-b-md">
+    <h5 class="site-miniheadline">Small Rhinoselect</h5>
+    <p class="site-copy">Add the <code>rhinoselect--sm</code> modifier to the <code>rhinoselect</code> class.<br>
+    Add the <code>form__conrol--sm</code> modifier to the <code>form__control</code> class.</p>
+    <div class="form__group">
+      <div class="rhinoselect rhinoselect--sm">
+        <select class="form__control form__control--sm" id="exampleSelect2">
+          <option value="" selected="">Option One</option>
+          <option value="">Option Two</option>
+          <option value="">Option Three</option>
+          <option value="">Option Four</option>
+        </select>
       </div>
-
     </div>
   </div>
 
@@ -394,6 +383,8 @@ check/radio modifiers
 
 </section>
 
+  </div>
+</div>
 
   </main>
 </div>
