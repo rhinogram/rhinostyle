@@ -31,7 +31,7 @@ const ButtonApp = React.createClass({
             <Button label="Primary" type="primary" />
             <Button label="Secondary" type="secondary" />
             <Button label="Default Outline" type="default" outline={true} />
-            <Button label="Primry Outline" type="primary" outline={true} />
+            <Button label="Primary Outline" type="primary" outline={true} />
             <Button label="Link" type="link" />
         </section>
 
