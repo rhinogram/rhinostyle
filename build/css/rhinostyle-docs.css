@@ -1033,8 +1033,8 @@ fieldset[disabled] .btn--link:focus {
 .caret-up {
   display: inline-block;
   height: 0;
+  margin-left: 0.4rem;
   position: relative;
-  top: -0.1rem;
   vertical-align: middle;
   width: 0;
 }
@@ -2834,8 +2834,8 @@ table th[class*='col-'] {
 .table__sortable.is-sorting.ascending::after {
   display: inline-block;
   height: 0;
+  margin-left: 0.4rem;
   position: relative;
-  top: -0.1rem;
   vertical-align: middle;
   width: 0;
   border-left: 0.5rem solid transparent;
@@ -2846,8 +2846,8 @@ table th[class*='col-'] {
 .table__sortable.is-sorting.descending::after {
   display: inline-block;
   height: 0;
+  margin-left: 0.4rem;
   position: relative;
-  top: -0.1rem;
   vertical-align: middle;
   width: 0;
   border-bottom: 0.5rem solid;
