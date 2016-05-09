@@ -1959,6 +1959,12 @@ fieldset {
   min-width: 0;
   padding: 0;
 }
+label {
+  color: #9f9f9f;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
 legend {
   border: 0;
   border-bottom: 1px solid #e5e5e5;
@@ -1970,11 +1976,8 @@ legend {
   padding: 0;
   width: 100%;
 }
-label {
-  color: #9f9f9f;
-  display: inline-block;
-  font-weight: 700;
-  margin-bottom: .5rem;
+textarea {
+  resize: none;
 }
 input[type='search'] {
   box-sizing: border-box;
@@ -2135,6 +2138,10 @@ input[type='search'] {
   input[type='month'].form__control {
     line-height: 3.68571429rem;
   }
+}
+.form__optional {
+  font-weight: normal;
+  color: #41d6c3;
 }
 [placeholder] {
   overflow: hidden;
@@ -3306,12 +3313,12 @@ code {
   overflow-y: scroll;
   position: fixed;
   top: 0;
-  -webkit-transform: translateX(-26.8rem);
-  transform: translateX(-26.8rem);
+  -webkit-transform: translateX(-24rem);
+  transform: translateX(-24rem);
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  width: 26.8rem;
+  width: 24rem;
   z-index: 1036;
   /*
   html.navigation-is-locked breakpoint
@@ -3391,15 +3398,15 @@ html.navigation-is-open .site-navigation {
   transform: translateX(0);
 }
 html.navigation-is-open .site-wrapper {
-  -webkit-transform: translateX(26.8rem);
-  transform: translateX(26.8rem);
+  -webkit-transform: translateX(24rem);
+  transform: translateX(24rem);
 }
 html.navigation-is-locked .site-navigation {
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 html.navigation-is-locked .site-wrapper {
-  margin-left: 26.8rem;
+  margin-left: 24rem;
   -webkit-transform: translateX(0) !important;
   transform: translateX(0) !important;
 }
@@ -3452,7 +3459,7 @@ html.navigation-is-locked .site-wrapper {
 }
 @media (min-width: 1200px) {
   .site-wrapper {
-    margin-left: 26.8rem;
+    margin-left: 24rem;
     -webkit-transform: translateX(0) !important;
     transform: translateX(0) !important;
   }

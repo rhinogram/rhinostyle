@@ -17,6 +17,13 @@ fieldset {
   padding: 0;
 }
 
+label {
+  color: @gray;
+  display: inline-block;
+  font-weight: @font-weight-semibold;
+  margin-bottom: .5rem;
+}
+
 legend {
   border: 0;
   border-bottom: 1px solid @legend-border-color;
@@ -29,11 +36,8 @@ legend {
   width: 100%;
 }
 
-label {
-  color: @gray;
-  display: inline-block;
-  font-weight: @font-weight-semibold;
-  margin-bottom: .5rem;
+textarea {
+  resize: none;
 }
 
 
@@ -306,6 +310,17 @@ input[type='search'] {
       line-height: @input-height-large;
     }*/
   }
+}
+
+
+// -------------------------
+// Form Optional
+// -------------------------
+
+
+.form__optional {
+  font-weight: normal;
+  color: @brand-secondary;
 }
 
 
