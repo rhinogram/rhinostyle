@@ -13,7 +13,7 @@ check/radio modifiers
 
 <section class="site-section">
   
-  <h3 class="site-subheadline">Basic Form</h3>
+  <h3 class="site-subheadline">Form Example</h3>
 
 
   <form class="form">
@@ -117,11 +117,11 @@ check/radio modifiers
         <label for="exampleInputEmail2">Email Address</label>
         <input type="email" class="form__control" id="exampleInputEmail2" placeholder="Enter email">
       </div>
-      <div class="form__group">
+      <div class="form__group u-m-l">
         <label for="exampleInputPassword2">Password</label>
         <input type="password" class="form__control" id="exampleInputPassword2" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn--secondary">Sign In</button>
+      <button type="submit" class="btn btn--secondary u-m-l">Sign In</button>
     </form>
   </div>
 
@@ -130,10 +130,10 @@ check/radio modifiers
 
 <section class="site-section">
   
-  <h3 class="site-subheadline">Form Controls</h3>
-  <p class="site-copy">Use <code>form__control</code> on all inputs, selects, and text areas.</p>
+  <h3 class="site-subheadline">Form Control</h3>
+  <p class="site-copy">Use <code>form__control</code> on all inputs, selects, and text areas for consistent appearance.</p>
 
-  <div class="form">
+  <form class="form">
     <input type="text" class="form__control" id="" placeholder=".form__control">
     <br>
     <input type="text" class="form__control form__control--sm" id="" placeholder=".form__control .form__control--sm">
@@ -159,15 +159,67 @@ check/radio modifiers
     <textarea name="" id="" rows="3" class="form__control" placeholder=".form__control"></textarea>
     <br>
     <textarea name="" id="" rows="3" class="form__control form__control--sm" placeholder=".form__control .form__control--sm"></textarea>
-  </div>
-
+  </form>
   
 </section>
 
 
 <section class="site-section">
   
-  <h3 class="site-subheadline">Form Checkboxes</h3>
+  <h3 class="site-subheadline">Form Group</h3>
+  <p class="site-copy">Use <code>form__group</code> around labels and inputs to give bottom margin in vertical forms. May also be used around any form element to provide proper spacing.</p>
+
+  <form class="form">
+    <div class="form__group">
+      <label for="">Label</label>
+      <input type="text" class="form__control" id="" placeholder="Input">
+    </div>
+    <label for="">Label</label>
+    <input type="text" class="form__control" id="" placeholder="Input">
+  </form>
+  
+</section>
+
+
+<section class="site-section">
+  
+  <h3 class="site-subheadline">Form Add-On</h3>
+  <div class="site-copy">
+    <p>Use <code>form__addon</code> around inputs with add-ons.</p>
+    <p>Add-ons require the <code>form__addon__item</code> class with a <code>form__addon__item--left</code> or <code>form__addon__item--right</code> modifier.</p>
+  </div>
+
+  <form class="form">
+
+    <div class="form__group">
+      <div class="form__addon">
+        <div class="form__addon__item form__addon__item--left">
+          <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-lock"></use></svg>
+        </div>
+        <input type="text" class="form__control" placeholder="Encrypted">
+      </div>
+    </div>
+    <div class="form__group">
+      <div class="form__addon">
+        <input type="text" class="form__control" id="">
+        <a href="#" class="form__addon__item form__addon__item--right">Go For It!</a>
+      </div>
+    </div>
+    <div class="form__group">
+      <div class="form__addon">
+        <div class="form__addon__item form__addon__item--left">Amount $</div>
+        <input type="text" class="form__control" id=""><div class="form__addon__item form__addon__item--right">.00</div>
+      </div>
+    </div>
+    
+  </form>
+  
+</section>
+
+
+<section class="site-section">
+  
+  <h3 class="site-subheadline">Form Checkbox</h3>
   <!-- <p class="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p> -->
 
   <div class="u-m-b-md">
@@ -210,7 +262,7 @@ check/radio modifiers
 
 <section class="site-section">
   
-  <h3 class="site-subheadline">Form Radios</h3>
+  <h3 class="site-subheadline">Form Radio</h3>
 
   <div class="u-m-b-md">
     <h5 class="site-miniheadline">Rhinodio</h5>
@@ -251,7 +303,7 @@ check/radio modifiers
 
 <section class="site-section">
   
-  <h3 class="site-subheadline">Form Selects</h3>
+  <h3 class="site-subheadline">Form Select</h3>
 
   <div class="u-m-b-md">
     <h5 class="site-miniheadline">Rhinoselect</h5>
@@ -293,7 +345,7 @@ check/radio modifiers
 
   <div class="u-m-b-md">
     <h5 class="site-miniheadline">Rhinoswitcher</h5>
-    <p class="site-copy">Our custom radio element is called <code>rhinoswitcher</code>.</p>
+    <p class="site-copy">Our custom radio element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>rhinoswitcher--disabled</code> modifer class.</p>
 
     <div class="rhinoswitcher">
       <input type="checkbox" checked class="rhinoswitcher__input" id="exampleSwitcher2">

@@ -63,6 +63,7 @@
 //
 // Example usage: change the default blue border and shadow to white for better
 // contrast against a dark gray background.
+
 .form-control-focus(@color: @input-border-focus) {
   @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
 
@@ -73,11 +74,6 @@
   }
 }
 
-// Form control sizing
-//
-// Relative text size, padding, and border-radii changes for form controls. For
-// horizontal sizing, wrap controls in the predefined grid classes. `<select>`
-// element gets special love because it's special, and that's a fact!
 .input-size(@input-height; @padding-horizontal; @font-size; @border-radius) {
   border-radius: @border-radius;
   font-size: @font-size;
@@ -93,4 +89,12 @@
   select[multiple]& {
     height: auto;
   }
+}
+
+
+.addon-size(@input-height; @padding-horizontal; @font-size; @background: @gray-lighter) {
+  background: @background;
+  font-size: @font-size;
+  height: @input-height;
+  padding: 0 @padding-horizontal;
 }

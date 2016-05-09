@@ -156,6 +156,55 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Add-On
+// -------------------------
+
+
+.form__addon {
+  align-items: center;
+  display: flex;
+
+  .form__control {
+    flex: 1;
+    width: auto;
+  }
+
+  .form__control:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .form__control:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .form__control:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}
+
+.form__addon__item {
+  align-items: center;
+  border: 1px solid @input-border;
+  display: flex;
+  .addon-size(@input-height-base; @padding-small-horizontal; @font-size-base);
+}
+
+.form__addon__item--left {
+  border-bottom-left-radius: @input-border-radius;
+  border-right: 0;
+  border-top-left-radius: @input-border-radius;
+}
+
+.form__addon__item--right {
+  border-bottom-right-radius: @input-border-radius;
+  border-left: 0;
+  border-top-right-radius: @input-border-radius;
+}
+
+
+// -------------------------
 // Form Control
 // -------------------------
 
@@ -191,7 +240,6 @@ input[type='checkbox']:focus {
   display: flex;
   height: @input-height-base;
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
-  vertical-align: middle;
   width: 100%;
 
   .input-size(@input-height-base; @padding-small-horizontal; @font-size-base; @input-border-radius);
@@ -278,41 +326,6 @@ input[type='search'] {
 
 
 // -------------------------
-// Form iOS Temporal Inputs
-// -------------------------
-
-
-// In Mobile Safari, setting `display: block` on temporal inputs causes the
-// text within the input to become vertically misaligned. As a workaround, we
-// set a pixel line-height that matches the given height of the input, but only
-// for Safari. See https://bugs.webkit.org/show_bug.cgi?id=139848
-//
-// Note that as of 8.3, iOS doesn't support `datetime` or `week`.
-
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type='date'],
-  input[type='time'],
-  input[type='datetime-local'],
-  input[type='month'] {
-    &.form__control {
-      line-height: @input-height-base;
-    }
-
-    /*&.form__control--sm,
-    .form__input-group__sm & {
-      line-height: @input-height-small;
-    }
-
-    &.form__control--lg,
-    .form__input-group__lg & {
-      line-height: @input-height-large;
-    }*/
-  }
-}
-
-
-// -------------------------
 // Form Optional
 // -------------------------
 
@@ -344,80 +357,9 @@ input[type='search'] {
   color: @input-color-placeholder;
 }
 
-// Safari and Chrome
 &::-webkit-input-placeholder {
   color: @input-color-placeholder;
 }
-
-
-// -------------------------
-// Form Control Sizing
-// -------------------------
-
-
-// Build on `.form__control` with modifier classes to decrease or increase the
-// height and font-size of form controls.
-//
-// The `.form__group-* form__control` variations are sadly duplicated to avoid the
-// issue documented in https://github.com/twbs/bootstrap/issues/15074.
-
-/*.form__control--sm {
-  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
-}*/
-
-/*.form__group--sm {
-  .form__control {
-    border-radius: @input-border-radius-small;
-    font-size: @font-size-small;
-    height: @input-height-small;
-    line-height: @line-height-small;
-    padding: @padding-small-vertical @padding-small-horizontal;
-  }
-  select.form__control {
-    height: @input-height-small;
-    line-height: @input-height-small;
-  }
-  textarea.form__control,
-  select[multiple].form__control {
-    height: auto;
-  }
-  .form__control-static {
-    font-size: @font-size-small;
-    height: @input-height-small;
-    line-height: @line-height-small;
-    min-height: (@line-height-computed + @font-size-small);
-    padding: (@padding-small-vertical + 1) @padding-small-horizontal;
-  }
-}*/
-
-/*.form__control--lg {
-  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
-}*/
-
-/*.form__group--lg {
-  .form__control {
-    border-radius: @input-border-radius-large;
-    font-size: @font-size-large;
-    height: @input-height-large;
-    line-height: @line-height-large;
-    padding: @padding-large-vertical @padding-large-horizontal;
-  }
-  select.form__control {
-    height: @input-height-large;
-    line-height: @input-height-large;
-  }
-  textarea.form__control,
-  select[multiple].form__control {
-    height: auto;
-  }
-  .form__control-static {
-    font-size: @font-size-large;
-    height: @input-height-large;
-    line-height: @line-height-large;
-    min-height: (@line-height-computed + @font-size-large);
-    padding: @padding-large-vertical @padding-large-horizontal;
-  }
-}*/
 
 
 // -------------------------
@@ -460,8 +402,8 @@ input[type='checkbox'] {
   }
 }
 
-
 .rhinobox {
+  align-items: center;
   padding-left: 0;
 
   input {
@@ -470,7 +412,7 @@ input[type='checkbox'] {
     &:checked+label::before {
       background-color: @form-element-color;
       .svg-bg-add-fill('@{svg-path}checkmark.svg', @white);
-      background-position: center .1rem;
+      background-position: center center;
       background-repeat: no-repeat;
       background-size: 1.2rem 1.2rem;
       border-color: @form-element-color;
@@ -478,23 +420,22 @@ input[type='checkbox'] {
   }
 
   label {
+    align-items: center;
+    display: flex;
+
     &::before {
       background-color: @white;
       border: 1px solid @border-color-base;
       content: '';
       display: inline-block;
-      height: 1.7rem;
-      left: .5px;
+      height: 2rem;
       line-height: 1.3rem;
-      margin: .1rem @margin-small .1rem 0;
+      margin-right: @margin-small;
       padding: 0;
       position: relative;
       speak: none;
-      text-align: center;
-      top: -.1rem;
       transition: background-color 250ms @trans-timing-cubic;
-      vertical-align: middle;
-      width: 1.7rem;
+      width: 2rem;
     }
   }
 }
@@ -511,6 +452,9 @@ input[type='checkbox'] {
   }
 
   label {
+    align-items: center;
+    display: flex;
+
     &::before {
       background-color: @white;
       border: .2rem solid @white;
@@ -518,13 +462,10 @@ input[type='checkbox'] {
       box-shadow: 0 0 0 1px @border-color-base;
       content: '';
       display: inline-block;
-      height: 1.6rem;
-      left: .2rem;
-      margin: 0 @margin-base 0 0;
-      position: relative;
-      top: .3rem;
+      height: 2rem;
+      margin-right: @margin-small;
       transition: background-color 250ms @trans-timing-cubic;
-      width: 1.6rem;
+      width: 2rem;
     }
   }
 }
@@ -600,7 +541,6 @@ input[type='checkbox'] {
     right: @padding-small-horizontal;
   }
 }
-
 
 
 // -------------------------
@@ -693,11 +633,10 @@ input[type='checkbox'] {
 }
 
 
-
-
 // -------------------------
 // Rhinoswitcher On/Off
 // -------------------------
+
 
 .rhinoswitcher__off,
 .rhinoswitcher__on {
