@@ -183,19 +183,18 @@ input[type='checkbox']:focus {
 
 .form__control {
   -webkit-appearance: none;
+  align-items: center;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
-  border-radius: @input-border-radius;
   color: @input-color;
-  display: block;
-  font-size: @font-size-base;
+  display: flex;
   height: @input-height-base;
-  line-height: @line-height-base;
-  padding: @padding-base-vertical @padding-small-horizontal;
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   vertical-align: middle;
   width: 100%;
+
+  .input-size(@input-height-base; @padding-small-horizontal; @font-size-base; @input-border-radius);
 
   &:focus {
     &:extend(.u-tab-focus);
@@ -215,6 +214,8 @@ input[type='checkbox']:focus {
 
   textarea& {
     height: auto;
+    padding-bottom: @padding-base-vertical;
+    padding-top: @padding-base-vertical;
   }
 }
 
@@ -225,11 +226,11 @@ input[type='checkbox']:focus {
 
 
 .form__control--lg {
-  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
+  .input-size(@input-height-large; @padding-large-horizontal; @font-size-large; @input-border-radius-large);
 }
 
 .form__control--sm {
-  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
+  .input-size(@input-height-small; @padding-small-horizontal; @font-size-small; @input-border-radius-small);
 }
 
 // Apply class to a `p` element to make any string of text align with labels in
@@ -237,9 +238,7 @@ input[type='checkbox']:focus {
 
 .form__control--static {
   margin-bottom: 0;
-  min-height: (@line-height-computed + @font-size-base);
-  padding-bottom: @padding-base-vertical;
-  padding-top: @padding-base-vertical;
+  min-height: @input-height-base;
 
   &.form__control--lg,
   &.form__control--sm {
@@ -319,8 +318,8 @@ input[type='search'] {
 
 
 .form__optional {
-  font-weight: normal;
   color: @brand-secondary;
+  font-weight: normal;
 }
 
 

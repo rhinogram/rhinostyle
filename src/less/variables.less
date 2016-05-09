@@ -68,6 +68,14 @@
 
 @btn-link-disabled-color:        @gray-light;
 
+@btn-border-radius-base:         @border-radius-base;
+@btn-border-radius-large:        @border-radius-large;
+@btn-border-radius-small:        @border-radius-small;
+
+@btn-height-base:                3.6rem;
+@btn-height-large:               4.2rem;
+@btn-height-small:               3rem;
+
 @btn-accent-color:               @white;
 @btn-accent-bg:                  @brand-accent;
 @btn-accent-border:              @brand-accent;
@@ -103,10 +111,6 @@
 @btn-warning-color:              @white;
 @btn-warning-bg:                 @brand-warning;
 @btn-warning-border:             @brand-warning;
-
-@btn-border-radius-base:         @border-radius-base;
-@btn-border-radius-large:        @border-radius-large;
-@btn-border-radius-small:        @border-radius-small;
 
 
 // -------------------------
@@ -245,9 +249,10 @@
 @input-group-addon-border-color: @input-border; // border color for textual input addons
 
 // Form control `.form-control` heights
-@input-height-base:              @line-height-computed + (@padding-base-vertical * 2) + .2rem;
-@input-height-large:             (@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + .2rem;
-@input-height-small:             (@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + .2rem;
+
+@input-height-base:              @btn-height-base;
+@input-height-large:             @btn-height-large;
+@input-height-small:             @btn-height-small;
 
 @form-group-margin-bottom:       @line-height-computed;
 
@@ -650,7 +655,7 @@
 
 @font-size-base:          1.6rem;
 @font-size-large:         2.0rem;
-@font-size-small:         1.2rem;
+@font-size-small:         1.4rem;
 
 @font-size-h1:            3.0rem;
 @font-size-h2:            2.6rem;
