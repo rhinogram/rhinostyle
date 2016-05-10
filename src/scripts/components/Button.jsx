@@ -47,7 +47,7 @@ const Button = React.createClass({
       'disabled': disabled
     });
 
-    return (<a href="#" className={cx} onClick={click} {...props} role="button">{label}</a>);
+    return (<a href="#" className={cx} onClick={click} {...props} role="button">{this.props.children}</a>);
   }
 });
 

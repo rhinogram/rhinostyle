@@ -2,9 +2,9 @@ var ComponentExample = React.createClass({
   render() {
     return (
       <div>
-        <Button label="Default" />
-        <Button label="Primary" type="primary" />
-        <Button label="Secondary" type="secondary" />
+        <Button>Default</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="secondary">Secondary</Button>
       </div>
     );
   }

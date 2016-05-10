@@ -70741,7 +70741,7 @@
 	    return _react2.default.createElement(
 	      'a',
 	      _extends({ href: '#', className: cx, onClick: click }, props, { role: 'button' }),
-	      label
+	      this.props.children
 	    );
 	  }
 	});

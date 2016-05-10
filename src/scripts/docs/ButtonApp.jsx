@@ -20,42 +20,37 @@ const ButtonApp = React.createClass({
       <div>
         <h1 className="site-headline">Buttons</h1>
 
-        {/*<section className="site-section">
-          <h3 className="site-subheadline">Button Tags</h3>
-          <Button label="Anchor" />
-        </section>*/}
-
         <section className="site-section">
           <h3 className="site-subheadline">Button Types</h3>
-            <Button label="Default" type="default" />
-            <Button label="Primary" type="primary" />
-            <Button label="Secondary" type="secondary" />
-            <Button label="Default Outline" type="default" outline={true} />
-            <Button label="Primary Outline" type="primary" outline={true} />
-            <Button label="Link" type="link" />
+            <Button type="default">Default</Button>
+            <Button type="primary">Primary</Button>
+            <Button type="secondary">Secondary</Button>
+            <Button type="default" outline={true}>Default Outline</Button>
+            <Button type="primary" outline={true}>Primary Outline</Button>
+            <Button type="link">Link</Button>
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">Button Sizes</h3>
           <div className="u-m-b">
-            <Button label="Large" size="large" />
-            <Button label="Default" />
-            <Button label="Small" size="small" />
+            <Button type="default" size="large">Large</Button>
+            <Button type="default">Default</Button>
+            <Button type="default" size="small">Small</Button>
           </div>
           <div className="u-m-b">
-            <Button label="Large" size="large" />
-            <Button label={<span><Icon icon="cog" /> Large</span>} size="large" />
-            <Button label={<Icon icon="cog" />} size="large" iconOnly={true} />
+            <Button type="default" size="large">Large</Button>
+            <Button type="default" size="large"><Icon icon="cog" />&nbsp;Large</Button>
+            <Button type="default" size="large" iconOnly={true}><Icon icon="cog" /></Button>
           </div>
           <div className="u-m-b">
-            <Button label="Default" />
-            <Button label={<span><Icon icon="cog" /> Default</span>} />
-            <Button label={<Icon icon="cog" />} iconOnly={true} />
+            <Button type="default">Default</Button>
+            <Button type="default"><Icon icon="cog" />&nbsp;Default</Button>
+            <Button type="default" iconOnly={true}><Icon icon="cog" /></Button>
           </div>
           <div>
-            <Button label="Small" size="small" />
-            <Button label={<span><Icon icon="cog" /> Small</span>} size="small" />
-            <Button label={<Icon icon="cog" />} size="small" iconOnly={true} />
+            <Button size="small">Small</Button>
+            <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+            <Button size="small" iconOnly={true}><Icon icon="cog" /></Button>
           </div>
         </section>
 
@@ -64,45 +59,45 @@ const ButtonApp = React.createClass({
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Block Buttons</h5>
             <p className="site-copy">Add <code>block={'{true}'}</code> to create a block level button.</p>
-            <Button label="Block Button" block={true} />
+            <Button block={true}>Block Button</Button>
           </div>
           <div>
             <h5 className="site-miniheadline">Icon-Only Buttons</h5>
             <p className="site-copy">Add <code>iconOnly={'{true}'}</code> when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance. Be sure you pass your icon in as the label, <code>label={'{<Icon icon="cog" />}'}</code>.</p>
-            <Button label={<Icon icon="sms" />} iconOnly={true} />
-            <Button label={<Icon icon="email" />} type="primary" iconOnly={true} />
-            <Button label={<Icon icon="cog" />} type="secondary" iconOnly={true} />
-            <Button label={<Icon icon="clock" />} outline={true} iconOnly={true} />
-            <Button label={<Icon icon="pencil" />} outline={true} type="primary" iconOnly={true} />
+            <Button iconOnly={true}><Icon icon="sms" /></Button>
+            <Button type="primary" iconOnly={true}><Icon icon="email" /></Button>
+            <Button type="secondary" iconOnly={true}><Icon icon="cog" /></Button>
+            <Button outline={true} iconOnly={true}><Icon icon="clock" /></Button>
+            <Button outline={true} type="primary" iconOnly={true}><Icon icon="pencil" /></Button>
           </div>
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">Button States</h3>
           <div className="u-m-b">
-            <Button label="Default" />
-            <Button label="Default Active" classes="active" />
-            <Button label="Default Disabled" classes="disabled" />
+            <Button>Default</Button>
+            <Button classes="active">Default Active</Button>
+            <Button classes="disabled">Default Disabled</Button>
           </div>
           <div className="u-m-b">
-            <Button label="Primary" type="primary" />
-            <Button label="Primary Active" type="primary" classes="active" />
-            <Button label="Primary Disabled" type="primary" classes="disabled" />
+            <Button type="primary">Primary</Button>
+            <Button type="primary" classes="active">Primary Active</Button>
+            <Button type="primary" classes="disabled">Primary Disabled</Button>
           </div>
           <div className="u-m-b">
-            <Button label="Secondary" type="secondary" />
-            <Button label="Secondary Active" type="secondary" classes="active" />
-            <Button label="Secondary Disabled" type="secondary" classes="disabled" />
+            <Button type="secondary">Secondary</Button>
+            <Button type="secondary" classes="active">Secondary Active</Button>
+            <Button type="secondary" classes="disabled">Secondary Disabled</Button>
           </div>
           <div className="u-m-b">
-            <Button label="Default Outline" outline={true} />
-            <Button label="Default Outline Active" outline={true} classes="active" />
-            <Button label="Default Outline Disabled" outline={true} classes="disabled" />
+            <Button outline={true}>Default Outline</Button>
+            <Button outline={true} classes="active">Default Outline Active</Button>
+            <Button outline={true} classes="disabled">Default Outline Disabled</Button>
           </div>
           <div className="u-m-b">
-            <Button label="Primary Outline" type="primary" outline={true} />
-            <Button label="Primary Outline Active" type="primary" outline={true} classes="active" />
-            <Button label="Primary Outline Disabled" type="primary" outline={true} classes="disabled" />
+            <Button type="primary" outline={true}>Primary Outline</Button>
+            <Button type="primary" outline={true} classes="active">Primary Outline Active</Button>
+            <Button type="primary" outline={true} classes="disabled">Primary Outline Disabled</Button>
           </div>
         </section>
 
