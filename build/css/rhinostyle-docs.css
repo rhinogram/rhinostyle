@@ -234,6 +234,9 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+[tabindex='-1']:focus {
+  outline: none !important;
+}
 a {
   color: #0081c6;
   /*.no-touch &:hover,
@@ -254,11 +257,9 @@ a[disabled] {
   cursor: not-allowed;
   opacity: .5;
 }
-/*img {
-  height: auto;
-  max-width: 100%;
+img {
   vertical-align: middle;
-}*/
+}
 [role='button'] {
   cursor: pointer;
 }
@@ -286,6 +287,10 @@ a[disabled] {
 }
 .u-cursor-pointer {
   cursor: pointer;
+}
+.u-img-fluid {
+  height: auto;
+  max-width: 100%;
 }
 .u-invisible {
   visibility: hidden;
@@ -1127,8 +1132,8 @@ button.close {
   text-align: left;
   width: 100%;
 }
-.dropdown--block .dropdown__toggle [class^="caret-"],
-.dropdown--block .dropdown__toggle [class*=" caret-"] {
+.dropdown--block .dropdown__toggle [class^='caret-'],
+.dropdown--block .dropdown__toggle [class*=' caret-'] {
   margin-left: auto;
 }
 .dropdown--block .dropdown__menu {
@@ -2154,20 +2159,6 @@ textarea.form__control {
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 }
-.form__control--lg {
-  border-radius: 0.5rem;
-  font-size: 2rem;
-  height: 4.2rem;
-  padding: 0 1.4rem;
-  /*select& {
-    height: @input-height;
-    line-height: @input-height;
-  }*/
-}
-textarea.form__control--lg,
-select[multiple].form__control--lg {
-  height: auto;
-}
 .form__control--sm {
   border-radius: 0.3rem;
   font-size: 1.4rem;
@@ -2182,15 +2173,23 @@ textarea.form__control--sm,
 select[multiple].form__control--sm {
   height: auto;
 }
+/*.form__control--lg {
+  .input-size(@input-height-large; @padding-large-horizontal; @font-size-large; @input-border-radius-large);
+}
+
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
 .form__control--static {
   margin-bottom: 0;
-  min-height: 3.6rem;
-}
-.form__control--static.form__control--lg,
-.form__control--static.form__control--sm {
-  padding-left: 0;
-  padding-right: 0;
-}
+  min-height: @input-height-base;
+
+  &.form__control--lg,
+  &.form__control--sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}*/
 .form__group {
   margin-bottom: 2.28571429rem;
 }
@@ -2368,14 +2367,14 @@ fieldset[disabled] .rhinodio label {
 }
 .rhinoswitcher {
   display: inline-block;
-  height: 2.4rem;
+  height: 2.6rem;
   margin-bottom: 0.6rem;
   margin-top: 0.6rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 5.2rem;
+  width: 6rem;
 }
 .rhinoswitcher--disabled {
   cursor: not-allowed;
@@ -2387,7 +2386,7 @@ fieldset[disabled] .rhinodio label {
 }
 .rhinoswitcher__inner {
   font-size: 0;
-  height: 2.4rem;
+  height: 2.6rem;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
@@ -2403,14 +2402,14 @@ fieldset[disabled] .rhinodio label {
   transform: translateX(0);
 }
 .rhinoswitcher__input:checked ~ .rhinoswitcher__label .rhinoswitcher__off::after {
-  -webkit-transform: translateX(-2.4rem);
-  transform: translateX(-2.4rem);
+  -webkit-transform: translateX(-2.6rem);
+  transform: translateX(-2.6rem);
 }
 .rhinoswitcher__label {
   border-radius: 0.3rem;
   cursor: pointer;
   display: block;
-  height: 2.4rem;
+  height: 2.6rem;
   margin-bottom: 0;
   overflow: hidden;
   position: relative;
@@ -2427,26 +2426,26 @@ fieldset[disabled] .rhinodio label {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   height: 100%;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  line-height: 2.4rem;
+  line-height: 2.6rem;
   position: relative;
   text-align: center;
   width: 50%;
 }
 .rhinoswitcher__off {
   background-color: #9f9f9f;
-  padding-left: 2rem;
+  padding-left: 2.2rem;
   z-index: 2;
 }
 .rhinoswitcher__off::after {
   content: '';
   background-color: #fff;
   border-radius: .2rem;
-  height: 2rem;
+  height: 2.2rem;
   left: 0;
   margin: 0.2rem;
   position: absolute;
@@ -2457,17 +2456,17 @@ fieldset[disabled] .rhinodio label {
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  width: 2rem;
+  width: 2.2rem;
   z-index: 10;
 }
 .rhinoswitcher__on {
   background-color: #41d6c3;
-  padding-right: 2rem;
+  padding-right: 2.2rem;
 }
 .rhinoswitcher__toggler {
   background-color: #fff;
   border-radius: .2rem;
-  height: 2rem;
+  height: 2.2rem;
   left: 0;
   margin: 0.2rem;
   position: absolute;
@@ -2478,7 +2477,7 @@ fieldset[disabled] .rhinodio label {
   transition: -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
-  width: 2rem;
+  width: 2.2rem;
   z-index: 10;
 }
 .label {
@@ -3230,21 +3229,16 @@ code {
   padding: .2rem .4rem;
 }
 pre {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #ececec;
   border-radius: 0.4rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 1.4rem;
   padding: 1rem;
-  /*display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.42857143;
-  word-break: break-all;
-  word-wrap: break-word;
-  color: #696969;
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;*/
 }
 .site-content {
   padding: 1.5rem;
