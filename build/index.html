@@ -80,9 +80,8 @@
   </header>
   <main class="site-content" id="js-app">
     
-<div class="row">
-  <div class="col-md-10">
-    
+
+
 <h1 class="site-headline">Introduction</h1>
 
 <section class="site-section">
@@ -98,7 +97,7 @@
 </section>
 
 
-<p>TODO: animations, typograpahy, standardizations (time stamps, dates, etc.)</p>
+<p>TODO: animations, typograpahy, standardizations (time stamps, dates, etc.), labels, avatars, tables / lists</p>
 
 
 <!-- <div class="rhino-animation rhino-animation--flag">
@@ -110,10 +109,13 @@
 </div> -->
 
 
+<!-- <div class="rhino-animation rhino-animation--secure">
+	<img class="rhino-animation__secure" src="animation/secure/sprite.svg" alt="" />
+</div> -->
 
 
-  </div>
-</div>
+
+
 
   </main>
 </div>
@@ -192,13 +194,18 @@
         // animation testing
         var rhinoFlagFrames = 51, // 52 total frames minus 1
             rhinoFlagEase = new SteppedEase(rhinoFlagFrames),
-            rhiniFlagPosition = '-98.07%', // total width of svg (39520) minus width of 1 frame (760px) / 39520 * 100
+            rhiniFlagPosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
             rhinoFlagSpeed = 3,
 
             rhinoLoginFrames = 64, // 65 total frames minus 1
             rhinoLoginEase = new SteppedEase(rhinoLoginFrames),
-            rhinoLoginPosition = '-98.46%', // total width of svg (37700) minus width of 1 frame (580px) / 37700 * 100
-            rhinoLoginSpeed = 3;
+            rhinoLoginPosition = '-98.46%', // total height of svg (29900) minus height of 1 frame (460px) / 29900 * 100
+            rhinoLoginSpeed = 3,
+
+            rhinoSecureFrames = 51, // 52 total frames minus 1
+            rhinoSecureEase = new SteppedEase(rhinoSecureFrames),
+            rhiniSecurePosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
+            rhinoSecureSpeed = 3;
             
         var rhinoFlagTL = new TimelineMax({repeat:-1,repeatDelay:2});
         rhinoFlagTL.to('.rhino-animation__flag', rhinoFlagSpeed, {
@@ -210,6 +217,12 @@
         rhinoLoginTL.to('.rhino-animation__login', rhinoLoginSpeed, {
           y: rhinoLoginPosition,
           ease: rhinoLoginEase
+        });
+
+        var rhinoSecureTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoSecureTL.to('.rhino-animation__secure', rhinoSecureSpeed, {
+          y: rhiniSecurePosition,
+          ease: rhinoSecureEase
         });
 
 

@@ -39,7 +39,7 @@ nunjucks.configure('./src/templates', { watch: false });
 // -------------------------
 // All Tasks
 // -------------------------
-gulp.task('animations', ['animation:flag','animation:login']);
+gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure']);
 gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
 gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
@@ -55,10 +55,6 @@ gulp.task('animation:flag', () => {
   const path = paths.animation_flag;
 
   return gulp.src(path.src)
-    .pipe(changed(path.dist))
-    .pipe(imagemin())
-    .pipe(gulp.dest(path.dist))
-    .pipe(gulp.dest(path.build))
     .pipe(svgSprite({
       mode: {
         css: {
@@ -84,10 +80,6 @@ gulp.task('animation:login', () => {
   const path = paths.animation_login;
 
   return gulp.src(path.src)
-    .pipe(changed(path.dist))
-    .pipe(imagemin())
-    .pipe(gulp.dest(path.dist))
-    .pipe(gulp.dest(path.build))
     .pipe(svgSprite({
       mode: {
         css: {
@@ -106,6 +98,31 @@ gulp.task('animation:login', () => {
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
     .pipe(duration('Built Login Animation'))
+    .pipe(reload({ stream: true }));
+});
+
+gulp.task('animation:secure', () => {
+  const path = paths.animation_secure;
+
+  return gulp.src(path.src)
+    .pipe(svgSprite({
+      mode: {
+        css: {
+          dest: '',
+          bust: false,
+          sprite: 'sprite.svg',
+          layout: 'vertical'
+        }
+      },
+      svg: {
+        xmlDeclaration: false,
+        doctypeDeclaration: false,
+        dimensionAttributes: false
+      }
+    }))
+    .pipe(gulp.dest(path.dist))
+    .pipe(gulp.dest(path.build))
+    .pipe(duration('Built Secure Animation'))
     .pipe(reload({ stream: true }));
 });
 

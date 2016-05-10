@@ -9,10 +9,10 @@ body {
 }
 
 code {
-  background-color: #f9f2f4;
+  background: @gray-lightest;
   border-radius: @border-radius-base;
-  color: @brand-accent;
-  padding: 0 .4rem;
+  color: lighten(@gray-dark,20%);
+  padding: .2rem .4rem;
 }
 
 // -------------------------
@@ -141,10 +141,11 @@ code {
 
 
 .site-miniheadline {
+  color: @brand-accent;
   font-size: 2rem;
   font-weight: normal;
   margin-bottom: 1.2rem;
-  text-decoration: underline;
+  //text-decoration: underline;
 }
 
 
@@ -306,7 +307,7 @@ html.navigation-is-locked {
 
 
 .site-section {
-  margin-bottom: 6rem;
+  margin-bottom: 8rem;
 }
 
 
@@ -316,10 +317,11 @@ html.navigation-is-locked {
 
 
 .site-subheadline {
-  //color: @brand-secondary;
+  border-bottom: 1px solid @gray-lighter;
   font-size: 2.6rem;
   font-weight: @font-weight-semibold;
-  margin-bottom: 2.4rem;
+  margin-bottom: 3rem;
+  padding-bottom: @padding-large;
   //text-decoration: underline;
 }
 

@@ -9,6 +9,11 @@ export const paths = {
     dist:  './dist/animation/login/',
     build: './build/animation/login/'
   },
+  animation_secure: {
+    src:   './src/animation/secure/*.svg',
+    dist:  './dist/animation/secure/',
+    build: './build/animation/secure/'
+  },
   metalsmith: {
     pages:     './src/pages/**/*.html',
     templates: './src/templates/*.html'

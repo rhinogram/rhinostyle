@@ -31,6 +31,12 @@
   }
 }
 
+.rhino-animation--secure {
+  &::before {
+    padding-top: 115.789474%; // 880px height / 760px width * 100
+  }
+}
+
 
 .rhino-animation__flag {
   height: 5200%; // total frames * 100
@@ -42,6 +48,14 @@
 
 .rhino-animation__login {
   height: 6500%; // total frames * 100
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.rhino-animation__secure {
+  height: 5200%; // total frames * 100
   left: 0;
   position: absolute;
   top: 0;
