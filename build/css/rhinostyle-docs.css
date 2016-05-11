@@ -640,19 +640,17 @@ a.u-text-warning:hover,
   -ms-flex-pack: center;
   justify-content: center;
   letter-spacing: .2rem;
+  pointer-events: none;
+  vertical-align: middle;
   width: 4rem;
 }
-.avatar--accent {
+.avatar--member {
   background-color: #ffa573;
   border-color: #ffa573;
 }
-.avatar--default {
-  background-color: #d2d2d2;
-  border-color: #d2d2d2;
-}
-.avatar--secondary {
-  background-color: #41d6c3;
-  border-color: #41d6c3;
+.avatar--patient {
+  background-color: #7ad0ff;
+  border-color: #7ad0ff;
 }
 .avatar--lg {
   font-size: 2.2rem;

@@ -20,6 +20,8 @@
   height: 4rem;
   justify-content: center;
   letter-spacing: .2rem;
+  pointer-events: none;
+  vertical-align: middle;
   width: 4rem;
 }
 
@@ -29,19 +31,14 @@
 // -------------------------
 
 
-.avatar--accent {
+.avatar--member {
   background-color: @brand-accent;
   border-color: @brand-accent;
 }
 
-.avatar--default {
-  background-color: @gray-light;
-  border-color: @gray-light;
-}
-
-.avatar--secondary {
-  background-color: @brand-secondary;
-  border-color: @brand-secondary;
+.avatar--patient {
+  background-color: lighten(@brand-primary, 35%);
+  border-color: lighten(@brand-primary, 35%);
 }
 
 
