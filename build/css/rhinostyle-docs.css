@@ -621,6 +621,36 @@ a.u-text-warning:hover,
   top: 0;
   width: 100%;
 }
+.avatar {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #d2d2d2;
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid #d2d2d2;
+  border-radius: 0.4rem;
+  color: #fff;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 2rem;
+  font-weight: 300;
+  height: 8rem;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  letter-spacing: .2rem;
+  width: 8rem;
+}
+.avatar--accent {
+  background-color: #ffa573;
+  border-color: #ffa573;
+}
+.avatar--secondary {
+  background-color: #41d6c3;
+  border-color: #41d6c3;
+}
 .btn {
   -webkit-align-items: center;
   -ms-flex-align: center;
