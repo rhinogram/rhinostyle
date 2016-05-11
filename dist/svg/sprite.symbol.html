@@ -40,6 +40,7 @@ They might well be outsourced to an external stylesheet of course.
 	.svg-icon-search-dims { width: 24px; height: 24px; }
 	.svg-icon-sms-dims { width: 24px; height: 24px; }
 	.svg-icon-trash-dims { width: 24px; height: 24px; }
+	.svg-icon-user-dims { width: 24px; height: 24px; }
 	.svg-icon-warning-dims { width: 32px; height: 32px; }
 </style>
 <!--
@@ -84,6 +85,7 @@ for further details on how to create this embeddable sprite variant.
 		<symbol viewBox="0 0 24 24" id="icon-search"><path d="M9 18a8.955 8.955 0 0 0 5.633-1.992l7.658 7.697a1 1 0 1 0 1.42-1.41l-7.67-7.708A8.94 8.94 0 0 0 18 9c0-4.963-4.037-9-9-9S0 4.037 0 9c0 4.962 4.037 9 9 9zM9 2c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7z"/></symbol>
 		<symbol viewBox="0 0 24 24" id="icon-sms"><path d="M11.997.903c-6.617 0-12 4.434-12 9.883 0 2.573 1.177 4.985 3.325 6.83L.912 22.43a.497.497 0 0 0 .447.722.49.49 0 0 0 .21-.047l6.437-2.995c1.278.37 2.62.558 3.99.558 6.617 0 12-4.433 12-9.882s-5.384-9.883-12-9.883z"/></symbol>
 		<symbol viewBox="0 0 24 24" id="icon-trash"><path d="M23 3h-7V.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5V3H1a.5.5 0 0 0 0 1h2v19.5a.5.5 0 0 0 .5.5h16a.5.5 0 0 0 .5-.5V4h3a.5.5 0 0 0 0-1zM8 18.5a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 1 0v11zM8 1h7v2H8V1zm4 17.5a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 1 0v11zm4 0a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 1 0v11z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="icon-user"><path d="M16.49 9.754c.807-.764.748-2.433.093-3 .52-1.385 1.19-2.997.907-4.41C17.144.615 14.686 0 12.686 0c-1.55 0-3.435.39-4.03 1.46-.596.067-1.057.314-1.372.738-.868 1.172-.275 2.97.152 4.537-.655.568-.733 2.255.075 3.02.112 1.587 1.05 2.56 1.49 2.933v2.408c-.42.157-.833.31-1.234.456-3.47 1.276-5.98 2.2-6.713 3.668C.013 21.3 0 23.41 0 23.5a.5.5 0 0 0 .5.5h23a.5.5 0 0 0 .5-.5c0-.09-.012-2.2-1.053-4.28-.735-1.47-3.243-2.392-6.714-3.668L15 15.096v-2.408c.44-.374 1.378-1.346 1.49-2.934z"/><path fill="none" d="M0 0h24v24H0z"/></symbol>
 		<symbol viewBox="0 0 32 32" id="icon-warning"><path d="M31.22 28.77L16.965 3.76c-.197-.345-.566-.557-.966-.557s-.768.213-.966.558L.784 28.77c-.195.34-.19.755.007 1.09s.564.543.958.543h28.504c.39 0 .757-.206.957-.542.197-.335.2-.75.01-1.09zm-13.46-1.567h-3.52v-3.2h3.52v3.2zm0-5.6h-3.52v-9.6h3.52v9.6z"/></symbol>
 </svg>
 
@@ -344,6 +346,17 @@ embedded above. They may be styled via CSS.
 						
 					</div>
 					<h2>icon-trash</h2>
+				</li>
+				<li title="icon-user">
+					<div class="icon-box">
+						
+						<!-- icon-user -->
+						<svg class="svg-icon-user-dims">
+							<use xlink:href="#icon-user"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-user</h2>
 				</li>
 				<li title="icon-warning">
 					<div class="icon-box">
@@ -608,6 +621,17 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					</div>
 					<h2>icon-trash</h2>
 				</li>
+				<li title="icon-user">
+					<div class="icon-box">
+						
+						<!-- icon-user -->
+						<svg class="svg-icon-user-dims">
+							<use xlink:href="sprite.svg#icon-user"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-user</h2>
+				</li>
 				<li title="icon-warning">
 					<div class="icon-box">
 						
@@ -627,7 +651,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Wed, 11 May 2016 18:35:13 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+			<p>Generated at Wed, 11 May 2016 19:24:32 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>

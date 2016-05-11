@@ -640,9 +640,18 @@ a.u-text-warning:hover,
   -ms-flex-pack: center;
   justify-content: center;
   letter-spacing: .2rem;
+  overflow: hidden;
   pointer-events: none;
+  text-transform: uppercase;
   vertical-align: middle;
   width: 4rem;
+}
+.avatar .icon {
+  height: 100%;
+  opacity: .4;
+  position: relative;
+  top: 12%;
+  width: 100%;
 }
 .avatar--member {
   background-color: #ffa573;
@@ -657,6 +666,12 @@ a.u-text-warning:hover,
   height: 8rem;
   width: 8rem;
 }
+/*.avatar__icon {
+  font-size: 4.8rem;
+  left: .1rem;
+  position: relative;
+  top: .6rem;
+}*/
 .btn {
   -webkit-align-items: center;
   -ms-flex-align: center;
