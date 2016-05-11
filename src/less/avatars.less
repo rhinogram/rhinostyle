@@ -9,24 +9,23 @@
 
 .avatar {
   align-items: center;
-  background-color: @gray-light;
   background-position: center center;
   background-size: cover;
   border: 1px solid @gray-light;
   border-radius: @border-radius-base;
   color: @white;
   display: inline-flex;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: @font-weight-light;
-  height: 8rem;
+  height: 4rem;
   justify-content: center;
   letter-spacing: .2rem;
-  width: 8rem;
+  width: 4rem;
 }
 
 
 // -------------------------
-// Avatar Modifiers
+// Avatar Modifiers (Color)
 // -------------------------
 
 
@@ -35,7 +34,25 @@
   border-color: @brand-accent;
 }
 
+.avatar--default {
+  background-color: @gray-light;
+  border-color: @gray-light;
+}
+
 .avatar--secondary {
   background-color: @brand-secondary;
   border-color: @brand-secondary;
 }
+
+
+// -------------------------
+// Avatar Modifiers (Sizes)
+// -------------------------
+
+
+.avatar--lg {
+  font-size: 2.2rem;
+  height: 8rem;
+  width: 8rem;
+}
+
