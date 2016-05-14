@@ -8,28 +8,28 @@
 
 
 .label {
+  align-items: center;
   border-radius: @border-radius-small;
   color: @label-color;
-  display: inline-block;
+  display: inline-flex;
   font-size: 75%;
-  font-weight: @font-weight-bold;
+  font-weight: @font-weight-semibold;
   line-height: 1;
   padding: @label-padding;
   position: relative;
   text-align: center;
-  top: -.1rem;
   vertical-align: baseline;
   white-space: nowrap;
 
   // Add hover effects, but only for links
-  a& {
+  /*a& {
     &:hover,
     &:focus {
       color: @label-link-hover-color;
       cursor: pointer;
       text-decoration: none;
     }
-  }
+  }*/
 
   &:empty {
     display: none;
@@ -42,6 +42,10 @@
 // -------------------------
 
 
+.label--accent {
+  .label-variant(@label-accent-bg);
+}
+
 .label--default {
   .label-variant(@label-default-bg);
 }
@@ -50,6 +54,9 @@
   .label-variant(@label-primary-bg);
 }
 
+.label--secondary {
+  .label-variant(@label-secondary-bg);
+}
 
 
 
