@@ -105,6 +105,7 @@ gulp.task('animation:secure', () => {
   const path = paths.animation_secure;
 
   return gulp.src(path.src)
+
     .pipe(svgSprite({
       mode: {
         css: {

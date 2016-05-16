@@ -1,0 +1,81 @@
+// File: avatars.less
+// Note:
+
+
+// -------------------------
+// Avatar
+// -------------------------
+
+
+.avatar {
+  align-items: center;
+  background-position: center center;
+  background-size: cover;
+  border: 1px solid @gray-light;
+  border-radius: @border-radius-base;
+  color: @white;
+  display: inline-flex;
+  font-size: 1.4rem;
+  font-weight: @font-weight-light;
+  height: 4rem;
+  justify-content: center;
+  letter-spacing: .2rem;
+  overflow: hidden;
+  pointer-events: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 4rem;
+
+  .icon {
+    height: 100%;
+    opacity: .4;
+    position: relative;
+    top: 12%;
+    width: 100%;
+  }
+}
+
+
+// -------------------------
+// Avatar Modifiers (Color)
+// -------------------------
+
+
+.avatar--member {
+  background-color: @brand-accent;
+  border-color: @brand-accent;
+}
+
+.avatar--patient {
+  background-color: lighten(@brand-primary, 35%);
+  border-color: lighten(@brand-primary, 35%);
+}
+
+
+// -------------------------
+// Avatar Modifiers (Sizes)
+// -------------------------
+
+
+.avatar--lg {
+  font-size: 2.2rem;
+  height: 8rem;
+  width: 8rem;
+}
+
+
+// -------------------------
+// Avatar Icon
+// -------------------------
+
+
+/*.avatar__icon {
+  font-size: 4.8rem;
+  left: .1rem;
+  position: relative;
+  top: .6rem;
+}*/
+
+
+
+

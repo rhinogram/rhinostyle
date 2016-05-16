@@ -165,6 +165,13 @@ const IconApp = React.createClass({
 
           <div className="site-swatch">
             <div className="site-swatch__sample">
+              <Icon icon="user" />
+            </div>
+            <div className="site-swatch__text"><strong>User</strong></div>
+          </div>
+
+          <div className="site-swatch">
+            <div className="site-swatch__sample">
               <Icon icon="warning" />
             </div>
             <div className="site-swatch__text"><strong>Warning</strong></div>

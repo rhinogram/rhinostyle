@@ -25,6 +25,9 @@
         <a href="../" class="site-navigation__nav__btn">Introduction</a>
       </li>
       <li>
+        <a href="../avatars/" class="site-navigation__nav__btn">Avatars</a>
+      </li>
+      <li>
         <a href="../buttons/" class="site-navigation__nav__btn">Buttons</a>
       </li>
       <li>
@@ -81,13 +84,6 @@
   <main class="site-content" id="js-app">
     
 
-
-<!-- 
-form control static
-switcher modifiers
-check/radio modifiers
-
--->
 
 <h1 class="site-headline">Forms</h1>
 
@@ -197,11 +193,11 @@ check/radio modifiers
         <label for="exampleInputEmail2">Email Address</label>
         <input type="email" class="form__control" id="exampleInputEmail2" placeholder="Enter email">
       </div>
-      <div class="form__group u-m-l">
+      <div class="form__group">
         <label for="exampleInputPassword2">Password</label>
         <input type="password" class="form__control" id="exampleInputPassword2" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn--secondary u-m-l">Sign In</button>
+      <button type="submit" class="btn btn--secondary">Sign In</button>
     </form>
   </div>
 
@@ -214,31 +210,18 @@ check/radio modifiers
   <p class="site-copy">Use <code>form__control</code> on all inputs, selects, and text areas for consistent appearance.</p>
 
   <form class="form">
-    <input type="text" class="form__control" id="" placeholder=".form__control">
-    <br>
-    <input type="text" class="form__control form__control--sm" id="" placeholder=".form__control .form__control--sm">
+    <input type="text" class="form__control" id="" placeholder=".form__control on input">
     <br>
     <div class="rhinoselect">
       <select class="form__control" id="">
-        <option value="" selected="">.form__control</option>
+        <option value="" selected="">.form__control on select</option>
         <option value="">Option Two</option>
         <option value="">Option Three</option>
         <option value="">Option Four</option>
       </select>
     </div>
     <br>
-    <div class="rhinoselect rhinoselect--sm">
-      <select class="form__control form__control--sm" id="">
-        <option value="" selected="">.form__control .form__control--sm</option>
-        <option value="">Option Two</option>
-        <option value="">Option Three</option>
-        <option value="">Option Four</option>
-      </select>
-    </div>
-    <br>
-    <textarea name="" id="" rows="3" class="form__control" placeholder=".form__control"></textarea>
-    <br>
-    <textarea name="" id="" rows="3" class="form__control form__control--sm" placeholder=".form__control .form__control--sm"></textarea>
+    <textarea name="" id="" rows="3" class="form__control" placeholder=".form__control on textarea"></textarea>
   </form>
   
 </section>
