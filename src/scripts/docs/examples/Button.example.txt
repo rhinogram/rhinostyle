@@ -4,7 +4,7 @@ var ComponentExample = React.createClass({
       <div>
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
-        <Button type="secondary">Secondary</Button>
+        <Button type="secondary" iconOnly={true}><Icon icon="cog" /></Button>
       </div>
     );
   }

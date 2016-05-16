@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Callout, Toast, Icon } from '../components';
+import { AlertActions, Callout, Icon, Toast } from '../components';
 
 import Playground from 'component-playground';
 
@@ -16,6 +16,17 @@ const exampleScope    = {
 
 const FeedbackApp = React.createClass({
   displayName: 'Rhinostyle Feedback Examples',
+
+  onClick(event) {
+    event.preventDefault();
+
+    AlertActions.addAlert({
+      type: 'danger',
+      dismissable: true,
+      body: 'This is an alert in a toast notification',
+      onDismiss: () => { alert('You dismissed that toast'); }
+    });
+  },
 
   render() {
     return (
@@ -35,7 +46,7 @@ const FeedbackApp = React.createClass({
 
         <section className="site-section">
           <h3 className="site-subheadline">Toast Notifications</h3>
-          <Toast type="default" body={<span>Default notification - <a href="#" className="notify__link">click link</a></span>} />
+          <Toast type="default" body={<span>Default notification - <a href="#" className="notify__link" onClick={this.onClick}>click link</a></span>} />
           <Toast type="secondary" body={<span><Icon icon="checkmark" /> Default notification - <a href="#" className="notify__link">click link</a></span>} />
           <Toast type="danger" body={<span>Danger notification - <a href="#" className="notify__link">click link</a></span>} />
         </section>

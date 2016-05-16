@@ -9,7 +9,8 @@ const buttonExample = require('raw!./examples/Button.example.txt');
 const exampleScope  = {
   React:  React,
   ReactDOM: ReactDOM,
-  Button: Button
+  Button: Button,
+  Icon: Icon
 };
 
 const ButtonApp = React.createClass({
@@ -63,7 +64,7 @@ const ButtonApp = React.createClass({
           </div>
           <div>
             <h5 className="site-miniheadline">Icon-Only Buttons</h5>
-            <p className="site-copy">Add <code>iconOnly={'{true}'}</code> when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance. Be sure you pass your icon in as the label, <code>label={'{<Icon icon="cog" />}'}</code>.</p>
+            <p className="site-copy">Add <code>iconOnly={'{true}'}</code> when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.</p>
             <Button iconOnly={true}><Icon icon="sms" /></Button>
             <Button type="primary" iconOnly={true}><Icon icon="email" /></Button>
             <Button type="secondary" iconOnly={true}><Icon icon="cog" /></Button>
@@ -105,8 +106,6 @@ const ButtonApp = React.createClass({
           <h3 className="site-subheadline">Playground</h3>
           <Playground codeText={buttonExample} scope={exampleScope} noRender={false} />
         </section>
-
-        
       </div>
     );
   }
