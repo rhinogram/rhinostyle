@@ -314,6 +314,9 @@ gulp.task('icons', () => {
       shape: {
         id: {
           generator: 'icon-'
+        },
+        dimension: {
+          attributes: false
         }
       },
       mode: {
