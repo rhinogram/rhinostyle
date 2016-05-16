@@ -11,7 +11,7 @@
     "babel-preset-stage-2": "^6.5.0",
     "boomsvgloader": "0.0.2",
     "browser-sync": "^2.11.1",
-    "component-playground": "^1.2.0",
+    "component-playground": "rhinogram/component-playground",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
@@ -50,7 +50,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.4",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "flux": "^2.1.1",
+    "keymirror": "^0.1.1",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   }
 }
