@@ -56,6 +56,15 @@ gulp.task('animation:flag', () => {
 
   return gulp.src(path.src)
     .pipe(svgSprite({
+      transform: [{
+        svgo: {
+          plugins: [
+            {
+              convertTransform: false
+            }
+          ]
+        }
+      }],
       mode: {
         css: {
           dest: '',
