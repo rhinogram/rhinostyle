@@ -101,22 +101,22 @@ gulp.task('animation:login', () => {
     .pipe(reload({ stream: true }));
 });
 
+
 gulp.task('animation:secure', () => {
   const path = paths.animation_secure;
 
   return gulp.src(path.src)
 
     .pipe(svgSprite({
-      shape: {
-        transform: {
-          svgo: {
-            plugins: {
-              cleanupNumericValues: false,
-              transformsWithOnePath: false
+      transform: [{
+        svgo: {
+          plugins: [
+            {
+              convertTransform: false
             }
-          }
+          ]
         }
-      },
+      }],
       mode: {
         css: {
           dest: '',
