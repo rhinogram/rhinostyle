@@ -25,6 +25,9 @@
         <a href="../" class="site-navigation__nav__btn">Introduction</a>
       </li>
       <li>
+        <a href="../animations/" class="site-navigation__nav__btn">Animations</a>
+      </li>
+      <li>
         <a href="../avatars/" class="site-navigation__nav__btn">Avatars</a>
       </li>
       <li>
@@ -183,7 +186,7 @@
         // animation testing
         var rhinoFlagFrames = 51, // 52 total frames minus 1
             rhinoFlagEase = new SteppedEase(rhinoFlagFrames),
-            rhiniFlagPosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
+            rhinoFlagPosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
             rhinoFlagSpeed = 3,
 
             rhinoLoginFrames = 64, // 65 total frames minus 1
@@ -193,12 +196,17 @@
 
             rhinoSecureFrames = 51, // 52 total frames minus 1
             rhinoSecureEase = new SteppedEase(rhinoSecureFrames),
-            rhiniSecurePosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
+            rhinoSecurePosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
             rhinoSecureSpeed = 3;
+
+            rhinoTimeFrames = 58, // 59 total frames minus 1
+            rhinoTimeEase = new SteppedEase(rhinoTimeFrames),
+            rhinoTimePosition = '-98.3%', // total height of svg (51920) minus height of 1 frame (880px) / 51920 * 100
+            rhinoTimeSpeed = 3;
             
         var rhinoFlagTL = new TimelineMax({repeat:-1,repeatDelay:2});
         rhinoFlagTL.to('.rhino-animation__flag', rhinoFlagSpeed, {
-          y: rhiniFlagPosition,
+          y: rhinoFlagPosition,
           ease: rhinoFlagEase
         });
 
@@ -210,8 +218,14 @@
 
         var rhinoSecureTL = new TimelineMax({repeat:-1,repeatDelay:2});
         rhinoSecureTL.to('.rhino-animation__secure', rhinoSecureSpeed, {
-          y: rhiniSecurePosition,
+          y: rhinoSecurePosition,
           ease: rhinoSecureEase
+        });
+
+        var rhinoTimeTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoTimeTL.to('.rhino-animation__time', rhinoTimeSpeed, {
+          y: rhinoTimePosition,
+          ease: rhinoTimeEase
         });
 
 

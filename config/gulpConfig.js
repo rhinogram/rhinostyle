@@ -14,6 +14,11 @@ export const paths = {
     dist:  './dist/animation/secure/',
     build: './build/animation/secure/'
   },
+  animation_time: {
+    src:   './src/animation/time/*.svg',
+    dist:  './dist/animation/time/',
+    build: './build/animation/time/'
+  },
   metalsmith: {
     pages:     './src/pages/**/*.html',
     templates: './src/templates/*.html'

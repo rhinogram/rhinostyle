@@ -786,14 +786,13 @@ a.u-text-warning:hover,
   content: '';
   display: block;
 }
-.rhino-animation--flag::before {
+.rhino-animation--flag::before,
+.rhino-animation--secure::before,
+.rhino-animation--time::before {
   padding-top: 115.789474%;
 }
 .rhino-animation--login::before {
   padding-top: 79.31%;
-}
-.rhino-animation--secure::before {
-  padding-top: 115.789474%;
 }
 .rhino-animation__flag {
   height: 5200%;
@@ -811,6 +810,13 @@ a.u-text-warning:hover,
 }
 .rhino-animation__secure {
   height: 5200%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.rhino-animation__time {
+  height: 5900%;
   left: 0;
   position: absolute;
   top: 0;
@@ -3241,8 +3247,8 @@ pre {
   display: none;
 }
 .site-miniheadline {
+  color: #ffa573;
   font-weight: normal;
-  margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
 .site-navigation {

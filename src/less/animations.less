@@ -19,7 +19,15 @@
   }
 }
 
-.rhino-animation--flag {
+
+// -------------------------
+// Rhino Animation Modifiers
+// -------------------------
+
+
+.rhino-animation--flag,
+.rhino-animation--secure,
+.rhino-animation--time {
 	&::before {
     padding-top: 115.789474%; // 880px height / 760px width * 100
   }
@@ -31,11 +39,10 @@
   }
 }
 
-.rhino-animation--secure {
-  &::before {
-    padding-top: 115.789474%; // 880px height / 760px width * 100
-  }
-}
+
+// -------------------------
+// Rhino Animation Images
+// -------------------------
 
 
 .rhino-animation__flag {
@@ -56,6 +63,14 @@
 
 .rhino-animation__secure {
   height: 5200%; // total frames * 100
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.rhino-animation__time {
+  height: 5900%; // total frames * 100
   left: 0;
   position: absolute;
   top: 0;
