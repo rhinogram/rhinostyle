@@ -107,6 +107,16 @@ gulp.task('animation:secure', () => {
   return gulp.src(path.src)
 
     .pipe(svgSprite({
+      shape: {
+        transform: {
+          svgo: {
+            plugins: {
+              cleanupNumericValues: false,
+              transformsWithOnePath: false
+            }
+          }
+        }
+      },
       mode: {
         css: {
           dest: '',
