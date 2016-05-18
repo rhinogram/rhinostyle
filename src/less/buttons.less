@@ -14,7 +14,9 @@
   cursor: pointer;
   display: inline-flex;
   font-weight: @btn-font-weight;
+  justify-content: flex-start;
   margin-bottom: 0; // For input.btn
+  max-width: 100%;
   text-align: center;
   touch-action: manipulation;
   transition: all 250ms @trans-timing-cubic;
@@ -55,11 +57,12 @@
     }
   }
 
-  &+& {
-    margin-left: @margin-small;
-  }
+  /*&:not(:last-child) {
+    margin-right: @margin-small;
+  }*/
 
   .icon {
+    flex-shrink: 0;
     font-size: @font-size-base + .2rem;
   }
 }
@@ -71,7 +74,6 @@
 
 
 .btn--block {
-  display: flex;
   justify-content: center;
   width: 100%;
 }
@@ -227,4 +229,18 @@ input[type='button'] {
   .icon {
     font-size: @font-size-small + .2rem;
   }
+}
+
+
+// -------------------------
+// Button Text
+// -------------------------
+// Optional but allows ellipsis when button or dropdown text is long.
+
+
+.btn__text {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

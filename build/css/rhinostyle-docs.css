@@ -874,7 +874,10 @@ a.u-text-warning:hover,
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-weight: normal;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   margin-bottom: 0;
+  max-width: 100%;
   text-align: center;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -889,6 +892,9 @@ a.u-text-warning:hover,
   font-size: 1.6rem;
   height: 3.6rem;
   padding: 0 1.2rem;
+  /*&:not(:last-child) {
+    margin-right: @margin-small;
+  }*/
 }
 .btn:hover,
 .btn:focus {
@@ -911,15 +917,12 @@ a.btn.disabled,
 fieldset[disabled] a.btn {
   pointer-events: none;
 }
-.btn + .btn {
-  margin-left: 0.6rem;
-}
 .btn .icon {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   font-size: 1.8rem;
 }
 .btn--block {
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
@@ -1256,6 +1259,12 @@ fieldset[disabled] .btn--link:focus {
 .btn--sm .icon {
   font-size: 1.6rem;
 }
+.btn__text {
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .callout {
   border-left: .6rem solid transparent;
   margin-bottom: 3rem;
@@ -1362,11 +1371,6 @@ button.close {
   display: block;
 }
 .dropdown--block .dropdown__toggle {
-  -ms-flex-align: center;
-  align-items: center;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: left;
   width: 100%;
 }
 .dropdown--block .dropdown__toggle [class^='caret-'],
@@ -1470,6 +1474,12 @@ button.close {
   height: .1rem;
   margin: 0.4rem 0;
   overflow: hidden;
+}
+.dropdown__toggle {
+  /*flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;*/
 }
 .dropdown__toggle:active,
 .dropdown__toggle:focus {
@@ -2226,6 +2236,7 @@ select[size] {
   border: 1px solid #d2d2d2;
   display: -ms-flexbox;
   display: flex;
+  white-space: nowrap;
   background: #ececec;
   font-size: 1.6rem;
   height: 3.6rem;
@@ -3175,6 +3186,9 @@ pre {
   .site-content {
     padding: 3rem;
   }
+}
+.site-content .btn:not(:last-child) {
+  margin-right: 0.6rem;
 }
 .site-copy {
   margin-bottom: 2rem;

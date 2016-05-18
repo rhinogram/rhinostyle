@@ -43,10 +43,6 @@
   display: block;
 
   .dropdown__toggle {
-    align-items: center;
-    display: flex;
-    //justify-content: space-between;
-    text-align: left;
     width: 100%;
 
     [class^='caret-'],
@@ -204,6 +200,11 @@
 
 
 .dropdown__toggle {
+  /*flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;*/
+
   &:active,
   &:focus {
     outline: none;

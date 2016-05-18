@@ -25,6 +25,7 @@ pre {
   padding: @padding-medium;
 }
 
+
 // -------------------------
 // Site Content
 // -------------------------
@@ -33,8 +34,15 @@ pre {
 .site-content {
   padding: @grid-gutter-width / 2;
   position: relative;
+
   @media (min-width: @screen-sm-min) {
     padding: @grid-gutter-width;
+  }
+
+  .btn {
+    &:not(:last-child) {
+      margin-right: @margin-small;
+    }
   }
 }
 

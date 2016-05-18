@@ -23,30 +23,30 @@ const ButtonApp = React.createClass({
 
         <section className="site-section">
           <h3 className="site-subheadline">Button Types</h3>
-            <Button type="default">Default</Button>
-            <Button type="primary">Primary</Button>
-            <Button type="secondary">Secondary</Button>
-            <Button type="default" outline={true}>Default Outline</Button>
-            <Button type="primary" outline={true}>Primary Outline</Button>
-            <Button type="link">Link</Button>
+          <Button>Default</Button>
+          <Button type="primary">Primary</Button>
+          <Button type="secondary">Secondary</Button>
+          <Button outline={true}>Default Outline</Button>
+          <Button type="primary" outline={true}>Primary Outline</Button>
+          <Button type="link">Link</Button>
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">Button Sizes</h3>
           <div className="u-m-b">
-            <Button type="default" size="large">Large</Button>
-            <Button type="default">Default</Button>
-            <Button type="default" size="small">Small</Button>
+            <Button size="large">Large</Button>
+            <Button>Default</Button>
+            <Button size="small">Small</Button>
           </div>
           <div className="u-m-b">
-            <Button type="default" size="large">Large</Button>
-            <Button type="default" size="large"><Icon icon="cog" />&nbsp;Large</Button>
-            <Button type="default" size="large" iconOnly={true}><Icon icon="cog" /></Button>
+            <Button size="large">Large</Button>
+            <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+            <Button size="large" iconOnly={true}><Icon icon="cog" /></Button>
           </div>
           <div className="u-m-b">
-            <Button type="default">Default</Button>
-            <Button type="default"><Icon icon="cog" />&nbsp;Default</Button>
-            <Button type="default" iconOnly={true}><Icon icon="cog" /></Button>
+            <Button>Default</Button>
+            <Button><Icon icon="cog" />&nbsp;Default</Button>
+            <Button iconOnly={true}><Icon icon="cog" /></Button>
           </div>
           <div>
             <Button size="small">Small</Button>
@@ -99,6 +99,17 @@ const ButtonApp = React.createClass({
             <Button type="primary" outline={true}>Primary Outline</Button>
             <Button type="primary" outline={true} classes="active">Primary Outline Active</Button>
             <Button type="primary" outline={true} classes="disabled">Primary Outline Disabled</Button>
+          </div>
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">Button Ellipsis</h3>
+          <h5 className="site-miniheadline">Buttons with Long Text</h5>
+          <p>Wrap button's text in <code>btn__text</code> class n order to allow ellipsis. This rule applies to dropdowns as well.</p>
+          <div className="u-m-b">
+            <Button><span className="btn__text">Wow! This button has a lot of text!</span></Button>
+            <br/><br/>
+            <Button><Icon icon="lock" />&nbsp;<span className="btn__text">Wow! This button has a lot of text and an icon!</span></Button>
           </div>
         </section>
 
