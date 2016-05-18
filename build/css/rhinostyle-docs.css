@@ -878,7 +878,7 @@ a.u-text-warning:hover,
   justify-content: flex-start;
   margin-bottom: 0;
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   transition: all 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
@@ -1258,12 +1258,6 @@ fieldset[disabled] .btn--link:focus {
 }
 .btn--sm .icon {
   font-size: 1.6rem;
-}
-.btn__text {
-  overflow: hidden;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .callout {
   border-left: .6rem solid transparent;
@@ -2216,7 +2210,7 @@ select[size] {
 }
 .form__addon .form__control {
   -ms-flex: 1;
-  flex: 1;
+  flex: 1 1 0%;
   width: auto;
 }
 .form__addon .form__control:first-child {
@@ -3243,7 +3237,7 @@ pre {
 .site-header__title {
   color: #0081c6;
   -ms-flex: 1;
-  flex: 1;
+  flex: 1 1 0%;
   font-size: 2.2rem;
   font-weight: 700;
   position: relative;

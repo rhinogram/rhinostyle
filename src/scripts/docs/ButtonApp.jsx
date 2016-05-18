@@ -104,12 +104,12 @@ const ButtonApp = React.createClass({
 
         <section className="site-section">
           <h3 className="site-subheadline">Button Ellipsis</h3>
-          <h5 className="site-miniheadline">Buttons with Long Text</h5>
-          <p>Wrap button's text in <code>btn__text</code> class n order to allow ellipsis. This rule applies to dropdowns as well.</p>
+          <h5 className="site-miniheadline">Long Text Inside Buttons</h5>
+          <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis. This rule applies to dropdowns as well.</p>
           <div className="u-m-b">
-            <Button><span className="btn__text">Wow! This button has a lot of text!</span></Button>
+            <Button><span className="u-text-overflow">Wow! This button has a lot of text!</span></Button>
             <br/><br/>
-            <Button><Icon icon="lock" />&nbsp;<span className="btn__text">Wow! This button has a lot of text and an icon!</span></Button>
+            <Button><Icon icon="lock" />&nbsp;<span className="u-text-overflow">Wow! This button has a lot of text and an icon!</span></Button>
           </div>
         </section>
 

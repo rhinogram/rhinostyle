@@ -5,14 +5,17 @@ import imagemin     from 'gulp-imagemin';
 import svgSprite    from 'gulp-svg-sprite';
 import duration     from 'gulp-duration';
 import less         from 'gulp-less';
-import autoprefixer from 'gulp-autoprefixer';
 import changed      from 'gulp-changed';
-import cssnano      from 'gulp-cssnano';
 import concat       from 'gulp-concat';
+import postcss      from 'gulp-postcss';
 import uglify       from 'gulp-uglify';
 import ghPages      from 'gulp-gh-pages';
 import gutil        from 'gulp-util';
 import lesshint     from 'gulp-lesshint';
+
+import cssnano      from 'cssnano';
+import autoprefixer from 'autoprefixer';
+import flexbugs     from 'postcss-flexbugs-fixes';
 
 import webpack      from 'webpack';
 import browserSync  from 'browser-sync';
@@ -218,12 +221,16 @@ gulp.task('dist:scripts', (callback) => {
 // Dist Styles
 // -------------------------
 gulp.task('dist:styles', () => {
-  const path = paths.styles;
+  const path = paths.styles,
+        processors = [
+          autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
+          cssnano(),
+          flexbugs()
+        ];
 
   return gulp.src(path.src)
     .pipe(less({ compress: true }))
-    .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }))
-    .pipe(cssnano())
+    .pipe(postcss(processors))
     .pipe(gulp.dest(path.dist))
     .pipe(duration('Built Dist Styles'))
     .pipe(reload({ stream: true }));
@@ -286,7 +293,6 @@ gulp.task('docs:scripts', () => {
 gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   nunjucks.configure('./src/templates', { watch: true });
 
-  //gulp.watch(paths.animations.src, ['animations']);
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
   gulp.watch(paths.scripts.docSrc, ['docs:scripts']);
@@ -330,11 +336,14 @@ gulp.task('docs:site', () => {
 // Docs Styles
 // -------------------------
 gulp.task('docs:styles', () => {
-  const path = paths.styles;
-
+  const path = paths.styles,
+        processors = [
+          autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
+          flexbugs()
+        ];
   return gulp.src(path.docSrc)
     .pipe(less({ compress: false }))
-    .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }))
+    .pipe(postcss(processors))
     .pipe(gulp.dest(path.build))
     .pipe(duration('Built Doc Styles'))
     .pipe(reload({ stream: true }));
