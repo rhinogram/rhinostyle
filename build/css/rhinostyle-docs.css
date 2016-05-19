@@ -575,6 +575,29 @@ a.u-text-warning:hover,
   margin-right: auto !important;
   margin-left: auto !important;
 }
+.u-m-a-sm {
+  margin: 0.75rem !important;
+}
+.u-m-t-sm {
+  margin-top: 0.75rem !important;
+}
+.u-m-r-sm {
+  margin-right: 0.75rem !important;
+}
+.u-m-b-sm {
+  margin-bottom: 0.75rem !important;
+}
+.u-m-l-sm {
+  margin-left: 0.75rem !important;
+}
+.u-m-x-sm {
+  margin-right: 0.75rem !important;
+  margin-left: 0.75rem !important;
+}
+.u-m-y-sm {
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
 .u-m-a-md {
   margin: 3rem !important;
 }
