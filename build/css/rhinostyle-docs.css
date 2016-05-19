@@ -2637,6 +2637,51 @@ fieldset[disabled] .rhinodio label {
 .label--secondary[href]:focus {
   background-color: #27b3a1;
 }
+.loader-line {
+  background: #ececec;
+  display: -ms-flexbox;
+  display: flex;
+  height: .4rem;
+  overflow: hidden;
+  position: relative;
+  max-width: 20rem;
+}
+.loader-line__line {
+  background: #0081c6;
+  display: inline-block;
+  height: .4rem;
+  position: absolute;
+  width: 25%;
+}
+.loader-line__line:first-child {
+  animation: loaderline1 1s infinite ease-in-out;
+}
+.loader-line__line:last-child {
+  animation: loaderline2 1s infinite ease-in-out;
+  animation-delay: .05s;
+}
+@keyframes loaderline1 {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(350%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes loaderline2 {
+  0% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(325%);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
 .loader-pulse {
   display: inline-block;
 }
@@ -2650,14 +2695,14 @@ fieldset[disabled] .rhinodio label {
   background: #39d4c0;
 }
 .loader-pulse__pulse {
-  animation: pulse 1s infinite;
+  animation: loaderpulse 1s infinite;
   animation-fill-mode: both;
   border-radius: 50%;
   display: inline-block;
-  height: 1rem;
+  height: .8rem;
   opacity: .5;
   transform: scale(0.75);
-  width: 1rem;
+  width: .8rem;
 }
 .loader-pulse__pulse:first-child {
   animation-delay: -0.25s;
@@ -2666,7 +2711,7 @@ fieldset[disabled] .rhinodio label {
   animation-delay: -0.125s;
   margin: 0 0.6rem;
 }
-@keyframes pulse {
+@keyframes loaderpulse {
   0%,
   80%,
   100% {
