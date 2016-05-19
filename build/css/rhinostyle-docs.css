@@ -1474,13 +1474,13 @@ button.close {
 }
 .dropdown__toggle__icon {
   fill: currentColor;
-  height: .75em;
+  height: .65em;
   line-height: 1;
   margin-left: 0.6rem;
   position: relative;
   top: .05em;
   vertical-align: middle;
-  width: .75em;
+  width: .65em;
 }
 .dropdown-backdrop {
   bottom: 0;
