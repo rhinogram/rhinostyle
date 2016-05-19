@@ -56,22 +56,6 @@
 }
 
 
-
-// -------------------------
-// Dropdown Header
-// -------------------------
-
-
-.dropdown__header {
-  color: @dropdown-header-color;
-  display: block;
-  font-size: @font-size-small;
-  line-height: @line-height-base;
-  padding: @dropdown-padding;
-  white-space: nowrap;
-}
-
-
 // -------------------------
 // Dropdown Menu
 // -------------------------
@@ -85,11 +69,10 @@
   box-shadow: @shadow-depth-1;
   display: block;
   float: left;
-  font-size: 1.4rem;
+  //font-size: 1.4rem;
   left: 0;
   list-style: none;
   margin: .2rem 0 0;
-  //min-width: 160px;
   opacity: 0;
   padding: @padding-small-vertical 0;
   position: absolute;
@@ -99,38 +82,6 @@
               transform 500ms @trans-timing-cubic;
   visibility: hidden;
   z-index: @zindex-dropdown;
-
-  // Links within the dropdown menu
-  > li > a {
-    clear: both;
-    color: @dropdown-link-color;
-    cursor: pointer;
-    display: block;
-    font-weight: normal;
-    line-height: @line-height-base;
-    padding: @dropdown-padding;
-    white-space: nowrap;
-
-    &:hover,
-    &:focus {
-      background-color: @dropdown-link-hover-bg;
-      color: @dropdown-link-hover-color;
-      outline: none;
-      text-decoration: none;
-    }
-  }
-
-  // Active state
-  > .active > a {
-    &,
-    &:hover,
-    &:focus {
-      background-color: @dropdown-link-active-bg;
-      color: @dropdown-link-active-color;
-      outline: 0;
-      text-decoration: none;
-    }
-  }
 
   &::before {
     background: inherit;
@@ -146,7 +97,6 @@
     transform: rotate(45deg);
     z-index: -1;
   }
-
 }
 
 
@@ -180,6 +130,77 @@
   }
 }
 
+.dropdown__menu--wide {
+  min-width: 24rem;
+}
+
+
+// -------------------------
+// Dropdown Menu Item
+// -------------------------
+
+
+.dropdown__menu__item {
+  // Links within the dropdown menu
+  > a {
+    clear: both;
+    color: @dropdown-link-color;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    line-height: @line-height-base;
+    padding: @dropdown-padding;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      background-color: @dropdown-link-hover-bg;
+      color: @dropdown-link-hover-color;
+      outline: none;
+      text-decoration: none;
+    }
+  }
+
+  // Active state
+  &.active > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: @dropdown-link-active-bg;
+      color: @dropdown-link-active-color;
+      outline: 0;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// -------------------------
+// Dropdown Menu Container
+// -------------------------
+// Simply gives same padding as links.
+
+
+.dropdown__menu__container {
+  padding: @dropdown-padding;
+}
+
+
+// -------------------------
+// Dropdown Menu Header
+// -------------------------
+
+
+.dropdown__menu__header {
+  color: @dropdown-header-color;
+  display: block;
+  font-size: @font-size-small;
+  line-height: @line-height-base;
+  padding: @dropdown-padding;
+  white-space: nowrap;
+}
+
+
 // -------------------------
 // Dropdown Menu Divider
 // -------------------------
@@ -191,6 +212,19 @@
   margin: @margin-xsmall 0;
   overflow: hidden;
 }
+
+
+// -------------------------
+// Dropdown Menu Scroll
+// -------------------------
+// Scrollable menu content
+
+
+.dropdown__menu__scroll {
+  max-height: 20rem;
+  overflow-y: auto;
+}
+
 
 
 // -------------------------
@@ -217,9 +251,13 @@
   line-height: 1;
   margin-left: @margin-small;
   position: relative;
-  top: .05em;
   vertical-align: middle;
   width: .65em;
+
+  // When used within a button, adjust top position
+  .btn& {
+    top: .05em;
+  }
 }
 
 
