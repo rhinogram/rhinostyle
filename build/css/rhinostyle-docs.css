@@ -2642,9 +2642,7 @@ fieldset[disabled] .rhinodio label {
 }
 .loader-line {
   background: #ececec;
-  display: -ms-flexbox;
-  display: flex;
-  height: .4rem;
+  height: .2rem;
   overflow: hidden;
   position: relative;
   max-width: 20rem;
@@ -2652,7 +2650,7 @@ fieldset[disabled] .rhinodio label {
 .loader-line__line {
   background: #0081c6;
   display: inline-block;
-  height: .4rem;
+  height: .2rem;
   position: absolute;
   width: 25%;
 }
