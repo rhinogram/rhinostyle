@@ -45,8 +45,7 @@
   .dropdown__toggle {
     width: 100%;
 
-    [class^='caret-'],
-    [class*=' caret-'] {
+    .dropdown__toggle__icon {
       margin-left: auto;
     }
   }
@@ -200,15 +199,27 @@
 
 
 .dropdown__toggle {
-  /*flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;*/
-
   &:active,
   &:focus {
     outline: none;
   }
+}
+
+
+// -------------------------
+// Dropdown Toggle Icon
+// -------------------------
+
+
+.dropdown__toggle__icon {
+  fill: currentColor;
+  height: .75em;
+  line-height: 1;
+  margin-left: @margin-small;
+  position: relative;
+  top: .05em;
+  vertical-align: middle;
+  width: .75em;
 }
 
 

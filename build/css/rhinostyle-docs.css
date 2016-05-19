@@ -1367,8 +1367,7 @@ button.close {
 .dropdown--block .dropdown__toggle {
   width: 100%;
 }
-.dropdown--block .dropdown__toggle [class^='caret-'],
-.dropdown--block .dropdown__toggle [class*=' caret-'] {
+.dropdown--block .dropdown__toggle .dropdown__toggle__icon {
   margin-left: auto;
 }
 .dropdown--block .dropdown__menu {
@@ -1469,15 +1468,19 @@ button.close {
   margin: 0.4rem 0;
   overflow: hidden;
 }
-.dropdown__toggle {
-  /*flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;*/
-}
 .dropdown__toggle:active,
 .dropdown__toggle:focus {
   outline: none;
+}
+.dropdown__toggle__icon {
+  fill: currentColor;
+  height: .75em;
+  line-height: 1;
+  margin-left: 0.6rem;
+  position: relative;
+  top: .05em;
+  vertical-align: middle;
+  width: .75em;
 }
 .dropdown-backdrop {
   bottom: 0;
