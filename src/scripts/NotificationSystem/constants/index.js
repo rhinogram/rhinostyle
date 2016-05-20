@@ -2,8 +2,8 @@ import keymirror from 'keymirror';
 
 const constants = {
   ActionTypes:    keymirror({
-    ADD_ALERT:    null,
-    REMOVE_ALERT: null
+    ADD_NOTIFICATION:    null,
+    REMOVE_NOTIFICATION: null
   }),
   PayloadSources: keymirror({
     VIEW_ACTION: null

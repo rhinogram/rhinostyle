@@ -1,0 +1,16 @@
+import React    from 'react';
+import ReactDOM from 'react-dom';
+
+import NotificationsContainer from './components/NotificationsContainer';
+
+import * as NotificationActions from './actions';
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const notificationsContainer = document.getElementById('js-notifications-container');
+
+  if (notificationsContainer) {
+    ReactDOM.render(<NotificationsContainer />, notificationsContainer);
+  }
+}, false);
+
+export { NotificationActions };

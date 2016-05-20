@@ -4139,9 +4139,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Toast = exports.Input = exports.Icon = exports.Callout = exports.Button = exports.AlertActions = undefined;
+	exports.Toast = exports.NotificationActions = exports.Input = exports.Icon = exports.Callout = exports.Button = undefined;
 
-	var _AlertSystem = __webpack_require__(212);
+	var _NotificationSystem = __webpack_require__(212);
 
 	var _Button = __webpack_require__(214);
 
@@ -4165,11 +4165,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.AlertActions = _AlertSystem.AlertActions;
 	exports.Button = _Button2.default;
 	exports.Callout = _Callout2.default;
 	exports.Icon = _Icon2.default;
 	exports.Input = _Input2.default;
+	exports.NotificationActions = _NotificationSystem.NotificationActions;
 	exports.Toast = _Toast2.default;
 
 /***/ },
@@ -5609,9 +5609,9 @@
 	    if (!cm.state.focused) { cm.display.input.focus(); onFocus(cm); }
 	  }
 
-	  // This will be set to an array of strings when copying, so that,
-	  // when pasting, we know what kind of selections the copied text
-	  // was made out of.
+	  // This will be set to a {lineWise: bool, text: [string]} object, so
+	  // that, when pasting, we know what kind of selections the copied
+	  // text was made out of.
 	  var lastCopied = null;
 
 	  function applyTextInput(cm, inserted, deleted, sel, origin) {
@@ -5620,14 +5620,14 @@
 	    if (!sel) sel = doc.sel;
 
 	    var paste = cm.state.pasteIncoming || origin == "paste";
-	    var textLines = doc.splitLines(inserted), multiPaste = null;
+	    var textLines = doc.splitLines(inserted), multiPaste = null
 	    // When pasing N lines into N selections, insert one line per selection
 	    if (paste && sel.ranges.length > 1) {
-	      if (lastCopied && lastCopied.join("\n") == inserted) {
-	        if (sel.ranges.length % lastCopied.length == 0) {
+	      if (lastCopied && lastCopied.text.join("\n") == inserted) {
+	        if (sel.ranges.length % lastCopied.text.length == 0) {
 	          multiPaste = [];
-	          for (var i = 0; i < lastCopied.length; i++)
-	            multiPaste.push(doc.splitLines(lastCopied[i]));
+	          for (var i = 0; i < lastCopied.text.length; i++)
+	            multiPaste.push(doc.splitLines(lastCopied.text[i]));
 	        }
 	      } else if (textLines.length == sel.ranges.length) {
 	        multiPaste = map(textLines, function(l) { return [l]; });
@@ -5643,6 +5643,8 @@
 	          from = Pos(from.line, from.ch - deleted);
 	        else if (cm.state.overwrite && !paste) // Handle overwrite
 	          to = Pos(to.line, Math.min(getLine(doc, to.line).text.length, to.ch + lst(textLines).length));
+	        else if (lastCopied && lastCopied.lineWise && lastCopied.text.join("\n") == inserted)
+	          from = to = Pos(from.line, 0)
 	      }
 	      var updateInput = cm.curOp.updateInput;
 	      var changeEvent = {from: from, to: to, text: multiPaste ? multiPaste[i % multiPaste.length] : textLines,
@@ -5775,18 +5777,18 @@
 	      function prepareCopyCut(e) {
 	        if (signalDOMEvent(cm, e)) return
 	        if (cm.somethingSelected()) {
-	          lastCopied = cm.getSelections();
+	          lastCopied = {lineWise: false, text: cm.getSelections()};
 	          if (input.inaccurateSelection) {
 	            input.prevInput = "";
 	            input.inaccurateSelection = false;
-	            te.value = lastCopied.join("\n");
+	            te.value = lastCopied.text.join("\n");
 	            selectInput(te);
 	          }
 	        } else if (!cm.options.lineWiseCopyCut) {
 	          return;
 	        } else {
 	          var ranges = copyableRanges(cm);
-	          lastCopied = ranges.text;
+	          lastCopied = {lineWise: true, text: ranges.text};
 	          if (e.type == "cut") {
 	            cm.setSelections(ranges.ranges, null, sel_dontScroll);
 	          } else {
@@ -6134,13 +6136,13 @@
 	      function onCopyCut(e) {
 	        if (signalDOMEvent(cm, e)) return
 	        if (cm.somethingSelected()) {
-	          lastCopied = cm.getSelections();
+	          lastCopied = {lineWise: false, text: cm.getSelections()};
 	          if (e.type == "cut") cm.replaceSelection("", null, "cut");
 	        } else if (!cm.options.lineWiseCopyCut) {
 	          return;
 	        } else {
 	          var ranges = copyableRanges(cm);
-	          lastCopied = ranges.text;
+	          lastCopied = {lineWise: true, text: ranges.text};
 	          if (e.type == "cut") {
 	            cm.operation(function() {
 	              cm.setSelections(ranges.ranges, 0, sel_dontScroll);
@@ -6152,12 +6154,12 @@
 	        if (e.clipboardData && !ios) {
 	          e.preventDefault();
 	          e.clipboardData.clearData();
-	          e.clipboardData.setData("text/plain", lastCopied.join("\n"));
+	          e.clipboardData.setData("text/plain", lastCopied.text.join("\n"));
 	        } else {
 	          // Old-fashioned briefly-focus-a-textarea hack
 	          var kludge = hiddenTextarea(), te = kludge.firstChild;
 	          cm.display.lineSpace.insertBefore(kludge, cm.display.lineSpace.firstChild);
-	          te.value = lastCopied.join("\n");
+	          te.value = lastCopied.text.join("\n");
 	          var hadFocus = document.activeElement;
 	          selectInput(te);
 	          setTimeout(function() {
@@ -6176,9 +6178,9 @@
 	      return result;
 	    },
 
-	    showSelection: function(info) {
+	    showSelection: function(info, takeFocus) {
 	      if (!info || !this.cm.display.view.length) return;
-	      if (info.focus) this.showPrimarySelection();
+	      if (info.focus || takeFocus) this.showPrimarySelection();
 	      this.showMultipleSelections(info);
 	    },
 
@@ -7614,7 +7616,7 @@
 	    }
 
 	    if (op.updatedDisplay || op.selectionChanged)
-	      op.preparedSelection = display.input.prepareSelection();
+	      op.preparedSelection = display.input.prepareSelection(op.focus);
 	  }
 
 	  function endOperation_W2(op) {
@@ -7627,8 +7629,9 @@
 	      cm.display.maxLineChanged = false;
 	    }
 
+	    var takeFocus = op.focus && op.focus == activeElt() && (!document.hasFocus || document.hasFocus())
 	    if (op.preparedSelection)
-	      cm.display.input.showSelection(op.preparedSelection);
+	      cm.display.input.showSelection(op.preparedSelection, takeFocus);
 	    if (op.updatedDisplay || op.startHeight != cm.doc.height)
 	      updateScrollbars(cm, op.barMeasure);
 	    if (op.updatedDisplay)
@@ -7638,8 +7641,7 @@
 
 	    if (cm.state.focused && op.updateInput)
 	      cm.display.input.reset(op.typing);
-	    if (op.focus && op.focus == activeElt() && (!document.hasFocus || document.hasFocus()))
-	      ensureFocus(op.cm);
+	    if (takeFocus) ensureFocus(op.cm);
 	  }
 
 	  function endOperation_finish(op) {
@@ -9905,7 +9907,7 @@
 	    for (var i = newBreaks.length - 1; i >= 0; i--)
 	      replaceRange(cm.doc, val, newBreaks[i], Pos(newBreaks[i].line, newBreaks[i].ch + val.length))
 	  });
-	  option("specialChars", /[\t\u0000-\u0019\u00ad\u200b-\u200f\u2028\u2029\ufeff]/g, function(cm, val, old) {
+	  option("specialChars", /[\u0000-\u001f\u007f\u00ad\u200b-\u200f\u2028\u2029\ufeff]/g, function(cm, val, old) {
 	    cm.state.specialChars = new RegExp(val.source + (val.test("\t") ? "" : "|\t"), "g");
 	    if (old != CodeMirror.Init) cm.refresh();
 	  });
@@ -10234,7 +10236,7 @@
 	      for (var i = 0; i < ranges.length; i++) {
 	        var pos = ranges[i].from();
 	        var col = countColumn(cm.getLine(pos.line), pos.ch, tabSize);
-	        spaces.push(new Array(tabSize - col % tabSize + 1).join(" "));
+	        spaces.push(spaceStr(tabSize - col % tabSize));
 	      }
 	      cm.replaceSelections(spaces);
 	    },
@@ -10277,6 +10279,7 @@
 	        ensureCursorVisible(cm);
 	      });
 	    },
+	    openLine: function(cm) {cm.replaceSelection("\n", "start")},
 	    toggleOverwrite: function(cm) {cm.toggleOverwrite();}
 	  };
 
@@ -10311,7 +10314,8 @@
 	    "Ctrl-F": "goCharRight", "Ctrl-B": "goCharLeft", "Ctrl-P": "goLineUp", "Ctrl-N": "goLineDown",
 	    "Alt-F": "goWordRight", "Alt-B": "goWordLeft", "Ctrl-A": "goLineStart", "Ctrl-E": "goLineEnd",
 	    "Ctrl-V": "goPageDown", "Shift-Ctrl-V": "goPageUp", "Ctrl-D": "delCharAfter", "Ctrl-H": "delCharBefore",
-	    "Alt-D": "delWordAfter", "Alt-Backspace": "delWordBefore", "Ctrl-K": "killLine", "Ctrl-T": "transposeChars"
+	    "Alt-D": "delWordAfter", "Alt-Backspace": "delWordBefore", "Ctrl-K": "killLine", "Ctrl-T": "transposeChars",
+	    "Ctrl-O": "openLine"
 	  };
 	  keyMap.macDefault = {
 	    "Cmd-A": "selectAll", "Cmd-D": "deleteLine", "Cmd-Z": "undo", "Shift-Cmd-Z": "redo", "Cmd-Y": "redo",
@@ -11073,8 +11077,8 @@
 	      var fromCmp = cmp(found.from, from) || extraLeft(sp.marker) - extraLeft(marker);
 	      var toCmp = cmp(found.to, to) || extraRight(sp.marker) - extraRight(marker);
 	      if (fromCmp >= 0 && toCmp <= 0 || fromCmp <= 0 && toCmp >= 0) continue;
-	      if (fromCmp <= 0 && (cmp(found.to, from) > 0 || (sp.marker.inclusiveRight && marker.inclusiveLeft)) ||
-	          fromCmp >= 0 && (cmp(found.from, to) < 0 || (sp.marker.inclusiveLeft && marker.inclusiveRight)))
+	      if (fromCmp <= 0 && (sp.marker.inclusiveRight && marker.inclusiveLeft ? cmp(found.to, from) >= 0 : cmp(found.to, from) > 0) ||
+	          fromCmp >= 0 && (sp.marker.inclusiveRight && marker.inclusiveLeft ? cmp(found.from, to) <= 0 : cmp(found.from, to) < 0))
 	        return true;
 	    }
 	  }
@@ -11476,8 +11480,11 @@
 	    }
 
 	    // See issue #2901
-	    if (webkit && /\bcm-tab\b/.test(builder.content.lastChild.className))
-	      builder.content.className = "cm-tab-wrap-hack";
+	    if (webkit) {
+	      var last = builder.content.lastChild
+	      if (/\bcm-tab\b/.test(last.className) || (last.querySelector && last.querySelector(".cm-tab")))
+	        builder.content.className = "cm-tab-wrap-hack";
+	    }
 
 	    signal(cm, "renderLine", cm, lineView.line, builder.pre);
 	    if (builder.pre.className)
@@ -11829,13 +11836,16 @@
 	        if (at <= sz) {
 	          child.insertInner(at, lines, height);
 	          if (child.lines && child.lines.length > 50) {
-	            while (child.lines.length > 50) {
-	              var spilled = child.lines.splice(child.lines.length - 25, 25);
-	              var newleaf = new LeafChunk(spilled);
-	              child.height -= newleaf.height;
-	              this.children.splice(i + 1, 0, newleaf);
-	              newleaf.parent = this;
+	            // To avoid memory thrashing when child.lines is huge (e.g. first view of a large file), it's never spliced.
+	            // Instead, small slices are taken. They're taken in order because sequential memory accesses are fastest.
+	            var remaining = child.lines.length % 25 + 25
+	            for (var pos = remaining; pos < child.lines.length;) {
+	              var leaf = new LeafChunk(child.lines.slice(pos, pos += 25));
+	              child.height -= leaf.height;
+	              this.children.splice(++i, 0, leaf);
+	              leaf.parent = this;
 	            }
+	            child.lines = child.lines.slice(0, remaining);
 	            this.maybeSpill();
 	          }
 	          break;
@@ -11845,25 +11855,31 @@
 	    },
 	    // When a node has grown, check whether it should be split.
 	    maybeSpill: function() {
-	      if (this.children.length <= 10) return;
 	      var me = this;
-	      do {
-	        var spilled = me.children.splice(me.children.length - 5, 5);
-	        var sibling = new BranchChunk(spilled);
-	        if (!me.parent) { // Become the parent node
-	          var copy = new BranchChunk(me.children);
-	          copy.parent = me;
-	          me.children = [copy, sibling];
-	          me = copy;
-	        } else {
-	          me.size -= sibling.size;
-	          me.height -= sibling.height;
-	          var myIndex = indexOf(me.parent.children, me);
-	          me.parent.children.splice(myIndex + 1, 0, sibling);
-	        }
-	        sibling.parent = me.parent;
-	      } while (me.children.length > 10);
-	      me.parent.maybeSpill();
+	      var children = me.children;
+	      var numChildren = children.length;
+	      if (numChildren <= 10) return;
+	      // To avoid memory thrashing when the children array is huge (e.g. first view of a large file), it's never spliced.
+	      // Instead, small slices are taken. They're taken in order because sequential memory accesses are fastest.
+	      var parent = me.parent || me;
+	      var numMoreBranches = Math.ceil((numChildren - 10) / 5);
+	      var firstBranchNumChildren = numChildren - numMoreBranches * 5;
+	      var firstBranch = new BranchChunk(children.slice(0, firstBranchNumChildren));
+	      var branches = [firstBranch];
+	      firstBranch.parent = parent;
+	      for (var i = 0; i < numMoreBranches; i++) {
+	        var branchStart = firstBranchNumChildren + i * 5;
+	        var branch = new BranchChunk(children.slice(branchStart, branchStart + 5));
+	        branches.push(branch);
+	        branch.parent = parent;
+	      }
+	      if (parent === me) {
+	        parent.children = branches;
+	      } else {
+	        var myIndex = indexOf(parent.children, me);
+	        parent.children.splice(myIndex, 1, branches);
+	      }
+	      parent.maybeSpill();
 	    },
 	    iterN: function(at, n, op) {
 	      for (var i = 0; i < this.children.length; ++i) {
@@ -13405,7 +13421,7 @@
 
 	  // THE END
 
-	  CodeMirror.version = "5.14.2";
+	  CodeMirror.version = "5.15.0";
 
 	  return CodeMirror;
 	});
@@ -14528,8 +14544,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.addAlert = addAlert;
-	exports.removeAlert = removeAlert;
+	exports.addNotification = addNotification;
+	exports.removeNotification = removeNotification;
 
 	var _dispatcher = __webpack_require__(147);
 
@@ -14543,16 +14559,16 @@
 
 	var ActionTypes = _constants2.default.ActionTypes;
 
-	function addAlert(alert) {
+	function addNotification(notification) {
 	  _dispatcher2.default.handleViewAction({
-	    type: ActionTypes.ADD_ALERT,
-	    body: alert
+	    type: ActionTypes.ADD_NOTIFICATION,
+	    body: notification
 	  });
 	};
 
-	function removeAlert(id) {
+	function removeNotification(id) {
 	  _dispatcher2.default.handleViewAction({
-	    type: ActionTypes.REMOVE_ALERT,
+	    type: ActionTypes.REMOVE_NOTIFICATION,
 	    body: id
 	  });
 	};
@@ -14575,8 +14591,8 @@
 
 	var constants = {
 	  ActionTypes: (0, _keymirror2.default)({
-	    ADD_ALERT: null,
-	    REMOVE_ALERT: null
+	    ADD_NOTIFICATION: null,
+	    REMOVE_NOTIFICATION: null
 	  }),
 	  PayloadSources: (0, _keymirror2.default)({
 	    VIEW_ACTION: null
@@ -17578,8 +17594,8 @@
 	    key: 'handleViewAction',
 	    value: function handleViewAction(action) {
 	      this.dispatch({
-	        source: PayloadSources.VIEW_ACTION,
-	        action: action
+	        action: action,
+	        source: PayloadSources.VIEW_ACTION
 	      });
 	    }
 	  }]);
@@ -17587,9 +17603,9 @@
 	  return DispatcherClass;
 	}(_flux.Dispatcher);
 
-	var AlertDispatcher = new DispatcherClass();
+	var NotificationDispatcher = new DispatcherClass();
 
-	exports.default = AlertDispatcher;
+	exports.default = NotificationDispatcher;
 
 /***/ },
 /* 148 */
@@ -79718,7 +79734,7 @@
 
 	var _actions = __webpack_require__(98);
 
-	var AlertActions = _interopRequireWildcard(_actions);
+	var NotificationActions = _interopRequireWildcard(_actions);
 
 	var _stores = __webpack_require__(213);
 
@@ -79728,8 +79744,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var AlertsContainer = _react2.default.createClass({
-	  displayName: 'Alerts Container',
+	var NotificationsContainer = _react2.default.createClass({
+	  displayName: 'Notifications Container',
 
 	  getInitialState: function getInitialState() {
 	    return _stores2.default.getState();
@@ -79744,24 +79760,24 @@
 	    this.setState(_stores2.default.getState());
 	  },
 	  onDismiss: function onDismiss(id) {
-	    AlertActions.removeAlert(id);
+	    NotificationActions.removeNotification(id);
 	  },
 	  render: function render() {
 	    var _this = this;
 
-	    var alerts = this.state.alerts.map(function (alert, index) {
-	      return _react2.default.createElement(_components.Toast, { key: alert.id, index: index, type: alert.type, body: alert.body, dismissable: alert.dismissable, onDismiss: alert.dismissable ? _this.onDismiss.bind(_this, alert.id) : null });
+	    var notifications = this.state.notifications.map(function (notification, index) {
+	      return _react2.default.createElement(_components.Toast, { key: notification.id, index: index, type: notification.type, body: notification.body, dismissable: notification.dismissable, onDismiss: notification.dismissable ? _this.onDismiss.bind(_this, notification.id) : null });
 	    });
 
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'alert-container' },
-	      alerts
+	      { className: 'notification-container' },
+	      notifications
 	    );
 	  }
 	});
 
-	exports.default = AlertsContainer;
+	exports.default = NotificationsContainer;
 
 /***/ },
 /* 212 */
@@ -79772,7 +79788,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.AlertActions = undefined;
+	exports.NotificationActions = undefined;
 
 	var _react = __webpack_require__(15);
 
@@ -79782,27 +79798,27 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _AlertsContainer = __webpack_require__(211);
+	var _NotificationsContainer = __webpack_require__(211);
 
-	var _AlertsContainer2 = _interopRequireDefault(_AlertsContainer);
+	var _NotificationsContainer2 = _interopRequireDefault(_NotificationsContainer);
 
 	var _actions = __webpack_require__(98);
 
-	var AlertActions = _interopRequireWildcard(_actions);
+	var NotificationActions = _interopRequireWildcard(_actions);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	document.addEventListener('DOMContentLoaded', function (event) {
-	  var alertsContainer = document.getElementById('js-alerts-container');
+	  var notificationsContainer = document.getElementById('js-notifications-container');
 
-	  if (alertsContainer) {
-	    _reactDom2.default.render(_react2.default.createElement(_AlertsContainer2.default, null), alertsContainer);
+	  if (notificationsContainer) {
+	    _reactDom2.default.render(_react2.default.createElement(_NotificationsContainer2.default, null), notificationsContainer);
 	  }
 	}, false);
 
-	exports.AlertActions = AlertActions;
+	exports.NotificationActions = NotificationActions;
 
 /***/ },
 /* 213 */
@@ -79822,7 +79838,7 @@
 
 	var _actions = __webpack_require__(98);
 
-	var AlertActions = _interopRequireWildcard(_actions);
+	var NotificationActions = _interopRequireWildcard(_actions);
 
 	var _constants = __webpack_require__(99);
 
@@ -79845,19 +79861,19 @@
 	var ActionTypes = _constants2.default.ActionTypes;
 	var CHANGE_EVENT = 'change';
 
-	var _alerts = [];
+	var _notifications = [];
 	var _id = 0;
 
-	var AlertStoreClass = function (_EventEmitter) {
-	  _inherits(AlertStoreClass, _EventEmitter);
+	var NotificationStoreClass = function (_EventEmitter) {
+	  _inherits(NotificationStoreClass, _EventEmitter);
 
-	  function AlertStoreClass() {
-	    _classCallCheck(this, AlertStoreClass);
+	  function NotificationStoreClass() {
+	    _classCallCheck(this, NotificationStoreClass);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AlertStoreClass).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotificationStoreClass).apply(this, arguments));
 	  }
 
-	  _createClass(AlertStoreClass, [{
+	  _createClass(NotificationStoreClass, [{
 	    key: 'emitChange',
 	    value: function emitChange() {
 	      this.emit(CHANGE_EVENT);
@@ -79876,83 +79892,83 @@
 	    key: 'getState',
 	    value: function getState() {
 	      return {
-	        alerts: _alerts.slice()
+	        notifications: _notifications.slice()
 	      };
 	    }
 	  }]);
 
-	  return AlertStoreClass;
+	  return NotificationStoreClass;
 	}(_events2.default);
 
-	var AlertStore = new AlertStoreClass();
+	var NotificationStore = new NotificationStoreClass();
 
-	function _addAlert(alert) {
-	  var _alert = Object.assign({}, alert, { id: _id++ });
+	function _addNotification(notification) {
+	  var _notification = Object.assign({}, notification, { id: _id++ });
 
-	  if (!_alert.hasOwnProperty('dismissable')) {
-	    _alert.dismissable = true;
+	  if (!_notification.hasOwnProperty('dismissable')) {
+	    _notification.dismissable = true;
 	  }
 
-	  if (_alert.autoDismiss) {
-	    var autodismissTime = _alert.autodismissTime || 10000;
+	  if (_notification.autoDismiss) {
+	    var autodismissTime = _notification.autodismissTime || 10000;
 
-	    var dismissFn = function (alertID) {
+	    var dismissFn = function (notificationID) {
 	      return function () {
-	        _removeAlert(alertID, true);
+	        _removeNotification(notificationID, true);
 	      };
-	    }(_alert.id);
+	    }(_notification.id);
 
 	    setTimeout(dismissFn, autodismissTime);
 	  }
 
-	  _alerts.unshift(_alert);
+	  _notifications.unshift(_notification);
 
-	  if (_alert.onAdd) {
-	    _alert.onAdd(_alert.id);
+	  if (_notification.onAdd) {
+	    _notification.onAdd(_notification.id);
 	  }
 	}
 
-	function _removeAlert(id, emitChange) {
-	  var index = _alerts.map(function (alert) {
-	    return alert.id;
+	function _removeNotification(id, emitChange) {
+	  var index = _notifications.map(function (notification) {
+	    return notification.id;
 	  }).indexOf(id);
 
-	  if (index !== -1 && _alerts[index]) {
-	    var dismissEvent = _alerts[index].onDismiss;
+	  if (index !== -1 && _notifications[index]) {
+	    var dismissEvent = _notifications[index].onDismiss;
 
-	    _alerts.splice(index, 1);
+	    _notifications.splice(index, 1);
 
 	    if (dismissEvent) {
 	      dismissEvent();
 	    }
 
 	    if (emitChange) {
-	      AlertStore.emitChange();
+	      NotificationStore.emitChange();
 	    }
 	  }
 	}
 
-	AlertStore.dispatchToken = _dispatcher2.default.register(function (payload) {
+	NotificationStore.dispatchToken = _dispatcher2.default.register(function (payload) {
 	  var action = payload.action;
 
 	  switch (action.type) {
-	    case ActionTypes.ADD_ALERT:
-	      _addAlert(action.body);
+	    case ActionTypes.ADD_NOTIFICATION:
+	      _addNotification(action.body);
 	      break;
 
-	    case ActionTypes.REMOVE_ALERT:
-	      _removeAlert(action.body);
+	    case ActionTypes.REMOVE_NOTIFICATION:
+	      _removeNotification(action.body);
 	      break;
 
 	    default:
 	      return true;
 	  }
 
-	  AlertStore.emitChange();
+	  NotificationStore.emitChange();
 	  return true;
 	});
 
-	exports.default = AlertStore;
+	exports.default = NotificationStore;
 
 /***/ },
 /* 214 */
@@ -85801,7 +85817,8 @@
 	      "in": operator, "typeof": operator, "instanceof": operator,
 	      "true": atom, "false": atom, "null": atom, "undefined": atom, "NaN": atom, "Infinity": atom,
 	      "this": kw("this"), "class": kw("class"), "super": kw("atom"),
-	      "yield": C, "export": kw("export"), "import": kw("import"), "extends": C
+	      "yield": C, "export": kw("export"), "import": kw("import"), "extends": C,
+	      "await": C, "async": kw("async")
 	    };
 
 	    // Extend the 'normal' keywords with the TypeScript language extensions
@@ -86125,6 +86142,7 @@
 	    if (type == "export") return cont(pushlex("stat"), afterExport, poplex);
 	    if (type == "import") return cont(pushlex("stat"), afterImport, poplex);
 	    if (type == "module") return cont(pushlex("form"), pattern, pushlex("}"), expect("{"), block, poplex, poplex)
+	    if (type == "async") return cont(statement)
 	    return pass(pushlex("stat"), expression, expect(";"), poplex);
 	  }
 	  function expression(type) {
@@ -86247,17 +86265,17 @@
 	    if (type == "(") return pass(functiondef);
 	  }
 	  function commasep(what, end) {
-	    function proceed(type) {
+	    function proceed(type, value) {
 	      if (type == ",") {
 	        var lex = cx.state.lexical;
 	        if (lex.info == "call") lex.pos = (lex.pos || 0) + 1;
 	        return cont(what, proceed);
 	      }
-	      if (type == end) return cont();
+	      if (type == end || value == end) return cont();
 	      return cont(expect(end));
 	    }
-	    return function(type) {
-	      if (type == end) return cont();
+	    return function(type, value) {
+	      if (type == end || value == end) return cont();
 	      return pass(what, proceed);
 	    };
 	  }
@@ -86271,13 +86289,17 @@
 	    return pass(statement, block);
 	  }
 	  function maybetype(type) {
-	    if (isTS && type == ":") return cont(typedef);
+	    if (isTS && type == ":") return cont(typeexpr);
 	  }
 	  function maybedefault(_, value) {
 	    if (value == "=") return cont(expressionNoComma);
 	  }
-	  function typedef(type) {
-	    if (type == "variable") {cx.marked = "variable-3"; return cont();}
+	  function typeexpr(type) {
+	    if (type == "variable") {cx.marked = "variable-3"; return cont(afterType);}
+	  }
+	  function afterType(type, value) {
+	    if (value == "<") return cont(commasep(typeexpr, ">"), afterType)
+	    if (type == "[") return cont(expect("]"), afterType)
 	  }
 	  function vardef() {
 	    return pass(pattern, maybetype, maybeAssign, vardefCont);
@@ -86332,7 +86354,7 @@
 	  function functiondef(type, value) {
 	    if (value == "*") {cx.marked = "keyword"; return cont(functiondef);}
 	    if (type == "variable") {register(value); return cont(functiondef);}
-	    if (type == "(") return cont(pushcontext, pushlex(")"), commasep(funarg, ")"), poplex, statement, popcontext);
+	    if (type == "(") return cont(pushcontext, pushlex(")"), commasep(funarg, ")"), poplex, maybetype, statement, popcontext);
 	  }
 	  function funarg(type) {
 	    if (type == "spread") return cont(funarg);

@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { AlertActions, Callout, Icon, Toast } from '../components';
+import { NotificationActions, Callout, Icon, Toast } from '../components';
 
 import Playground from 'component-playground';
 
@@ -20,7 +20,7 @@ const FeedbackApp = React.createClass({
   onClick(event) {
     event.preventDefault();
 
-    AlertActions.addAlert({
+    NotificationActions.addNotification({
       type: 'danger',
       dismissable: true,
       body: 'This is an alert in a toast notification',
