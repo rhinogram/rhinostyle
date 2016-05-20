@@ -1,0 +1,21 @@
+// File: pills.less
+// Note: pills mixin
+
+
+// -------------------------
+// Pills Mixin
+// -------------------------
+
+
+.pill-variant(@background; @border; @color) {
+  background: @background;
+  border: 1px solid @border;
+  color: @color;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: darken(@background, 2%);
+    }
+  }
+}
