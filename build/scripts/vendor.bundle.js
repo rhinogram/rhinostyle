@@ -80278,15 +80278,19 @@
 
 	  propTypes: {
 	    body: _react2.default.PropTypes.string.isRequired,
-	    dismissable: _react2.default.PropTypes.bool,
 	    onDismiss: _react2.default.PropTypes.func,
 	    type: _react2.default.PropTypes.oneOf(['danger', 'default', 'secondary'])
 	  },
 
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      onDismiss: function onDismiss() {},
+	      type: 'default'
+	    };
+	  },
 	  render: function render() {
 	    var _props = this.props;
 	    var body = _props.body;
-	    var dismissable = _props.dismissable;
 	    var onDismiss = _props.onDismiss;
 	    var type = _props.type;
 
@@ -80296,24 +80300,18 @@
 	      'notify--secondary': type === 'secondary'
 	    });
 
-	    var showButton = function showButton(dismissable) {
-	      if (dismissable) {
-	        return _react2.default.createElement(
-	          'button',
-	          { type: 'button', onClick: onDismiss, className: 'notify__close', 'data-dismiss': 'notify', 'aria-label': 'Close' },
-	          _react2.default.createElement(
-	            'span',
-	            { 'aria-hidden': 'true' },
-	            '×'
-	          )
-	        );
-	      }
-	    };
-
 	    return _react2.default.createElement(
 	      'div',
 	      { className: cx },
-	      showButton(dismissable),
+	      _react2.default.createElement(
+	        'button',
+	        { type: 'button', onClick: onDismiss, className: 'notify__close', 'data-dismiss': 'notify', 'aria-label': 'Close' },
+	        _react2.default.createElement(
+	          'span',
+	          { 'aria-hidden': 'true' },
+	          '×'
+	        )
+	      ),
 	      body
 	    );
 	  }

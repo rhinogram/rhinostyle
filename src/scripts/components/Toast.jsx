@@ -6,28 +6,28 @@ const Toast = React.createClass({
 
   propTypes: {
     body:        React.PropTypes.string.isRequired,
-    dismissable: React.PropTypes.bool,
     onDismiss:   React.PropTypes.func,
     type:        React.PropTypes.oneOf(['danger', 'default', 'secondary'])
   },
 
+  getDefaultProps() {
+    return {
+      onDismiss: () => {},
+      type:      'default'
+    };
+  },
+
   render() {
-    const { body, dismissable, onDismiss, type } = this.props;
+    const { body, onDismiss, type } = this.props;
     const cx = classNames('notify', {
       'notify--danger':    type==='danger',
       'notify--default':   type==='default',
       'notify--secondary': type==='secondary'
     });
 
-    const showButton = (dismissable) => {
-      if (dismissable) {
-        return (<button type="button" onClick={onDismiss} className="notify__close" data-dismiss="notify" aria-label="Close"><span aria-hidden="true">&times;</span></button>);
-      }
-    };
-
     return (
       <div className={cx}>
-        {showButton(dismissable)}
+        <button type="button" onClick={onDismiss} className="notify__close" data-dismiss="notify" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {body}
       </div>
     );

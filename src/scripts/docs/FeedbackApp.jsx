@@ -24,7 +24,6 @@ const FeedbackApp = React.createClass({
       autoDismiss:     true,
       autodismissTime: 5000,
       body:            'This is an alert in a toast notification',
-      dismissable:     false,
       onDismiss:       () => { alert('You dismissed that toast'); },
       type:            'danger'
     });
