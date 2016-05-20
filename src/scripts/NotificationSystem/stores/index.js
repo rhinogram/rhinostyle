@@ -6,9 +6,8 @@ import EventEmitter from 'events';
 
 const ActionTypes  = NotificationConstants.ActionTypes;
 const CHANGE_EVENT = 'change';
-
 let _notifications = [];
-let _id     = 0;
+let _id            = 0;
 
 class NotificationStoreClass extends EventEmitter {
   emitChange() {
@@ -34,10 +33,6 @@ const NotificationStore = new NotificationStoreClass();
 
 function _addNotification(notification) {
   let _notification = Object.assign({}, notification, { id: _id++ });
-
-  if (!_notification.hasOwnProperty('dismissable')) {
-    _notification.dismissable = true;
-  }
 
   if (_notification.autoDismiss) {
     const autodismissTime = _notification.autodismissTime || 10000;

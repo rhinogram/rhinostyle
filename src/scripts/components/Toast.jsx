@@ -1,5 +1,6 @@
 import React      from 'react';
 import classNames from 'classnames';
+import GSAP       from 'react-gsap-enhancer';
 
 const Toast = React.createClass({
   displayName: 'RhinoToast',
@@ -34,4 +35,4 @@ const Toast = React.createClass({
   }
 });
 
-export default Toast;
+export default GSAP()(Toast);
