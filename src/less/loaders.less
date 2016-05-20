@@ -10,9 +10,9 @@
 .loader-line {
   background: @gray-lighter;
   height: .2rem;
+  max-width: 20rem;
   overflow: hidden;
   position: relative;
-  max-width: 20rem;
 }
 
 .loader-line__line {
@@ -93,22 +93,25 @@
   width: .8rem;
 
   &:first-child {
-    -webkit-animation-delay: -0.25s;
-    animation-delay: -0.25s;
+    -webkit-animation-delay: -.25s;
+    animation-delay: -.25s;
   }
 
   &:nth-child(2) {
-    -webkit-animation-delay: -0.125s;
-    animation-delay: -0.125s;
+    -webkit-animation-delay: -.125s;
+    animation-delay: -.125s;
     margin: 0 @margin-small;
   }
 }
 
 @keyframes loaderpulse {
-  0%, 80%, 100% { 
+  0%,
+  80%,
+  100% {
     opacity: .5;
     transform: scale(.75);
-  } 40% { 
+  }
+  40% {
     opacity: 1;
     transform: scale(1.25);
   }

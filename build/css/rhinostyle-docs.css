@@ -2276,7 +2276,7 @@ select[size] {
   display: -ms-flexbox;
   display: flex;
   white-space: nowrap;
-  background: #ececec;
+  background: #f9f9f9;
   font-size: 1.6rem;
   height: 3.6rem;
   padding: 0 1rem;
@@ -2333,8 +2333,9 @@ textarea.form__control {
 }
 /*.form__control--sm {
   .input-size(@input-height-small; @padding-small-horizontal; @font-size-small; @input-border-radius-small);
-}*/
-/*.form__control--lg {
+}
+
+.form__control--lg {
   .input-size(@input-height-large; @padding-large-horizontal; @font-size-large; @input-border-radius-large);
 }
 
@@ -2685,9 +2686,9 @@ fieldset[disabled] .rhinodio label {
 .loader-line {
   background: #ececec;
   height: .2rem;
+  max-width: 20rem;
   overflow: hidden;
   position: relative;
-  max-width: 20rem;
 }
 .loader-line__line {
   background: #0081c6;
