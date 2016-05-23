@@ -1021,8 +1021,6 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn .icon {
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
   font-size: 1.8rem;
 }
 .btn--block {
@@ -1451,6 +1449,7 @@ button.close {
 .dropdown {
   display: -ms-inline-flexbox;
   display: inline-flex;
+  max-width: 100%;
   position: relative;
   vertical-align: middle;
 }
@@ -1616,10 +1615,12 @@ button.close {
   max-height: 20rem;
   overflow-y: auto;
 }
-.dropdown__toggle:active,
-.dropdown__toggle:focus {
-  outline: none;
-}
+/*.dropdown__toggle {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}*/
 .dropdown__toggle__icon {
   fill: currentColor;
   height: .65em;
@@ -2262,6 +2263,7 @@ button.close {
   fill: currentColor;
   height: 1em;
   line-height: 1;
+  min-width: 1em;
   position: relative;
   vertical-align: middle;
   width: 1em;
