@@ -957,6 +957,7 @@ a.u-text-warning:hover,
   border-radius: 0.3rem;
   font-size: 1.2rem;
   height: 3rem;
+  min-width: 3rem;
   width: 3rem;
 }
 .avatar__icon {
@@ -1477,6 +1478,38 @@ button.close {
 .dropdown--block .dropdown__menu {
   width: 100%;
 }
+.dropdown--multiselect {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.dropdown--multiselect .dropdown__menu {
+  width: 100%;
+}
+.dropdown--multiselect .dropdown__menu__item.active > a {
+  padding-right: 3rem;
+}
+.dropdown--multiselect .dropdown__menu__item.active > a,
+.dropdown--multiselect .dropdown__menu__item.active > a:hover,
+.dropdown--multiselect .dropdown__menu__item.active > a:focus {
+  background-color: #f9f9f9;
+  color: #6c6c6c;
+}
+.dropdown--multiselect .dropdown__menu__item.active > a::after,
+.dropdown--multiselect .dropdown__menu__item.active > a:hover::after,
+.dropdown--multiselect .dropdown__menu__item.active > a:focus::after {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 1.2rem 1.2rem;
+  content: '';
+  height: 1.2rem;
+  pointer-events: none;
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.2rem;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%230081c6%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
+}
 .dropdown__menu {
   background-clip: padding-box;
   background-color: #fff;
@@ -1484,7 +1517,6 @@ button.close {
   border-radius: 0.4rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
   display: block;
-  float: left;
   left: 0;
   list-style: none;
   margin: .2rem 0 0;
@@ -1536,13 +1568,16 @@ button.close {
   min-width: 24rem;
 }
 .dropdown__menu__item > a {
-  clear: both;
+  -ms-flex-align: center;
+  align-items: center;
   color: #6c6c6c;
   cursor: pointer;
-  display: block;
+  display: -ms-flexbox;
+  display: flex;
   font-weight: normal;
   line-height: 1.42857143;
   padding: 0.6rem 1.4rem;
+  position: relative;
   white-space: nowrap;
 }
 .dropdown__menu__item > a:hover,
@@ -3031,8 +3066,8 @@ button.notify__close {
   border: 1px solid #d2d2d2;
   color: #0081c6;
 }
-.pill--default[href]:hover,
-.pill--default[href]:focus {
+.pill--default:hover,
+.pill--default:focus {
   background-color: #fafafa;
 }
 .pill__close {

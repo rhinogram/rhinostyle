@@ -59,6 +59,9 @@
   border-radius: @border-radius-small;
   font-size: 1.2rem;
   height: 3rem;
+  // use min-width to prevent flex shrinking since we know the width
+  // otherwise we would use flex-shrink: 0;
+  min-width: 3rem;
   width: 3rem;
 }
 

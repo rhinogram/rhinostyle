@@ -4139,9 +4139,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Toast = exports.Input = exports.Icon = exports.Callout = exports.Button = exports.AlertActions = undefined;
+	exports.Toast = exports.NotificationActions = exports.Input = exports.Icon = exports.Callout = exports.Button = undefined;
 
-	var _AlertSystem = __webpack_require__(212);
+	var _NotificationSystem = __webpack_require__(212);
 
 	var _Button = __webpack_require__(214);
 
@@ -4165,11 +4165,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.AlertActions = _AlertSystem.AlertActions;
 	exports.Button = _Button2.default;
 	exports.Callout = _Callout2.default;
 	exports.Icon = _Icon2.default;
 	exports.Input = _Input2.default;
+	exports.NotificationActions = _NotificationSystem.NotificationActions;
 	exports.Toast = _Toast2.default;
 
 /***/ },
@@ -14528,8 +14528,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.addAlert = addAlert;
-	exports.removeAlert = removeAlert;
+	exports.addNotification = addNotification;
+	exports.removeNotification = removeNotification;
 
 	var _dispatcher = __webpack_require__(147);
 
@@ -14543,16 +14543,16 @@
 
 	var ActionTypes = _constants2.default.ActionTypes;
 
-	function addAlert(alert) {
+	function addNotification(notification) {
 	  _dispatcher2.default.handleViewAction({
-	    type: ActionTypes.ADD_ALERT,
-	    body: alert
+	    type: ActionTypes.ADD_NOTIFICATION,
+	    body: notification
 	  });
 	};
 
-	function removeAlert(id) {
+	function removeNotification(id) {
 	  _dispatcher2.default.handleViewAction({
-	    type: ActionTypes.REMOVE_ALERT,
+	    type: ActionTypes.REMOVE_NOTIFICATION,
 	    body: id
 	  });
 	};
@@ -14575,8 +14575,8 @@
 
 	var constants = {
 	  ActionTypes: (0, _keymirror2.default)({
-	    ADD_ALERT: null,
-	    REMOVE_ALERT: null
+	    ADD_NOTIFICATION: null,
+	    REMOVE_NOTIFICATION: null
 	  }),
 	  PayloadSources: (0, _keymirror2.default)({
 	    VIEW_ACTION: null
@@ -17578,8 +17578,8 @@
 	    key: 'handleViewAction',
 	    value: function handleViewAction(action) {
 	      this.dispatch({
-	        source: PayloadSources.VIEW_ACTION,
-	        action: action
+	        action: action,
+	        source: PayloadSources.VIEW_ACTION
 	      });
 	    }
 	  }]);
@@ -17587,9 +17587,9 @@
 	  return DispatcherClass;
 	}(_flux.Dispatcher);
 
-	var AlertDispatcher = new DispatcherClass();
+	var NotificationDispatcher = new DispatcherClass();
 
-	exports.default = AlertDispatcher;
+	exports.default = NotificationDispatcher;
 
 /***/ },
 /* 148 */
@@ -79718,7 +79718,7 @@
 
 	var _actions = __webpack_require__(98);
 
-	var AlertActions = _interopRequireWildcard(_actions);
+	var NotificationActions = _interopRequireWildcard(_actions);
 
 	var _stores = __webpack_require__(213);
 
@@ -79728,8 +79728,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var AlertsContainer = _react2.default.createClass({
-	  displayName: 'Alerts Container',
+	var NotificationsContainer = _react2.default.createClass({
+	  displayName: 'Notifications Container',
 
 	  getInitialState: function getInitialState() {
 	    return _stores2.default.getState();
@@ -79744,24 +79744,24 @@
 	    this.setState(_stores2.default.getState());
 	  },
 	  onDismiss: function onDismiss(id) {
-	    AlertActions.removeAlert(id);
+	    NotificationActions.removeNotification(id);
 	  },
 	  render: function render() {
 	    var _this = this;
 
-	    var alerts = this.state.alerts.map(function (alert, index) {
-	      return _react2.default.createElement(_components.Toast, { key: alert.id, index: index, type: alert.type, body: alert.body, dismissable: alert.dismissable, onDismiss: alert.dismissable ? _this.onDismiss.bind(_this, alert.id) : null });
+	    var notifications = this.state.notifications.map(function (notification, index) {
+	      return _react2.default.createElement(_components.Toast, { key: notification.id, index: index, type: notification.type, body: notification.body, dismissable: notification.dismissable, onDismiss: notification.dismissable ? _this.onDismiss.bind(_this, notification.id) : null });
 	    });
 
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'alert-container' },
-	      alerts
+	      { className: 'notification-container' },
+	      notifications
 	    );
 	  }
 	});
 
-	exports.default = AlertsContainer;
+	exports.default = NotificationsContainer;
 
 /***/ },
 /* 212 */
@@ -79772,7 +79772,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.AlertActions = undefined;
+	exports.NotificationActions = undefined;
 
 	var _react = __webpack_require__(15);
 
@@ -79782,27 +79782,27 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _AlertsContainer = __webpack_require__(211);
+	var _NotificationsContainer = __webpack_require__(211);
 
-	var _AlertsContainer2 = _interopRequireDefault(_AlertsContainer);
+	var _NotificationsContainer2 = _interopRequireDefault(_NotificationsContainer);
 
 	var _actions = __webpack_require__(98);
 
-	var AlertActions = _interopRequireWildcard(_actions);
+	var NotificationActions = _interopRequireWildcard(_actions);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	document.addEventListener('DOMContentLoaded', function (event) {
-	  var alertsContainer = document.getElementById('js-alerts-container');
+	  var notificationsContainer = document.getElementById('js-notifications-container');
 
-	  if (alertsContainer) {
-	    _reactDom2.default.render(_react2.default.createElement(_AlertsContainer2.default, null), alertsContainer);
+	  if (notificationsContainer) {
+	    _reactDom2.default.render(_react2.default.createElement(_NotificationsContainer2.default, null), notificationsContainer);
 	  }
 	}, false);
 
-	exports.AlertActions = AlertActions;
+	exports.NotificationActions = NotificationActions;
 
 /***/ },
 /* 213 */
@@ -79822,7 +79822,7 @@
 
 	var _actions = __webpack_require__(98);
 
-	var AlertActions = _interopRequireWildcard(_actions);
+	var NotificationActions = _interopRequireWildcard(_actions);
 
 	var _constants = __webpack_require__(99);
 
@@ -79844,20 +79844,19 @@
 
 	var ActionTypes = _constants2.default.ActionTypes;
 	var CHANGE_EVENT = 'change';
-
-	var _alerts = [];
+	var _notifications = [];
 	var _id = 0;
 
-	var AlertStoreClass = function (_EventEmitter) {
-	  _inherits(AlertStoreClass, _EventEmitter);
+	var NotificationStoreClass = function (_EventEmitter) {
+	  _inherits(NotificationStoreClass, _EventEmitter);
 
-	  function AlertStoreClass() {
-	    _classCallCheck(this, AlertStoreClass);
+	  function NotificationStoreClass() {
+	    _classCallCheck(this, NotificationStoreClass);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(AlertStoreClass).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotificationStoreClass).apply(this, arguments));
 	  }
 
-	  _createClass(AlertStoreClass, [{
+	  _createClass(NotificationStoreClass, [{
 	    key: 'emitChange',
 	    value: function emitChange() {
 	      this.emit(CHANGE_EVENT);
@@ -79876,83 +79875,79 @@
 	    key: 'getState',
 	    value: function getState() {
 	      return {
-	        alerts: _alerts.slice()
+	        notifications: _notifications.slice()
 	      };
 	    }
 	  }]);
 
-	  return AlertStoreClass;
+	  return NotificationStoreClass;
 	}(_events2.default);
 
-	var AlertStore = new AlertStoreClass();
+	var NotificationStore = new NotificationStoreClass();
 
-	function _addAlert(alert) {
-	  var _alert = Object.assign({}, alert, { id: _id++ });
+	function _addNotification(notification) {
+	  var _notification = Object.assign({}, notification, { id: _id++ });
 
-	  if (!_alert.hasOwnProperty('dismissable')) {
-	    _alert.dismissable = true;
-	  }
+	  if (_notification.autoDismiss) {
+	    var autodismissTime = _notification.autodismissTime || 10000;
 
-	  if (_alert.autoDismiss) {
-	    var autodismissTime = _alert.autodismissTime || 10000;
-
-	    var dismissFn = function (alertID) {
+	    var dismissFn = function (notificationID) {
 	      return function () {
-	        _removeAlert(alertID, true);
+	        _removeNotification(notificationID, true);
 	      };
-	    }(_alert.id);
+	    }(_notification.id);
 
 	    setTimeout(dismissFn, autodismissTime);
 	  }
 
-	  _alerts.unshift(_alert);
+	  _notifications.unshift(_notification);
 
-	  if (_alert.onAdd) {
-	    _alert.onAdd(_alert.id);
+	  if (_notification.onAdd) {
+	    _notification.onAdd(_notification.id);
 	  }
 	}
 
-	function _removeAlert(id, emitChange) {
-	  var index = _alerts.map(function (alert) {
-	    return alert.id;
+	function _removeNotification(id, emitChange) {
+	  var index = _notifications.map(function (notification) {
+	    return notification.id;
 	  }).indexOf(id);
 
-	  if (index !== -1 && _alerts[index]) {
-	    var dismissEvent = _alerts[index].onDismiss;
+	  if (index !== -1 && _notifications[index]) {
+	    var dismissEvent = _notifications[index].onDismiss;
 
-	    _alerts.splice(index, 1);
+	    _notifications.splice(index, 1);
 
 	    if (dismissEvent) {
 	      dismissEvent();
 	    }
 
 	    if (emitChange) {
-	      AlertStore.emitChange();
+	      NotificationStore.emitChange();
 	    }
 	  }
 	}
 
-	AlertStore.dispatchToken = _dispatcher2.default.register(function (payload) {
+	NotificationStore.dispatchToken = _dispatcher2.default.register(function (payload) {
 	  var action = payload.action;
 
 	  switch (action.type) {
-	    case ActionTypes.ADD_ALERT:
-	      _addAlert(action.body);
+	    case ActionTypes.ADD_NOTIFICATION:
+	      _addNotification(action.body);
 	      break;
 
-	    case ActionTypes.REMOVE_ALERT:
-	      _removeAlert(action.body);
+	    case ActionTypes.REMOVE_NOTIFICATION:
+	      _removeNotification(action.body);
 	      break;
 
 	    default:
 	      return true;
 	  }
 
-	  AlertStore.emitChange();
+	  NotificationStore.emitChange();
 	  return true;
 	});
 
-	exports.default = AlertStore;
+	exports.default = NotificationStore;
 
 /***/ },
 /* 214 */
@@ -80255,6 +80250,10 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	var _reactGsapEnhancer = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-gsap-enhancer\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _reactGsapEnhancer2 = _interopRequireDefault(_reactGsapEnhancer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Toast = _react2.default.createClass({
@@ -80262,17 +80261,20 @@
 
 	  propTypes: {
 	    body: _react2.default.PropTypes.string.isRequired,
+	    onDismiss: _react2.default.PropTypes.func,
 	    type: _react2.default.PropTypes.oneOf(['danger', 'default', 'secondary'])
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
+	      onDismiss: function onDismiss() {},
 	      type: 'default'
 	    };
 	  },
 	  render: function render() {
 	    var _props = this.props;
 	    var body = _props.body;
+	    var onDismiss = _props.onDismiss;
 	    var type = _props.type;
 
 	    var cx = (0, _classnames2.default)('notify', {
@@ -80286,7 +80288,7 @@
 	      { className: cx },
 	      _react2.default.createElement(
 	        'button',
-	        { type: 'button', className: 'notify__close', 'data-dismiss': 'notify', 'aria-label': 'Close' },
+	        { type: 'button', onClick: onDismiss, className: 'notify__close', 'data-dismiss': 'notify', 'aria-label': 'Close' },
 	        _react2.default.createElement(
 	          'span',
 	          { 'aria-hidden': 'true' },
@@ -80298,7 +80300,7 @@
 	  }
 	});
 
-	exports.default = Toast;
+	exports.default = (0, _reactGsapEnhancer2.default)()(Toast);
 
 /***/ },
 /* 219 */

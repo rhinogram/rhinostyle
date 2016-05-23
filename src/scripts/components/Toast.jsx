@@ -1,22 +1,25 @@
 import React      from 'react';
 import classNames from 'classnames';
+import GSAP       from 'react-gsap-enhancer';
 
 const Toast = React.createClass({
   displayName: 'RhinoToast',
 
   propTypes: {
-    body: React.PropTypes.string.isRequired,
-    type: React.PropTypes.oneOf(['danger', 'default', 'secondary'])
+    body:        React.PropTypes.string.isRequired,
+    onDismiss:   React.PropTypes.func,
+    type:        React.PropTypes.oneOf(['danger', 'default', 'secondary'])
   },
 
   getDefaultProps() {
     return {
-      type: 'default'
+      onDismiss: () => {},
+      type:      'default'
     };
   },
 
   render() {
-    const { body, type } = this.props;
+    const { body, onDismiss, type } = this.props;
     const cx = classNames('notify', {
       'notify--danger':    type==='danger',
       'notify--default':   type==='default',
@@ -25,11 +28,11 @@ const Toast = React.createClass({
 
     return (
       <div className={cx}>
-        <button type="button" className="notify__close" data-dismiss="notify" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" onClick={onDismiss} className="notify__close" data-dismiss="notify" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {body}
       </div>
     );
   }
 });
 
-export default Toast;
+export default GSAP()(Toast);
