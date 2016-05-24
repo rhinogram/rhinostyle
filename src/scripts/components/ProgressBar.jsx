@@ -38,8 +38,8 @@ const ProgressBar = React.createClass({
 
     progressTranslation = parseInt(progress, 10);
 
-    if (isNaN(progressTranslation) || progressTranslation < 0 || progressTranslation < 3) {
-      progressTranslation = 3;
+    if (isNaN(progressTranslation) || progressTranslation < 0) {
+      progressTranslation = 0;
     }
 
     const cx = classNames('progress__bar', {
@@ -58,11 +58,11 @@ const ProgressBar = React.createClass({
     };
 
     /**
-     * If showLabel is true, construct label
+     * If showLabel is true and progress is more than 1, construct label
      */
     let label = null;
 
-    if (showLabel) {
+    if (showLabel && progressTranslation > 1) {
       label = (
         <div className='progress__bar__slider__label'>{progressTranslation + '%'}</div>
       );

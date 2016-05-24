@@ -2,7 +2,11 @@ var ComponentExample = React.createClass({
   render() {
     return (
       <div>
-        <ProgressBar progress={80} />
+      	<ProgressBar progress={30} />
+        <br/>
+        <ProgressBar progress={60} showLabel={true} type='primary' />
+        <br/>
+        <ProgressBar progress={90} showLabel={true} type='temperature' />
       </div>
     );
   }

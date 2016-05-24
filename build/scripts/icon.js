@@ -21,7 +21,7 @@ webpackJsonp([2],{
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var iconExample = __webpack_require__(419);
+	var iconExample = __webpack_require__(420);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -463,7 +463,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 419:
+/***/ 420:
 /***/ function(module, exports) {
 
 	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div style={{fontSize:'4rem'}}>\n        <Icon icon=\"cog\" />\n        <Icon icon=\"chevron-right\" />\n        <Icon icon=\"warning\" />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"

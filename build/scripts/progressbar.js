@@ -21,7 +21,7 @@ webpackJsonp([1],{
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var progressBarExample = __webpack_require__(420);
+	var progressBarExample = __webpack_require__(421);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -53,10 +53,10 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 420:
+/***/ 421:
 /***/ function(module, exports) {
 
-	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n        <ProgressBar progress={80} />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} />\n        <br/>\n        <ProgressBar progress={60} showLabel={true} type='primary' />\n        <br/>\n        <ProgressBar progress={90} showLabel={true} type='temperature' />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }
 

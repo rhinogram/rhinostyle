@@ -39,7 +39,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('development')
       }
     }),
     new webpack.optimize.DedupePlugin(),
@@ -47,4 +47,4 @@ export default {
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
     /*new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })*/
   ]
-}
+};
