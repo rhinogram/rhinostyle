@@ -56,7 +56,7 @@ webpackJsonp([1],{
 /***/ 421:
 /***/ function(module, exports) {
 
-	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} />\n        <br/>\n        <ProgressBar progress={60} showLabel={true} type='primary' />\n        <br/>\n        <ProgressBar progress={90} showLabel={true} type='temperature' />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} classes='u-m-b' />\n        <ProgressBar progress={60} showLabel={true} type='primary' classes='u-m-b' />\n        <ProgressBar progress={90} showLabel={true} type='temperature' />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }
 

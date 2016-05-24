@@ -80526,6 +80526,8 @@
 	      'progress__bar--temperature': type === 'temperature'
 	    });
 
+	    var cy = (0, _classnames2.default)('progress', classes);
+
 	    /**
 	     * Style for progressing bar
 	     */
@@ -80549,7 +80551,7 @@
 
 	    return _react2.default.createElement(
 	      'div',
-	      { className: 'progress' },
+	      { className: cy },
 	      _react2.default.createElement(
 	        'div',
 	        { className: cx },
