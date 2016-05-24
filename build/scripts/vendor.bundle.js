@@ -80688,7 +80688,7 @@
 
 	    var props = _objectWithoutProperties(_props, ['classes', 'click', 'label']);
 
-	    var cx = (0, _classnames2.default)('pill', 'pill--default');
+	    var cx = (0, _classnames2.default)('pill', 'pill--default', classes);
 
 	    return _react2.default.createElement(
 	      'a',
