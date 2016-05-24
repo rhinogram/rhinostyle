@@ -13,15 +13,15 @@ webpackJsonp([2],{
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(61);
+	var _components = __webpack_require__(60);
 
-	var _componentPlayground = __webpack_require__(62);
+	var _componentPlayground = __webpack_require__(61);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var pillExample = __webpack_require__(423);
+	var pillExample = __webpack_require__(422);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -68,7 +68,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 423:
+/***/ 422:
 /***/ function(module, exports) {
 
 	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n        <Pill label=\"Ben\" />&nbsp;&nbsp;\n        <Pill label=\"Click Me\" click={() => alert('clicked!')} />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"

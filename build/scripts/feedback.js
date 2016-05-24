@@ -13,15 +13,15 @@ webpackJsonp([4],{
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(61);
+	var _components = __webpack_require__(60);
 
-	var _componentPlayground = __webpack_require__(62);
+	var _componentPlayground = __webpack_require__(61);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var feedbackExample = __webpack_require__(421);
+	var feedbackExample = __webpack_require__(420);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -133,7 +133,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 421:
+/***/ 420:
 /***/ function(module, exports) {
 
 	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n        <Callout head=\"Default Callout\" body=\"Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool.\" />\n        <Toast type=\"secondary\" body={<span><Icon icon=\"checkmark\" /> Default notification - <a href=\"#\" className=\"notify__link\">click link</a></span>} />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"

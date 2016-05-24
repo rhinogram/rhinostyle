@@ -49,6 +49,8 @@ const ProgressBar = React.createClass({
       'progress__bar--temperature':  type === 'temperature'
     });
 
+    const cy = classNames('progress', classes);
+
     /**
      * Style for progressing bar
      */
@@ -69,7 +71,7 @@ const ProgressBar = React.createClass({
     }
 
     return (
-      <div className='progress'>
+      <div className={cy}>
         <div className={cx}>
           <div className='progress__bar__slider' style={style}>
             {label}
