@@ -1,27 +1,27 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _react = __webpack_require__(12);
+	var _react = __webpack_require__(10);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(45);
+	var _reactDom = __webpack_require__(39);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(67);
+	var _components = __webpack_require__(60);
 
-	var _componentPlayground = __webpack_require__(68);
+	var _componentPlayground = __webpack_require__(61);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var buttonExample = __webpack_require__(418);
+	var buttonExample = __webpack_require__(419);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -422,7 +422,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 418:
+/***/ 419:
 /***/ function(module, exports) {
 
 	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n        <Button>Default</Button>\n        <Button type=\"primary\">Primary</Button>\n        <Button type=\"secondary\" iconOnly={true}><Icon icon=\"cog\" /></Button>\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"

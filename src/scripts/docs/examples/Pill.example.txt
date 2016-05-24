@@ -1,0 +1,12 @@
+var ComponentExample = React.createClass({
+  render() {
+    return (
+      <div>
+        <Pill label="Ben" />&nbsp;&nbsp;
+        <Pill label="Click Me" click={() => alert('clicked!')} />
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<ComponentExample />, mountNode);
