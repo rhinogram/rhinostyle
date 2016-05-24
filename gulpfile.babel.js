@@ -178,7 +178,7 @@ gulp.task('animation:time', () => {
 gulp.task('browser-sync', () => {
   browserSync.init({
     server: {
-      baseDir: "./build"
+      baseDir: './build'
     }
   });
 });
