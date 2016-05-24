@@ -1,0 +1,11 @@
+var ComponentExample = React.createClass({
+  render() {
+    return (
+      <div>
+        <ProgressBar progress={80} />
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<ComponentExample />, mountNode);

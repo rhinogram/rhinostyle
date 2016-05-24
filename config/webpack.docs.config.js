@@ -14,7 +14,8 @@ export default {
     vendor: dependencies,
     button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
     icon: path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
-    feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx')
+    feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
+    progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx')
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
@@ -43,7 +44,7 @@ export default {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    /*new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })*/
   ]
 }

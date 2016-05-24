@@ -10,7 +10,6 @@ const Button = React.createClass({
     click:    React.PropTypes.func,
     disabled: React.PropTypes.bool,
     iconOnly: React.PropTypes.bool,
-    label:    React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number, React.PropTypes.element]).isRequired,
     outline:  React.PropTypes.bool,
     size:     React.PropTypes.oneOf(['small', 'normal', 'large']),
     type:     React.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link']),
@@ -29,7 +28,7 @@ const Button = React.createClass({
   },
 
   render() {
-    const { block, classes, click, disabled, iconOnly, label, outline, size, type, ...props } = this.props;
+    const { block, classes, click, disabled, iconOnly, outline, size, type, ...props } = this.props;
     const cx = classNames('btn', classes, {
       'btn--default':   (type==='default' && !outline),
       'btn--primary':   (type==='primary' && !outline),
