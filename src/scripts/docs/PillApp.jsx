@@ -21,6 +21,7 @@ const PillApp = React.createClass({
         <h1 className="site-headline">Pills</h1>
 
         <section className="site-section">
+          <h3 className="site-subheadline">Pill Types</h3>
           <Pill label="Ben" />
         </section>
 

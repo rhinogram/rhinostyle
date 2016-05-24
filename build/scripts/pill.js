@@ -43,6 +43,11 @@ webpackJsonp([2],{
 	      _react2.default.createElement(
 	        'section',
 	        { className: 'site-section' },
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'site-subheadline' },
+	          'Pill Types'
+	        ),
 	        _react2.default.createElement(_components.Pill, { label: 'Ben' })
 	      ),
 	      _react2.default.createElement(
