@@ -721,32 +721,32 @@
         boomsvgloader.load('../svg/sprite.svg');
 
         // progress bars - send to random position
-        $('.progress-bar').each(function(){
+        $('.progress__bar').each(function(){
           var position = Math.floor(Math.random()*100);
           if(position<4) { position = 4; }
           // add % to label
-          if($(this).find('.progress-bar__slider__label').length > 0) {
-            $(this).find('.progress-bar__slider__label').html(position+'%');
+          if($(this).find('.progress__bar__slider__label').length > 0) {
+            $(this).find('.progress__bar__slider__label').html(position+'%');
           }
           // position bar
-          $(this).find('.progress-bar__slider').css('transform','translateX('+position+'%)'); 
-          $(this).find('.progress-bar__slider').css('-webkit-transform','translateX('+position+'%)');
+          $(this).find('.progress__bar__slider').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress__bar__slider').css('-webkit-transform','translateX('+position+'%)');
         });
 
 
         // progress bars - click progress bar to transition
-        $(".progress-bar").on("click", function(e) {
+        $(".progress__bar").on("click", function(e) {
           var offset = $(this).offset(),
               position = Math.floor((e.pageX - offset.left)/$(this).width()*100) + 1;
           // check for label
-          if($(this).find('.progress-bar__slider__label').length > 0) {
+          if($(this).find('.progress__bar__slider__label').length > 0) {
             // add % to label
-            $(this).find('.progress-bar__slider__label').html(position+'%');
+            $(this).find('.progress__bar__slider__label').html(position+'%');
             if (position < 3 ) { position = 3; }
           }
           // position bar
-          $(this).find('.progress-bar__slider').css('transform','translateX('+position+'%)'); 
-          $(this).find('.progress-bar__slider').css('-webkit-transform','translateX('+position+'%)');
+          $(this).find('.progress__bar__slider').css('transform','translateX('+position+'%)'); 
+          $(this).find('.progress__bar__slider').css('-webkit-transform','translateX('+position+'%)');
         });
 
 

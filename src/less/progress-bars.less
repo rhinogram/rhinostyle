@@ -8,16 +8,13 @@
 
 
 // This wrapper class doesn't follow BEM b/c it is a utility at this point
-.progress-bar-wrapper {
-  //backface-visibility: hidden;
+.progress {
   border-radius: @progress-bar-radius;
   overflow: hidden;
   transform: translateZ(0); // Chrome overflow bug fix - trigger hardware acceleration
 }
 
-.progress-bar {
-  //backface-visibility: hidden;
-  //background-clip: padding-box;
+.progress__bar {
   background-size: cover;
   box-shadow: @progress-bar-inset-shadow;
   height: @progress-bar-height;
@@ -31,39 +28,21 @@
 // -------------------------
 
 
-.progress-bar--default {
+.progress__bar--default {
   background: @gray-light;
 }
 
-.progress-bar--primary {
+.progress__bar--primary {
   background: @brand-primary;
 }
 
-.progress-bar--secondary {
+.progress__bar--secondary {
   background: @brand-secondary;
 }
 
-.progress-bar--success-to-danger {
+.progress__bar--temperature {
   @crazyprogress: @brand-success, @brand-warning 75%, @brand-danger;
   background-image: svg-gradient(to right, @crazyprogress); // LESSCSS function
-}
-
-
-// -------------------------
-// Progress Bar Modifiers (Size)
-// -------------------------
-
-
-.progress-bar--sm {
-  height: @progress-bar-height-sm;
-
-  .progress-bar__slider {
-    height: @progress-bar-height-sm;
-  }
-
-  .progress-bar__slider__label {
-    font-size: 1.1rem;
-  }
 }
 
 
@@ -72,7 +51,7 @@
 // -------------------------
 
 
-.progress-bar__slider {
+.progress__bar__slider {
   backface-visibility: hidden;
   background: @gray-lighter;
   box-shadow: @progress-bar-inset-shadow;
@@ -86,9 +65,10 @@
 // -------------------------
 
 
-.progress-bar__slider__label {
+.progress__bar__slider__label {
   color: @white;
   cursor: default;
+  font-size: 1.1rem;
   padding: 0 @padding-xsmall;
   position: absolute;
   right: 100%;
