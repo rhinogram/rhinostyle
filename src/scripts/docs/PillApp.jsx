@@ -12,8 +12,8 @@ const exampleScope  = {
   Pill: Pill
 };
 
-const PillApp = React.createClass({
-  displayName: 'Rhinostyle Pill Example',
+class PillApp extends React.Component {
+  static displayName = 'Rhinostyle Pill Example';
 
   render() {
     return (
@@ -33,6 +33,6 @@ const PillApp = React.createClass({
       </div>
     );
   }
-});
+};
 
 ReactDOM.render(<PillApp />, document.getElementById('js-app'));

@@ -60,7 +60,8 @@
       "jsx-quotes": [2, "prefer-double"],
       "react/react-in-jsx-scope": 1,
       "react/display-name": 0,
-
+      # "prefer-es6-class": [2, always],
+      # "react/prefer-stateless-function": 2,
       "no-underscore-dangle": 0
     }
 }
