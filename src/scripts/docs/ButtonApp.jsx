@@ -13,8 +13,8 @@ const exampleScope  = {
   Icon: Icon
 };
 
-const ButtonApp = React.createClass({
-  displayName: 'Rhinostyle Button Example',
+class ButtonApp extends React.Component {
+  static displayName = 'Rhinostyle Button Example';
 
   render() {
     return (
@@ -120,6 +120,6 @@ const ButtonApp = React.createClass({
       </div>
     );
   }
-});
+};
 
 ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));

@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Button = React.createClass({
-  displayName: 'RhinoButton',
+class Button extends React.Component {
+  static displayName = 'RhinoButton';
 
-  propTypes: {
+  static propTypes = {
     block:    React.PropTypes.bool,
     classes:  React.PropTypes.string,
     click:    React.PropTypes.func,
@@ -13,19 +13,17 @@ const Button = React.createClass({
     outline:  React.PropTypes.bool,
     size:     React.PropTypes.oneOf(['small', 'normal', 'large']),
     type:     React.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link']),
-  },
+  }
 
-  getDefaultProps() {
-    return {
-      block:    false,
-      click:    () => {},
-      disabled: false,
-      iconOnly: false,
-      outline:  false,
-      size:     'normal',
-      type:     'default'
-    };
-  },
+  static defaultProps = {
+    block:    false,
+    click:    () => {},
+    disabled: false,
+    iconOnly: false,
+    outline:  false,
+    size:     'normal',
+    type:     'default'
+  }
 
   render() {
     const { block, classes, click, disabled, iconOnly, outline, size, type, ...props } = this.props;
@@ -48,6 +46,6 @@ const Button = React.createClass({
 
     return (<a href="#" className={cx} onClick={click} {...props} role="button">{this.props.children}</a>);
   }
-});
+};
 
 export default Button;
