@@ -1,9 +1,11 @@
-import Avatar  from './Avatar';
-import Button  from './Button';
-import Callout from './Callout';
-import Icon    from './Icon';
-import Input   from './Input';
-import Toast   from './Toast';
+import Avatar         from './Avatar';
+import Button         from './Button';
+import Callout        from './Callout';
+import Icon           from './Icon';
+import Input          from './Input';
+import Pill           from './Pill';
+import ProgressBar    from './ProgressBar';
+import Toast          from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
 
@@ -14,5 +16,7 @@ export {
   Icon,
   Input,
   NotificationActions,
+  Pill,
+  ProgressBar,
   Toast
-}
+};

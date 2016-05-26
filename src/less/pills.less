@@ -1,0 +1,49 @@
+// File: pills.less
+// Note:
+
+
+// -------------------------
+// Pills
+// -------------------------
+
+
+.pill {
+  align-items: center;
+  border-radius: @border-radius-small;
+  display: inline-flex;
+  //font-weight: @font-weight-semibold;
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: @pill-padding;
+  white-space: nowrap;
+
+  &:empty {
+    display: none;
+  }
+}
+
+
+// -------------------------
+// Pill Modifiers
+// -------------------------
+
+
+.pill--default {
+  .pill-variant(@pill-default-bg; @pill-default-border; @pill-default-color);
+}
+
+
+// -------------------------
+// Pill Close
+// -------------------------
+
+
+.pill__close {
+  color: @text-color;
+  margin-left: @margin-small;
+}
+
+
+
+
+

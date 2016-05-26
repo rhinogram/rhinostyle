@@ -8,8 +8,10 @@
 
 
 .dropdown {
-  display: inline-block;
+  display: inline-flex;
+  max-width: 100%;
   position: relative;
+  vertical-align: middle;
 }
 
 
@@ -35,7 +37,7 @@
 
 
 // -------------------------
-// Dropdown Modifiers (Block)
+// Dropdown Modifier (Block)
 // -------------------------
 
 
@@ -57,6 +59,47 @@
 
 
 // -------------------------
+// Dropdown Modifier (Multiselect)
+// -------------------------
+
+
+.dropdown--multiselect { // lesshint depthLevel: false
+  display: block;
+  margin-bottom: @margin-small;
+
+  .dropdown__menu {
+    width: 100%;
+  }
+
+  .dropdown__menu__item.active > a {
+    padding-right: 3rem;
+
+    &,
+    &:hover,
+    &:focus {
+      background-color: @dropdown-link-hover-bg;
+      color: @dropdown-link-color;
+
+      &::after {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 1.2rem 1.2rem;
+        content: '';
+        height: 1.2rem;
+        pointer-events: none;
+        position: absolute;
+        right: @padding-base-horizontal;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.2rem;
+        .svg-bg-add-fill('@{svg-path}checkmark.svg', @brand-primary);
+      }
+    }
+  }
+}
+
+
+// -------------------------
 // Dropdown Menu
 // -------------------------
 
@@ -68,7 +111,7 @@
   border-radius: @border-radius-base;
   box-shadow: @shadow-depth-1;
   display: block;
-  float: left;
+  //float: left;
   //font-size: 1.4rem;
   left: 0;
   list-style: none;
@@ -143,20 +186,21 @@
 .dropdown__menu__item {
   // Links within the dropdown menu
   > a {
-    clear: both;
+    align-items: center;
     color: @dropdown-link-color;
     cursor: pointer;
-    display: block;
+    display: flex;
     font-weight: normal;
     line-height: @line-height-base;
     padding: @dropdown-padding;
+    position: relative;
     white-space: nowrap;
 
     &:hover,
     &:focus {
       background-color: @dropdown-link-hover-bg;
       color: @dropdown-link-hover-color;
-      outline: none;
+      outline: 0;
       text-decoration: none;
     }
   }
@@ -232,12 +276,12 @@
 // -------------------------
 
 
-.dropdown__toggle {
+/*.dropdown__toggle {
   &:active,
   &:focus {
-    outline: none;
+    outline: 0;
   }
-}
+}*/
 
 
 // -------------------------
@@ -274,3 +318,11 @@
   top: 0;
   z-index: (@zindex-dropdown - 10);
 }
+
+
+
+
+
+
+
+

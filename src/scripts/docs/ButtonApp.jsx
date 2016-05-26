@@ -13,8 +13,8 @@ const exampleScope  = {
   Icon: Icon
 };
 
-const ButtonApp = React.createClass({
-  displayName: 'Rhinostyle Button Example',
+class ButtonApp extends React.Component {
+  static displayName = 'Rhinostyle Button Example';
 
   render() {
     return (
@@ -107,9 +107,9 @@ const ButtonApp = React.createClass({
           <h5 className="site-miniheadline">Long Text Inside Buttons</h5>
           <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis. This rule applies to dropdowns as well.</p>
           <div className="u-m-b">
-            <Button><span className="u-text-overflow">Wow! This button has a lot of text!</span></Button>
+            <Button><span className="u-text-overflow">Button With Really Long Name</span></Button>
             <br/><br/>
-            <Button><Icon icon="lock" />&nbsp;<span className="u-text-overflow">Wow! This button has a lot of text and an icon!</span></Button>
+            <Button><Icon icon="lock" />&nbsp;<span className="u-text-overflow">Button With Really Long Name and Icon</span></Button>
           </div>
         </section>
 
@@ -120,6 +120,6 @@ const ButtonApp = React.createClass({
       </div>
     );
   }
-});
+};
 
 ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));
