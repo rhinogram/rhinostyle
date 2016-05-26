@@ -11,13 +11,13 @@ export default {
   cache: true,
   devTool: 'cheap-module-source-map',
   entry: {
-    vendor: dependencies,
-    button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
-    icon: path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
-    feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
-    avatar: path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
+    vendor:      dependencies,
+    button:      path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
+    icon:        path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
+    feedback:    path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
+    avatar:      path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
-    pill: path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
+    pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),

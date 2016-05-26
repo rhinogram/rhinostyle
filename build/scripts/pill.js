@@ -11,13 +11,13 @@ webpackJsonp([2],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(39);
+	var _reactDom = __webpack_require__(35);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(61);
+	var _components = __webpack_require__(51);
 
-	var _componentPlayground = __webpack_require__(67);
+	var _componentPlayground = __webpack_require__(52);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
@@ -29,7 +29,7 @@ webpackJsonp([2],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var pillExample = __webpack_require__(425);
+	var pillExample = __webpack_require__(423);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -90,7 +90,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 425:
+/***/ 423:
 /***/ function(module, exports) {
 
 	module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Pill label=\"Ben\" />&nbsp;&nbsp;\n        <Pill label=\"Click Me\" click={() => alert('clicked!')} />\n      </div>\n    );\n  }\n};\n\nReactDOM.render(<ComponentExample />, mountNode);\n"

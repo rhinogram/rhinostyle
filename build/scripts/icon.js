@@ -9,19 +9,19 @@ webpackJsonp([3],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(39);
+	var _reactDom = __webpack_require__(35);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(61);
+	var _components = __webpack_require__(51);
 
-	var _componentPlayground = __webpack_require__(67);
+	var _componentPlayground = __webpack_require__(52);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var iconExample = __webpack_require__(424);
+	var iconExample = __webpack_require__(422);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -463,7 +463,7 @@ webpackJsonp([3],{
 
 /***/ },
 
-/***/ 424:
+/***/ 422:
 /***/ function(module, exports) {
 
 	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div style={{fontSize:'4rem'}}>\n        <Icon icon=\"cog\" />\n        <Icon icon=\"chevron-right\" />\n        <Icon icon=\"warning\" />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
