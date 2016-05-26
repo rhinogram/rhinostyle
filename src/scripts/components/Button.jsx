@@ -44,7 +44,7 @@ class Button extends React.Component {
       'disabled': disabled
     });
 
-    return (<a href="#" className={cx} onClick={click} {...props} role="button">{this.props.children}</a>);
+    return (<a href="javascript:void(0)" className={cx} onClick={click} {...props} role="button">{this.props.children}</a>);
   }
 };
 

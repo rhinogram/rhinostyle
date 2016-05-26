@@ -5,7 +5,7 @@ import { Icon } from '../components';
 
 import Playground from 'component-playground';
 
-const iconExample = require("raw!./examples/Icon.example.txt");
+const iconExample = require('raw!./examples/Icon.example.txt');
 const exampleScope  = {
   React:  React,
   ReactDOM: ReactDOM,

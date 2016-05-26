@@ -19,9 +19,9 @@ class Pill extends React.Component {
     const cx = classNames('pill', 'pill--default', classes);
 
     return (
-      <a href="#" className={cx} onClick={click} {...props}>{label}<span className="pill__close">&times;</span></a>
+      <a href="javascript:void(0)" className={cx} onClick={click} {...props}>{label}<span className="pill__close">&times;</span></a>
     );
   }
-};
+}
 
 export default Pill;

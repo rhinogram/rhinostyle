@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Input = React.createClass({
-  displayName: 'RhinoInput',
+class Input extends React.Component {
+  static displayName = 'RhinoInput';
 
-  propTypes: {
+  static propTypes = {
     groupClass:  React.PropTypes.string,
     inputClass:  React.PropTypes.string,
     label:       React.PropTypes.string,
@@ -14,23 +14,21 @@ const Input = React.createClass({
     size:        React.PropTypes.string,
     type:        React.PropTypes.oneOf(['email', 'password', 'text']),
     value:       React.PropTypes.any
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      label: '',
-      name:  '',
-      type:  'text'
-    };
-  },
+  static defaultProps = {
+    label: '',
+    name:  '',
+    type:  'text'
+  };
 
   getInputDOMNode() {
     return this.refs.input;
-  },
+  }
 
   getValue() {
     return this.getInputDOMNode().value;
-  },
+  }
 
   render() {
     const { groupClass, inputClass, label, labelClass, name, placeholder, size, type, value, ...props } = this.props;
@@ -51,6 +49,6 @@ const Input = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default Input;

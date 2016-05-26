@@ -33,6 +33,6 @@ class PillApp extends React.Component {
       </div>
     );
   }
-};
+}
 
 ReactDOM.render(<PillApp />, document.getElementById('js-app'));

@@ -120,6 +120,6 @@ class ButtonApp extends React.Component {
       </div>
     );
   }
-};
+}
 
 ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));
