@@ -14,7 +14,8 @@ export default {
     vendor: dependencies,
     button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
     icon: path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
-    feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx')
+    feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
+    avatar: path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx')
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
