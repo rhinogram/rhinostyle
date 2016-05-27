@@ -1,0 +1,12 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div>
+        <Loader type="secondary" /><br />
+        <Loader type="line" />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

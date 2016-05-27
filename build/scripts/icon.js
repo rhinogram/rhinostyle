@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
@@ -7,17 +7,17 @@ webpackJsonp([4],{
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(9);
+	var _react = __webpack_require__(7);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(31);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _components = __webpack_require__(50);
+	var _components = __webpack_require__(43);
 
-	var _componentPlayground = __webpack_require__(60);
+	var _componentPlayground = __webpack_require__(48);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
@@ -29,7 +29,7 @@ webpackJsonp([4],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var iconExample = __webpack_require__(425);
+	var iconExample = __webpack_require__(426);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -485,7 +485,7 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 425:
+/***/ 426:
 /***/ function(module, exports) {
 
 	module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div style={{fontSize:'4rem'}}>\n        <Icon icon=\"cog\" />\n        <Icon icon=\"chevron-right\" />\n        <Icon icon=\"warning\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
