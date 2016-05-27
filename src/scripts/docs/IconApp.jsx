@@ -12,8 +12,8 @@ const exampleScope  = {
   Icon: Icon
 };
 
-const IconApp = React.createClass({
-  displayName: 'Rhinostyle Icon Example',
+class IconApp extends React.Component {
+  static displayName = 'Rhinostyle Icon Example';
 
   render() {
     return (
@@ -185,6 +185,6 @@ const IconApp = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<IconApp />, document.getElementById('js-app'));

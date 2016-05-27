@@ -17,7 +17,7 @@ webpackJsonp([4],{
 
 	var _components = __webpack_require__(61);
 
-	var _componentPlayground = __webpack_require__(62);
+	var _componentPlayground = __webpack_require__(67);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
@@ -29,7 +29,7 @@ webpackJsonp([4],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var feedbackExample = __webpack_require__(421);
+	var feedbackExample = __webpack_require__(423);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -162,10 +162,10 @@ webpackJsonp([4],{
 
 /***/ },
 
-/***/ 421:
+/***/ 423:
 /***/ function(module, exports) {
 
-	module.exports = "var ComponentExample = React.createClass({\n  render() {\n    return (\n      <div>\n        <Callout head=\"Default Callout\" body=\"Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool.\" />\n        <Toast type=\"secondary\" body={<span><Icon icon=\"checkmark\" /> Default notification - <a href=\"#\" className=\"notify__link\">click link</a></span>} />\n      </div>\n    );\n  }\n});\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+	module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Callout head=\"Default Callout\" body=\"Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool.\" />\n        <Toast type=\"secondary\" body={<span><Icon icon=\"checkmark\" /> Default notification - <a href=\"#\" className=\"notify__link\">click link</a></span>} />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }
 
