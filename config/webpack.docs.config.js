@@ -15,6 +15,7 @@ export default {
     button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
     icon: path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
     feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
+    label: path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill: path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
   },

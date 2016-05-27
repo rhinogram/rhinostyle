@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([3],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
@@ -29,23 +29,23 @@ webpackJsonp([1],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var progressBarExample = __webpack_require__(428);
+	var labelExample = __webpack_require__(426);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
-	  ProgressBar: _components.ProgressBar
+	  Label: _components.Label
 	};
 
-	var ProgressBarApp = function (_React$Component) {
-	  _inherits(ProgressBarApp, _React$Component);
+	var LabelApp = function (_React$Component) {
+	  _inherits(LabelApp, _React$Component);
 
-	  function ProgressBarApp() {
-	    _classCallCheck(this, ProgressBarApp);
+	  function LabelApp() {
+	    _classCallCheck(this, LabelApp);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ProgressBarApp).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(LabelApp).apply(this, arguments));
 	  }
 
-	  _createClass(ProgressBarApp, [{
+	  _createClass(LabelApp, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -54,12 +54,7 @@ webpackJsonp([1],{
 	        _react2.default.createElement(
 	          'h1',
 	          { className: 'site-headline' },
-	          'Progress Bars ',
-	          _react2.default.createElement(
-	            'small',
-	            null,
-	            '(pssst! click on progress bars!)'
-	          )
+	          'Labels'
 	        ),
 	        _react2.default.createElement(
 	          'section',
@@ -67,22 +62,12 @@ webpackJsonp([1],{
 	          _react2.default.createElement(
 	            'h3',
 	            { className: 'site-subheadline' },
-	            'Progress Bar Types'
+	            'Label Types'
 	          ),
-	          _react2.default.createElement(_components.ProgressBar, { progress: 20, classes: 'u-m-b' }),
-	          _react2.default.createElement(_components.ProgressBar, { progress: 40, type: 'primary', classes: 'u-m-b' }),
-	          _react2.default.createElement(_components.ProgressBar, { progress: 60, type: 'secondary', classes: 'u-m-b' }),
-	          _react2.default.createElement(_components.ProgressBar, { progress: 80, type: 'temperature', classes: 'u-m-b' })
-	        ),
-	        _react2.default.createElement(
-	          'section',
-	          { className: 'site-section' },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'site-subheadline' },
-	            'Progress Bar Labels'
-	          ),
-	          _react2.default.createElement(_components.ProgressBar, { progress: 60, showLabel: true, type: 'primary' })
+	          _react2.default.createElement(_components.Label, { label: 'default label' }),
+	          _react2.default.createElement(_components.Label, { type: 'primary', label: 'primary label' }),
+	          _react2.default.createElement(_components.Label, { type: 'secondary', label: 'secondary label' }),
+	          _react2.default.createElement(_components.Label, { type: 'accent', label: 'accent label' })
 	        ),
 	        _react2.default.createElement(
 	          'section',
@@ -92,26 +77,26 @@ webpackJsonp([1],{
 	            { className: 'site-subheadline' },
 	            'Playground'
 	          ),
-	          _react2.default.createElement(_componentPlayground2.default, { codeText: progressBarExample, scope: exampleScope, noRender: false })
+	          _react2.default.createElement(_componentPlayground2.default, { codeText: labelExample, scope: exampleScope, noRender: false })
 	        )
 	      );
 	    }
 	  }]);
 
-	  return ProgressBarApp;
+	  return LabelApp;
 	}(_react2.default.Component);
 
-	ProgressBarApp.displayName = 'Rhinostyle Progress Bar Example';
+	LabelApp.displayName = 'Rhinostyle Label Example';
 
 
-	_reactDom2.default.render(_react2.default.createElement(ProgressBarApp, null), document.getElementById('js-app'));
+	_reactDom2.default.render(_react2.default.createElement(LabelApp, null), document.getElementById('js-app'));
 
 /***/ },
 
-/***/ 428:
+/***/ 426:
 /***/ function(module, exports) {
 
-	module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} classes=\"u-m-b\" />\n        <ProgressBar progress={60} showLabel={true} type=\"primary\" classes=\"u-m-b\" />\n        <ProgressBar progress={90} showLabel={true} type=\"temperature\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+	module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Label label=\"ben bruning\" />\n        <Label type=\"primary\" label=\"craig anthony\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }
 
