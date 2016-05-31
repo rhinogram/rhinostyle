@@ -13,7 +13,7 @@ class Button extends React.Component {
     outline:  React.PropTypes.bool,
     size:     React.PropTypes.oneOf(['small', 'normal', 'large']),
     type:     React.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link']),
-  }
+  };
 
   static defaultProps = {
     block:    false,
@@ -23,7 +23,7 @@ class Button extends React.Component {
     outline:  false,
     size:     'normal',
     type:     'default'
-  }
+  };
 
   render() {
     const { block, classes, click, disabled, iconOnly, outline, size, type, ...props } = this.props;
@@ -44,8 +44,8 @@ class Button extends React.Component {
       'disabled': disabled
     });
 
-    return (<a href="#" className={cx} onClick={click} {...props} role="button">{this.props.children}</a>);
+    return (<a href="javascript:void(0)" className={cx} onClick={click} {...props} role="button">{this.props.children}</a>);
   }
-};
+}
 
 export default Button;

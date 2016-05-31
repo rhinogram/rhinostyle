@@ -2,21 +2,19 @@ import React      from 'react';
 import classNames from 'classnames';
 import GSAP       from 'react-gsap-enhancer';
 
-const Toast = React.createClass({
-  displayName: 'RhinoToast',
+class Toast extends React.Component {
+  static displayName = 'RhinoToast';
 
-  propTypes: {
+  static propTypes = {
     body:        React.PropTypes.string.isRequired,
     onDismiss:   React.PropTypes.func,
     type:        React.PropTypes.oneOf(['danger', 'default', 'secondary'])
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      onDismiss: () => {},
-      type:      'default'
-    };
-  },
+  static defaultProps = {
+    onDismiss: () => {},
+    type:      'default'
+  };
 
   render() {
     const { body, onDismiss, type } = this.props;
@@ -33,6 +31,6 @@ const Toast = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default GSAP()(Toast);

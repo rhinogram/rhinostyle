@@ -1,20 +1,18 @@
 import React      from 'react';
 import classNames from 'classnames';
 
-const Callout = React.createClass({
-  displayName: 'RhinoCallout',
+class Callout extends React.Component {
+  static displayName: 'RhinoCallout';
 
-  propTypes: {
+  static propTypes = {
     body: React.PropTypes.string.isRequired,
     head: React.PropTypes.string.isRequired,
     type: React.PropTypes.oneOf(['danger', 'default', 'info'])
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      type: 'default'
-    };
-  },
+  static defaultProps = {
+    type: 'default'
+  };
 
   render() {
     const { body, head, type } = this.props;
@@ -31,6 +29,6 @@ const Callout = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default Callout;

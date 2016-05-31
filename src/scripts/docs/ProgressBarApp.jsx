@@ -12,8 +12,8 @@ const exampleScope  = {
   ProgressBar: ProgressBar
 };
 
-const ProgressBarApp = React.createClass({
-  displayName: 'Rhinostyle Progress Bar Example',
+class ProgressBarApp extends React.Component {
+  static displayName = 'Rhinostyle Progress Bar Example';
 
   render() {
     return (
@@ -39,6 +39,6 @@ const ProgressBarApp = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<ProgressBarApp />, document.getElementById('js-app'));

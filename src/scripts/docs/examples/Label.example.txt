@@ -2,8 +2,8 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <Pill label="Ben" />
-        <Pill label="Click Me" click={() => alert('clicked!')} />
+        <Label label="ben bruning" />
+        <Label type="primary" label="craig anthony" />
       </div>
     );
   }

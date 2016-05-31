@@ -14,20 +14,22 @@ const exampleScope    = {
   Icon: Icon
 };
 
-const FeedbackApp = React.createClass({
-  displayName: 'Rhinostyle Feedback Examples',
+class FeedbackApp extends React.Component {
+  static displayName = 'Rhinostyle Feedback Examples';
 
-  onClick(event) {
+  onClick = (event) => {
     event.preventDefault();
 
     NotificationActions.addNotification({
-      autoDismiss:     true,
+      autoDismiss: true,
       autodismissTime: 5000,
-      body:            'This is an alert in a toast notification',
-      onDismiss:       () => { alert('You dismissed that toast'); },
-      type:            'danger'
+      body: 'This is an alert in a toast notification',
+      onDismiss: () => {
+        alert('You dismissed that toast');
+      },
+      type: 'danger'
     });
-  },
+  }
 
   render() {
     return (
@@ -59,6 +61,6 @@ const FeedbackApp = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<FeedbackApp />, document.getElementById('js-app'));

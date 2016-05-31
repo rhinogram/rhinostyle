@@ -3,6 +3,8 @@ import Button         from './Button';
 import Callout        from './Callout';
 import Icon           from './Icon';
 import Input          from './Input';
+import Label          from './Label';
+import Loader         from './Loader';
 import Pill           from './Pill';
 import ProgressBar    from './ProgressBar';
 import Toast          from './Toast';
@@ -15,6 +17,8 @@ export {
   Callout,
   Icon,
   Input,
+  Label,
+  Loader,
   NotificationActions,
   Pill,
   ProgressBar,

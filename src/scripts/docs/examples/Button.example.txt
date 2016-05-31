@@ -8,6 +8,6 @@ class ComponentExample extends React.Component {
       </div>
     );
   }
-};
+}
 
 ReactDOM.render(<ComponentExample />, mountNode);

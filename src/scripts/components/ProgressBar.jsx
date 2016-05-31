@@ -1,10 +1,10 @@
 import React      from 'react';
 import classNames from 'classnames';
 
-const ProgressBar = React.createClass({
-  displayName: 'RhinoProgressBar',
+class ProgressBar extends React.Component {
+  static displayName = 'RhinoProgressBar';
 
-  propTypes: {
+  static propTypes = {
     /**
      * Optionally include additional classes.
      */
@@ -21,15 +21,13 @@ const ProgressBar = React.createClass({
      * Optionally include type.
      */
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature'])
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      progress:    0,
-      showLabel:   false,
-      type:        'default'
-    };
-  },
+  static defaultProps = {
+    progress:    0,
+    showLabel:   false,
+    type:        'default'
+  };
 
   render() {
     const { classes, progress, showLabel, type, ...props } = this.props;
@@ -66,20 +64,20 @@ const ProgressBar = React.createClass({
 
     if (showLabel && progressTranslation > 1) {
       label = (
-        <div className='progress__bar__slider__label'>{progressTranslation + '%'}</div>
+        <div className="progress__bar__slider__label">{progressTranslation + '%'}</div>
       );
     }
 
     return (
       <div className={cy}>
         <div className={cx}>
-          <div className='progress__bar__slider' style={style}>
+          <div className="progress__bar__slider" style={style}>
             {label}
           </div>
         </div>
       </div>
     );
   }
-});
+}
 
 export default ProgressBar;

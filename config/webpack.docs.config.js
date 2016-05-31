@@ -16,6 +16,8 @@ export default {
     icon:        path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
     feedback:    path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
     avatar:      path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
+    label:       path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
+    loader:      path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
   },
@@ -46,7 +48,7 @@ export default {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
-    /*new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })*/
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })
   ]
 };

@@ -5,15 +5,15 @@ import { Icon } from '../components';
 
 import Playground from 'component-playground';
 
-const iconExample = require("raw!./examples/Icon.example.txt");
+const iconExample = require('raw!./examples/Icon.example.txt');
 const exampleScope  = {
   React:  React,
   ReactDOM: ReactDOM,
   Icon: Icon
 };
 
-const IconApp = React.createClass({
-  displayName: 'Rhinostyle Icon Example',
+class IconApp extends React.Component {
+  static displayName = 'Rhinostyle Icon Example';
 
   render() {
     return (
@@ -185,6 +185,6 @@ const IconApp = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<IconApp />, document.getElementById('js-app'));

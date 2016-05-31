@@ -1,19 +1,17 @@
 import React      from 'react';
 import classNames from 'classnames';
 
-const Avatar = React.createClass({
-  displayName: 'RhinoAvatar',
+class Avatar extends React.Component {
+  static displayName = 'RhinoAvatar';
 
-  propTypes: {
+  static propTypes = {
     size: React.PropTypes.oneOf(['small', 'default', 'large']),
     type: React.PropTypes.oneOf(['member', 'patient']).isRequired
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      size: 'default'
-    };
-  },
+  static defaultProps = {
+    size: 'default'
+  };
 
   render() {
     const { size, type } = this.props;
@@ -28,6 +26,6 @@ const Avatar = React.createClass({
       <figure className={cx}>{this.props.children}</figure>
     );
   }
-});
+}
 
 export default Avatar;

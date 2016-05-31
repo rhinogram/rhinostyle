@@ -33,5 +33,5 @@
     "importantRule": {
         "enabled": false
     },
-    "excludedFiles": ["utilities-spacing.less"]
+    "excludedFiles": ["rhinostyle-docs.less","utilities-spacing.less"]
 }

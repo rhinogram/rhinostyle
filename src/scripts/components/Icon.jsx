@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Icon = React.createClass({
-  displayName: 'RhinoIcon',
+class Icon extends React.Component {
+  static displayName = 'RhinoIcon';
 
-  propTypes: {
+  static propTypes = {
     icon: React.PropTypes.string.isRequired
-  },
+  };
 
   render() {
     const icon = `#icon-${this.props.icon}`;
@@ -16,6 +16,6 @@ const Icon = React.createClass({
       </svg>
     );
   }
-});
+}
 
 export default Icon;
