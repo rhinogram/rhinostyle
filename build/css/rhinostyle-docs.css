@@ -784,29 +784,6 @@ a.u-text-warning:hover,
 @badge-link-hover-color:      @white;
 @badge-min-width:             1.8rem;
 @badge-vertical-padding:      .3rem;*/
-/*
-@nav-link-light-hover-bg:                       @gray-lightest;
-@nav-link-padding:                              @padding-medium @padding-half-gutter;
-@nav-link-padding-small:                        @padding-small @padding-medium;
-
-
-// Tabs
-@nav-tabs-border-color:                         @border-color-base;
-
-@nav-tabs-link-hover-border-color:              @border-color-base;
-
-@nav-tabs-active-link-hover-bg:                 @body-bg;
-@nav-tabs-active-link-hover-color:              @brand-primary;
-@nav-tabs-active-link-hover-border-color:       @border-color-base;
-
-@nav-tabs-justified-link-border-color:          @border-color-base;
-@nav-tabs-justified-active-link-border-color:   @body-bg;
-
-@nav-tabs-active-link-hover-border-color-top:   @brand-primary;
-
-// Nav Blocks
-@nav-blocks-color:                              @gray-dark;
-*/
 /*@pager-bg:                             @pagination-bg;
 @pager-border:                         @pagination-border;
 @pager-border-radius:                  1.5rem;
@@ -2998,6 +2975,31 @@ fieldset[disabled] .rhinodio label {
   .modal__dialog--lg {
     width: 90rem;
   }
+}
+.nav-tabs {
+  border-bottom: 1px solid #d2d2d2;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+.nav-tabs__item {
+  margin-bottom: -1px;
+}
+.nav-tabs__item__link {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 1.5rem;
+}
+.nav-tabs__item__link.active {
+  background-color: #fff;
+  background-origin: border-box;
+  border: 1px solid #d2d2d2;
+  border-bottom-color: transparent;
+  border-top-color: #0081c6;
+  color: #6c6c6c;
+  cursor: default;
 }
 .notify-container {
   left: 1rem;

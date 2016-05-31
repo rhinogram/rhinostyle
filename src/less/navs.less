@@ -1,0 +1,35 @@
+// File: navs.less
+// Note:
+
+
+// -------------------------
+// Nav Tabs
+// -------------------------
+
+
+.nav-tabs {
+  border-bottom: 1px solid @border-color-base;
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.nav-tabs__item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs__item__link {
+  display: flex;
+  padding: @nav-tabs-link-padding;
+
+  &.active {
+    background-color: @body-bg;
+    background-origin: border-box;
+    border: 1px solid @border-color-base;
+    border-bottom-color: transparent;
+    border-top-color: @brand-primary;
+    color: @text-color;
+    cursor: default;
+  }
+}
