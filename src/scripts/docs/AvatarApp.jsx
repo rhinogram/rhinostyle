@@ -9,7 +9,8 @@ const avatarExample = require('raw!./examples/Avatar.example.txt');
 const exampleScope  = {
   React:    React,
   ReactDOM: ReactDOM,
-  Avatar:   Avatar
+  Avatar:   Avatar,
+  Icon:     Icon
 };
 
 const AvatarApp = React.createClass({
@@ -18,42 +19,45 @@ const AvatarApp = React.createClass({
   render() {
     return (
       <div>
-        <h1 classNames="site-headline">Avatars</h1>
+        <h1 className="site-headline">Avatars</h1>
 
-        <section classNames="site-section">
-          <h3 classNames="site-subheadline">Avatar Types</h3>
-          <div classNames="u-m-b-md">
-            <h5 classNames="site-miniheadline">Patient Avatar</h5>
-            <p classNames="site-copy">Patient avatars require the <code>avatar--patient</code> modifier.</p>
-            <figure classNames="avatar avatar--patient">CA</figure>
-            <figure classNames="avatar avatar--patient"><svg classNames="avatar__icon"><use xlinkHref="#icon-user"></use></svg></figure>
+        <section className="site-section">
+          <h3 className="site-subheadline">Avatar Types</h3>
+          <div className="u-m-b-md">
+            <h5 className="site-miniheadline">Patient Avatar</h5>
+            <p className="site-copy">Patient avatars require the <code>avatar--patient</code> modifier.</p>
+            <Avatar type="patient">CA</Avatar>
+            <Avatar type="patient"><Icon icon="user" type="avatar" /></Avatar>
           </div>
-
-          <div classNames="u-m-b-md">
-            <h5 classNames="site-miniheadline">Member Avatar</h5>
-            <p classNames="site-copy">Member avatars require the <code>avatar--member</code> modifier.</p>
-            <figure classNames="avatar avatar--member">CA</figure>
-            <figure classNames="avatar avatar--member"><svg classNames="avatar__icon"><use xlinkHref="#icon-user"></use></svg></figure>
+          <div className="u-m-b-md">
+            <h5 className="site-miniheadline">Member Avatar</h5>
+            <p className="site-copy">Member avatars require the <code>avatar--member</code> modifier.</p>
+            <Avatar type="member">CA</Avatar>
+            <Avatar type="member"><Icon icon="user" type="avatar" /></Avatar>
           </div>
         </section>
 
-        <section classNames="site-section">
-          <h3 classNames="site-subheadline">Avatar Sizes</h3>
-          <div classNames="u-m-b-md">
-            <h5 classNames="site-miniheadline">Large Avatar</h5>
-            <p classNames="site-copy">Add the <code>avatar--lg</code> modifier to <code>avatar</code> for large size.</p>
-            <figure classNames="avatar avatar--patient avatar--lg">CA</figure>
-            <figure classNames="avatar avatar--patient avatar--lg"><svg classNames="avatar__icon"><use xlinkHref="#icon-user"></use></svg></figure>
-            <figure classNames="avatar avatar--member avatar--lg">CA</figure>
+        <section className="site-section">
+          <h3 className="site-subheadline">Avatar Sizes</h3>
+          <div className="u-m-b-md">
+            <h5 className="site-miniheadline">Large Avatar</h5>
+            <p className="site-copy">Add the <code>avatar--lg</code> modifier to <code>avatar</code> for large size.</p>
+            <Avatar type="patient" size="large">CA</Avatar>
+            <Avatar type="patient" size="large"><Icon icon="user" type="avatar" /></Avatar>
+            <Avatar type="member" size="large">CA</Avatar>
           </div>
-
           <div>
-            <h5 classNames="site-miniheadline">Small Avatar</h5>
-            <p classNames="site-copy">Add the <code>avatar--sm</code> modifier to <code>avatar</code> for small size.</p>
-            <figure classNames="avatar avatar--patient avatar--sm">CA</figure>
-            <figure classNames="avatar avatar--patient avatar--sm"><svg classNames="avatar__icon"><use xlinkHref="#icon-user"></use></svg></figure>
-            <figure classNames="avatar avatar--member avatar--sm">CA</figure>
+            <h5 className="site-miniheadline">Small Avatar</h5>
+            <p className="site-copy">Add the <code>avatar--sm</code> modifier to <code>avatar</code> for small size.</p>
+            <Avatar type="patient" size="small">CA</Avatar>
+            <Avatar type="patient" size="small"><Icon icon="user" type="avatar" /></Avatar>
+            <Avatar type="member" size="small">CA</Avatar>
           </div>
+        </section>
+
+        <section>
+          <h3 className="site-subheadline">Playground</h3>
+          <Playground codeText={avatarExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
     );
