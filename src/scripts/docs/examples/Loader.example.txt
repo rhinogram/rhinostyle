@@ -2,8 +2,8 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <Loader type="secondary" /><br />
-        <Loader type="line" />
+        <LoaderPulse type="secondary" /><br /><br />
+        <LoaderLine />
       </div>
     );
   }
