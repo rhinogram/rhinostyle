@@ -20,16 +20,28 @@
 }
 
 .nav-tabs__item__link {
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
   display: flex;
-  padding: @nav-tabs-link-padding;
+  padding: @nav-link-padding;
+  position: relative;
 
-  &.active {
+  .active & {
     background-color: @body-bg;
-    background-origin: border-box;
-    border: 1px solid @border-color-base;
     border-bottom-color: transparent;
-    border-top-color: @brand-primary;
+    border-left-color: @border-color-base;
+    border-right-color: @border-color-base;
     color: @text-color;
-    cursor: default;
+
+    &::after {
+      background: @brand-primary;
+      content: '';
+      display: block;
+      height: .3rem;
+      left: -1px;
+      position: absolute;
+      right: -1px;
+      top: 0;
+    }
   }
 }

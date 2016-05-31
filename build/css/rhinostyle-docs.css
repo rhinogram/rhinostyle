@@ -2988,18 +2988,29 @@ fieldset[disabled] .rhinodio label {
   margin-bottom: -1px;
 }
 .nav-tabs__item__link {
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
   display: -ms-flexbox;
   display: flex;
   padding: 1rem 1.5rem;
+  position: relative;
 }
-.nav-tabs__item__link.active {
+.active .nav-tabs__item__link {
   background-color: #fff;
-  background-origin: border-box;
-  border: 1px solid #d2d2d2;
   border-bottom-color: transparent;
-  border-top-color: #0081c6;
+  border-left-color: #d2d2d2;
+  border-right-color: #d2d2d2;
   color: #6c6c6c;
-  cursor: default;
+}
+.active .nav-tabs__item__link::after {
+  background: #0081c6;
+  content: '';
+  display: block;
+  height: .3rem;
+  left: -1px;
+  position: absolute;
+  right: -1px;
+  top: 0;
 }
 .notify-container {
   left: 1rem;
