@@ -11,13 +11,13 @@ webpackJsonp([1],{
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(31);
+	var _reactDom = __webpack_require__(30);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _components = __webpack_require__(43);
 
-	var _componentPlayground = __webpack_require__(48);
+	var _componentPlayground = __webpack_require__(44);
 
 	var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
@@ -29,7 +29,7 @@ webpackJsonp([1],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var progressBarExample = __webpack_require__(430);
+	var progressBarExample = __webpack_require__(427);
 	var exampleScope = {
 	  React: _react2.default,
 	  ReactDOM: _reactDom2.default,
@@ -108,7 +108,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 430:
+/***/ 427:
 /***/ function(module, exports) {
 
 	module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} classes=\"u-m-b\" />\n        <ProgressBar progress={60} showLabel={true} type=\"primary\" classes=\"u-m-b\" />\n        <ProgressBar progress={90} showLabel={true} type=\"temperature\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"

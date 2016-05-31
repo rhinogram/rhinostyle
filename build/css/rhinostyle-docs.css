@@ -3261,7 +3261,9 @@ pre {
     padding: 3rem;
   }
 }
-.site-content .btn:not(:last-child) {
+.site-content .btn:not(:last-child),
+.site-content .label:not(:last-child),
+.site-content .pill:not(:last-child) {
   margin-right: 0.6rem;
 }
 .site-copy {
