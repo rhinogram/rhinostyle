@@ -2984,17 +2984,54 @@ fieldset[disabled] .rhinodio label {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   padding-left: 0;
 }
 .nav-tabs__item {
+  border-bottom: 1px solid #fff;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: -1px;
+  margin-right: -1px;
+  position: relative;
+}
+.nav-tabs__item::after,
+.nav-tabs__item::before {
+  bottom: 0;
+  border-color: #d2d2d2;
+  border-style: solid;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform .1s linear;
+}
+.nav-tabs__item::after {
+  border-width: 0 1px;
+  transform: scale(1, 0);
+  transform-origin: 50% 100%;
+}
+.nav-tabs__item::before {
+  border-color: #d2d2d2;
+  border-width: 1px 0 0;
+  transform: translateY(calc(100% - 1px));
+  z-index: -1;
+}
+.nav-tabs__item.active::after {
+  transform: scale(1, 1);
+  transition: transform 0.3s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+}
+.nav-tabs__item.active::before {
+  border-color: #0081c6;
+  border-width: 2px 0 0;
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
 .nav-tabs__item__link {
   border: 1px solid transparent;
   border-bottom: none;
+  color: #0081c6;
   display: -ms-flexbox;
   display: flex;
   -ms-flex: 1 1 auto;
@@ -3006,30 +3043,9 @@ fieldset[disabled] .rhinodio label {
   position: relative;
   text-align: center;
   width: 100%;
-  /*&:hover {
-    border-color: @border-color-base;
-  }*/
-}
-.nav-tabs__item__link:hover,
-.nav-tabs__item__link:focus {
-  color: #004f7a;
 }
 .nav-tabs__item.active .nav-tabs__item__link {
-  background-color: #fff;
-  border-left-color: #d2d2d2;
-  border-right-color: #d2d2d2;
-  border-top-color: #0081c6;
   color: #6c6c6c;
-}
-.nav-tabs__item.active .nav-tabs__item__link::after {
-  background: #0081c6;
-  content: '';
-  display: block;
-  height: .2rem;
-  left: -1px;
-  position: absolute;
-  right: -1px;
-  top: 0;
 }
 .tabs-content__pane {
   display: none;
