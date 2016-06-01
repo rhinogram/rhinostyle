@@ -1,0 +1,13 @@
+var ComponentExample = React.createClass({
+  render() {
+    return (
+      <div>
+        <Avatar type="member" size="large">CA</Avatar>
+        <Avatar type="patient">IG</Avatar>
+        <Avatar type="member" size="small"><Icon icon="user" type="avatar" /></Avatar>
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<ComponentExample />, mountNode);

@@ -2985,28 +2985,40 @@ fieldset[disabled] .rhinodio label {
   padding-left: 0;
 }
 .nav-tabs__item {
+  display: -ms-flexbox;
+  display: flex;
   margin-bottom: -1px;
 }
 .nav-tabs__item__link {
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -1px;
   padding: 1rem 1.5rem;
   position: relative;
+  text-align: center;
+  width: 100%;
 }
-.active .nav-tabs__item__link {
+.nav-tabs__item__link:hover {
+  border-color: #d2d2d2;
+}
+.nav-tabs__item.active .nav-tabs__item__link {
   background-color: #fff;
-  border-bottom-color: transparent;
   border-left-color: #d2d2d2;
   border-right-color: #d2d2d2;
+  border-top-color: #0081c6;
   color: #6c6c6c;
 }
-.active .nav-tabs__item__link::after {
+.nav-tabs__item.active .nav-tabs__item__link::after {
   background: #0081c6;
   content: '';
   display: block;
-  height: .3rem;
+  height: .2rem;
   left: -1px;
   position: absolute;
   right: -1px;

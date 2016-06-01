@@ -11,14 +11,15 @@ export default {
   cache: true,
   devTool: 'cheap-module-source-map',
   entry: {
-    vendor: dependencies,
-    button: path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
-    icon: path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
-    feedback: path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
-    label: path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
-    loader: path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
+    vendor:      dependencies,
+    button:      path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
+    icon:        path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
+    feedback:    path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
+    avatar:      path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
+    label:       path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
+    loader:      path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
-    pill: path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
+    pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
@@ -47,7 +48,7 @@ export default {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
-    /*new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })*/
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ })
   ]
 };

@@ -16,28 +16,39 @@
 }
 
 .nav-tabs__item {
+  display: flex;
+  //flex: 1 1 auto;
   margin-bottom: -1px;
 }
 
 .nav-tabs__item__link {
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
   display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  margin-right: -1px;
   padding: @nav-link-padding;
   position: relative;
+  text-align: center;
+  width: 100%;
 
-  .active & {
+  &:hover {
+    border-color: @border-color-base;
+  }
+
+  .nav-tabs__item.active & {
     background-color: @body-bg;
-    border-bottom-color: transparent;
     border-left-color: @border-color-base;
     border-right-color: @border-color-base;
+    border-top-color: @brand-primary;
     color: @text-color;
 
     &::after {
       background: @brand-primary;
       content: '';
       display: block;
-      height: .3rem;
+      height: .2rem;
       left: -1px;
       position: absolute;
       right: -1px;
