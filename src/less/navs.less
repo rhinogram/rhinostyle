@@ -3,7 +3,7 @@
 
 
 // -------------------------
-// Nav Tabs
+// Nav Tabs (ul)
 // -------------------------
 
 
@@ -11,15 +11,27 @@
   border-bottom: 1px solid @border-color-base;
   display: flex;
   list-style: none;
-  margin-bottom: 0;
+  margin-bottom: @margin-medium;
   padding-left: 0;
 }
+
+
+// -------------------------
+// Nav Tabs Item (li)
+// -------------------------
+
 
 .nav-tabs__item {
   display: flex;
   //flex: 1 1 auto;
   margin-bottom: -1px;
 }
+
+
+// -------------------------
+// Nav Tabs Link (a)
+// -------------------------
+
 
 .nav-tabs__item__link {
   border: 1px solid transparent;
@@ -33,8 +45,13 @@
   text-align: center;
   width: 100%;
 
-  &:hover {
+  /*&:hover {
     border-color: @border-color-base;
+  }*/
+
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
   }
 
   .nav-tabs__item.active & {
@@ -56,3 +73,19 @@
     }
   }
 }
+
+
+// -------------------------
+// Tabs Content (universal)
+// -------------------------
+
+
+.tabs-content__pane {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+

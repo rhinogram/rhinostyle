@@ -391,6 +391,9 @@ input[type='checkbox']:focus,
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.u-underline {
+  text-decoration: underline !important;
+}
 .u-bg-accent {
   background-color: #ffa573 !important;
 }
@@ -2981,7 +2984,7 @@ fieldset[disabled] .rhinodio label {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   padding-left: 0;
 }
 .nav-tabs__item {
@@ -3003,9 +3006,13 @@ fieldset[disabled] .rhinodio label {
   position: relative;
   text-align: center;
   width: 100%;
+  /*&:hover {
+    border-color: @border-color-base;
+  }*/
 }
-.nav-tabs__item__link:hover {
-  border-color: #d2d2d2;
+.nav-tabs__item__link:hover,
+.nav-tabs__item__link:focus {
+  color: #004f7a;
 }
 .nav-tabs__item.active .nav-tabs__item__link {
   background-color: #fff;
@@ -3023,6 +3030,12 @@ fieldset[disabled] .rhinodio label {
   position: absolute;
   right: -1px;
   top: 0;
+}
+.tabs-content__pane {
+  display: none;
+}
+.tabs-content__pane.active {
+  display: block;
 }
 .notify-container {
   left: 1rem;
@@ -3411,8 +3424,8 @@ pre {
   padding: 0.6rem 1.5rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
-.no-touch .site-navigation__nav__btn:hover,
-.no-touch .site-navigation__nav__btn:focus {
+.site-navigation__nav__btn:hover,
+.site-navigation__nav__btn:focus {
   background-color: #52d9c8;
   box-shadow: none;
 }
