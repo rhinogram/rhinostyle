@@ -2988,7 +2988,6 @@ fieldset[disabled] .rhinodio label {
   padding-left: 0;
 }
 .nav-tabs__item {
-  border-bottom: 1px solid #fff;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: -1px;
@@ -3005,7 +3004,6 @@ fieldset[disabled] .rhinodio label {
   position: absolute;
   right: 0;
   top: 0;
-  transition: transform .1s linear;
 }
 .nav-tabs__item::after {
   border-width: 0 1px;
@@ -3020,13 +3018,13 @@ fieldset[disabled] .rhinodio label {
 }
 .nav-tabs__item.active::after {
   transform: scale(1, 1);
-  transition: transform 0.3s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  transition: transform 0.3s cubic-bezier(1, 0.6, 0, 1.22);
 }
 .nav-tabs__item.active::before {
   border-color: #0081c6;
   border-width: 2px 0 0;
   transform: translateY(0);
-  transition: transform 0.3s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  transition: transform 0.3s cubic-bezier(1, 0.6, 0, 1.22);
 }
 .nav-tabs__item__link {
   border: 1px solid transparent;
@@ -3046,6 +3044,15 @@ fieldset[disabled] .rhinodio label {
 }
 .nav-tabs__item.active .nav-tabs__item__link {
   color: #6c6c6c;
+}
+.nav-tabs__item.active .nav-tabs__item__link::after {
+  background: #fff;
+  bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
 }
 .tabs-content__pane {
   display: none;

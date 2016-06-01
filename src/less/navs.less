@@ -22,7 +22,6 @@
 
 
 .nav-tabs__item {
-  border-bottom: 1px solid @white; // background color to cover nav-tabs border
   display: flex;
   //flex: 1 1 auto;
   margin-bottom: -1px;
@@ -39,7 +38,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: transform .1s linear;
+    //transition: transform .2s cubic-bezier(1, 0.6, 0, 1);
   }
 
   &::after {
@@ -58,14 +57,14 @@
   &.active {
     &::after {
       transform: scale(1, 1);
-      transition: transform .3s @trans-timing-cubic;
+      transition: transform .3s @trans-timing-elastic;
     }
 
     &::before {
       border-color: @brand-primary;
       border-width: 2px 0 0;
       transform: translateY(0);
-      transition: transform .3s @trans-timing-cubic;
+      transition: transform .3s @trans-timing-elastic;
     }
   }
 }
@@ -92,6 +91,16 @@
   .nav-tabs__item.active & {
     color: @text-color;
     //transition: color 2s;
+
+    &::after {
+      background: @white; // to cover .nav-tabs border
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
   }
 
 }
