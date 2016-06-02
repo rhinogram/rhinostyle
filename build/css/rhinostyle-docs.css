@@ -235,7 +235,7 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0;
-  line-height: 1.42857143;
+  line-height: 1.4;
 }
 b,
 strong {
@@ -260,8 +260,8 @@ figure {
 hr {
   border: 0;
   border-top: 1px solid #d2d2d2;
-  margin-bottom: 2.28571429rem;
-  margin-top: 2.28571429rem;
+  margin-bottom: 2.24rem;
+  margin-top: 2.24rem;
 }
 input,
 button,
@@ -1565,7 +1565,7 @@ button.close {
   display: -ms-flexbox;
   display: flex;
   font-weight: normal;
-  line-height: 1.42857143;
+  line-height: 1.4;
   padding: 0.6rem 1.4rem;
   position: relative;
   white-space: nowrap;
@@ -1592,7 +1592,7 @@ button.close {
   color: #d2d2d2;
   display: block;
   font-size: 1.4rem;
-  line-height: 1.42857143;
+  line-height: 1.4;
   padding: 0.6rem 1.4rem;
   white-space: nowrap;
 }
@@ -2281,7 +2281,7 @@ legend {
   display: block;
   font-size: 2.4rem;
   line-height: inherit;
-  margin-bottom: 2.28571429rem;
+  margin-bottom: 2.24rem;
   padding: 0;
   width: 100%;
 }
@@ -2454,7 +2454,7 @@ textarea.form__control {
   }
 }*/
 .form__group {
-  margin-bottom: 2.28571429rem;
+  margin-bottom: 2.24rem;
 }
 input[type='search'] {
   -webkit-appearance: none;
@@ -2499,7 +2499,7 @@ fieldset[disabled] input[type='checkbox'] {
   cursor: pointer;
   font-weight: normal;
   margin-bottom: 0;
-  min-height: 2.28571429rem;
+  min-height: 2.24rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2924,7 +2924,7 @@ fieldset[disabled] .rhinodio label {
 }
 .modal__header {
   border-bottom: 1px solid #ececec;
-  min-height: 2.92857143rem;
+  min-height: 2.9rem;
   padding: 1.5rem;
 }
 .modal__header .close {
@@ -2934,7 +2934,7 @@ fieldset[disabled] .rhinodio label {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 1.42857143;
+  line-height: 1.4;
   margin: 0;
 }
 .modal__body {
@@ -3012,8 +3012,7 @@ fieldset[disabled] .rhinodio label {
 }
 .nav-tabs__item::before {
   border-color: #d2d2d2;
-  border-width: 1px 0 0;
-  transform: translateY(calc(100% - 1px));
+  border-width: 0 0 1px;
   z-index: -1;
 }
 .nav-tabs__item.active::after {
@@ -3022,12 +3021,13 @@ fieldset[disabled] .rhinodio label {
 }
 .nav-tabs__item.active::before {
   border-color: #0081c6;
-  border-width: 2px 0 0;
-  transform: translateY(0);
+  border-width: 0 0 2px;
+  transform: translateY(-100%);
   transition: transform 0.3s cubic-bezier(1, 0.6, 0, 1.22);
 }
 .nav-tabs__item__link {
-  border: 1px solid transparent;
+  -ms-flex-align: center;
+  align-items: center;
   border-bottom: none;
   color: #0081c6;
   display: -ms-flexbox;
@@ -3242,11 +3242,11 @@ h6 {
   font-size: 1.4rem;
 }
 p {
-  margin: 0 0 1.14285714rem;
+  margin: 0 0 1.12rem;
 }
 ul,
 ol {
-  margin-bottom: 1.14285714rem;
+  margin-bottom: 1.12rem;
   margin-top: 0;
 }
 ul ul,
@@ -3271,12 +3271,12 @@ ol ol {
   padding-right: 0.6rem;
 }
 dl {
-  margin-bottom: 2.28571429rem;
+  margin-bottom: 2.24rem;
   margin-top: 0;
 }
 dt,
 dd {
-  line-height: 1.42857143;
+  line-height: 1.4;
 }
 dt {
   font-weight: bold;
@@ -3286,8 +3286,8 @@ dd {
 }
 address {
   font-style: normal;
-  line-height: 1.42857143;
-  margin-bottom: 2.28571429rem;
+  line-height: 1.4;
+  margin-bottom: 2.24rem;
 }
 small {
   font-size: 87%;
