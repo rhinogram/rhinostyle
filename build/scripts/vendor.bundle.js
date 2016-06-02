@@ -80178,6 +80178,7 @@
 	      var _props = this.props;
 	      var size = _props.size;
 	      var type = _props.type;
+	      var image = _props.image;
 
 	      var cx = (0, _classnames2.default)('avatar', {
 	        'avatar--sm': size === 'small',
@@ -80185,10 +80186,13 @@
 	        'avatar--member': type === 'member',
 	        'avatar--patient': type === 'patient'
 	      });
+	      var styles = {
+	        backgroundImage: 'url(' + image + ')'
+	      };
 
 	      return _react2.default.createElement(
 	        'figure',
-	        { className: cx },
+	        { className: cx, style: styles },
 	        this.props.children
 	      );
 	    }
@@ -80199,6 +80203,7 @@
 
 	Avatar.displayName = 'RhinoAvatar';
 	Avatar.propTypes = {
+	  image: _react2.default.PropTypes.string,
 	  size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
 	  type: _react2.default.PropTypes.oneOf(['member', 'patient']).isRequired
 	};
