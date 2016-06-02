@@ -3,7 +3,6 @@ class ComponentExample extends React.Component {
     return (
       <div>
         <Callout head="Default Callout" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-        <Toast type="secondary" body={<span><Icon icon="checkmark" /> Default notification - <a href="#" className="notify__link">click link</a></span>} />
       </div>
     );
   }
