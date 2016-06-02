@@ -3002,9 +3002,9 @@ fieldset[disabled] .rhinodio label {
 }
 .nav-tabs__item::after,
 .nav-tabs__item::before {
-  bottom: 0;
   border-color: #d2d2d2;
   border-style: solid;
+  bottom: 0;
   content: '';
   left: 0;
   position: absolute;

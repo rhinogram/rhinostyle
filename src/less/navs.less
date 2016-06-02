@@ -34,7 +34,7 @@
 // -------------------------
 
 
-.nav-tabs__item {
+.nav-tabs__item { // lesshint depthLevel: false
   display: flex;
   //flex: 1 1 auto;
   margin-bottom: -1px; // align with .nav-tabs border-bottom
@@ -43,9 +43,9 @@
 
   &::after,
   &::before {
-    bottom: 0;
     border-color: @border-color-base;
     border-style: solid;
+    bottom: 0;
     content: '';
     left: 0;
     position: absolute;
