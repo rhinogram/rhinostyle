@@ -5,12 +5,17 @@ import { LoaderPulse, LoaderLine } from '../components';
 
 import Playground from 'component-playground';
 
-const loaderExample = require('raw!./examples/Loader.example.txt');
-const exampleScope  = {
+const lineExample  = require('raw!./examples/LoaderLine.example.txt');
+const pulseExample = require('raw!./examples/LoaderPulse.example.txt');
+const lineScope = {
+  React:  React,
+  ReactDOM: ReactDOM,
+  LoaderLine: LoaderLine
+};
+const pulseScope = {
   React:  React,
   ReactDOM: ReactDOM,
   LoaderPulse: LoaderPulse,
-  LoaderLine: LoaderLine
 };
 
 class LoaderApp extends React.Component {
@@ -23,29 +28,29 @@ class LoaderApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Loader Pulse</h3>
-
-          <div class="u-m-b-md">
+          <div className="u-m-b-md">
             <LoaderPulse /><br />
             <LoaderPulse type="accent" /><br />
             <LoaderPulse type="secondary" />
           </div>
-
-        </section>
-
-        <section className="site-section">
-          <h3 className="site-subheadline">Loader Line</h3>
-
-          <div class="u-m-b-md">
-            <LoaderLine />
-          </div>
-
         </section>
 
         <section>
           <h3 className="site-subheadline">Playground</h3>
-          <Playground codeText={loaderExample} scope={exampleScope} noRender={false} />
+          <Playground codeText={pulseExample} scope={pulseScope} noRender={false} />
         </section>
 
+        <section className="site-section">
+          <h3 className="site-subheadline">Loader Line</h3>
+          <div className="u-m-b-md">
+            <LoaderLine />
+          </div>
+        </section>
+
+        <section>
+          <h3 className="site-subheadline">Playground</h3>
+          <Playground codeText={lineExample} scope={lineScope} noRender={false} />
+        </section>
       </div>
     );
   }
