@@ -5,13 +5,18 @@ import { NotificationActions, Callout, Icon, Toast } from '../components';
 
 import Playground from 'component-playground';
 
-const feedbackExample = require('raw!./examples/Feedback.example.txt');
-const exampleScope    = {
+const calloutExample = require('raw!./examples/Callout.example.txt');
+const toastExample   = require('raw!./examples/Toast.example.txt');
+const toastScope   = {
   React: React,
   ReactDOM: ReactDOM,
-  Callout: Callout,
   Toast: Toast,
   Icon: Icon
+};
+const calloutScope   = {
+  React: React,
+  ReactDOM: ReactDOM,
+  Callout: Callout
 };
 
 class FeedbackApp extends React.Component {
@@ -47,6 +52,11 @@ class FeedbackApp extends React.Component {
           </div>
         </section>
 
+        <section>
+          <h3 className="site-subheadline">Playground</h3>
+          <Playground codeText={calloutExample} scope={calloutScope} noRender={false} />
+        </section>
+
         <section className="site-section">
           <h3 className="site-subheadline">Toast Notifications</h3>
           <Toast type="default" body={<span>Default notification - <a href="#" className="notify__link" onClick={this.onClick}>click link</a></span>} />
@@ -56,7 +66,7 @@ class FeedbackApp extends React.Component {
 
         <section>
           <h3 className="site-subheadline">Playground</h3>
-          <Playground codeText={feedbackExample} scope={exampleScope} noRender={false} />
+          <Playground codeText={toastExample} scope={toastScope} noRender={false} />
         </section>
       </div>
     );

@@ -3326,6 +3326,7 @@ pre {
     padding: 3rem;
   }
 }
+.site-content .avatar:not(:last-child),
 .site-content .btn:not(:last-child),
 .site-content .label:not(:last-child),
 .site-content .pill:not(:last-child) {

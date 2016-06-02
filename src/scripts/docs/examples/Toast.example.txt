@@ -2,8 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <LoaderPulse type="secondary" /><br /><br />
-        <LoaderLine />
+        <Toast type="secondary" body={<span><Icon icon="checkmark" /> Default notification - <a href="#" className="notify__link">click link</a></span>} />
       </div>
     );
   }
