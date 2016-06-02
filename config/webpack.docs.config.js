@@ -19,8 +19,7 @@ export default {
     label:       path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
     loader:      path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
-    pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx'),
-    dropdown:    path.join(__dirname, '../src/scripts/docs/DropdownApp.jsx'),
+    pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx')
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
