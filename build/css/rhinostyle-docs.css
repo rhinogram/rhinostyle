@@ -1454,7 +1454,8 @@ button.close {
   outline: 0;
 }
 .dropdown--block {
-  display: block;
+  display: -ms-flexbox;
+  display: flex;
 }
 .dropdown--block .dropdown__toggle {
   width: 100%;
@@ -3384,20 +3385,23 @@ pre {
 }
 .site-header__title {
   color: #0081c6;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex: 1;
   flex: 1 1 0%;
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 300;
+  min-width: 0;
   position: relative;
   text-shadow: 1px 1px 1px #fff;
-}
-.site-header__title > span {
-  font-weight: 300;
 }
 @media (min-width: 768px) {
   .site-header__title {
     font-size: 2.8rem;
   }
+}
+.site-header__title__treatment {
+  font-weight: 700;
 }
 .site-headline {
   display: none;
