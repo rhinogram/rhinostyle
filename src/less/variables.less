@@ -7,7 +7,7 @@
 // -------------------------
 
 
-@alert-border-radius:         @border-radius-base;
+/*@alert-border-radius:         @border-radius-base;
 @alert-padding:               @padding-large;
 
 @alert-danger-bg:             @state-danger-bg;
@@ -24,7 +24,7 @@
 
 @alert-warning-bg:            @state-warning-bg;
 @alert-warning-text:          @state-warning-text;
-@alert-warning-border:        @state-warning-border;
+@alert-warning-border:        @state-warning-border;*/
 
 
 // -------------------------
@@ -152,20 +152,10 @@
 // Components
 // -------------------------
 
-// buttons and inputs vertical
-@padding-large-vertical:    .7rem;
-@padding-base-vertical:     .6rem;
-@padding-small-vertical:    .5rem;
-@padding-xs-vertical:       .3rem;
-
-// buttons and inputs horizontal
-@padding-large-horizontal:  1.4rem;
-@padding-base-horizontal:   1.2rem;
-@padding-small-horizontal:  1.0rem;
-@padding-xs-horizontal:     .6rem;
 
 // fine-tune component padding
 @padding-half-gutter:       @grid-gutter-width / 2; // 15px
+@padding-xlarge:            1.4rem;
 @padding-large:             1.2rem;
 @padding-medium:            1.0rem;
 @padding-base:              .8rem;
@@ -215,7 +205,7 @@
 @dropdown-link-active-bg:        @component-active-bg;
 @dropdown-link-disabled-color:   @gray-light;
 
-@dropdown-padding:               @padding-base-vertical @padding-large-horizontal;
+@dropdown-padding:               @padding-small @padding-xlarge;
 
 
 // -------------------------
@@ -280,11 +270,10 @@
 @label-color:               @white;
 @label-link-hover-color:    @white;
 
-@label-padding-bottom:      .2rem;
-@label-padding-sides:       .5rem;
-@label-padding-top:         .2rem;
 
-@label-padding:             @label-padding-top @label-padding-sides @label-padding-bottom;
+@label-padding-sides:       .5rem;
+
+@label-padding:             0 @label-padding-sides;
 
 
 // -------------------------

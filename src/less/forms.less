@@ -189,7 +189,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .addon-size(@input-height-base; @padding-small-horizontal; @font-size-base);
+  .addon-size(@input-height-base; @padding-medium; @font-size-base);
 }
 
 .form__addon__item--left {
@@ -243,7 +243,7 @@ input[type='checkbox']:focus {
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   width: 100%;
 
-  .input-size(@input-height-base; @padding-small-horizontal; @font-size-base; @input-border-radius);
+  .input-size(@input-height-base; @padding-medium; @font-size-base; @input-border-radius);
 
   &:focus {
     &:extend(.u-tab-focus);
@@ -263,8 +263,8 @@ input[type='checkbox']:focus {
 
   textarea& {
     height: auto;
-    padding-bottom: @padding-base-vertical;
-    padding-top: @padding-base-vertical;
+    padding-bottom: @padding-small;
+    padding-top: @padding-small;
   }
 }
 
@@ -275,11 +275,11 @@ input[type='checkbox']:focus {
 
 
 /*.form__control--sm {
-  .input-size(@input-height-small; @padding-small-horizontal; @font-size-small; @input-border-radius-small);
+  .input-size(@input-height-small; @padding-medium; @font-size-small; @input-border-radius-small);
 }
 
 .form__control--lg {
-  .input-size(@input-height-large; @padding-large-horizontal; @font-size-large; @input-border-radius-large);
+  .input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
 }
 
 // Apply class to a `p` element to make any string of text align with labels in
@@ -516,7 +516,7 @@ input[type='checkbox'] {
     height: 1.4rem;
     pointer-events: none;
     position: absolute;
-    right: @padding-base-horizontal;
+    right: @padding-large;
     top: 50%;
     transform: translateY(-50%);
     width: 1.4rem;
@@ -539,7 +539,7 @@ input[type='checkbox'] {
 /*.rhinoselect--sm {
   &::after {
     background-size: 1.2rem 1.2rem;
-    right: @padding-small-horizontal;
+    right: @padding-medium;
   }
 }*/
 

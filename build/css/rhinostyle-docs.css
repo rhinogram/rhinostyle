@@ -776,6 +776,24 @@ a.u-text-warning:hover,
   padding-top: 4.5rem !important;
   padding-bottom: 4.5rem !important;
 }
+/*@alert-border-radius:         @border-radius-base;
+@alert-padding:               @padding-large;
+
+@alert-danger-bg:             @state-danger-bg;
+@alert-danger-text:           @state-danger-text;
+@alert-danger-border:         @state-danger-border;
+
+@alert-info-bg:               @state-info-bg;
+@alert-info-text:             @state-info-text;
+@alert-info-border:           @state-info-border;
+
+@alert-success-bg:            @state-success-bg;
+@alert-success-text:          @state-success-text;
+@alert-success-border:        @state-success-border;
+
+@alert-warning-bg:            @state-warning-bg;
+@alert-warning-text:          @state-warning-text;
+@alert-warning-border:        @state-warning-border;*/
 /*@badge-active-color:          @link-color;
 @badge-active-bg:             @white;
 @badge-bg:                    @gray-light;
@@ -1509,7 +1527,7 @@ button.close {
   list-style: none;
   margin: .2rem 0 0;
   opacity: 0;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   position: absolute;
   text-align: left;
   top: 90%;
@@ -2432,11 +2450,11 @@ textarea.form__control {
   padding-top: 0.6rem;
 }
 /*.form__control--sm {
-  .input-size(@input-height-small; @padding-small-horizontal; @font-size-small; @input-border-radius-small);
+  .input-size(@input-height-small; @padding-medium; @font-size-small; @input-border-radius-small);
 }
 
 .form__control--lg {
-  .input-size(@input-height-large; @padding-large-horizontal; @font-size-large; @input-border-radius-large);
+  .input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
 }
 
 // Apply class to a `p` element to make any string of text align with labels in
@@ -2620,7 +2638,7 @@ fieldset[disabled] .rhinodio label {
 /*.rhinoselect--sm {
   &::after {
     background-size: 1.2rem 1.2rem;
-    right: @padding-small-horizontal;
+    right: @padding-medium;
   }
 }*/
 .rhinoswitcher {
@@ -2733,20 +2751,10 @@ fieldset[disabled] .rhinodio label {
   display: inline-flex;
   font-size: 75%;
   font-weight: 700;
-  line-height: 1;
-  padding: 0.2rem 0.5rem 0.2rem;
+  padding: 0 0.5rem;
   position: relative;
-  text-align: center;
   vertical-align: baseline;
   white-space: nowrap;
-  /*a& {
-    &:hover,
-    &:focus {
-      color: @label-link-hover-color;
-      cursor: pointer;
-      text-decoration: none;
-    }
-  }*/
 }
 .label:empty {
   display: none;
