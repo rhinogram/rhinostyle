@@ -1459,6 +1459,18 @@ button.close {
   position: relative;
   vertical-align: middle;
 }
+.dropdown.open > .dropdown__menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0.4rem);
+  visibility: visible;
+}
+.dropdown.open > .dropdown__menu--top {
+  transform: translateY(-0.4rem);
+}
+.dropdown.open > a {
+  outline: 0;
+}
 .dropdown--block {
   display: -ms-flexbox;
   display: flex;
@@ -1503,18 +1515,6 @@ button.close {
   transform: translateY(-50%);
   width: 1.2rem;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%230081c6%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
-}
-.dropdown--open > .dropdown__menu {
-  display: block;
-  opacity: 1;
-  transform: translateY(0.4rem);
-  visibility: visible;
-}
-.dropdown--open > .dropdown__menu--top {
-  transform: translateY(-0.4rem);
-}
-.dropdown--open > a {
-  outline: 0;
 }
 .dropdown__menu {
   background-clip: padding-box;
