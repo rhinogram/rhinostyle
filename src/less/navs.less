@@ -15,24 +15,37 @@
   padding-left: 0;
 }
 
+.nav-tabs--justified-auto {
+  .nav-tabs__item {
+    flex: 1 1 auto;
+  }
+}
+
+.nav-tabs--justified-equal {
+  .nav-tabs__item {
+    flex: 1;
+  }
+}
+
+
 
 // -------------------------
 // Nav Tabs Item (li)
 // -------------------------
 
 
-.nav-tabs__item {
+.nav-tabs__item { // lesshint depthLevel: false
   display: flex;
   //flex: 1 1 auto;
-  margin-bottom: -1px;
+  margin-bottom: -1px; // align with .nav-tabs border-bottom
   margin-right: -1px;
   position: relative;
 
   &::after,
   &::before {
-    bottom: 0;
     border-color: @border-color-base;
     border-style: solid;
+    bottom: 0;
     content: '';
     left: 0;
     position: absolute;
@@ -49,22 +62,21 @@
 
   &::before {
     border-color: @border-color-base;
-    border-width: 1px 0 0;
-    transform: translateY(calc(~"100% - 1px"));
+    border-width: 0 0 1px;
     z-index: -1;
   }
 
   &.active {
     &::after {
       transform: scale(1, 1);
-      transition: transform .3s @trans-timing-elastic;
+      transition: transform .35s @trans-timing-cubic;
     }
 
     &::before {
       border-color: @brand-primary;
-      border-width: 2px 0 0;
-      transform: translateY(0);
-      transition: transform .3s @trans-timing-elastic;
+      border-width: 0 0 2px;
+      transform: translateY(-100%);
+      transition: transform .35s @trans-timing-cubic;
     }
   }
 }
@@ -76,8 +88,7 @@
 
 
 .nav-tabs__item__link {
-  border: 1px solid transparent;
-  border-bottom: none;
+  align-items: center;
   color: @brand-primary;
   display: flex;
   flex: 1 1 auto;
@@ -86,11 +97,10 @@
   padding: @nav-link-padding;
   position: relative;
   text-align: center;
-  width: 100%;
+  //width: 100%;
 
   .nav-tabs__item.active & {
     color: @text-color;
-    //transition: color 2s;
 
     &::after {
       background: @white; // to cover .nav-tabs border

@@ -23,7 +23,7 @@ class Loaderline extends React.Component {
 
     return (
       <div className={cx}>
-        <span className="loader-line__line"></span><span className="loader-line__line"></span><span className="loader-line__line"></span>
+        <span className="loader-line__line"></span><span className="loader-line__line"></span>
       </div>
     );
   }

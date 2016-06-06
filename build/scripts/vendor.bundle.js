@@ -80827,7 +80827,6 @@
 	        'div',
 	        { className: cx },
 	        _react2.default.createElement('span', { className: 'loader-line__line' }),
-	        _react2.default.createElement('span', { className: 'loader-line__line' }),
 	        _react2.default.createElement('span', { className: 'loader-line__line' })
 	      );
 	    }

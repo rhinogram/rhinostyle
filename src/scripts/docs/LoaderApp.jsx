@@ -28,23 +28,19 @@ class LoaderApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Loader Pulse</h3>
-          <div className="u-m-b-md">
-            <LoaderPulse /><br />
-            <LoaderPulse type="accent" /><br />
-            <LoaderPulse type="secondary" />
-          </div>
+          <LoaderPulse /><br />
+          <LoaderPulse type="accent" /><br />
+          <LoaderPulse type="secondary" />
         </section>
 
-        <section>
+        <section className="site-section">
           <h3 className="site-subheadline">Playground</h3>
           <Playground codeText={pulseExample} scope={pulseScope} noRender={false} />
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">Loader Line</h3>
-          <div className="u-m-b-md">
-            <LoaderLine />
-          </div>
+          <LoaderLine />
         </section>
 
         <section>

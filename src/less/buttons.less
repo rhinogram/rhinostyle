@@ -23,7 +23,7 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  .button-size(@btn-height-base; @padding-base-horizontal; @font-size-base; @btn-border-radius-base);
+  .button-size(@btn-height-base; @padding-large; @font-size-base; @btn-border-radius-base);
 
   &:hover,
   &:focus {
@@ -56,10 +56,6 @@
       pointer-events: none;
     }
   }
-
-  /*&:not(:last-child) {
-    margin-right: @margin-small;
-  }*/
 
   .icon {
     font-size: @font-size-base + .2rem;
@@ -215,7 +211,7 @@ input[type='button'] {
 
 
 .btn--lg {
-  .button-size(@btn-height-large; @padding-large-horizontal; @font-size-large; @btn-border-radius-base);
+  .button-size(@btn-height-large; @padding-xlarge; @font-size-large; @btn-border-radius-base);
 
   .icon {
     font-size: @font-size-large + .2rem;
@@ -223,7 +219,7 @@ input[type='button'] {
 }
 
 .btn--sm {
-  .button-size(@btn-height-small; @padding-small-horizontal; @font-size-small; @btn-border-radius-small);
+  .button-size(@btn-height-small; @padding-medium; @font-size-small; @btn-border-radius-small);
 
   .icon {
     font-size: @font-size-small + .2rem;
