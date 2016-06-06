@@ -1,4 +1,5 @@
 {% include "opening.html" %}
+<section id="js-notifications-container" class="notify-container" style="z-index: 10"></section>
 <nav id="site-navigation" class="site-navigation">
   {% include "navigation.html" %}
 </nav>
@@ -20,7 +21,6 @@
   <main class="site-content" id="js-app">
     {% block body %}{% endblock %}
   </main>
-  <section id="js-notifications-container"></section>
 </div>
 {% include "closing.html" %}
 
