@@ -42,7 +42,7 @@
       var $parent       = getParent($this)
       var relatedTarget = { relatedTarget: this }
 
-      if (!$parent.hasClass('open')) return
+      if (!$parent.hasClass('dropdown--open')) return
 
       if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
 
@@ -51,7 +51,7 @@
       if (e.isDefaultPrevented()) return
 
       $this.attr('aria-expanded', 'false')
-      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
+      $parent.removeClass('dropdown--open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
     })
   }
 
@@ -61,7 +61,7 @@
     if ($this.is('.disabled, :disabled')) return
 
     var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+    var isActive = $parent.hasClass('dropdown--open')
 
     clearMenus()
 
@@ -84,7 +84,7 @@
         .attr('aria-expanded', 'true')
 
       $parent
-        .toggleClass('open')
+        .toggleClass('dropdown--open')
         .trigger($.Event('shown.bs.dropdown', relatedTarget))
     }
 
@@ -102,7 +102,7 @@
     if ($this.is('.disabled, :disabled')) return
 
     var $parent  = getParent($this)
-    var isActive = $parent.hasClass('open')
+    var isActive = $parent.hasClass('dropdown--open')
 
     if (!isActive && e.which != 27 || isActive && e.which == 27) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
