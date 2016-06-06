@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Toast } from '../../components';
+import NotificationContainer from './NotificationContainer';
 
 import * as NotificationActions from '../actions';
 import NotificationStore        from '../stores';
@@ -30,11 +30,11 @@ const NotificationsContainer =  React.createClass({
 
   render() {
     const notifications = this.state.notifications.map((notification, index) => {
-      return <Toast key={notification.id} index={index} type={notification.type} body={notification.body} dismissable={notification.dismissable} onDismiss={notification.dismissable ? this.onDismiss.bind(this, notification.id) : null} />;
+      return <NotificationContainer key={notification.id} index={index} notification={notification} onDismiss={this.onDismiss.bind(this, notification.id)} />;
     });
 
     return (
-      <div className="notification-container">
+      <div>
         {notifications}
       </div>
     );
