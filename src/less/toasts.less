@@ -1,13 +1,13 @@
-// File: notifications.less
+// File: toasts.less
 // Note:
 
 
 // -------------------------
-// Notify Container
+// Toast Container
 // -------------------------
 
 
-.notify-container {
+.toast-container {
   left: 1rem;
   position: fixed;
   right: 1rem;
@@ -22,17 +22,17 @@
 
 
 // -------------------------
-// Notify
+// Toast
 // -------------------------
 
 
-.notify {
-  border-radius: @notify-border-radius;
-  color: @notify-text;
-  font-weight: @notify-font-weight;
+.toast {
+  border-radius: @toast-border-radius;
+  color: @toast-text;
+  font-weight: @toast-font-weight;
   margin-bottom: @margin-small;
   max-width: 50rem;
-  padding: @notify-padding;
+  padding: @toast-padding;
   position: relative;
 
   > .icon {
@@ -42,30 +42,30 @@
 
 
 // -------------------------
-// Notify Modifiers
+// Toast Modifiers
 // -------------------------
 
 
-.notify--danger {
+.toast--danger {
   background: @brand-danger;
 }
 
-.notify--default {
+.toast--default {
   background: @gray-dark;
 }
 
-.notify--secondary {
+.toast--secondary {
   background: @brand-secondary;
 }
 
 
 
 // -------------------------
-// Notify Close
+// Toast Close
 // -------------------------
 
 
-.notify__close {
+.toast__close {
   &:extend(.close);
   float: none;
   position: absolute;
@@ -91,11 +91,11 @@
 
 
 // -------------------------
-// Notify Link
+// Toast Link
 // -------------------------
 
-.notify__link {
-  color: @notify-text;
+.toast__link {
+  color: @toast-text;
   text-decoration: underline;
 
   &:hover {

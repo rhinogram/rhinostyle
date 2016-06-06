@@ -19,15 +19,15 @@ class Toast extends React.Component {
 
   render() {
     const { body, onDismiss, type } = this.props;
-    const cx = classNames('notify', {
-      'notify--danger':    type==='danger',
-      'notify--default':   type==='default',
-      'notify--secondary': type==='secondary'
+    const cx = classNames('toast', {
+      'toast--danger':    type==='danger',
+      'toast--default':   type==='default',
+      'toast--secondary': type==='secondary'
     });
 
     return (
       <div className={cx}>
-        <button type="button" onClick={onDismiss} className="notify__close" data-dismiss="notify" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" onClick={onDismiss} className="toast__close" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {body}
       </div>
     );

@@ -80379,7 +80379,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'callout__copy' },
+	          { className: 'callout__body' },
 	          body
 	        )
 	      );
@@ -81078,10 +81078,10 @@
 	      var onDismiss = _props.onDismiss;
 	      var type = _props.type;
 
-	      var cx = (0, _classnames2.default)('notify', {
-	        'notify--danger': type === 'danger',
-	        'notify--default': type === 'default',
-	        'notify--secondary': type === 'secondary'
+	      var cx = (0, _classnames2.default)('toast', {
+	        'toast--danger': type === 'danger',
+	        'toast--default': type === 'default',
+	        'toast--secondary': type === 'secondary'
 	      });
 
 	      return _react2.default.createElement(
@@ -81089,7 +81089,7 @@
 	        { className: cx },
 	        _react2.default.createElement(
 	          'button',
-	          { type: 'button', onClick: onDismiss, className: 'notify__close', 'data-dismiss': 'notify', 'aria-label': 'Close' },
+	          { type: 'button', onClick: onDismiss, className: 'toast__close', 'data-dismiss': 'toast', 'aria-label': 'Close' },
 	          _react2.default.createElement(
 	            'span',
 	            { 'aria-hidden': 'true' },

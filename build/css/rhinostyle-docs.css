@@ -1389,7 +1389,7 @@ fieldset[disabled] .btn--link:focus {
 .callout--info .callout__heading {
   color: #5bc0de;
 }
-.callout__copy {
+.callout__body {
   font-weight: 300;
 }
 .callout__heading {
@@ -1429,7 +1429,7 @@ fieldset[disabled] .btn--link:focus {
   border-right: 0.5rem solid transparent;
 }
 .close,
-.notify__close {
+.toast__close {
   color: inherit;
   float: right;
   font-size: 2.4rem;
@@ -3073,67 +3073,6 @@ fieldset[disabled] .rhinodio label {
 .tabs-content__pane.active {
   display: block;
 }
-.notify-container {
-  left: 1rem;
-  position: fixed;
-  right: 1rem;
-  top: 6rem;
-}
-@media (min-width: 500px) {
-  .notify-container {
-    left: 50%;
-    margin-left: -20rem;
-    width: 40rem;
-  }
-}
-.notify {
-  border-radius: 0.4rem;
-  color: #fff;
-  font-weight: 300;
-  margin-bottom: 0.6rem;
-  max-width: 50rem;
-  padding: 1.2rem 3.2rem 1.2rem 1.2rem;
-  position: relative;
-}
-.notify > .icon {
-  margin-right: 0.4rem;
-}
-.notify--danger {
-  background: #cb2027;
-}
-.notify--default {
-  background: #6c6c6c;
-}
-.notify--secondary {
-  background: #39d4c0;
-}
-.notify__close {
-  float: none;
-  position: absolute;
-  right: .8rem;
-  top: 1rem;
-}
-.notify__close:hover,
-.notify__close:focus {
-  color: inherit;
-  cursor: pointer;
-  opacity: .75;
-  outline: 0;
-  text-decoration: none;
-}
-button.notify__close {
-  -webkit-appearance: none;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}
-.notify__link {
-  color: #fff;
-  text-decoration: underline;
-}
-.notify__link:hover {
-  text-decoration: underline;
-}
 .pill {
   -ms-flex-align: center;
   align-items: center;
@@ -3204,6 +3143,67 @@ button.notify__close {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.toast-container {
+  left: 1rem;
+  position: fixed;
+  right: 1rem;
+  top: 6rem;
+}
+@media (min-width: 500px) {
+  .toast-container {
+    left: 50%;
+    margin-left: -20rem;
+    width: 40rem;
+  }
+}
+.toast {
+  border-radius: 0.4rem;
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 0.6rem;
+  max-width: 50rem;
+  padding: 1.2rem 3.2rem 1.2rem 1.2rem;
+  position: relative;
+}
+.toast > .icon {
+  margin-right: 0.4rem;
+}
+.toast--danger {
+  background: #cb2027;
+}
+.toast--default {
+  background: #6c6c6c;
+}
+.toast--secondary {
+  background: #39d4c0;
+}
+.toast__close {
+  float: none;
+  position: absolute;
+  right: .8rem;
+  top: 1rem;
+}
+.toast__close:hover,
+.toast__close:focus {
+  color: inherit;
+  cursor: pointer;
+  opacity: .75;
+  outline: 0;
+  text-decoration: none;
+}
+button.toast__close {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.toast__link {
+  color: #fff;
+  text-decoration: underline;
+}
+.toast__link:hover {
+  text-decoration: underline;
 }
 h1,
 h2,

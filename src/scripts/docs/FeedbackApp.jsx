@@ -59,9 +59,9 @@ class FeedbackApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Toast Notifications</h3>
-          <Toast type="default" body={<span>Default notification - <a href="#" className="notify__link" onClick={this.onClick}>click link</a></span>} />
-          <Toast type="secondary" body={<span><Icon icon="checkmark" /> Default notification - <a href="#" className="notify__link">click link</a></span>} />
-          <Toast type="danger" body={<span>Danger notification - <a href="#" className="notify__link">click link</a></span>} />
+          <Toast type="default" body={<span>Default notification - <a href="#" className="toast__link" onClick={this.onClick}>click link</a></span>} />
+          <Toast type="secondary" body={<span><Icon icon="checkmark" /> Default notification - <a href="#" className="toast__link">click link</a></span>} />
+          <Toast type="danger" body={<span>Danger notification - <a href="#" className="toast__link">click link</a></span>} />
         </section>
 
         <section>

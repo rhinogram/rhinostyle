@@ -25,7 +25,7 @@ class Callout extends React.Component {
     return (
       <div className={cx}>
         <div className="callout__heading">{head}</div>
-        <div className="callout__copy">{body}</div>
+        <div className="callout__body">{body}</div>
       </div>
     );
   }
