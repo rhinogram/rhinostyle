@@ -1,15 +1,13 @@
 import React      from 'react';
 import classNames from 'classnames';
-import GSAP       from 'react-gsap-enhancer';
-import TweenMax   from 'gsap';
 
 class Toast extends React.Component {
   static displayName = 'RhinoToast';
 
   static propTypes = {
-    body:        React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]).isRequired,
-    onDismiss:   React.PropTypes.func,
-    type:        React.PropTypes.oneOf(['danger', 'default', 'secondary'])
+    body:      React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.element]).isRequired,
+    onDismiss: React.PropTypes.func,
+    type:      React.PropTypes.oneOf(['danger', 'default', 'secondary'])
   };
 
   static defaultProps = {
@@ -34,4 +32,4 @@ class Toast extends React.Component {
   }
 }
 
-export default GSAP()(Toast);
+export default Toast;

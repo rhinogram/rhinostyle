@@ -22,7 +22,7 @@ const calloutScope   = {
 class FeedbackApp extends React.Component {
   static displayName = 'Rhinostyle Feedback Examples';
 
-  onClick = (event) => {
+  onClick(event) {
     event.preventDefault();
 
     NotificationActions.addNotification({
