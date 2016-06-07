@@ -80357,24 +80357,24 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var classes = _props.classes;
+	      var className = _props.className;
+	      var image = _props.image;
 	      var size = _props.size;
 	      var type = _props.type;
-	      var image = _props.image;
 
-	      var cx = (0, _classnames2.default)('avatar', {
+	      var classes = (0, _classnames2.default)('avatar', {
 	        'avatar--sm': size === 'small',
 	        'avatar--lg': size === 'large',
 	        'avatar--member': type === 'member',
 	        'avatar--patient': type === 'patient'
-	      }, classes);
+	      }, className);
 	      var styles = {
 	        backgroundImage: 'url(' + image + ')'
 	      };
 
 	      return _react2.default.createElement(
 	        'figure',
-	        { className: cx, style: styles },
+	        { className: classes, style: styles },
 	        this.props.children
 	      );
 	    }
@@ -80385,12 +80385,13 @@
 
 	Avatar.displayName = 'RhinoAvatar';
 	Avatar.propTypes = {
-	  classes: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string,
 	  image: _react2.default.PropTypes.string,
 	  size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
 	  type: _react2.default.PropTypes.oneOf(['member', 'patient']).isRequired
 	};
 	Avatar.defaultProps = {
+	  image: '',
 	  size: 'default'
 	};
 	exports.default = Avatar;
