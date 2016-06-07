@@ -9,25 +9,25 @@ class Avatar extends React.Component {
     className: React.PropTypes.string,
     image: React.PropTypes.string,
     size:  React.PropTypes.oneOf(['small', 'default', 'large']),
-    type:  React.PropTypes.oneOf(['member', 'patient']).isRequired
+    type:  React.PropTypes.oneOf(['member', 'patient']).isRequired,
   };
 
   static defaultProps = {
     image: '',
-    size: 'default'
+    size: 'default',
   };
 
   render() {
     const { className, image, size, type } = this.props;
     const classes = cx('avatar', {
-      'avatar--sm': size==='small',
-      'avatar--lg': size==='large',
-      'avatar--member':  type==='member',
-      'avatar--patient': type==='patient'
+      'avatar--sm': size === 'small',
+      'avatar--lg': size === 'large',
+      'avatar--member':  type === 'member',
+      'avatar--patient': type === 'patient',
     }, className);
     const styles = {
-      backgroundImage: `url(${image})`
-    }
+      backgroundImage: `url(${image})`,
+    };
 
     return (
       <figure className={classes} style={styles}>{this.props.children}</figure>

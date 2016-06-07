@@ -46,7 +46,8 @@
         "react",
         "babel"],
     "rules": {
-      "key-spacing": [2, { mode: minimum }]
+      "key-spacing": [2, { mode: minimum }],
+      "no-multi-spaces": [2, { exceptions: { ImportDeclaration: true, VariableDeclarator: true } }]
       
       #"comma-dangle": [2, never]
       # "strict": 0,
