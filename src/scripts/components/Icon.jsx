@@ -6,18 +6,19 @@ class Icon extends React.Component {
 
   static propTypes = {
     icon: React.PropTypes.string.isRequired,
-    type: React.PropTypes.oneOf(['standard', 'avatar'])
+    type: React.PropTypes.oneOf(['standard', 'avatar']),
   };
 
   static defaultProps = {
-    type: 'standard'
+    type: 'standard',
   }
 
   render() {
     const icon = `#icon-${this.props.icon}`;
     const cx = classNames({
-      'icon':         this.props.type==='standard',
-      'avatar__icon': this.props.type==='avatar'
+      /* eslint quote-props: [0] */
+      'icon':         this.props.type === 'standard',
+      'avatar__icon': this.props.type === 'avatar',
     });
 
     return (

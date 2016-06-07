@@ -7,19 +7,19 @@ class Callout extends React.Component {
   static propTypes = {
     body: React.PropTypes.string.isRequired,
     head: React.PropTypes.string.isRequired,
-    type: React.PropTypes.oneOf(['danger', 'default', 'info'])
+    type: React.PropTypes.oneOf(['danger', 'default', 'info']),
   };
 
   static defaultProps = {
-    type: 'default'
+    type: 'default',
   };
 
   render() {
     const { body, head, type } = this.props;
     const cx = classNames('callout', {
-      'callout--danger':  type==='danger',
-      'callout--default': type==='default',
-      'callout--info':    type==='info'
+      'callout--danger':  type === 'danger',
+      'callout--default': type === 'default',
+      'callout--info':    type === 'info',
     });
 
     return (

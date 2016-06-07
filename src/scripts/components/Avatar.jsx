@@ -6,6 +6,7 @@ class Avatar extends React.Component {
   static displayName = 'RhinoAvatar';
 
   static propTypes = {
+    children: React.PropTypes.node,
     className: React.PropTypes.string,
     image: React.PropTypes.string,
     size:  React.PropTypes.oneOf(['small', 'default', 'large']),

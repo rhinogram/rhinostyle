@@ -20,13 +20,13 @@ class ProgressBar extends React.Component {
     /**
      * Optionally include type.
      */
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature'])
+    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
   };
 
   static defaultProps = {
     progress:    0,
     showLabel:   false,
-    type:        'default'
+    type:        'default',
   };
 
   render() {
@@ -44,7 +44,7 @@ class ProgressBar extends React.Component {
       'progress__bar--default':  type === 'default',
       'progress__bar--primary':  type === 'primary',
       'progress__bar--secondary':  type === 'secondary',
-      'progress__bar--temperature':  type === 'temperature'
+      'progress__bar--temperature':  type === 'temperature',
     });
 
     const cy = classNames('progress', classes);
@@ -54,7 +54,7 @@ class ProgressBar extends React.Component {
      */
     const style = {
       transform: `translateX(${progressTranslation}%)`,
-      WebkitTransform: `translateX(${progressTranslation}%)`
+      WebkitTransform: `translateX(${progressTranslation}%)`,
     };
 
     /**

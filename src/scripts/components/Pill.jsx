@@ -7,11 +7,11 @@ class Pill extends React.Component {
   static propTypes = {
     classes: React.PropTypes.string,
     click: React.PropTypes.func,
-    label: React.PropTypes.string
+    label: React.PropTypes.string,
   };
 
   static defaultProps = {
-    click: () => {}
+    click: () => {},
   };
 
   render() {
@@ -19,6 +19,7 @@ class Pill extends React.Component {
     const cx = classNames('pill', 'pill--default', classes);
 
     return (
+      /* eslint no-script-url:0 */
       <a href="javascript:void(0)" className={cx} onClick={click} {...props}>{label}<span className="pill__close">&times;</span></a>
     );
   }

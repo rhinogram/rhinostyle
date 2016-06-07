@@ -7,21 +7,21 @@ class Label extends React.Component {
   static propTypes = {
     classes: React.PropTypes.string,
     label: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
   };
 
   static defaultProps = {
-    type: 'default'
+    type: 'default',
   };
 
   render() {
     const { classes, label, type, ...props } = this.props;
 
     const cx = classNames('label', classes, {
-      'label--default':   type==='default',
-      'label--primary':   type==='primary',
-      'label--secondary': type==='secondary',
-      'label--accent':    type==='accent'
+      'label--default':   type === 'default',
+      'label--primary':   type === 'primary',
+      'label--secondary': type === 'secondary',
+      'label--accent':    type === 'accent'
     });
 
     return (

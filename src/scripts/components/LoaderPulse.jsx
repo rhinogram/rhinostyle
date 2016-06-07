@@ -7,21 +7,21 @@ class LoaderPulse extends React.Component {
   static propTypes = {
     classes: React.PropTypes.string,
     label: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
   };
 
   static defaultProps = {
-    type: 'default'
+    type: 'default',
   };
 
   render() {
-    const { classes, label, type, ...props } = this.props;
+    const { classes, type, ...props } = this.props;
 
     const cx = classNames('loader-pulse', classes, {
-      'loader-pulse--default':   type==='default',
-      'loader-pulse--primary':   type==='primary',
-      'loader-pulse--secondary': type==='secondary',
-      'loader-pulse--accent':    type==='accent'
+      'loader-pulse--default':   type === 'default',
+      'loader-pulse--primary':   type === 'primary',
+      'loader-pulse--secondary': type === 'secondary',
+      'loader-pulse--accent':    type === 'accent',
     });
 
     return (
