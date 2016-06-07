@@ -81189,11 +81189,12 @@
 	    value: function render() {
 	      var _props = this.props;
 	      var body = _props.body;
+	      var className = _props.className;
 	      var icon = _props.icon;
 	      var onDismiss = _props.onDismiss;
 	      var type = _props.type;
 
-	      var cx = (0, _classnames2.default)('toast', {
+	      var classes = (0, _classnames2.default)('toast', className, {
 	        'toast--danger': type === 'danger',
 	        'toast--default': type === 'default',
 	        'toast--secondary': type === 'secondary'
@@ -81203,11 +81204,12 @@
 	        if (icon) {
 	          return _react2.default.createElement(_Icon2.default, { icon: icon });
 	        }
+	        return false;
 	      };
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: cx },
+	        { className: classes },
 	        _react2.default.createElement(
 	          'button',
 	          { type: 'button', onClick: onDismiss, className: 'toast__close', 'data-dismiss': 'toast', 'aria-label': 'Close' },
@@ -81229,6 +81231,7 @@
 	Toast.displayName = 'RhinoToast';
 	Toast.propTypes = {
 	  body: _react2.default.PropTypes.string.isRequired,
+	  className: _react2.default.PropTypes.string,
 	  icon: _react2.default.PropTypes.string,
 	  onDismiss: _react2.default.PropTypes.func,
 	  type: _react2.default.PropTypes.oneOf(['danger', 'default', 'secondary'])
