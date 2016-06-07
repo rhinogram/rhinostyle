@@ -26,12 +26,9 @@ class FeedbackApp extends React.Component {
     event.preventDefault();
 
     NotificationActions.addNotification({
-      autoDismiss: true,
+      autoDismiss: false,
       autodismissTime: 5000,
       body: 'This is an alert in a toast notification',
-      onDismiss: () => {
-        alert('You dismissed that toast');
-      },
       type: 'danger'
     });
   }
@@ -59,9 +56,10 @@ class FeedbackApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Toast Notifications</h3>
-          <Toast type="default" body={<span>Default notification - <a href="#" className="toast__link" onClick={this.onClick}>click link</a></span>} />
-          <Toast type="secondary" body={<span><Icon icon="checkmark" /> Default notification - <a href="#" className="toast__link">click link</a></span>} />
-          <Toast type="danger" body={<span>Danger notification - <a href="#" className="toast__link">click link</a></span>} />
+          <p className="site-copy">To see a toast in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
+          <Toast type="default" body="Default notification" />
+          <Toast type="secondary" icon="checkmark" body="Default notification" />
+          <Toast type="danger" body="Danger notification" />
         </section>
 
         <section>
