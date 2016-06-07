@@ -1,5 +1,5 @@
-import React      from 'react';
-import classNames from 'classnames';
+import React from 'react';
+import cx    from 'classnames';
 
 class ProgressBar extends React.Component {
   static displayName = 'RhinoProgressBar';
@@ -8,7 +8,7 @@ class ProgressBar extends React.Component {
     /**
      * Optionally include additional classes.
      */
-    classes:   React.PropTypes.string,
+    className: React.PropTypes.string,
     /**
      * Number 1-100 representing a percentage.
      */
@@ -20,17 +20,17 @@ class ProgressBar extends React.Component {
     /**
      * Optionally include type.
      */
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature'])
+    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
   };
 
   static defaultProps = {
     progress:    0,
     showLabel:   false,
-    type:        'default'
+    type:        'default',
   };
 
   render() {
-    const { classes, progress, showLabel, type, ...props } = this.props;
+    const { className, progress, showLabel, type, ...props } = this.props;
 
     let progressTranslation = progress;
 
@@ -40,21 +40,21 @@ class ProgressBar extends React.Component {
       progressTranslation = 0;
     }
 
-    const cx = classNames('progress__bar', {
+    const classes = cx('progress', className);
+
+    const barClasses = cx('progress__bar', {
       'progress__bar--default':  type === 'default',
       'progress__bar--primary':  type === 'primary',
       'progress__bar--secondary':  type === 'secondary',
-      'progress__bar--temperature':  type === 'temperature'
+      'progress__bar--temperature':  type === 'temperature',
     });
-
-    const cy = classNames('progress', classes);
 
     /**
      * Style for progressing bar
      */
     const style = {
       transform: `translateX(${progressTranslation}%)`,
-      WebkitTransform: `translateX(${progressTranslation}%)`
+      WebkitTransform: `translateX(${progressTranslation}%)`,
     };
 
     /**
@@ -69,8 +69,8 @@ class ProgressBar extends React.Component {
     }
 
     return (
-      <div className={cy}>
-        <div className={cx}>
+      <div className={classes}>
+        <div className={barClasses}>
           <div className="progress__bar__slider" style={style}>
             {label}
           </div>

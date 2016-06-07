@@ -21,10 +21,10 @@ class ProgressBarApp extends React.Component {
         <h1 className="site-headline">Progress Bars <small>(pssst! click on progress bars!)</small></h1>
         <section className="site-section">
           <h3 className="site-subheadline">Progress Bar Types</h3>
-          <ProgressBar progress={20} classes="u-m-b" />
-          <ProgressBar progress={40} type="primary" classes="u-m-b" />
-          <ProgressBar progress={60} type="secondary" classes="u-m-b" />
-          <ProgressBar progress={80} type="temperature" classes="u-m-b" />
+          <ProgressBar progress={20} className="u-m-b" />
+          <ProgressBar progress={40} type="primary" className="u-m-b" />
+          <ProgressBar progress={60} type="secondary" className="u-m-b" />
+          <ProgressBar progress={80} type="temperature" className="u-m-b" />
         </section>
 
         <section className="site-section">

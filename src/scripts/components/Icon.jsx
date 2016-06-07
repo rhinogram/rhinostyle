@@ -7,7 +7,6 @@ class Icon extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
     icon: React.PropTypes.string.isRequired,
-    type: React.PropTypes.oneOf(['standard', 'avatar']),
   };
 
   static defaultProps = {
@@ -17,10 +16,7 @@ class Icon extends React.Component {
   render() {
     const { className } = this.props;
     const icon = `#icon-${this.props.icon}`;
-    const classes = cx({
-      'icon':         this.props.type === 'standard',
-      'avatar__icon': this.props.type === 'avatar',
-    }, className);
+    const classes = cx('icon', className);
 
     return (
       <svg className={classes}>

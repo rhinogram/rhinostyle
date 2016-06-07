@@ -5,6 +5,7 @@ class Avatar extends React.Component {
   static displayName = 'RhinoAvatar';
 
   static propTypes = {
+    children: React.PropTypes.node,
     className: React.PropTypes.string,
     image: React.PropTypes.string,
     size:  React.PropTypes.oneOf(['small', 'default', 'large']),
@@ -18,12 +19,12 @@ class Avatar extends React.Component {
 
   render() {
     const { className, image, size, type } = this.props;
-    const classes = cx('avatar', {
+    const classes = cx('avatar', className, {
       'avatar--sm': size === 'small',
       'avatar--lg': size === 'large',
       'avatar--member':  type === 'member',
       'avatar--patient': type === 'patient',
-    }, className);
+    });
     const styles = {
       backgroundImage: `url(${image})`,
     };

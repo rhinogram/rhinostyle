@@ -6,6 +6,7 @@ class Button extends React.Component {
 
   static propTypes = {
     block:     React.PropTypes.bool,
+    children:  React.PropTypes.node,
     className: React.PropTypes.string,
     click:     React.PropTypes.func,
     disabled:  React.PropTypes.bool,
@@ -41,9 +42,10 @@ class Button extends React.Component {
       'btn--lg': size === 'large',
       'btn--block': block,
       'btn--icon': iconOnly,
-      'disabled': disabled,
+      'disabled': disabled, //eslint-disable-line
     });
 
+    /* eslint no-script-url:0 */
     return (<a href="javascript:void(0)" className={classes} onClick={click} {...props} role="button">{this.props.children}</a>);
   }
 }

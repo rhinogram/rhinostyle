@@ -13,13 +13,13 @@ class Input extends React.Component {
     placeholder: React.PropTypes.string,
     size:        React.PropTypes.string,
     type:        React.PropTypes.oneOf(['email', 'password', 'text']),
-    value:       React.PropTypes.any
+    value:       React.PropTypes.any,
   };
 
   static defaultProps = {
     label: '',
     name:  '',
-    type:  'text'
+    type:  'text',
   };
 
   getInputDOMNode() {
@@ -31,7 +31,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const { groupClass, inputClass, label, labelClass, name, placeholder, size, type, value, ...props } = this.props;
+    const { groupClass, inputClass, label, labelClass, name, placeholder, type, value, ...props } = this.props;
     const cxGroup = classNames('form__group', groupClass);
     const cxLabel = classNames(labelClass);
     const cxInput = classNames('form__control', inputClass);

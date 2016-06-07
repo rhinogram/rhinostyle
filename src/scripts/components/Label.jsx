@@ -1,31 +1,31 @@
 import React from 'react';
-import classNames from 'classnames';
+import cx    from 'classnames';
 
 class Label extends React.Component {
   static displayName = 'RhinoLabel';
 
   static propTypes = {
-    classes: React.PropTypes.string,
+    className: React.PropTypes.string,
     label: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
   };
 
   static defaultProps = {
-    type: 'default'
+    type: 'default',
   };
 
   render() {
-    const { classes, label, type, ...props } = this.props;
+    const { className, label, type } = this.props;
 
-    const cx = classNames('label', classes, {
-      'label--default':   type==='default',
-      'label--primary':   type==='primary',
-      'label--secondary': type==='secondary',
-      'label--accent':    type==='accent'
+    const classes = cx('label', className, {
+      'label--default':   type === 'default',
+      'label--primary':   type === 'primary',
+      'label--secondary': type === 'secondary',
+      'label--accent':    type === 'accent',
     });
 
     return (
-      <span className={cx}>{label}</span>
+      <span className={classes}>{label}</span>
     );
   }
 }

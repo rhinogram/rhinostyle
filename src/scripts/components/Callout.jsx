@@ -17,11 +17,11 @@ class Callout extends React.Component {
 
   render() {
     const { body, className, head, type } = this.props;
-    const classes = cx('callout', {
+    const classes = cx('callout', className, {
       'callout--danger':  type === 'danger',
       'callout--default': type === 'default',
       'callout--info':    type === 'info',
-    }, className);
+    });
 
     return (
       <div className={classes}>

@@ -1,28 +1,28 @@
 import React from 'react';
-import classNames from 'classnames';
+import cx    from 'classnames';
 
 class Loaderline extends React.Component {
   static displayName = 'RhinoLoaderline';
 
   static propTypes = {
-    classes: React.PropTypes.string,
+    className: React.PropTypes.string,
     label: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
   };
 
   static defaultProps = {
-    type: 'default'
+    type: 'default',
   };
 
   render() {
-    const { classes, label, type, ...props } = this.props;
+    const { className, type, ...props } = this.props;
 
-    const cx = classNames('loader-line', classes, {
-      'loader-line--default':   type==='default'
+    const classes = cx('loader-line', className, {
+      'loader-line--default': type === 'default',
     });
 
     return (
-      <div className={cx}>
+      <div className={classes}>
         <span className="loader-line__line"></span><span className="loader-line__line"></span>
       </div>
     );

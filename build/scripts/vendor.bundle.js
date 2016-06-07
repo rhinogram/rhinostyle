@@ -18154,15 +18154,14 @@
 	  _createClass(Icon, [{
 	    key: 'render',
 	    value: function render() {
+	      var className = this.props.className;
+
 	      var icon = '#icon-' + this.props.icon;
-	      var cx = (0, _classnames2.default)({
-	        'icon': this.props.type === 'standard',
-	        'avatar__icon': this.props.type === 'avatar'
-	      });
+	      var classes = (0, _classnames2.default)('icon', className);
 
 	      return _react2.default.createElement(
 	        'svg',
-	        { className: cx },
+	        { className: classes },
 	        _react2.default.createElement('use', { xlinkHref: icon })
 	      );
 	    }
@@ -18173,8 +18172,8 @@
 
 	Icon.displayName = 'RhinoIcon';
 	Icon.propTypes = {
-	  icon: _react2.default.PropTypes.string.isRequired,
-	  type: _react2.default.PropTypes.oneOf(['standard', 'avatar'])
+	  className: _react2.default.PropTypes.string,
+	  icon: _react2.default.PropTypes.string.isRequired
 	};
 	Icon.defaultProps = {
 	  type: 'standard'
@@ -80362,12 +80361,12 @@
 	      var size = _props.size;
 	      var type = _props.type;
 
-	      var classes = (0, _classnames2.default)('avatar', {
+	      var classes = (0, _classnames2.default)('avatar', className, {
 	        'avatar--sm': size === 'small',
 	        'avatar--lg': size === 'large',
 	        'avatar--member': type === 'member',
 	        'avatar--patient': type === 'patient'
-	      }, className);
+	      });
 	      var styles = {
 	        backgroundImage: 'url(' + image + ')'
 	      };
@@ -80385,6 +80384,7 @@
 
 	Avatar.displayName = 'RhinoAvatar';
 	Avatar.propTypes = {
+	  children: _react2.default.PropTypes.node,
 	  className: _react2.default.PropTypes.string,
 	  image: _react2.default.PropTypes.string,
 	  size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
@@ -80466,9 +80466,10 @@
 	        'btn--lg': size === 'large',
 	        'btn--block': block,
 	        'btn--icon': iconOnly,
-	        'disabled': disabled
-	      });
+	        'disabled': disabled });
 
+	      /* eslint no-script-url:0 */
+	      //eslint-disable-line
 	      return _react2.default.createElement(
 	        'a',
 	        _extends({ href: 'javascript:void(0)', className: classes, onClick: click }, props, { role: 'button' }),
@@ -80483,6 +80484,7 @@
 	Button.displayName = 'RhinoButton';
 	Button.propTypes = {
 	  block: _react2.default.PropTypes.bool,
+	  children: _react2.default.PropTypes.node,
 	  className: _react2.default.PropTypes.string,
 	  click: _react2.default.PropTypes.func,
 	  disabled: _react2.default.PropTypes.bool,
@@ -80544,10 +80546,11 @@
 	    value: function render() {
 	      var _props = this.props;
 	      var body = _props.body;
+	      var className = _props.className;
 	      var head = _props.head;
 	      var type = _props.type;
 
-	      var cx = (0, _classnames2.default)('callout', {
+	      var classes = (0, _classnames2.default)('callout', className, {
 	        'callout--danger': type === 'danger',
 	        'callout--default': type === 'default',
 	        'callout--info': type === 'info'
@@ -80555,7 +80558,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: cx },
+	        { className: classes },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'callout__heading' },
@@ -80575,6 +80578,7 @@
 
 	Callout.propTypes = {
 	  body: _react2.default.PropTypes.string.isRequired,
+	  className: _react2.default.PropTypes.string,
 	  head: _react2.default.PropTypes.string.isRequired,
 	  type: _react2.default.PropTypes.oneOf(['danger', 'default', 'info'])
 	};
@@ -80644,11 +80648,10 @@
 	      var labelClass = _props.labelClass;
 	      var name = _props.name;
 	      var placeholder = _props.placeholder;
-	      var size = _props.size;
 	      var type = _props.type;
 	      var value = _props.value;
 
-	      var props = _objectWithoutProperties(_props, ['groupClass', 'inputClass', 'label', 'labelClass', 'name', 'placeholder', 'size', 'type', 'value']);
+	      var props = _objectWithoutProperties(_props, ['groupClass', 'inputClass', 'label', 'labelClass', 'name', 'placeholder', 'type', 'value']);
 
 	      var cxGroup = (0, _classnames2.default)('form__group', groupClass);
 	      var cxLabel = (0, _classnames2.default)(labelClass);
@@ -80717,8 +80720,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -80738,13 +80739,12 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var classes = _props.classes;
+	      var className = _props.className;
 	      var label = _props.label;
 	      var type = _props.type;
 
-	      var props = _objectWithoutProperties(_props, ['classes', 'label', 'type']);
 
-	      var cx = (0, _classnames2.default)('label', classes, {
+	      var classes = (0, _classnames2.default)('label', className, {
 	        'label--default': type === 'default',
 	        'label--primary': type === 'primary',
 	        'label--secondary': type === 'secondary',
@@ -80753,7 +80753,7 @@
 
 	      return _react2.default.createElement(
 	        'span',
-	        { className: cx },
+	        { className: classes },
 	        label
 	      );
 	    }
@@ -80764,7 +80764,7 @@
 
 	Label.displayName = 'RhinoLabel';
 	Label.propTypes = {
-	  classes: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string,
 	  label: _react2.default.PropTypes.string,
 	  type: _react2.default.PropTypes.string
 	};
@@ -80816,19 +80816,18 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var classes = _props.classes;
-	      var label = _props.label;
+	      var className = _props.className;
 	      var type = _props.type;
 
-	      var props = _objectWithoutProperties(_props, ['classes', 'label', 'type']);
+	      var props = _objectWithoutProperties(_props, ['className', 'type']);
 
-	      var cx = (0, _classnames2.default)('loader-line', classes, {
+	      var classes = (0, _classnames2.default)('loader-line', className, {
 	        'loader-line--default': type === 'default'
 	      });
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: cx },
+	        { className: classes },
 	        _react2.default.createElement('span', { className: 'loader-line__line' }),
 	        _react2.default.createElement('span', { className: 'loader-line__line' })
 	      );
@@ -80840,7 +80839,7 @@
 
 	Loaderline.displayName = 'RhinoLoaderline';
 	Loaderline.propTypes = {
-	  classes: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string,
 	  label: _react2.default.PropTypes.string,
 	  type: _react2.default.PropTypes.string
 	};
@@ -80892,13 +80891,12 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var classes = _props.classes;
-	      var label = _props.label;
+	      var className = _props.className;
 	      var type = _props.type;
 
-	      var props = _objectWithoutProperties(_props, ['classes', 'label', 'type']);
+	      var props = _objectWithoutProperties(_props, ['className', 'type']);
 
-	      var cx = (0, _classnames2.default)('loader-pulse', classes, {
+	      var classes = (0, _classnames2.default)('loader-pulse', className, {
 	        'loader-pulse--default': type === 'default',
 	        'loader-pulse--primary': type === 'primary',
 	        'loader-pulse--secondary': type === 'secondary',
@@ -80907,7 +80905,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: cx },
+	        { className: classes },
 	        _react2.default.createElement('span', { className: 'loader-pulse__pulse' }),
 	        _react2.default.createElement('span', { className: 'loader-pulse__pulse' }),
 	        _react2.default.createElement('span', { className: 'loader-pulse__pulse' })
@@ -80920,7 +80918,7 @@
 
 	LoaderPulse.displayName = 'RhinoLoaderPulse';
 	LoaderPulse.propTypes = {
-	  classes: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string,
 	  label: _react2.default.PropTypes.string,
 	  type: _react2.default.PropTypes.string
 	};
@@ -80974,22 +80972,25 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var classes = _props.classes;
+	      var className = _props.className;
 	      var click = _props.click;
 	      var label = _props.label;
 
-	      var props = _objectWithoutProperties(_props, ['classes', 'click', 'label']);
+	      var props = _objectWithoutProperties(_props, ['className', 'click', 'label']);
 
-	      var cx = (0, _classnames2.default)('pill', 'pill--default', classes);
+	      var classes = (0, _classnames2.default)('pill', 'pill--default', className);
 
-	      return _react2.default.createElement(
-	        'a',
-	        _extends({ href: 'javascript:void(0)', className: cx, onClick: click }, props),
-	        label,
+	      return(
+	        /* eslint no-script-url:0 */
 	        _react2.default.createElement(
-	          'span',
-	          { className: 'pill__close' },
-	          '×'
+	          'a',
+	          _extends({ href: 'javascript:void(0)', className: classes, onClick: click }, props),
+	          label,
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'pill__close' },
+	            '×'
+	          )
 	        )
 	      );
 	    }
@@ -81000,7 +81001,7 @@
 
 	Pill.displayName = 'RhinoPill';
 	Pill.propTypes = {
-	  classes: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string,
 	  click: _react2.default.PropTypes.func,
 	  label: _react2.default.PropTypes.string
 	};
@@ -81052,12 +81053,12 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var classes = _props.classes;
+	      var className = _props.className;
 	      var progress = _props.progress;
 	      var showLabel = _props.showLabel;
 	      var type = _props.type;
 
-	      var props = _objectWithoutProperties(_props, ['classes', 'progress', 'showLabel', 'type']);
+	      var props = _objectWithoutProperties(_props, ['className', 'progress', 'showLabel', 'type']);
 
 	      var progressTranslation = progress;
 
@@ -81067,14 +81068,14 @@
 	        progressTranslation = 0;
 	      }
 
-	      var cx = (0, _classnames2.default)('progress__bar', {
+	      var classes = (0, _classnames2.default)('progress', className);
+
+	      var barClasses = (0, _classnames2.default)('progress__bar', {
 	        'progress__bar--default': type === 'default',
 	        'progress__bar--primary': type === 'primary',
 	        'progress__bar--secondary': type === 'secondary',
 	        'progress__bar--temperature': type === 'temperature'
 	      });
-
-	      var cy = (0, _classnames2.default)('progress', classes);
 
 	      /**
 	       * Style for progressing bar
@@ -81099,10 +81100,10 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        { className: cy },
+	        { className: classes },
 	        _react2.default.createElement(
 	          'div',
-	          { className: cx },
+	          { className: barClasses },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'progress__bar__slider', style: style },
@@ -81121,7 +81122,7 @@
 	  /**
 	   * Optionally include additional classes.
 	   */
-	  classes: _react2.default.PropTypes.string,
+	  className: _react2.default.PropTypes.string,
 	  /**
 	   * Number 1-100 representing a percentage.
 	   */

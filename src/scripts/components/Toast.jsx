@@ -10,7 +10,7 @@ class Toast extends React.Component {
     body:      React.PropTypes.string.isRequired,
     icon:      React.PropTypes.string,
     onDismiss: React.PropTypes.func,
-    type:      React.PropTypes.oneOf(['danger', 'default', 'secondary'])
+    type:      React.PropTypes.oneOf(['danger', 'default', 'secondary']),
   };
 
   static defaultProps = {
@@ -22,9 +22,9 @@ class Toast extends React.Component {
   render() {
     const { body, icon, onDismiss, type } = this.props;
     const cx = classNames('toast', {
-      'toast--danger':    type==='danger',
-      'toast--default':   type==='default',
-      'toast--secondary': type==='secondary'
+      'toast--danger':    type === 'danger',
+      'toast--default':   type === 'default',
+      'toast--secondary': type === 'secondary',
     });
 
     const renderIcon = () => {

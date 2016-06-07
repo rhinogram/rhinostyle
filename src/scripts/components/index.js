@@ -24,5 +24,5 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
-  Toast
+  Toast,
 };
