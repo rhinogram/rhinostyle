@@ -90,36 +90,36 @@ class ButtonApp extends React.Component {
           <div className="u-m-b">
             <div className="site-example-buttons">
               <Button>Default</Button>
-              <Button classes="active">Default Active</Button>
-              <Button classes="disabled">Default Disabled</Button>
+              <Button className="active">Default Active</Button>
+              <Button className="disabled">Default Disabled</Button>
             </div>
           </div>
           <div className="u-m-b">
             <div className="site-example-buttons">
               <Button type="primary">Primary</Button>
-              <Button type="primary" classes="active">Primary Active</Button>
-              <Button type="primary" classes="disabled">Primary Disabled</Button>
+              <Button type="primary" className="active">Primary Active</Button>
+              <Button type="primary" className="disabled">Primary Disabled</Button>
             </div>
           </div>
           <div className="u-m-b">
             <div className="site-example-buttons">
               <Button type="secondary">Secondary</Button>
-              <Button type="secondary" classes="active">Secondary Active</Button>
-              <Button type="secondary" classes="disabled">Secondary Disabled</Button>
+              <Button type="secondary" className="active">Secondary Active</Button>
+              <Button type="secondary" className="disabled">Secondary Disabled</Button>
             </div>
           </div>
           <div className="u-m-b">
             <div className="site-example-buttons">
               <Button outline={true}>Default Outline</Button>
-              <Button outline={true} classes="active">Default Outline Active</Button>
-              <Button outline={true} classes="disabled">Default Outline Disabled</Button>
+              <Button outline={true} className="active">Default Outline Active</Button>
+              <Button outline={true} className="disabled">Default Outline Disabled</Button>
             </div>
           </div>
           <div className="u-m-b">
             <div className="site-example-buttons">
               <Button type="primary" outline={true}>Primary Outline</Button>
-              <Button type="primary" outline={true} classes="active">Primary Outline Active</Button>
-              <Button type="primary" outline={true} classes="disabled">Primary Outline Disabled</Button>
+              <Button type="primary" outline={true} className="active">Primary Outline Active</Button>
+              <Button type="primary" outline={true} className="disabled">Primary Outline Disabled</Button>
             </div>
           </div>
         </section>
@@ -129,7 +129,7 @@ class ButtonApp extends React.Component {
           <h5 className="site-miniheadline">Long Text Inside Buttons</h5>
           <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis. This rule applies to dropdowns as well.</p>
           <div className="u-m-b">
-            <Button classes="u-m-b-sm"><span className="u-text-overflow">Button With Really Long Name</span></Button>
+            <Button className="u-m-b-sm"><span className="u-text-overflow">Button With Really Long Name</span></Button>
             <br />
             <Button><Icon icon="lock" />&nbsp;<span className="u-text-overflow">Button With Really Long Name and Icon</span></Button>
           </div>
