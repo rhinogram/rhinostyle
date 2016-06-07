@@ -3329,20 +3329,35 @@ pre {
 .site-content {
   padding: 1.5rem;
   position: relative;
+  /*.avatar,
+  .btn,
+  .label,
+  .pill {
+    &:not(:last-child) {
+      margin-right: @margin-small;
+    }
+  }
+
+  .dropdown--block .btn {
+    margin-right: 0;
+  }*/
 }
 @media (min-width: 768px) {
   .site-content {
     padding: 3rem;
   }
 }
-.site-content .avatar:not(:last-child),
-.site-content .btn:not(:last-child),
-.site-content .label:not(:last-child),
-.site-content .pill:not(:last-child) {
+.site-example-avatar .avatar:not(:last-child) {
   margin-right: 0.6rem;
 }
-.site-content .dropdown--block .btn {
-  margin-right: 0;
+.site-example-buttons .btn:not(:last-child) {
+  margin-right: 0.6rem;
+}
+.site-example-labels .label:not(:last-child) {
+  margin-right: 0.6rem;
+}
+.site-example-pills .pill:not(:last-child) {
+  margin-right: 0.6rem;
 }
 .site-copy {
   margin-bottom: 2rem;

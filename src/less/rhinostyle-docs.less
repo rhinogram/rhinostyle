@@ -39,7 +39,7 @@ pre {
     padding: @grid-gutter-width;
   }
 
-  .avatar,
+  /*.avatar,
   .btn,
   .label,
   .pill {
@@ -50,6 +50,31 @@ pre {
 
   .dropdown--block .btn {
     margin-right: 0;
+  }*/
+}
+
+
+.site-example-avatar {
+  .avatar:not(:last-child) {
+    margin-right: @margin-small;
+  }
+}
+
+.site-example-buttons {
+  .btn:not(:last-child) {
+    margin-right: @margin-small;
+  }
+}
+
+.site-example-labels {
+  .label:not(:last-child) {
+    margin-right: @margin-small;
+  }
+}
+
+.site-example-pills {
+  .pill:not(:last-child) {
+    margin-right: @margin-small;
   }
 }
 

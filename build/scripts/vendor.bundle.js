@@ -80357,6 +80357,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
+	      var classes = _props.classes;
 	      var size = _props.size;
 	      var type = _props.type;
 	      var image = _props.image;
@@ -80366,7 +80367,7 @@
 	        'avatar--lg': size === 'large',
 	        'avatar--member': type === 'member',
 	        'avatar--patient': type === 'patient'
-	      });
+	      }, classes);
 	      var styles = {
 	        backgroundImage: 'url(' + image + ')'
 	      };
@@ -80384,6 +80385,7 @@
 
 	Avatar.displayName = 'RhinoAvatar';
 	Avatar.propTypes = {
+	  classes: _react2.default.PropTypes.string,
 	  image: _react2.default.PropTypes.string,
 	  size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
 	  type: _react2.default.PropTypes.oneOf(['member', 'patient']).isRequired

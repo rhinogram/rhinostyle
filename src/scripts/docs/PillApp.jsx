@@ -22,7 +22,10 @@ class PillApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Pill Types</h3>
-          <Pill label="Ben" />
+          <div className="site-example-pills">
+            <Pill label="Ben Bruning" />
+            <Pill label="Craig Anthony" />
+          </div>
         </section>
 
         <section>

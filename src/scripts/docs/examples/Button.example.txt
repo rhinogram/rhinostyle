@@ -1,7 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div>
+      <div className="site-example-buttons">
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary" iconOnly={true}><Icon icon="cog" /></Button>

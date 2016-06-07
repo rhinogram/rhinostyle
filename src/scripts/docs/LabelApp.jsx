@@ -22,10 +22,12 @@ class LabelApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Label Types</h3>
-          <Label label="default label" />
-          <Label type="primary" label="primary label" />
-          <Label type="secondary" label="secondary label" />
-          <Label type="accent" label="accent label" />
+          <div className="site-example-labels">
+            <Label label="default label" />
+            <Label type="primary" label="primary label" />
+            <Label type="secondary" label="secondary label" />
+            <Label type="accent" label="accent label" />
+          </div>
         </section>
 
         <section>
