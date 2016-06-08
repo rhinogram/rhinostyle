@@ -30,7 +30,6 @@ class Avatar extends React.Component {
   }
 
   _handleImageError = () => {
-    console.log("pie");
     this.setState({ imageError: true });
   };
 
@@ -49,13 +48,34 @@ class Avatar extends React.Component {
     if (image && !this.state.imageError) {
       return (
         <figure className={classes} style={styles}>
-          <img onError={this._handleImgError} style={{ display: 'none' }} src={image} />
+          <img onError={this._handleImageError} style={{ display: 'none' }} src={image} />
         </figure>
       );
     }
 
+    /**
+     * If no image and no name, construct avatar icon
+     */
+    if (!image && !name) {
+      return (
+        <figure className={classes}>
+          <svg className="avatar__icon"><use xlinkHref="#icon-user"></use></svg>
+        </figure>
+      );
+    }
+
+    let splitName = null;
+    let initials = null;
+
+    if (name) {
+      splitName = name.split(' ');
+      initials = splitName[0][0] + splitName[1][0];
+    }
+
     return (
-      <figure className={classes}>{name}</figure>
+      <figure className={classes}>
+        {initials}
+      </figure>
     );
   }
 }

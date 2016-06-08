@@ -3,15 +3,24 @@ class ComponentExample extends React.Component {
     return (
       <div>
       	<div className="site-example-avatar">
-          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" name="IG" size="large" type="member"></Avatar>
-          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105edE_400x400.jpeg" name="IG" size="large" type="member"></Avatar>
-          <Avatar name="IG" size="large" type="member"></Avatar>
-          <Avatar size="large" type="member"></Avatar>
-
-          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" name="IG"  type="patient"></Avatar>
-          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105edE_400x400.jpeg" name="IG" type="patient"></Avatar>
-          <Avatar name="IG" type="patient"></Avatar>
-          <Avatar type="patient"></Avatar>
+          <div className="u-m-b">
+            <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" size="large" type="member" />
+            <Avatar image="//brokenimage.jpg" name="Ben Bruning" size="large" type="member" />
+            <Avatar name="Ben Bruning" size="large" type="member" />
+            <Avatar size="large" type="member" />
+          </div>
+          <div className="u-m-b">
+            <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" type="patient" />
+            <Avatar image="//badimage.jpg" name="Craig Anthony" type="patient" />
+            <Avatar name="Craig Anthony" type="patient" />
+            <Avatar type="patient" />
+          </div>
+          <div>
+            <Avatar image="//bit.ly/1ta1bQa" name="Ian Greulich" size="small" type="member" />
+            <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="member" />
+            <Avatar name="Ian Greulich" size="small" type="member" />
+            <Avatar size="small" type="member" />
+          </div>
         </div>
       </div>
     );

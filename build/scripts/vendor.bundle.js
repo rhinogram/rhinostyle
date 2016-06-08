@@ -80360,7 +80360,6 @@
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Avatar)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 	      imageError: false
 	    }, _this._handleImageError = function () {
-	      console.log("pie");
 	      _this.setState({ imageError: true });
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
@@ -80398,14 +80397,37 @@
 	        return _react2.default.createElement(
 	          'figure',
 	          { className: classes, style: styles },
-	          _react2.default.createElement('img', { onError: this._handleImgError, style: { display: 'none' }, src: image })
+	          _react2.default.createElement('img', { onError: this._handleImageError, style: { display: 'none' }, src: image })
 	        );
+	      }
+
+	      /**
+	       * If no image and no name, construct avatar icon
+	       */
+	      if (!image && !name) {
+	        return _react2.default.createElement(
+	          'figure',
+	          { className: classes },
+	          _react2.default.createElement(
+	            'svg',
+	            { className: 'avatar__icon' },
+	            _react2.default.createElement('use', { xlinkHref: '#icon-user' })
+	          )
+	        );
+	      }
+
+	      var splitName = null;
+	      var initials = null;
+
+	      if (name) {
+	        splitName = name.split(' ');
+	        initials = splitName[0][0] + splitName[1][0];
 	      }
 
 	      return _react2.default.createElement(
 	        'figure',
 	        { className: classes },
-	        name
+	        initials
 	      );
 	    }
 	  }]);
