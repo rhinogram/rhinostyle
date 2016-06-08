@@ -80358,10 +80358,10 @@
 	    }
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Avatar)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
-	      error: false
-	    }, _this._handleerror = function () {
+	      imageError: false
+	    }, _this._handleImageError = function () {
 	      console.log("pie");
-	      _this.setState({ error: true });
+	      _this.setState({ imageError: true });
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
@@ -80370,7 +80370,7 @@
 	    value: function componentWillReceiveProps(nextProps) {
 	      if (nextProps.src !== this.props.image) {
 	        this.setState({
-	          error: false
+	          imageError: false
 	        });
 	      }
 	    }
@@ -80394,7 +80394,7 @@
 	        backgroundImage: 'url(' + image + ')'
 	      };
 
-	      if (image && !this.state.error) {
+	      if (image && !this.state.imageError) {
 	        return _react2.default.createElement(
 	          'figure',
 	          { className: classes, style: styles },

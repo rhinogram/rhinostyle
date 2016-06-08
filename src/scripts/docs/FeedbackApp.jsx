@@ -5,18 +5,19 @@ import { NotificationActions, Callout, Icon, Toast } from '../components';
 
 import Playground from 'component-playground';
 
+/* eslint import/no-unresolved: 0 */
 const calloutExample = require('raw!./examples/Callout.example.txt');
 const toastExample   = require('raw!./examples/Toast.example.txt');
 const toastScope   = {
-  React: React,
-  ReactDOM: ReactDOM,
-  Toast: Toast,
-  Icon: Icon
+  React,
+  ReactDOM,
+  Toast,
+  Icon,
 };
 const calloutScope   = {
-  React: React,
-  ReactDOM: ReactDOM,
-  Callout: Callout
+  React,
+  ReactDOM,
+  Callout,
 };
 
 class FeedbackApp extends React.Component {
@@ -29,7 +30,7 @@ class FeedbackApp extends React.Component {
       autoDismiss: false,
       autodismissTime: 5000,
       body: 'This is an alert in a toast notification',
-      type: 'danger'
+      type: 'danger',
     });
   }
 
