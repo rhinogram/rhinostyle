@@ -31,6 +31,7 @@ class FeedbackApp extends React.Component {
       icon: 'warning',
       type: 'danger',
       onDismiss() {
+        /* eslint no-console:0 */
         console.log('I run when the notification was dismissed');
       },
     });
