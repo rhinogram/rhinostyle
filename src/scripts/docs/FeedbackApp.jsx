@@ -23,13 +23,12 @@ const calloutScope   = {
 class FeedbackApp extends React.Component {
   static displayName = 'Rhinostyle Feedback Examples';
 
-  onClick(event) {
+  onClick = (event) => {
     event.preventDefault();
 
     NotificationActions.addNotification({
-      autoDismiss: false,
-      autodismissTime: 5000,
       body: 'This is an alert in a toast notification',
+      icon: 'warning',
       type: 'danger',
     });
   }
