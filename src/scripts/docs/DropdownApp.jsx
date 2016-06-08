@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown } from '../components';
+import { Dropdown, DropdownMenu, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem } from '../components';
 
 import Playground from 'component-playground';
 
@@ -11,6 +11,10 @@ const exampleScope  = {
   React,
   ReactDOM,
   Dropdown,
+  DropdownMenu,
+  DropdownMenuDivider,
+  DropdownMenuHeader,
+  DropdownMenuItem,
 };
 
 const DropdownApp = () =>
@@ -19,7 +23,9 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
-TEST
+
+      <Dropdown>Testy</Dropdown>
+
     </section>
 
     <section>
