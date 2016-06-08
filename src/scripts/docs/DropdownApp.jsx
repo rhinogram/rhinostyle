@@ -5,33 +5,27 @@ import { Dropdown } from '../components';
 
 import Playground from 'component-playground';
 
+/* eslint import/no-unresolved: 0 */
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const exampleScope  = {
-  React:  React,
-  ReactDOM: ReactDOM,
-  Dropdown: Dropdown
+  React,
+  ReactDOM,
+  Dropdown,
 };
 
-class DropdownApp extends React.Component {
-  static displayName = 'Rhinostyle Dropdown Example';
+const DropdownApp = () =>
+  <div>
+    <h1 className="site-headline">Dropdowns</h1>
 
-  render() {
-    return (
-      <div>
-        <h1 className="site-headline">Dropdowns</h1>
-
-        <section className="site-section">
-          <h3 className="site-subheadline">Dropdown Types</h3>
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown Types</h3>
 TEST
-        </section>
+    </section>
 
-        <section>
-          <h3 className="site-subheadline">Playground</h3>
-          <Playground codeText={dropdownExample} scope={exampleScope} noRender={false} />
-        </section>
-      </div>
-    );
-  }
-}
+    <section>
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground codeText={dropdownExample} scope={exampleScope} noRender={false} />
+    </section>
+  </div>;
 
 ReactDOM.render(<DropdownApp />, document.getElementById('js-app'));
