@@ -5,6 +5,7 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
+    children:  React.PropTypes.node,
     block:    React.PropTypes.bool,
     classes:  React.PropTypes.string,
     click:    React.PropTypes.func,
@@ -26,26 +27,31 @@ class Dropdown extends React.Component {
   };
 
   render() {
-    const { block, classes, click, disabled, iconOnly, outline, size, type, ...props } = this.props;
-    const cx = classNames('btn', classes, {
-      'btn--default':   (type === 'default' && !outline),
-      'btn--primary':   (type === 'primary' && !outline),
-      'btn--secondary': (type === 'secondary' && !outline),
-      'btn--accent':    (type === 'accent' && !outline),
-      'btn--link':      (type === 'link' && !outline),
-      'btn--default-outline':   (type === 'default' && outline),
-      'btn--primary-outline':   (type === 'primary' && outline),
-      'btn--secondary-outline': (type === 'secondary' && outline),
-      'btn--accent-outline':    (type === 'accent' && outline),
-      'btn--sm': size === 'small',
-      'btn--lg': size === 'large',
-      'btn--block': block,
-      'btn--icon': iconOnly,
-      'disabled': disabled, //eslint-disable-line
-    });
+    // const { block, classes, click, disabled, iconOnly, outline, size, type, ...props } = this.props;
+    // const cx = classNames('btn', classes, {
+    //   'btn--default':   (type === 'default' && !outline),
+    //   'btn--primary':   (type === 'primary' && !outline),
+    //   'btn--secondary': (type === 'secondary' && !outline),
+    //   'btn--accent':    (type === 'accent' && !outline),
+    //   'btn--link':      (type === 'link' && !outline),
+    //   'btn--default-outline':   (type === 'default' && outline),
+    //   'btn--primary-outline':   (type === 'primary' && outline),
+    //   'btn--secondary-outline': (type === 'secondary' && outline),
+    //   'btn--accent-outline':    (type === 'accent' && outline),
+    //   'btn--sm': size === 'small',
+    //   'btn--lg': size === 'large',
+    //   'btn--block': block,
+    //   'btn--icon': iconOnly,
+    //   'disabled': disabled, //eslint-disable-line
+    // });
 
     return (
-      <a href="javascript:void(0)" className={cx} onClick={click} {...props} role="button">{this.props.children}</a> //eslint-disable-line
+      <div className="dropdown">
+        <a href="#" className="btn btn--default dropdown__toggle" type="button" data-toggle="dropdown">
+          <span className="u-text-overflow">Dropdown</span><svg className="dropdown__toggle__icon"><use xlinkHref="#icon-chevron-down" /></svg>
+        </a>
+        {this.props.children}
+      </div>
     );
   }
 }
