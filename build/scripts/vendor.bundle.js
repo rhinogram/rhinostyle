@@ -80347,17 +80347,40 @@
 	  _inherits(Avatar, _React$Component);
 
 	  function Avatar() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
 	    _classCallCheck(this, Avatar);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Avatar).apply(this, arguments));
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Avatar)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      error: false
+	    }, _this._handleerror = function () {
+	      console.log("pie");
+	      _this.setState({ error: true });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
 	  _createClass(Avatar, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.src !== this.props.image) {
+	        this.setState({
+	          error: false
+	        });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
 	      var className = _props.className;
 	      var image = _props.image;
+	      var name = _props.name;
 	      var size = _props.size;
 	      var type = _props.type;
 
@@ -80371,10 +80394,18 @@
 	        backgroundImage: 'url(' + image + ')'
 	      };
 
+	      if (image && !this.state.error) {
+	        return _react2.default.createElement(
+	          'figure',
+	          { className: classes, style: styles },
+	          _react2.default.createElement('img', { onError: this._handleImgError, style: { display: 'none' }, src: image })
+	        );
+	      }
+
 	      return _react2.default.createElement(
 	        'figure',
-	        { className: classes, style: styles },
-	        this.props.children
+	        { className: classes },
+	        name
 	      );
 	    }
 	  }]);
@@ -80384,9 +80415,9 @@
 
 	Avatar.displayName = 'RhinoAvatar';
 	Avatar.propTypes = {
-	  children: _react2.default.PropTypes.node,
 	  className: _react2.default.PropTypes.string,
 	  image: _react2.default.PropTypes.string,
+	  name: _react2.default.PropTypes.string,
 	  size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
 	  type: _react2.default.PropTypes.oneOf(['member', 'patient']).isRequired
 	};
