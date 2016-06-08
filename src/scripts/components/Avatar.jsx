@@ -45,17 +45,16 @@ class Avatar extends React.Component {
       backgroundImage: `url(${image})`,
     };
 
+    // If image exists, use image for background
     if (image && !this.state.imageError) {
       return (
         <figure className={classes} style={styles}>
-          <img onError={this._handleImageError} style={{ display: 'none' }} src={image} />
+          <img alt="name" onError={this._handleImageError} style={{ display: 'none' }} src={image} />
         </figure>
       );
     }
 
-    /**
-     * If no image and no name, construct avatar icon
-     */
+    // If no image and no name, use icon
     if (!image && !name) {
       return (
         <figure className={classes}>
