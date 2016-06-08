@@ -15,7 +15,7 @@ class LoaderPulse extends React.Component {
   };
 
   render() {
-    const { className, type, ...props } = this.props;
+    const { className, type } = this.props;
 
     const classes = cx('loader-pulse', className, {
       'loader-pulse--default':   type === 'default',
