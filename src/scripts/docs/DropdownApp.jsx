@@ -6,7 +6,7 @@ import { Dropdown, DropdownMenu, DropdownMenuDivider, DropdownMenuHeader, Dropdo
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const dropdownExample = require('raw!./examples/Dropdown.example.txt');
+const dropdownExample = require('raw!./examples/Dropdown.example.txt'); 
 const exampleScope  = {
   React,
   ReactDOM,
@@ -24,7 +24,16 @@ const DropdownApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
 
-      <Dropdown>Testy</Dropdown>
+      <Dropdown>
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
 
     </section>
 

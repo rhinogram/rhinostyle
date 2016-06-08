@@ -80839,8 +80839,6 @@
 	  value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(4);
@@ -80852,8 +80850,6 @@
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -80873,41 +80869,43 @@
 	  _createClass(Dropdown, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var block = _props.block;
-	      var classes = _props.classes;
-	      var click = _props.click;
-	      var disabled = _props.disabled;
-	      var iconOnly = _props.iconOnly;
-	      var outline = _props.outline;
-	      var size = _props.size;
-	      var type = _props.type;
+	      // const { block, classes, click, disabled, iconOnly, outline, size, type, ...props } = this.props;
+	      // const cx = classNames('btn', classes, {
+	      //   'btn--default':   (type === 'default' && !outline),
+	      //   'btn--primary':   (type === 'primary' && !outline),
+	      //   'btn--secondary': (type === 'secondary' && !outline),
+	      //   'btn--accent':    (type === 'accent' && !outline),
+	      //   'btn--link':      (type === 'link' && !outline),
+	      //   'btn--default-outline':   (type === 'default' && outline),
+	      //   'btn--primary-outline':   (type === 'primary' && outline),
+	      //   'btn--secondary-outline': (type === 'secondary' && outline),
+	      //   'btn--accent-outline':    (type === 'accent' && outline),
+	      //   'btn--sm': size === 'small',
+	      //   'btn--lg': size === 'large',
+	      //   'btn--block': block,
+	      //   'btn--icon': iconOnly,
+	      //   'disabled': disabled, //eslint-disable-line
+	      // });
 
-	      var props = _objectWithoutProperties(_props, ['block', 'classes', 'click', 'disabled', 'iconOnly', 'outline', 'size', 'type']);
-
-	      var cx = (0, _classnames2.default)('btn', classes, {
-	        'btn--default': type === 'default' && !outline,
-	        'btn--primary': type === 'primary' && !outline,
-	        'btn--secondary': type === 'secondary' && !outline,
-	        'btn--accent': type === 'accent' && !outline,
-	        'btn--link': type === 'link' && !outline,
-	        'btn--default-outline': type === 'default' && outline,
-	        'btn--primary-outline': type === 'primary' && outline,
-	        'btn--secondary-outline': type === 'secondary' && outline,
-	        'btn--accent-outline': type === 'accent' && outline,
-	        'btn--sm': size === 'small',
-	        'btn--lg': size === 'large',
-	        'btn--block': block,
-	        'btn--icon': iconOnly,
-	        'disabled': disabled });
-
-	      //eslint-disable-line
 	      return _react2.default.createElement(
-	        'a',
-	        _extends({ href: 'javascript:void(0)', className: cx, onClick: click }, props, { role: 'button' }),
+	        'div',
+	        { className: 'dropdown' },
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', className: 'btn btn--default dropdown__toggle', type: 'button', 'data-toggle': 'dropdown' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'u-text-overflow' },
+	            'Dropdown'
+	          ),
+	          _react2.default.createElement(
+	            'svg',
+	            { className: 'dropdown__toggle__icon' },
+	            _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
+	          )
+	        ),
 	        this.props.children
-	      ) //eslint-disable-line
-	      ;
+	      );
 	    }
 	  }]);
 
@@ -80916,6 +80914,7 @@
 
 	Dropdown.displayName = 'RhinoDropdown';
 	Dropdown.propTypes = {
+	  children: _react2.default.PropTypes.node,
 	  block: _react2.default.PropTypes.bool,
 	  classes: _react2.default.PropTypes.string,
 	  click: _react2.default.PropTypes.func,
@@ -80945,8 +80944,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -81010,11 +81007,10 @@
 
 	      //eslint-disable-line
 	      return _react2.default.createElement(
-	        'a',
-	        _extends({ href: 'javascript:void(0)', className: cx, onClick: click }, props, { role: 'button' }),
+	        'ul',
+	        { className: 'dropdown__menu' },
 	        this.props.children
-	      ) //eslint-disable-line
-	      ;
+	      );
 	    }
 	  }]);
 
@@ -81023,6 +81019,7 @@
 
 	DropdownMenu.displayName = 'RhinoDropdownMenu';
 	DropdownMenu.propTypes = {
+	  children: _react2.default.PropTypes.node,
 	  block: _react2.default.PropTypes.bool,
 	  classes: _react2.default.PropTypes.string,
 	  click: _react2.default.PropTypes.func,
@@ -81111,7 +81108,7 @@
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -81125,11 +81122,15 @@
 
 	var DropdownMenuItem = function DropdownMenuItem(props) {
 	  return _react2.default.createElement(
-	    'li',
-	    { className: 'dropdown__menu__item' },
-	    props.children
+	    "li",
+	    { className: "dropdown__menu__item" },
+	    _react2.default.createElement(
+	      "a",
+	      { href: "javascript:void(0)" },
+	      props.children
+	    )
 	  );
-	};
+	}; /* eslint no-script-url:0 */
 
 	DropdownMenuItem.displayName = 'RhinoDropdownMenuItem';
 
