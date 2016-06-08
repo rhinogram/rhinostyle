@@ -3081,7 +3081,7 @@ fieldset[disabled] .rhinodio label {
   display: inline-flex;
   font-size: 1.4rem;
   line-height: 1;
-  padding: 0.6rem 0.8rem;
+  padding: 0.4rem 0.6rem;
   white-space: nowrap;
 }
 .pill:empty {
@@ -3158,8 +3158,12 @@ fieldset[disabled] .rhinodio label {
   }
 }
 .toast {
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 0.4rem;
   color: #fff;
+  display: -ms-flexbox;
+  display: flex;
   font-weight: 300;
   margin-bottom: 0.6rem;
   max-width: 50rem;
@@ -3167,7 +3171,7 @@ fieldset[disabled] .rhinodio label {
   position: relative;
 }
 .toast > .icon {
-  margin-right: 0.4rem;
+  margin-right: 0.6rem;
 }
 .toast--danger {
   background: #cb2027;
