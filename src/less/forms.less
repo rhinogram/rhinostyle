@@ -274,6 +274,12 @@ input[type='checkbox']:focus {
 // -------------------------
 
 
+// form controls that need right padding to account for chevron-down
+.form__control--chevron {
+  padding-right: @form-control-chevron-padding;
+}
+
+
 /*.form__control--sm {
   .input-size(@input-height-small; @padding-medium; @font-size-small; @input-border-radius-small);
 }
@@ -488,25 +494,8 @@ input[type='checkbox'] {
 
 
 .rhinoselect {
-
   position: relative;
   vertical-align: middle;
-
-  > select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-    overflow: hidden;
-    padding-right: 3rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    &::-ms-expand {
-      background-color: transparent;
-      border: 0;
-      display: none;
-    }
-  }
 
   &::after {
     background-position: center center;
@@ -542,6 +531,18 @@ input[type='checkbox'] {
     right: @padding-medium;
   }
 }*/
+
+
+// -------------------------
+// Rhinoselect Select
+// -------------------------
+
+.rhinoselect__select {
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 
 // -------------------------

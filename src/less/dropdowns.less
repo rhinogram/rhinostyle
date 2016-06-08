@@ -61,8 +61,23 @@
 
 
 .dropdown--multiselect { // lesshint depthLevel: false
-  display: block;
+  display: flex;
   margin-bottom: @margin-small;
+
+  &::after {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 1.4rem 1.4rem;
+    content: '';
+    height: 1.4rem;
+    pointer-events: none;
+    position: absolute;
+    right: @padding-large;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.4rem;
+    .svg-bg-add-fill('@{svg-path}chevron-down.svg', @text-color);
+  }
 
   .dropdown__menu {
     width: 100%;
@@ -94,6 +109,15 @@
     }
   }
 }
+
+// -------------------------
+// Dropdown Input
+// -------------------------
+
+
+/*.dropdown__input {
+  cursor: pointer;
+}*/
 
 
 // -------------------------
