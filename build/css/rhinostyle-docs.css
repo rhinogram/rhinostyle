@@ -937,17 +937,17 @@ a.u-text-warning:hover,
   color: #fff;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 1.4rem;
+  font-size: 2.2rem;
   font-weight: 300;
-  height: 5rem;
+  height: 6rem;
   -ms-flex-pack: center;
   justify-content: center;
-  letter-spacing: .2rem;
+  letter-spacing: .1rem;
   overflow: hidden;
   pointer-events: none;
   text-transform: uppercase;
   vertical-align: middle;
-  width: 5rem;
+  width: 6rem;
 }
 .avatar--member {
   background-color: #ffa573;
@@ -958,16 +958,16 @@ a.u-text-warning:hover,
   border-color: #7fc0e3;
 }
 .avatar--lg {
-  font-size: 2.6rem;
+  font-size: 3rem;
   height: 8rem;
   width: 8rem;
 }
 .avatar--sm {
   border-radius: 0.3rem;
-  font-size: 1.2rem;
-  height: 3rem;
-  min-width: 3rem;
-  width: 3rem;
+  font-size: 1.4rem;
+  height: 4rem;
+  min-width: 4rem;
+  width: 4rem;
 }
 .avatar__icon {
   fill: currentColor;

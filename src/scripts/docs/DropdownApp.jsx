@@ -6,7 +6,7 @@ import { Dropdown, DropdownMenu, DropdownMenuDivider, DropdownMenuHeader, Dropdo
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const dropdownExample = require('raw!./examples/Dropdown.example.txt'); 
+const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const exampleScope  = {
   React,
   ReactDOM,
