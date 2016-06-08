@@ -30,7 +30,7 @@ class ProgressBar extends React.Component {
   };
 
   render() {
-    const { className, progress, showLabel, type, ...props } = this.props;
+    const { className, progress, showLabel, type } = this.props;
 
     let progressTranslation = progress;
 
@@ -64,7 +64,7 @@ class ProgressBar extends React.Component {
 
     if (showLabel && progressTranslation > 1) {
       label = (
-        <div className="progress__bar__slider__label">{progressTranslation + '%'}</div>
+        <div className="progress__bar__slider__label">{`${progressTranslation}%`}</div>
       );
     }
 

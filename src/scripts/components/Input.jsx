@@ -40,6 +40,7 @@ class Input extends React.Component {
       if (label) {
         return (<label htmlFor={name} className={cxLabel}>{label}</label>);
       }
+      return false;
     };
 
     return (

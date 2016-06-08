@@ -15,7 +15,7 @@ class Loaderline extends React.Component {
   };
 
   render() {
-    const { className, type, ...props } = this.props;
+    const { className, type } = this.props;
 
     const classes = cx('loader-line', className, {
       'loader-line--default': type === 'default',
