@@ -8,7 +8,7 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved: 0 */
 const calloutExample = require('raw!./examples/Callout.example.txt');
 const toastExample   = require('raw!./examples/Toast.example.txt');
-const toastScope   = {
+const toastScope     = {
   React,
   ReactDOM,
   Toast,
@@ -30,6 +30,9 @@ class FeedbackApp extends React.Component {
       body: 'This is an alert in a toast notification',
       icon: 'warning',
       type: 'danger',
+      onDismiss() {
+        console.log('I run when the notification was dismissed');
+      },
     });
   }
 

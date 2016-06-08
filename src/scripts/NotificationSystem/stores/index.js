@@ -3,11 +3,10 @@ import NotificationConstants    from '../constants';
 
 import EventEmitter from 'events';
 
-const ActionTypes       = NotificationConstants.ActionTypes;
-const CHANGE_EVENT      = 'change';
-const AUTO_DISMISS_TIME = (NotificationConstants.autodismissTime + 1.5) * 1000;
-const _notifications    = [];
-let _id                 = 0;
+const ActionTypes    = NotificationConstants.ActionTypes;
+const CHANGE_EVENT   = 'change';
+const _notifications = [];
+let _id              = 0;
 
 class NotificationStoreClass extends EventEmitter {
   emitChange() {
@@ -34,26 +33,10 @@ const NotificationStore = new NotificationStoreClass();
 function _addNotification(notification) {
   const _notification = Object.assign({}, notification, { id: _id++ });
 
-  if (!_notification.hasOwnProperty('autoDismiss')) {
-    _notification.autodismissTime = AUTO_DISMISS_TIME;
-    _notification.autoDismiss = true;
-  }
-
-  if (_notification.autoDismiss) {
-    /* eslint wrap-iife:0 func-names:0 */
-    const dismissFn = (function(notificationID) {
-      return () => {
-        _removeNotification(notificationID, true);
-      };
-    })(_notification.id);
-
-    setTimeout(dismissFn, AUTO_DISMISS_TIME);
-  }
-
   _notifications.unshift(_notification);
 }
 
-function _removeNotification(id, emitChange) {
+function _removeNotification(id) {
   const index = _notifications.map(notification => notification.id).indexOf(id);
 
   if (index !== -1 && _notifications[index]) {
@@ -63,10 +46,6 @@ function _removeNotification(id, emitChange) {
 
     if (dismissEvent) {
       dismissEvent();
-    }
-
-    if (emitChange) {
-      NotificationStore.emitChange();
     }
   }
 }
