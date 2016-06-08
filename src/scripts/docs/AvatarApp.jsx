@@ -18,6 +18,7 @@ const AvatarApp = () =>
   <div>
     <h1 className="site-headline">Avatars</h1>
 
+    {/*
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>
       <div className="u-m-b-md">
@@ -61,6 +62,7 @@ const AvatarApp = () =>
         </div>
       </div>
     </section>
+    */}
 
     <section>
       <h3 className="site-subheadline">Playground</h3>

@@ -3,9 +3,15 @@ class ComponentExample extends React.Component {
     return (
       <div>
       	<div className="site-example-avatar">
-          <Avatar type="member" size="large" image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg"></Avatar>
-          <Avatar type="patient">IG</Avatar>
-          <Avatar type="member" size="small"><Icon icon="user" type="avatar" /></Avatar>
+          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" name="IG" size="large" type="member"></Avatar>
+          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105edE_400x400.jpeg" name="IG" size="large" type="member"></Avatar>
+          <Avatar name="IG" size="large" type="member"></Avatar>
+          <Avatar size="large" type="member"></Avatar>
+
+          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" name="IG"  type="patient"></Avatar>
+          <Avatar image="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105edE_400x400.jpeg" name="IG" type="patient"></Avatar>
+          <Avatar name="IG" type="patient"></Avatar>
+          <Avatar type="patient"></Avatar>
         </div>
       </div>
     );
