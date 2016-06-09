@@ -1,11 +1,27 @@
 import React from 'react';
+import cx    from 'classnames';
 
-const DropdownMenuItem = (props) => <li className="dropdown__menu__item"><a href="javascript:void(0)">{props.children}</a></li>; /* eslint no-script-url:0 */
+class DropdownMenuItem extends React.Component {
+  static displayName = 'RhinoDropdownMenuItem';
 
-DropdownMenuItem.displayName = 'RhinoDropdownMenuItem';
+  static propTypes = {
+    children:  React.PropTypes.node,
+    click: React.PropTypes.func,
+    className: React.PropTypes.string,
+  };
 
-DropdownMenuItem.propTypes = {
-  children:  React.PropTypes.node,
-};
+  static defaultProps = {
+    click: () => {},
+  };
+
+  render() {
+    const { className, click, ...props } = this.props;
+    const classes = cx('dropdown__menu__item', className);
+
+    return (
+      <li className={classes}><a href="javascript:void(0)" onClick={click}>{props.children}</a></li> /* eslint no-script-url:0 */
+    );
+  }
+}
 
 export default DropdownMenuItem;

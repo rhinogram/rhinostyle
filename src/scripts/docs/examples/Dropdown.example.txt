@@ -5,7 +5,7 @@ class ComponentExample extends React.Component {
       <Dropdown label="Dropdown" type="secondary">
         <DropdownMenu>
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem  click={() => alert('clicked!')}>Item</DropdownMenuItem>
           <DropdownMenuItem>Another Item</DropdownMenuItem>
           <DropdownMenuItem>A third item</DropdownMenuItem>
           <DropdownMenuDivider />
