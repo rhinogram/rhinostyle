@@ -80793,13 +80793,13 @@
 	        'btn--accent-outline': type === 'accent' && outline,
 	        'btn--sm': size === 'small',
 	        'btn--lg': size === 'large',
-	        'btn--block': block,
 	        'btn--icon': icon && !label,
 	        'disabled': disabled });
 
 	      //eslint-disable-line
 	      var dropdownClasses = (0, _classnames2.default)('dropdown', {
-	        open: this.state.isOpen
+	        open: this.state.isOpen,
+	        'dropdown--block': block
 	      });
 
 	      return _react2.default.createElement(
@@ -80889,14 +80889,24 @@
 	  _createClass(DropdownMenu, [{
 	    key: 'render',
 	    value: function render() {
-	      var className = this.props.className;
+	      var _props = this.props;
+	      var className = _props.className;
+	      var position = _props.position;
 
-	      var classes = (0, _classnames2.default)('dropdown__menu', className);
+	      var classes = (0, _classnames2.default)('dropdown__menu', className, {
+	        'dropdown__menu--right': position === 'right',
+	        'dropdown__menu--top': position === 'top',
+	        'dropdown__menu--wide': position === 'wide'
+	      });
 
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: classes },
-	        this.props.children
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dropdown__menu__scroll' },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -80907,7 +80917,8 @@
 	DropdownMenu.displayName = 'RhinoDropdownMenu';
 	DropdownMenu.propTypes = {
 	  children: _react2.default.PropTypes.node,
-	  className: _react2.default.PropTypes.string
+	  className: _react2.default.PropTypes.string,
+	  position: _react2.default.PropTypes.string
 	};
 	DropdownMenu.defaultProps = {};
 	exports.default = DropdownMenu;

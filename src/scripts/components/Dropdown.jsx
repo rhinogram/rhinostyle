@@ -53,13 +53,13 @@ class Dropdown extends React.Component {
       'btn--accent-outline':    (type === 'accent' && outline),
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
-      'btn--block': block,
       'btn--icon': (icon && !label),
       'disabled': disabled, //eslint-disable-line
     });
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
+      'dropdown--block': block,
     });
 
     return (
