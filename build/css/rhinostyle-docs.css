@@ -3370,6 +3370,9 @@ pre {
 .site-example-buttons .btn:not(:last-child) {
   margin-right: 0.6rem;
 }
+.site-example-dropdowns .dropdown:not(:last-child) {
+  margin-right: 0.6rem;
+}
 .site-example-labels .label:not(:last-child) {
   margin-right: 0.6rem;
 }
