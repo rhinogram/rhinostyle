@@ -189,7 +189,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .addon-size(@input-height-base; @padding-medium; @font-size-base);
+  .mixin-addon-size(@input-height-base; @padding-medium; @font-size-base);
 }
 
 .form__addon__item--left {
@@ -243,7 +243,7 @@ input[type='checkbox']:focus {
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   width: 100%;
 
-  .input-size(@input-height-base; @padding-medium; @font-size-base; @input-border-radius);
+  .mixin-input-size(@input-height-base; @padding-medium; @font-size-base; @input-border-radius);
 
   &:focus {
     &:extend(.u-tab-focus);
@@ -281,11 +281,11 @@ input[type='checkbox']:focus {
 
 
 /*.form__control--sm {
-  .input-size(@input-height-small; @padding-medium; @font-size-small; @input-border-radius-small);
+  .mixin-input-size(@input-height-small; @padding-medium; @font-size-small; @input-border-radius-small);
 }
 
 .form__control--lg {
-  .input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
+  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
 }
 
 // Apply class to a `p` element to make any string of text align with labels in
@@ -418,7 +418,7 @@ input[type='checkbox'] {
 
     &:checked+label::before {
       background-color: @form-element-color;
-      .svg-bg-add-fill('@{svg-path}checkmark.svg', @white);
+      .mixin-svg-bg-add-fill('@{svg-path}checkmark.svg', @white);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 1.2rem 1.2rem;
@@ -497,20 +497,7 @@ input[type='checkbox'] {
   position: relative;
   vertical-align: middle;
 
-  &::after {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 1.4rem 1.4rem;
-    content: '';
-    height: 1.4rem;
-    pointer-events: none;
-    position: absolute;
-    right: @padding-large;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1.4rem;
-    .svg-bg-add-fill('@{svg-path}chevron-down.svg', @text-color);
-  }
+  .mixin-chevron-down();  // add chevron
 }
 
 
@@ -521,7 +508,7 @@ input[type='checkbox'] {
 
 /*.rhinoselect--default {
   &::after {
-    .svg-bg-add-fill('@{svg-path}chevron-down.svg', red);
+    .mixin-svg-bg-add-fill('@{svg-path}chevron-down.svg', red);
   }
 }*/
 

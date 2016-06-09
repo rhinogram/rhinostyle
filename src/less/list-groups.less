@@ -65,11 +65,11 @@
   }
 
   &:first-child {
-    .border-top-radius(@list-group-border-radius);
+    .mixin-border-top-radius(@list-group-border-radius);
   }
 
   &:last-child {
-    .border-bottom-radius(@list-group-border-radius);
+    .mixin-border-bottom-radius(@list-group-border-radius);
     margin-bottom: 0;
   }
 }
@@ -111,10 +111,10 @@ button.list-group__item {
 // Organizationally, this must come after the `:hover` states.
 
 
-/*.list-group-item-variant(success; @state-success-bg; @state-success-text);
-.list-group-item-variant(info; @state-info-bg; @state-info-text);
-.list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
-.list-group-item-variant(danger; @state-danger-bg; @state-danger-text);*/
+/*.mixin-list-group-item-variant(success; @state-success-bg; @state-success-text);
+.mixin-list-group-item-variant(info; @state-info-bg; @state-info-text);
+.mixin-list-group-item-variant(warning; @state-warning-bg; @state-warning-text);
+.mixin-list-group-item-variant(danger; @state-danger-bg; @state-danger-text);*/
 
 
 // -------------------------
