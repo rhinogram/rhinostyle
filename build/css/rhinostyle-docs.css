@@ -965,9 +965,9 @@ a.u-text-warning:hover,
 .avatar--sm {
   border-radius: 0.3rem;
   font-size: 1.4rem;
-  height: 4rem;
-  min-width: 4rem;
-  width: 4rem;
+  height: 3rem;
+  min-width: 3rem;
+  width: 3rem;
 }
 .avatar__icon {
   fill: currentColor;
@@ -1492,15 +1492,15 @@ button.close {
 .dropdown--multiselect::after {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 0.65em 0.65em;
+  background-size: 0.7em 0.7em;
   content: '';
-  height: 0.65em;
+  height: 0.7em;
   pointer-events: none;
   position: absolute;
   right: 1.2rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 0.65em;
+  width: 0.7em;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M12%2018c-.3%200-.6-.1-.8-.4l-11-10c-.4-.4-.3-1.1.1-1.4.4-.4%201.1-.3%201.4.1L12%2015.5l10.2-9.1c.4-.4%201-.5%201.4-.1.4.4.5%201%20.1%201.4l-11%2010c-.1.2-.4.3-.7.3z%22%2F%3E%3C%2Fsvg%3E");
 }
 .dropdown--multiselect .dropdown__menu {
@@ -1520,15 +1520,15 @@ button.close {
 .dropdown--multiselect .dropdown__menu__item.active > a:focus::after {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 1.2rem 1.2rem;
+  background-size: 1.4rem 1.4rem;
   content: '';
-  height: 1.2rem;
+  height: 1.4rem;
   pointer-events: none;
   position: absolute;
   right: 1.2rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.2rem;
+  width: 1.4rem;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%230081c6%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
 }
 /*.dropdown__input {
@@ -1648,13 +1648,13 @@ button.close {
 }*/
 .dropdown__toggle__icon {
   fill: currentColor;
-  height: 0.65em;
+  height: 0.7em;
   line-height: 1;
   margin-left: 0.6rem;
-  min-width: 0.65em;
+  min-width: 0.7em;
   position: relative;
   vertical-align: middle;
-  width: 0.65em;
+  width: 0.7em;
 }
 .btn .dropdown__toggle__icon {
   top: .1rem;
@@ -2626,15 +2626,15 @@ fieldset[disabled] .rhinodio label {
 .rhinoselect::after {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 0.65em 0.65em;
+  background-size: 0.7em 0.7em;
   content: '';
-  height: 0.65em;
+  height: 0.7em;
   pointer-events: none;
   position: absolute;
   right: 1.2rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 0.65em;
+  width: 0.7em;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M12%2018c-.3%200-.6-.1-.8-.4l-11-10c-.4-.4-.3-1.1.1-1.4.4-.4%201.1-.3%201.4.1L12%2015.5l10.2-9.1c.4-.4%201-.5%201.4-.1.4.4.5%201%20.1%201.4l-11%2010c-.1.2-.4.3-.7.3z%22%2F%3E%3C%2Fsvg%3E");
 }
 /*.rhinoselect--default {
@@ -3368,6 +3368,9 @@ pre {
   margin-right: 0.6rem;
 }
 .site-example-buttons .btn:not(:last-child) {
+  margin-right: 0.6rem;
+}
+.site-example-dropdowns .dropdown:not(:last-child) {
   margin-right: 0.6rem;
 }
 .site-example-labels .label:not(:last-child) {
