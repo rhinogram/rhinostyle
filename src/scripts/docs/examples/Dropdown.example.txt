@@ -1,9 +1,18 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div>
-Example
-      </div>
+    <div>
+      <Dropdown label="Dropdown" type="secondary">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+    </div>
     );
   }
 }
