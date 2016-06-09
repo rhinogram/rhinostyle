@@ -113,12 +113,14 @@
       <span class="u-text-overflow">Dropdown</span><svg class="dropdown__toggle__icon"><use xlink:href="#icon-chevron-down"/></svg>
     </div>
     <ul class="dropdown__menu">
-      <li class="dropdown__menu__header">Menu Header</li>
-      <li class="dropdown__menu__item"><a href="#">Item</a></li>
-      <li class="dropdown__menu__item"><a href="#">Another item</a></li>
-      <li class="dropdown__menu__item active"><a href="#">Active item</a></li>
-      <li class="dropdown__menu__divider"></li>
-      <li class="dropdown__menu__item"><a href="#">Separated item</a></li>
+      <div class="dropdown__menu__scroll">
+        <li class="dropdown__menu__header">Menu Header</li>
+        <li class="dropdown__menu__item"><a href="#">Item</a></li>
+        <li class="dropdown__menu__item"><a href="#">Another item</a></li>
+        <li class="dropdown__menu__item active"><a href="#">Active item</a></li>
+        <li class="dropdown__menu__divider"></li>
+        <li class="dropdown__menu__item"><a href="#">Separated item</a></li>
+      </div>
     </ul>
   </div>
 
@@ -292,24 +294,6 @@
         <a href="#" class="btn btn--default dropdown__toggle" type="button" data-toggle="dropdown">
           <span class="u-text-overflow">Dropdown Block</span><svg class="dropdown__toggle__icon"><use xlink:href="#icon-chevron-down"/></svg>
         </a>
-        <ul class="dropdown__menu">
-          <li class="dropdown__menu__header">Menu Header</li>
-          <li class="dropdown__menu__item"><a href="#"><span class="u-text-overflow">Menu Item Using Text Overflow Utility Class</span></a></li>
-          <li class="dropdown__menu__item"><a href="#">Another item</a></li>
-          <li class="dropdown__menu__item active"><a href="#">Active item</a></li>
-          <li class="dropdown__menu__divider "></li>
-          <li class="dropdown__menu__item"><a href="#">Separated item</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="u-m-b">
-      <div class="dropdown dropdown--block">
-        <div class="btn btn--default dropdown__toggle dropdown__toggle--input" data-toggle="dropdown">
-          <input type="text" value="Searchable Dropdown" placeholder="Type here ..." class="dropdown__toggle__input">
-          <span class="dropdown__toggle__clear">&times;</span>
-          <svg class="dropdown__toggle__icon"><use xlink:href="#icon-chevron-down"/></svg>
-        </div>
         <ul class="dropdown__menu">
           <li class="dropdown__menu__header">Menu Header</li>
           <li class="dropdown__menu__item"><a href="#"><span class="u-text-overflow">Menu Item Using Text Overflow Utility Class</span></a></li>
@@ -518,17 +502,14 @@
     </div>
 
     <div class="dropdown">
-      <a href="#" class="btn btn--default dropdown__toggle" type="button" data-toggle="dropdown">
+      <div class="btn btn--default dropdown__toggle" type="button" data-toggle="dropdown">
         Ben Bruning<svg class="dropdown__toggle__icon"><use xlink:href="#icon-chevron-down"/></svg>
-      </a>
+      </div>
       <ul class="dropdown__menu dropdown__menu--wide">
 
-        <li class="dropdown__menu__container">
-          <div class="form">
-            <label for="exampleInputDropdown">Assign To</label>
-            <input type="text" class="form__control" id="exampleInputDropdown" placeholder="Filter contact">
-          </div>
-        </li>
+        <div class="dropdown__menu__container">
+          <input type="text" class="form__control" id="exampleInputDropdown" placeholder="Filter contact">
+        </div>
 
         <div class="dropdown__menu__scroll">
 
@@ -604,17 +585,14 @@
 
 
     <div class="dropdown">
-      <a href="#" class="btn btn--link dropdown__toggle" type="button" data-toggle="dropdown">
+      <div class="btn btn--link dropdown__toggle" type="button" data-toggle="dropdown">
         Blake Guilloud<svg class="dropdown__toggle__icon"><use xlink:href="#icon-chevron-down"/></svg>
-      </a>
+      </div>
       <ul class="dropdown__menu dropdown__menu--wide">
 
-        <li class="dropdown__menu__container">
-          <div class="form">
-            <label for="exampleInputDropdown">Assign To</label>
-            <input type="text" class="form__control" id="exampleInputDropdown" placeholder="Filter contact">
-          </div>
-        </li>
+        <div class="dropdown__menu__container">
+          <input type="text" class="form__control" id="exampleInputDropdown" placeholder="Filter contact">
+        </div>
 
         <div class="dropdown__menu__scroll">
 
