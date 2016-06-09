@@ -16,7 +16,7 @@ class ComponentExample extends React.Component {
             <Avatar type="patient" />
           </div>
           <div>
-            <Avatar image="//bit.ly/1ta1bQa" name="Ian Greulich" size="small" type="member" />
+            <Avatar image="//bit.ly/1VMXoDP" name="Ian Greulich" size="small" type="member" />
             <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="member" />
             <Avatar name="Ian Greulich" size="small" type="member" />
             <Avatar size="small" type="member" />

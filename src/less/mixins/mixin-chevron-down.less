@@ -1,0 +1,29 @@
+// File: mixin-chevron-down.less
+// Note: used to add chevron down to the wrapper of input / select dropdown toggles
+
+
+// -------------------------
+// Chevron Down
+// -------------------------
+
+
+.mixin-chevron-down() {
+  &::after {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: @dropdown-chevron-size @dropdown-chevron-size;
+    content: '';
+    height: @dropdown-chevron-size;
+    pointer-events: none;
+    position: absolute;
+    right: @padding-large;
+    top: 50%;
+    transform: translateY(-50%);
+    width: @dropdown-chevron-size;
+    .mixin-svg-bg-add-fill('@{svg-path}chevron-down.svg', @text-color);
+  }
+}
+
+
+
+
