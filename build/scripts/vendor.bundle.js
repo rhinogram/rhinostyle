@@ -99,7 +99,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(3);
-	__webpack_require__(17);
+	__webpack_require__(16);
 	module.exports = __webpack_require__(35);
 
 
@@ -695,16 +695,6 @@
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(31);
-	module.exports = function(it){
-	  return Object(defined(it));
-	};
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	  Copyright (c) 2016 Jed Watson.
 	  Licensed under the MIT License (MIT), see
@@ -754,6 +744,16 @@
 		}
 	}());
 
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(31);
+	module.exports = function(it){
+	  return Object(defined(it));
+	};
 
 /***/ },
 /* 18 */
@@ -915,7 +915,7 @@
 
 	// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 	var has         = __webpack_require__(18)
-	  , toObject    = __webpack_require__(16)
+	  , toObject    = __webpack_require__(17)
 	  , IE_PROTO    = __webpack_require__(114)('IE_PROTO')
 	  , ObjectProto = Object.prototype;
 
@@ -1711,7 +1711,7 @@
 	// 6 -> Array#findIndex
 	var ctx      = __webpack_require__(40)
 	  , IObject  = __webpack_require__(69)
-	  , toObject = __webpack_require__(16)
+	  , toObject = __webpack_require__(17)
 	  , toLength = __webpack_require__(14)
 	  , asc      = __webpack_require__(241);
 	module.exports = function(TYPE, $create){
@@ -1893,7 +1893,7 @@
 	    , same                = __webpack_require__(168)
 	    , classof             = __webpack_require__(64)
 	    , isObject            = __webpack_require__(8)
-	    , toObject            = __webpack_require__(16)
+	    , toObject            = __webpack_require__(17)
 	    , isArrayIter         = __webpack_require__(106)
 	    , create              = __webpack_require__(54)
 	    , getPrototypeOf      = __webpack_require__(27)
@@ -14625,7 +14625,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -14681,7 +14681,7 @@
 
 	// 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 	'use strict';
-	var toObject = __webpack_require__(16)
+	var toObject = __webpack_require__(17)
 	  , toIndex  = __webpack_require__(59)
 	  , toLength = __webpack_require__(14);
 	module.exports = function fill(value /*, start = 0, end = @length */){
@@ -17812,7 +17812,7 @@
 
 	// 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 	'use strict';
-	var toObject = __webpack_require__(16)
+	var toObject = __webpack_require__(17)
 	  , toIndex  = __webpack_require__(59)
 	  , toLength = __webpack_require__(14);
 
@@ -17855,7 +17855,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var aFunction = __webpack_require__(21)
-	  , toObject  = __webpack_require__(16)
+	  , toObject  = __webpack_require__(17)
 	  , IObject   = __webpack_require__(69)
 	  , toLength  = __webpack_require__(14);
 
@@ -18213,7 +18213,7 @@
 	var getKeys  = __webpack_require__(56)
 	  , gOPS     = __webpack_require__(84)
 	  , pIE      = __webpack_require__(70)
-	  , toObject = __webpack_require__(16)
+	  , toObject = __webpack_require__(17)
 	  , IObject  = __webpack_require__(69)
 	  , $assign  = Object.assign;
 
@@ -80586,7 +80586,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -80721,7 +80721,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -80827,7 +80827,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -80910,7 +80910,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81051,13 +81051,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -81077,38 +81075,13 @@
 	  _createClass(DropdownMenu, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var block = _props.block;
-	      var classes = _props.classes;
-	      var click = _props.click;
-	      var disabled = _props.disabled;
-	      var iconOnly = _props.iconOnly;
-	      var outline = _props.outline;
-	      var size = _props.size;
-	      var type = _props.type;
+	      var className = this.props.className;
 
-	      var props = _objectWithoutProperties(_props, ['block', 'classes', 'click', 'disabled', 'iconOnly', 'outline', 'size', 'type']);
+	      var classes = (0, _classnames2.default)('dropdown__menu', className);
 
-	      var cx = (0, _classnames2.default)('btn', classes, {
-	        'btn--default': type === 'default' && !outline,
-	        'btn--primary': type === 'primary' && !outline,
-	        'btn--secondary': type === 'secondary' && !outline,
-	        'btn--accent': type === 'accent' && !outline,
-	        'btn--link': type === 'link' && !outline,
-	        'btn--default-outline': type === 'default' && outline,
-	        'btn--primary-outline': type === 'primary' && outline,
-	        'btn--secondary-outline': type === 'secondary' && outline,
-	        'btn--accent-outline': type === 'accent' && outline,
-	        'btn--sm': size === 'small',
-	        'btn--lg': size === 'large',
-	        'btn--block': block,
-	        'btn--icon': iconOnly,
-	        'disabled': disabled });
-
-	      //eslint-disable-line
 	      return _react2.default.createElement(
 	        'ul',
-	        { className: 'dropdown__menu' },
+	        { className: classes },
 	        this.props.children
 	      );
 	    }
@@ -81120,24 +81093,9 @@
 	DropdownMenu.displayName = 'RhinoDropdownMenu';
 	DropdownMenu.propTypes = {
 	  children: _react2.default.PropTypes.node,
-	  block: _react2.default.PropTypes.bool,
-	  classes: _react2.default.PropTypes.string,
-	  click: _react2.default.PropTypes.func,
-	  disabled: _react2.default.PropTypes.bool,
-	  iconOnly: _react2.default.PropTypes.bool,
-	  outline: _react2.default.PropTypes.bool,
-	  size: _react2.default.PropTypes.oneOf(['small', 'normal', 'large']),
-	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link'])
+	  className: _react2.default.PropTypes.string
 	};
-	DropdownMenu.defaultProps = {
-	  block: false,
-	  click: function click() {},
-	  disabled: false,
-	  iconOnly: false,
-	  outline: false,
-	  size: 'normal',
-	  type: 'default'
-	};
+	DropdownMenu.defaultProps = {};
 	exports.default = DropdownMenu;
 
 /***/ },
@@ -81182,26 +81140,57 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(16);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var DropdownMenuHeader = function DropdownMenuHeader(props) {
-	  return _react2.default.createElement(
-	    'li',
-	    { className: 'dropdown__menu__header' },
-	    props.children
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DropdownMenuHeader = function (_React$Component) {
+	  _inherits(DropdownMenuHeader, _React$Component);
+
+	  function DropdownMenuHeader() {
+	    _classCallCheck(this, DropdownMenuHeader);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(DropdownMenuHeader).apply(this, arguments));
+	  }
+
+	  _createClass(DropdownMenuHeader, [{
+	    key: 'render',
+	    value: function render() {
+	      var className = this.props.className;
+
+	      var classes = (0, _classnames2.default)('dropdown__menu__header', className);
+
+	      return _react2.default.createElement(
+	        'li',
+	        { className: classes },
+	        this.props.children
+	      );
+	    }
+	  }]);
+
+	  return DropdownMenuHeader;
+	}(_react2.default.Component);
 
 	DropdownMenuHeader.displayName = 'RhinoDropdownMenuHeader';
-
 	DropdownMenuHeader.propTypes = {
-	  children: _react2.default.PropTypes.node
+	  children: _react2.default.PropTypes.node,
+	  className: _react2.default.PropTypes.string
 	};
-
+	DropdownMenuHeader.defaultProps = {};
 	exports.default = DropdownMenuHeader;
 
 /***/ },
@@ -81220,13 +81209,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -81250,8 +81237,6 @@
 	      var className = _props.className;
 	      var click = _props.click;
 
-	      var props = _objectWithoutProperties(_props, ['className', 'click']);
-
 	      var classes = (0, _classnames2.default)('dropdown__menu__item', className);
 
 	      return _react2.default.createElement(
@@ -81260,7 +81245,7 @@
 	        _react2.default.createElement(
 	          'a',
 	          { href: 'javascript:void(0)', onClick: click },
-	          props.children
+	          this.props.children
 	        )
 	      ) /* eslint no-script-url:0 */
 	      ;
@@ -81299,7 +81284,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81409,7 +81394,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81484,7 +81469,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81556,7 +81541,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81634,7 +81619,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81715,7 +81700,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -81845,7 +81830,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(17);
+	var _classnames = __webpack_require__(16);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -82952,7 +82937,7 @@
 	'use strict';
 	var ctx            = __webpack_require__(40)
 	  , $export        = __webpack_require__(1)
-	  , toObject       = __webpack_require__(16)
+	  , toObject       = __webpack_require__(17)
 	  , call           = __webpack_require__(157)
 	  , isArrayIter    = __webpack_require__(106)
 	  , toLength       = __webpack_require__(14)
@@ -83185,7 +83170,7 @@
 	'use strict';
 	var $export   = __webpack_require__(1)
 	  , aFunction = __webpack_require__(21)
-	  , toObject  = __webpack_require__(16)
+	  , toObject  = __webpack_require__(17)
 	  , fails     = __webpack_require__(7)
 	  , $sort     = [].sort
 	  , test      = [1, 2, 3];
@@ -83260,7 +83245,7 @@
 
 	'use strict';
 	var $export     = __webpack_require__(1)
-	  , toObject    = __webpack_require__(16)
+	  , toObject    = __webpack_require__(17)
 	  , toPrimitive = __webpack_require__(39);
 
 	$export($export.P + $export.F * __webpack_require__(7)(function(){
@@ -84023,7 +84008,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.9 Object.getPrototypeOf(O)
-	var toObject        = __webpack_require__(16)
+	var toObject        = __webpack_require__(17)
 	  , $getPrototypeOf = __webpack_require__(27);
 
 	__webpack_require__(38)('getPrototypeOf', function(){
@@ -84084,7 +84069,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(16)
+	var toObject = __webpack_require__(17)
 	  , $keys    = __webpack_require__(56);
 
 	__webpack_require__(38)('keys', function(){
@@ -85849,7 +85834,7 @@
 
 	'use strict';
 	var $export         = __webpack_require__(1)
-	  , toObject        = __webpack_require__(16)
+	  , toObject        = __webpack_require__(17)
 	  , aFunction       = __webpack_require__(21)
 	  , $defineProperty = __webpack_require__(12);
 
@@ -85866,7 +85851,7 @@
 
 	'use strict';
 	var $export         = __webpack_require__(1)
-	  , toObject        = __webpack_require__(16)
+	  , toObject        = __webpack_require__(17)
 	  , aFunction       = __webpack_require__(21)
 	  , $defineProperty = __webpack_require__(12);
 
@@ -85921,7 +85906,7 @@
 
 	'use strict';
 	var $export                  = __webpack_require__(1)
-	  , toObject                 = __webpack_require__(16)
+	  , toObject                 = __webpack_require__(17)
 	  , toPrimitive              = __webpack_require__(39)
 	  , getPrototypeOf           = __webpack_require__(27)
 	  , getOwnPropertyDescriptor = __webpack_require__(26).f;
@@ -85944,7 +85929,7 @@
 
 	'use strict';
 	var $export                  = __webpack_require__(1)
-	  , toObject                 = __webpack_require__(16)
+	  , toObject                 = __webpack_require__(17)
 	  , toPrimitive              = __webpack_require__(39)
 	  , getPrototypeOf           = __webpack_require__(27)
 	  , getOwnPropertyDescriptor = __webpack_require__(26).f;

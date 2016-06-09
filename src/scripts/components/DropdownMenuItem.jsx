@@ -15,11 +15,11 @@ class DropdownMenuItem extends React.Component {
   };
 
   render() {
-    const { className, click, ...props } = this.props;
+    const { className, click } = this.props;
     const classes = cx('dropdown__menu__item', className);
 
     return (
-      <li className={classes}><a href="javascript:void(0)" onClick={click}>{props.children}</a></li> /* eslint no-script-url:0 */
+      <li className={classes}><a href="javascript:void(0)" onClick={click}>{this.props.children}</a></li> /* eslint no-script-url:0 */
     );
   }
 }
