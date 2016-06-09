@@ -20,11 +20,133 @@ const exampleScope  = {
 const DropdownApp = () =>
   <div>
     <h1 className="site-headline">Dropdowns</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
 
-      <Dropdown>
+      <Dropdown label="Dropdown">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown label="Dropdown" type="primary">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown label="Dropdown" type="secondary">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown label="Dropdown" outline>
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown label="Dropdown" type="primary" outline>
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown label="Dropdown" type="link">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown type="link" icon="search">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <br /><br />
+
+      <Dropdown icon="search">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown type="primary" icon="lock">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown type="secondary" icon="cog">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown outline icon="search">
+        <DropdownMenu>
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem>Item</DropdownMenuItem>
+          <DropdownMenuItem>Another Item</DropdownMenuItem>
+          <DropdownMenuItem>A third item</DropdownMenuItem>
+          <DropdownMenuDivider />
+          <DropdownMenuItem>Separated item</DropdownMenuItem>
+        </DropdownMenu>
+      </Dropdown>
+
+      <Dropdown type="primary" outline icon="lock">
         <DropdownMenu>
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem>Item</DropdownMenuItem>

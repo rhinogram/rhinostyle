@@ -17,7 +17,7 @@ const InputApp = () =>
         <div className="form__group">
           <label htmlFor="">Select</label>
           <div className="rhinoselect">
-            <select className="form__control" id="exampleSelect2">
+            <select className="rhinoselect__select form__control form__control--chevron" id="exampleSelect2">
               <option value="" selected="">Option One</option>
               <option value="">Option Two</option>
               <option value="">Option Three</option>

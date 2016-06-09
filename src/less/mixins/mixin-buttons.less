@@ -1,5 +1,5 @@
-// File: buttons.less
-// Note: buttons mixin
+// File: mixin-buttons.less
+// Note:
 
 
 // -------------------------
@@ -7,7 +7,7 @@
 // -------------------------
 
 
-.button-variant(@color; @background; @border; @darken: 10%) {
+.mixin-button-variant(@color; @background; @border; @darken: 10%) {
   background-color: @background;
   border-color: @border;
   color: @color;
@@ -64,7 +64,7 @@
   }
 }
 
-.button-outline-variant(@color; @background; @border; @hover-color) {
+.mixin-button-outline-variant(@color; @background; @border; @hover-color) {
   background-color: @background;
   border-color: @border;
   color: @color;
@@ -106,7 +106,7 @@
 // -------------------------
 
 
-.button-size(@height; @padding-horizontal; @font-size; @border-radius) {
+.mixin-button-size(@height; @padding-horizontal; @font-size; @border-radius) {
   border-radius: @border-radius;
   font-size: @font-size;
   height: @height;
