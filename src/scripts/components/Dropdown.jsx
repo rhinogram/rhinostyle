@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import Icon from './Icon';
+import onClickOutside from 'react-onclickoutside';
 
 class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
@@ -25,14 +26,21 @@ class Dropdown extends React.Component {
     type:     'default',
   };
 
-  _handleToggle = () => {
-    console.log('clicked');
-    //this.setState({ imageError: true });
+  state = {
+    isOpen: false,
   };
 
+  _handleToggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+
+  handleClickOutside = () => {
+    this.setState({ isOpen: false });
+  }
 
   render() {
     const { block, className, disabled, icon, label, outline, size, type } = this.props;
+
     const classes = cx('btn', 'dropdown__toggle', className, {
       'btn--default':   (type === 'default' && !outline),
       'btn--primary':   (type === 'primary' && !outline),
@@ -45,20 +53,24 @@ class Dropdown extends React.Component {
       'btn--accent-outline':    (type === 'accent' && outline),
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
-      'btn--block': block,
       'btn--icon': (icon && !label),
       'disabled': disabled, //eslint-disable-line
     });
 
+    const dropdownClasses = cx('dropdown', {
+      open:  this.state.isOpen,
+      'dropdown--block': block,
+    });
+
     return (
-      <div className="dropdown">
-        <a href="#" onClick={this._handleToggle} className={classes} type="button">
+      <div className={dropdownClasses}>
+        <div onClick={this._handleToggle} className={classes} type="button">
           {icon ? <Icon icon={icon} /> : null}<span className="u-text-overflow">{label}</span><svg className="dropdown__toggle__icon"><use xlinkHref="#icon-chevron-down" /></svg>
-        </a>
+        </div>
         {this.props.children}
       </div>
     );
   }
 }
 
-export default Dropdown;
+export default onClickOutside(Dropdown);

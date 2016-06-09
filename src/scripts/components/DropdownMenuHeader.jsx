@@ -1,11 +1,25 @@
 import React from 'react';
+import cx    from 'classnames';
 
-const DropdownMenuHeader = (props) => <li className="dropdown__menu__header">{props.children}</li>;
+class DropdownMenuHeader extends React.Component {
+  static displayName = 'RhinoDropdownMenuHeader';
 
-DropdownMenuHeader.displayName = 'RhinoDropdownMenuHeader';
+  static propTypes = {
+    children:  React.PropTypes.node,
+    className: React.PropTypes.string,
+  };
 
-DropdownMenuHeader.propTypes = {
-  children:  React.PropTypes.node,
-};
+  static defaultProps = {
+  };
+
+  render() {
+    const { className } = this.props;
+    const classes = cx('dropdown__menu__header', className);
+
+    return (
+      <li className={classes}>{this.props.children}</li>
+    );
+  }
+}
 
 export default DropdownMenuHeader;

@@ -1,17 +1,14 @@
 import React from 'react';
-import classNames from 'classnames';
+import cx    from 'classnames';
 
 class Input extends React.Component {
   static displayName = 'RhinoInput';
 
   static propTypes = {
-    groupClass:  React.PropTypes.string,
-    inputClass:  React.PropTypes.string,
+    className:   React.PropTypes.string,
     label:       React.PropTypes.string,
-    labelClass:  React.PropTypes.string,
     name:        React.PropTypes.string,
     placeholder: React.PropTypes.string,
-    size:        React.PropTypes.string,
     type:        React.PropTypes.oneOf(['email', 'password', 'text']),
     value:       React.PropTypes.any,
   };
@@ -31,22 +28,20 @@ class Input extends React.Component {
   }
 
   render() {
-    const { groupClass, inputClass, label, labelClass, name, placeholder, type, value, ...props } = this.props;
-    const cxGroup = classNames('form__group', groupClass);
-    const cxLabel = classNames(labelClass);
-    const cxInput = classNames('form__control', inputClass);
+    const { className, label, name, placeholder, type, value } = this.props;
+    const classes = cx('form__control', className);
 
     const showLabel = () => {
       if (label) {
-        return (<label htmlFor={name} className={cxLabel}>{label}</label>);
+        return (<label htmlFor={name}>{label}</label>);
       }
       return false;
     };
 
     return (
-      <div className={cxGroup}>
+      <div className="form__group">
         {showLabel()}
-        <input {...props} value={value} type={type} className={cxInput} id={name} placeholder={placeholder} ref="input" />
+        <input value={value} type={type} className={classes} id={name} placeholder={placeholder} ref="input" />
       </div>
     );
   }
