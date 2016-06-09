@@ -1639,6 +1639,7 @@ button.close {
 .dropdown__menu__scroll {
   max-height: 20rem;
   overflow-y: auto;
+  transform: translate3d(0px, 0px, 0px);
 }
 /*.dropdown__toggle {
   &:active,
@@ -1658,14 +1659,6 @@ button.close {
 }
 .btn .dropdown__toggle__icon {
   top: .1rem;
-}
-.dropdown-backdrop {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 990;
 }
 [class^='col-'],
 [class*='col-'] {
