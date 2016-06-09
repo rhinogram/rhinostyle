@@ -159,6 +159,33 @@ const DropdownApp = () =>
 
     </section>
 
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown Modifiers</h3>
+
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Dropdown Block</h5>
+        <p className="site-copy">
+          Add the <code>dropdown--block</code> modifier to <code>dropdown</code>to create 100% width, block level dropdown. The <code>dropdown__menu</code> will also have 100% width to match.
+        </p>
+
+        <div className="u-m-b">
+
+          <Dropdown label="Dropdown Block" block>
+            <DropdownMenu>
+              <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+              <DropdownMenuItem>Item</DropdownMenuItem>
+              <DropdownMenuItem>Another Item</DropdownMenuItem>
+              <DropdownMenuItem>A third item</DropdownMenuItem>
+              <DropdownMenuDivider />
+              <DropdownMenuItem>Separated item</DropdownMenuItem>
+            </DropdownMenu>
+          </Dropdown>
+
+        </div>
+
+      </div>
+    </section>
+
     <section>
       <h3 className="site-subheadline">Playground</h3>
       <Playground codeText={dropdownExample} scope={exampleScope} noRender={false} />
