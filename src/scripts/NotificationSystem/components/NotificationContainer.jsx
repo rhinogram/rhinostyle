@@ -24,22 +24,34 @@ function _showNotification({ target }) {
     opacity:    1,
     /* eslint no-undef:0 */
     ease:       Expo.easeOut,
-    onComplete: () => {
-      _hideNotification(target);
+    onComplete() {
+      _target.target = target;
+
+      _hideNotification(_target);
     },
   });
 }
 
 function _hideNotification({ target }, delay = true) {
+  if (_target.hasOwnProperty('delay')) {
+    /* eslint no-param-reassign:0 */
+    delay = _target.delay;
+  }
+
   return TweenMax.to(target, 0.5, {
     marginTop: -target[0].offsetHeight - notifyBottomMargin,
     opacity:   0,
     delay:     delay ? AUTO_DISMISS_TIME : 0,
+    onComplete() {
+      _target.onDismiss();
+
+      delete _target.delay;
+    },
   });
 }
 
 class NotificationContainer extends React.Component {
-  static propTyes = {
+  static propTypes = {
     onDismiss:    React.PropTypes.func,
     notification: React.PropTypes.object,
   }
@@ -47,22 +59,25 @@ class NotificationContainer extends React.Component {
   componentDidMount() {
     this.addAnimation(_initNotification);
     this.addAnimation(_showNotification);
+
+    _target.onDismiss = this.props.onDismiss;
   }
 
   hideNotification = (event) => {
     _target.node = event.target.parentNode.parentNode;
-    _target.onDismiss = this.props.onDismiss;
+    _target.delay = false;
 
     this.addAnimation(_hideNotification);
   }
 
   render() {
-    const { body, id, type } = this.props.notification;
+    const { body, icon, type } = this.props.notification;
 
     return (
-      <Toast type={type} body={body} onDismiss={this.hideNotification} />
+      <Toast type={type} icon={icon} body={body} onDismiss={this.hideNotification} />
     );
   }
 }
 
+/* eslint new-cap:0 */
 export default GSAP()(NotificationContainer);

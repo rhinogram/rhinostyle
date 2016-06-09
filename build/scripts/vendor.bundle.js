@@ -80039,7 +80039,9 @@
 	    /* eslint no-undef:0 */
 	    ease: Expo.easeOut,
 	    onComplete: function onComplete() {
-	      _hideNotification(target);
+	      _target.target = target;
+
+	      _hideNotification(_target);
 	    }
 	  });
 	}
@@ -80048,10 +80050,20 @@
 	  var target = _ref3.target;
 	  var delay = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
 
+	  if (_target.hasOwnProperty('delay')) {
+	    /* eslint no-param-reassign:0 */
+	    delay = _target.delay;
+	  }
+
 	  return _gsap2.default.to(target, 0.5, {
 	    marginTop: -target[0].offsetHeight - notifyBottomMargin,
 	    opacity: 0,
-	    delay: delay ? AUTO_DISMISS_TIME : 0
+	    delay: delay ? AUTO_DISMISS_TIME : 0,
+	    onComplete: function onComplete() {
+	      _target.onDismiss();
+
+	      delete _target.delay;
+	    }
 	  });
 	}
 
@@ -80071,7 +80083,7 @@
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(NotificationContainer)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.hideNotification = function (event) {
 	      _target.node = event.target.parentNode.parentNode;
-	      _target.onDismiss = _this.props.onDismiss;
+	      _target.delay = false;
 
 	      _this.addAnimation(_hideNotification);
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -80082,24 +80094,29 @@
 	    value: function componentDidMount() {
 	      this.addAnimation(_initNotification);
 	      this.addAnimation(_showNotification);
+
+	      _target.onDismiss = this.props.onDismiss;
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _props$notification = this.props.notification;
 	      var body = _props$notification.body;
-	      var id = _props$notification.id;
+	      var icon = _props$notification.icon;
 	      var type = _props$notification.type;
 
 
-	      return _react2.default.createElement(_components.Toast, { type: type, body: body, onDismiss: this.hideNotification });
+	      return _react2.default.createElement(_components.Toast, { type: type, icon: icon, body: body, onDismiss: this.hideNotification });
 	    }
 	  }]);
 
 	  return NotificationContainer;
 	}(_react2.default.Component);
 
-	NotificationContainer.propTyes = {
+	/* eslint new-cap:0 */
+
+
+	NotificationContainer.propTypes = {
 	  onDismiss: _react2.default.PropTypes.func,
 	  notification: _react2.default.PropTypes.object
 	};
@@ -80114,6 +80131,8 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(4);
 
@@ -80135,38 +80154,73 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var NotificationsContainer = _react2.default.createClass({
-	  displayName: 'Notifications Container',
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	  getInitialState: function getInitialState() {
-	    return _stores2.default.getState();
-	  },
-	  componentDidMount: function componentDidMount() {
-	    _stores2.default.listen(this.onChange);
-	  },
-	  componentWillUnmount: function componentWillUnmount() {
-	    _stores2.default.unlisten(this.onChange);
-	  },
-	  onChange: function onChange() {
-	    this.setState(_stores2.default.getState());
-	  },
-	  onDismiss: function onDismiss(id) {
-	    NotificationActions.removeNotification(id);
-	  },
-	  render: function render() {
-	    var _this = this;
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	    var notifications = this.state.notifications.map(function (notification, index) {
-	      return _react2.default.createElement(_NotificationContainer2.default, { key: notification.id, index: index, notification: notification, onDismiss: _this.onDismiss.bind(_this, notification.id) });
-	    });
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      notifications
-	    );
+	var _state = _stores2.default.getState();
+
+	var NotificationsContainer = function (_React$Component) {
+	  _inherits(NotificationsContainer, _React$Component);
+
+	  function NotificationsContainer() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, NotificationsContainer);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(NotificationsContainer)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = _state, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
-	});
+
+	  _createClass(NotificationsContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      _stores2.default.listen(this.onChange.bind(this));
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      _stores2.default.unlisten(this.onChange.bind(this));
+	    }
+	  }, {
+	    key: 'onChange',
+	    value: function onChange() {
+	      this.setState(_stores2.default.getState());
+	    }
+	  }, {
+	    key: 'onDismiss',
+	    value: function onDismiss(id) {
+	      NotificationActions.removeNotification(id);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      var notifications = this.state.notifications.map(function (notification, index) {
+	        return(
+	          /* eslint react/jsx-no-bind:0 */
+	          _react2.default.createElement(_NotificationContainer2.default, { key: notification.id, index: index, notification: notification, onDismiss: _this2.onDismiss.bind(_this2, notification.id) })
+	        );
+	      });
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        notifications
+	      );
+	    }
+	  }]);
+
+	  return NotificationsContainer;
+	}(_react2.default.Component);
 
 	exports.default = NotificationsContainer;
 
@@ -80245,7 +80299,6 @@
 
 	var ActionTypes = _constants2.default.ActionTypes;
 	var CHANGE_EVENT = 'change';
-	var AUTO_DISMISS_TIME = (_constants2.default.autodismissTime + 1.5) * 1000;
 	var _notifications = [];
 	var _id = 0;
 
@@ -80290,26 +80343,10 @@
 	function _addNotification(notification) {
 	  var _notification = Object.assign({}, notification, { id: _id++ });
 
-	  if (!_notification.hasOwnProperty('autoDismiss')) {
-	    _notification.autodismissTime = AUTO_DISMISS_TIME;
-	    _notification.autoDismiss = true;
-	  }
-
-	  if (_notification.autoDismiss) {
-	    /* eslint wrap-iife:0 func-names:0 */
-	    var dismissFn = function (notificationID) {
-	      return function () {
-	        _removeNotification(notificationID, true);
-	      };
-	    }(_notification.id);
-
-	    setTimeout(dismissFn, AUTO_DISMISS_TIME);
-	  }
-
 	  _notifications.unshift(_notification);
 	}
 
-	function _removeNotification(id, emitChange) {
+	function _removeNotification(id) {
 	  var index = _notifications.map(function (notification) {
 	    return notification.id;
 	  }).indexOf(id);
@@ -80321,10 +80358,6 @@
 
 	    if (dismissEvent) {
 	      dismissEvent();
-	    }
-
-	    if (emitChange) {
-	      NotificationStore.emitChange();
 	    }
 	  }
 	}
