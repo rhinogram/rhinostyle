@@ -44,29 +44,26 @@ class FeedbackApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Callouts</h3>
-          <div className="row">
+          <div className="row u-m-b-lg">
             <div className="col-sm-10">
-              <Callout type="danger" head="Callout Danger" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-              <Callout type="default" head="Callout Default" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-              <Callout type="info" head="Callout Info" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+              <div className="site-example-callouts">
+                <Callout type="danger" head="Callout Danger" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+                <Callout type="default" head="Callout Default" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+                <Callout type="info" head="Callout Info" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+              </div>
             </div>
           </div>
-        </section>
-
-        <section>
           <h3 className="site-subheadline">Playground</h3>
           <Playground codeText={calloutExample} scope={calloutScope} noRender={false} />
         </section>
-
-        <section className="site-section">
+        <section>
           <h3 className="site-subheadline">Toast Notifications</h3>
           <p className="site-copy">To see a toast in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
-          <Toast type="default" body="Default notification" />
-          <Toast type="secondary" icon="checkmark" body="Default notification" />
-          <Toast type="danger" body="Danger notification" />
-        </section>
-
-        <section>
+          <div className="site-example-toasts u-m-b-lg">
+            <Toast type="default" body="Default notification" />
+            <Toast type="secondary" icon="checkmark" body="Default notification" />
+            <Toast type="danger" body="Danger notification" />
+          </div>
           <h3 className="site-subheadline">Playground</h3>
           <Playground codeText={toastExample} scope={toastScope} noRender={false} />
         </section>

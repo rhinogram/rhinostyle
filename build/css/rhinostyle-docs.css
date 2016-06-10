@@ -220,9 +220,16 @@ html {
   /*@media (min-width: @screen-lg-min) {
     font-size: 12px;
   }*/
-  /*@media (min-width: 1200px) {
+}
+@media (min-width: 1800px) {
+  html {
     font-size: 12px;
-  }*/
+  }
+}
+@media (min-width: 2300px) {
+  html {
+    font-size: 14px;
+  }
 }
 *,
 *::before,
@@ -458,11 +465,11 @@ a.u-bg-gray-lightest:focus {
   background-color: #e0e0e0 !important;
 }
 .u-bg-info {
-  background-color: #f8fcfe !important;
+  background-color: #5bc0de !important;
 }
 a.u-bg-info:hover,
 a.u-bg-info:focus {
-  background-color: #ceecf5 !important;
+  background-color: #31b0d5 !important;
 }
 .u-bg-primary {
   background-color: #0081c6 !important;
@@ -479,18 +486,18 @@ a.u-bg-secondary:focus {
   background-color: #27b3a1 !important;
 }
 .u-bg-success {
-  background-color: #ffffff !important;
+  background-color: #83c400 !important;
 }
 a.u-bg-success:hover,
 a.u-bg-success:focus {
-  background-color: #e6e6e6 !important;
+  background-color: #619100 !important;
 }
 .u-bg-warning {
-  background-color: #fffcf5 !important;
+  background-color: #fc3 !important;
 }
 a.u-bg-warning:hover,
 a.u-bg-warning:focus {
-  background-color: #fff0c2 !important;
+  background-color: #ffbf00 !important;
 }
 .u-text-accent {
   color: #ffa573;
@@ -802,14 +809,14 @@ a.u-text-warning:hover,
 @alert-warning-text:          @state-warning-text;
 @alert-warning-border:        @state-warning-border;*/
 /*@badge-active-color:          @link-color;
-@badge-active-bg:             @white;
-@badge-bg:                    @gray-light;
+@badge-active-bg:             @color-white;
+@badge-bg:                    @color-gray-light;
 @badge-border-radius:         @border-radius-small;
-@badge-color:                 @white;
+@badge-color:                 @color-white;
 @badge-font-weight:           normal;
 @badge-horizontal-padding:    @padding-xsmall;
 @badge-line-height:           1;
-@badge-link-hover-color:      @white;
+@badge-link-hover-color:      @color-white;
 @badge-min-width:             1.8rem;
 @badge-vertical-padding:      .3rem;*/
 /*@pager-bg:                             @pagination-bg;
@@ -823,21 +830,21 @@ a.u-text-warning:hover,
 
 @pager-disabled-color:                 @pagination-disabled-color;*/
 /*@pagination-color:                     @link-color;
-@pagination-bg:                        @white;
+@pagination-bg:                        @color-white;
 @pagination-border:                    @border-color-base;
 
 @pagination-hover-color:               @link-hover-color;
-@pagination-hover-bg:                  @gray-lighter;
+@pagination-hover-bg:                  @color-gray-lighter;
 @pagination-hover-border:              @border-color-base;
 
-@pagination-active-color:              @white;
-@pagination-active-bg:                 @brand-primary;
-@pagination-active-border:             @brand-primary;
+@pagination-active-color:              @color-white;
+@pagination-active-bg:                 @color-primary;
+@pagination-active-border:             @color-primary;
 
-@pagination-disabled-color:            @gray-light;
-@pagination-disabled-bg:               @white;
-@pagination-disabled-border:           @gray-light;*/
-/*@panel-bg:                    @white;
+@pagination-disabled-color:            @color-gray-light;
+@pagination-disabled-bg:               @color-white;
+@pagination-disabled-border:           @color-gray-light;*/
+/*@panel-bg:                    @color-white;
 @panel-body-padding:          @padding-half-gutter;
 @panel-body-padding-small:    @padding-small;
 @panel-body-padding-medium:   @padding-medium;
@@ -845,8 +852,8 @@ a.u-text-warning:hover,
 @panel-footer-padding:        @panel-heading-padding;
 @panel-heading-padding:       @padding-medium @padding-half-gutter;
 
-@panel-footer-bg:             @gray-lightest;
-@panel-inner-border:          @gray-light;
+@panel-footer-bg:             @color-gray-lightest;
+@panel-inner-border:          @color-gray-light;
 
 @panel-danger-text:           @state-danger-text;
 @panel-danger-border:         @state-danger-border;
@@ -854,15 +861,15 @@ a.u-text-warning:hover,
 
 @panel-default-text:          @text-color;
 @panel-default-border:        @border-color-base;
-@panel-default-heading-bg:    @gray-lightest;
+@panel-default-heading-bg:    @color-gray-lightest;
 
 @panel-info-text:             @state-info-text;
 @panel-info-border:           @state-info-border;
 @panel-info-heading-bg:       @state-info-bg;
 
-@panel-primary-text:          @white;
-@panel-primary-border:        @brand-primary;
-@panel-primary-heading-bg:    @brand-primary;
+@panel-primary-text:          @color-white;
+@panel-primary-border:        @color-primary;
+@panel-primary-heading-bg:    @color-primary;
 
 @panel-success-text:          @state-success-text;
 @panel-success-border:        @state-success-border;
@@ -877,15 +884,15 @@ a.u-text-warning:hover,
 @popover-arrow-outer-fallback-color:  darken(@popover-fallback-border-color, 20%);
 @popover-arrow-width:                 10px;
 
-@popover-bg:                          @white;
+@popover-bg:                          @color-white;
 @popover-border-color:                rgba(0,0,0,.2);
 @popover-fallback-border-color:       @border-color-base;
 @popover-max-width:                   276px;
 @popover-title-bg:                    transparent;*/
 /*@tooltip-arrow-width:         5px;
 @tooltip-arrow-color:         @tooltip-bg;
-@tooltip-bg:                  @gray;
-@tooltip-color:               @white;
+@tooltip-bg:                  @color-gray;
+@tooltip-color:               @color-white;
 @tooltip-opacity:             .9;
 @tooltip-max-width:           200px;*/
 .rhino-animation {
@@ -1372,7 +1379,6 @@ fieldset[disabled] .btn--link:focus {
 }
 .callout {
   border-left: .6rem solid transparent;
-  margin-bottom: 3rem;
   padding: 1.2rem 1.4rem;
 }
 .callout--danger {
@@ -2888,17 +2894,32 @@ fieldset[disabled] .rhinodio label {
 .msg {
   -ms-flex-align: center;
   align-items: center;
-  background: #fff;
-  border-radius: 0.3rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: 1rem;
   position: relative;
-  vertical-align: baseline;
-  white-space: nowrap;
 }
 .msg:empty {
   display: none;
+}
+.msg--default {
+  background: #ececec;
+}
+.msg--from::before {
+  background: inherit;
+  background-clip: border-box;
+  border: inherit;
+  border-bottom: 0;
+  border-right: 0;
+  content: '';
+  left: 1.2rem;
+  padding: .6rem;
+  position: absolute;
+  top: -0.7rem;
+  transform: rotate(45deg);
+  z-index: -1;
 }
 .modal-open {
   overflow: hidden;
@@ -3190,7 +3211,6 @@ fieldset[disabled] .rhinodio label {
   display: -ms-flexbox;
   display: flex;
   font-weight: 300;
-  margin-bottom: 0.6rem;
   max-width: 50rem;
   padding: 1.2rem 3.2rem 1.2rem 1.2rem;
   position: relative;
@@ -3382,14 +3402,23 @@ pre {
 .site-example-buttons .btn:not(:last-child) {
   margin-right: 0.6rem;
 }
+.site-example-callouts .callout:not(:last-child) {
+  margin-bottom: 1.2rem;
+}
 .site-example-dropdowns .dropdown:not(:last-child) {
   margin-right: 0.6rem;
 }
 .site-example-labels .label:not(:last-child) {
   margin-right: 0.6rem;
 }
+.site-example-messages .msgnot(:last-child) {
+  margin-bottom: 0.6rem;
+}
 .site-example-pills .pill:not(:last-child) {
   margin-right: 0.6rem;
+}
+.site-example-toasts .toast:not(:last-child) {
+  margin-bottom: 1.2rem;
 }
 .site-copy {
   margin-bottom: 2rem;
