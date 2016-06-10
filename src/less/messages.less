@@ -8,18 +8,29 @@
 
 
 .msg {
-  align-items: center;
-  //background: @color-white;
   border-radius: @msg-border-radius;
-  box-shadow: 0 2px 4px -0 rgba(0, 0, 0, 0.25);
-  display: inline-flex;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
+  display: inline-block;
+  line-height: 1;
   padding: @msg-padding;
   position: relative;
-  //vertical-align: baseline;
+  vertical-align: middle;
   //white-space: nowrap;
+  z-index: 0;
 
   &:empty {
     display: none;
+  }
+
+  a {
+    color: inherit;
+    font-weight: @font-weight-light;
+    opacity: 0.85;
+    //text-decoration: underline;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -30,8 +41,29 @@
 
 
 .msg--default {
-  background: @msg-default-bg;
+  background: @color-white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
 }
+
+.msg--note {
+  background: #fefbd0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
+  //color: @color-white;
+}
+
+.msg--primary {
+  background: @color-primary;
+  box-shadow: 0 2px 2px darken(@color-primary, 12%);
+  color: @color-white;
+}
+
+.msg--secondary {
+  background: @color-secondary;
+  box-shadow: 0 2px 2px darken(@color-secondary, 12%);
+  color: @color-white;
+}
+
+
 
 
 // -------------------------
@@ -39,18 +71,18 @@
 // -------------------------
 
 
-.msg--from {
-  &::before {
+.msg--to {
+  &::after {
     background: inherit;
     background-clip: border-box;
     border: inherit;
     border-bottom: 0;
     border-right: 0;
     content: '';
-    left: 1.2rem;
+    left: -.4rem;
     padding: .6rem;
     position: absolute;
-    top: -.7rem;
+    top: 1.2rem;
     transform: rotate(45deg);
     z-index: -1;
   }

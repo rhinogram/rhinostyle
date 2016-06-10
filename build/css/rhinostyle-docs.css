@@ -408,13 +408,6 @@ a.u-bg-accent:hover,
 a.u-bg-accent:focus {
   background-color: #ff8440 !important;
 }
-.u-bg-cool {
-  background-color: #7fc0d3 !important;
-}
-a.u-bg-cool:hover,
-a.u-bg-cool:focus {
-  background-color: #59adc6 !important;
-}
 .u-bg-danger {
   background-color: #cb2027 !important;
 }
@@ -962,10 +955,10 @@ a.u-text-warning:hover,
   vertical-align: middle;
   width: 6rem;
 }
-.avatar--accent {
+.avatar--member {
   background-color: #ffa573;
 }
-.avatar--cool {
+.avatar--patient {
   background-color: #7fc0d3;
 }
 .avatar--lg {
@@ -2892,32 +2885,55 @@ fieldset[disabled] .rhinodio label {
   }
 }
 .msg {
-  -ms-flex-align: center;
-  align-items: center;
   border-radius: 0.4rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  line-height: 1;
   padding: 1rem;
   position: relative;
+  vertical-align: middle;
+  z-index: 0;
 }
 .msg:empty {
   display: none;
 }
-.msg--default {
-  background: #ececec;
+.msg a {
+  color: inherit;
+  font-weight: 300;
+  opacity: 0.85;
 }
-.msg--from::before {
+.msg a:hover {
+  opacity: 1;
+}
+.msg--default {
+  background: #fff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+.msg--note {
+  background: #fefbd0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+.msg--primary {
+  background: #0081c6;
+  box-shadow: 0 2px 2px #005989;
+  color: #fff;
+}
+.msg--secondary {
+  background: #39d4c0;
+  box-shadow: 0 2px 2px #25ab99;
+  color: #fff;
+}
+.msg--to::after {
   background: inherit;
   background-clip: border-box;
   border: inherit;
   border-bottom: 0;
   border-right: 0;
   content: '';
-  left: 1.2rem;
+  left: -0.4rem;
   padding: .6rem;
   position: absolute;
-  top: -0.7rem;
+  top: 1.2rem;
   transform: rotate(45deg);
   z-index: -1;
 }
@@ -3378,18 +3394,6 @@ pre {
 .site-content {
   padding: 1.5rem;
   position: relative;
-  /*.avatar,
-  .btn,
-  .label,
-  .pill {
-    &:not(:last-child) {
-      margin-right: @margin-small;
-    }
-  }
-
-  .dropdown--block .btn {
-    margin-right: 0;
-  }*/
 }
 @media (min-width: 768px) {
   .site-content {
@@ -3411,8 +3415,12 @@ pre {
 .site-example-labels .label:not(:last-child) {
   margin-right: 0.6rem;
 }
-.site-example-messages .msgnot(:last-child) {
+.site-example-messages .msg {
   margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+}
+.site-example-messages .msg:not(:last-child) {
+  margin-right: 1rem;
 }
 .site-example-pills .pill:not(:last-child) {
   margin-right: 0.6rem;

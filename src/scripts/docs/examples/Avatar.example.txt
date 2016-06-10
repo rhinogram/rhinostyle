@@ -4,22 +4,22 @@ class ComponentExample extends React.Component {
       <div>
       	<div className="site-example-avatar">
           <div className="u-m-b">
-            <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" size="large" type="accent" />
-            <Avatar image="//brokenimage.jpg" name="Ben Bruning" size="large" type="accent" />
-            <Avatar name="Ben Bruning" size="large" type="accent" />
-            <Avatar size="large" type="accent" />
+            <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" size="large" type="member" />
+            <Avatar image="//brokenimage.jpg" name="Ben Bruning" size="large" type="member" />
+            <Avatar name="Ben Bruning" size="large" type="member" />
+            <Avatar size="large" type="member" />
           </div>
           <div className="u-m-b">
-            <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" type="cool" />
-            <Avatar image="//badimage.jpg" name="Craig Anthony" type="cool" />
-            <Avatar name="Craig Anthony" type="cool" />
-            <Avatar type="cool" />
+            <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" type="patient" />
+            <Avatar image="//badimage.jpg" name="Craig Anthony" type="patient" />
+            <Avatar name="Craig Anthony" type="patient" />
+            <Avatar type="patient" />
           </div>
           <div>
-            <Avatar image="//bit.ly/1VMXoDP" name="Ian Greulich" size="small" type="accent" />
-            <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="accent" />
-            <Avatar name="Ian Greulich" size="small" type="accent" />
-            <Avatar size="small" type="accent" />
+            <Avatar image="//bit.ly/1VMXoDP" name="Ian Greulich" size="small" type="member" />
+            <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="member" />
+            <Avatar name="Ian Greulich" size="small" type="member" />
+            <Avatar size="small" type="member" />
           </div>
         </div>
       </div>

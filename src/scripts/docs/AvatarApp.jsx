@@ -21,21 +21,21 @@ const AvatarApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>
       <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Cool Avatar</h5>
-        <p className="site-copy"><code>type="cool"</code></p>
+        <h5 className="site-miniheadline">Member Avatar</h5>
+        <p className="site-copy"><code>type="member"</code></p>
         <div className="site-example-avatar">
-          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" type="cool" />
-          <Avatar name="Ben Bruning" type="cool" />
-          <Avatar type="cool" />
+          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" type="member" />
+          <Avatar name="Ben Bruning" type="member" />
+          <Avatar type="member" />
         </div>
       </div>
       <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Accent Avatar</h5>
-        <p className="site-copy"><code>type="accent"</code></p>
+        <h5 className="site-miniheadline">Patient Avatar</h5>
+        <p className="site-copy"><code>type="patient"</code></p>
         <div className="site-example-avatar">
-          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" type="accent" />
-          <Avatar name="Ben Bruning" type="accent" />
-          <Avatar type="accent" />
+          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" type="patient" />
+          <Avatar name="Ben Bruning" type="patient" />
+          <Avatar type="patient" />
         </div>
       </div>
     </section>
@@ -46,18 +46,18 @@ const AvatarApp = () =>
         <h5 className="site-miniheadline">Large Avatar</h5>
         <p className="site-copy"><code>size="large"</code>.</p>
         <div className="site-example-avatar">
-          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="large" type="cool" />
-          <Avatar name="Craig Anthony" size="large" type="cool" />
-          <Avatar type="cool" size="large" />
+          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="large" type="member" />
+          <Avatar name="Craig Anthony" size="large" type="member" />
+          <Avatar type="member" size="large" />
         </div>
       </div>
       <div>
         <h5 className="site-miniheadline">Small Avatar</h5>
         <p className="site-copy"><code>size="small"</code>.</p>
         <div className="site-example-avatar">
-          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="small" type="cool" />
-          <Avatar name="Craig Anthony" size="small" type="cool" />
-          <Avatar type="cool" size="small" />
+          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="small" type="member" />
+          <Avatar name="Craig Anthony" size="small" type="member" />
+          <Avatar type="member" size="small" />
         </div>
       </div>
     </section>

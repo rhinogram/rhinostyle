@@ -38,19 +38,6 @@ pre {
   @media (min-width: @screen-sm-min) {
     padding: @grid-gutter-width;
   }
-
-  /*.avatar,
-  .btn,
-  .label,
-  .pill {
-    &:not(:last-child) {
-      margin-right: @margin-small;
-    }
-  }
-
-  .dropdown--block .btn {
-    margin-right: 0;
-  }*/
 }
 
 
@@ -85,8 +72,12 @@ pre {
 }
 
 .site-example-messages {
-  .msgnot(:last-child) {
+  .msg {
     margin-bottom: @margin-small;
+    margin-top: @margin-small;
+  }
+  .msg:not(:last-child) {
+    margin-right: @margin-medium;
   }
 }
 
