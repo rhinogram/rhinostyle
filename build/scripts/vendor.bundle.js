@@ -80455,8 +80455,8 @@
 	      var classes = (0, _classnames2.default)('avatar', className, {
 	        'avatar--sm': size === 'small',
 	        'avatar--lg': size === 'large',
-	        'avatar--member': type === 'member',
-	        'avatar--patient': type === 'patient'
+	        'avatar--cool': type === 'cool',
+	        'avatar--accent': type === 'accent'
 	      });
 	      var styles = {
 	        backgroundImage: 'url(' + image + ')'
@@ -80509,7 +80509,7 @@
 	  image: _react2.default.PropTypes.string,
 	  name: _react2.default.PropTypes.string,
 	  size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
-	  type: _react2.default.PropTypes.oneOf(['member', 'patient']).isRequired
+	  type: _react2.default.PropTypes.oneOf(['accent', 'cool']).isRequired
 	};
 	Avatar.defaultProps = {
 	  image: '',

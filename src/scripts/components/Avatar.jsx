@@ -9,7 +9,7 @@ class Avatar extends React.Component {
     image: React.PropTypes.string,
     name: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'default', 'large']),
-    type: React.PropTypes.oneOf(['member', 'patient']).isRequired,
+    type: React.PropTypes.oneOf(['accent', 'cool']).isRequired,
   };
 
   static defaultProps = {
@@ -38,8 +38,8 @@ class Avatar extends React.Component {
     const classes = cx('avatar', className, {
       'avatar--sm': size === 'small',
       'avatar--lg': size === 'large',
-      'avatar--member':  type === 'member',
-      'avatar--patient': type === 'patient',
+      'avatar--cool':  type === 'cool',
+      'avatar--accent': type === 'accent',
     });
     const styles = {
       backgroundImage: `url(${image})`,

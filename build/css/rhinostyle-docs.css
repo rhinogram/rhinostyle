@@ -401,6 +401,13 @@ a.u-bg-accent:hover,
 a.u-bg-accent:focus {
   background-color: #ff8440 !important;
 }
+.u-bg-cool {
+  background-color: #7fc0d3 !important;
+}
+a.u-bg-cool:hover,
+a.u-bg-cool:focus {
+  background-color: #59adc6 !important;
+}
 .u-bg-danger {
   background-color: #cb2027 !important;
 }
@@ -932,7 +939,6 @@ a.u-text-warning:hover,
   align-items: center;
   background-position: center center;
   background-size: cover;
-  border: 1px solid #d2d2d2;
   border-radius: 0.4rem;
   color: #fff;
   display: -ms-inline-flexbox;
@@ -949,13 +955,11 @@ a.u-text-warning:hover,
   vertical-align: middle;
   width: 6rem;
 }
-.avatar--member {
+.avatar--accent {
   background-color: #ffa573;
-  border-color: #ffa573;
 }
-.avatar--patient {
+.avatar--cool {
   background-color: #7fc0d3;
-  border-color: #7fc0e3;
 }
 .avatar--lg {
   font-size: 3rem;
@@ -965,9 +969,9 @@ a.u-text-warning:hover,
 .avatar--sm {
   border-radius: 0.3rem;
   font-size: 1.4rem;
-  height: 3rem;
-  min-width: 3rem;
-  width: 3rem;
+  height: 4rem;
+  min-width: 4rem;
+  width: 4rem;
 }
 .avatar__icon {
   fill: currentColor;
@@ -2880,6 +2884,21 @@ fieldset[disabled] .rhinodio label {
     opacity: 1;
     transform: scale(1.25);
   }
+}
+.msg {
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.3rem;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 1rem;
+  position: relative;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.msg:empty {
+  display: none;
 }
 .modal-open {
   overflow: hidden;
