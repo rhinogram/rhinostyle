@@ -20,6 +20,7 @@ export default {
     icon:        path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
     label:       path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
     loader:      path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
+    message:     path.join(__dirname, '../src/scripts/docs/MessageApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx'),
   },
