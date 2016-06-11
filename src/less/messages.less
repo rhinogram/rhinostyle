@@ -86,4 +86,19 @@
   }
 }
 
-
+.msg--from {
+  &::after {
+    background: inherit;
+    background-clip: border-box;
+    border: inherit;
+    border-bottom: 0;
+    border-right: 0;
+    content: '';
+    right: -.4rem;
+    padding: .6rem;
+    position: absolute;
+    top: 1.2rem;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}

@@ -81649,13 +81649,17 @@
 	      var className = _props.className;
 	      var message = _props.message;
 	      var type = _props.type;
+	      var direction = _props.direction;
 
 
 	      var classes = (0, _classnames2.default)('msg', className, {
-	        'msg--to msg--default': type === 'default',
-	        'msg--to msg--primary': type === 'primary',
-	        'msg--to msg--secondary': type === 'secondary',
-	        'msg--to msg--note': type === 'note'
+	        'msg--default': type === 'default',
+	        'msg--primary': type === 'primary',
+	        'msg--secondary': type === 'secondary',
+	        'msg--note': type === 'note',
+	        'msg--to': direction === 'to',
+	        'msg--from': direction === 'from'
+
 	      });
 
 	      return _react2.default.createElement(
@@ -81673,7 +81677,8 @@
 	Message.propTypes = {
 	  className: _react2.default.PropTypes.string,
 	  message: _react2.default.PropTypes.string,
-	  type: _react2.default.PropTypes.string
+	  type: _react2.default.PropTypes.string,
+	  direction: _react2.default.PropTypes.oneOf(['to', 'from'])
 	};
 	Message.defaultProps = {
 	  type: 'default'

@@ -8,6 +8,7 @@ class Message extends React.Component {
     className: React.PropTypes.string,
     message: React.PropTypes.string,
     type: React.PropTypes.string,
+    direction: React.PropTypes.oneOf(['to', 'from']),
   };
 
   static defaultProps = {
@@ -15,13 +16,16 @@ class Message extends React.Component {
   };
 
   render() {
-    const { className, message, type } = this.props;
+    const { className, message, type, direction } = this.props;
 
     const classes = cx('msg', className, {
-      'msg--to msg--default':   type === 'default',
-      'msg--to msg--primary':   type === 'primary',
-      'msg--to msg--secondary': type === 'secondary',
-      'msg--to msg--note':      type === 'note',
+      'msg--default':   type === 'default',
+      'msg--primary':   type === 'primary',
+      'msg--secondary': type === 'secondary',
+      'msg--note':      type === 'note',
+      'msg--to':        direction === 'to',
+      'msg--from':      direction === 'from',
+
     });
 
     return (
