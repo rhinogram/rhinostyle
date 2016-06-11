@@ -17,11 +17,11 @@ class Message extends React.Component {
   render() {
     const { className, message, type } = this.props;
 
-    const classes = cx('message', className, {
-      'message--default':   type === 'default',
-      'message--primary':   type === 'primary',
-      'message--secondary': type === 'secondary',
-      'message--note':      type === 'note',
+    const classes = cx('msg', className, {
+      'msg--to msg--default':   type === 'default',
+      'msg--to msg--primary':   type === 'primary',
+      'msg--to msg--secondary': type === 'secondary',
+      'msg--to msg--note':      type === 'note',
     });
 
     return (

@@ -1,8 +1,11 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-messages">
-        <Message type="default" message="hello" />
+      <div className="site-example-labels">
+        <div className="site-example-messages u-bg-gray-lighter u-p-a">
+          <Message message="This is a default message." />
+          <Message type="note" message="This is a note" />
+        </div>
       </div>
     );
   }

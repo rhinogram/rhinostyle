@@ -18,12 +18,12 @@ const MessageApp = () =>
     <h1 className="site-headline">Messages</h1>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Message Types</h3>
+      <h3 className="site-subheadline">Message Modifiers</h3>
       <div className="site-example-messages u-bg-gray-lighter u-p-a">
-        <div className="msg msg--default">Default message. <a href="#">www.rhinogram.com</a></div>
-        <div className="msg msg--primary">Primary message. <a href="#">www.rhinogram.com</a></div>
-        <div className="msg msg--secondary">Secondary message. <a href="#">www.rhinogram.com</a></div>
-        <div className="msg msg--note">Note message. <a href="#">www.rhinogram.com</a></div>
+        <Message message="default message" />
+        <Message type="primary" message="primary message" />
+        <Message type="secondary" message="secondary message" />
+        <Message type="note" message="note" />
       </div>
     </section>
 
@@ -34,4 +34,4 @@ const MessageApp = () =>
 
   </div>;
 
-  ReactDOM.render(<MessageApp />, document.getElementById('js-app'));
+ReactDOM.render(<MessageApp />, document.getElementById('js-app'));

@@ -11,6 +11,7 @@ import Input                from './Input';
 import Label                from './Label';
 import LoaderPulse          from './LoaderPulse';
 import LoaderLine           from './LoaderLine';
+import Message              from './Message';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
 import Toast                from './Toast';
@@ -31,6 +32,7 @@ export {
   Label,
   LoaderPulse,
   LoaderLine,
+  Message,
   NotificationActions,
   Pill,
   ProgressBar,
