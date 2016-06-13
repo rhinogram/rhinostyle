@@ -80567,31 +80567,29 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
+	      var active = _props.active;
 	      var block = _props.block;
 	      var className = _props.className;
 	      var click = _props.click;
 	      var disabled = _props.disabled;
 	      var iconOnly = _props.iconOnly;
-	      var outline = _props.outline;
 	      var size = _props.size;
 	      var type = _props.type;
 
-	      var props = _objectWithoutProperties(_props, ['block', 'className', 'click', 'disabled', 'iconOnly', 'outline', 'size', 'type']);
+	      var props = _objectWithoutProperties(_props, ['active', 'block', 'className', 'click', 'disabled', 'iconOnly', 'size', 'type']);
 
 	      var classes = (0, _classnames2.default)('btn', className, {
-	        'btn--default': type === 'default' && !outline,
-	        'btn--primary': type === 'primary' && !outline,
-	        'btn--secondary': type === 'secondary' && !outline,
-	        'btn--accent': type === 'accent' && !outline,
-	        'btn--link': type === 'link' && !outline,
-	        'btn--default-outline': type === 'default' && outline,
-	        'btn--primary-outline': type === 'primary' && outline,
-	        'btn--secondary-outline': type === 'secondary' && outline,
-	        'btn--accent-outline': type === 'accent' && outline,
+	        'btn--default': type === 'default',
+	        'btn--primary': type === 'primary',
+	        'btn--secondary': type === 'secondary',
+	        'btn--link': type === 'link',
+	        'btn--default-outline': type === 'default-outline',
+	        'btn--primary-outline': type === 'primary-outline',
 	        'btn--sm': size === 'small',
 	        'btn--lg': size === 'large',
 	        'btn--block': block,
 	        'btn--icon': iconOnly,
+	        'active': active,
 	        'disabled': disabled });
 
 	      /* eslint no-script-url:0 */
@@ -80609,6 +80607,7 @@
 
 	Button.displayName = 'RhinoButton';
 	Button.propTypes = {
+	  active: _react2.default.PropTypes.bool,
 	  block: _react2.default.PropTypes.bool,
 	  children: _react2.default.PropTypes.node,
 	  className: _react2.default.PropTypes.string,
@@ -80616,16 +80615,16 @@
 	  disabled: _react2.default.PropTypes.bool,
 	  iconOnly: _react2.default.PropTypes.bool,
 	  outline: _react2.default.PropTypes.bool,
-	  size: _react2.default.PropTypes.oneOf(['small', 'normal', 'large']),
-	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link'])
+	  size: _react2.default.PropTypes.oneOf(['small', 'large']),
+	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link'])
 	};
 	Button.defaultProps = {
+	  active: false,
 	  block: false,
 	  click: function click() {},
 	  disabled: false,
 	  iconOnly: false,
 	  outline: false,
-	  size: 'normal',
 	  type: 'default'
 	};
 	exports.default = Button;

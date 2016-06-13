@@ -992,6 +992,7 @@ a.u-text-warning:hover,
   font-weight: normal;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  line-height: 1;
   margin-bottom: 0;
   max-width: 100%;
   text-align: left;
@@ -2898,8 +2899,8 @@ fieldset[disabled] .rhinodio label {
 }
 .msg a {
   color: inherit;
-  font-weight: 300;
   opacity: 0.85;
+  text-decoration: underline;
 }
 .msg a:hover {
   opacity: 1;
@@ -2927,19 +2928,27 @@ fieldset[disabled] .rhinodio label {
   border: inherit;
   border-bottom: 0;
   border-right: 0;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.25);
   content: '';
   padding: .6rem;
   position: absolute;
   top: 1.2rem;
-  transform: rotate(45deg);
+}
+.msg--from.msg--primary::before,
+.msg--to.msg--primary::before {
+  box-shadow: 0 2px 2px -2px #00456a;
+}
+.msg--from.msg--secondary::before,
+.msg--to.msg--secondary::before {
+  box-shadow: 0 2px 2px -2px #209283;
 }
 .msg--from::before {
-  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.25);
   right: -0.5rem;
+  transform: rotate(-45deg);
 }
 .msg--to::before {
-  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.25);
   left: -0.5rem;
+  transform: rotate(45deg);
 }
 .modal-open {
   overflow: hidden;
@@ -3656,6 +3665,9 @@ html.navigation-is-locked .site-wrapper {
     margin-left: 24rem;
     transform: translateX(0) !important;
   }
+}
+.playgroundPreview {
+  padding-top: 1.2rem;
 }
 .cm-s-monokai.CodeMirror {
   margin-bottom: 1.5rem;

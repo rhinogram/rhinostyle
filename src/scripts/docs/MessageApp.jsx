@@ -18,22 +18,40 @@ const MessageApp = () =>
     <h1 className="site-headline">Messages</h1>
 
     <section className="site-section">
+      <h3 className="site-subheadline">Message Types</h3>
+      <div className="site-example-messages u-bg-gray-lighter u-p-a">
+        <Message>
+          Default Message <a href="#">www.linktosomething.com</a>
+        </Message>
+        <Message type="primary">
+          Primary Message <a href="#">www.linktosomething.com</a>
+        </Message>
+        <Message type="secondary">
+          Secondary Message <a href="#">www.linktosomething.com</a>
+        </Message>
+        <Message type="note">
+          Note Message <a href="#">www.linktosomething.com</a>
+        </Message>
+      </div>
+    </section>
+
+    <section className="site-section">
       <h3 className="site-subheadline">Message Direction</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">From Message</h5>
         <p className="site-copy"><code>direction="from"</code></p>
         <div className="site-example-messages u-bg-gray-lighter u-p-a">
           <Message direction="from">
-            A Default Message
+            Default Message
           </Message>
           <Message direction="from" type="primary">
-            A Primary Message
+            Primary Message
           </Message>
           <Message direction="from" type="secondary">
-            A Secondary Message
+            Secondary Message
           </Message>
           <Message direction="from" type="note">
-            A Note
+            Note Message
           </Message>
         </div>
       </div>
@@ -42,16 +60,16 @@ const MessageApp = () =>
         <p className="site-copy"><code>direction="to"</code></p>
         <div className="site-example-messages u-bg-gray-lighter u-p-a">
           <Message direction="to">
-            A Default Message
+            Default Message
           </Message>
           <Message direction="to" type="primary">
-            A Primary Message
+            Primary Message
           </Message>
           <Message direction="to" type="secondary">
-            A Secondary Message
+            Secondary Message
           </Message>
           <Message direction="to" type="note">
-            A Note
+            Note Message
           </Message>
         </div>
       </div>

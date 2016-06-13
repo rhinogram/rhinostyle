@@ -23,9 +23,9 @@
 
   a {
     color: inherit;
-    font-weight: @font-weight-light;
+    //font-weight: @font-weight-light;
     opacity: 0.85;
-    //text-decoration: underline;
+    text-decoration: underline;
 
     &:hover {
       opacity: 1;
@@ -73,27 +73,39 @@
     border: inherit;
     border-bottom: 0;
     border-right: 0;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .25);
     content: '';
     padding: .6rem;
     position: absolute;
     top: 1.2rem;
-    transform: rotate(45deg);
     //z-index: -1;
+  }
+
+  &.msg--primary {
+    &::before {
+      box-shadow: 0 2px 2px -2px darken(@color-primary, 18%);
+    }
+  }
+
+  &.msg--secondary {
+    &::before {
+      box-shadow: 0 2px 2px -2px darken(@color-secondary, 18%);
+    }
   }
 }
 
 
 .msg--from {
   &::before {
-    box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .25);
-    right: -.5rem; 
+    right: -.5rem;
+    transform: rotate(-45deg);
   }
 }
 
 .msg--to {
   &::before {
-    box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .25);
     left: -.5rem;
+    transform: rotate(45deg);
   }
 }
 

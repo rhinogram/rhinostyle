@@ -20,45 +20,27 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
+      <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link"</code></p>
       <div className="site-example-buttons">
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
-        <Button outline>Default Outline</Button>
-        <Button type="primary" outline>Primary Outline</Button>
+        <Button type="default-outline">Default Outline</Button>
+        <Button type="primary-outline">Primary Outline</Button>
         <Button type="link">Link</Button>
       </div>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Sizes</h3>
-      <div className="u-m-b">
-        <div className="site-example-buttons">
-          <Button size="large">Large</Button>
-          <Button>Default</Button>
-          <Button size="small">Small</Button>
-        </div>
-      </div>
-      <div className="u-m-b">
-        <div className="site-example-buttons">
-          <Button size="large">Large</Button>
-          <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
-          <Button size="large" iconOnly><Icon icon="cog" /></Button>
-        </div>
-      </div>
-      <div className="u-m-b">
-        <div className="site-example-buttons">
-          <Button>Default</Button>
-          <Button><Icon icon="cog" />&nbsp;Default</Button>
-          <Button iconOnly><Icon icon="cog" /></Button>
-        </div>
-      </div>
-      <div>
-        <div className="site-example-buttons">
-          <Button size="small">Small</Button>
-          <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
-          <Button size="small" iconOnly><Icon icon="cog" /></Button>
-        </div>
+      <p className="site-copy"><code>size="large | small"</code></p>
+      <div className="site-example-buttons">
+        <Button size="large">Large</Button>
+        <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+        <Button size="large" iconOnly><Icon icon="cog" /></Button>
+        <Button size="small">Small</Button>
+        <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+        <Button size="small"iconOnly><Icon icon="cog" /></Button>
       </div>
     </section>
 
@@ -76,8 +58,8 @@ const ButtonApp = () =>
           <Button iconOnly><Icon icon="sms" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
-          <Button outline iconOnly><Icon icon="clock" /></Button>
-          <Button outline type="primary" iconOnly><Icon icon="pencil" /></Button>
+          <Button type="default-outline" iconOnly><Icon icon="clock" /></Button>
+          <Button type="primary-outline" iconOnly><Icon icon="pencil" /></Button>
         </div>
       </div>
     </section>
@@ -87,36 +69,36 @@ const ButtonApp = () =>
       <div className="u-m-b">
         <div className="site-example-buttons">
           <Button>Default</Button>
-          <Button className="active">Default Active</Button>
-          <Button className="disabled">Default Disabled</Button>
+          <Button active>Default Active</Button>
+          <Button disabled>Default Disabled</Button>
         </div>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
           <Button type="primary">Primary</Button>
-          <Button type="primary" className="active">Primary Active</Button>
-          <Button type="primary" className="disabled">Primary Disabled</Button>
+          <Button type="primary" active>Primary Active</Button>
+          <Button type="primary" disabled>Primary Disabled</Button>
         </div>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
           <Button type="secondary">Secondary</Button>
-          <Button type="secondary" className="active">Secondary Active</Button>
-          <Button type="secondary" className="disabled">Secondary Disabled</Button>
+          <Button type="secondary" active>Secondary Active</Button>
+          <Button type="secondary" disabled>Secondary Disabled</Button>
         </div>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
-          <Button outline>Default Outline</Button>
-          <Button outline className="active">Default Outline Active</Button>
-          <Button outline className="disabled">Default Outline Disabled</Button>
+          <Button type="default-outline">Default Outline</Button>
+          <Button type="default-outline" active>Default Outline Active</Button>
+          <Button type="default-outline" disabled>Default Outline Disabled</Button>
         </div>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
           <Button type="primary" outline>Primary Outline</Button>
-          <Button type="primary" outline className="active">Primary Outline Active</Button>
-          <Button type="primary" outline className="disabled">Primary Outline Disabled</Button>
+          <Button type="primary" outline active>Primary Outline Active</Button>
+          <Button type="primary" outline disabled>Primary Outline Disabled</Button>
         </div>
       </div>
     </section>
