@@ -5,7 +5,7 @@ class ComponentExample extends React.Component {
         <Message direction="to">
           This is a default message.
         </Message>
-        <Message direction="to" type="note">
+        <Message direction="from" type="note">
           This is a note.
         </Message>
       </div>

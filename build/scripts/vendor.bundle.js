@@ -80775,29 +80775,27 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
+	      var active = _props.active;
 	      var block = _props.block;
 	      var className = _props.className;
 	      var disabled = _props.disabled;
 	      var icon = _props.icon;
 	      var label = _props.label;
-	      var outline = _props.outline;
 	      var size = _props.size;
 	      var type = _props.type;
 
 
 	      var classes = (0, _classnames2.default)('btn', 'dropdown__toggle', className, {
-	        'btn--default': type === 'default' && !outline,
-	        'btn--primary': type === 'primary' && !outline,
-	        'btn--secondary': type === 'secondary' && !outline,
-	        'btn--accent': type === 'accent' && !outline,
-	        'btn--link': type === 'link' && !outline,
-	        'btn--default-outline': type === 'default' && outline,
-	        'btn--primary-outline': type === 'primary' && outline,
-	        'btn--secondary-outline': type === 'secondary' && outline,
-	        'btn--accent-outline': type === 'accent' && outline,
+	        'btn--default': type === 'default',
+	        'btn--primary': type === 'primary',
+	        'btn--secondary': type === 'secondary',
+	        'btn--link': type === 'link',
+	        'btn--default-outline': type === 'default-outline',
+	        'btn--primary-outline': type === 'primary-outline',
 	        'btn--sm': size === 'small',
 	        'btn--lg': size === 'large',
 	        'btn--icon': icon && !label,
+	        'active': active,
 	        'disabled': disabled });
 
 	      //eslint-disable-line
@@ -80812,7 +80810,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { onClick: this._handleToggle, className: classes, type: 'button' },
-	          icon ? _react2.default.createElement(_Icon2.default, { icon: icon }) : null,
+	          icon ? _react2.default.createElement(_Icon2.default, { className: 'dropdown__toggle__icon', icon: icon }) : null,
 	          _react2.default.createElement(
 	            'span',
 	            { className: 'u-text-overflow' },
@@ -80820,7 +80818,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'svg',
-	            { className: 'dropdown__toggle__icon' },
+	            { className: 'dropdown__toggle__caret' },
 	            _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
 	          )
 	        ),
@@ -80834,20 +80832,20 @@
 
 	Dropdown.displayName = 'RhinoDropdown';
 	Dropdown.propTypes = {
+	  active: _react2.default.PropTypes.bool,
 	  block: _react2.default.PropTypes.bool,
 	  children: _react2.default.PropTypes.node,
 	  className: _react2.default.PropTypes.string,
 	  disabled: _react2.default.PropTypes.bool,
 	  icon: _react2.default.PropTypes.string,
 	  label: _react2.default.PropTypes.string,
-	  outline: _react2.default.PropTypes.bool,
 	  size: _react2.default.PropTypes.oneOf(['small', 'normal', 'large']),
-	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link'])
+	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outlline', 'link'])
 	};
 	Dropdown.defaultProps = {
+	  active: false,
 	  block: false,
 	  disabled: false,
-	  outline: false,
 	  size: 'normal',
 	  type: 'default'
 	};
@@ -80896,11 +80894,13 @@
 	      var _props = this.props;
 	      var className = _props.className;
 	      var position = _props.position;
+	      var wide = _props.wide;
 
 	      var classes = (0, _classnames2.default)('dropdown__menu', className, {
 	        'dropdown__menu--right': position === 'right',
 	        'dropdown__menu--top': position === 'top',
-	        'dropdown__menu--wide': position === 'wide'
+	        'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+	        'dropdown__menu--wide': wide
 	      });
 
 	      return _react2.default.createElement(
@@ -80922,9 +80922,12 @@
 	DropdownMenu.propTypes = {
 	  children: _react2.default.PropTypes.node,
 	  className: _react2.default.PropTypes.string,
-	  position: _react2.default.PropTypes.string
+	  position: _react2.default.PropTypes.string,
+	  wide: _react2.default.PropTypes.bool
 	};
-	DropdownMenu.defaultProps = {};
+	DropdownMenu.defaultProps = {
+	  wide: false
+	};
 	exports.default = DropdownMenu;
 
 /***/ },

@@ -44,7 +44,7 @@
   .dropdown__toggle {
     width: 100%;
 
-    .dropdown__toggle__icon {
+    .dropdown__toggle__caret {
       margin-left: auto;
     }
   }
@@ -293,11 +293,11 @@
 
 
 // -------------------------
-// Dropdown Toggle Icon
+// Dropdown Toggle Caret
 // -------------------------
 
 
-.dropdown__toggle__icon {
+.dropdown__toggle__caret {
   fill: currentColor;
   height: @dropdown-chevron-size;
   line-height: 1;
@@ -311,6 +311,16 @@
   .btn & {
     top: .1rem;
   }
+}
+
+
+// -------------------------
+// Dropdown Toggle Icon
+// -------------------------
+
+
+.dropdown__toggle__icon {
+  margin-right: @margin-xsmall;
 }
 
 

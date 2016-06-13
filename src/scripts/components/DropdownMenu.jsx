@@ -8,17 +8,20 @@ class DropdownMenu extends React.Component {
     children:  React.PropTypes.node,
     className:  React.PropTypes.string,
     position: React.PropTypes.string,
+    wide: React.PropTypes.bool,
   };
 
   static defaultProps = {
+    wide: false,
   };
 
   render() {
-    const { className, position } = this.props;
+    const { className, position, wide } = this.props;
     const classes = cx('dropdown__menu', className, {
       'dropdown__menu--right': position === 'right',
       'dropdown__menu--top': position === 'top',
-      'dropdown__menu--wide': position === 'wide',
+      'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+      'dropdown__menu--wide': wide,
     });
 
     return (

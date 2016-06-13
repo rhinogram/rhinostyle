@@ -15,7 +15,6 @@
   display: inline-flex;
   font-weight: @btn-font-weight;
   justify-content: flex-start;
-  line-height: 1;
   margin-bottom: 0; // For input.btn
   max-width: 100%;
   text-align: left;
@@ -220,6 +219,8 @@ input[type='button'] {
 }
 
 .btn--sm {
+  line-height: @line-height-small;
+
   .mixin-button-size(@btn-height-small; @padding-medium; @font-size-small; @btn-border-radius-small);
 
   .icon {

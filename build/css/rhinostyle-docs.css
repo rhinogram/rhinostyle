@@ -992,7 +992,6 @@ a.u-text-warning:hover,
   font-weight: normal;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  line-height: 1;
   margin-bottom: 0;
   max-width: 100%;
   text-align: left;
@@ -1363,6 +1362,7 @@ fieldset[disabled] .btn--link:focus {
   font-size: 2.2rem;
 }
 .btn--sm {
+  line-height: 1.2;
   border-radius: 0.3rem;
   font-size: 1.4rem;
   height: 3rem;
@@ -1482,7 +1482,7 @@ button.close {
 .dropdown--block .dropdown__toggle {
   width: 100%;
 }
-.dropdown--block .dropdown__toggle .dropdown__toggle__icon {
+.dropdown--block .dropdown__toggle .dropdown__toggle__caret {
   margin-left: auto;
 }
 .dropdown--block .dropdown__menu {
@@ -1651,7 +1651,7 @@ button.close {
     outline: 0;
   }
 }*/
-.dropdown__toggle__icon {
+.dropdown__toggle__caret {
   fill: currentColor;
   height: 0.7em;
   line-height: 1;
@@ -1661,8 +1661,11 @@ button.close {
   vertical-align: middle;
   width: 0.7em;
 }
-.btn .dropdown__toggle__icon {
+.btn .dropdown__toggle__caret {
   top: .1rem;
+}
+.dropdown__toggle__icon {
+  margin-right: 0.4rem;
 }
 [class^='col-'],
 [class*='col-'] {
@@ -3433,7 +3436,7 @@ pre {
   margin-top: 0.6rem;
 }
 .site-example-messages .msg:not(:last-child) {
-  margin-right: 1rem;
+  margin-right: 1.2rem;
 }
 .site-example-pills .pill:not(:last-child) {
   margin-right: 0.6rem;

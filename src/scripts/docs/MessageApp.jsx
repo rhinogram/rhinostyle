@@ -19,6 +19,7 @@ const MessageApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
+      <p className="site-copy"><code>type="default | primary | secondary | note"</code></p>
       <div className="site-example-messages u-bg-gray-lighter u-p-a">
         <Message>
           Default Message <a href="#">www.linktosomething.com</a>
