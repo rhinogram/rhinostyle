@@ -16,7 +16,6 @@
   position: relative;
   vertical-align: middle;
   //white-space: nowrap;
-  z-index: 0;
 
   &:empty {
     display: none;
@@ -42,13 +41,10 @@
 
 .msg--default {
   background: @color-white;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
 }
 
 .msg--note {
   background: #fefbd0;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
-  //color: @color-white;
 }
 
 .msg--primary {
@@ -69,19 +65,36 @@
 // -------------------------
 
 
+.msg--from,
 .msg--to {
-  &::after {
+  &::before {
     background: inherit;
     background-clip: border-box;
     border: inherit;
     border-bottom: 0;
     border-right: 0;
     content: '';
-    left: -.4rem;
     padding: .6rem;
     position: absolute;
     top: 1.2rem;
     transform: rotate(45deg);
-    z-index: -1;
+    //z-index: -1;
   }
 }
+
+
+.msg--from {
+  &::before {
+    box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .25);
+    right: -.5rem; 
+  }
+}
+
+.msg--to {
+  &::before {
+    box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .25);
+    left: -.5rem;
+  }
+}
+
+

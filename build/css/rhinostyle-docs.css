@@ -2892,7 +2892,6 @@ fieldset[disabled] .rhinodio label {
   padding: 1rem;
   position: relative;
   vertical-align: middle;
-  z-index: 0;
 }
 .msg:empty {
   display: none;
@@ -2907,11 +2906,9 @@ fieldset[disabled] .rhinodio label {
 }
 .msg--default {
   background: #fff;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
 .msg--note {
   background: #fefbd0;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
 .msg--primary {
   background: #0081c6;
@@ -2923,19 +2920,26 @@ fieldset[disabled] .rhinodio label {
   box-shadow: 0 2px 2px #25ab99;
   color: #fff;
 }
-.msg--to::after {
+.msg--from::before,
+.msg--to::before {
   background: inherit;
   background-clip: border-box;
   border: inherit;
   border-bottom: 0;
   border-right: 0;
   content: '';
-  left: -0.4rem;
   padding: .6rem;
   position: absolute;
   top: 1.2rem;
   transform: rotate(45deg);
-  z-index: -1;
+}
+.msg--from::before {
+  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.25);
+  right: -0.5rem;
+}
+.msg--to::before {
+  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, 0.25);
+  left: -0.5rem;
 }
 .modal-open {
   overflow: hidden;
