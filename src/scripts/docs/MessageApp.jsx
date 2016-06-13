@@ -20,10 +20,19 @@ const MessageApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Message Modifiers</h3>
       <div className="site-example-messages u-bg-gray-lighter u-p-a">
-        <Message direction="to" message="default message" />
-        <Message type="primary" direction="to" message="primary message" />
-        <Message type="secondary" direction="to" message="secondary message" />
-        <Message type="note" direction="to" message="note" />
+        <Message direction="to">
+          A Default Message
+        </Message>
+        <Message direction="to" type="primary">
+          A Primary Message
+        </Message>
+        <Message direction="to" type="secondary">
+          A Secondary Message
+        </Message>
+        <Message direction="to" type="note">
+          A Note
+        </Message>
+
       </div>
     </section>
 

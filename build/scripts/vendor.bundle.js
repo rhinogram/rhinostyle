@@ -81647,7 +81647,6 @@
 	    value: function render() {
 	      var _props = this.props;
 	      var className = _props.className;
-	      var message = _props.message;
 	      var type = _props.type;
 	      var direction = _props.direction;
 
@@ -81665,7 +81664,7 @@
 	      return _react2.default.createElement(
 	        'span',
 	        { className: classes },
-	        message
+	        this.props.children
 	      );
 	    }
 	  }]);
@@ -81676,8 +81675,7 @@
 	Message.displayName = 'RhinoMessage';
 	Message.propTypes = {
 	  className: _react2.default.PropTypes.string,
-	  message: _react2.default.PropTypes.string,
-	  type: _react2.default.PropTypes.string,
+	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'note']),
 	  direction: _react2.default.PropTypes.oneOf(['to', 'from'])
 	};
 	Message.defaultProps = {
