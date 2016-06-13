@@ -4,7 +4,7 @@ class ComponentExample extends React.Component {
       <div className="site-example-buttons">
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
-        <Button type="secondary" iconOnly={true}><Icon icon="cog" /></Button>
+        <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
       </div>
     );
   }

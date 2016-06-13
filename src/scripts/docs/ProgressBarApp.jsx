@@ -26,6 +26,7 @@ const ProgressBarApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Progress Bar Labels</h3>
+      <p className="site-copy">Include <code>showLabel</code> property to create progress bar label.</p>
       <ProgressBar progress={60} showLabel type="primary" />
     </section>
 
