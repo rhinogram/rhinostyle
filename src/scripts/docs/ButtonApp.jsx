@@ -66,12 +66,12 @@ const ButtonApp = () =>
       <h3 className="site-subheadline">Button Modifiers</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Block Buttons</h5>
-        <p className="site-copy">Add <code>block={'{true}'}</code> to create a block level button.</p>
+        <p className="site-copy">Include <code>block</code> property to create a block level button.</p>
         <Button block>Block Button</Button>
       </div>
       <div>
         <h5 className="site-miniheadline">Icon-Only Buttons</h5>
-        <p className="site-copy">Add <code>iconOnly={'{true}'}</code> when you have a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.</p>
+        <p className="site-copy">Include <code>iconOnly</code> property when creating a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.</p>
         <div className="site-example-buttons">
           <Button iconOnly><Icon icon="sms" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
@@ -124,7 +124,7 @@ const ButtonApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Button Ellipsis</h3>
       <h5 className="site-miniheadline">Long Text Inside Buttons</h5>
-      <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis. This rule applies to dropdowns as well.</p>
+      <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis.</p>
       <div className="u-m-b">
         <Button className="u-m-b-sm"><span className="u-text-overflow">Button With Really Long Name</span></Button>
         <br />
