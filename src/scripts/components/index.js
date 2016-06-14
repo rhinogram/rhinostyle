@@ -5,6 +5,7 @@ import Dropdown             from './Dropdown';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
+import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
 import Icon                 from './Icon';
 import Input                from './Input';
@@ -26,6 +27,7 @@ export {
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
+  DropdownMultiSelect,
   DropdownMenuScroll,
   Icon,
   Input,

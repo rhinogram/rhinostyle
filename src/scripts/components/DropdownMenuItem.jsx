@@ -1,5 +1,5 @@
 import React from 'react';
-import cx    from 'classnames';
+import cx from 'classnames';
 
 class DropdownMenuItem extends React.Component {
   static displayName = 'RhinoDropdownMenuItem';
@@ -22,11 +22,11 @@ class DropdownMenuItem extends React.Component {
     const { active, className, click, disabled } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       'active': active, //eslint-disable-line
-      'disabled': disabled, //eslint-disable-line 
+      'disabled': disabled, //eslint-disable-line
     });
 
     return (
-      <li className={classes}><a href="javascript:void(0)" onClick={click}>{this.props.children}</a></li> /* eslint no-script-url:0 */
+      <li className={classes}><a href="javascript:void(0)" onClick={click}>{this.props.children}</a></li>/* eslint no-script-url:0 */
     );
   }
 }
