@@ -2,7 +2,6 @@ import Avatar               from './Avatar';
 import Button               from './Button';
 import Callout              from './Callout';
 import Dropdown             from './Dropdown';
-import DropdownMenu         from './DropdownMenu';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
@@ -23,7 +22,6 @@ export {
   Button,
   Callout,
   Dropdown,
-  DropdownMenu,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
