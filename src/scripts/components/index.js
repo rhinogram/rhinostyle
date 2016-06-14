@@ -2,10 +2,10 @@ import Avatar               from './Avatar';
 import Button               from './Button';
 import Callout              from './Callout';
 import Dropdown             from './Dropdown';
-import DropdownMenu         from './DropdownMenu';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
+import DropdownMenuScroll   from './DropdownMenuScroll';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
@@ -23,10 +23,10 @@ export {
   Button,
   Callout,
   Dropdown,
-  DropdownMenu,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
+  DropdownMenuScroll,
   Icon,
   Input,
   Label,
