@@ -81004,11 +81004,16 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
+	      var active = _props.active;
 	      var className = _props.className;
 	      var click = _props.click;
+	      var disabled = _props.disabled;
 
-	      var classes = (0, _classnames2.default)('dropdown__menu__item', className);
+	      var classes = (0, _classnames2.default)('dropdown__menu__item', className, {
+	        'active': active, //eslint-disable-line
+	        'disabled': disabled });
 
+	      //eslint-disable-line
 	      return _react2.default.createElement(
 	        'li',
 	        { className: classes },
@@ -81027,12 +81032,16 @@
 
 	DropdownMenuItem.displayName = 'RhinoDropdownMenuItem';
 	DropdownMenuItem.propTypes = {
+	  active: _react2.default.PropTypes.bool,
 	  children: _react2.default.PropTypes.node,
 	  click: _react2.default.PropTypes.func,
-	  className: _react2.default.PropTypes.string
+	  className: _react2.default.PropTypes.string,
+	  disabled: _react2.default.PropTypes.bool
 	};
 	DropdownMenuItem.defaultProps = {
-	  click: function click() {}
+	  active: false,
+	  click: function click() {},
+	  disabled: false
 	};
 	exports.default = DropdownMenuItem;
 

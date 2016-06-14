@@ -1623,6 +1623,13 @@ button.close {
   outline: 0;
   text-decoration: none;
 }
+.dropdown__menu__item.disabled > a,
+.dropdown__menu__item.disabled > a:hover,
+.dropdown__menu__item.disabled > a:focus {
+  color: #d2d2d2;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .dropdown__menu__container {
   padding: 0.6rem 1.4rem;
 }

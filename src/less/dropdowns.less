@@ -221,6 +221,17 @@
       text-decoration: none;
     }
   }
+
+  // Disabled state
+  &.disabled > a {
+    &,
+    &:hover,
+    &:focus {
+      color: @dropdown-link-disabled-color;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
 }
 
 
