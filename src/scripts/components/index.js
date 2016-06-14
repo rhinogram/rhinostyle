@@ -5,7 +5,12 @@ import Dropdown             from './Dropdown';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
+<<<<<<< HEAD
 import DropdownMultiSelect  from './DropdownMultiSelect';
+||||||| merged common ancestors
+=======
+import DropdownMenuScroll   from './DropdownMenuScroll';
+>>>>>>> bb9c382d3ff9e2bbb7e1592302dac55c758f15d5
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
@@ -26,7 +31,12 @@ export {
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
+<<<<<<< HEAD
   DropdownMultiSelect,
+||||||| merged common ancestors
+=======
+  DropdownMenuScroll,
+>>>>>>> bb9c382d3ff9e2bbb7e1592302dac55c758f15d5
   Icon,
   Input,
   Label,
