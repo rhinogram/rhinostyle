@@ -3566,8 +3566,6 @@ pre {
 .site-navigation__nav > li:not(:first-child) {
   margin-top: .6rem;
 }
-@media (min-width: 1200px) {
-}
 .site-navigation__nav__btn {
   border-radius: .4rem;
   color: #fff;
@@ -3583,6 +3581,11 @@ pre {
 }
 .site-navigation__nav__btn.active {
   background-color: #63ddcd !important;
+}
+@media (min-height: 1000px) {
+  .site-navigation__nav__btn {
+    padding: 1rem 1.5rem;
+  }
 }
 .site-modal .modal {
   bottom: auto;

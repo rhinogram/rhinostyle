@@ -259,10 +259,6 @@ pre {
     &:not(:first-child) {
       margin-top: .6rem;
     }
-
-    @media (min-width: @screen-lg-min) {
-      //padding-left: @grid-gutter-width;
-    }
   }
 }
 
@@ -274,13 +270,19 @@ pre {
   font-weight: @font-weight-light;
   padding: @padding-small @padding-half-gutter;
   transition: background-color 250ms @trans-timing-cubic;
+
   &:hover,
   &:focus {
     background-color: lighten(@color-secondary, 6%);
     box-shadow: none;
   }
+
   &.active {
     background-color: lighten(@color-secondary, 10%) !important;
+  }
+
+  @media (min-height: 1000px) {
+    padding: @padding-medium @padding-half-gutter;
   }
 }
 
