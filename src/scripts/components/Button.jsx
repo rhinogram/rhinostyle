@@ -40,7 +40,7 @@ class Button extends React.Component {
       'btn--lg': size === 'large',
       'btn--block': block,
       'btn--icon': iconOnly,
-      'active': active,
+      'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
     });
 

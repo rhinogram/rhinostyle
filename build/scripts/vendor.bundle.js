@@ -80589,7 +80589,7 @@
 	        'btn--lg': size === 'large',
 	        'btn--block': block,
 	        'btn--icon': iconOnly,
-	        'active': active,
+	        'active': active, //eslint-disable-line
 	        'disabled': disabled });
 
 	      /* eslint no-script-url:0 */
@@ -80781,11 +80781,18 @@
 	      var disabled = _props.disabled;
 	      var icon = _props.icon;
 	      var label = _props.label;
+	      var position = _props.position;
 	      var size = _props.size;
 	      var type = _props.type;
+	      var wide = _props.wide;
 
 
-	      var classes = (0, _classnames2.default)('btn', 'dropdown__toggle', className, {
+	      var dropdownClasses = (0, _classnames2.default)('dropdown', {
+	        open: this.state.isOpen,
+	        'dropdown--block': block
+	      });
+
+	      var dropdownToggleClasses = (0, _classnames2.default)('btn', 'dropdown__toggle', className, {
 	        'btn--default': type === 'default',
 	        'btn--primary': type === 'primary',
 	        'btn--secondary': type === 'secondary',
@@ -80795,21 +80802,25 @@
 	        'btn--sm': size === 'small',
 	        'btn--lg': size === 'large',
 	        'btn--icon': icon && !label,
-	        'active': active,
+	        'active': active, //eslint-disable-line
 	        'disabled': disabled });
 
 	      //eslint-disable-line
-	      var dropdownClasses = (0, _classnames2.default)('dropdown', {
-	        open: this.state.isOpen,
-	        'dropdown--block': block
+	      var dropdownMenuClasses = (0, _classnames2.default)('dropdown__menu', {
+	        'dropdown__menu--right': position === 'right',
+	        'dropdown__menu--top': position === 'top',
+	        'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+	        'dropdown__menu--wide': wide
 	      });
+
+	      var caretDirection = position === 'top' || position === 'top-right' ? '#icon-chevron-up' : '#icon-chevron-down';
 
 	      return _react2.default.createElement(
 	        'div',
 	        { className: dropdownClasses },
 	        _react2.default.createElement(
 	          'div',
-	          { onClick: this._handleToggle, className: classes, type: 'button' },
+	          { onClick: this._handleToggle, className: dropdownToggleClasses, type: 'button' },
 	          icon ? _react2.default.createElement(_Icon2.default, { className: 'dropdown__toggle__icon', icon: icon }) : null,
 	          _react2.default.createElement(
 	            'span',
@@ -80819,10 +80830,14 @@
 	          _react2.default.createElement(
 	            'svg',
 	            { className: 'dropdown__toggle__caret' },
-	            _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
+	            _react2.default.createElement('use', { xlinkHref: caretDirection })
 	          )
 	        ),
-	        this.props.children
+	        _react2.default.createElement(
+	          'ul',
+	          { className: dropdownMenuClasses },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -80839,15 +80854,17 @@
 	  disabled: _react2.default.PropTypes.bool,
 	  icon: _react2.default.PropTypes.string,
 	  label: _react2.default.PropTypes.string,
-	  size: _react2.default.PropTypes.oneOf(['small', 'normal', 'large']),
-	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outlline', 'link'])
+	  position: _react2.default.PropTypes.string,
+	  size: _react2.default.PropTypes.oneOf(['small', 'large']),
+	  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
+	  wide: _react2.default.PropTypes.bool
 	};
 	Dropdown.defaultProps = {
 	  active: false,
 	  block: false,
 	  disabled: false,
-	  size: 'normal',
-	  type: 'default'
+	  type: 'default',
+	  wide: false
 	};
 	exports.default = (0, _reactOnclickoutside2.default)(Dropdown);
 

@@ -14,16 +14,18 @@ class Dropdown extends React.Component {
     disabled:  React.PropTypes.bool,
     icon:      React.PropTypes.string,
     label:     React.PropTypes.string,
-    size:      React.PropTypes.oneOf(['small', 'normal', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outlline', 'link']),
+    position:  React.PropTypes.string,
+    size:      React.PropTypes.oneOf(['small', 'large']),
+    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
+    wide:      React.PropTypes.bool,
   };
 
   static defaultProps = {
     active:   false,
     block:    false,
     disabled: false,
-    size:     'normal',
     type:     'default',
+    wide:     false,
   };
 
   state = {
@@ -39,9 +41,14 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { active, block, className, disabled, icon, label, size, type } = this.props;
+    const { active, block, className, disabled, icon, label, position, size, type, wide } = this.props;
 
-    const classes = cx('btn', 'dropdown__toggle', className, {
+    const dropdownClasses = cx('dropdown', {
+      open:  this.state.isOpen,
+      'dropdown--block': block,
+    });
+
+    const dropdownToggleClasses = cx('btn', 'dropdown__toggle', className, {
       'btn--default':   type === 'default',
       'btn--primary':   type === 'primary',
       'btn--secondary': type === 'secondary',
@@ -51,22 +58,28 @@ class Dropdown extends React.Component {
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),
-      'active': active,
+      'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
     });
 
-    const dropdownClasses = cx('dropdown', {
-      open:  this.state.isOpen,
-      'dropdown--block': block,
+    const dropdownMenuClasses = cx('dropdown__menu', {
+      'dropdown__menu--right': position === 'right',
+      'dropdown__menu--top': position === 'top',
+      'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+      'dropdown__menu--wide': wide,
     });
+
+    const caretDirection = (position === 'top' || position === 'top-right') ? '#icon-chevron-up' : '#icon-chevron-down';
 
     return (
       <div className={dropdownClasses}>
-        <div onClick={this._handleToggle} className={classes} type="button">
+        <div onClick={this._handleToggle} className={dropdownToggleClasses} type="button">
           {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="u-text-overflow">{label}</span>
-          <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>
+          <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>
         </div>
-        {this.props.children}
+        <ul className={dropdownMenuClasses}>
+          {this.props.children}
+        </ul>
       </div>
     );
   }
