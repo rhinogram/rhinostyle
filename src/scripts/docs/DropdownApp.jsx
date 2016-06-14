@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem } from '../components';
+import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMultiSelect, Input } from '../components';
 
 import Playground from 'component-playground';
 
@@ -14,6 +14,8 @@ const exampleScope  = {
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
+  DropdownMultiSelect,
+  Input,
 };
 
 const DropdownApp = () =>
@@ -217,6 +219,30 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown MultiSelect</h3>
+
+      <div className="u-m-b-md">
+        <p className="site-copy">Add the <code>dropdown--multiselect</code> modifier to <code>dropdown</code>.
+          This dropdown and dropdown menu will always have 100% width. Selected items are shown as "pills" below the dropdown.
+        </p>
+
+        <div className="u-m-b">
+
+          <DropdownMultiSelect label="Dropdown">
+            <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+            <DropdownMenuItem>Item</DropdownMenuItem>
+            <DropdownMenuItem>Another Item</DropdownMenuItem>
+            <DropdownMenuItem>A third item</DropdownMenuItem>
+            <DropdownMenuDivider />
+            <DropdownMenuItem>Separated item</DropdownMenuItem>
+          </DropdownMultiSelect>
+
+        </div>
+
+      </div>
     </section>
 
     <section>
