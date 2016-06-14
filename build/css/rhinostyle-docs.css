@@ -221,12 +221,12 @@ html {
     font-size: 12px;
   }*/
 }
-@media (min-width: 1800px) {
+@media (min-width: 2000px) {
   html {
     font-size: 12px;
   }
 }
-@media (min-width: 2300px) {
+@media (min-width: 2400px) {
   html {
     font-size: 14px;
   }
@@ -1623,11 +1623,18 @@ button.close {
   outline: 0;
   text-decoration: none;
 }
+.dropdown__menu__item.disabled > a,
+.dropdown__menu__item.disabled > a:hover,
+.dropdown__menu__item.disabled > a:focus {
+  color: #d2d2d2;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .dropdown__menu__container {
   padding: 0.6rem 1.4rem;
 }
 .dropdown__menu__header {
-  color: #d2d2d2;
+  color: #9f9f9f;
   display: block;
   font-size: 1.4rem;
   line-height: 1.4;
@@ -1641,7 +1648,7 @@ button.close {
   overflow: hidden;
 }
 .dropdown__menu__scroll {
-  max-height: 20rem;
+  max-height: 24rem;
   overflow-y: auto;
   transform: translate3d(0px, 0px, 0px);
 }

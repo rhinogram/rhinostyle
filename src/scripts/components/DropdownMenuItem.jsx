@@ -5,11 +5,11 @@ class DropdownMenuItem extends React.Component {
   static displayName = 'RhinoDropdownMenuItem';
 
   static propTypes = {
-    active: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    click: React.PropTypes.func,
+    active:    React.PropTypes.bool,
+    children:  React.PropTypes.node,
+    click:     React.PropTypes.func,
     className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
+    disabled:  React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -26,9 +26,7 @@ class DropdownMenuItem extends React.Component {
     });
 
     return (
-      <li className={classes}>
-        <a href="javascript:void(0)" onClick={click}>{this.props.children}</a>
-      </li>/* eslint no-script-url:0 */
+      <li className={classes}><a href="javascript:void(0)" onClick={click}>{this.props.children}</a></li>/* eslint no-script-url:0 */
     );
   }
 }

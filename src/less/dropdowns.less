@@ -221,6 +221,17 @@
       text-decoration: none;
     }
   }
+
+  // Disabled state
+  &.disabled > a {
+    &,
+    &:hover,
+    &:focus {
+      color: @dropdown-link-disabled-color;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
 }
 
 
@@ -270,7 +281,7 @@
 
 
 .dropdown__menu__scroll {
-  max-height: 20rem;
+  max-height: 24rem;
   overflow-y: auto;
   // fixes scrollbar position bug that results from translateY on dropdown__menu
   transform: translate3d(0px, 0px, 0px);
