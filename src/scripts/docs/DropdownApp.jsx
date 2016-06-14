@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll } from '../components';
+import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect } from '../components';
 
 import Playground from 'component-playground';
 
@@ -14,6 +14,7 @@ const exampleScope  = {
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
+  DropdownMultiSelect,
 };
 
 const DropdownApp = () =>
@@ -228,6 +229,59 @@ const DropdownApp = () =>
           <DropdownMenuItem>Item Ten</DropdownMenuItem>
         </DropdownMenuScroll>
       </Dropdown>
+
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown MultiSelect</h3>
+      <p className="site-copy">Add the <code>dropdown--multiselect</code> modifier to <code>dropdown</code>.
+        This dropdown and dropdown menu will always have 100% width. Selected items are shown as "pills" below the dropdown.
+      </p>
+
+      <DropdownMultiSelect label="Dropdown MultiSelect">
+        <DropdownMenuScroll>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1504523_437875089696117_7378541844854542050_n.jpg?oh=089a2d533f97e5a10f378291880c3dc8&oe=57CEA0AF)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Blake Guilloud</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
+            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+          </DropdownMenuItem>
+        </DropdownMenuScroll>
+      </DropdownMultiSelect>
 
     </section>
 
