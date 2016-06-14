@@ -240,7 +240,7 @@ const DropdownApp = () =>
 
       <DropdownMultiSelect label="Dropdown MultiSelect">
         <DropdownMenuScroll>
-          <DropdownMenuItem>
+          <DropdownMenuItem active>
             <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
             <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
           </DropdownMenuItem>
@@ -249,36 +249,40 @@ const DropdownApp = () =>
             <span className="u-m-l-sm u-text-overflow">Blake Guilloud</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg)' }}></figure>
+            <span className="u-m-l-sm">Craig Anthony</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABECOyAoeLlhfOMzQEiC3ZjYXJkX3Bob3RvKig2ZWJmZWEwNjA3NDhkZTY0ZWRhOTczNDU3M2E5YzI0MDA2YmFhZWFhMAF_p4RL_jmWVcGIWRwQZgNrVdicmw?sz=128)' }}></figure>
+            <span className="u-m-l-sm">Ian Greulich</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/11377393_810816385765_6827778412867830242_n.jpg?oh=35b08f99b81268988c15eecbf9929e56&oe=57DFE90F)' }}></figure>
+            <span className="u-m-l-sm">Keaton Foster</span>
+          </DropdownMenuItem>
+          <DropdownMenuItem active>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1390558_10202477697167953_1453503315_n.jpg?oh=d097810a214b43acc81cd309eda27386&oe=57A41ADF)' }}></figure>
+            <span className="u-m-l-sm">Lauren Farr</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/t31.0-8/12977098_10207580224281040_1166679891101945990_o.jpg)' }}></figure>
+            <span className="u-m-l-sm">Max Krause</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10882107_701393473313574_7671196485562187669_n.jpg?oh=3100e182e75a87cfe3b236e32ca3686e&oe=57DA94B4)' }}></figure>
+            <span className="u-m-l-sm">Paul Drake</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/c0.50.200.200/1947402_10152279843568698_519360225_n.jpg?oh=a3c546f01142712ab3a25a2b328df392&oe=579C05BA)' }}></figure>
+            <span className="u-m-l-sm">Paul Griffin</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128)' }}></figure>
+            <span className="u-m-l-sm">Rob Whelan</span>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868)' }}></figure>
-            <span className="u-m-l-sm u-text-overflow">Ben Bruning With Really Long Name</span>
+            <figure className="avatar avatar--member avatar--sm" style={{ backgroundImage: 'url(//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10440915_10100238785384001_3941742026226262266_n.jpg?oh=e57e9df480a0326ee7d0bb46950b9c3f&oe=57CF342E)' }}></figure>
+            <span className="u-m-l-sm">Terry Kennair</span>
           </DropdownMenuItem>
         </DropdownMenuScroll>
       </DropdownMultiSelect>
