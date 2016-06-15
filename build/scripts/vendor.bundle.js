@@ -81725,7 +81725,7 @@
 	      var caretDirection = position === 'top' || position === 'top-right' ? '#icon-chevron-up' : '#icon-chevron-down';
 
 	      var selectedLabel = null;
-	      this.props.children.forEach(function (ref) {
+	      _react2.default.Children.forEach(function (ref) {
 	        if (ref.props.id === activeKey) {
 	          selectedLabel = ref.props.children;
 	        }

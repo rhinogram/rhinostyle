@@ -81,7 +81,7 @@ class DropdownSelect extends React.Component {
     const caretDirection = (position === 'top' || position === 'top-right') ? '#icon-chevron-up' : '#icon-chevron-down';
 
     let selectedLabel = null;
-    this.props.children.forEach((ref) => {
+    React.Children.forEach((ref) => {
       if (ref.props.id === activeKey) {
         selectedLabel = ref.props.children;
       }
