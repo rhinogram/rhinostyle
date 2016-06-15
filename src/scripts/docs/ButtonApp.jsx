@@ -33,14 +33,23 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Sizes</h3>
-      <p className="site-copy"><code>size="large | small"</code></p>
-      <div className="site-example-buttons">
-        <Button size="large">Large</Button>
-        <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
-        <Button size="large" iconOnly><Icon icon="cog" /></Button>
-        <Button size="small">Small</Button>
-        <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
-        <Button size="small"iconOnly><Icon icon="cog" /></Button>
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Large Button</h5>
+        <p className="site-copy"><code>size="large"</code></p>
+        <div className="site-example-buttons">
+          <Button size="large">Large</Button>
+          <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+          <Button size="large" iconOnly><Icon icon="cog" /></Button>
+        </div>
+      </div>
+      <div>
+        <h5 className="site-miniheadline">Small Button</h5>
+        <p className="site-copy"><code>size="small"</code></p>
+        <div className="site-example-buttons">
+          <Button size="small">Small</Button>
+          <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+          <Button size="small"iconOnly><Icon icon="cog" /></Button>
+        </div>
       </div>
     </section>
 
