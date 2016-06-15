@@ -14,11 +14,11 @@ class ComponentExample extends React.Component {
     <div>
       <DropdownSelect label="Dropdown" type="secondary" activeKey={this.state.activeKey}>
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-        <DropdownMenuItem click={() => this.updateActiveKey(1)} id={1} active={this.state.activeKey && this.state.activeKey === 1 ? true : false}>Item</DropdownMenuItem>
-        <DropdownMenuItem click={() => this.updateActiveKey(2)} id={2} active={this.state.activeKey && this.state.activeKey === 2 ? true : false}>Another Item</DropdownMenuItem>
-        <DropdownMenuItem click={() => this.updateActiveKey(3)} id={3} active={this.state.activeKey && this.state.activeKey === 3 ? true : false}>A third item</DropdownMenuItem>
+        <DropdownMenuItem click={() => this.updateActiveKey(1)} id={1} active={this.state.activeKey === 1 ? true : false}>Item</DropdownMenuItem>
+        <DropdownMenuItem click={() => this.updateActiveKey(2)} id={2} active={this.state.activeKey === 2 ? true : false}>Another Item</DropdownMenuItem>
+        <DropdownMenuItem click={() => this.updateActiveKey(3)} id={3} active={this.state.activeKey === 3 ? true : false}>A third item</DropdownMenuItem>
         <DropdownMenuDivider />
-        <DropdownMenuItem click={() => this.updateActiveKey(4)} id={4} active={this.state.activeKey && this.state.activeKey === 4 ? true : false}>Separated item</DropdownMenuItem>
+        <DropdownMenuItem click={() => this.updateActiveKey(4)} id={4} active={this.state.activeKey === 4 ? true : false}>Separated item</DropdownMenuItem>
       </DropdownSelect>
     </div>
     );
