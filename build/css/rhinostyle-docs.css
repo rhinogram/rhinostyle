@@ -1610,8 +1610,7 @@ button.close {
   border-radius: 0.4rem;
 }
 .react-datepicker__day--today {
-  font-weight: 700;
-  text-shadow: 0 0 1px #1e897b;
+  font-weight: 900;
 }
 .react-datepicker__day--selected,
 .react-datepicker__day--in-range {
