@@ -7,6 +7,7 @@ import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
 import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
+import DropdownSelect       from './DropdownSelect';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
@@ -29,6 +30,7 @@ export {
   DropdownMenuItem,
   DropdownMultiSelect,
   DropdownMenuScroll,
+  DropdownSelect,
   Icon,
   Input,
   Label,

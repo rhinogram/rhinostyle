@@ -1,12 +1,13 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect } from '../components';
+import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownSelect } from '../components';
 
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
+const dropdownSelectExample = require('raw!./examples/DropdownSelect.example.txt');
 const exampleScope  = {
   React,
   ReactDOM,
@@ -15,6 +16,7 @@ const exampleScope  = {
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMultiSelect,
+  DropdownSelect,
 };
 
 const DropdownApp = () =>
@@ -289,9 +291,14 @@ const DropdownApp = () =>
 
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground codeText={dropdownExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown Select</h3>
+      <Playground codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 
