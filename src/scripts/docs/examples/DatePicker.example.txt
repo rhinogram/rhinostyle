@@ -1,0 +1,11 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div className="site-example-datepickers">
+        blah
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

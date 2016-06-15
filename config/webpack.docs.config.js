@@ -14,6 +14,7 @@ export default {
     vendor:      dependencies,
     avatar:      path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
     button:      path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
+    datepicker:  path.join(__dirname, '../src/scripts/docs/DatePickerApp.jsx'),
     dropdown:    path.join(__dirname, '../src/scripts/docs/DropdownApp.jsx'),
     feedback:    path.join(__dirname, '../src/scripts/docs/FeedbackApp.jsx'),
     form:        path.join(__dirname, '../src/scripts/docs/FormApp.jsx'),

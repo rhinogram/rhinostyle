@@ -1,6 +1,7 @@
 import Avatar               from './Avatar';
 import Button               from './Button';
 import Callout              from './Callout';
+import DatePicker           from '../../../node_modules/react-datepicker/dist/react-datepicker.js';
 import Dropdown             from './Dropdown';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
@@ -23,6 +24,7 @@ export {
   Avatar,
   Button,
   Callout,
+  DatePicker,
   Dropdown,
   DropdownMenuDivider,
   DropdownMenuHeader,
