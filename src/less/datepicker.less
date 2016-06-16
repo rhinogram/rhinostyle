@@ -81,7 +81,7 @@
   //color: red;
   display: inline-block;
   //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.2rem;
+  //font-size: 1.2rem;
   position: relative;
 }
 
@@ -107,8 +107,8 @@
 .react-datepicker__current-month {
   color: @color-gray-darker;
   //font-weight: @font-weight-semibold;
-  font-size: 1.4rem;
-  margin-top: 0;
+  font-size: 1.8rem;
+  padding: @padding-xsmall 0;
 }
 
 .react-datepicker__current-month--hasYearDropdown { // lesshint selectorNaming: false
@@ -116,27 +116,41 @@
 }
 
 .react-datepicker__navigation {
-  border: .6rem solid transparent;
+/*  border: @datepicker-nav-size solid transparent;
   cursor: pointer;
-  line-height: 24px;
+  line-height: 2.4rem;
   position: absolute;
   text-align: center;
   top: 1rem;
-  width: 0;
+  width: 0;*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: @datepicker-nav-size @datepicker-nav-size;
+    cursor: pointer;
+    height: @datepicker-nav-size;
+    position: absolute;
+    top: 1.2rem;
+    width: @datepicker-nav-size;
+
+    
 }
 
 .react-datepicker__navigation--previous {
-  border-right-color: @datepicker-nav-color;
+  //border-right-color: @datepicker-nav-color;
   left: 1rem;
+
+  .mixin-svg-bg-add-fill('@{svg-path}chevron-left.svg', @text-color);
 }
 
 .react-datepicker__navigation--previous:hover {
-  border-right-color: @datepicker-nav-hover-color;
+  //border-right-color: @datepicker-nav-hover-color;
 }
 
 .react-datepicker__navigation--next {
-  border-left-color: @datepicker-nav-color;
+  //border-left-color: @datepicker-nav-color;
   right: 1rem;
+
+  .mixin-svg-bg-add-fill('@{svg-path}chevron-right.svg', @text-color);
 }
 
 .react-datepicker__navigation--next:hover {
@@ -178,10 +192,10 @@
 .react-datepicker__day {
   color: @text-color;
   display: inline-block;
-  line-height: 2.4rem;
+  line-height: @datepicker-day-size;
   margin: 2px;
   text-align: center;
-  width: 2.4rem;
+  width: @datepicker-day-size;
 }
 
 .react-datepicker__day {
