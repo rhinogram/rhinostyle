@@ -12,7 +12,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <DropdownSelect label="Dropdown" type="secondary" activeKey={this.state.activeKey}>
+      <DropdownSelect label="Dropdown Select" type="primary" activeKey={this.state.activeKey}>
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
         <DropdownMenuItem click={() => this.updateActiveKey(1)} id={1} active={this.state.activeKey === 1 ? true : false}>Item</DropdownMenuItem>
         <DropdownMenuItem click={() => this.updateActiveKey(2)} id={2} active={this.state.activeKey === 2 ? true : false}>Another Item</DropdownMenuItem>
