@@ -15,8 +15,13 @@ import Label                from './Label';
 import LoaderPulse          from './LoaderPulse';
 import LoaderLine           from './LoaderLine';
 import Message              from './Message';
+import NavTabs              from './NavTabs';
+import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
+import TabPane              from './TabPane';
+import Tabs                 from './Tabs';
+import TabsContent          from './TabsContent';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
@@ -39,8 +44,13 @@ export {
   LoaderPulse,
   LoaderLine,
   Message,
+  NavTabs,
+  NavTabsItem,
   NotificationActions,
   Pill,
   ProgressBar,
+  TabPane,
+  Tabs,
+  TabsContent,
   Toast,
 };
