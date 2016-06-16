@@ -271,10 +271,12 @@ pre {
   padding: @padding-small @padding-half-gutter;
   transition: background-color 250ms @trans-timing-cubic;
 
-  &:hover,
-  &:focus {
-    background-color: lighten(@color-secondary, 6%);
-    box-shadow: none;
+  .no-touch & {
+    &:hover,
+    &:focus {
+      background-color: lighten(@color-secondary, 6%);
+      box-shadow: none;
+    }
   }
 
   &.active {

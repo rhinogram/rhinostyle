@@ -3863,8 +3863,8 @@ pre {
   padding: 0.6rem 1.5rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
-.site-navigation__nav__btn:hover,
-.site-navigation__nav__btn:focus {
+.no-touch .site-navigation__nav__btn:hover,
+.no-touch .site-navigation__nav__btn:focus {
   background-color: #52d9c8;
   box-shadow: none;
 }
