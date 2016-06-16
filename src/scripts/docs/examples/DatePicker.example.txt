@@ -1,5 +1,3 @@
-
-
 class ComponentExample extends React.Component {
   state = {
     startDate: null,
