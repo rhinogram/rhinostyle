@@ -13,6 +13,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   DatePicker,
+  moment,
 };
 
 

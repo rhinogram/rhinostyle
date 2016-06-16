@@ -41,6 +41,7 @@
   margin-right: -1px;
   position: relative;
 
+
   &::after,
   &::before {
     border-color: @border-color-base;
@@ -51,7 +52,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    //transition: transform .2s cubic-bezier(1, 0.6, 0, 1);
   }
 
   &::after {
@@ -89,7 +89,6 @@
 
 .nav-tabs__item__link {
   align-items: center;
-  color: @color-primary;
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
@@ -97,11 +96,12 @@
   padding: @nav-link-padding;
   position: relative;
   text-align: center;
+
   //width: 100%;
 
   .nav-tabs__item.active & {
     color: @text-color;
-
+    
     &::after {
       background: @color-white; // to cover .nav-tabs border
       bottom: 0;

@@ -1610,6 +1610,7 @@ button.close {
   border-radius: 0.4rem;
 }
 .react-datepicker__day--today {
+  color: #404040;
   font-weight: 900;
 }
 .react-datepicker__day--selected,
@@ -1617,13 +1618,15 @@ button.close {
   background-color: #39d4c0;
   border-radius: 0.4rem;
   color: #fff;
+  font-weight: normal;
 }
 .react-datepicker__day--selected:hover,
 .react-datepicker__day--in-range:hover {
   background-color: #2bc4b0;
 }
 .react-datepicker__day--disabled {
-  color: #9f9f9f;
+  background-color: transparent;
+  color: #d2d2d2;
   cursor: default;
 }
 .react-datepicker__day--disabled:hover {
@@ -1939,7 +1942,7 @@ button.close {
 .dropdown__menu__scroll {
   max-height: 24rem;
   overflow-y: auto;
-  transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0, 0, 0);
 }
 /*.dropdown__toggle {
   &:active,
@@ -3417,7 +3420,6 @@ fieldset[disabled] .rhinodio label {
 .nav-tabs__item__link {
   -ms-flex-align: center;
   align-items: center;
-  color: #0081c6;
   display: -ms-flexbox;
   display: flex;
   -ms-flex: 1 1 auto;
