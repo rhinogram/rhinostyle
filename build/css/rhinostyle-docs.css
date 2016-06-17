@@ -313,6 +313,9 @@ img {
 @-ms-viewport {
   width: auto !important;
 }
+.u-block {
+  display: block;
+}
 .u-clearfix::before,
 .u-clearfix::after {
   content: ' ';
@@ -337,9 +340,9 @@ img {
 .u-text-left {
   text-align: left;
 }
-.u-text-nowrap {
+/*.u-text-nowrap {
   white-space: nowrap;
-}
+}*/
 .u-text-right {
   text-align: right;
 }
@@ -352,7 +355,7 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.u-underline {
+.u-text-underline {
   text-decoration: underline !important;
 }
 .u-bg-accent {
@@ -3875,6 +3878,19 @@ pre {
 }
 .site-example-toasts .toast:not(:last-child) {
   margin-bottom: 1.2rem;
+}
+.site-example-utility:not(:last-child) {
+  margin-bottom: 4rem;
+}
+.site-example-utility h4 {
+  margin-bottom: 0.4rem;
+}
+.site-example-utility__panel {
+  background: #f9f9f9;
+  padding: 3rem;
+}
+.site-example-utility__panel p:last-child {
+  margin-bottom: 0;
 }
 .site-copy {
   margin-bottom: 2rem;

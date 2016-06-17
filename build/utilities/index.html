@@ -114,10 +114,200 @@
   <div class="site-copy">
     <p>A utility class applies a single rule or a very simple, universal pattern. Utility classes are simple, composable, and reusable. They will (intentionally) end up scattered throughout your markup.</p>
     <p>All utility classes are prefixed with <code>u-</code>.</p>
-    
   </div>
-  
 </section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Core Utilities</h3>
+  <div class="site-example-utility">
+    <h4>u-block</h4>
+    <p>Use to create block level element.</p>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-img-fluid</h4>
+    <p>Use to create a responsive image. Resize browser and image will scale.</p>
+    <img src="https://unsplash.it/800/400?image=82" alt="" class="u-img-fluid">
+  </div>
+  <div class="site-example-utility">
+    <h4>u-overflow-hidden</h4>
+    <p>Use to hide overflowing content. Resize browser and observe how container hides image overflow.</p>
+    <div class="u-overflow-hidden" style="max-width: 800px; height: 400px;">
+      <img src="https://unsplash.it/800/400?image=82" alt="">
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-center</h4>
+    <p>Use to center align text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-justify</h4>
+    <p>Use to justify text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-justify">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper. Maecenas et pretium leo. Nam blandit imperdiet porta. Donec ante leo, aliquam at laoreet vel, laoreet nec nunc. Proin tincidunt efficitur libero, vitae consectetur dui consectetur quis.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-left</h4>
+    <p>Use to left align text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-left">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <!-- <div class="site-example-utility">
+    <h4>u-text-nowrap</h4>
+    <p>Use to prevent text wrapping.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-nowrap">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper. Maecenas et pretium leo. Nam blandit imperdiet porta. Donec ante leo, aliquam at laoreet vel, laoreet nec nunc. Proin tincidunt efficitur libero, vitae consectetur dui consectetur quis.
+      </p>
+    </div>
+  </div> -->
+  <div class="site-example-utility">
+    <h4>u-text-right</h4>
+    <p>Use to right align text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-right">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-lead</h4>
+    <p>Use to create leading / introductory text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-lead">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Proin tincidunt efficitur libero, vitae consectetur dui consectetur quis.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-overflow</h4>
+    <p>Use to truncate (ellipsis) overflowing text. Resize browser to observe.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-overflow">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-underline</h4>
+    <p>Use to underline text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-underline">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3 class="site-subheadline">Color Utilities</h3>
+  <div class="site-example-utility">
+    <h4>u-bg-<em>color</em></h4>
+    <p>Use to set background color.</p>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-accent"></div>
+      <div class="site-swatch__text">u-bg-accent</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-danger"></div>
+      <div class="site-swatch__text">u-bg-danger</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-gray"></div>
+      <div class="site-swatch__text">u-bg-gray</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-gray-dark"></div>
+      <div class="site-swatch__text">u-bg-gray-dark</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-gray-darker"></div>
+      <div class="site-swatch__text">u-bg-gray-darker</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-gray-light"></div>
+      <div class="site-swatch__text">u-bg-gray-light</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-gray-lighter"></div>
+      <div class="site-swatch__text">u-bg-gray-lighter</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-gray-lightest"></div>
+      <div class="site-swatch__text">u-bg-gray-lightest</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-info"></div>
+      <div class="site-swatch__text">u-bg-info</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-primary"></div>
+      <div class="site-swatch__text">u-bg-primary</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-secondary"></div>
+      <div class="site-swatch__text">u-bg-secondary</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-success"></div>
+      <div class="site-swatch__text">u-bg-success</div>
+    </div>
+    <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-warning"></div>
+      <div class="site-swatch__text">u-bg-warning</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-text-<em>color</em></h4>
+    <p>Used to set text color.</p>
+    <span class="u-text-accent">u-text-accent</span>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   </main>

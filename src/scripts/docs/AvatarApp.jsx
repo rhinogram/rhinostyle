@@ -44,7 +44,7 @@ const AvatarApp = () =>
       <h3 className="site-subheadline">Avatar Sizes</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Large Avatar</h5>
-        <p className="site-copy"><code>size="large"</code>.</p>
+        <p className="site-copy"><code>size="large"</code></p>
         <div className="site-example-avatar">
           <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="large" type="member" />
           <Avatar name="Craig Anthony" size="large" type="member" />
@@ -53,7 +53,7 @@ const AvatarApp = () =>
       </div>
       <div>
         <h5 className="site-miniheadline">Small Avatar</h5>
-        <p className="site-copy"><code>size="small"</code>.</p>
+        <p className="site-copy"><code>size="small"</code></p>
         <div className="site-example-avatar">
           <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="small" type="member" />
           <Avatar name="Craig Anthony" size="small" type="member" />
