@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownSelect } from '../components';
+import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownSelect, Icon } from '../components';
 
 import Playground from 'component-playground';
 
@@ -17,6 +17,7 @@ const exampleScope  = {
   DropdownMenuItem,
   DropdownMultiSelect,
   DropdownSelect,
+  Icon,
 };
 
 const DropdownApp = () =>
