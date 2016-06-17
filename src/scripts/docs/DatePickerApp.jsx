@@ -38,11 +38,11 @@ class DatePickerApp extends React.Component {
           <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">ReactJS Datepicker</a> with custom styling.</p>
 
           <div className="row row--condensed">
-            <div className="col-sm-2">
-              <DatePicker className="form__control" selected={this.state.startDate} onChange={this._handleChange} />
+            <div className="col-sm-2 u-m-b">
+              <DatePicker className="form__control" readOnly selected={this.state.startDate} onChange={this._handleChange} />
             </div>
             <div className="col-sm-2">
-              <DatePicker className="form__control" selected={this.state.startDate} onChange={this._handleChange} showYearDropdown dateFormatCalendar="MMMM" />
+              <DatePicker className="form__control" readOnly selected={this.state.startDate} onChange={this._handleChange} showYearDropdown dateFormatCalendar="MMMM" />
             </div>
           </div>
         </section>

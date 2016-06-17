@@ -11,7 +11,7 @@ class ComponentExample extends React.Component {
     return (
       <div className="row row--condensed">
         <div className="col-sm-2">
-          <DatePicker className="form__control" selected={this.state.startDate} onChange={this._handleChange} placeholderText="Click to select a date" />
+          <DatePicker className="form__control" readOnly selected={this.state.startDate} onChange={this._handleChange} placeholderText="Click to select a date" />
         </div>
       </div>
     );
