@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Input } from '../components';
+import { Button, Checkbox, Input } from '../components';
 
 import Playground from 'component-playground';
 
@@ -31,18 +31,9 @@ const InputApp = () =>
         </div>
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
-          <div className="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox1" checked />
-            <label htmlFor="exampleCheckbox1">Checkbox One</label>
-          </div>
-          <div className="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox2" />
-            <label htmlFor="exampleCheckbox2">Checkbox Two</label>
-          </div>
-          <div className="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox3" />
-            <label htmlFor="exampleCheckbox3">Checkbox Three</label>
-          </div>
+          <Checkbox inline="true" name="exampleCheckbox1">Checkbox One</Checkbox>
+          <Checkbox inline="true" name="exampleCheckbox2">Checkbox Two</Checkbox>
+          <Checkbox inline="true" name="exampleCheckbox3">Checkbox Three</Checkbox>
         </div>
         <div className="form__group">
           <label htmlFor="" className="u-block">Radios</label>
@@ -76,7 +67,7 @@ const InputApp = () =>
           </div>
         </div>
         <div className="u-text-right">
-          <button type="submit" className="btn btn--secondary">Submit Form</button>
+          <Button type="secondary">Submit Form</Button>
         </div>
       </form>
     </section>
@@ -87,15 +78,9 @@ const InputApp = () =>
         <h5 className="site-miniheadline">Inline Form</h5>
         <p className="site-copy">Add the <code>form--inline</code> modifier to <code>form</code>.</p>
         <form className="form form--inline">
-          <div className="form__group">
-            <label htmlFor="exampleInputEmail2">Email Address</label>
-            <input type="email" className="form__control" id="exampleInputEmail2" placeholder="Enter email" />
-          </div>
-          <div className="form__group">
-            <label htmlFor="exampleInputPassword2">Password</label>
-            <input type="password" className="form__control" id="exampleInputPassword2" placeholder="Password" />
-          </div>
-          <button type="submit" className="btn btn--secondary">Sign In</button>
+          <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
+          <Input name="examplePassword2" label="Password" placeholder="Password" type="Password" />
+          <Button type="secondary">Sign In</Button>
         </form>
       </div>
     </section>

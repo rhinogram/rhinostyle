@@ -5,7 +5,8 @@ class Input extends React.Component {
   static displayName = 'RhinoInput';
 
   static propTypes = {
-    className:   React.PropTypes.string,
+    addonLeft:   React.PropTypes.string,
+    addonRight:  React.PropTypes.string,
     label:       React.PropTypes.string,
     name:        React.PropTypes.string,
     placeholder: React.PropTypes.string,
@@ -28,8 +29,8 @@ class Input extends React.Component {
   }
 
   render() {
-    const { className, label, name, placeholder, type, value } = this.props;
-    const classes = cx('form__control', className);
+    const { label, name, placeholder, type, value } = this.props;
+    const classes = cx('form__control');
 
     const showLabel = () => {
       if (label) {
