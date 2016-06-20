@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Input } from '../components';
+import { Button, Checkbox, Input } from '../components';
 
 import Playground from 'component-playground';
 
@@ -31,18 +31,9 @@ const InputApp = () =>
         </div>
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
-          <div className="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox1" checked />
-            <label htmlFor="exampleCheckbox1">Checkbox One</label>
-          </div>
-          <div className="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox2" />
-            <label htmlFor="exampleCheckbox2">Checkbox Two</label>
-          </div>
-          <div className="rhinobox rhinobox--inline">
-            <input type="checkbox" id="exampleCheckbox3" />
-            <label htmlFor="exampleCheckbox3">Checkbox Three</label>
-          </div>
+          <Checkbox inline="true" name="exampleCheckbox1">Checkbox One</Checkbox>
+          <Checkbox inline="true" name="exampleCheckbox2">Checkbox Two</Checkbox>
+          <Checkbox inline="true" name="exampleCheckbox3">Checkbox Three</Checkbox>
         </div>
         <div className="form__group">
           <label htmlFor="" className="u-block">Radios</label>

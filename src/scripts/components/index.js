@@ -1,6 +1,7 @@
 import Avatar               from './Avatar';
 import Button               from './Button';
 import Callout              from './Callout';
+import Checkbox             from './Checkbox';
 import Dropdown             from './Dropdown';
 import DropdownMenu         from './DropdownMenu';
 import DropdownMenuDivider  from './DropdownMenuDivider';
@@ -21,6 +22,7 @@ export {
   Avatar,
   Button,
   Callout,
+  Checkbox,
   Dropdown,
   DropdownMenu,
   DropdownMenuDivider,
