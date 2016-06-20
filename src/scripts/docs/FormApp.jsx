@@ -78,15 +78,9 @@ const InputApp = () =>
         <h5 className="site-miniheadline">Inline Form</h5>
         <p className="site-copy">Add the <code>form--inline</code> modifier to <code>form</code>.</p>
         <form className="form form--inline">
-          <div className="form__group">
-            <label htmlFor="exampleInputEmail2">Email Address</label>
-            <input type="email" className="form__control" id="exampleInputEmail2" placeholder="Enter email" />
-          </div>
-          <div className="form__group">
-            <label htmlFor="exampleInputPassword2">Password</label>
-            <input type="password" className="form__control" id="exampleInputPassword2" placeholder="Password" />
-          </div>
-          <button type="submit" className="btn btn--secondary">Sign In</button>
+          <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
+          <Input name="examplePassword2" label="Password" placeholder="Password" type="Password" />
+          <Button type="secondary">Sign In</Button>
         </form>
       </div>
     </section>

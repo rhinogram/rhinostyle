@@ -81243,14 +81243,13 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
-	      var className = _props.className;
 	      var label = _props.label;
 	      var name = _props.name;
 	      var placeholder = _props.placeholder;
 	      var type = _props.type;
 	      var value = _props.value;
 
-	      var classes = (0, _classnames2.default)('form__control', className);
+	      var classes = (0, _classnames2.default)('form__control');
 
 	      var showLabel = function showLabel() {
 	        if (label) {
@@ -81277,7 +81276,8 @@
 
 	Input.displayName = 'RhinoInput';
 	Input.propTypes = {
-	  className: _react2.default.PropTypes.string,
+	  addonLeft: _react2.default.PropTypes.string,
+	  addonRight: _react2.default.PropTypes.string,
 	  label: _react2.default.PropTypes.string,
 	  name: _react2.default.PropTypes.string,
 	  placeholder: _react2.default.PropTypes.string,
