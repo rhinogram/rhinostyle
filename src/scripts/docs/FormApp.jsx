@@ -67,7 +67,7 @@ const InputApp = () =>
           </div>
         </div>
         <div className="u-text-right">
-          <button type="submit" className="btn btn--secondary">Submit Form</button>
+          <Button type="secondary">Submit Form</Button>
         </div>
       </form>
     </section>
