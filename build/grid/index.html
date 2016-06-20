@@ -283,11 +283,14 @@
           ease: rhinoTimeEase
         });
 
+        var hostName = document.location.hostname;
+        console.log(hostName);
 
         // Handle active navigation
-        var split = (document.location.hostname == "localhost") ? 1:2;
+        var split = (hostName == "localhost") ? 1:2;
 
         var navLocation = location.pathname.split("/")[split];
+        console.log(navLocation);
 
         if (navLocation) {
           $('.site-navigation__nav a[href^="../' + navLocation + '"]').addClass('active');

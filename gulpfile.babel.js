@@ -1,11 +1,10 @@
-'use strict';
+
 
 import gulp         from 'gulp';
 import imagemin     from 'gulp-imagemin';
 import svgSprite    from 'gulp-svg-sprite';
 import duration     from 'gulp-duration';
 import less         from 'gulp-less';
-import changed      from 'gulp-changed';
 import concat       from 'gulp-concat';
 import postcss      from 'gulp-postcss';
 import uglify       from 'gulp-uglify';
@@ -20,9 +19,8 @@ import flexbugs     from 'postcss-flexbugs-fixes';
 import webpack      from 'webpack';
 import browserSync  from 'browser-sync';
 import del          from 'del';
-import child        from 'child_process';
 
-import Metalsmith   from 'metalsmith';
+import metalsmith   from 'metalsmith';
 import msChanged    from 'metalsmith-changed';
 import msInPlace    from 'metalsmith-in-place';
 import msRootpath   from 'metalsmith-rootpath';
@@ -35,7 +33,7 @@ import docsConfig from './config/webpack.docs.config.js';
 
 const reload = browserSync.reload;
 
-let force_build = true;
+let forceBuild = true;
 
 nunjucks.configure('./src/templates', { watch: false });
 
@@ -63,24 +61,24 @@ gulp.task('animation:flag', () => {
         svgo: {
           plugins: [
             {
-              convertTransform: false
-            }
-          ]
-        }
+              convertTransform: false,
+            },
+          ],
+        },
       }],
       mode: {
         css: {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'vertical'
-        }
+          layout: 'vertical',
+        },
       },
       svg: {
         xmlDeclaration: false,
         doctypeDeclaration: false,
-        dimensionAttributes: false
-      }
+        dimensionAttributes: false,
+      },
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
@@ -98,14 +96,14 @@ gulp.task('animation:login', () => {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'vertical'
-        }
+          layout: 'vertical',
+        },
       },
       svg: {
         xmlDeclaration: false,
         doctypeDeclaration: false,
-        dimensionAttributes: false
-      }
+        dimensionAttributes: false,
+      },
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
@@ -122,24 +120,24 @@ gulp.task('animation:secure', () => {
         svgo: {
           plugins: [
             {
-              convertTransform: false
-            }
-          ]
-        }
+              convertTransform: false,
+            },
+          ],
+        },
       }],
       mode: {
         css: {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'vertical'
-        }
+          layout: 'vertical',
+        },
       },
       svg: {
         xmlDeclaration: false,
         doctypeDeclaration: false,
-        dimensionAttributes: false
-      }
+        dimensionAttributes: false,
+      },
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
@@ -157,14 +155,14 @@ gulp.task('animation:time', () => {
           dest: '',
           bust: false,
           sprite: 'sprite.svg',
-          layout: 'vertical'
-        }
+          layout: 'vertical',
+        },
       },
       svg: {
         xmlDeclaration: false,
         doctypeDeclaration: false,
-        dimensionAttributes: false
-      }
+        dimensionAttributes: false,
+      },
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
@@ -178,8 +176,8 @@ gulp.task('animation:time', () => {
 gulp.task('browser-sync', () => {
   browserSync.init({
     server: {
-      baseDir: './build'
-    }
+      baseDir: './build',
+    },
   });
 });
 
@@ -187,12 +185,12 @@ gulp.task('browser-sync', () => {
 // -------------------------
 // Clean
 // -------------------------
-gulp.task('clean', () => {
-  return del([
+gulp.task('clean', () =>
+  del([
     './build/**/*',
-    './dist/**/*'
-  ]);
-});
+    './dist/**/*',
+  ])
+);
 
 
 // -------------------------
@@ -204,12 +202,12 @@ gulp.task('dist:scripts', (callback) => {
       throw new gutil.PluginError('webpack', err);
     }
 
-    stats = stats.toString();
+    let theStats = stats.toString();
 
     // Remove dropping unused statements and individual modules built
     const tester = /Dropping unused(.*?)\n|\n(.*?)\[built\]/g;
-    stats = stats.replace(tester, '');
-    gutil.log('[webpack]', stats);
+    theStats = theStats.replace(tester, '');
+    gutil.log('[webpack]', theStats);
     gutil.log('[webpack]', new Date());
 
     callback();
@@ -221,12 +219,12 @@ gulp.task('dist:scripts', (callback) => {
 // Dist Styles
 // -------------------------
 gulp.task('dist:styles', () => {
-  const path = paths.styles,
-        processors = [
-          autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
-          cssnano(),
-          flexbugs()
-        ];
+  const path = paths.styles;
+  const processors = [
+    autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
+    cssnano(),
+    flexbugs(),
+  ];
 
   return gulp.src(path.src)
     .pipe(less({ compress: true }))
@@ -240,10 +238,10 @@ gulp.task('dist:styles', () => {
 // -------------------------
 // Docs Deploy
 // -------------------------
-gulp.task('docs:deploy', function () {
-  return gulp.src('./build/**/*')
-    .pipe(ghPages());
-});
+gulp.task('docs:deploy', () =>
+  gulp.src('./build/**/*')
+    .pipe(ghPages())
+);
 
 
 // -------------------------
@@ -255,12 +253,12 @@ gulp.task('docs:react', (callback) => {
       throw new gutil.PluginError('webpack', err);
     }
 
-    stats = stats.toString();
+    let theStats = stats.toString();
 
     // Remove dropping unused statements and individual modules built
     const tester = /Dropping unused(.*?)\n|\n(.*?)\[built\]/g;
-    stats = stats.replace(tester, '');
-    gutil.log('[webpack]', stats);
+    theStats = theStats.replace(tester, '');
+    gutil.log('[webpack]', theStats);
     gutil.log('[webpack]', new Date());
 
     callback();
@@ -277,8 +275,8 @@ gulp.task('docs:scripts', () => {
 
   return gulp.src([
     './node_modules/boomsvgloader/dist/js/boomsvgloader.js',
-    path.docSrc
-    ])
+    path.docSrc,
+  ])
     .pipe(concat('rhinostyle-docs.js'))
     .pipe(uglify())
     .pipe(gulp.dest(path.build))
@@ -299,7 +297,7 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   gulp.watch(paths.scripts.cmpSrc, ['docs:react']);
   gulp.watch(paths.styles.docAll, ['docs:styles']);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
-    force_build = true;
+    forceBuild = true;
   });
 });
 
@@ -307,19 +305,19 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
 // -------------------------
 // Docs Site
 // -------------------------
-gulp.task('docs:site', () => {
-  const path = paths.metalsmith;
+gulp.task('docs:site', () =>
+  /* const path = paths.metalsmith; */
 
-  return Metalsmith(__dirname)
+  metalsmith(__dirname)
   .source('./src/pages')
   .clean(false)
-  .use(msChanged({ force: force_build }))
+  .use(msChanged({ force: forceBuild }))
   .use(msInPlace({ engine: 'nunjucks' }))
   .use(msRootpath())
   .use(msLayouts({
     engine:    'nunjucks',
     directory: './src/templates',
-    default:   'default.html'
+    default:   'default.html',
   }))
   .destination('./build')
   .build((err) => {
@@ -328,19 +326,19 @@ gulp.task('docs:site', () => {
     } else {
       browserSync.reload();
     }
-  });
-});
+  })
+);
 
 
 // -------------------------
 // Docs Styles
 // -------------------------
 gulp.task('docs:styles', () => {
-  const path = paths.styles,
-        processors = [
-          autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
-          flexbugs()
-        ];
+  const path = paths.styles;
+  const processors = [
+    autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
+    flexbugs(),
+  ];
   return gulp.src(path.docSrc)
     .pipe(less({ compress: false }))
     .pipe(postcss(processors))
@@ -363,24 +361,24 @@ gulp.task('icons', () => {
     .pipe(svgSprite({
       shape: {
         id: {
-          generator: 'icon-'
+          generator: 'icon-',
         },
         dimension: {
-          attributes: false
-        }
+          attributes: false,
+        },
       },
       mode: {
         symbol: {
           dest: '',
           example: false,
-          sprite: 'sprite.svg'
-        }
+          sprite: 'sprite.svg',
+        },
       },
       svg: {
         xmlDeclaration: false,
         doctypeDeclaration: false,
-        dimensionAttributes: false
-      }
+        dimensionAttributes: false,
+      },
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
@@ -392,8 +390,12 @@ gulp.task('icons', () => {
 // -------------------------
 // Style Linting
 // -------------------------
-gulp.task('styles:lint', () => {
-  return gulp.src('./src/less/**/*.less')
+gulp.task('styles:lint', () =>
+  gulp.src('./src/less/**/*.less')
     .pipe(lesshint())
-    .pipe(lesshint.reporter());
-});
+    .pipe(lesshint.reporter())
+);
+
+
+
+

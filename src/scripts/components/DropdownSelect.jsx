@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import DropdownMenuItem from './DropdownMenuItem';
 import Icon from './Icon';
 import onClickOutside from 'react-onclickoutside';
 
@@ -16,6 +17,7 @@ class DropdownSelect extends React.Component {
     icon:      React.PropTypes.string,
     label:     React.PropTypes.string,
     position:  React.PropTypes.string,
+    select:    React.PropTypes.func,
     size:      React.PropTypes.oneOf(['small', 'large']),
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
     wide:      React.PropTypes.bool,
@@ -39,6 +41,24 @@ class DropdownSelect extends React.Component {
         isOpen: false,
       });
     }
+  }
+
+  getChildren = () => {
+    let returnChild = null;
+    const children = this.props.children;
+
+    return React.Children.map(children, child => {
+      if (child.type === DropdownMenuItem) {
+        returnChild = React.cloneElement(child, {
+          click: () => this.props.select(child.props.id),
+          active: child.props.id === this.props.activeKey,
+        });
+      } else {
+        returnChild = child;
+      }
+
+      return returnChild;
+    });
   }
 
   _handleToggle = () => {
@@ -96,7 +116,7 @@ class DropdownSelect extends React.Component {
           <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>
         </div>
         <ul className={dropdownMenuClasses}>
-          {this.props.children}
+          {this.getChildren()}
         </ul>
       </div>
     );
