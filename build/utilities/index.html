@@ -209,7 +209,7 @@
   </div>
 </section>
 
-<section>
+<section class="site-section">
   <h3 class="site-subheadline">Color Utilities</h3>
   <div class="site-example-utility">
     <h4>u-bg-<em>color</em></h4>
@@ -280,6 +280,254 @@
       <span class="u-text-success">u-text-success</span>
       <span class="u-text-warning">u-text-warning</span>
       <span class="u-text-muted">u-text-muted</span>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h3 class="site-subheadline">Flexbox Utilities</h3>
+  <div class="site-copy">
+    <p>Most of our layout will be handled by our Flexbox grid system or within the CSS of complex components. However, we have included some helpful Flexbox utility classes to compliment our layout system and offer additional flexibility.</p>
+    <p>For a Flexbox refresher, see this <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks</a> article.</p>
+  </div>
+
+  <br>
+  
+  <h5 class="site-miniheadline">Aligning Items</h5>
+  <p>Align items in the cross axis of the current line of the flex container. Similar to 'justify-content' but in the perpendicular direction.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-baseline</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-baseline">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-center</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-center">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-end</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-end">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-start</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-stretch</h4>
+    <div class="site-grid-box-container" >
+      <div class="u-flex u-flex-align-items-stretch" style="height: 8rem;">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Aligning Content</h5>
+  <p>Aligns items within the flex container when there is extra space in the cross-axis. Has no effect when there is only one line of flex items. Requires that flex items are wrapping.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-start</h4>
+    <div class="site-grid-box-container" >
+      <div class="u-flex u-flex-align-content-start u-flex-wrap" style="min-height: 10rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-end</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-end u-flex-wrap" style="min-height: 10rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-center</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-center u-flex-wrap" style="min-height: 10rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-stretch</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-stretch u-flex-wrap" style="min-height: 10rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Aligning Self</h5>
+  <p>Override default alignment of single item when specified by 'align-items.'</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-auto</h4>
+    <p>Inherits 'align-items' from parent container. In this case, the parent has <code>align-items: flex-start</code>. Items one and two have <code>align-self: flex-end</code>.</p>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-auto">u-flex-align-self-auto</div>
+        <div class="site-example-utility__flex-item u-flex-align-self-end">item one</div>
+        <div class="site-example-utility__flex-item u-flex-align-self-end">item two</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-center</h4>
+    <div class="site-grid-box-container" >
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-center">u-flex-align-self-center</div>
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-end</h4>
+    <div class="site-grid-box-container" >
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-end">u-flex-align-self-end</div>
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-start</h4>
+    <div class="site-grid-box-container" >
+      <div class="u-flex u-flex-align-items-end" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-start">u-flex-align-self-start</div>
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-stretch</h4>
+    <div class="site-grid-box-container" >
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-stretch">u-flex-align-self-stretch</div>
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+      </div>
     </div>
   </div>
 

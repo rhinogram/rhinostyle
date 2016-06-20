@@ -103,6 +103,13 @@ pre {
   }
 }
 
+.site-example-utility__flex-item {
+  border: 1px dotted @color-gray-light;
+  color: @color-gray;
+  font-weight: @font-weight-light;
+  padding: 0 @padding-base;
+}
+
 .site-example-utility__panel {
   background: @color-gray-lightest;
   padding: @padding-gutter;
@@ -117,8 +124,6 @@ pre {
     margin-right: @margin-small;
   }
 }
-
-
 
 
 // -------------------------
@@ -137,10 +142,18 @@ pre {
 // -------------------------
 
 
-.site-grid {
+.site-grid-box {
   background: @color-gray-lighter;
   border: 1px solid @color-gray-light;
-  height: 4rem;
+  min-height: 4rem;
+  padding: 0 1rem;
+}
+
+
+.site-grid-box-container {
+  background: @color-gray-lightest;
+  border: 1px solid @color-gray-light;
+  padding: @padding-half-gutter;
 }
 
 
