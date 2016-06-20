@@ -38,8 +38,8 @@ class Avatar extends React.Component {
     const classes = cx('avatar', className, {
       'avatar--sm': size === 'small',
       'avatar--lg': size === 'large',
-      'avatar--member':  type === 'member',
-      'avatar--patient': type === 'patient',
+      'avatar--patient':  type === 'patient',
+      'avatar--member': type === 'member',
     });
     const styles = {
       backgroundImage: `url(${image})`,

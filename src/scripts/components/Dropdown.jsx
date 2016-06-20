@@ -7,23 +7,25 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
+    active:    React.PropTypes.bool,
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
     disabled:  React.PropTypes.bool,
     icon:      React.PropTypes.string,
     label:     React.PropTypes.string,
-    outline:   React.PropTypes.bool,
-    size:      React.PropTypes.oneOf(['small', 'normal', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'link']),
+    position:  React.PropTypes.string,
+    size:      React.PropTypes.oneOf(['small', 'large']),
+    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
+    wide:      React.PropTypes.bool,
   };
 
   static defaultProps = {
+    active:   false,
     block:    false,
     disabled: false,
-    outline:  false,
-    size:     'normal',
     type:     'default',
+    wide:     false,
   };
 
   state = {
@@ -39,35 +41,45 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, icon, label, outline, size, type } = this.props;
-
-    const classes = cx('btn', 'dropdown__toggle', className, {
-      'btn--default':   (type === 'default' && !outline),
-      'btn--primary':   (type === 'primary' && !outline),
-      'btn--secondary': (type === 'secondary' && !outline),
-      'btn--accent':    (type === 'accent' && !outline),
-      'btn--link':      (type === 'link' && !outline),
-      'btn--default-outline':   (type === 'default' && outline),
-      'btn--primary-outline':   (type === 'primary' && outline),
-      'btn--secondary-outline': (type === 'secondary' && outline),
-      'btn--accent-outline':    (type === 'accent' && outline),
-      'btn--sm': size === 'small',
-      'btn--lg': size === 'large',
-      'btn--icon': (icon && !label),
-      'disabled': disabled, //eslint-disable-line
-    });
+    const { active, block, className, disabled, icon, label, position, size, type, wide } = this.props;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
       'dropdown--block': block,
     });
 
+    const dropdownToggleClasses = cx('btn', 'dropdown__toggle', className, {
+      'btn--default':   type === 'default',
+      'btn--primary':   type === 'primary',
+      'btn--secondary': type === 'secondary',
+      'btn--link':      type === 'link',
+      'btn--default-outline':   type === 'default-outline',
+      'btn--primary-outline':   type === 'primary-outline',
+      'btn--sm': size === 'small',
+      'btn--lg': size === 'large',
+      'btn--icon': (icon && !label),
+      'active': active, //eslint-disable-line
+      'disabled': disabled, //eslint-disable-line
+    });
+
+    const dropdownMenuClasses = cx('dropdown__menu', {
+      'dropdown__menu--right': position === 'right',
+      'dropdown__menu--top': position === 'top',
+      'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+      'dropdown__menu--wide': wide,
+    });
+
+    const caretDirection = (position === 'top' || position === 'top-right') ? '#icon-chevron-up' : '#icon-chevron-down';
+
     return (
       <div className={dropdownClasses}>
-        <div onClick={this._handleToggle} className={classes} type="button">
-          {icon ? <Icon icon={icon} /> : null}<span className="u-text-overflow">{label}</span><svg className="dropdown__toggle__icon"><use xlinkHref="#icon-chevron-down" /></svg>
+        <div onClick={this._handleToggle} className={dropdownToggleClasses} type="button">
+          {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="u-text-overflow">{label}</span>
+          <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>
         </div>
-        {this.props.children}
+        <ul className={dropdownMenuClasses}>
+          {this.props.children}
+        </ul>
       </div>
     );
   }

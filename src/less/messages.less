@@ -1,0 +1,112 @@
+// File: messages.less
+// Note:
+
+
+// -------------------------
+// Messages
+// -------------------------
+
+
+.msg {
+  border-radius: @msg-border-radius;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
+  display: inline-block;
+  line-height: 1;
+  padding: @msg-padding;
+  position: relative;
+  vertical-align: middle;
+  //white-space: nowrap;
+
+  &:empty {
+    display: none;
+  }
+
+  a {
+    color: inherit;
+    //font-weight: @font-weight-light;
+    opacity: .85;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+// -------------------------
+// Message Modifiers (Color)
+// -------------------------
+
+
+.msg--default {
+  background: @color-white;
+}
+
+.msg--note {
+  background: #fefbd0;
+}
+
+.msg--primary {
+  background: @color-primary;
+  box-shadow: 0 2px 2px darken(@color-primary, 12%);
+  color: @color-white;
+}
+
+.msg--secondary {
+  background: @color-secondary;
+  box-shadow: 0 2px 2px darken(@color-secondary, 12%);
+  color: @color-white;
+}
+
+
+// -------------------------
+// Message Modifiers (To/From)
+// -------------------------
+
+
+.msg--from,
+.msg--to {
+  &::before {
+    background: inherit;
+    background-clip: border-box;
+    border: inherit;
+    border-bottom: 0;
+    border-right: 0;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .25);
+    content: '';
+    padding: .6rem;
+    position: absolute;
+    top: 1.2rem;
+    //z-index: -1;
+  }
+
+  &.msg--primary {
+    &::before {
+      box-shadow: 0 2px 2px -2px darken(@color-primary, 18%);
+    }
+  }
+
+  &.msg--secondary {
+    &::before {
+      box-shadow: 0 2px 2px -2px darken(@color-secondary, 18%);
+    }
+  }
+}
+
+
+.msg--from {
+  &::before {
+    right: -.5rem;
+    transform: rotate(-45deg);
+  }
+}
+
+.msg--to {
+  &::before {
+    left: -.5rem;
+    transform: rotate(45deg);
+  }
+}
+
+

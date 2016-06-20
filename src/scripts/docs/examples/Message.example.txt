@@ -1,0 +1,16 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div className="site-example-messages u-bg-gray-lighter u-p-a">
+        <Message direction="to">
+          This is a default message.
+        </Message>
+        <Message direction="from" type="note">
+          This is a note.
+        </Message>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

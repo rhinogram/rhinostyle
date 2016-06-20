@@ -3,8 +3,8 @@ class ComponentExample extends React.Component {
     return (
       <div>
       	<ProgressBar progress={30} className="u-m-b" />
-        <ProgressBar progress={60} showLabel={true} type="primary" className="u-m-b" />
-        <ProgressBar progress={90} showLabel={true} type="temperature" />
+        <ProgressBar progress={60} showLabel type="primary" className="u-m-b" />
+        <ProgressBar progress={90} showLabel type="temperature" />
       </div>
     );
   }

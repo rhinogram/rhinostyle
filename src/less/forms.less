@@ -18,7 +18,7 @@ fieldset {
 }
 
 label {
-  color: @gray;
+  color: @color-gray;
   display: inline-block;
   font-weight: @font-weight-semibold;
   margin-bottom: .5rem;
@@ -250,7 +250,7 @@ input[type='checkbox']:focus {
   }
 
   &[disabled],
-  &[readonly],
+  //&[readonly],
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
@@ -338,7 +338,7 @@ input[type='search'] {
 
 
 .form__optional {
-  color: @brand-secondary;
+  color: @color-secondary;
   font-weight: normal;
 }
 
@@ -418,7 +418,7 @@ input[type='checkbox'] {
 
     &:checked+label::before {
       background-color: @form-element-color;
-      .mixin-svg-bg-add-fill('@{svg-path}checkmark.svg', @white);
+      .mixin-svg-bg-add-fill('@{svg-path}checkmark.svg', @color-white);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 1.2rem 1.2rem;
@@ -431,7 +431,7 @@ input[type='checkbox'] {
     display: flex;
 
     &::before {
-      background-color: @white;
+      background-color: @color-white;
       border: 1px solid @border-color-base;
       content: '';
       display: inline-block;
@@ -463,8 +463,8 @@ input[type='checkbox'] {
     display: flex;
 
     &::before {
-      background-color: @white;
-      border: .2rem solid @white;
+      background-color: @color-white;
+      border: .2rem solid @color-white;
       border-radius: 50%;
       box-shadow: 0 0 0 1px @border-color-base;
       content: '';
@@ -630,7 +630,7 @@ input[type='checkbox'] {
 .rhinoswitcher__off,
 .rhinoswitcher__on {
   align-items: center;
-  color: @white;
+  color: @color-white;
   display: inline-flex;
   font-size: 1.4rem;
   height: 100%;
@@ -642,7 +642,7 @@ input[type='checkbox'] {
 }
 
 .rhinoswitcher__off {
-  background-color: @gray;
+  background-color: @color-gray;
   padding-left: @switcher-state-padding;
   z-index: 2;
 
@@ -664,7 +664,7 @@ input[type='checkbox'] {
 
 
 .rhinoswitcher__toggler {
-  background-color: @white;
+  background-color: @color-white;
   border-radius: .2rem;
   height: @switcher-toggler-height;
   left: 0;

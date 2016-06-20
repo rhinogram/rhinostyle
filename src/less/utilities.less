@@ -13,18 +13,6 @@
 
 
 // -------------------------
-// Center Block
-// -------------------------
-
-
-.u-center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-// -------------------------
 // Clearfix
 // -------------------------
 
@@ -43,21 +31,6 @@
 
 
 // -------------------------
-// Cursors
-// -------------------------
-// see http://codepen.io/chriscoyier/pen/uCwfB
-
-
-.u-cursor-not-allowed {
-  cursor: not-allowed;
-}
-
-.u-cursor-pointer {
-  cursor: pointer;
-}
-
-
-// -------------------------
 // Images
 // -------------------------
 
@@ -69,86 +42,12 @@
 
 
 // -------------------------
-// Invisible
-// -------------------------
-
-
-.u-invisible {
-  visibility: hidden;
-}
-
-
-// -------------------------
-// Inline Block
-// -------------------------
-
-
-.u-inline-block {
-  display: inline-block;
-}
-
-
-// -------------------------
-// Floats
-// -------------------------
-
-
-.u-pull-right {
-  float: right;
-}
-
-.u-pull-left {
-  float: left;
-}
-
-
-// -------------------------
-// Hide
-// -------------------------
-
-
-.u-hide {
-  display: none;
-}
-
-
-// -------------------------
 // Overflow
 // -------------------------
 
 
 .u-overflow-hidden {
   overflow: hidden;
-}
-
-
-// -------------------------
-// Pointer Events
-// -------------------------
-
-
-.u-pointer-events-none {
-  pointer-events: none;
-}
-
-
-// -------------------------
-// Show
-// -------------------------
-
-
-.u-show {
-  display: block;
-}
-
-
-// -------------------------
-// Tab Focus
-// -------------------------
-
-
-.u-tab-focus {
-  .mixin-tab-focus();
 }
 
 
@@ -169,9 +68,9 @@
   text-align: left;
 }
 
-.u-text-nowrap {
+/*.u-text-nowrap {
   white-space: nowrap;
-}
+}*/
 
 .u-text-right {
   text-align: right;
@@ -192,7 +91,8 @@
 // -------------------------
 // Text Overflow
 // -------------------------
-
+// See https://css-tricks.com/flexbox-truncated-text/
+// Ellipsis within flex items can be span or div. Otherwise should be div.
 
 .u-text-overflow {
   overflow: hidden;
@@ -206,7 +106,8 @@
 // -------------------------
 
 
-.u-underline {
+.u-text-underline {
   text-decoration: underline !important;
 }
+
 

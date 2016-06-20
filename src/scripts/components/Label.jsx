@@ -5,9 +5,9 @@ class Label extends React.Component {
   static displayName = 'RhinoLabel';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    label: React.PropTypes.string,
-    type: React.PropTypes.string,
+    className:  React.PropTypes.string,
+    label:      React.PropTypes.string,
+    type:       React.PropTypes.string,
   };
 
   static defaultProps = {

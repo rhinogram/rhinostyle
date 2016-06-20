@@ -2,9 +2,23 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-buttons">
-        <Button>Default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="secondary" iconOnly={true}><Icon icon="cog" /></Button>
+        <div className="u-m-b">
+          <Button>Default</Button>
+          <Button type="default-outline">Default Outline</Button>
+          <Button type="primary">Primary</Button>
+          <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
+        </div>
+        <div className="u-m-b">
+          <Button size="large">Large</Button>
+          <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+          <Button size="large" iconOnly><Icon icon="cog" /></Button>
+          <Button>Default</Button>
+          <Button><Icon icon="cog" />&nbsp;Default</Button>
+          <Button iconOnly><Icon icon="cog" /></Button>
+          <Button size="small">Small</Button>
+          <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+          <Button size="small" iconOnly><Icon icon="cog" /></Button>
+        </div>
       </div>
     );
   }

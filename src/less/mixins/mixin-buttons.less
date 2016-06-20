@@ -68,6 +68,7 @@
   background-color: @background;
   border-color: @border;
   color: @color;
+
   &:hover,
   &:focus,
   &.focus,
@@ -78,11 +79,13 @@
     //border-color: @color;
     color: @hover-color;
   }
+
   &:active,
   &.active,
   .open > .dropdown__toggle& {
     background-image: none;
   }
+
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -97,7 +100,6 @@
       color: @color;
     }
   }
-
 }
 
 

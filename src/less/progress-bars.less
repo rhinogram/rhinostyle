@@ -29,19 +29,19 @@
 
 
 .progress__bar--default {
-  background: @gray-light;
+  background: @color-gray-light;
 }
 
 .progress__bar--primary {
-  background: @brand-primary;
+  background: @color-primary;
 }
 
 .progress__bar--secondary {
-  background: @brand-secondary;
+  background: @color-secondary;
 }
 
 .progress__bar--temperature {
-  @crazyprogress: @brand-success, @brand-warning 75%, @brand-danger;
+  @crazyprogress: @color-success, @color-warning 75%, @color-danger;
   background-image: svg-gradient(to right, @crazyprogress); // LESSCSS function
 }
 
@@ -53,7 +53,7 @@
 
 .progress__bar__slider {
   backface-visibility: hidden;
-  background: @gray-lighter;
+  background: @color-gray-lighter;
   box-shadow: @progress-bar-inset-shadow;
   height: @progress-bar-height;
   transition: transform 500ms ease-out;
@@ -66,7 +66,7 @@
 
 
 .progress__bar__slider__label {
-  color: @white;
+  color: @color-white;
   cursor: default;
   font-size: 1.1rem;
   padding: 0 @padding-xsmall;

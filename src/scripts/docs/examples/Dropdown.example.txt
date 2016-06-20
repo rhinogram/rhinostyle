@@ -3,14 +3,12 @@ class ComponentExample extends React.Component {
     return (
     <div>
       <Dropdown label="Dropdown" type="secondary">
-        <DropdownMenu>
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-          <DropdownMenuItem  click={() => alert('clicked!')}>Item</DropdownMenuItem>
-          <DropdownMenuItem>Another Item</DropdownMenuItem>
-          <DropdownMenuItem>A third item</DropdownMenuItem>
-          <DropdownMenuDivider />
-          <DropdownMenuItem>Separated item</DropdownMenuItem>
-        </DropdownMenu>
+        <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+        <DropdownMenuItem click={() => alert('clicked!')}>Custom click Item</DropdownMenuItem>
+        <DropdownMenuItem url={'http://www.google.com'}>Default Behavior Item</DropdownMenuItem>
+        <DropdownMenuItem>A third item</DropdownMenuItem>
+        <DropdownMenuDivider />
+        <DropdownMenuItem>Separated item</DropdownMenuItem>
       </Dropdown>
     </div>
     );

@@ -33,14 +33,14 @@
 
 
 /*@badge-active-color:          @link-color;
-@badge-active-bg:             @white;
-@badge-bg:                    @gray-light;
+@badge-active-bg:             @color-white;
+@badge-bg:                    @color-gray-light;
 @badge-border-radius:         @border-radius-small;
-@badge-color:                 @white;
+@badge-color:                 @color-white;
 @badge-font-weight:           normal;
 @badge-horizontal-padding:    @padding-xsmall;
 @badge-line-height:           1;
-@badge-link-hover-color:      @white;
+@badge-link-hover-color:      @color-white;
 @badge-min-width:             1.8rem;
 @badge-vertical-padding:      .3rem;*/
 
@@ -50,7 +50,7 @@
 // -------------------------
 
 
-@border-color-base:             @gray-light;
+@border-color-base:             @color-gray-light;
 @border-color-focus:            #66afe9;
 @border-radius-base:            .4rem;
 @border-radius-large:           .5rem;
@@ -66,7 +66,7 @@
 
 @btn-font-weight:                normal;
 
-@btn-link-disabled-color:        @gray-light;
+@btn-link-disabled-color:        @color-gray-light;
 
 @btn-border-radius-base:         @border-radius-base;
 @btn-border-radius-large:        @border-radius-large;
@@ -76,41 +76,41 @@
 @btn-height-large:               4.2rem;
 @btn-height-small:               3rem;
 
-@btn-accent-color:               @white;
-@btn-accent-bg:                  @brand-accent;
-@btn-accent-border:              @brand-accent;
+@btn-accent-color:               @color-white;
+@btn-accent-bg:                  @color-accent;
+@btn-accent-border:              @color-accent;
 
-@btn-danger-color:               @white;
-@btn-danger-bg:                  @brand-danger;
-@btn-danger-border:              @brand-danger;
+@btn-danger-color:               @color-white;
+@btn-danger-bg:                  @color-danger;
+@btn-danger-border:              @color-danger;
 
 @btn-default-color:              @text-color;
-@btn-default-bg:                 @gray-lightest;
-@btn-default-border:             @gray-light;
+@btn-default-bg:                 @color-gray-lightest;
+@btn-default-border:             @color-gray-light;
 
 @btn-default-outline-color:      @text-color;
-@btn-default-outline-bg:         @gray-lighter;
+@btn-default-outline-bg:         @color-gray-lighter;
 @btn-default-outline-border:     @text-color;
 
-@btn-info-color:                 @white;
-@btn-info-bg:                    @brand-info;
-@btn-info-border:                @brand-info;
+@btn-info-color:                 @color-white;
+@btn-info-bg:                    @color-info;
+@btn-info-border:                @color-info;
 
-@btn-primary-color:              @white;
-@btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             @brand-primary;
+@btn-primary-color:              @color-white;
+@btn-primary-bg:                 @color-primary;
+@btn-primary-border:             @color-primary;
 
-@btn-secondary-color:            @white;
-@btn-secondary-bg:               @brand-secondary;
-@btn-secondary-border:           @brand-secondary;
+@btn-secondary-color:            @color-white;
+@btn-secondary-bg:               @color-secondary;
+@btn-secondary-border:           @color-secondary;
 
-@btn-success-color:              @white;
-@btn-success-bg:                 @brand-success;
-@btn-success-border:             @brand-success;
+@btn-success-color:              @color-white;
+@btn-success-bg:                 @color-success;
+@btn-success-border:             @color-success;
 
-@btn-warning-color:              @white;
-@btn-warning-bg:                 @brand-warning;
-@btn-warning-border:             @brand-warning;
+@btn-warning-color:              @color-white;
+@btn-warning-bg:                 @color-warning;
+@btn-warning-border:             @color-warning;
 
 
 // -------------------------
@@ -119,8 +119,8 @@
 
 
 @close-font-weight:           @font-weight-light;
-@close-color:                 @black;
-@close-text-shadow:           0 1px 0 @white;
+@close-color:                 @color-black;
+@close-text-shadow:           0 1px 0 @color-white;
 
 
 // -------------------------
@@ -128,24 +128,26 @@
 // -------------------------
 
 
-// Brand colors
-@brand-accent:              #ffa573;
-@brand-primary:             #0081c6;
-@brand-secondary:           #39d4c0;
-@brand-success:             #83c400;
-@brand-info:                #5bc0de;
-@brand-warning:             #fc3;
-@brand-danger:              #cb2027;
+// Brand Colors
+@color-accent:              #ffa573;
+@color-primary:             #0081c6;
+@color-secondary:           #39d4c0;
 
-// Black Gray White
-@black:                     #080808;
-@gray-darker:               #404040;
-@gray-dark:                 #6c6c6c;
-@gray:                      #9f9f9f;
-@gray-light:                #d2d2d2;
-@gray-lighter:              #ececec;
-@gray-lightest:             #f9f9f9;
-@white:                     #fff;
+// Utility Colors
+@color-danger:              #cb2027;
+@color-info:                #5bc0de;
+@color-success:             #83c400;
+@color-warning:             #fc3;
+
+// Other Colors
+@color-black:               #080808;
+@color-gray-darker:         #404040;
+@color-gray-dark:           #6c6c6c;
+@color-gray:                #9f9f9f;
+@color-gray-light:          #d2d2d2;
+@color-gray-lighter:        #ececec;
+@color-gray-lightest:       #f9f9f9;
+@color-white:               #fff;
 
 
 // -------------------------
@@ -154,6 +156,7 @@
 
 
 // fine-tune component padding
+@padding-gutter:            @grid-gutter-width;
 @padding-half-gutter:       @grid-gutter-width / 2; // 15px
 @padding-xlarge:            1.4rem;
 @padding-large:             1.2rem;
@@ -163,15 +166,17 @@
 @padding-xsmall:            .4rem;
 
 // fine-tune component margin
+@margin-gutter:             @grid-gutter-width;
 @margin-half-gutter:        @grid-gutter-width / 2; // 15px
+@margin-xlarge:             1.4rem;
 @margin-large:              1.2rem;
 @margin-medium:             1.0rem;
 @margin-base:               .8rem;
 @margin-small:              .6rem;
 @margin-xsmall:             .4rem;
 
-@component-active-color:    @white; // global color for active items (e.g., navs or dropdowns)
-@component-active-bg:       @brand-primary; //global bgcolor for active items (e.g., navs or dropdowns)
+@component-active-color:    @color-white; // global color for active items (e.g., navs or dropdowns)
+@component-active-bg:       @color-primary; //global bgcolor for active items (e.g., navs or dropdowns)
 
 @caret-width-base:          .5rem; // width of the `border` for generating carets that indicator dropdowns
 @caret-width-large:         .6rem;
@@ -188,26 +193,39 @@
 
 
 // -------------------------
+// Date Picker
+// -------------------------
+
+
+@datepicker-border-color:        @border-color-base;
+@datepicker-border-radius:       @border-radius-base;
+@datepicker-day-size:            3.2rem;
+@datepicker-nav-color:           @color-gray;
+@datepicker-nav-hover-color:     @color-gray-dark;
+@datepicker-nav-size:            2rem;
+@datepicker-shadow:              @shadow-depth-1;
+
+
+// -------------------------
 // Dropdowns
 // -------------------------
 
 
-@dropdown-bg:                    @white;
+@dropdown-bg:                    @color-white;
 @dropdown-border:                @border-color-base;
-@dropdown-caret-color:           @text-color; // deprecated `@dropdown-caret-color` as of v3.1.0
-@dropdown-divider-bg:            @gray-lighter;
-@dropdown-header-color:          @gray-light;
-
+@dropdown-chevron-size:          .7em;
+@dropdown-divider-bg:            @color-gray-lighter;
+@dropdown-header-color:          @color-gray;
 @dropdown-link-color:            @text-color;
 @dropdown-link-hover-color:      darken(@text-color, 5%);
-@dropdown-link-hover-bg:         @gray-lightest;
+@dropdown-link-hover-bg:         @color-gray-lightest;
 @dropdown-link-active-color:     @component-active-color;
 @dropdown-link-active-bg:        @component-active-bg;
-@dropdown-link-disabled-color:   @gray-light;
-
+@dropdown-link-disabled-color:   @color-gray-light;
+@dropdown-menu-shadow:           @shadow-depth-1;
 @dropdown-padding:               @padding-small @padding-xlarge;
 
-@dropdown-chevron-size:          .7em;
+
 
 // -------------------------
 // Grid
@@ -228,16 +246,16 @@
 
 @cursor-disabled:                not-allowed; // disabled cursor for form controls and buttons.
 
-@input-bg:                       @white;
-@input-bg-disabled:              @gray-lighter;
+@input-bg:                       @color-white;
+@input-bg-disabled:              @color-gray-lighter;
 @input-border:                   @border-color-base;
 @input-border-focus:             @border-color-focus;
 @input-border-radius:            @border-radius-base;
 @input-border-radius-large:      @border-radius-large;
 @input-border-radius-small:      @border-radius-small;
 @input-color:                    @text-color;
-@input-color-placeholder:        darken(@gray-light, 4%);
-@input-group-addon-bg:           @gray-lighter; // bg color for textual input addons
+@input-color-placeholder:        darken(@color-gray-light, 4%);
+@input-group-addon-bg:           @color-gray-lighter; // bg color for textual input addons
 @input-group-addon-border-color: @input-border; // border color for textual input addons
 
 // Form control `.form-control` heights
@@ -248,10 +266,10 @@
 
 @form-group-margin-bottom:       @line-height-computed;
 
-@legend-color:                   @gray-dark;
+@legend-color:                   @color-gray-dark;
 @legend-border-color:            #e5e5e5;
 
-@form-element-color:             @brand-secondary;
+@form-element-color:             @color-secondary;
 
 @form-control-chevron-padding:   3rem;
 
@@ -261,17 +279,17 @@
 // -------------------------
 
 
-@label-accent-bg:           @brand-accent;
-@label-danger-bg:           @brand-danger;
-@label-default-bg:          @gray;
-@label-info-bg:             @brand-info;
-@label-primary-bg:          @brand-primary;
-@label-secondary-bg:        @brand-secondary;
-@label-success-bg:          @brand-success;
-@label-warning-bg:          @brand-warning;
+@label-accent-bg:           @color-accent;
+@label-danger-bg:           @color-danger;
+@label-default-bg:          @color-gray;
+@label-info-bg:             @color-info;
+@label-primary-bg:          @color-primary;
+@label-secondary-bg:        @color-secondary;
+@label-success-bg:          @color-success;
+@label-warning-bg:          @color-warning;
 
-@label-color:               @white;
-@label-link-hover-color:    @white;
+@label-color:               @color-white;
+@label-link-hover-color:    @color-white;
 
 
 @label-padding-sides:       .5rem;
@@ -284,17 +302,17 @@
 // -------------------------
 
 
-@list-group-bg:                  @white; // bg color on `.list-group-item`
+@list-group-bg:                  @color-white; // bg color on `.list-group-item`
 @list-group-border:              @border-color-base; // `.list-group-item` border color
 @list-group-border-radius:       @border-radius-base;
 @list-group-active-color:        @component-active-color; // text color of active list items
 @list-group-active-bg:           @component-active-bg;
 @list-group-active-border:       @list-group-border;
 @list-group-active-text-color:   lighten(@list-group-active-bg, 40%); // text color for content within active list items
-@list-group-disabled-color:      @gray-light;
-@list-group-disabled-bg:         @gray-lighter;
+@list-group-disabled-color:      @color-gray-light;
+@list-group-disabled-bg:         @color-gray-lighter;
 @list-group-disabled-text-color: @list-group-disabled-color;
-@list-group-hover-bg:            @gray-lightest;
+@list-group-hover-bg:            @color-gray-lightest;
 @list-group-link-color:          @text-color;
 @list-group-link-hover-color:    @list-group-link-color;
 @list-group-link-heading-color:  @text-color;
@@ -316,15 +334,23 @@
 
 
 // -------------------------
+// Messages
+// -------------------------
+
+@msg-border-radius:           @border-radius-base;
+@msg-padding:                 @padding-medium;
+
+
+// -------------------------
 // Modals
 // -------------------------
 
 
-@modal-backdrop-bg:           @black;
+@modal-backdrop-bg:           @color-black;
 @modal-backdrop-opacity:      .5;
 
-@modal-content-bg:            @white;
-@modal-content-border-color:  @gray-lighter;
+@modal-content-bg:            @color-white;
+@modal-content-border-color:  @color-gray-lighter;
 
 @modal-easing:                cubic-bezier(.465, .183, .153, .946);
 
@@ -380,20 +406,20 @@
 
 
 /*@pagination-color:                     @link-color;
-@pagination-bg:                        @white;
+@pagination-bg:                        @color-white;
 @pagination-border:                    @border-color-base;
 
 @pagination-hover-color:               @link-hover-color;
-@pagination-hover-bg:                  @gray-lighter;
+@pagination-hover-bg:                  @color-gray-lighter;
 @pagination-hover-border:              @border-color-base;
 
-@pagination-active-color:              @white;
-@pagination-active-bg:                 @brand-primary;
-@pagination-active-border:             @brand-primary;
+@pagination-active-color:              @color-white;
+@pagination-active-bg:                 @color-primary;
+@pagination-active-border:             @color-primary;
 
-@pagination-disabled-color:            @gray-light;
-@pagination-disabled-bg:               @white;
-@pagination-disabled-border:           @gray-light;*/
+@pagination-disabled-color:            @color-gray-light;
+@pagination-disabled-bg:               @color-white;
+@pagination-disabled-border:           @color-gray-light;*/
 
 
 // -------------------------
@@ -401,7 +427,7 @@
 // -------------------------
 
 
-/*@panel-bg:                    @white;
+/*@panel-bg:                    @color-white;
 @panel-body-padding:          @padding-half-gutter;
 @panel-body-padding-small:    @padding-small;
 @panel-body-padding-medium:   @padding-medium;
@@ -409,8 +435,8 @@
 @panel-footer-padding:        @panel-heading-padding;
 @panel-heading-padding:       @padding-medium @padding-half-gutter;
 
-@panel-footer-bg:             @gray-lightest;
-@panel-inner-border:          @gray-light;
+@panel-footer-bg:             @color-gray-lightest;
+@panel-inner-border:          @color-gray-light;
 
 @panel-danger-text:           @state-danger-text;
 @panel-danger-border:         @state-danger-border;
@@ -418,15 +444,15 @@
 
 @panel-default-text:          @text-color;
 @panel-default-border:        @border-color-base;
-@panel-default-heading-bg:    @gray-lightest;
+@panel-default-heading-bg:    @color-gray-lightest;
 
 @panel-info-text:             @state-info-text;
 @panel-info-border:           @state-info-border;
 @panel-info-heading-bg:       @state-info-bg;
 
-@panel-primary-text:          @white;
-@panel-primary-border:        @brand-primary;
-@panel-primary-heading-bg:    @brand-primary;
+@panel-primary-text:          @color-white;
+@panel-primary-border:        @color-primary;
+@panel-primary-heading-bg:    @color-primary;
 
 @panel-success-text:          @state-success-text;
 @panel-success-border:        @state-success-border;
@@ -442,7 +468,7 @@
 // -------------------------
 
 
-@pill-default-bg:          @white;
+@pill-default-bg:          @color-white;
 @pill-default-border:      @border-color-base;
 @pill-default-color:       @link-color;
 
@@ -463,7 +489,7 @@
 @popover-arrow-outer-fallback-color:  darken(@popover-fallback-border-color, 20%);
 @popover-arrow-width:                 10px;
 
-@popover-bg:                          @white;
+@popover-bg:                          @color-white;
 @popover-border-color:                rgba(0,0,0,.2);
 @popover-fallback-border-color:       @border-color-base;
 @popover-max-width:                   276px;
@@ -487,14 +513,14 @@
 // -------------------------
 
 
-@body-bg:                   @white; // body bg color
+@body-bg:                   @color-white; // body bg color
 
-@link-color:                @brand-primary; // global textual link color
+@link-color:                @color-primary; // global textual link color
 @link-hover-color:          darken(@link-color, 15%);
 @link-hover-decoration:     underline;
 
-@text-color:                @gray-dark; // body text color
-@text-muted:                @gray;
+@text-color:                @color-gray-dark; // body text color
+@text-muted:                @color-gray;
 
 
 // -------------------------
@@ -522,21 +548,27 @@
 // -------------------------
 
 
-@state-danger-text:              @brand-danger;
-@state-danger-bg:                lighten(@brand-danger, 52%);
-@state-danger-border:            lighten(@brand-danger, 45%);
+@state-accent-text:              darken(@color-accent, 10%);
 
-@state-info-text:                darken(@brand-info, 15%);
-@state-info-bg:                  lighten(@brand-info, 37%);
-@state-info-border:              lighten(@brand-info, 27%);
+@state-danger-text:              @color-danger;
+@state-danger-bg:                lighten(@color-danger, 52%);
+@state-danger-border:            lighten(@color-danger, 45%);
 
-@state-success-text:             @brand-success;
-@state-success-bg:               lighten(@brand-success, 68%);
-@state-success-border:           lighten(@brand-success, 40%);
+@state-info-text:                darken(@color-info, 15%);
+@state-info-bg:                  lighten(@color-info, 37%);
+@state-info-border:              lighten(@color-info, 27%);
 
-@state-warning-text:             darken(@brand-warning, 12%);
-@state-warning-bg:               lighten(@brand-warning, 38%);
-@state-warning-border:           lighten(@brand-warning, 28%);
+@state-primary-text:             @color-primary;
+
+@state-secondary-text:           darken(@color-secondary, 10%);
+
+@state-success-text:             @color-success;
+@state-success-bg:               lighten(@color-success, 68%);
+@state-success-border:           lighten(@color-success, 40%);
+
+@state-warning-text:             darken(@color-warning, 12%);
+@state-warning-bg:               lighten(@color-warning, 38%);
+@state-warning-border:           lighten(@color-warning, 28%);
 
 
 // -------------------------
@@ -567,8 +599,8 @@
 
 
 @table-bg:                      transparent; // default background color used for all tables.
-@table-bg-accent:               @gray-lightest; // background color used for `.table-striped`
-@table-bg-hover:                darken(@gray-lightest, 2%);
+@table-bg-accent:               @color-gray-lightest; // background color used for `.table-striped`
+@table-bg-hover:                darken(@color-gray-lightest, 2%);
 @table-bg-active:               @table-bg-hover;
 
 @table-border-color:            @border-color-base;
@@ -585,7 +617,7 @@
 @toast-border-radius:        @border-radius-base;
 @toast-font-weight:          @font-weight-light;
 @toast-padding:              @padding-large (@padding-large + 2.0rem) @padding-large @padding-large;
-@toast-text:                 @white;
+@toast-text:                 @color-white;
 
 
 // -------------------------
@@ -595,8 +627,8 @@
 
 /*@tooltip-arrow-width:         5px;
 @tooltip-arrow-color:         @tooltip-bg;
-@tooltip-bg:                  @gray;
-@tooltip-color:               @white;
+@tooltip-bg:                  @color-gray;
+@tooltip-color:               @color-white;
 @tooltip-opacity:             .9;
 @tooltip-max-width:           200px;*/
 
@@ -617,13 +649,13 @@
 
 @abbr-border-color:           @border-color-base;
 
-@blockquote-small-color:      @gray;
+@blockquote-small-color:      @color-gray;
 @blockquote-font-size:        1.8rem;
 @blockquote-border-color:     @border-color-base;
 
 @component-offset-horizontal: 18rem; // horizontal offset for forms and lists
 @dl-horizontal-offset:        @component-offset-horizontal; // width of horizontal description list titles
-@headings-small-color:        @gray-light;
+@headings-small-color:        @color-gray-light;
 @hr-border:                   @border-color-base;
 
 
@@ -663,7 +695,7 @@
 @line-height-base:        1.4;
 @line-height-computed:    @font-size-base * @line-height-base; // ~20px
 @line-height-large:       1.3333333; // extra decimals for Win 8.1 Chrome
-@line-height-small:       1.5;
+@line-height-small:       1.2;
 
 
 // -------------------------
