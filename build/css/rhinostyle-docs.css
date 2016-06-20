@@ -450,15 +450,15 @@ a.u-bg-warning:focus {
   background-color: #ffbf00 !important;
 }
 .u-text-accent {
-  color: #ff8440;
+  color: #ff955a;
 }
 a.u-text-accent,
 .btn--link.u-text-accent {
-  color: #ff8440;
+  color: #ff955a;
 }
 a.u-text-accent:hover,
 .btn--link.u-text-accent:hover {
-  color: #ff630d;
+  color: #ff7427;
 }
 .u-text-danger {
   color: #cb2027;
