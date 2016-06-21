@@ -11,18 +11,24 @@ class DropdownMenuItem extends React.Component {
     className: React.PropTypes.string,
     disabled:  React.PropTypes.bool,
     url:       React.PropTypes.string,
+    newWindow: React.PropTypes.bool,
   };
 
   static defaultProps = {
-    active: false,
-    click: () => {},
-    disabled: false,
+    active:    false,
+    click:     () => {},
+    disabled:  false,
+    newWindow: false,
   };
 
   handleClick = () => {
     let returnVal = null;
     if (this.props.url) {
-      window.location = this.props.url;
+      if (!this.props.newWindow) {
+        window.location = this.props.url;
+      } else {
+        window.open(this.props.url);
+      }
       returnVal = null;
     } else {
       returnVal = this.props.click();
