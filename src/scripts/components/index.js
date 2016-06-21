@@ -18,6 +18,7 @@ import LoaderLine           from './LoaderLine';
 import Message              from './Message';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
+import Select               from './Select';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
@@ -44,5 +45,6 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
+  Select,
   Toast,
 };
