@@ -1,33 +1,57 @@
 import React  from 'react';
 import cx    from 'classnames';
+import TabPane from './TabPane';
 
 class TabsContent extends React.Component {
   static displayName = 'TabsContent';
 
   static propTypes = {
-    className:        React.PropTypes.string,
-    children:         React.PropTypes.node,
-    renderTabPane:    React.PropTypes.bool,
-    selectedIndex:    React.PropTypes.number,
-    active:           React.PropTypes.bool,
+    active:          React.PropTypes.bool,
+    activeKey:       React.PropTypes.number,
+    children:        React.PropTypes.node,
+    className:       React.PropTypes.string,
+    setActiveKey:    React.PropTypes.func,
   }
 
   static defaultProps = {
-    selectedIndex: -1,
-    renderTabPane: false,
-    active: true,
+    active:     false,
+    activeKey:  1,
+  };
+
+  getChildren = () => {
+    // getChildren should set active props on child elements
+    // by default we want to set active = true on the content tab whose
+    // activeKey matches the activeKey of a selected tab
+    let returnChild = null;
+    const children = this.props.children;
+    return React.Children.map(children, child => {
+      if (child.type === TabPane) {
+        if (this.props.activeKey === child.props.activeKey) {
+          returnChild = React.cloneElement(child, {
+            // this click event is irrelevant -
+            // clicks should only be handled on the Tabs themselves
+            click: () => this.props.setActiveKey(child.props.activeKey),
+            active: true,
+          });
+        } else {
+          returnChild = React.cloneElement(child, {});
+        }
+      } else {
+        returnChild = child;
+      }
+      return returnChild;
+    });
   }
 
   render() {
-    const { className, active } = this.props;
+    const { className } = this.props;
 
-    const classes = cx('tabs-content__pane', className, {
-      'active': active,
+    const contentClasses = cx('tabs-content', className, {
+      active: this.props.active, //eslint-disable-line
     });
 
-
     return (
-      <div className={classes}>{this.props.children}</div>
+      <div className={contentClasses}>{this.props.children}</div>
     );
   }
 }

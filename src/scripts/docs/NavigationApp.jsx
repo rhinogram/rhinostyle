@@ -7,14 +7,14 @@ const NavigationApp = () =>
   <div>
     <Tabs>
       <NavTabs>
-        <NavTabsItem>Tab Onee</NavTabsItem>
-        <NavTabsItem>Tab Two</NavTabsItem>
-        <NavTabsItem>Tab Thre</NavTabsItem>
+        <NavTabsItem active activeKey={1}>Tab One</NavTabsItem>
+        <NavTabsItem activeKey={2}>Tab Two</NavTabsItem>
+        <NavTabsItem activeKey={3}>Tab Three</NavTabsItem>
       </NavTabs>
       <TabsContent>
-        <TabPane className="active">Contenet1</TabPane>
-        <TabPane>Content2</TabPane>
-        <TabPane>Content3</TabPane>
+        <TabPane active activeKey={1}>Content 1 </TabPane>
+        <TabPane activeKey={2}>Content 2</TabPane>
+        <TabPane activeKey={3}>Content 3</TabPane>
       </TabsContent>
     </Tabs>
   </div>;
