@@ -8,10 +8,10 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved: 0 */
 const progressBarExample = require('raw!./examples/ProgressBar.example.txt');
 const progressDocs = {
-  className: '[Optional] - Any className you would like to add to the ProgressBar',
+  className: '[Optional] - Include additional class name(s)',
   progress:  '[Optional] - The initial \'fill\' of the ProgressBar',
   showLabel: '[Optional] - Show the progress in % on the ProgressBar',
-  type:      '[Optional] - The type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
+  type:      '[Optional] - Type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
 };
 const exampleScope = {
   React,
