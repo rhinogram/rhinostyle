@@ -7,7 +7,13 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const progressBarExample = require('raw!./examples/ProgressBar.example.txt');
-const exampleScope  = {
+const progressDocs = {
+  className: '[Optional] - Any className you would like to add to the ProgressBar',
+  progress:  '[Optional] - The initial \'fill\' of the ProgressBar',
+  showLabel: '[Optional] - Show the progress in % on the ProgressBar',
+  type:      '[Optional] - The type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
+};
+const exampleScope = {
   React,
   ReactDOM,
   ProgressBar,
@@ -32,7 +38,7 @@ const ProgressBarApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={progressBarExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 
