@@ -534,7 +534,38 @@ html.navigation-is-locked {
 }
 
 
+.playground > div > ul {
+  list-style: none;
+  margin-bottom: 3rem;
+  padding-left: 0;
+
+  li {
+    //color: @color-gray-dark;
+    margin-bottom: @margin-xsmall;
+    
+    b:first-of-type {
+      color: @state-info-text;
+      font-weight: @font-weight-semibold;
+    }
+    b:last-of-type {
+      color: @state-danger-text;
+      font-size: 1.4rem;
+      font-weight: @font-weight-semibold;
+    }
+  }
+}
+
+.playgroundCode {
+  margin-bottom: @margin-half-gutter;
+}
+
 .cm-s-monokai.CodeMirror {
+  //background: @color-gray-lightest;
+  border: 1px solid @border-color-base;
+  color: @color-gray;
+}
+
+/*.cm-s-monokai.CodeMirror {
   margin-bottom: @margin-half-gutter;
 }
 
@@ -638,4 +669,4 @@ html.navigation-is-locked {
 .cm-s-monokai .CodeMirror-matchingbracket {
   color: white !important;
   text-decoration: underline;
-}
+}*/

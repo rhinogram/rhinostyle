@@ -10,7 +10,7 @@ class Toast extends React.Component {
     body:      React.PropTypes.string.isRequired,
     className: React.PropTypes.string,
     icon:      React.PropTypes.string,
-    onDismiss: React.PropTypes.func,
+    onDismiss: React.PropTypes.func.isRequired,
     type:      React.PropTypes.oneOf(['danger', 'default', 'secondary']),
   };
 

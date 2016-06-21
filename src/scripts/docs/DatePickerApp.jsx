@@ -9,6 +9,9 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const datePickerExample = require('raw!./examples/DatePicker.example.txt');
+const datePickerDocs = {
+  className: '[Optional] - Include additional class name(s)',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -49,7 +52,7 @@ class DatePickerApp extends React.Component {
 
         <section>
           <h3 className="site-subheadline">Playground</h3>
-          <Playground codeText={datePickerExample} scope={exampleScope} noRender={false} />
+          <Playground docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
         </section>
 
       </div>

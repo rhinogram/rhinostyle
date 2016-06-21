@@ -7,6 +7,13 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const avatarExample = require('raw!./examples/Avatar.example.txt');
+const avatarDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  image: '[Optional] - Include source to image',
+  name: '[Optional] - Name of Avatar, as a string',
+  size: '[Optional] - Size of Avatar, as a string - [small | large]',
+  type: '[Required] - Type of Avatar, as a string -  [member | patient]',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -64,7 +71,7 @@ const AvatarApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={avatarExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 
