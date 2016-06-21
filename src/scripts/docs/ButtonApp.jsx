@@ -115,9 +115,9 @@ const ButtonApp = () =>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
-          <Button type="primary" outline>Primary Outline</Button>
-          <Button type="primary" outline active>Primary Outline Active</Button>
-          <Button type="primary" outline disabled>Primary Outline Disabled</Button>
+          <Button type="primary-outline">Primary Outline</Button>
+          <Button type="primary-outline" active>Primary Outline Active</Button>
+          <Button type="primary-outline" disabled>Primary Outline Disabled</Button>
         </div>
       </div>
     </section>
