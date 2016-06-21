@@ -5,8 +5,9 @@ class Message extends React.Component {
   static displayName = 'RhinoMessage';
 
   static propTypes = {
+    children:   React.PropTypes.node,
     className:  React.PropTypes.string,
-    type:       React.PropTypes.oneOf(['default', 'primary', 'secondary', 'note']),
+    type:       React.PropTypes.oneOf(['default', 'primary', 'note']),
     direction:  React.PropTypes.oneOf(['to', 'from']),
   };
 
@@ -20,7 +21,6 @@ class Message extends React.Component {
     const classes = cx('msg', className, {
       'msg--default':   type === 'default',
       'msg--primary':   type === 'primary',
-      'msg--secondary': type === 'secondary',
       'msg--note':      type === 'note',
       'msg--to':        direction === 'to',
       'msg--from':      direction === 'from',
