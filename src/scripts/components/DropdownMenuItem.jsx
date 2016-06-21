@@ -33,7 +33,6 @@ class DropdownMenuItem extends React.Component {
     } else {
       returnVal = this.props.click();
     }
-
     return returnVal;
   }
 
