@@ -11,25 +11,17 @@
   border-radius: @msg-border-radius;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
   display: inline-block;
-  line-height: 1;
+  line-height: 1.2;
   padding: @msg-padding;
   position: relative;
   vertical-align: middle;
-  //white-space: nowrap;
 
   &:empty {
     display: none;
   }
 
   a {
-    color: inherit;
-    //font-weight: @font-weight-light;
-    opacity: .85;
     text-decoration: underline;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 }
 
@@ -45,18 +37,20 @@
 
 .msg--note {
   background: #fefbd0;
+
+  a {
+    color: inherit;
+  }
 }
 
 .msg--primary {
   background: @color-primary;
   box-shadow: 0 2px 2px darken(@color-primary, 12%);
   color: @color-white;
-}
 
-.msg--secondary {
-  background: @color-secondary;
-  box-shadow: 0 2px 2px darken(@color-secondary, 12%);
-  color: @color-white;
+  a {
+    color: inherit;
+  }
 }
 
 
@@ -84,12 +78,6 @@
   &.msg--primary {
     &::before {
       box-shadow: 0 2px 2px -2px darken(@color-primary, 18%);
-    }
-  }
-
-  &.msg--secondary {
-    &::before {
-      box-shadow: 0 2px 2px -2px darken(@color-secondary, 18%);
     }
   }
 }

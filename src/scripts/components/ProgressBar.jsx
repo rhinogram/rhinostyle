@@ -5,21 +5,9 @@ class ProgressBar extends React.Component {
   static displayName = 'RhinoProgressBar';
 
   static propTypes = {
-    /**
-     * Optionally include additional classes.
-     */
     className: React.PropTypes.string,
-    /**
-     * Number 1-100 representing a percentage.
-     */
     progress:  React.PropTypes.number,
-    /**
-     * Set to 'true' to show label in progress bar.
-     */
     showLabel: React.PropTypes.bool,
-    /**
-     * Optionally include type.
-     */
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
   };
 
@@ -49,17 +37,11 @@ class ProgressBar extends React.Component {
       'progress__bar--temperature':  type === 'temperature',
     });
 
-    /**
-     * Style for progressing bar
-     */
     const style = {
       transform: `translateX(${progressTranslation}%)`,
       WebkitTransform: `translateX(${progressTranslation}%)`,
     };
 
-    /**
-     * If showLabel is true and progress is more than 1, construct label
-     */
     let label = null;
 
     if (showLabel && progressTranslation > 1) {

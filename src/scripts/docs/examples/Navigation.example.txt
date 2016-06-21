@@ -1,11 +1,18 @@
 class ComponentExample extends React.Component {
   state = {
     activeKey: 1,
+    activeSubKey: 1,
   };
 
   updateActiveKey = (index) => {
     this.setState({
       activeKey: index,
+    });
+  };
+
+  updateActiveSubKey = (index) => {
+    this.setState({
+      activeSubKey: index,
     });
   };
 
@@ -19,9 +26,26 @@ class ComponentExample extends React.Component {
           <NavTabsItem id={3}>Tab Three</NavTabsItem>
         </NavTabs>
         <TabsContent>
-          <TabContentPane id={1}>Content 1 </TabContentPane>
+          <TabContentPane id={1}>
+            Content 1
+          </TabContentPane>
           <TabContentPane id={2}>Content 2</TabContentPane>
-          <TabContentPane id={3}>Content 3</TabContentPane>
+          <TabContentPane id={3}>
+            <div className="u-m-b-md">
+              <h5 className="site-miniheadline">Nested Tabs: </h5>
+              <p className="site-copy">Nesting Tabs requires a new updateActiveKey function</p>
+              <Tabs activeKey={this.state.activeSubKey} select={this.updateActiveSubKey}>
+                <NavTabs>
+                  <NavTabsItem id={1}>Tab One</NavTabsItem>
+                  <NavTabsItem id={2}>Tab Two</NavTabsItem>
+                </NavTabs>
+                <TabsContent>
+                  <TabContentPane id={1}>As well as a new activeSubKey</TabContentPane>
+                  <TabContentPane id={2}>Content 2</TabContentPane>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </TabContentPane>
         </TabsContent>
       </Tabs>
     </div>

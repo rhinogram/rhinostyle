@@ -1,13 +1,16 @@
 import React from 'react';
 import NavTabsItem from './NavTabsItem';
+import cx from 'classnames';
 
 class NavTabs extends React.Component {
   static displayName = 'RhinoTab';
 
   static propTypes = {
-    activeKey:       React.PropTypes.number,
-    children:        React.PropTypes.node,
-    select:          React.PropTypes.func,
+    activeKey:        React.PropTypes.number,
+    children:         React.PropTypes.node,
+    className:        React.PropTypes.string,
+    justified:        React.PropTypes.string,
+    select:           React.PropTypes.func,
   };
 
   getChildren = () => {
@@ -28,8 +31,13 @@ class NavTabs extends React.Component {
   }
 
   render() {
+    const { className, justified } = this.props;
+    const classes = cx('nav-tabs', className, {
+      'nav-tabs--justified-equal':    justified === 'equal',
+      'nav-tabs--justified-auto':     justified === 'auto',
+    });
     return (
-      <ul className="nav-tabs">
+      <ul className={classes}>
         {this.getChildren()}
       </ul>
     );

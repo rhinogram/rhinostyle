@@ -1,12 +1,14 @@
 import React          from 'react';
 import TabContentPane from './TabContentPane';
+import cx from 'classnames';
 
 class TabsContent extends React.Component {
   static displayName = 'TabsContent';
 
   static propTypes = {
-    activeKey:       React.PropTypes.number,
-    children:        React.PropTypes.node,
+    activeKey:        React.PropTypes.number,
+    children:         React.PropTypes.node,
+    className:        React.PropTypes.string,
   }
 
   getChildren = () => {
@@ -26,8 +28,10 @@ class TabsContent extends React.Component {
   }
 
   render() {
+    const { className } = this.props;
+    const classes = cx('tabs-content', className);
     return (
-      <div className="tabs-content">{this.getChildren()}</div>
+      <div className={classes}>{this.getChildren()}</div>
     );
   }
 }
