@@ -1,5 +1,6 @@
 import React from 'react';
 import NavTabs from './NavTabs';
+import TabsContent from './TabsContent';
 
 class Tabs extends React.Component {
   static displayName = 'Tabs';
@@ -17,9 +18,12 @@ class Tabs extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === NavTabs) {
         returnChild = React.cloneElement(child, {
-          // attempting to set a *master* activeKey that could exist as a prop in Tabs
-          // this could control which content is rendered based on what tab is selected
-          activeKey: child.props.activeKey,
+          activeKey: this.props.activeKey,
+          select: this.props.select,
+        });
+      } else if (child.type === TabsContent) {
+        returnChild = React.cloneElement(child, {
+          activeKey: this.props.activeKey,
         });
       } else {
         returnChild = child;

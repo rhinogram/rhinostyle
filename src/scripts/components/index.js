@@ -20,7 +20,7 @@ import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
-import TabPane              from './TabPane';
+import TabContentPane       from './TabContentPane';
 import Tabs                 from './Tabs';
 import TabsContent          from './TabsContent';
 import Toast                from './Toast';
@@ -51,7 +51,7 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
-  TabPane,
+  TabContentPane,
   Tabs,
   TabsContent,
   Toast,
