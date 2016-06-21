@@ -1,6 +1,6 @@
 import React          from 'react';
 import TabContentPane from './TabContentPane';
-import cx from 'classnames';
+import cx             from 'classnames';
 
 class TabsContent extends React.Component {
   static displayName = 'TabsContent';

@@ -1,6 +1,6 @@
-import React from 'react';
-import NavTabsItem from './NavTabsItem';
-import cx from 'classnames';
+import React        from 'react';
+import NavTabsItem  from './NavTabsItem';
+import cx           from 'classnames';
 
 class NavTabs extends React.Component {
   static displayName = 'RhinoTab';

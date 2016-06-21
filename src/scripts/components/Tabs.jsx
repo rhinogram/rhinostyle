@@ -1,6 +1,6 @@
-import React from 'react';
-import NavTabs from './NavTabs';
-import TabsContent from './TabsContent';
+import React        from 'react';
+import NavTabs      from './NavTabs';
+import TabsContent  from './TabsContent';
 
 class Tabs extends React.Component {
   static displayName = 'Tabs';
