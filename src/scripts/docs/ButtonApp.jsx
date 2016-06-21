@@ -7,6 +7,16 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const buttonExample = require('raw!./examples/Button.example.txt');
+const buttonDocs = {
+  active: '[Optional] - Button is active',
+  block: '[Optional] - Button is block level',
+  className: '[Optional] - Include additional class name(s)',
+  click: '[Required] - Include click function for Button',
+  disabled: '[Optional] - Button is disabled',
+  iconOnly: '[Optional] - Button has an icon but no text',
+  size: '[Optional] - Button size, as a string -  [small | large]',
+  type: '[Optional] - Button type, as a string -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -125,7 +135,7 @@ const ButtonApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={buttonExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Button} propDescriptionMap={buttonDocs} codeText={buttonExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

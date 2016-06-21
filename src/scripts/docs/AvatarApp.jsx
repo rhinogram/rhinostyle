@@ -10,7 +10,7 @@ const avatarExample = require('raw!./examples/Avatar.example.txt');
 const avatarDocs = {
   className: '[Optional] - Include additional class name(s)',
   image: '[Optional] - Include source to image',
-  name: '[Optional] - Name of Avatar',
+  name: '[Optional] - Name of Avatar, as a string',
   size: '[Optional] - Size of Avatar, as a string - [small | large]',
   type: '[Required] - Type of Avatar, as a string -  [member | patient]',
 };

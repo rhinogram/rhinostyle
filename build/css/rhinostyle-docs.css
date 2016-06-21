@@ -4195,7 +4195,10 @@ html.navigation-is-locked .site-wrapper {
 }
 .playground > div > ul li b:first-of-type {
   color: #28a1c5;
-  font-weight: 400;
+  font-weight: 700;
+}
+.playground > div > ul li b:last-of-type {
+  font-weight: 700;
 }
 .playgroundCode {
   margin-bottom: 1.5rem;
