@@ -3351,7 +3351,7 @@ fieldset[disabled] .rhinodio label {
   border-radius: 0.4rem;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
   display: inline-block;
-  line-height: 1;
+  line-height: 1.2;
   padding: 1rem;
   position: relative;
   vertical-align: middle;
@@ -3360,12 +3360,7 @@ fieldset[disabled] .rhinodio label {
   display: none;
 }
 .msg a {
-  color: inherit;
-  opacity: .85;
   text-decoration: underline;
-}
-.msg a:hover {
-  opacity: 1;
 }
 .msg--default {
   background: #fff;
@@ -3373,15 +3368,16 @@ fieldset[disabled] .rhinodio label {
 .msg--note {
   background: #fefbd0;
 }
+.msg--note a {
+  color: inherit;
+}
 .msg--primary {
   background: #0081c6;
   box-shadow: 0 2px 2px #005989;
   color: #fff;
 }
-.msg--secondary {
-  background: #39d4c0;
-  box-shadow: 0 2px 2px #25ab99;
-  color: #fff;
+.msg--primary a {
+  color: inherit;
 }
 .msg--from::before,
 .msg--to::before {
@@ -3399,10 +3395,6 @@ fieldset[disabled] .rhinodio label {
 .msg--from.msg--primary::before,
 .msg--to.msg--primary::before {
   box-shadow: 0 2px 2px -2px #00456a;
-}
-.msg--from.msg--secondary::before,
-.msg--to.msg--secondary::before {
-  box-shadow: 0 2px 2px -2px #209283;
 }
 .msg--from::before {
   right: -0.5rem;

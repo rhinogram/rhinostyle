@@ -19,16 +19,13 @@ const MessageApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
-      <p className="site-copy"><code>type="default | primary | secondary | note"</code></p>
+      <p className="site-copy"><code>type="default | primary | note"</code></p>
       <div className="site-example-messages u-bg-gray-lighter u-p-a">
         <Message>
           Default Message <a href="#">www.linktosomething.com</a>
         </Message>
         <Message type="primary">
           Primary Message <a href="#">www.linktosomething.com</a>
-        </Message>
-        <Message type="secondary">
-          Secondary Message <a href="#">www.linktosomething.com</a>
         </Message>
         <Message type="note">
           Note Message <a href="#">www.linktosomething.com</a>
@@ -48,9 +45,6 @@ const MessageApp = () =>
           <Message direction="from" type="primary">
             Primary Message
           </Message>
-          <Message direction="from" type="secondary">
-            Secondary Message
-          </Message>
           <Message direction="from" type="note">
             Note Message
           </Message>
@@ -65,9 +59,6 @@ const MessageApp = () =>
           </Message>
           <Message direction="to" type="primary">
             Primary Message
-          </Message>
-          <Message direction="to" type="secondary">
-            Secondary Message
           </Message>
           <Message direction="to" type="note">
             Note Message
