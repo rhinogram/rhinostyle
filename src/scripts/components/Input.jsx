@@ -5,12 +5,12 @@ class Input extends React.Component {
   static displayName = 'RhinoInput';
 
   static propTypes = {
-    addon:       React.PropTypes.oneOf(['', 'left', 'right', 'both']),
-    label:       React.PropTypes.string,
-    name:        React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    type:        React.PropTypes.oneOf(['email', 'password', 'text']),
-    value:       React.PropTypes.any,
+    addon:        React.PropTypes.oneOf(['', 'left', 'right', 'both']),
+    label:        React.PropTypes.string,
+    name:         React.PropTypes.string,
+    placeholder:  React.PropTypes.string,
+    type:         React.PropTypes.oneOf(['email', 'password', 'text']),
+    initialValue: React.PropTypes.any,
   };
 
   static defaultProps = {
@@ -20,16 +20,22 @@ class Input extends React.Component {
     type:  'text',
   };
 
-  getInputDOMNode() {
-    return this.refs.input;
+  state = {
+    value: '',
+  };
+
+  componentWillMount() {
+    if (this.props.initialValue) {
+      this.setState({ value: this.props.initialValue });
+    }
   }
 
-  getValue() {
-    return this.getInputDOMNode().value;
+  _handleChange = (event) => {
+    this.setState({ value: event.target.value });
   }
 
   render() {
-    const { addon, label, name, placeholder, type, value } = this.props;
+    const { addon, label, name, placeholder, type } = this.props;
     const classes = cx('form__control');
 
     const showLabel = () => {
@@ -49,13 +55,13 @@ class Input extends React.Component {
                 {/* eslint react/prop-types:0 */}
                 {this.props.children}
               </div>
-              <input value={value} type={type} className={classes} id={name} placeholder={placeholder} ref="input" />
+              <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
             </div>
           );
         case 'right':
           return (
             <div className="form__addon">
-              <input value={value} type={type} className={classes} id={name} placeholder={placeholder} ref="input" />
+              <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
               <div className="form__addon__item form__addon__item--right">
                 {this.props.children}
               </div>
@@ -67,7 +73,7 @@ class Input extends React.Component {
               <div className="form__addon__item form__addon__item--left">
                 {this.props.children[0]}
               </div>
-              <input value={value} type={type} className={classes} id={name} placeholder={placeholder} ref="input" />
+              <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
               <div className="form__addon__item form__addon__item--right">
                 {this.props.children[1]}
               </div>
@@ -75,7 +81,7 @@ class Input extends React.Component {
           );
         case '':
         default:
-          return <input value={value} type={type} className={classes} id={name} placeholder={placeholder} ref="input" />;
+          return <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />;
       }
     };
 
