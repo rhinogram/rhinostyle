@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import DropdownMenuItem from './DropdownMenuItem';
+import DropdownSelectFilter from './DropdownSelectFilter';
 import Icon from './Icon';
 import onClickOutside from 'react-onclickoutside';
 
@@ -53,6 +54,11 @@ class DropdownSelect extends React.Component {
           click: () => this.props.select(child.props.id),
           active: child.props.id === this.props.activeKey,
         });
+      } else if (child.type === DropdownSelectFilter) {
+        returnChild = React.cloneElement(child, {
+          select: this.props.select,
+          activeKey: this.props.activeKey,
+        });
       } else {
         returnChild = child;
       }
@@ -102,9 +108,19 @@ class DropdownSelect extends React.Component {
 
     let selectedLabel = null;
     if (activeKey) {
-      this.props.children.forEach((ref) => {
-        if (ref.props.id === activeKey) {
-          selectedLabel = ref.props.children;
+      React.Children.forEach(this.props.children, child => {
+        if (child.type === DropdownMenuItem) {
+          if (child.props.id === activeKey) {
+            selectedLabel = child.props.children;
+          }
+        } else if (child.type === DropdownSelectFilter) {
+          React.Children.forEach(child.props.children, filterChild => {
+            if (filterChild.type === DropdownMenuItem) {
+              if (filterChild.props.id === activeKey) {
+                selectedLabel = filterChild.props.children;
+              }
+            }
+          });
         }
       });
     }
