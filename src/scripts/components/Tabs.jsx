@@ -3,7 +3,7 @@ import NavTabs      from './NavTabs';
 import TabsContent  from './TabsContent';
 
 class Tabs extends React.Component {
-  static displayName = 'Tabs';
+  static displayName = 'RhinoTabs';
 
   static propTypes = {
     activeKey:        React.PropTypes.number,
