@@ -1,32 +1,11 @@
 import React from 'react';
-import cx    from 'classnames';
 
-class Loaderline extends React.Component {
-  static displayName = 'RhinoLoaderline';
+const LoaderLine = (props) => <div className={`loader-line ${props.className}`}><span className="loader-line__line"></span><span className="loader-line__line"></span></div>;
 
-  static propTypes = {
-    className: React.PropTypes.string,
-    label: React.PropTypes.string,
-    type: React.PropTypes.string,
-  };
+LoaderLine.displayName = 'RhinoLoaderline';
 
-  static defaultProps = {
-    type: 'default',
-  };
+LoaderLine.propTypes = {
+  className:  React.PropTypes.string,
+};
 
-  render() {
-    const { className, type } = this.props;
-
-    const classes = cx('loader-line', className, {
-      'loader-line--default': type === 'default',
-    });
-
-    return (
-      <div className={classes}>
-        <span className="loader-line__line"></span><span className="loader-line__line"></span>
-      </div>
-    );
-  }
-}
-
-export default Loaderline;
+export default LoaderLine;

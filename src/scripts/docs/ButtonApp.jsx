@@ -14,8 +14,8 @@ const buttonDocs = {
   click: '[Required] - Include click function for Button',
   disabled: '[Optional] - Button is disabled',
   iconOnly: '[Optional] - Button has an icon but no text',
-  size: '[Optional] - Button size, as a string -  [small | large]',
-  type: '[Optional] - Button type, as a string -  [default | primary | secondary | default-outline | primary-outline | link]',
+  size: '[Optional] - Button size -  [small | large]',
+  type: '[Optional] - Button type -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 const exampleScope  = {
   React,

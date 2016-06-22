@@ -3221,8 +3221,8 @@ fieldset[disabled] .rhinodio label {
   color: #fff;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 75%;
-  font-weight: 700;
+  font-size: 80%;
+  font-weight: 400;
   padding: 0 0.5rem;
   position: relative;
   vertical-align: baseline;

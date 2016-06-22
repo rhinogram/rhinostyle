@@ -6,14 +6,21 @@ import { LoaderPulse, LoaderLine } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const lineExample  = require('raw!./examples/LoaderLine.example.txt');
-const pulseExample = require('raw!./examples/LoaderPulse.example.txt');
-const lineScope = {
+const loaderLineExample  = require('raw!./examples/LoaderLine.example.txt');
+const loaderLineDocs = {
+  className: '[Optional] - Include additional class name(s)',
+};
+const loaderLineScope = {
   React,
   ReactDOM,
   LoaderLine,
 };
-const pulseScope = {
+const loaderPulseExample = require('raw!./examples/LoaderPulse.example.txt');
+const loaderPulseDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  type: '[Optional] - LoaderPulse type -  [primary | secondary | accent]',
+};
+const loaderPulseScope = {
   React,
   ReactDOM,
   LoaderPulse,
@@ -32,7 +39,7 @@ const LoaderApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={pulseExample} scope={pulseScope} noRender={false} />
+      <Playground docClass={LoaderPulse} propDescriptionMap={loaderPulseDocs} codeText={loaderPulseExample} scope={loaderPulseScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -42,7 +49,7 @@ const LoaderApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={lineExample} scope={lineScope} noRender={false} />
+      <Playground docClass={LoaderLine} propDescriptionMap={loaderLineDocs} codeText={loaderLineExample} scope={loaderLineScope} noRender={false} />
     </section>
   </div>;
 

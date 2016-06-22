@@ -7,6 +7,11 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const labelExample = require('raw!./examples/Label.example.txt');
+const labelDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  label: '[Required] - Label text',
+  type: '[Optional] - Label type -  [default | primary | secondary | accent]',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -29,7 +34,7 @@ const LabelApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={labelExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Label} propDescriptionMap={labelDocs} codeText={labelExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

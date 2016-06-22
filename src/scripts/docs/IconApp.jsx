@@ -7,6 +7,10 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const iconExample = require('raw!./examples/Icon.example.txt');
+const iconDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Required] - Icon name',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -177,7 +181,7 @@ const IconApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={iconExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 
