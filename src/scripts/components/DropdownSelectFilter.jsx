@@ -28,10 +28,12 @@ class DropdownSelectFilter extends React.Component {
 
   getChildren = () => {
     const results = [];
-    let children = this.props.children;
+    let children = null;
 
     if (this.state && this.state.query) {
       children = this.state.results;
+    } else {
+      children = this.props.children;
     }
 
     React.Children.forEach(children, child => {
@@ -63,6 +65,8 @@ class DropdownSelectFilter extends React.Component {
             key: child.props.id,
           }));
         }
+      } else {
+        results.push(child);
       }
     });
 
@@ -73,7 +77,6 @@ class DropdownSelectFilter extends React.Component {
   }
 
   render() {
-    console.log(this.state.results)
     return (
       <div>
         <div className="dropdown__menu__container">

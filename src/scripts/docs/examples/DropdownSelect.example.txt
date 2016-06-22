@@ -11,7 +11,6 @@ class ComponentExample extends React.Component {
   };
 
   updateActiveFilterKey = (index) => {
-  console.log('updating key', index)
     this.setState({
       activeFilterKey: index,
     });
@@ -28,7 +27,7 @@ class ComponentExample extends React.Component {
         <DropdownMenuDivider />
         <DropdownMenuItem id={4}>Separated item</DropdownMenuItem>
       </DropdownSelect>
-
+      &nbsp;&nbsp;
       <DropdownSelect label="Dropdown Select w/ Filter" type="secondary" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
         <DropdownSelectFilter>
             <DropdownMenuItem id={1}>Item</DropdownMenuItem>
