@@ -3533,6 +3533,7 @@ fieldset[disabled] .rhinodio label {
   flex: 1 1 0%;
 }
 .nav-tabs__item {
+  cursor: pointer;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: -1px;
@@ -3559,6 +3560,9 @@ fieldset[disabled] .rhinodio label {
   border-color: #d2d2d2;
   border-width: 0 0 1px;
   z-index: -1;
+}
+.nav-tabs__item.active {
+  cursor: default;
 }
 .nav-tabs__item.active::after {
   transform: scale(1, 1);

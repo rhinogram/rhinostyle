@@ -8,6 +8,7 @@ class Tabs extends React.Component {
   static propTypes = {
     activeKey:        React.PropTypes.number,
     children:         React.PropTypes.node,
+    className:        React.PropTypes.string,
     select:           React.PropTypes.func,
   }
 
@@ -35,7 +36,7 @@ class Tabs extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         {this.getChildren()}
       </div>
     );

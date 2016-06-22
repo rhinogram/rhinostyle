@@ -22,9 +22,9 @@ export default {
     label:       path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
     loader:      path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
     message:     path.join(__dirname, '../src/scripts/docs/MessageApp.jsx'),
-    navigation:  path.join(__dirname, '../src/scripts/docs/NavigationApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx'),
+    tabs:        path.join(__dirname, '../src/scripts/docs/TabsApp.jsx'),
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),

@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../comp
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const navigationExample = require('raw!./examples/Navigation.example.txt');
+const tabsExample = require('raw!./examples/Tabs.example.txt');
 const exampleScope  = {
   React,
   ReactDOM,
@@ -43,11 +43,12 @@ class NavigationApp extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="site-headline">Navigation</h1>
+        <h1 className="site-headline">Tabs</h1>
 
-        <section className="site-section">
-          <h3 className="site-subheadline">Nav Tabs</h3>
+        {/* <section className="site-section">
+          <h3 className="site-subheadline">Tab Types</h3>
           <div className="u-m-b-md">
+            <p className="site-copy"><code>type="default"</code></p>
             <h5 className="site-miniheadline">Default Tabs</h5>
             <p className="site-copy">Default Tabs require a <code>Tabs</code> wrapper with <code>NavTabs</code> and <code>TabsContent</code> as children</p>
             <Tabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
@@ -101,14 +102,12 @@ class NavigationApp extends React.Component {
               </TabsContent>
             </Tabs>
           </div>
-        </section>
+        </section> */}
 
-        <div>
-          <section className="site-section">
-            <h3 className="site-subheadline">Tab Types</h3>
-            <Playground codeText={navigationExample} scope={exampleScope} noRender={false} />
-          </section>
-        </div>
+        <section className="site-section">
+          <h3 className="site-subheadline">Tabs Playground</h3>
+          <Playground codeText={tabsExample} scope={exampleScope} noRender={false} />
+        </section>
       </div>
     );
   }
