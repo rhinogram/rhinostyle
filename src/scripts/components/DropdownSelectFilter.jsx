@@ -15,53 +15,40 @@ class DropdownSelectFilter extends React.Component {
     select:   () => {},
   };
 
-  getChildren = () => {
-    // if (this.state && this.state.query) {
-    //   console.log('state', this.state);
-    //   debugger;
-    //   this.handleFilter(this.state.query);
-    // } else {
-      const results = [];
-      let children = this.props.children;
-
-      if (this.state && this.state.query) {
-        children = this.state.results;
-      }
-
-      React.Children.forEach(children, child => {
-        if (child.type === DropdownMenuItem) {
-          results.push(React.cloneElement(child, {
-            click: () => this.props.select(child.props.id),
-            active: child.props.id === this.props.activeKey,
-            key: child.props.id,
-          }));
-        }
-      });
-
-      return results;
-    //}
-  }
-
   state = {
     query: '',
-    results: this.getChildren(),
+    results: this.props.children,
   };
 
-  componentWillReceiveProps(nextProps) {
-  //  if (nextProps.activeKey !== this.props.activeKey) {
-      this.setState({
-        results: this.getChildren(),
-      });
-
-          console.log('receiving props', nextProps)
-    //}
+  componentWillReceiveProps() {
+    this.setState({
+      results: this.getChildren(),
+    });
   }
 
-  handleFilterChange = (e) => {
-    this.handleFilter(e.target.value);
+  getChildren = () => {
+    const results = [];
+    let children = this.props.children;
+
+    if (this.state && this.state.query) {
+      children = this.state.results;
+    }
+
+    React.Children.forEach(children, child => {
+      if (child.type === DropdownMenuItem) {
+        results.push(React.cloneElement(child, {
+          click: () => this.props.select(child.props.id),
+          active: child.props.id === this.props.activeKey,
+          key: child.props.id,
+        }));
+      }
+    });
+
+    return results;
   }
 
-  handleFilter = (query) => {
+  handleFilter = (e) => {
+    const query = e.target.value;
     const results = [];
     const children = this.props.children;
 
@@ -79,7 +66,6 @@ class DropdownSelectFilter extends React.Component {
       }
     });
 
-console.log('handle filter', query, results);
     this.setState({
       query,
       results,
@@ -91,7 +77,7 @@ console.log('handle filter', query, results);
     return (
       <div>
         <div className="dropdown__menu__container">
-          <input type="text" className="form__control" id="exampleInputDropdown" placeholder="Filter contact" onChange={this.handleFilterChange} />
+          <input type="text" className="form__control" id="exampleInputDropdown" placeholder="Filter contact" onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {this.state.results}
