@@ -1,11 +1,35 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Input } from '../components';
+import { Button, Checkbox, Icon, Input, Select } from '../components';
 
 import Playground from 'component-playground';
 
-const InputApp = () =>
+/* eslint import/no-unresolved:0 */
+const inputExample = require('raw!./examples/Input.example.txt');
+const inputDocs  = {
+  addon:       '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
+  label:       '[Optional] - A label for the input',
+  name:        '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
+  placeholder: '[Optional] - Any placeholder text you want in the input',
+  type:        '[Optional] - As a string, what type of input you are creating - [email | password] - defaults to text',
+  value:       '[Optional] - Any initial value for the input',
+};
+const inputScope = {
+  React,
+  ReactDOM,
+  Icon,
+  Input,
+};
+
+const selectOpts = [
+  { value: '1', text: 'Option One' },
+  { value: '2', text: 'Option Two' },
+  { value: '3', text: 'Option Three', selected: true },
+  { value: '4', text: 'Option Four' },
+];
+
+const FormApp = () =>
   <div>
     <h1 className="site-headline">Forms</h1>
 
@@ -14,26 +38,16 @@ const InputApp = () =>
       <form className="form">
         <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" />
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" />
-        <div className="form__group">
-          <label htmlFor="">Select</label>
-          <div className="rhinoselect">
-            <select className="rhinoselect__select form__control form__control--chevron" id="exampleSelect2">
-              <option value="" selected="">Option One</option>
-              <option value="">Option Two</option>
-              <option value="">Option Three</option>
-              <option value="">Option Four</option>
-            </select>
-          </div>
-        </div>
+        <Select name="exampleSelect1" label="Select" options={selectOpts} />
         <div className="form__group">
           <label htmlFor="">Text Area <span className="form__optional">(optional)</span></label>
           <textarea className="form__control" rows="3" placeholder="Enter some text"></textarea>
         </div>
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
-          <Checkbox inline="true" name="exampleCheckbox1">Checkbox One</Checkbox>
-          <Checkbox inline="true" name="exampleCheckbox2">Checkbox Two</Checkbox>
-          <Checkbox inline="true" name="exampleCheckbox3">Checkbox Three</Checkbox>
+          <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
+          <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
+          <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
         </div>
         <div className="form__group">
           <label htmlFor="" className="u-block">Radios</label>
@@ -79,40 +93,47 @@ const InputApp = () =>
         <p className="site-copy">Add the <code>form--inline</code> modifier to <code>form</code>.</p>
         <form className="form form--inline">
           <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
-          <Input name="examplePassword2" label="Password" placeholder="Password" type="Password" />
+          <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
           <Button type="secondary">Sign In</Button>
         </form>
       </div>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Add-On</h3>
-      <div className="site-copy">
-        <p>Use <code>form__addon</code> around inputs with add-ons.</p>
-        <p>Add-ons require the <code>form__addon__item</code> class with a <code>form__addon__item--left</code> or <code>form__addon__item--right</code> modifier.</p>
+      <h3 className="site-subheadline">Form Input</h3>
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Basic Input</h5>
+        <div className="site-copy">
+          <p>Basic form inputs. Use <code>label, name, placeholder, type and value</code>.</p>
+        </div>
+        <Input name="exampleInputEmail31" label="Email Address" type="email" />
+        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="email" value="Ian" />
+        <Input name="exampleInputPassword31" placeholder="Password" type="password" />
+      </div>
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Input Add-On</h5>
+        <div className="site-copy">
+          <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
+        </div>
       </div>
       <form className="form">
-        <div className="form__group">
-          <div className="form__addon">
-            <div className="form__addon__item form__addon__item--left">
-              <svg className="icon"><use xlinkHref="#icon-lock"></use></svg>
-            </div>
-            <input type="text" className="form__control" placeholder="Encrypted" />
-          </div>
-        </div>
-        <div className="form__group">
-          <div className="form__addon">
-            <input type="text" className="form__control" id="" />
-            <a href="#" className="form__addon__item form__addon__item--right">Go For It!</a>
-          </div>
-        </div>
-        <div className="form__group">
-          <div className="form__addon">
-            <div className="form__addon__item form__addon__item--left">Amount $</div>
-            <input type="text" className="form__control" placeholder="Lorem ipsum dolor sit" /><div className="form__addon__item form__addon__item--right">.00</div>
-          </div>
-        </div>
+        <Input addon="left" type="text" placeholder="Encrypted">
+          <Icon icon="lock" />
+        </Input>
+        <Input addon="right" type="text">
+          {/* eslint no-script-url:0 */}
+          <a href="javascript:void(0)">Go For It!</a>
+        </Input>
+        <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
+          <span>Amount $</span>
+          <span>.00</span>
+        </Input>
       </form>
+    </section>
+
+    <section>
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground docClass={Input} propDescriptionMap={inputDocs} codeText={inputExample} scope={inputScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -121,68 +142,17 @@ const InputApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Rhinobox</h5>
         <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
-        <div className="rhinobox">
-          <input type="checkbox" id="exampleCheckbox11" checked />
-          <label htmlFor="exampleCheckbox11">Checkbox One</label>
-        </div>
-        <div className="rhinobox">
-          <input type="checkbox" id="exampleCheckbox12" />
-          <label htmlFor="exampleCheckbox12">Checkbox Two</label>
-        </div>
-        <div className="rhinobox">
-          <input type="checkbox" id="exampleCheckbox13" />
-          <label htmlFor="exampleCheckbox13">Checkbox Three</label>
-        </div>
+        <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
+        <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
+        <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
       </div>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inline Rhinobox</h5>
-        <p className="site-copy">Add the <code>rhinobox--inline</code> modifier to create inline checkboxes.</p>
-        <div className="rhinobox rhinobox--inline">
-          <input type="checkbox" id="exampleCheckbox21" />
-          <label htmlFor="exampleCheckbox21">Checkbox One</label>
-        </div>
-        <div className="rhinobox rhinobox--inline">
-          <input type="checkbox" id="exampleCheckbox22" checked />
-          <label htmlFor="exampleCheckbox22">Checkbox Two</label>
-        </div>
-        <div className="rhinobox rhinobox--inline">
-          <input type="checkbox" id="exampleCheckbox23" checked />
-          <label htmlFor="exampleCheckbox23">Checkbox Three</label>
-        </div>
+        <p className="site-copy">Add the <code>inline</code> modifier to create inline checkboxes.</p>
+        <Checkbox inline name="exampleCheckbox21">Checkbox One</Checkbox>
+        <Checkbox inline isChecked name="exampleCheckbox22">Checkbox Two</Checkbox>
+        <Checkbox inline isChecked name="exampleCheckbox23">Checkbox Three</Checkbox>
       </div>
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Form Control</h3>
-      <p className="site-copy">Use <code>form__control</code> on all inputs, selects, and text areas for consistent appearance.</p>
-
-      <form className="form">
-        <input type="text" className="form__control" id="" placeholder=".form__control on input" />
-        <br />
-        <div className="rhinoselect">
-          <select className="form__control" id="">
-            <option value="" selected="">.form__control on select</option>
-            <option value="">Option Two</option>
-            <option value="">Option Three</option>
-            <option value="">Option Four</option>
-          </select>
-        </div>
-        <br />
-        <textarea name="" id="" rows="3" className="form__control" placeholder=".form__control on textarea"></textarea>
-      </form>
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Form Group</h3>
-      <p className="site-copy">Use <code>form__group</code> around labels and inputs to give bottom margin in vertical forms. May also be used around any form element to provide proper spacing.</p>
-      <form className="form">
-        <div className="form__group">
-          <label htmlFor="">Label</label>
-          <input type="text" className="form__control" id="" placeholder="Input" />
-        </div>
-        <label htmlFor="">Label</label>
-        <input type="text" className="form__control" id="" placeholder="Input" />
-      </form>
     </section>
 
     <section className="site-section">
@@ -226,32 +196,8 @@ const InputApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Rhinoselect</h5>
         <p className="site-copy">Our custom select element is called <strong>rhinoselect</strong>. Simply wrap a <code>select</code> element (containing the standard <code>form__control</code> className) in a container and give it the <code>rhinoselect</code> className.</p>
-        <div className="form__group">
-          <div className="rhinoselect">
-            <select className="form__control" id="exampleSelect2">
-              <option value="" selected="">Option One</option>
-              <option value="">Option Two</option>
-              <option value="">Option Three</option>
-              <option value="">Option Four</option>
-            </select>
-          </div>
-        </div>
+        <Select name="exampleSelect2" label="Select" options={selectOpts} />
       </div>
-      {/*<!-- <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Small Rhinoselect</h5>
-        <p className="site-copy">Add the <code>rhinoselect--sm</code> modifier to the <code>rhinoselect</code> class.<br />
-        Add the <code>form__conrol--sm</code> modifier to the <code>form__control</code> class.</p>
-        <div className="form__group">
-          <div className="rhinoselect rhinoselect--sm">
-            <select className="form__control form__control--sm" id="exampleSelect2">
-              <option value="" selected="">Option One</option>
-              <option value="">Option Two</option>
-              <option value="">Option Three</option>
-              <option value="">Option Four</option>
-            </select>
-          </div>
-        </div>
-        </div> -->*/}
     </section>
 
     <section className="site-section">
@@ -289,4 +235,4 @@ const InputApp = () =>
     </section>
   </div>;
 
-ReactDOM.render(<InputApp />, document.getElementById('js-app'));
+ReactDOM.render(<FormApp />, document.getElementById('js-app'));

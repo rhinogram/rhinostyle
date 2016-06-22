@@ -20,6 +20,7 @@ import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
+import Select               from './Select';
 import TabContentPane       from './TabContentPane';
 import Tabs                 from './Tabs';
 import TabsContent          from './TabsContent';
@@ -51,6 +52,7 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
+  Select,
   TabContentPane,
   Tabs,
   TabsContent,
