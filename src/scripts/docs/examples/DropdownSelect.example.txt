@@ -11,6 +11,7 @@ class ComponentExample extends React.Component {
   };
 
   updateActiveFilterKey = (index) => {
+  console.log('updating key', index)
     this.setState({
       activeFilterKey: index,
     });
