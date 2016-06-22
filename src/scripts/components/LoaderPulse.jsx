@@ -6,7 +6,6 @@ class LoaderPulse extends React.Component {
 
   static propTypes = {
     className: React.PropTypes.string,
-    label: React.PropTypes.string,
     type: React.PropTypes.string,
   };
 

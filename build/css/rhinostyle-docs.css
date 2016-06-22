@@ -1758,21 +1758,22 @@ button.close {
   text-align: center;
   width: 3.2rem;
 }
+.react-datepicker__day--outside-month {
+  color: #b9b9b9;
+}
 .react-datepicker__day {
+  border-radius: 50%;
   cursor: pointer;
 }
 .react-datepicker__day:hover {
-  background-color: #f9f9f9;
-  border-radius: 0.4rem;
+  background-color: #ececec;
 }
 .react-datepicker__day--today {
-  color: #404040;
-  font-weight: 900;
+  box-shadow: inset 0 0 0 1px #ffa573;
 }
 .react-datepicker__day--selected,
 .react-datepicker__day--in-range {
   background-color: #39d4c0;
-  border-radius: 0.4rem;
   color: #fff;
   font-weight: normal;
 }
