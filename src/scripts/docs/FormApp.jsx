@@ -8,12 +8,12 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved:0 */
 const inputExample = require('raw!./examples/Input.example.txt');
 const inputDocs  = {
-  addon:       '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
-  label:       '[Optional] - A label for the input',
-  name:        '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
-  placeholder: '[Optional] - Any placeholder text you want in the input',
-  type:        '[Optional] - As a string, what type of input you are creating - [email | password] - defaults to text',
-  value:       '[Optional] - Any initial value for the input',
+  addon:        '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
+  label:        '[Optional] - A label for the input',
+  name:         '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
+  placeholder:  '[Optional] - Any placeholder text you want in the input',
+  type:         '[Optional] - As a string, what type of input you are creating - [email | password] - defaults to text',
+  initialValue: '[Optional] - Any initial value for the input',
 };
 const inputScope = {
   React,
@@ -125,10 +125,10 @@ const FormApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Basic Input</h5>
         <div className="site-copy">
-          <p>Basic form inputs. Use <code>label, name, placeholder, type and value</code>.</p>
+          <p>Basic form inputs. Use <code>label, name, placeholder, type and initialValue</code>.</p>
         </div>
         <Input name="exampleInputEmail31" label="Email Address" type="email" />
-        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="email" value="Ian" />
+        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="email" initialValue="Ian" />
         <Input name="exampleInputPassword31" placeholder="Password" type="password" />
         <div className="u-m-b-md">
           <h5 className="site-miniheadline">Input Add-On</h5>
