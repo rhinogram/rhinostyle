@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Icon, Input, Select } from '../components';
+import { Button, Checkbox, Icon, Input, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -40,6 +40,19 @@ const selectOpts = [
   { value: '4', text: 'Option Four' },
 ];
 
+const textareaExample = require('raw!./examples/Textarea.example.txt');
+const textareaDocs  = {
+  label:        '[Optional] - A label for the textarea',
+  name:         '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  placeholder:  '[Optional] - Any placeholder text you want in the textarea',
+  initialValue: '[Optional] - Any initial value for the textarea',
+};
+const textareaScope = {
+  React,
+  ReactDOM,
+  Textarea,
+};
+
 const FormApp = () =>
   <div>
     <h1 className="site-headline">Forms</h1>
@@ -50,10 +63,7 @@ const FormApp = () =>
         <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" />
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" />
         <Select name="exampleSelect1" label="Select" options={selectOpts} />
-        <div className="form__group">
-          <label htmlFor="">Text Area <span className="form__optional">(optional)</span></label>
-          <textarea className="form__control" rows="3" placeholder="Enter some text"></textarea>
-        </div>
+        <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" />
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
@@ -120,14 +130,12 @@ const FormApp = () =>
         <Input name="exampleInputEmail31" label="Email Address" type="email" />
         <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="email" value="Ian" />
         <Input name="exampleInputPassword31" placeholder="Password" type="password" />
-      </div>
-      <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Input Add-On</h5>
-        <div className="site-copy">
-          <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
+        <div className="u-m-b-md">
+          <h5 className="site-miniheadline">Input Add-On</h5>
+          <div className="site-copy">
+            <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
+          </div>
         </div>
-      </div>
-      <form className="form">
         <Input addon="left" type="text" placeholder="Encrypted">
           <Icon icon="lock" />
         </Input>
@@ -139,12 +147,27 @@ const FormApp = () =>
           <span>Amount $</span>
           <span>.00</span>
         </Input>
-      </form>
+      </div>
     </section>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
       <Playground docClass={Input} propDescriptionMap={inputDocs} codeText={inputExample} scope={inputScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Text Area</h5>
+        <div className="site-copy">
+          <p>Our textareas.</p>
+        </div>
+      </div>
+      <Textarea label="Text Area" name="exampleTextarea2" placeholder="Enter some text" />
+    </section>
+
+    <section>
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground docClass={Textarea} propDescriptionMap={textareaDocs} codeText={textareaExample} scope={textareaScope} noRender={false} />
     </section>
 
     <section className="site-section">

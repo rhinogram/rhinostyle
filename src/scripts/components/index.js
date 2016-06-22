@@ -24,6 +24,7 @@ import Select               from './Select';
 import TabContentPane       from './TabContentPane';
 import Tabs                 from './Tabs';
 import TabsContent          from './TabsContent';
+import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
@@ -56,5 +57,6 @@ export {
   TabContentPane,
   Tabs,
   TabsContent,
+  Textarea,
   Toast,
 };
