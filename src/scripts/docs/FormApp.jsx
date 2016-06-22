@@ -22,6 +22,17 @@ const inputScope = {
   Input,
 };
 
+const selectExample = require('raw!./examples/Select.example.txt');
+const selectDocs  = {
+  label:   '[Optional] - A label for the select',
+  name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
+  options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, {value:string, text:string, selected:bool}',
+};
+const selectScope = {
+  React,
+  ReactDOM,
+  Select,
+};
 const selectOpts = [
   { value: '1', text: 'Option One' },
   { value: '2', text: 'Option Two' },
@@ -198,6 +209,11 @@ const FormApp = () =>
         <p className="site-copy">Our custom select element is called <strong>rhinoselect</strong>. Simply wrap a <code>select</code> element (containing the standard <code>form__control</code> className) in a container and give it the <code>rhinoselect</code> className.</p>
         <Select name="exampleSelect2" label="Select" options={selectOpts} />
       </div>
+    </section>
+
+    <section>
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground docClass={Select} propDescriptionMap={selectDocs} codeText={selectExample} scope={selectScope} noRender={false} />
     </section>
 
     <section className="site-section">
