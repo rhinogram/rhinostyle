@@ -7,6 +7,11 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const messageExample = require('raw!./examples/Message.example.txt');
+const messageDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  type: '[Optional] - Message type -  [primary | note]',
+  direction: '[Optional] - Message direction -  [to | from]',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -69,7 +74,7 @@ const MessageApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={messageExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;
