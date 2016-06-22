@@ -1,7 +1,7 @@
 var selectOpts = [
-  { value: '1', text: 'Option One' },
-  { value: '2', text: 'Option Two' },
-  { value: '3', text: 'Option Three', selected: true },
+  { value: '1', text: 'Option One' }, 
+  { value: '2', text: 'Option Two' }, 
+  { value: '3', text: 'Option Three', selected: true }, 
   { value: '4', text: 'Option Four' },
 ];
 
