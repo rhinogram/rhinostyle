@@ -6,10 +6,10 @@ class Avatar extends React.Component {
 
   static propTypes = {
     className: React.PropTypes.string,
-    image: React.PropTypes.string,
-    name: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
-    type: React.PropTypes.oneOf(['member', 'patient']).isRequired,
+    image:     React.PropTypes.string,
+    name:      React.PropTypes.string,
+    size:      React.PropTypes.oneOf(['small', 'default', 'large']),
+    type:      React.PropTypes.oneOf(['member', 'patient']).isRequired,
   };
 
   static defaultProps = {
@@ -49,7 +49,7 @@ class Avatar extends React.Component {
     if (image && !this.state.imageError) {
       return (
         <figure className={classes} style={styles}>
-          <img alt="name" onError={this._handleImageError} style={{ display: 'none' }} src={image} />
+          <img alt={name} onError={this._handleImageError} style={{ display: 'none' }} src={image} />
         </figure>
       );
     }

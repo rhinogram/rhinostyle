@@ -9,10 +9,9 @@ class Button extends React.Component {
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
-    click:     React.PropTypes.func,
+    click:     React.PropTypes.func.isRequired,
     disabled:  React.PropTypes.bool,
     iconOnly:  React.PropTypes.bool,
-    outline:   React.PropTypes.bool,
     size:      React.PropTypes.oneOf(['small', 'large']),
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
   };
@@ -23,7 +22,6 @@ class Button extends React.Component {
     click:    () => {},
     disabled: false,
     iconOnly: false,
-    outline:  false,
     type:     'default',
   };
 

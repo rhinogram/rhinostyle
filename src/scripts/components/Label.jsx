@@ -6,7 +6,7 @@ class Label extends React.Component {
 
   static propTypes = {
     className:  React.PropTypes.string,
-    label:      React.PropTypes.string,
+    label:      React.PropTypes.string.isRequired,
     type:       React.PropTypes.string,
   };
 

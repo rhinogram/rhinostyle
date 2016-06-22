@@ -1,0 +1,11 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div className="site-example-textareas">
+        <Textarea label="Bio" name="biography" rows={5} placeholder="I like pizza!" />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

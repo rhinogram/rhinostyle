@@ -7,7 +7,7 @@ class Callout extends React.Component {
   static propTypes = {
     body: React.PropTypes.string.isRequired,
     className: React.PropTypes.string,
-    head: React.PropTypes.string.isRequired,
+    heading: React.PropTypes.string.isRequired,
     type: React.PropTypes.oneOf(['danger', 'default', 'info']),
   };
 
@@ -16,7 +16,7 @@ class Callout extends React.Component {
   };
 
   render() {
-    const { body, className, head, type } = this.props;
+    const { body, className, heading, type } = this.props;
     const classes = cx('callout', className, {
       'callout--danger':  type === 'danger',
       'callout--default': type === 'default',
@@ -25,7 +25,7 @@ class Callout extends React.Component {
 
     return (
       <div className={classes}>
-        <div className="callout__heading">{head}</div>
+        <div className="callout__heading">{heading}</div>
         <div className="callout__body">{body}</div>
       </div>
     );

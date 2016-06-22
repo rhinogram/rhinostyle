@@ -2,10 +2,9 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <Callout head="Default Callout" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+        <Callout heading="Default Callout" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
       </div>
     );
   }
 }
-
 ReactDOM.render(<ComponentExample />, mountNode);

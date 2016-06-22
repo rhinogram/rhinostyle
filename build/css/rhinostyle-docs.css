@@ -1173,7 +1173,7 @@ a.u-text-warning:hover,
 .btn:active,
 .btn.active {
   background-image: none;
-  box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0.35rem 0.5rem rgba(0, 0, 0, 0.15);
   outline: 0;
 }
 .btn.disabled,
@@ -1758,21 +1758,22 @@ button.close {
   text-align: center;
   width: 3.2rem;
 }
+.react-datepicker__day--outside-month {
+  color: #b9b9b9;
+}
 .react-datepicker__day {
+  border-radius: 50%;
   cursor: pointer;
 }
 .react-datepicker__day:hover {
-  background-color: #f9f9f9;
-  border-radius: 0.4rem;
+  background-color: #ececec;
 }
 .react-datepicker__day--today {
-  color: #404040;
-  font-weight: 900;
+  box-shadow: inset 0 0 0 1px #ffa573;
 }
 .react-datepicker__day--selected,
 .react-datepicker__day--in-range {
   background-color: #39d4c0;
-  border-radius: 0.4rem;
   color: #fff;
   font-weight: normal;
 }
@@ -2143,12 +2144,12 @@ button.close {
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
+  margin-left: -1.6rem;
+  margin-right: -1.6rem;
 }
 .row [class*='col-'] {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }
 .row--condensed {
   margin-left: -0.7rem;
@@ -3221,8 +3222,8 @@ fieldset[disabled] .rhinodio label {
   color: #fff;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 75%;
-  font-weight: 700;
+  font-size: 80%;
+  font-weight: 400;
   padding: 0 0.5rem;
   position: relative;
   vertical-align: baseline;
@@ -3407,6 +3408,10 @@ fieldset[disabled] .rhinodio label {
 .modal-open {
   overflow: hidden;
 }
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
@@ -3419,17 +3424,13 @@ fieldset[disabled] .rhinodio label {
   top: 0;
   z-index: 1050;
 }
-.modal.fade .modal__dialog {
+.modal.fade .modal__container {
   transition: transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
-.modal.in .modal__dialog {
+.modal.in .modal__container {
   transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
-.modal-open .modal {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.modal__dialog {
+.modal__container {
   margin: 1rem;
   position: relative;
   width: auto;
@@ -3460,8 +3461,8 @@ fieldset[disabled] .rhinodio label {
 }
 .modal__header {
   border-bottom: 1px solid #ececec;
-  min-height: 2.9rem;
-  padding: 1.5rem;
+  min-height: 3rem;
+  padding: 1.6rem;
 }
 .modal__header .close {
   margin-top: -0.2rem;
@@ -3474,11 +3475,11 @@ fieldset[disabled] .rhinodio label {
   margin: 0;
 }
 .modal__body {
-  padding: 1.5rem;
+  padding: 1.6rem;
   position: relative;
 }
 .modal__footer {
-  padding: 1.5rem;
+  padding: 1.6rem;
   text-align: right;
 }
 .modal__footer .btn + .btn {
@@ -3499,19 +3500,19 @@ fieldset[disabled] .rhinodio label {
   width: 5rem;
 }
 @media (min-width: 768px) {
-  .modal__dialog {
+  .modal__container {
     margin: 3rem auto;
     width: 60rem;
   }
   /*.modal__content {
     box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.5);
   }*/
-  .modal__dialog--sm {
+  .modal__container--sm {
     width: 30rem;
   }
 }
 @media (min-width: 992px) {
-  .modal__dialog--lg {
+  .modal__container--lg {
     width: 90rem;
   }
 }
@@ -3532,6 +3533,7 @@ fieldset[disabled] .rhinodio label {
   flex: 1 1 0%;
 }
 .nav-tabs__item {
+  cursor: pointer;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: -1px;
@@ -3559,6 +3561,9 @@ fieldset[disabled] .rhinodio label {
   border-width: 0 0 1px;
   z-index: -1;
 }
+.nav-tabs__item.active {
+  cursor: default;
+}
 .nav-tabs__item.active::after {
   transform: scale(1, 1);
   transition: transform 0.35s cubic-bezier(0.43, 0.41, 0.22, 0.91);
@@ -3579,7 +3584,7 @@ fieldset[disabled] .rhinodio label {
   -ms-flex-pack: center;
   justify-content: center;
   margin-right: -1px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.6rem;
   position: relative;
   text-align: center;
 }
@@ -3858,12 +3863,12 @@ pre {
   padding: 1rem;
 }
 .site-content {
-  padding: 1.5rem;
+  padding: 1.6rem;
   position: relative;
 }
 @media (min-width: 768px) {
   .site-content {
-    padding: 3rem;
+    padding: 3.2rem;
   }
 }
 .site-example-avatar .avatar:not(:last-child) {
@@ -3908,7 +3913,7 @@ pre {
 }
 .site-example-utility__panel {
   background: #f9f9f9;
-  padding: 3rem;
+  padding: 3.2rem;
 }
 .site-example-utility__panel p:last-child {
   margin-bottom: 0;
@@ -3961,7 +3966,7 @@ pre {
 .site-grid-box-container {
   background: #f9f9f9;
   border: 1px solid #d2d2d2;
-  padding: 1.5rem;
+  padding: 1.6rem;
 }
 .site-header {
   -ms-flex-align: center;
@@ -3989,7 +3994,7 @@ pre {
 }
 .site-header__menu {
   cursor: pointer;
-  margin-right: 1.5rem;
+  margin-right: 1.6rem;
 }
 @media (min-width: 1200px) {
   .site-header__menu {
@@ -4059,10 +4064,10 @@ pre {
   }
 }
 .site-navigation__nav {
-  padding-top: 1.5rem;
+  padding-top: 1.6rem;
 }
 .site-navigation__nav > li {
-  padding: 0 1.5rem;
+  padding: 0 1.6rem;
 }
 .site-navigation__nav > li:not(:first-child) {
   margin-top: .6rem;
@@ -4072,7 +4077,7 @@ pre {
   color: #fff;
   display: block;
   font-weight: 300;
-  padding: 0.6rem 1.5rem;
+  padding: 0.6rem 1.6rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
 }
 .no-touch .site-navigation__nav__btn:hover,
@@ -4085,7 +4090,7 @@ pre {
 }
 @media (min-height: 1000px) {
   .site-navigation__nav__btn {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.6rem;
   }
 }
 .site-modal .modal {
@@ -4185,87 +4190,132 @@ html.navigation-is-locked .site-wrapper {
 .playgroundPreview {
   padding-top: 1.2rem;
 }
-.cm-s-monokai.CodeMirror {
-  margin-bottom: 1.5rem;
+.playground > div > ul {
+  list-style: none;
+  margin-bottom: 3rem;
+  padding-left: 0;
+}
+.playground > div > ul li {
+  margin-bottom: 0.4rem;
+}
+.playground > div > ul li b:first-of-type {
+  color: #28a1c5;
+  font-weight: 700;
+}
+.playground > div > ul li b:last-of-type {
+  color: #cb2027;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.playgroundCode {
+  margin-bottom: 1.6rem;
 }
 .cm-s-monokai.CodeMirror {
-  background: #f9f9f9;
+  border: 1px solid #d2d2d2;
   color: #9f9f9f;
-  margin-bottom: 1.5rem;
 }
+/*.cm-s-monokai.CodeMirror {
+  margin-bottom: @margin-half-gutter;
+}
+
+.cm-s-monokai.CodeMirror {
+  background: @color-gray-lightest;
+  color: @color-gray;
+  margin-bottom: @margin-half-gutter;
+}
+
 .cm-s-monokai div.CodeMirror-selected {
   background: #49483e !important;
 }
-.cm-s-monokai.CodeMirror ::-moz-selection {
-  background: rgba(73, 72, 62, 0.99);
-}
+
 .cm-s-monokai.CodeMirror ::selection {
-  background: rgba(73, 72, 62, 0.99);
+  background: rgba(73, 72, 62, .99);
 }
+
 .cm-s-monokai.CodeMirror ::-moz-selection {
-  background: rgba(73, 72, 62, 0.99);
+  background: rgba(73, 72, 62, .99);
 }
+
 .cm-s-monokai .CodeMirror-gutters {
   background: #272822;
   border-right: 0px;
 }
+
 .cm-s-monokai .CodeMirror-guttermarker {
   color: white;
 }
+
 .cm-s-monokai .CodeMirror-guttermarker-subtle {
   color: #d0d0d0;
 }
+
 .cm-s-monokai .CodeMirror-linenumber {
   color: #d0d0d0;
 }
+
 .cm-s-monokai .CodeMirror-cursor {
-  border-left: 1px solid #6c6c6c !important;
+  border-left: 1px solid @color-gray-dark !important;
 }
+
 .cm-s-monokai span.cm-comment {
   color: #75715e;
 }
+
 .cm-s-monokai span.cm-atom {
   color: #ae81ff;
 }
+
 .cm-s-monokai span.cm-number {
   color: #ae81ff;
 }
+
 .cm-s-monokai span.cm-property,
 .cm-s-monokai span.cm-attribute {
-  color: #9f9f9f;
+  color: @color-gray;
 }
+
 .cm-s-monokai span.cm-keyword {
-  color: #ffa573;
+  color: @color-accent;
 }
+
 .cm-s-monokai span.cm-string {
-  color: #39d4c0;
+  color: @color-secondary;
 }
+
 .cm-s-monokai span.cm-variable {
-  color: #9f9f9f;
+  color: @color-gray;
 }
+
 .cm-s-monokai span.cm-variable-2 {
-  color: #5bc0de;
+  color: @color-info;
 }
+
 .cm-s-monokai span.cm-def {
   color: #fd971f;
 }
+
 .cm-s-monokai span.cm-bracket {
   color: #f8f8f2;
 }
+
 .cm-s-monokai span.cm-tag {
-  color: #ffa573;
+  color: @color-accent;
 }
+
 .cm-s-monokai span.cm-link {
   color: #ae81ff;
 }
+
 .cm-s-monokai span.cm-error {
-  background: #ffa573;
+  background: @color-accent;
   color: #f8f8f0;
 }
+
 .cm-s-monokai .CodeMirror-activeline-background {
   background: #373831 !important;
 }
+
 .cm-s-monokai .CodeMirror-matchingbracket {
   color: white !important;
   text-decoration: underline;
-}
+}*/
