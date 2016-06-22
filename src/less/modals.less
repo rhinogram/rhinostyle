@@ -1,23 +1,30 @@
 // File: modals.less
-// Note:
-
-
-// -------------------------
-// Modals
-// -------------------------
-
-
 // .modal-open       - body class for killing the scroll
 // .modal            - container to scroll within
-// .modal__dialog    - positioning shell for the actual modal
-// .modal__content   - actual modal w/ bg and corners and shit
+// .modal__container - positioning shell for the actual modal
+// .modal__content   - actual modal w/ bg and corners and shiz
 
-// Kill the scroll on the body
+
+// -------------------------
+// Modal Open State
+// -------------------------
+
+
 .modal-open {
   overflow: hidden;
 }
 
-// Container that the modal scrolls within
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+// -------------------------
+// Modal
+// -------------------------
+
+
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
@@ -30,30 +37,26 @@
   top: 0;
   z-index: @zindex-modal;
 
-  &.fade .modal__dialog {
+  &.fade .modal__container {
     //transform:  scale(1.15);
     transition: transform 100ms @modal-easing;
   }
 
-  &.in .modal__dialog {
+  &.in .modal__container {
     //transform:  scale(1);
     transition: transform 300ms @modal-easing;
   }
 }
 
-.modal-open .modal {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
 
 // -------------------------
-// Modal Dialog
+// Modal Container
 // -------------------------
 
 
 // Shell div to position the modal with bottom padding
-.modal__dialog {
+.modal__container {
   margin: @margin-medium;
   position: relative;
   width: auto;
@@ -187,7 +190,7 @@
 
 // Scale up the modal
 @media (min-width: @screen-sm-min) {
-  .modal__dialog {
+  .modal__container {
     margin: 3rem auto;
     width: @modal-md;
   }
@@ -196,13 +199,13 @@
     box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.5);
   }*/
 
-  .modal__dialog--sm {
+  .modal__container--sm {
     width: @modal-sm;
   }
 }
 
 @media (min-width: @screen-md-min) {
-  .modal__dialog--lg {
+  .modal__container--lg {
     width: @modal-lg;
   }
 }
