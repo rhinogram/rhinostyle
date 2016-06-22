@@ -56,7 +56,7 @@ class FeedbackApp extends React.Component {
         <h1 className="site-headline">Feedback</h1>
 
         <section className="site-section">
-          <h3 className="site-subheadline">Callouts</h3>
+          <h3 className="site-subheadline">Callout</h3>
           <div className="row u-m-b-lg">
             <div className="col-sm-10">
               <div className="site-example-callouts">
@@ -66,11 +66,11 @@ class FeedbackApp extends React.Component {
               </div>
             </div>
           </div>
-          <h3 className="site-subheadline">Callouts Playground</h3>
+          <h3 className="site-subheadline">Callout Playground</h3>
           <Playground docClass={Callout} propDescriptionMap={calloutDocs} codeText={calloutExample} scope={calloutScope} noRender={false} />
         </section>
         <section>
-          <h3 className="site-subheadline">Toast Notifications</h3>
+          <h3 className="site-subheadline">Toast</h3>
           <p className="site-copy">To see a toast in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
           <div className="site-example-toasts u-m-b-lg">
             <Toast type="default" body="Default notification" />

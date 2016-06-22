@@ -17,7 +17,7 @@ class ComponentExample extends React.Component {
       <NavTabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
         <NavTabsItem id={1}>Tab One</NavTabsItem>
         <NavTabsItem id={2}>Tab Two</NavTabsItem>
-        <NavTabsItem id={3}>Nested Tabs</NavTabsItem>
+        <NavTabsItem id={3}>Tab Three</NavTabsItem>
       </NavTabs>
     </div>
     );

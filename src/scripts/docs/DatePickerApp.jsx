@@ -37,8 +37,8 @@ class DatePickerApp extends React.Component {
         <h1 className="site-headline">Date Picker</h1>
 
         <section className="site-section">
-          <h3 className="site-subheadline">Date Picker</h3>
-          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">ReactJS Datepicker</a> with custom styling.</p>
+          <h3 className="site-subheadline">DatePicker</h3>
+          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">ReactJS DatePicker</a> with custom styling.</p>
 
           <div className="row row--condensed">
             <div className="col-sm-2 u-m-b">

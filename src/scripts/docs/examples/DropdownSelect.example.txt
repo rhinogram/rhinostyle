@@ -28,7 +28,7 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem id={4}>Separated item</DropdownMenuItem>
       </DropdownSelect>
       &nbsp;&nbsp;
-      <DropdownSelect label="Dropdown Select w/ Filter" type="secondary" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
+      <DropdownSelect wide label="Dropdown Select w/ Filter" type="secondary" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
         <DropdownSelectFilter>
             <DropdownMenuItem id={1}>Item</DropdownMenuItem>
             <DropdownMenuItem id={2}>Another Item</DropdownMenuItem>
