@@ -3,7 +3,7 @@ import NavTabsItem  from './NavTabsItem';
 import cx           from 'classnames';
 
 class NavTabs extends React.Component {
-  static displayName = 'RhinoTab';
+  static displayName = 'RhinoNavTabs';
 
   static propTypes = {
     activeKey:        React.PropTypes.number,
