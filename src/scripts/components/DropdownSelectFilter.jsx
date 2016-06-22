@@ -8,6 +8,7 @@ class DropdownSelectFilter extends React.Component {
   static propTypes = {
     activeKey:    React.PropTypes.number,
     children:     React.PropTypes.node,
+    placeholder:  React.PropTypes.string,
     select:       React.PropTypes.func,
   };
 
@@ -77,10 +78,12 @@ class DropdownSelectFilter extends React.Component {
   }
 
   render() {
+    const { placeholder } = this.props;
+
     return (
       <div>
         <div className="dropdown__menu__container">
-          <input type="text" className="form__control" id="exampleInputDropdown" placeholder="Filter contact" onChange={this.handleFilter} />
+          <input type="text" className="form__control" id="exampleInputDropdown" placeholder={placeholder} onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {this.state.results}

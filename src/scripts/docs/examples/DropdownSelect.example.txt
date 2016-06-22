@@ -29,7 +29,7 @@ class ComponentExample extends React.Component {
       </DropdownSelect>
       &nbsp;&nbsp;
       <DropdownSelect label="Dropdown Select w/ Filter" type="secondary" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
-        <DropdownSelectFilter>
+        <DropdownSelectFilter placeholder="Filter Contact">
             <DropdownMenuItem id={1}>Item</DropdownMenuItem>
             <DropdownMenuItem id={2}>Another Item</DropdownMenuItem>
             <DropdownMenuItem id={3}>A third item</DropdownMenuItem>
