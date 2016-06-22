@@ -6,7 +6,6 @@ class LoaderPulse extends React.Component {
 
   static propTypes = {
     className: React.PropTypes.string,
-    label: React.PropTypes.string,
     type: React.PropTypes.string,
   };
 
@@ -19,7 +18,6 @@ class LoaderPulse extends React.Component {
 
     const classes = cx('loader-pulse', className, {
       'loader-pulse--default':   type === 'default',
-      'loader-pulse--primary':   type === 'primary',
       'loader-pulse--secondary': type === 'secondary',
       'loader-pulse--accent':    type === 'accent',
     });

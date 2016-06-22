@@ -1,0 +1,53 @@
+class ComponentExample extends React.Component {
+  state = {
+    activeKey: 1,
+    activeSubKey: 1,
+  };
+
+  updateActiveKey = (index) => {
+    this.setState({
+      activeKey: index,
+    });
+  };
+
+  updateActiveSubKey = (index) => {
+    this.setState({
+      activeSubKey: index,
+    });
+  };
+
+  render() {
+    return (
+    <div>
+      <Tabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
+        <NavTabs>
+          <NavTabsItem id={1}>Tab One</NavTabsItem>
+          <NavTabsItem id={2}>Tab Two</NavTabsItem>
+          <NavTabsItem id={3}>Nested Tabs</NavTabsItem>
+        </NavTabs>
+        <TabsContent>
+          <TabContentPane id={1}>
+            Content 1
+          </TabContentPane>
+          <TabContentPane id={2}>Content 2</TabContentPane>
+          <TabContentPane id={3}>
+            <p className="u-m-b-lg">Nested tabs require a new updateActiveKey function!</p>
+            <Tabs activeKey={this.state.activeSubKey} select={this.updateActiveSubKey}>
+              <NavTabs>
+                <NavTabsItem id={1}>Nested Tab One</NavTabsItem>
+                <NavTabsItem id={2}>Nested Tab Two</NavTabsItem>
+              </NavTabs>
+              <TabsContent>
+                <TabContentPane id={1}>As well as a new activeSubKey!</TabContentPane>
+                <TabContentPane id={2}>Content 2</TabContentPane>
+              </TabsContent>
+            </Tabs>
+          </TabContentPane>
+        </TabsContent>
+      </Tabs>
+    </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

@@ -27,9 +27,9 @@ class NavTabsItem extends React.Component {
 
     return (
       <li className={itemClasses}>
-        <a className={linkClasses} onClick={click}>
+        <div className={linkClasses} onClick={click}>
           {this.props.children}
-        </a>
+        </div>
       </li>
     );
   }
