@@ -1,11 +1,18 @@
 class ComponentExample extends React.Component {
   state = {
     activeKey: null,
+    activeFilterKey: null,
   };
 
   updateActiveKey = (index) => {
     this.setState({
       activeKey: index,
+    });
+  };
+
+  updateActiveFilterKey = (index) => {
+    this.setState({
+      activeFilterKey: index,
     });
   };
 
@@ -19,6 +26,19 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem id={3}>A third item</DropdownMenuItem>
         <DropdownMenuDivider />
         <DropdownMenuItem id={4}>Separated item</DropdownMenuItem>
+      </DropdownSelect>
+
+      <DropdownSelect label="Dropdown Select w/ Filter" type="secondary" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
+        <DropdownSelectFilter>
+            <DropdownMenuItem id={1}>Item</DropdownMenuItem>
+            <DropdownMenuItem id={2}>Another Item</DropdownMenuItem>
+            <DropdownMenuItem id={3}>A third item</DropdownMenuItem>
+            <DropdownMenuItem id={4}>A fourth item</DropdownMenuItem>
+            <DropdownMenuItem id={5}>A fifth item</DropdownMenuItem>
+            <DropdownMenuItem id={6}>A sixth item</DropdownMenuItem>
+            <DropdownMenuItem id={7}>A seventh item</DropdownMenuItem>
+            <DropdownMenuItem id={8}>An eighth item</DropdownMenuItem>
+        </DropdownSelectFilter>
       </DropdownSelect>
     </div>
     );
