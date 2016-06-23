@@ -6,7 +6,13 @@ import { NavTabs, NavTabsItem } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const navigationExample = require('raw!./examples/Navigation.example.txt');
+const navTabsExample = require('raw!./examples/NavTabs.example.txt');
+const navTabsDocs = {
+  activeKey: '[Optional] - Include active key',
+  className: '[Optional] - Include additional class name(s)',
+  justified: '[Optional] - Justified type -  [auto | equal]',
+  select: '[Optional] - Include select function',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -45,7 +51,13 @@ class NavigationApp extends React.Component {
         <h1 className="site-headline">Navigation</h1>
 
         <section className="site-section">
-          <h3 className="site-subheadline">NavTab Types</h3>
+          <h3 className="site-subheadline">About Navigation</h3>
+          <p className="u-text-lead">Below you will find our set of navigation components. This page exists to demonstrate the UI of each - appearance, layout, animation, and active states.
+           Some of these components may be used in conjunction with other components - see <a href="/tabs"> Tabs</a> for example.</p>
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">NavTabs Types</h3>
           <div className="u-m-b-md">
             <p className="site-copy"><code>type="default"</code></p>
             <NavTabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
@@ -57,7 +69,7 @@ class NavigationApp extends React.Component {
         </section>
 
         <section className="site-section">
-          <h3 className="site-subheadline">NavTab Modifiers</h3>
+          <h3 className="site-subheadline">NavTabs Modifiers</h3>
 
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Justifed, Equal Width</h5>
@@ -81,8 +93,8 @@ class NavigationApp extends React.Component {
         </section>
 
         <section className="site-section">
-          <h3 className="site-subheadline">NavTab Playground</h3>
-          <Playground codeText={navigationExample} scope={exampleScope} noRender={false} />
+          <h3 className="site-subheadline">NavTabs Playground</h3>
+          <Playground docClass={NavTabs} propDescriptionMap={navTabsDocs} codeText={navTabsExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
     );

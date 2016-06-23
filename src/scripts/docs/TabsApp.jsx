@@ -46,6 +46,11 @@ class TabsApp extends React.Component {
         <h1 className="site-headline">Tabs</h1>
 
         <section className="site-section">
+          <h3 className="site-subheadline">About Tabs</h3>
+          <p className="u-text-lead">This page demonstrates how to implement a tabbed system. It is important to note that we do not have a 'tabs' component.</p>
+        </section>
+
+        <section className="site-section">
           <h3 className="site-subheadline">Tabs Playground</h3>
           <Playground codeText={tabsExample} scope={exampleScope} noRender={false} />
         </section>
