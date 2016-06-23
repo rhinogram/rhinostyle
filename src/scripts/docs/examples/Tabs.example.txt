@@ -1,7 +1,6 @@
 class ComponentExample extends React.Component {
   state = {
     activeKey: 1,
-    activeSubKey: 1,
   };
 
   updateActiveKey = (index) => {
@@ -10,41 +9,31 @@ class ComponentExample extends React.Component {
     });
   };
 
-  updateActiveSubKey = (index) => {
-    this.setState({
-      activeSubKey: index,
-    });
-  };
-
   render() {
     return (
     <div>
-      <Tabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
-        <NavTabs>
-          <NavTabsItem id={1}>Tab One</NavTabsItem>
-          <NavTabsItem id={2}>Tab Two</NavTabsItem>
-          <NavTabsItem id={3}>Nested Tabs</NavTabsItem>
-        </NavTabs>
-        <TabsContent>
-          <TabContentPane id={1}>
-            Content 1
-          </TabContentPane>
-          <TabContentPane id={2}>Content 2</TabContentPane>
-          <TabContentPane id={3}>
-            <p className="u-m-b-lg">Nested tabs require a new updateActiveKey function!</p>
-            <Tabs activeKey={this.state.activeSubKey} select={this.updateActiveSubKey}>
-              <NavTabs>
-                <NavTabsItem id={1}>Nested Tab One</NavTabsItem>
-                <NavTabsItem id={2}>Nested Tab Two</NavTabsItem>
-              </NavTabs>
-              <TabsContent>
-                <TabContentPane id={1}>As well as a new activeSubKey!</TabContentPane>
-                <TabContentPane id={2}>Content 2</TabContentPane>
-              </TabsContent>
-            </Tabs>
-          </TabContentPane>
-        </TabsContent>
-      </Tabs>
+      <NavTabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
+        <NavTabsItem id={1}>Tab One</NavTabsItem>
+        <NavTabsItem id={2}>Tab Two</NavTabsItem>
+        <NavTabsItem id={3}>Tab Three</NavTabsItem>
+      </NavTabs>
+      <TabsContent activeKey={this.state.activeKey} >
+        <TabContentPane id={1}>
+          <h5>Tab One Content Pane</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
+          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
+        </TabContentPane>
+        <TabContentPane id={2}>
+          <h5>Tab Two Content Pane</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
+          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
+        </TabContentPane>
+        <TabContentPane id={3}>
+          <h5>Tab Three Content Pane</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
+          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
+        </TabContentPane>
+      </TabsContent>
     </div>
     );
   }
