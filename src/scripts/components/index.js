@@ -17,6 +17,12 @@ import Label                from './Label';
 import LoaderPulse          from './LoaderPulse';
 import LoaderLine           from './LoaderLine';
 import Message              from './Message';
+import Modal                from './Modal';
+import ModalBody            from './ModalBody';
+import ModalContainer       from './ModalContainer';
+import ModalContent         from './ModalContent';
+import ModalFooter          from './ModalFooter';
+import ModalHeader          from './ModalHeader';
 import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
@@ -50,6 +56,12 @@ export {
   LoaderPulse,
   LoaderLine,
   Message,
+  Modal,
+  ModalBody,
+  ModalContainer,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
   NavTabs,
   NavTabsItem,
   NotificationActions,
