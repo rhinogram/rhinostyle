@@ -8,6 +8,7 @@ class DropdownSelectFilter extends React.Component {
   static propTypes = {
     activeKey:    React.PropTypes.number,
     children:     React.PropTypes.node,
+    icon:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     select:       React.PropTypes.func,
   };
@@ -35,7 +36,7 @@ class DropdownSelectFilter extends React.Component {
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
         results.push(React.cloneElement(child, {
-          click: () => this.props.select(child.props.id),
+          click: () => this.props.select(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
           key: child.props.id,
         }));
@@ -56,7 +57,7 @@ class DropdownSelectFilter extends React.Component {
 
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           results.push(React.cloneElement(child, {
-            click: () => this.props.select(child.props.id),
+            click: () => this.props.select(child.props.id, child.props.icon),
             active: child.props.id === this.props.activeKey,
             key: child.props.id,
           }));

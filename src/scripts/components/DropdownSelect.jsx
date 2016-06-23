@@ -49,13 +49,14 @@ class DropdownSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(child.props.id),
+          click: () => this.props.select(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
         });
       } else if (child.type === DropdownSelectFilter) {
         returnChild = React.cloneElement(child, {
           select: this.props.select,
           activeKey: this.props.activeKey,
+          icon: this.props.icon,
         });
       } else {
         returnChild = child;

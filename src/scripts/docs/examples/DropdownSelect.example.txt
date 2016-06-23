@@ -4,6 +4,7 @@ class ComponentExample extends React.Component {
     activeFilterKey: null,
     activeFilterAvatarKey: null,
     activeFilterIconKey: null,
+    activeIcon: null,
   };
 
   updateActiveKey = (index) => {
@@ -24,9 +25,10 @@ class ComponentExample extends React.Component {
     });
   };
 
-  updateActiveFilterIconKey = (index) => {
+  updateActiveFilterIconKey = (index, icon) => {
     this.setState({
       activeFilterIconKey: index,
+      activeIcon: icon,
     });
   };
 
@@ -71,7 +73,7 @@ class ComponentExample extends React.Component {
         </DropdownSelectFilter>
       </DropdownSelect>
       &nbsp;&nbsp;
-      <DropdownSelect wide label="Dropdown Select w/ Filter & Icon" type="primary" activeKey={this.state.activeFilterIconKey} select={this.updateActiveFilterIconKey}>
+      <DropdownSelect wide label="Dropdown Select w/ Filter & Icon" type="primary" icon={this.state.activeIcon} activeKey={this.state.activeFilterIconKey} select={this.updateActiveFilterIconKey}>
         <DropdownSelectFilter placeholder="Filter Icon">
           <DropdownMenuItem id={1} label="Cog" icon="cog" />
           <DropdownMenuItem id={2} label="Warning" icon="warning" />
