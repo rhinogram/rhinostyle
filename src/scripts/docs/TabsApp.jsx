@@ -1,20 +1,16 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Tabs, TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../components';
+import { TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../components';
 
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const tabsExample = require('raw!./examples/Tabs.example.txt');
-const tabsDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  select: '[Optional] - Include',
-};
+
 const exampleScope  = {
   React,
   ReactDOM,
-  Tabs,
   TabsContent,
   TabContentPane,
   NavTabs,
@@ -51,7 +47,7 @@ class TabsApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Tabs Playground</h3>
-          <Playground docClass={Tabs} propDescriptionMap={tabsDocs} codeText={tabsExample} scope={exampleScope} noRender={false} />
+          <Playground codeText={tabsExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
     );
@@ -59,3 +55,4 @@ class TabsApp extends React.Component {
 }
 
 ReactDOM.render(<TabsApp />, document.getElementById('js-app'));
+

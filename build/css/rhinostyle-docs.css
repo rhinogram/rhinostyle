@@ -244,23 +244,6 @@ body {
   letter-spacing: 0;
   line-height: 1.4;
 }
-b,
-strong {
-  font-weight: 900;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-p {
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
 figure {
   margin: 0;
 }
@@ -270,42 +253,11 @@ hr {
   margin-bottom: 2.24rem;
   margin-top: 2.24rem;
 }
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+img {
+  vertical-align: middle;
 }
 [tabindex='-1']:focus {
   outline: 0 !important;
-}
-a {
-  color: #0081c6;
-  /*.no-touch &:hover,
-  .no-touch &:focus {
-    color: @link-hover-color;
-    //text-decoration: @link-hover-decoration;
-  }*/
-  /*&:focus {
-    &:extend(.u-tab-focus);
-  }*/
-}
-a,
-a:hover,
-a:focus,
-a.active {
-  text-decoration: none;
-}
-a.disabled,
-a[disabled] {
-  box-shadow: none;
-  cursor: not-allowed;
-  opacity: .5;
-}
-img {
-  vertical-align: middle;
 }
 [role='button'] {
   cursor: pointer;
@@ -1137,6 +1089,34 @@ a.u-text-warning:hover,
   position: relative;
   top: 12%;
   width: 86%;
+}
+a {
+  color: #0081c6;
+  /*.no-touch &:hover,
+  .no-touch &:focus {
+    color: @link-hover-color;
+    //text-decoration: @link-hover-decoration;
+  }*/
+  /*&:focus {
+    &:extend(.u-tab-focus);
+  }*/
+}
+a,
+a:hover,
+a:focus,
+a.active {
+  text-decoration: none;
+}
+a.disabled,
+a[disabled] {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: .5;
+}
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 .btn {
   -ms-flex-align: center;
@@ -2764,6 +2744,13 @@ fieldset {
   min-width: 0;
   padding: 0;
 }
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
 label {
   color: #9f9f9f;
   display: inline-block;
@@ -3521,7 +3508,7 @@ fieldset[disabled] .rhinodio label {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
   padding-left: 0;
 }
 .nav-tabs--justified-auto .nav-tabs__item {
@@ -3751,6 +3738,7 @@ h6 {
   font-family: inherit;
   font-weight: 900;
   line-height: 1.1;
+  margin: 0 0 1.12rem;
 }
 h1 small,
 h2 small,
@@ -3837,6 +3825,10 @@ address {
   font-style: normal;
   line-height: 1.4;
   margin-bottom: 2.24rem;
+}
+b,
+strong {
+  font-weight: 900;
 }
 small {
   font-size: 87%;
@@ -4213,6 +4205,9 @@ html.navigation-is-locked .site-wrapper {
 .cm-s-monokai.CodeMirror {
   border: 1px solid #d2d2d2;
   color: #9f9f9f;
+}
+.CodeMirror-code {
+  font-size: 1.4rem;
 }
 /*.cm-s-monokai.CodeMirror {
   margin-bottom: @margin-half-gutter;

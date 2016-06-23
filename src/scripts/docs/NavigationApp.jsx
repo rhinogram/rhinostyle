@@ -60,7 +60,7 @@ class NavigationApp extends React.Component {
           <h3 className="site-subheadline">NavTab Modifiers</h3>
 
           <div className="u-m-b-md">
-            <h5 className="site-miniheadline">Justifed, Equal Width NavTabs</h5>
+            <h5 className="site-miniheadline">Justifed, Equal Width</h5>
             <p className="site-copy"><code>justified="equal"</code></p>
             <NavTabs activeKey={this.state.activeEqualKey} select={this.updateActiveEqualKey} justified="equal">
               <NavTabsItem id={1}>Tab One</NavTabsItem>
@@ -70,7 +70,7 @@ class NavigationApp extends React.Component {
           </div>
 
           <div className="u-m-b-md">
-            <h5 className="site-miniheadline">Justified, Auto Width NavTabs</h5>
+            <h5 className="site-miniheadline">Justified, Auto Width</h5>
             <p className="site-copy"><code>justified="auto"</code></p>
             <NavTabs activeKey={this.state.activeAutoKey} select={this.updateActiveAutoKey} justified="auto">
               <NavTabsItem id={1}>Tab One - With a Really Long Title</NavTabsItem>
