@@ -1,0 +1,11 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div>
+      	<p>This is a <span data-tooltip-top="Well hello there!">tooltip top</span>.</p>
+        <p>This is a <span data-tooltip-bottom="Well hello there!">tooltip bottom</span>.</p>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<ComponentExample />, mountNode);
