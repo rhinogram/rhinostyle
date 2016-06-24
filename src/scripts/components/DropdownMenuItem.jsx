@@ -47,6 +47,7 @@ class DropdownMenuItem extends React.Component {
       }
       returnVal = null;
     } else {
+      console.log('this clicking')
       returnVal = this.props.click();
     }
     return returnVal;
