@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownSelect, DropdownSelectFilter, Icon } from '../components';
+import { Dropdown, DropdownDocs, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownMultiSelectDocs, DropdownSelect, DropdownSelectDocs, DropdownSelectFilter, Icon } from '../components';
 
 import Playground from 'component-playground';
 
@@ -9,16 +9,51 @@ import Playground from 'component-playground';
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const dropdownSelectExample = require('raw!./examples/DropdownSelect.example.txt');
 const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
+
+const dropdownDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Text in dropdown when closed',
+  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
+  size: '[Optional] - Size of Dropdown - [small | large]',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
+
+const dropdownSelectDocs = {
+  activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Text in dropdown when closed',
+  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
+  size: '[Optional] - Size of Dropdown - [small | large]',
+  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
+
+const dropdownMultiSelectDocs = {
+  activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Text in dropdown when closed',
+  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
+  size: '[Optional] - Size of Dropdown - [small | large]',
+  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
+
 const exampleScope  = {
   React,
   ReactDOM,
   Dropdown,
+  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMenuScroll,
   DropdownMultiSelect,
+  DropdownMultiSelectDocs,
   DropdownSelect,
+  DropdownSelectDocs,
   DropdownSelectFilter,
   Icon,
 };
@@ -239,12 +274,12 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={dropdownExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Select</h3>
-      <Playground codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={DropdownSelectDocs} propDescriptionMap={dropdownSelectDocs} codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -253,7 +288,7 @@ const DropdownApp = () =>
         This dropdown and dropdown menu will always have 100% width. Selected items are shown as "pills" below the dropdown.
       </p>
 
-      <Playground codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={DropdownMultiSelectDocs} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

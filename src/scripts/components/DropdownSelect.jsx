@@ -139,4 +139,7 @@ class DropdownSelect extends React.Component {
   }
 }
 
+const DropdownSelectDocs = DropdownSelect;
+export { DropdownSelectDocs };
+
 export default onClickOutside(DropdownSelect);
