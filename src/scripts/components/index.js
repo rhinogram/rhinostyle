@@ -28,6 +28,9 @@ import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
+import { DropdownDocs } from './Dropdown';
+import { DropdownSelectDocs } from './DropdownSelect';
+import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
@@ -36,12 +39,15 @@ export {
   Checkbox,
   DatePicker,
   Dropdown,
+  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMultiSelect,
+  DropdownMultiSelectDocs,
   DropdownMenuScroll,
   DropdownSelect,
+  DropdownSelectDocs,
   DropdownSelectFilter,
   Icon,
   Input,

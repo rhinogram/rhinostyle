@@ -53,6 +53,19 @@ const textareaScope = {
   Textarea,
 };
 
+const checkboxExample = require('raw!./examples/Checkbox.example.txt');
+const checkboxDocs  = {
+  inline:    '[Optional] - Inline the checkboxes',
+  isChecked: '[Optional] - Set initial checked state',
+  name:      '[Required] - An id, and label for the checkbox',
+  onClick:   '[Optional] - Any initial value for the textarea',
+};
+const checkboxScope = {
+  React,
+  ReactDOM,
+  Checkbox,
+};
+
 const FormApp = () =>
   <div>
     <h1 className="site-headline">Forms</h1>
@@ -187,6 +200,11 @@ const FormApp = () =>
         <Checkbox inline isChecked name="exampleCheckbox22">Checkbox Two</Checkbox>
         <Checkbox inline isChecked name="exampleCheckbox23">Checkbox Three</Checkbox>
       </div>
+    </section>
+
+    <section>
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground docClass={Checkbox} propDescriptionMap={checkboxDocs} codeText={checkboxExample} scope={checkboxScope} noRender={false} />
     </section>
 
     <section className="site-section">

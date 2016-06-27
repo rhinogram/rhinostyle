@@ -8,6 +8,7 @@ class DropdownSelectFilter extends React.Component {
   static propTypes = {
     activeKey:    React.PropTypes.number,
     children:     React.PropTypes.node,
+    icon:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     select:       React.PropTypes.func,
   };
@@ -17,7 +18,6 @@ class DropdownSelectFilter extends React.Component {
   };
 
   state = {
-    query: '',
     results: this.props.children,
   };
 
@@ -25,22 +25,18 @@ class DropdownSelectFilter extends React.Component {
     this.setState({
       results: this.getChildren(),
     });
+
+    this.filterInput.value = '';
   }
 
   getChildren = () => {
     const results = [];
-    let children = null;
-
-    if (this.state && this.state.query) {
-      children = this.state.results;
-    } else {
-      children = this.props.children;
-    }
+    const children = this.props.children;
 
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
         results.push(React.cloneElement(child, {
-          click: () => this.props.select(child.props.id),
+          click: () => this.props.select(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
           key: child.props.id,
         }));
@@ -57,11 +53,11 @@ class DropdownSelectFilter extends React.Component {
 
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
-        const searchText = child.props.children;
+        const searchText = child.props.label;
 
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           results.push(React.cloneElement(child, {
-            click: () => this.props.select(child.props.id),
+            click: () => this.props.select(child.props.id, child.props.icon),
             active: child.props.id === this.props.activeKey,
             key: child.props.id,
           }));
@@ -72,7 +68,6 @@ class DropdownSelectFilter extends React.Component {
     });
 
     this.setState({
-      query,
       results,
     });
   }
@@ -83,7 +78,8 @@ class DropdownSelectFilter extends React.Component {
     return (
       <div>
         <div className="dropdown__menu__container">
-          <input type="text" className="form__control" id="exampleInputDropdown" placeholder={placeholder} onChange={this.handleFilter} />
+          {/* eslint no-return-assign:0 */}
+          <input type="text" className="form__control" ref={(ref) => this.filterInput = ref} placeholder={placeholder} onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {this.state.results}
