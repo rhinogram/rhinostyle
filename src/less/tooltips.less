@@ -6,20 +6,21 @@
 // Tooltip
 // -------------------------
 
-/*[attr*="data-tooltip-"] {
-  color: red !important;
-}*/
 
 [data-tooltip-bottom],
 [data-tooltip-left],
 [data-tooltip-right],
 [data-tooltip-top] {
-  background: linear-gradient(90deg, @color-gray 50%, transparent 0) repeat-x;
-  background-position: 0 bottom;
-  background-size: .4rem 1px;
   cursor: pointer;
   position: relative;
 
+  // dotted underline
+  &:not(a)&:not(.btn) {
+    background: linear-gradient(90deg, @text-color 50%, transparent 0) repeat-x;
+    background-position: 0 bottom;
+    background-size: .4rem 1px;
+  }
+  
   &::before {
     background-color: @color-gray-dark;
     border-radius: @border-radius-base;

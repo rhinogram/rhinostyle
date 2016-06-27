@@ -1748,7 +1748,7 @@ button.close {
 .react-datepicker__day:hover {
   background-color: #ececec;
 }
-.react-datepicker__day--today {
+.react-datepicker__day--today:not(.react-datepicker__day--selected) {
   box-shadow: inset 0 0 0 1px #ffa573;
 }
 .react-datepicker__day--selected,
@@ -3729,18 +3729,32 @@ button.toast__close {
 .toast__link:hover {
   text-decoration: underline;
 }
-/*[attr*="data-tooltip-"] {
-  color: red !important;
-}*/
 [data-tooltip-bottom],
 [data-tooltip-left],
 [data-tooltip-right],
 [data-tooltip-top] {
-  background: linear-gradient(90deg, #9f9f9f 50%, transparent 0) repeat-x;
-  background-position: 0 bottom;
-  background-size: .4rem 1px;
   cursor: pointer;
   position: relative;
+}
+[data-tooltip-bottom]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-bottom]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-bottom]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-bottom]:not(a)[data-tooltip-top]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-top]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-top]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-top]:not(.btn) {
+  background: linear-gradient(90deg, #6c6c6c 50%, transparent 0) repeat-x;
+  background-position: 0 bottom;
+  background-size: .4rem 1px;
 }
 [data-tooltip-bottom]::before,
 [data-tooltip-left]::before,
@@ -4276,6 +4290,7 @@ html.navigation-is-locked .site-wrapper {
   text-align: center;
 }
 .site-wrapper {
+  backface-visibility: hidden;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
