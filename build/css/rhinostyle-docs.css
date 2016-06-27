@@ -1748,7 +1748,7 @@ button.close {
 .react-datepicker__day:hover {
   background-color: #ececec;
 }
-.react-datepicker__day--today {
+.react-datepicker__day--today:not(.react-datepicker__day--selected) {
   box-shadow: inset 0 0 0 1px #ffa573;
 }
 .react-datepicker__day--selected,
@@ -3564,6 +3564,7 @@ fieldset[disabled] .rhinodio label {
 .nav-tabs__item__link {
   -ms-flex-align: center;
   align-items: center;
+  color: #0081c6;
   display: -ms-flexbox;
   display: flex;
   -ms-flex: 1 1 auto;
@@ -3727,6 +3728,131 @@ button.toast__close {
 }
 .toast__link:hover {
   text-decoration: underline;
+}
+[data-tooltip-bottom],
+[data-tooltip-left],
+[data-tooltip-right],
+[data-tooltip-top] {
+  cursor: pointer;
+  position: relative;
+}
+[data-tooltip-bottom]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-bottom]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-bottom]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-bottom]:not(a)[data-tooltip-top]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-left]:not(a)[data-tooltip-top]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-right]:not(a)[data-tooltip-top]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-bottom]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-left]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-right]:not(.btn),
+[data-tooltip-top]:not(a)[data-tooltip-top]:not(.btn) {
+  background: linear-gradient(90deg, #6c6c6c 50%, transparent 0) repeat-x;
+  background-position: 0 bottom;
+  background-size: .4rem 1px;
+}
+[data-tooltip-bottom]::before,
+[data-tooltip-left]::before,
+[data-tooltip-right]::before,
+[data-tooltip-top]::before {
+  background-color: #6c6c6c;
+  border-radius: 0.4rem;
+  color: white;
+  font-size: 1.4rem;
+  line-height: 1;
+  opacity: 0;
+  padding: 0.4rem 0.6rem;
+  position: absolute;
+  text-align: center;
+  transition: opacity 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  visibility: hidden;
+  white-space: nowrap;
+}
+[data-tooltip-bottom]::after,
+[data-tooltip-left]::after,
+[data-tooltip-right]::after,
+[data-tooltip-top]::after {
+  border-bottom: .6rem solid transparent;
+  border-left: .6rem solid transparent;
+  border-right: .6rem solid transparent;
+  border-top: 0.6rem solid #6c6c6c;
+  content: '';
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  visibility: hidden;
+  width: 0;
+}
+[data-tooltip-bottom]:hover,
+[data-tooltip-left]:hover,
+[data-tooltip-right]:hover,
+[data-tooltip-top]:hover {
+  z-index: 1070;
+}
+[data-tooltip-bottom]:hover::before,
+[data-tooltip-left]:hover::before,
+[data-tooltip-right]:hover::before,
+[data-tooltip-top]:hover::before,
+[data-tooltip-bottom]:hover::after,
+[data-tooltip-left]:hover::after,
+[data-tooltip-right]:hover::after,
+[data-tooltip-top]:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+[data-tooltip-bottom]::before,
+[data-tooltip-top]::before {
+  left: 50%;
+}
+[data-tooltip-bottom]::after,
+[data-tooltip-top]::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+[data-tooltip-bottom]::before {
+  content: attr(data-tooltip-bottom);
+  top: 100%;
+  transform: translate(-50%, 0.6rem);
+}
+[data-tooltip-bottom]::after {
+  bottom: -0.6rem;
+  transform: translateX(-50%) rotate(180deg);
+}
+[data-tooltip-top]::before {
+  bottom: 100%;
+  content: attr(data-tooltip-top);
+  transform: translate(-50%, -0.6rem);
+}
+[data-tooltip-top]::after {
+  top: -0.6rem;
+}
+[data-tooltip-left]::before {
+  content: attr(data-tooltip-left);
+  right: 100%;
+  top: 50%;
+  transform: translate(-0.8rem, -50%);
+}
+[data-tooltip-left]::after {
+  left: -0.8rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+[data-tooltip-right]::before {
+  content: attr(data-tooltip-right);
+  left: 100%;
+  top: 50%;
+  transform: translate(0.8rem, -50%);
+}
+[data-tooltip-right]::after {
+  right: -0.8rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
 }
 h1,
 h2,
@@ -4164,6 +4290,7 @@ html.navigation-is-locked .site-wrapper {
   text-align: center;
 }
 .site-wrapper {
+  backface-visibility: hidden;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
