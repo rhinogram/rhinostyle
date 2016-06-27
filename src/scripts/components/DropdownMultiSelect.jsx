@@ -2,13 +2,14 @@ import React from 'react';
 import cx from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuHeader from './DropdownMenuHeader';
+import DropdownMenuScroll from './DropdownMenuScroll';
 import Pill from './Pill';
 
 class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
-    activeKey:    React.PropTypes.number,
     activeKeys:   React.PropTypes.arrayOf(React.PropTypes.number),
     children:     React.PropTypes.node,
     className:    React.PropTypes.string,
@@ -33,11 +34,18 @@ class DropdownMultiSelect extends React.Component {
   };
 
   componentWillMount() {
-    console.log('receive props');
     this.setState({
       results: this.getChildren(),
     });
-    //this.filterInput.value = '';
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      isOpen: false,
+      results: this.getChildren(),
+    });
+
+    this.filterInput.value = '';
   }
 
   getChildren = () => {
@@ -78,8 +86,6 @@ class DropdownMultiSelect extends React.Component {
             key: child.props.id,
           }));
         }
-      } else {
-        results.push(child);
       }
     });
 
@@ -89,7 +95,12 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleClickOutside = () => {
-    this.setState({ isOpen: false });
+    this.setState({
+      isOpen: false,
+      results: this.getChildren(),
+    });
+
+    this.filterInput.value = '';
   }
 
   handleRemovePill = (id) => {
@@ -103,7 +114,6 @@ class DropdownMultiSelect extends React.Component {
   }
 
   render() {
-    console.log(this.state.activeKeys)
     const { disabled, placeholder, position, children } = this.props;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
@@ -131,16 +141,19 @@ class DropdownMultiSelect extends React.Component {
       });
 
       return (
-        <Pill label={label} onClick={() => this.handleRemovePill(pill)} key={pill} />
+        <Pill label={label} onClick={() => this.handleRemovePill(pill)} key={pill} className="u-m-r-sm" />
       );
     };
 
     return (
       <span>
         <div className={dropdownClasses}>
-          <input onClick={this.handleToggle} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
+          {/* eslint no-return-assign:0 */}
+          <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <ul className={dropdownMenuClasses}>
-            {this.state.results}
+            <DropdownMenuScroll>
+              {this.state.results.length > 0 ? this.state.results : <DropdownMenuHeader>No results</DropdownMenuHeader>}
+            </DropdownMenuScroll>
           </ul>
         </div>
         <div>

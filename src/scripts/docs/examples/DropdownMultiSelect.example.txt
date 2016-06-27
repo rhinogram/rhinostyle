@@ -1,11 +1,9 @@
 class ComponentExample extends React.Component {
   state = {
-    activeKey: null,
     activeKeys: [],
   };
 
   updateActiveKeys = (index) => {
-  console.log('updating', index)
     this.setState({
       activeKey: index,
     });
