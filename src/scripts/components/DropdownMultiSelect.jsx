@@ -8,6 +8,7 @@ class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
+    activeKey:    React.PropTypes.number,
     activeKeys:   React.PropTypes.arrayOf(React.PropTypes.number),
     children:     React.PropTypes.node,
     className:    React.PropTypes.string,
@@ -26,8 +27,8 @@ class DropdownMultiSelect extends React.Component {
   };
 
   state = {
-    isOpen: false,
     activeKeys: [],
+    isOpen: false,
     results: this.props.children,
   };
 
@@ -72,7 +73,7 @@ class DropdownMultiSelect extends React.Component {
 
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           results.push(React.cloneElement(child, {
-            click: () => this.props.select(child.props.id),
+            click: () => this.props.select(this.state.activeKeys.push(child.props.id)),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
@@ -92,18 +93,18 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleRemovePill = (id) => {
-//    console.log('removing', id);
-    const index = this.state.activeKeys.indexOf(id);
-    const items = this.state.activeKeys.splice(index, 1);
-    console.log('activekeys', this.state.activeKeys, items);
+    const currentKeys = this.state.activeKeys;
+    const index = currentKeys.indexOf(id);
+    currentKeys.splice(index, 1);
+
     this.setState({
-      activeKeys: items,
+      activeKeys: currentKeys,
     });
   }
 
   render() {
     console.log(this.state.activeKeys)
-    const { disabled, placeholder, position } = this.props;
+    const { disabled, placeholder, position, children } = this.props;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       open:  this.state.isOpen,
@@ -120,9 +121,17 @@ class DropdownMultiSelect extends React.Component {
     });
 
     const renderPill = (pill) => {
-    //  console.log('rendering', pill)
+      let label = '';
+
+      // Figure out label
+      React.Children.forEach(children, child => {
+        if (child.type === DropdownMenuItem && child.props.id === pill) {
+          label = child.props.label;
+        }
+      });
+
       return (
-        <Pill label="Ben" onClick={() => this.handleRemovePill(pill)} />
+        <Pill label={label} onClick={() => this.handleRemovePill(pill)} key={pill} />
       );
     };
 
