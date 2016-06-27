@@ -17,6 +17,7 @@ class ModalHeader extends React.Component {
     return (
       <div>
         <div className={classes}>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           {this.props.children}
         </div>
       </div>

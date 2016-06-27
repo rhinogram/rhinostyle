@@ -20,11 +20,15 @@ class Modal extends React.Component {
 
     const modalClasses = cx('modal', className);
 
+    const containerClasses = cx('modal__container', className);
+
     return (
       <div>
         <div className={siteModalClasses}>
           <div className={modalClasses}>
-            {this.props.children}
+            <div className={containerClasses}>
+              {this.props.children}
+            </div>
           </div>
         </div>
       </div>

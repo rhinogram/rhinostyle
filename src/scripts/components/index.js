@@ -23,6 +23,7 @@ import ModalContainer       from './ModalContainer';
 import ModalContent         from './ModalContent';
 import ModalFooter          from './ModalFooter';
 import ModalHeader          from './ModalHeader';
+import ModalHeaderTitle     from './ModalHeaderTitle';
 import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
@@ -62,6 +63,7 @@ export {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  ModalHeaderTitle,
   NavTabs,
   NavTabsItem,
   NotificationActions,
