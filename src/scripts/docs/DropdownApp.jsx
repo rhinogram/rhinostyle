@@ -237,7 +237,7 @@ const DropdownApp = () =>
 
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Wide</h5>
-        <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value.</p>
+        <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.</p>
         <Dropdown label="Dropdown Wide" wide>
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
