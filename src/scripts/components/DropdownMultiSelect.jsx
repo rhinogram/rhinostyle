@@ -10,6 +10,7 @@ class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
+    activeKeys:   React.PropTypes.arrayOf(React.PropTypes.number),
     children:     React.PropTypes.node,
     className:    React.PropTypes.string,
     disabled:     React.PropTypes.bool,
@@ -26,7 +27,6 @@ class DropdownMultiSelect extends React.Component {
   };
 
   state = {
-    activeKeys: [],
     isOpen: false,
     results: this.props.children,
   };
@@ -47,10 +47,9 @@ class DropdownMultiSelect extends React.Component {
 
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
-        console.log('getChildren', this.state.activeKeys, child.props.id)
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(this.state.activeKeys.push(child.props.id)),
-          active: this.state.activeKeys.indexOf(child.props.id) > -1,
+          click: () => this.props.select(child.props.id),
+          active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
         returnChild = child;
@@ -85,11 +84,10 @@ class DropdownMultiSelect extends React.Component {
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
-        console.log('handleFilter', child.props.id)
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           results.push(React.cloneElement(child, {
-            click: () => this.props.select(this.state.activeKeys.push(child.props.id)),
-            active: this.state.activeKeys.indexOf(child.props.id) > -1,
+            click: () => this.props.select(child.props.id),
+            active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
         }
@@ -103,16 +101,6 @@ class DropdownMultiSelect extends React.Component {
 
   handleClickOutside = () => {
     this.clearInput();
-  }
-
-  handleRemovePill = (id) => {
-    const currentKeys = this.state.activeKeys;
-    const index = currentKeys.indexOf(id);
-    currentKeys.splice(index, 1);
-
-    this.setState({
-      activeKeys: currentKeys,
-    });
   }
 
   render() {
@@ -143,7 +131,7 @@ class DropdownMultiSelect extends React.Component {
       });
 
       return (
-        <Pill label={label} onClick={() => this.handleRemovePill(id)} key={id} className="u-m-r-sm" />
+        <Pill label={label} onClick={() => this.props.select(id)} key={id} className="u-m-r-sm" />
       );
     };
 
@@ -159,7 +147,7 @@ class DropdownMultiSelect extends React.Component {
           </ul>
         </div>
         <div>
-          {this.state.activeKeys.map(renderPill)}
+          {this.props.activeKeys.map(renderPill)}
         </div>
       </span>
     );
