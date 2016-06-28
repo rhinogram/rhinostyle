@@ -32,11 +32,13 @@ class DropdownSelect extends React.Component {
 
   state = {
     isOpen: false,
+    activeKey: this.props.activeKey,
+    items: null,
   };
 
-  componentWillReceiveProps() {
+  componentWillMount() {
     this.setState({
-      isOpen: false,
+      items: this.getChildren(),
     });
   }
 
@@ -46,9 +48,20 @@ class DropdownSelect extends React.Component {
 
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
+        const click = () => {
+          if (this.props.select && typeof(this.props.select === 'function')) {
+            this.updateActiveKey(child.props.id, child.props.icon);
+            this.props.select(child.props.id, child.props.icon);
+          } else {
+            this.updateActiveKey(child.props.id, child.props.icon);
+          }
+
+          this.handleToggle();
+        };
+
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(child.props.id, child.props.icon),
-          active: child.props.id === this.props.activeKey,
+          click,
+          active: child.props.id === this.state.activeKey,
         });
       } else if (child.type === DropdownSelectFilter) {
         returnChild = React.cloneElement(child, {
@@ -64,16 +77,27 @@ class DropdownSelect extends React.Component {
     });
   }
 
-  _handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  handleToggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+      items: this.getChildren(),
+    });
   };
 
   handleClickOutside = () => {
     this.setState({ isOpen: false });
   }
 
+  updateActiveKey = (index) => {
+    this.setState({
+      activeKey: index,
+    });
+  }
+
   render() {
-    const { activeKey, block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const { block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const activeKey = this.state.activeKey;
+    const items = this.state.items;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
@@ -124,12 +148,12 @@ class DropdownSelect extends React.Component {
 
     return (
       <div className={dropdownClasses}>
-        <div onClick={this._handleToggle} className={dropdownToggleClasses} type="button">
+        <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
           {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="u-text-overflow">{selectedLabel || label}</span>
           <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>
         </div>
         <ul className={dropdownMenuClasses}>
-          {this.getChildren()}
+          {items}
         </ul>
       </div>
     );

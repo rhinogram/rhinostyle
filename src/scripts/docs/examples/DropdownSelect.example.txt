@@ -1,6 +1,5 @@
 class ComponentExample extends React.Component {
   state = {
-    activeKey: null,
     activeFilterKey: null,
     activeFilterAvatarKey: null,
     activeFilterIconKey: null,
@@ -8,9 +7,7 @@ class ComponentExample extends React.Component {
   };
 
   updateActiveKey = (index) => {
-    this.setState({
-      activeKey: index,
-    });
+    console.log('Run callback function here', index);
   };
 
   updateActiveFilterKey = (index) => {
@@ -35,7 +32,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <DropdownSelect label="Dropdown Select" type="primary-outline" activeKey={this.state.activeKey} select={this.updateActiveKey}>
+      <DropdownSelect label="Dropdown Select" type="primary-outline" select={this.updateActiveKey}>
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
         <DropdownMenuItem id={1} label="Item" />
         <DropdownMenuItem id={2} label="Another item" />
