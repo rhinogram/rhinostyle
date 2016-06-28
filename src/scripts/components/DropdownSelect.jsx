@@ -9,7 +9,6 @@ class DropdownSelect extends React.Component {
   static displayName = 'RhinoDropdownSelect';
 
   static propTypes = {
-    active:    React.PropTypes.bool,
     activeKey: React.PropTypes.number,
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
@@ -25,7 +24,6 @@ class DropdownSelect extends React.Component {
   };
 
   static defaultProps = {
-    active:   false,
     block:    false,
     disabled: false,
     type:     'default',
@@ -75,7 +73,7 @@ class DropdownSelect extends React.Component {
   }
 
   render() {
-    const { active, activeKey, block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const { activeKey, block, className, disabled, icon, label, position, size, type, wide } = this.props;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
@@ -92,7 +90,6 @@ class DropdownSelect extends React.Component {
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),
-      'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
     });
 

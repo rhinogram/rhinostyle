@@ -2,6 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuHeader from './DropdownMenuHeader';
+import DropdownMenuScroll from './DropdownMenuScroll';
 import Pill from './Pill';
 
 class DropdownMultiSelect extends React.Component {
@@ -19,7 +21,6 @@ class DropdownMultiSelect extends React.Component {
   };
 
   static defaultProps = {
-    activeKeys:   [],
     disabled:     false,
     placeholder:  'Click or type to select more ...',
     type:         'default',
@@ -27,16 +28,17 @@ class DropdownMultiSelect extends React.Component {
 
   state = {
     isOpen: false,
-    activeKeys: [],
     results: this.props.children,
   };
 
   componentWillMount() {
-    console.log('receive props');
     this.setState({
       results: this.getChildren(),
     });
-    //this.filterInput.value = '';
+  }
+
+  componentWillReceiveProps() {
+    this.clearInput();
   }
 
   getChildren = () => {
@@ -46,7 +48,7 @@ class DropdownMultiSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(this.state.activeKeys.push(child.props.id)),
+          click: () => this.props.select(child.props.id),
           active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -57,8 +59,21 @@ class DropdownMultiSelect extends React.Component {
     });
   }
 
+  clearInput = () => {
+    this.setState({
+      isOpen: false,
+    });
+
+    this.filterInput.value = '';
+  }
+
   handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+    this.setState({
+      isOpen: !this.state.isOpen,
+      results: this.getChildren(),
+    });
+
+    this.filterInput.value = '';
   };
 
   handleFilter = (e) => {
@@ -69,7 +84,6 @@ class DropdownMultiSelect extends React.Component {
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
-
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           results.push(React.cloneElement(child, {
             click: () => this.props.select(child.props.id),
@@ -77,8 +91,6 @@ class DropdownMultiSelect extends React.Component {
             key: child.props.id,
           }));
         }
-      } else {
-        results.push(child);
       }
     });
 
@@ -88,22 +100,11 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleClickOutside = () => {
-    this.setState({ isOpen: false });
-  }
-
-  handleRemovePill = (id) => {
-//    console.log('removing', id);
-    const index = this.state.activeKeys.indexOf(id);
-    const items = this.state.activeKeys.splice(index, 1);
-    console.log('activekeys', this.state.activeKeys, items);
-    this.setState({
-      activeKeys: items,
-    });
+    this.clearInput();
   }
 
   render() {
-    console.log(this.state.activeKeys)
-    const { disabled, placeholder, position } = this.props;
+    const { disabled, placeholder, position, children } = this.props;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       open:  this.state.isOpen,
@@ -119,23 +120,34 @@ class DropdownMultiSelect extends React.Component {
       'dropdown__menu--top dropdown__menu--right': position === 'top-right',
     });
 
-    const renderPill = (pill) => {
-    //  console.log('rendering', pill)
+    const renderPill = (id) => {
+      let label = '';
+
+      // Figure out label
+      React.Children.forEach(children, child => {
+        if (child.type === DropdownMenuItem && child.props.id === id) {
+          label = child.props.label;
+        }
+      });
+
       return (
-        <Pill label="Ben" onClick={() => this.handleRemovePill(pill)} />
+        <Pill label={label} onClick={() => this.props.select(id)} key={id} className="u-m-r-sm" />
       );
     };
 
     return (
       <span>
         <div className={dropdownClasses}>
-          <input onClick={this.handleToggle} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
+          {/* eslint no-return-assign:0 */}
+          <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <ul className={dropdownMenuClasses}>
-            {this.state.results}
+            <DropdownMenuScroll>
+              {this.state.results.length > 0 ? this.state.results : <DropdownMenuHeader>No results</DropdownMenuHeader>}
+            </DropdownMenuScroll>
           </ul>
         </div>
         <div>
-          {this.state.activeKeys.map(renderPill)}
+          {this.props.activeKeys.map(renderPill)}
         </div>
       </span>
     );
