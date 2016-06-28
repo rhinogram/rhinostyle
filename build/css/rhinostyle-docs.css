@@ -1156,7 +1156,7 @@ button {
 .btn:active,
 .btn.active {
   background-image: none;
-  box-shadow: inset 0 0.35rem 0.5rem rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
   outline: 0;
 }
 .btn.disabled,
@@ -1244,23 +1244,23 @@ fieldset[disabled] .btn--danger.active {
   color: #cc2d32;
 }
 .btn--default {
-  background-color: #f9f9f9;
+  background-color: #fff;
   border-color: #c5c5c5;
   color: #6c6c6c;
 }
 .btn--default:focus {
-  background-color: #eaeaea;
-  border-color: #b6b6b6;
+  background-color: #f5f5f5;
+  border-color: #bbbbbb;
 }
 .btn--default:hover {
-  background-color: #eaeaea;
-  border-color: #b6b6b6;
+  background-color: #f5f5f5;
+  border-color: #bbbbbb;
 }
 .btn--default:active,
 .btn--default.active,
 .open > .dropdown__toggle.btn--default {
-  background-color: #eaeaea;
-  border-color: #b6b6b6;
+  background-color: #f5f5f5;
+  border-color: #bbbbbb;
 }
 .btn--default:active:hover,
 .btn--default.active:hover,
@@ -1268,8 +1268,8 @@ fieldset[disabled] .btn--danger.active {
 .btn--default:active:focus,
 .btn--default.active:focus,
 .open > .dropdown__toggle.btn--default:focus {
-  background-color: #eaeaea;
-  border-color: #b6b6b6;
+  background-color: #f5f5f5;
+  border-color: #bbbbbb;
 }
 .btn--default:active,
 .btn--default.active,
@@ -1291,15 +1291,15 @@ fieldset[disabled] .btn--default:active,
 .btn--default.disabled.active,
 .btn--default[disabled].active,
 fieldset[disabled] .btn--default.active {
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 .btn--default .badge {
   background-color: #6c6c6c;
-  color: #f9f9f9;
+  color: #fff;
 }
 .btn--default-outline {
   background-color: transparent;
-  border-color: #6c6c6c;
+  border-color: #c5c5c5;
   color: #6c6c6c;
 }
 .btn--default-outline:hover,
@@ -1308,7 +1308,8 @@ fieldset[disabled] .btn--default.active {
 .btn--default-outline:active,
 .btn--default-outline.active,
 .open > .dropdown__toggle.btn--default-outline {
-  background-color: #6c6c6c;
+  background-color: #868686;
+  border-color: #868686;
   color: #fff;
 }
 .btn--default-outline:active,
@@ -1407,6 +1408,7 @@ fieldset[disabled] .btn--primary.active {
 .btn--primary-outline.active,
 .open > .dropdown__toggle.btn--primary-outline {
   background-color: #0081c6;
+  border-color: #0081c6;
   color: #fff;
 }
 .btn--primary-outline:active,
