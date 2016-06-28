@@ -3395,7 +3395,7 @@ fieldset[disabled] .rhinodio label {
 }
 .msg {
   border-radius: 0.4rem;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
   display: inline-block;
   line-height: 1.2;
   padding: 1rem;
@@ -3419,7 +3419,7 @@ fieldset[disabled] .rhinodio label {
 }
 .msg--primary {
   background: #0081c6;
-  box-shadow: 0 2px 2px #005989;
+  box-shadow: 0 2px 2px #00669d;
   color: #fff;
 }
 .msg--primary a {
@@ -3432,7 +3432,7 @@ fieldset[disabled] .rhinodio label {
   border: inherit;
   border-bottom: 0;
   border-right: 0;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.15);
   content: '';
   padding: .6rem;
   position: absolute;
@@ -3440,7 +3440,7 @@ fieldset[disabled] .rhinodio label {
 }
 .msg--from.msg--primary::before,
 .msg--to.msg--primary::before {
-  box-shadow: 0 2px 2px -2px #00456a;
+  box-shadow: 0 2px 2px -2px #00669d;
 }
 .msg--from::before {
   right: -0.5rem;
