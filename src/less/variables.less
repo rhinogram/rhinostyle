@@ -86,10 +86,10 @@
 
 @btn-default-color:              @text-color;
 @btn-default-bg:                 @color-gray-lightest;
-@btn-default-border:             @color-gray-light;
+@btn-default-border:             @border-color-base;
 
 @btn-default-outline-color:      @text-color;
-@btn-default-outline-bg:         @color-gray-lighter;
+@btn-default-outline-bg:         transparent;
 @btn-default-outline-border:     @text-color;
 
 @btn-info-color:                 @color-white;
@@ -99,6 +99,10 @@
 @btn-primary-color:              @color-white;
 @btn-primary-bg:                 @color-primary;
 @btn-primary-border:             @color-primary;
+
+@btn-primary-outline-color:      @color-primary;
+@btn-primary-outline-bg:         transparent;
+@btn-primary-outline-border:     @color-primary;
 
 @btn-secondary-color:            @color-white;
 @btn-secondary-bg:               @color-secondary;
@@ -144,7 +148,8 @@
 @color-gray-darker:         #404040;
 @color-gray-dark:           #6c6c6c;
 @color-gray:                #9f9f9f;
-@color-gray-light:          #d2d2d2;
+//@color-gray-light:          #d2d2d2;
+@color-gray-light:          #c5c5c5;
 @color-gray-lighter:        #ececec;
 @color-gray-lightest:       #f9f9f9;
 @color-white:               #fff;
@@ -157,7 +162,7 @@
 
 // fine-tune component padding
 @padding-gutter:            @grid-gutter-width;
-@padding-half-gutter:       @grid-gutter-width / 2; // 15px
+@padding-half-gutter:       @grid-gutter-width / 2; // 16px
 @padding-xlarge:            1.4rem;
 @padding-large:             1.2rem;
 @padding-medium:            1.0rem;
@@ -167,7 +172,7 @@
 
 // fine-tune component margin
 @margin-gutter:             @grid-gutter-width;
-@margin-half-gutter:        @grid-gutter-width / 2; // 15px
+@margin-half-gutter:        @grid-gutter-width / 2; // 16px
 @margin-xlarge:             1.4rem;
 @margin-large:              1.2rem;
 @margin-medium:             1.0rem;
@@ -339,6 +344,7 @@
 // -------------------------
 
 @msg-border-radius:           @border-radius-base;
+@msg-line-height:             @line-height-small;
 @msg-padding:                 @padding-medium;
 
 
@@ -695,7 +701,7 @@
 @headings-color:          inherit;
 
 @line-height-base:        1.4;
-@line-height-computed:    @font-size-base * @line-height-base; // ~20px
+@line-height-computed:    @font-size-base * @line-height-base; // ~22px
 @line-height-large:       1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:       1.2;
 

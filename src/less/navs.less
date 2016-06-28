@@ -11,7 +11,7 @@
   border-bottom: 1px solid @border-color-base;
   display: flex;
   list-style: none;
-  margin-bottom: @margin-large;
+  margin-bottom: @margin-half-gutter;
   padding-left: 0;
 }
 
@@ -35,14 +35,18 @@
 
 
 .nav-tabs__item { // lesshint depthLevel: false
+
+  //transform: translate3d(0, 0, 0);
+  //backface-visibility: hidden;
+  //transform-style: preserve-3d;
+
   cursor: pointer;
   display: flex;
-  //flex: 1 1 auto;
   margin-bottom: -1px; // align with .nav-tabs border-bottom
   margin-right: -1px;
   position: relative;
 
-
+  // left and right tab borders
   &::after,
   &::before {
     border-color: @border-color-base;
@@ -91,7 +95,13 @@
 
 
 .nav-tabs__item__link {
+
+  //transform: translate3d(0, 0, 0);
+  //backface-visibility: hidden;
+  //transform-style: preserve-3d;
+
   align-items: center;
+  color: @link-color;
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
@@ -99,8 +109,6 @@
   padding: @nav-link-padding;
   position: relative;
   text-align: center;
-
-  //width: 100%;
 
   .nav-tabs__item.active & {
     color: @text-color;

@@ -36,12 +36,10 @@ class DropdownSelect extends React.Component {
     isOpen: false,
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.activeKey !== this.props.activeKey) {
-      this.setState({
-        isOpen: false,
-      });
-    }
+  componentWillReceiveProps() {
+    this.setState({
+      isOpen: false,
+    });
   }
 
   getChildren = () => {
@@ -51,13 +49,14 @@ class DropdownSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(child.props.id),
+          click: () => this.props.select(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
         });
       } else if (child.type === DropdownSelectFilter) {
         returnChild = React.cloneElement(child, {
           select: this.props.select,
           activeKey: this.props.activeKey,
+          icon: this.props.icon,
         });
       } else {
         returnChild = child;
@@ -107,17 +106,18 @@ class DropdownSelect extends React.Component {
     const caretDirection = (position === 'top' || position === 'top-right') ? '#icon-chevron-up' : '#icon-chevron-down';
 
     let selectedLabel = null;
+
     if (activeKey) {
       React.Children.forEach(this.props.children, child => {
         if (child.type === DropdownMenuItem) {
           if (child.props.id === activeKey) {
-            selectedLabel = child.props.children;
+            selectedLabel = child.props.label;
           }
         } else if (child.type === DropdownSelectFilter) {
           React.Children.forEach(child.props.children, filterChild => {
             if (filterChild.type === DropdownMenuItem) {
               if (filterChild.props.id === activeKey) {
-                selectedLabel = filterChild.props.children;
+                selectedLabel = filterChild.props.label;
               }
             }
           });
@@ -138,5 +138,8 @@ class DropdownSelect extends React.Component {
     );
   }
 }
+
+const DropdownSelectDocs = DropdownSelect;
+export { DropdownSelectDocs };
 
 export default onClickOutside(DropdownSelect);

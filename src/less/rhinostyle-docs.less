@@ -26,6 +26,13 @@ pre {
 }
 
 
+
+@zindex-site-navigation:    1036;
+@zindex-site-overlay:       1034;
+@site-navigation-bg:        @color-secondary;
+@site-navigation-width:     24rem;
+
+
 // -------------------------
 // Site Content
 // -------------------------
@@ -296,12 +303,6 @@ pre {
 // -------------------------
 
 
-@zindex-site-navigation:    1036;
-@zindex-site-overlay:       1034;
-@site-navigation-bg:        @color-secondary;
-@site-navigation-width:     24rem;
-
-
 .site-navigation {
   -webkit-overflow-scrolling: touch;
   background-color: @site-navigation-bg;
@@ -509,10 +510,13 @@ html.navigation-is-locked {
 
 
 .site-wrapper {
+  backface-visibility: hidden; // fix primary color change bug
+  //background: @color-gray-lightest;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   transition: transform 250ms @trans-timing-cubic;
+  
   /*
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load
@@ -563,6 +567,10 @@ html.navigation-is-locked {
   //background: @color-gray-lightest;
   border: 1px solid @border-color-base;
   color: @color-gray;
+}
+
+.CodeMirror-code {
+  font-size: 1.4rem;
 }
 
 /*.cm-s-monokai.CodeMirror {

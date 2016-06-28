@@ -1,71 +1,72 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { NotificationActions, Button, Icon, Input, Modal, ModalContainer, ModalContent, ModalHeader, ModalHeaderTitle, ModalBody, ModalFooter } from '../components';
+import { ModalActions, Button, Input, Modal, ModalContent, ModalHeader, ModalHeaderTitle, ModalBody, ModalFooter } from '../components';
 
 class ModalApp extends React.Component {
-  onClick = (event) => {
-    event.preventDefault();
-
-    NotificationActions.addNotification({
-      body: <Modal>
-        <ModalContainer>
-          <ModalContent>
-            <ModalHeader>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 className="modal__header__title">Modal title</h4>
-            </ModalHeader>
-            <ModalBody>
-              <div className="form">
-                <div className="form__group">
-                  <Input label="First Name" />
-                </div>
-                <div>
-                  <Input label="Last Name" />
-                </div>
-              </div>
-            </ModalBody>
-            <ModalFooter>
-              <Button type="default">Close</Button>
-              <Button type="secondary">Save Changes</Button>
-            </ModalFooter>
-          </ModalContent>
-        </ModalContainer>
-      </Modal>,
-      onDismiss() {
-        /* eslint no-console:0 */
-        console.log('I run when the notification was dismissed');
-      },
-    });
-  }
+  
 
   render() {
     return (
       <div>
-
         <h1 className="site-headline">Modals</h1>
         <section className="site-section">
           <h3 className="site-subheadline">Modal Example</h3>
           <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
 
-          <Modal>
+          <Modal size="sm">
             <ModalContent>
               <ModalHeader>
-                <ModalHeaderTitle icon="calendar">
-                  This is a modal title
-                </ModalHeaderTitle>
+                <ModalHeaderTitle title="This is a small modal" />
               </ModalHeader>
               <ModalBody>
                 <div className="form">
                   <div className="form__group">
-                    {/*form group is used on the first input but not the second
-                      Is this intuitive enough? form__group should implement equal
-                      margins on top and bottom? Consider how often forms
-                      are used in modals..*/}
                     <Input label="First Name" />
-                    {/*Will there be a circumstance that a label=firstname is
-                      not enough? We could potentially deal with icon/image labels
-                      at some point*/}
+                  </div>
+                  <div>
+                    <Input label="Last Name" />
+                  </div>
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button type="default">Close</Button>
+                <Button type="secondary">Save Changes</Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+
+          <Modal>
+            <ModalContent>
+              <ModalHeader dismissable={false}>
+                <ModalHeaderTitle icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
+              </ModalHeader>
+              <ModalBody>
+                <div className="form">
+                  <div className="form__group">
+                    <Input label="First Name" />
+                  </div>
+                  <div>
+                    <Input label="Last Name" />
+                  </div>
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button type="default">Close</Button>
+                <Button type="secondary">Save Changes</Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+
+          <Modal size="lg">
+            <ModalContent>
+              <ModalHeader>
+                <ModalHeaderTitle title="This is a really, really longg modal title. Will it wrap? or will we see the elipsis? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+              </ModalHeader>
+              <ModalBody>
+                <div className="form">
+                  <div className="form__group">
+                    <Input label="First Name" />
                   </div>
                   <div>
                     <Input label="Last Name" />

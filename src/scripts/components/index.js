@@ -19,7 +19,6 @@ import LoaderLine           from './LoaderLine';
 import Message              from './Message';
 import Modal                from './Modal';
 import ModalBody            from './ModalBody';
-import ModalContainer       from './ModalContainer';
 import ModalContent         from './ModalContent';
 import ModalFooter          from './ModalFooter';
 import ModalHeader          from './ModalHeader';
@@ -30,12 +29,15 @@ import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
 import Select               from './Select';
 import TabContentPane       from './TabContentPane';
-import Tabs                 from './Tabs';
 import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
+import { ModalActions } from '../ModalSystem';
+import { DropdownDocs } from './Dropdown';
+import { DropdownSelectDocs } from './DropdownSelect';
+import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
@@ -44,12 +46,15 @@ export {
   Checkbox,
   DatePicker,
   Dropdown,
+  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMultiSelect,
+  DropdownMultiSelectDocs,
   DropdownMenuScroll,
   DropdownSelect,
+  DropdownSelectDocs,
   DropdownSelectFilter,
   Icon,
   Input,
@@ -58,8 +63,8 @@ export {
   LoaderLine,
   Message,
   Modal,
+  ModalActions,
   ModalBody,
-  ModalContainer,
   ModalContent,
   ModalFooter,
   ModalHeader,
@@ -71,7 +76,6 @@ export {
   ProgressBar,
   Select,
   TabContentPane,
-  Tabs,
   TabsContent,
   Textarea,
   Toast,

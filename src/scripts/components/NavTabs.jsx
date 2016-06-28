@@ -9,7 +9,7 @@ class NavTabs extends React.Component {
     activeKey:        React.PropTypes.number,
     children:         React.PropTypes.node,
     className:        React.PropTypes.string,
-    justified:        React.PropTypes.string,
+    justified:        React.PropTypes.oneOf(['auto', 'equal']),
     select:           React.PropTypes.func,
   };
 

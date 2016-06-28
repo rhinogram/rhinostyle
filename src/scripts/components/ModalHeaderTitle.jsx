@@ -9,17 +9,26 @@ class ModalHeaderTitle extends React.Component {
     children:   React.PropTypes.node,
     className:  React.PropTypes.string,
     icon:       React.PropTypes.string,
+    title:      React.PropTypes.string,
   };
 
+  containsIcon = () => {
+    let returnVal = null;
+    if (this.props.icon) {
+      returnVal = <Icon icon={this.props.icon} className="u-m-r-sm" />;
+    }
+    return returnVal;
+  }
+
   render() {
-    const { className, icon } = this.props;
+    const { className, title } = this.props;
 
     const classes = cx('modal__header__title', className);
 
     return (
       <h4 className={classes}>
-        <Icon icon={icon} className="u-m-r-sm" />
-        {this.props.children}
+        {this.containsIcon()}
+        {this.props.title}
       </h4>
     );
   }

@@ -50,32 +50,6 @@ body {
 
 
 // -------------------------
-// Typography
-// -------------------------
-
-
-b,
-strong {
-  font-weight: @font-weight-bold;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-
-p {
-  margin-bottom: 1rem;
-  margin-top: 0;
-}
-
-
-// -------------------------
 // Elements
 // -------------------------
 
@@ -91,63 +65,6 @@ hr {
   margin-top: @line-height-computed;
 }
 
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-select {
-  &:focus {
-    &:extend(.u-tab-focus);
-  }
-}
-
-// Suppress the focus outline on elements that cannot be accessed via keyboard.
-// This prevents an unwanted focus outline from appearing around elements that
-// might still respond to pointer events. Credit: https://github.com/suitcss/base
-
-[tabindex='-1']:focus {
-  outline: 0 !important;
-}
-
-
-// -------------------------
-// Links
-// -------------------------
-
-
-a {
-  color: @link-color;
-
-  /*.no-touch &:hover,
-  .no-touch &:focus {
-    color: @link-hover-color;
-    //text-decoration: @link-hover-decoration;
-  }*/
-
-  /*&:focus {
-    &:extend(.u-tab-focus);
-  }*/
-
-  &,
-  &:hover,
-  &:focus,
-  &.active {
-    text-decoration: none;
-  }
-
-  &.disabled,
-  &[disabled] {
-    box-shadow: none;
-    cursor: @cursor-disabled;
-    opacity: .5;
-  }
-}
-
 
 // -------------------------
 // Images
@@ -155,8 +72,6 @@ a {
 
 
 img {
-  //height: auto;
-  //max-width: 100%;
   vertical-align: middle;
 }
 
@@ -165,6 +80,14 @@ img {
 // Misc Fixes
 // -------------------------
 
+
+// Suppress the focus outline on elements that cannot be accessed via keyboard.
+// This prevents an unwanted focus outline from appearing around elements that
+// might still respond to pointer events. Credit: https://github.com/suitcss/base
+
+[tabindex='-1']:focus {
+  outline: 0 !important;
+}
 
 // iOS 'clickable elements' fix for role='button'
 // Fixes 'clickability' issue (and more generally, the firing of events such as focus as well)

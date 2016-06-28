@@ -7,6 +7,7 @@ class Modal extends React.Component {
   static propTypes = {
     children:   React.PropTypes.node,
     className:  React.PropTypes.string,
+    size:       React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -14,13 +15,16 @@ class Modal extends React.Component {
   };
 
   render() {
-    const { className } = this.props;
+    const { className, size } = this.props;
 
     const siteModalClasses = cx('site-modal', className);
 
     const modalClasses = cx('modal', className);
 
-    const containerClasses = cx('modal__container', className);
+    const containerClasses = cx('modal__container', className, {
+      'modal__container--sm':   size === 'sm',
+      'modal__container--lg':   size === 'lg',
+    });
 
     return (
       <div>
