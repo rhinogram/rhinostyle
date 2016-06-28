@@ -21,7 +21,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <DropdownMultiSelect wide placeholder="Select these people..." type="primary" activeKeys={this.state.activeKeys} select={this.updateActiveKeys}>
+      <DropdownMultiSelect placeholder="Select these people..." type="primary" activeKeys={this.state.activeKeys} select={this.updateActiveKeys}>
         <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868" />
         <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1504523_437875089696117_7378541844854542050_n.jpg?oh=089a2d533f97e5a10f378291880c3dc8&oe=57CEA0AF" />
         <DropdownMenuItem id={3} label="Craig Anthony" avatar="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" />
