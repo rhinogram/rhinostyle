@@ -21,6 +21,8 @@ import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
+import Radio                from './Radio';
+import RadioGroup           from './RadioGroup';
 import Select               from './Select';
 import TabContentPane       from './TabContentPane';
 import Tabs                 from './Tabs';
@@ -55,6 +57,8 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
+  Radio,
+  RadioGroup,
   Select,
   TabContentPane,
   Tabs,
