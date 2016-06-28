@@ -1621,6 +1621,7 @@ fieldset[disabled] .btn--link:focus {
   border-right: 0.5rem solid transparent;
 }
 .close,
+.modal__header__close,
 .toast__close {
   color: inherit;
   float: right;
@@ -1631,14 +1632,20 @@ fieldset[disabled] .btn--link:focus {
   padding: 0 0.4rem;
 }
 .close:hover,
-.close:focus {
+.close:focus,
+.modal__header__close:hover,
+.modal__header__close:focus,
+.toast__close:hover,
+.toast__close:focus {
   color: inherit;
   cursor: pointer;
   opacity: .75;
   outline: 0;
   text-decoration: none;
 }
-button.close {
+button.close,
+button.modal__header__close,
+button.toast__close {
   -webkit-appearance: none;
   background: transparent;
   border: 0;
@@ -3469,7 +3476,7 @@ fieldset[disabled] .rhinodio label {
   transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 .modal__container {
-  margin: 1rem;
+  margin: 1rem 1rem 2.6rem 1rem;
   position: relative;
   width: auto;
 }
@@ -3502,13 +3509,14 @@ fieldset[disabled] .rhinodio label {
   min-height: 3rem;
   padding: 1.6rem;
 }
-.modal__header .close {
-  margin-top: -0.2rem;
-}
 .modal__header__title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
   line-height: 1.4;
   margin: 0;
 }
@@ -3758,20 +3766,6 @@ fieldset[disabled] .rhinodio label {
   position: absolute;
   right: .8rem;
   top: 1rem;
-}
-.toast__close:hover,
-.toast__close:focus {
-  color: inherit;
-  cursor: pointer;
-  opacity: .75;
-  outline: 0;
-  text-decoration: none;
-}
-button.toast__close {
-  -webkit-appearance: none;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
 }
 .toast__link {
   color: #fff;
