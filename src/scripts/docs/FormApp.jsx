@@ -115,7 +115,7 @@ const FormApp = () =>
           </div>
         </div>
         <div className="u-text-right">
-          <Button type="secondary">Submit Form</Button>
+          <Button type="primary">Submit Form</Button>
         </div>
       </form>
     </section>
@@ -128,7 +128,7 @@ const FormApp = () =>
         <form className="form form--inline">
           <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
           <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
-          <Button type="secondary">Sign In</Button>
+          <Button type="primary">Sign In</Button>
         </form>
       </div>
     </section>
