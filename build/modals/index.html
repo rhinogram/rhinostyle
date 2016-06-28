@@ -124,8 +124,11 @@
         <div class="modal__container">
           <div class="modal__content">
             <div class="modal__header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal__header__title">Modal title</h4>
+              <button type="button" class="modal__header__close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal__header__title">
+                <svg class="icon u-m-r-sm"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil"></use></svg>
+                <span class="u-text-overflow">Modal Title That Is Really Really Long</span>
+              </h4>
             </div>
             <div class="modal__body">
               <div class="form">
@@ -141,7 +144,7 @@
             </div>
             <div class="modal__footer">
               <button type="button" class="btn btn--default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn--secondary">Save Changes</button>
+              <button type="button" class="btn btn--primary">Save Changes</button>
             </div>
           </div><!-- /.modal__content -->
         </div><!-- /.modal__container -->

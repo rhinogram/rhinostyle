@@ -64,57 +64,61 @@
 // -------------------------
 
 
-@btn-font-weight:                normal;
+@btn-font-weight:                   normal;
 
-@btn-link-disabled-color:        @color-gray-light;
+@btn-link-disabled-color:           @color-gray-light;
 
-@btn-border-radius-base:         @border-radius-base;
-@btn-border-radius-large:        @border-radius-large;
-@btn-border-radius-small:        @border-radius-small;
+@btn-border-radius-base:            @border-radius-base;
+@btn-border-radius-large:           @border-radius-large;
+@btn-border-radius-small:           @border-radius-small;
 
-@btn-height-base:                3.6rem;
-@btn-height-large:               4.2rem;
-@btn-height-small:               3rem;
+@btn-height-base:                   3.6rem;
+@btn-height-large:                  4.2rem;
+@btn-height-small:                  3rem;
 
-@btn-accent-color:               @color-white;
-@btn-accent-bg:                  @color-accent;
-@btn-accent-border:              @color-accent;
+@btn-accent-color:                  @color-white;
+@btn-accent-bg:                     @color-accent;
+@btn-accent-border:                 @color-accent;
 
-@btn-danger-color:               @color-white;
-@btn-danger-bg:                  @color-danger;
-@btn-danger-border:              @color-danger;
+@btn-danger-color:                  @color-white;
+@btn-danger-bg:                     @color-danger;
+@btn-danger-border:                 @color-danger;
 
-@btn-default-color:              @text-color;
-@btn-default-bg:                 @color-gray-lightest;
-@btn-default-border:             @border-color-base;
+@btn-default-color:                 @text-color;
+@btn-default-bg:                    @color-white;
+@btn-default-border:                @border-color-base;
 
-@btn-default-outline-color:      @text-color;
-@btn-default-outline-bg:         transparent;
-@btn-default-outline-border:     @text-color;
+@btn-default-outline-color:         @text-color;
+@btn-default-outline-bg:            transparent;
+@btn-default-outline-border:        @btn-default-border;
+@btn-default-outline-hover-bg:      darken(@color-gray, 10%);
+@btn-default-outline-hover-border:  @btn-default-outline-hover-bg;
 
-@btn-info-color:                 @color-white;
-@btn-info-bg:                    @color-info;
-@btn-info-border:                @color-info;
+@btn-info-color:                    @color-white;
+@btn-info-bg:                       @color-info;
+@btn-info-border:                   @color-info;
 
-@btn-primary-color:              @color-white;
-@btn-primary-bg:                 @color-primary;
-@btn-primary-border:             @color-primary;
+@btn-primary-color:                 @color-white;
+@btn-primary-bg:                    @color-primary;
+@btn-primary-border:                @color-primary;
 
-@btn-primary-outline-color:      @color-primary;
-@btn-primary-outline-bg:         transparent;
-@btn-primary-outline-border:     @color-primary;
+@btn-primary-outline-color:         @color-primary;
+@btn-primary-outline-bg:            transparent;
+@btn-primary-outline-border:        @btn-primary-outline-color;
+@btn-primary-outline-hover-bg:      @btn-primary-outline-color;
+@btn-primary-outline-hover-border:  @btn-primary-outline-color;
 
-@btn-secondary-color:            @color-white;
-@btn-secondary-bg:               @color-secondary;
-@btn-secondary-border:           @color-secondary;
+@btn-secondary-color:               @color-white;
+@btn-secondary-bg:                  @color-secondary;
+@btn-secondary-border:              @color-secondary;
 
-@btn-success-color:              @color-white;
-@btn-success-bg:                 @color-success;
-@btn-success-border:             @color-success;
+@btn-success-color:                 @color-white;
+@btn-success-bg:                    @color-success;
+@btn-success-border:                @color-success;
 
-@btn-warning-color:              @color-white;
-@btn-warning-bg:                 @color-warning;
-@btn-warning-border:             @color-warning;
+@btn-warning-color:                 @color-white;
+@btn-warning-bg:                    @color-warning;
+@btn-warning-border:                @color-warning;
 
 
 // -------------------------
@@ -192,9 +196,9 @@
 // -------------------------
 
 
-@container-sm:                 (720px + @grid-gutter-width); // for `@screen-sm-min` and up
+/*@container-sm:                 (720px + @grid-gutter-width); // for `@screen-sm-min` and up
 @container-md:                 (940px + @grid-gutter-width); // for `@screen-md-min` and up
-@container-lg:                 (1140px + @grid-gutter-width); // for `@screen-lg-min` and up
+@container-lg:                 (1140px + @grid-gutter-width); // for `@screen-lg-min` and up*/
 
 
 // -------------------------
@@ -346,6 +350,9 @@
 @msg-border-radius:           @border-radius-base;
 @msg-line-height:             @line-height-small;
 @msg-padding:                 @padding-medium;
+@msg-shadow-x:                0;
+@msg-shadow-y:                2px;
+@msg-shadow-blur:             2px;
 
 
 // -------------------------
