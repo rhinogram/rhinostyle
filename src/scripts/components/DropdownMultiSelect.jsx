@@ -21,25 +21,17 @@ class DropdownMultiSelect extends React.Component {
   };
 
   static defaultProps = {
+    activeKeys:   [],
     disabled:     false,
     placeholder:  'Click or type to select more ...',
     type:         'default',
   };
 
   state = {
+    activeKeys: this.props.activeKeys,
     isOpen: false,
-    results: this.props.children,
+    items: this.props.children,
   };
-
-  componentWillMount() {
-    this.setState({
-      results: this.getChildren(),
-    });
-  }
-
-  componentWillReceiveProps() {
-    this.clearInput();
-  }
 
   getChildren = () => {
     let returnChild = null;
@@ -48,7 +40,7 @@ class DropdownMultiSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(child.props.id),
+          click: () => this.itemClick(child.props.id, true),
           active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -70,23 +62,38 @@ class DropdownMultiSelect extends React.Component {
   handleToggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
-      results: this.getChildren(),
+      items: this.getChildren(),
     });
 
     this.filterInput.value = '';
-  };
+  }
+
+  itemClick = (id, toggle) => {
+    let currentKeys = null;
+
+    if (this.props.select && typeof(this.props.select === 'function')) {
+      currentKeys = this.updateActiveKeys(id);
+      this.props.select(id, currentKeys);
+    } else {
+      this.updateActiveKeys(id);
+    }
+
+    if (toggle) {
+      this.handleToggle();
+    }
+  }
 
   handleFilter = (e) => {
     const query = e.target.value;
-    const results = [];
+    const items = [];
     const children = this.props.children;
 
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-          results.push(React.cloneElement(child, {
-            click: () => this.props.select(child.props.id),
+          items.push(React.cloneElement(child, {
+            click: () => this.itemClick(child.props.id, true),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
@@ -95,7 +102,7 @@ class DropdownMultiSelect extends React.Component {
     });
 
     this.setState({
-      results,
+      items,
     });
   }
 
@@ -103,8 +110,27 @@ class DropdownMultiSelect extends React.Component {
     this.clearInput();
   }
 
+  updateActiveKeys = (index) => {
+    const currentKeys = this.state.activeKeys;
+    const currentIndex = currentKeys.indexOf(index);
+
+    if (currentIndex > -1) {
+      currentKeys.splice(currentIndex, 1);
+    } else {
+      currentKeys.push(index);
+    }
+
+    this.setState({
+      activeKeys: currentKeys,
+    });
+
+    return currentKeys;
+  }
+
   render() {
     const { disabled, placeholder, position, children } = this.props;
+    const items = this.state.items;
+    const activeKeys = this.state.activeKeys;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       open:  this.state.isOpen,
@@ -131,7 +157,7 @@ class DropdownMultiSelect extends React.Component {
       });
 
       return (
-        <Pill label={label} onClick={() => this.props.select(id)} key={id} className="u-m-r-sm" />
+        <Pill label={label} onClick={() => this.itemClick(id)} key={id} className="u-m-r-sm" />
       );
     };
 
@@ -142,12 +168,12 @@ class DropdownMultiSelect extends React.Component {
           <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <ul className={dropdownMenuClasses}>
             <DropdownMenuScroll>
-              {this.state.results.length > 0 ? this.state.results : <DropdownMenuHeader>No results</DropdownMenuHeader>}
+              {items.length > 0 ? items : <DropdownMenuHeader>No results</DropdownMenuHeader>}
             </DropdownMenuScroll>
           </ul>
         </div>
         <div>
-          {this.props.activeKeys.map(renderPill)}
+          {activeKeys.map(renderPill)}
         </div>
       </span>
     );
