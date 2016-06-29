@@ -33,10 +33,10 @@ class DropdownSelect extends React.Component {
   state = {
     isOpen: false,
     activeKey: this.props.activeKey,
+    icon: this.props.icon,
   };
 
   getChildren = () => {
-    console.log('getting children state/props', this.state.activeKey, this.props.activeKey);
     let returnChild = null;
     const children = this.props.children;
 
@@ -62,7 +62,7 @@ class DropdownSelect extends React.Component {
           select: this.props.select,
           handleToggle: this.handleToggle,
           activeKey: this.state.activeKey,
-          icon: this.props.icon,
+          icon: this.state.icon,
           updateActiveKey: this.updateActiveKey,
         });
       } else {
@@ -83,15 +83,17 @@ class DropdownSelect extends React.Component {
     this.setState({ isOpen: false });
   }
 
-  updateActiveKey = (index) => {
+  updateActiveKey = (index, icon) => {
     this.setState({
       activeKey: index,
+      icon,
     });
   }
 
   render() {
-    const { block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const { block, className, disabled, label, position, size, type, wide } = this.props;
     const activeKey = this.state.activeKey;
+    const icon = this.state.icon;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,

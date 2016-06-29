@@ -6,11 +6,13 @@ class DropdownSelectFilter extends React.Component {
   static displayName = 'RhinoDropdownSelectFilter';
 
   static propTypes = {
-    activeKey:    React.PropTypes.number,
-    children:     React.PropTypes.node,
-    icon:         React.PropTypes.string,
-    placeholder:  React.PropTypes.string,
-    select:       React.PropTypes.func,
+    activeKey:       React.PropTypes.number,
+    children:        React.PropTypes.node,
+    icon:            React.PropTypes.string,
+    handleToggle:    React.PropTypes.func,
+    placeholder:     React.PropTypes.string,
+    select:          React.PropTypes.func,
+    updateActiveKey: React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -18,30 +20,15 @@ class DropdownSelectFilter extends React.Component {
   };
 
   state = {
-    activeKey: this.props.activeKey,
     items: this.props.children,
   };
 
   componentWillReceiveProps() {
-    console.log('filter recieving props', this.props)
     this.setState({
       items: this.getChildren(),
     });
 
     this.filterInput.value = '';
-  }
-
-  componentWillMount() {
-    console.log('filter mounting', this.props)
-    this.setState({
-      items: this.getChildren(),
-    });
-
-  //  this.filterInput.value = '';
-  }
-
-  componentDidUpdate() {
-    console.log('filter component did update');
   }
 
   getChildren = () => {
@@ -50,20 +37,8 @@ class DropdownSelectFilter extends React.Component {
 
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
-        const click = () => {
-          console.log('child', child, this.props)
-          if (this.props.select && typeof(this.props.select === 'function')) {
-            this.props.updateActiveKey(child.props.id, child.props.icon);
-            this.props.select(child.props.id, child.props.icon);
-          } else {
-            this.props.updateActiveKey(child.props.id, child.props.icon);
-          }
-
-          this.props.handleToggle();
-        };
-
         items.push(React.cloneElement(child, {
-          click,
+          click: () => this.itemClick(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
           key: child.props.id,
         }));
@@ -71,6 +46,17 @@ class DropdownSelectFilter extends React.Component {
     });
 
     return items;
+  }
+
+  itemClick = (id, icon) => {
+    if (this.props.select && typeof(this.props.select === 'function')) {
+      this.props.updateActiveKey(id, icon);
+      this.props.select(id, icon);
+    } else {
+      this.props.updateActiveKey(id, icon);
+    }
+
+    this.props.handleToggle();
   }
 
   handleFilter = (e) => {
@@ -83,19 +69,8 @@ class DropdownSelectFilter extends React.Component {
         const searchText = child.props.label;
 
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-          const click = () => {
-            if (this.props.select && typeof(this.props.select === 'function')) {
-              this.props.updateActiveKey(child.props.id, child.props.icon);
-              this.props.select(child.props.id, child.props.icon);
-            } else {
-              this.props.updateActiveKey(child.props.id, child.props.icon);
-            }
-
-            this.props.handleToggle();
-          };
-
           items.push(React.cloneElement(child, {
-            click,
+            click: () => this.itemClick(child.props.id, child.props.icon),
             active: child.props.id === this.props.activeKey,
             key: child.props.id,
           }));
@@ -109,12 +84,6 @@ class DropdownSelectFilter extends React.Component {
       items,
     });
   }
-
-  // updateActiveKey = (index) => {
-  //   this.setState({
-  //     activeKey: index,
-  //   });
-  // }
 
   render() {
     const { placeholder } = this.props;
