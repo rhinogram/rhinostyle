@@ -949,17 +949,6 @@ a.u-text-warning:hover,
 @pagination-disabled-color:            @color-gray-light;
 @pagination-disabled-bg:               @color-white;
 @pagination-disabled-border:           @color-gray-light;*/
-/*@popover-arrow-color:                 @popover-bg;
-@popover-arrow-outer-width:           (@popover-arrow-width + 1);
-@popover-arrow-outer-color:           fadein(@popover-border-color, 5%);
-@popover-arrow-outer-fallback-color:  darken(@popover-fallback-border-color, 20%);
-@popover-arrow-width:                 10px;
-
-@popover-bg:                          @color-white;
-@popover-border-color:                rgba(0,0,0,.2);
-@popover-fallback-border-color:       @border-color-base;
-@popover-max-width:                   276px;
-@popover-title-bg:                    transparent;*/
 /*@tooltip-arrow-width:         5px;
 @tooltip-arrow-color:         @tooltip-bg;
 @tooltip-bg:                  @color-gray;
@@ -1609,6 +1598,7 @@ fieldset[disabled] .btn--link:focus {
 }
 .close,
 .modal__header__close,
+.system-alert__close,
 .toast__close {
   color: inherit;
   float: right;
@@ -1622,6 +1612,8 @@ fieldset[disabled] .btn--link:focus {
 .close:focus,
 .modal__header__close:hover,
 .modal__header__close:focus,
+.system-alert__close:hover,
+.system-alert__close:focus,
 .toast__close:hover,
 .toast__close:focus {
   color: inherit;
@@ -1632,6 +1624,7 @@ fieldset[disabled] .btn--link:focus {
 }
 button.close,
 button.modal__header__close,
+button.system-alert__close,
 button.toast__close {
   -webkit-appearance: none;
   background: transparent;
@@ -3711,6 +3704,49 @@ fieldset[disabled] .rhinodio label {
   -ms-user-select: none;
   user-select: none;
 }
+.system-alert {
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 1rem 1.2rem;
+  position: relative;
+}
+.system-alert--danger {
+  background: #cc2d32;
+}
+.system-alert--default {
+  background: #9f9f9f;
+}
+.system-alert--info {
+  background: #005480;
+}
+.system-alert--success {
+  background: #72aa00;
+}
+.system-alert__close {
+  float: none;
+  position: absolute;
+  right: .8rem;
+  top: .8rem;
+}
+.system-alert__icon {
+  font-size: 1.8rem;
+  margin-right: 0.6rem;
+}
+.system-alert__link {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-left: 0.6rem;
+  text-decoration: underline;
+}
+.system-alert__link:hover {
+  text-decoration: underline;
+}
 .toasts-container {
   left: 1rem;
   position: fixed;
@@ -3733,11 +3769,8 @@ fieldset[disabled] .rhinodio label {
   display: flex;
   font-weight: 300;
   max-width: 50rem;
-  padding: 1rem 3rem 1rem 1rem;
+  padding: 1rem 1.2rem 1rem 1rem;
   position: relative;
-}
-.toast > .icon {
-  margin-right: 0.6rem;
 }
 .toast--danger {
   background: #cc2d32;
@@ -3752,7 +3785,10 @@ fieldset[disabled] .rhinodio label {
   float: none;
   position: absolute;
   right: .8rem;
-  top: 1rem;
+  top: .8rem;
+}
+.toast__icon {
+  margin-right: 0.6rem;
 }
 .toast__link {
   color: #fff;
@@ -4050,6 +4086,9 @@ pre {
 }
 .site-example-pills .pill:not(:last-child) {
   margin-right: 0.6rem;
+}
+.site-example-systemalerts .system-alert:not(:last-child) {
+  margin-bottom: 1.2rem;
 }
 .site-example-toasts .toast:not(:last-child) {
   margin-bottom: 1.2rem;

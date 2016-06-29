@@ -35,10 +35,6 @@
   max-width: 50rem;
   padding: @toast-padding;
   position: relative;
-
-  > .icon {
-    margin-right: @margin-small;
-  }
 }
 
 
@@ -71,13 +67,24 @@
   float: none;
   position: absolute;
   right: .8rem;
-  top: 1rem;
+  top: .8rem;
+}
+
+
+// -------------------------
+// Toast Icon
+// -------------------------
+
+
+.toast__icon {
+  margin-right: @margin-small;
 }
 
 
 // -------------------------
 // Toast Link
 // -------------------------
+
 
 .toast__link {
   color: @toast-text;

@@ -1,0 +1,83 @@
+// File: system-alerts.less
+// Note:
+
+
+// -------------------------
+// System Alert
+// -------------------------
+
+
+.system-alert {
+  align-items: center;
+  color: @system-alert-text;
+  font-weight: @font-weight-light;
+  display: flex;
+  justify-content: center;
+  padding: @system-alert-padding;
+  position: relative;
+}
+
+
+// -------------------------
+// System Alert Modifiers
+// -------------------------
+
+
+.system-alert--danger {
+  background: @color-danger;
+}
+
+.system-alert--default {
+  background: @color-gray;
+}
+
+.system-alert--info {
+  background: @color-info;
+}
+
+.system-alert--success {
+  background: @color-success;
+}
+
+
+
+// -------------------------
+// System Alert Close
+// -------------------------
+
+
+.system-alert__close {
+  &:extend(.close all);
+  float: none;
+  position: absolute;
+  right: .8rem;
+  top: .8rem;
+}
+
+
+// -------------------------
+// System Alert Icon
+// -------------------------
+
+
+.system-alert__icon {
+  font-size: @font-size-base + .2rem;
+  margin-right: @margin-small;
+}
+
+
+// -------------------------
+// System Alert Link
+// -------------------------
+
+
+.system-alert__link {
+  color: @system-alert-text;
+  font-size: @font-size-small;
+  margin-left: @margin-small;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

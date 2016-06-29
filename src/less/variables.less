@@ -463,24 +463,6 @@
 
 
 // -------------------------
-// Popovers
-// -------------------------
-
-
-/*@popover-arrow-color:                 @popover-bg;
-@popover-arrow-outer-width:           (@popover-arrow-width + 1);
-@popover-arrow-outer-color:           fadein(@popover-border-color, 5%);
-@popover-arrow-outer-fallback-color:  darken(@popover-fallback-border-color, 20%);
-@popover-arrow-width:                 10px;
-
-@popover-bg:                          @color-white;
-@popover-border-color:                rgba(0,0,0,.2);
-@popover-fallback-border-color:       @border-color-base;
-@popover-max-width:                   276px;
-@popover-title-bg:                    transparent;*/
-
-
-// -------------------------
 // Progress bars
 // -------------------------
 
@@ -578,6 +560,15 @@
 
 
 // -------------------------
+// System Alerts
+// -------------------------
+
+
+@system-alert-padding:              @padding-base @padding-large;
+@system-alert-text:                 @color-white;
+
+
+// -------------------------
 // Tables
 // -------------------------
 
@@ -600,7 +591,7 @@
 
 @toast-border-radius:        @border-radius-base;
 @toast-font-weight:          @font-weight-light;
-@toast-padding:              @padding-base (@padding-base + 2.0rem) @padding-base @padding-base;
+@toast-padding:              @padding-base @padding-large @padding-base @padding-base;
 @toast-text:                 @color-white;
 
 

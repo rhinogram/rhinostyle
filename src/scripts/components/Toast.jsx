@@ -30,7 +30,7 @@ class Toast extends React.Component {
 
     const renderIcon = () => {
       if (icon) {
-        return (<Icon icon={icon} />);
+        return (<Icon icon={icon} className="toast__icon" />);
       }
       return false;
     };
