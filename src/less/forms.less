@@ -203,7 +203,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .mixin-addon-size(@input-height-base; @padding-medium; @font-size-base);
+  .mixin-addon-size(@input-height-base; @padding-base; @font-size-base);
 }
 
 .form__addon__item--left {
@@ -257,7 +257,7 @@ input[type='checkbox']:focus {
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   width: 100%;
 
-  .mixin-input-size(@input-height-base; @padding-medium; @font-size-base; @input-border-radius);
+  .mixin-input-size(@input-height-base; @padding-base; @font-size-base; @input-border-radius);
 
   &:focus {
     &:extend(.u-tab-focus);
@@ -295,7 +295,7 @@ input[type='checkbox']:focus {
 
 
 /*.form__control--sm {
-  .mixin-input-size(@input-height-small; @padding-medium; @font-size-small; @input-border-radius-small);
+  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
 }
 
 .form__control--lg {
@@ -529,7 +529,7 @@ input[type='checkbox'] {
 /*.rhinoselect--sm {
   &::after {
     background-size: 1.2rem 1.2rem;
-    right: @padding-medium;
+    right: @padding-base;
   }
 }*/
 

@@ -5,6 +5,7 @@ class Checkbox extends React.Component {
   static displayName = 'Rhinobox';
 
   static propTypes = {
+    children:  React.PropTypes.node,
     inline:    React.PropTypes.bool,
     isChecked: React.PropTypes.bool,
     name:      React.PropTypes.string.isRequired,
@@ -40,7 +41,6 @@ class Checkbox extends React.Component {
       <div className={classes}>
         <input type="checkbox" id={name} checked={checked} onChange={this._toggleChecked} onClick={onClick} />
         <label htmlFor={name}>
-          {/* eslint react/prop-types:0 */}
           {this.props.children}
         </label>
       </div>

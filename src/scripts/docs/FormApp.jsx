@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Icon, Input, Select, Textarea } from '../components';
+import { Button, Checkbox, Icon, Input, Radio, RadioGroup, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -58,12 +58,27 @@ const checkboxDocs  = {
   inline:    '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
   name:      '[Required] - An id, and label for the checkbox',
-  onClick:   '[Optional] - Any initial value for the textarea',
+  onClick:   '[Optional] - A function you want to trigger when the checkbox is toggled',
 };
 const checkboxScope = {
   React,
   ReactDOM,
   Checkbox,
+};
+
+const radioExample = require('raw!./examples/Radio.example.txt');
+const radioDocs  = {
+  inline:        '[Optional] - Inline the radios',
+  name:          '[Optional] - The name, and the basis of the id for the radio',
+  onChange:      '[Optional] - A function you which to trigger when you change the selection',
+  selectedValue: '[Optional] - The radio you want selected, when used in a group',
+  value:         '[Optional] - A value for the radio',
+};
+const radioScope = {
+  React,
+  ReactDOM,
+  RadioGroup,
+  Radio,
 };
 
 const FormApp = () =>
@@ -83,21 +98,11 @@ const FormApp = () =>
           <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
           <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
         </div>
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Radios</label>
-          <div className="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio1" />
-            <label htmlFor="exampleRadio1">Radio One</label>
-          </div>
-          <div className="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio2" checked />
-            <label htmlFor="exampleRadio2">Radio Two</label>
-          </div>
-          <div className="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio3" />
-            <label htmlFor="exampleRadio3">Radio Three</label>
-          </div>
-        </div>
+        <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
         <div className="form__group">
           <label htmlFor="" className="u-block">Switcher</label>
           <div className="rhinoswitcher">
@@ -212,35 +217,26 @@ const FormApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Rhinodio</h5>
         <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
-        <div className="rhinodio">
-          <input type="radio" name="exampleRadio1" id="exampleRadio11" />
-          <label htmlFor="exampleRadio11">Radio One</label>
-        </div>
-        <div className="rhinodio">
-          <input type="radio" name="exampleRadio1" id="exampleRadio12" checked />
-          <label htmlFor="exampleRadio12">Radio Two</label>
-        </div>
-        <div className="rhinodio">
-          <input type="radio" name="exampleRadio1" id="exampleRadio13" />
-          <label htmlFor="exampleRadio13">Radio Three</label>
-        </div>
+        <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
       </div>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inline Rhinodio</h5>
-        <p className="site-copy">Add the <code>rhinodio--inline</code> modifier to create inline radios.</p>
-        <div className="rhinodio rhinodio--inline">
-          <input type="radio" name="exampleRadio2" id="exampleRadio21" />
-          <label htmlFor="exampleRadio21">Radio One</label>
-        </div>
-        <div className="rhinodio rhinodio--inline">
-          <input type="radio" name="exampleRadio2" id="exampleRadio22" />
-          <label htmlFor="exampleRadio22">Radio Two</label>
-        </div>
-        <div className="rhinodio rhinodio--inline">
-          <input type="radio" name="exampleRadio2" id="exampleRadio23" checked />
-          <label htmlFor="exampleRadio23">Radio Three</label>
-        </div>
+        <p className="site-copy">Add the <code>inline</code> property to create inline radios.</p>
+        <RadioGroup name="exampleRadio3" label="Radios" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
       </div>
+    </section>
+
+    <section>
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground docClass={Radio} propDescriptionMap={radioDocs} codeText={radioExample} scope={radioScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -261,7 +257,7 @@ const FormApp = () =>
       <h3 className="site-subheadline">Form Switcher</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Rhinoswitcher</h5>
-        <p className="site-copy">Our custom radio element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>rhinoswitcher--disabled</code> modifer className.</p>
+        <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>rhinoswitcher--disabled</code> modifer className.</p>
         <div className="rhinoswitcher">
           <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
           <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">

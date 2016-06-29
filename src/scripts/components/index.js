@@ -1,4 +1,5 @@
 import Avatar               from './Avatar';
+import Bucket               from './Bucket';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
@@ -21,6 +22,8 @@ import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
+import Radio                from './Radio';
+import RadioGroup           from './RadioGroup';
 import Select               from './Select';
 import TabContentPane       from './TabContentPane';
 import TabsContent          from './TabsContent';
@@ -34,6 +37,7 @@ import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
+  Bucket,
   Button,
   Callout,
   Checkbox,
@@ -60,6 +64,8 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
+  Radio,
+  RadioGroup,
   Select,
   TabContentPane,
   TabsContent,

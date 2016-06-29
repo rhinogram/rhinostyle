@@ -60,6 +60,19 @@
 
 
 // -------------------------
+// Buckets
+// -------------------------
+
+
+@bucket-bg-default:              @color-white;
+@bucket-bg-warm:                 @color-gray-lightest;
+@bucket-body-padding:            @padding-base;
+@bucket-body-padding-small:      @padding-small;
+@bucket-border-color:            @border-color-base;
+@bucket-border-radius:           @border-radius-base;
+
+
+// -------------------------
 // Buttons
 // -------------------------
 
@@ -165,27 +178,25 @@
 
 
 // fine-tune component padding
-@padding-gutter:            @grid-gutter-width;
+@padding-gutter:            @grid-gutter-width; // 32px
 @padding-half-gutter:       @grid-gutter-width / 2; // 16px
 @padding-xlarge:            1.4rem;
 @padding-large:             1.2rem;
-@padding-medium:            1.0rem;
-@padding-base:              .8rem;
+@padding-base:              1.0rem;
 @padding-small:             .6rem;
 @padding-xsmall:            .4rem;
 
 // fine-tune component margin
-@margin-gutter:             @grid-gutter-width;
+@margin-gutter:             @grid-gutter-width; // 32px
 @margin-half-gutter:        @grid-gutter-width / 2; // 16px
 @margin-xlarge:             1.4rem;
 @margin-large:              1.2rem;
-@margin-medium:             1.0rem;
-@margin-base:               .8rem;
+@margin-base:               1.0rem;
 @margin-small:              .6rem;
 @margin-xsmall:             .4rem;
 
 @component-active-color:    @color-white; // global color for active items (e.g., navs or dropdowns)
-@component-active-bg:       @color-primary; //global bgcolor for active items (e.g., navs or dropdowns)
+@component-active-bg:       @color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
 
 @caret-width-base:          .5rem; // width of the `border` for generating carets that indicator dropdowns
 @caret-width-large:         .6rem;
@@ -349,7 +360,7 @@
 
 @msg-border-radius:           @border-radius-base;
 @msg-line-height:             @line-height-small;
-@msg-padding:                 @padding-medium;
+@msg-padding:                 @padding-base;
 @msg-shadow-x:                0;
 @msg-shadow-y:                2px;
 @msg-shadow-blur:             2px;
@@ -385,8 +396,8 @@
 // -------------------------
 
 
-@nav-link-padding:            @padding-medium @padding-half-gutter;
-@nav-link-padding-small:      @padding-small @padding-medium;
+@nav-link-padding:            @padding-base @padding-half-gutter;
+@nav-link-padding-small:      @padding-small @padding-base;
 
 
 // -------------------------
@@ -434,47 +445,6 @@
 @pagination-disabled-color:            @color-gray-light;
 @pagination-disabled-bg:               @color-white;
 @pagination-disabled-border:           @color-gray-light;*/
-
-
-// -------------------------
-// Panels
-// -------------------------
-
-
-/*@panel-bg:                    @color-white;
-@panel-body-padding:          @padding-half-gutter;
-@panel-body-padding-small:    @padding-small;
-@panel-body-padding-medium:   @padding-medium;
-@panel-border-radius:         @border-radius-base;
-@panel-footer-padding:        @panel-heading-padding;
-@panel-heading-padding:       @padding-medium @padding-half-gutter;
-
-@panel-footer-bg:             @color-gray-lightest;
-@panel-inner-border:          @color-gray-light;
-
-@panel-danger-text:           @state-danger-text;
-@panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     @state-danger-bg;
-
-@panel-default-text:          @text-color;
-@panel-default-border:        @border-color-base;
-@panel-default-heading-bg:    @color-gray-lightest;
-
-@panel-info-text:             @state-info-text;
-@panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       @state-info-bg;
-
-@panel-primary-text:          @color-white;
-@panel-primary-border:        @color-primary;
-@panel-primary-heading-bg:    @color-primary;
-
-@panel-success-text:          @state-success-text;
-@panel-success-border:        @state-success-border;
-@panel-success-heading-bg:    @state-success-bg;
-
-@panel-warning-text:          @state-warning-text;
-@panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    @state-warning-bg;*/
 
 
 // -------------------------
@@ -630,7 +600,7 @@
 
 @toast-border-radius:        @border-radius-base;
 @toast-font-weight:          @font-weight-light;
-@toast-padding:              @padding-large (@padding-large + 2.0rem) @padding-large @padding-large;
+@toast-padding:              @padding-base (@padding-base + 2.0rem) @padding-base @padding-base;
 @toast-text:                 @color-white;
 
 
