@@ -69,11 +69,9 @@ class DropdownMultiSelect extends React.Component {
   }
 
   itemClick = (id, toggle) => {
-    let currentKeys = null;
-
     if (this.props.select && typeof(this.props.select === 'function')) {
-      currentKeys = this.updateActiveKeys(id);
-      this.props.select(id, currentKeys);
+      const result = this.updateActiveKeys(id);
+      this.props.select(...result);
     } else {
       this.updateActiveKeys(id);
     }
@@ -113,18 +111,21 @@ class DropdownMultiSelect extends React.Component {
   updateActiveKeys = (index) => {
     const currentKeys = this.state.activeKeys;
     const currentIndex = currentKeys.indexOf(index);
+    let action = null;
 
     if (currentIndex > -1) {
       currentKeys.splice(currentIndex, 1);
+      action = 'remove';
     } else {
       currentKeys.push(index);
+      action = 'add';
     }
 
     this.setState({
       activeKeys: currentKeys,
     });
 
-    return currentKeys;
+    return [action, index, currentKeys];
   }
 
   render() {

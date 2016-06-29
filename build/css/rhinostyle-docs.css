@@ -3708,9 +3708,9 @@ fieldset[disabled] .rhinodio label {
   -ms-flex-align: center;
   align-items: center;
   color: #fff;
-  font-weight: 300;
   display: -ms-flexbox;
   display: flex;
+  font-weight: 300;
   -ms-flex-pack: center;
   justify-content: center;
   padding: 1rem 1.2rem;
