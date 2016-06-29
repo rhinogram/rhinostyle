@@ -1,16 +1,23 @@
 import React from 'react';
 import cx from 'classnames';
 import onClickOutside from 'react-onclickoutside';
+import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuHeader from './DropdownMenuHeader';
+import DropdownMenuScroll from './DropdownMenuScroll';
+import Pill from './Pill';
 
 class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
+    activeKeys:   React.PropTypes.arrayOf(React.PropTypes.number),
     children:     React.PropTypes.node,
     className:    React.PropTypes.string,
     disabled:     React.PropTypes.bool,
+    label:        React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     position:     React.PropTypes.string,
+    select:       React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -21,18 +28,83 @@ class DropdownMultiSelect extends React.Component {
 
   state = {
     isOpen: false,
+    results: this.props.children,
   };
 
-  _handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  componentWillMount() {
+    this.setState({
+      results: this.getChildren(),
+    });
+  }
+
+  componentWillReceiveProps() {
+    this.clearInput();
+  }
+
+  getChildren = () => {
+    let returnChild = null;
+    const children = this.props.children;
+
+    return React.Children.map(children, child => {
+      if (child.type === DropdownMenuItem) {
+        returnChild = React.cloneElement(child, {
+          click: () => this.props.select(child.props.id),
+          active: this.props.activeKeys.indexOf(child.props.id) > -1,
+        });
+      } else {
+        returnChild = child;
+      }
+
+      return returnChild;
+    });
+  }
+
+  clearInput = () => {
+    this.setState({
+      isOpen: false,
+    });
+
+    this.filterInput.value = '';
+  }
+
+  handleToggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+      results: this.getChildren(),
+    });
+
+    this.filterInput.value = '';
   };
+
+  handleFilter = (e) => {
+    const query = e.target.value;
+    const results = [];
+    const children = this.props.children;
+
+    React.Children.forEach(children, child => {
+      if (child.type === DropdownMenuItem) {
+        const searchText = child.props.label;
+        if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+          results.push(React.cloneElement(child, {
+            click: () => this.props.select(child.props.id),
+            active: this.props.activeKeys.indexOf(child.props.id) > -1,
+            key: child.props.id,
+          }));
+        }
+      }
+    });
+
+    this.setState({
+      results,
+    });
+  }
 
   handleClickOutside = () => {
-    this.setState({ isOpen: false });
+    this.clearInput();
   }
 
   render() {
-    const { disabled, placeholder, position } = this.props;
+    const { disabled, placeholder, position, children } = this.props;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       open:  this.state.isOpen,
@@ -48,15 +120,41 @@ class DropdownMultiSelect extends React.Component {
       'dropdown__menu--top dropdown__menu--right': position === 'top-right',
     });
 
+    const renderPill = (id) => {
+      let label = '';
+
+      // Figure out label
+      React.Children.forEach(children, child => {
+        if (child.type === DropdownMenuItem && child.props.id === id) {
+          label = child.props.label;
+        }
+      });
+
+      return (
+        <Pill label={label} onClick={() => this.props.select(id)} key={id} className="u-m-r-sm" />
+      );
+    };
+
     return (
-      <div className={dropdownClasses}>
-        <input onClick={this._handleToggle} type="text" className={dropdownToggleClasses} placeholder={placeholder} />
-        <ul className={dropdownMenuClasses}>
-          {this.props.children}
-        </ul>
-      </div>
+      <span>
+        <div className={dropdownClasses}>
+          {/* eslint no-return-assign:0 */}
+          <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
+          <ul className={dropdownMenuClasses}>
+            <DropdownMenuScroll>
+              {this.state.results.length > 0 ? this.state.results : <DropdownMenuHeader>No results</DropdownMenuHeader>}
+            </DropdownMenuScroll>
+          </ul>
+        </div>
+        <div>
+          {this.props.activeKeys.map(renderPill)}
+        </div>
+      </span>
     );
   }
 }
+
+const DropdownMultiSelectDocs = DropdownMultiSelect;
+export { DropdownMultiSelectDocs };
 
 export default onClickOutside(DropdownMultiSelect);

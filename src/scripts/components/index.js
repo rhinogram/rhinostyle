@@ -1,4 +1,5 @@
 import Avatar               from './Avatar';
+import Bucket               from './Bucket';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
@@ -25,26 +26,32 @@ import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
 import Select               from './Select';
 import TabContentPane       from './TabContentPane';
-import Tabs                 from './Tabs';
 import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
+import { DropdownDocs } from './Dropdown';
+import { DropdownSelectDocs } from './DropdownSelect';
+import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
+  Bucket,
   Button,
   Callout,
   Checkbox,
   DatePicker,
   Dropdown,
+  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMultiSelect,
+  DropdownMultiSelectDocs,
   DropdownMenuScroll,
   DropdownSelect,
+  DropdownSelectDocs,
   DropdownSelectFilter,
   Icon,
   Input,
@@ -61,7 +68,6 @@ export {
   RadioGroup,
   Select,
   TabContentPane,
-  Tabs,
   TabsContent,
   Textarea,
   Toast,

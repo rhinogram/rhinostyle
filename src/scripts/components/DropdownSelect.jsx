@@ -9,7 +9,6 @@ class DropdownSelect extends React.Component {
   static displayName = 'RhinoDropdownSelect';
 
   static propTypes = {
-    active:    React.PropTypes.bool,
     activeKey: React.PropTypes.number,
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
@@ -25,7 +24,6 @@ class DropdownSelect extends React.Component {
   };
 
   static defaultProps = {
-    active:   false,
     block:    false,
     disabled: false,
     type:     'default',
@@ -49,13 +47,14 @@ class DropdownSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.props.select(child.props.id),
+          click: () => this.props.select(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
         });
       } else if (child.type === DropdownSelectFilter) {
         returnChild = React.cloneElement(child, {
           select: this.props.select,
           activeKey: this.props.activeKey,
+          icon: this.props.icon,
         });
       } else {
         returnChild = child;
@@ -74,7 +73,7 @@ class DropdownSelect extends React.Component {
   }
 
   render() {
-    const { active, activeKey, block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const { activeKey, block, className, disabled, icon, label, position, size, type, wide } = this.props;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
@@ -91,7 +90,6 @@ class DropdownSelect extends React.Component {
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),
-      'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
     });
 
@@ -137,5 +135,8 @@ class DropdownSelect extends React.Component {
     );
   }
 }
+
+const DropdownSelectDocs = DropdownSelect;
+export { DropdownSelectDocs };
 
 export default onClickOutside(DropdownSelect);

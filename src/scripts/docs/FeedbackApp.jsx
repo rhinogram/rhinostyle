@@ -57,13 +57,11 @@ class FeedbackApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Callout</h3>
-          <div className="row u-m-b-lg">
-            <div className="col-sm-10">
-              <div className="site-example-callouts">
-                <Callout type="danger" heading="Callout Danger" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-                <Callout type="default" heading="Callout Default" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-                <Callout type="info" heading="Callout Info" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-              </div>
+          <div className="u-m-b-lg">
+            <div className="site-example-callouts">
+              <Callout type="danger" heading="Callout Danger" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+              <Callout type="default" heading="Callout Default" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+              <Callout type="info" heading="Callout Info" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
             </div>
           </div>
           <h3 className="site-subheadline">Callout Playground</h3>

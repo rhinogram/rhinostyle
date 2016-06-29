@@ -1,23 +1,59 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownSelect, DropdownSelectFilter, Icon } from '../components';
+import { Dropdown, DropdownDocs, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownMultiSelectDocs, DropdownSelect, DropdownSelectDocs, DropdownSelectFilter, Icon } from '../components';
 
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const dropdownSelectExample = require('raw!./examples/DropdownSelect.example.txt');
+const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
+
+const dropdownDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Text in dropdown when closed',
+  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
+  size: '[Optional] - Size of Dropdown - [small | large]',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
+
+const dropdownSelectDocs = {
+  activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Text in dropdown when closed',
+  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
+  size: '[Optional] - Size of Dropdown - [small | large]',
+  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
+
+const dropdownMultiSelectDocs = {
+  activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Text in dropdown when closed',
+  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
+  size: '[Optional] - Size of Dropdown - [small | large]',
+  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+};
+
 const exampleScope  = {
   React,
   ReactDOM,
   Dropdown,
+  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMenuScroll,
   DropdownMultiSelect,
+  DropdownMultiSelectDocs,
   DropdownSelect,
+  DropdownSelectDocs,
   DropdownSelectFilter,
   Icon,
 };
@@ -201,7 +237,7 @@ const DropdownApp = () =>
 
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Wide</h5>
-        <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value.</p>
+        <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.</p>
         <Dropdown label="Dropdown Wide" wide>
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
@@ -237,37 +273,22 @@ const DropdownApp = () =>
     </section>
 
     <section className="site-section">
+      <h3 className="site-subheadline">Playground</h3>
+      <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown Select</h3>
+      <Playground docClass={DropdownSelectDocs} propDescriptionMap={dropdownSelectDocs} codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
       <h3 className="site-subheadline">Dropdown MultiSelect</h3>
       <p className="site-copy">Add the <code>dropdown--multiselect</code> modifier to <code>dropdown</code>.
         This dropdown and dropdown menu will always have 100% width. Selected items are shown as "pills" below the dropdown.
       </p>
 
-      <DropdownMultiSelect label="Dropdown MultiSelect">
-        <DropdownMenuScroll>
-          <DropdownMenuItem active label="Ben Bruning With Really Long Name" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868" />
-          <DropdownMenuItem label="Blake Guilloud" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1504523_437875089696117_7378541844854542050_n.jpg?oh=089a2d533f97e5a10f378291880c3dc8&oe=57CEA0AF" />
-          <DropdownMenuItem label="Craig Anthony" avatar="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" />
-          <DropdownMenuItem label="Ian Greulich" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABECOyAoeLlhfOMzQEiC3ZjYXJkX3Bob3RvKig2ZWJmZWEwNjA3NDhkZTY0ZWRhOTczNDU3M2E5YzI0MDA2YmFhZWFhMAF_p4RL_jmWVcGIWRwQZgNrVdicmw?sz=128" />
-          <DropdownMenuItem label="Keaton Foster" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/11377393_810816385765_6827778412867830242_n.jpg?oh=35b08f99b81268988c15eecbf9929e56&oe=57DFE90F" />
-          <DropdownMenuItem active label="Lauren Farr" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1390558_10202477697167953_1453503315_n.jpg?oh=d097810a214b43acc81cd309eda27386&oe=57A41ADF" />
-          <DropdownMenuItem label="Max Krause" avatar="//scontent-iad3-1.xx.fbcdn.net/t31.0-8/12977098_10207580224281040_1166679891101945990_o.jpg" />
-          <DropdownMenuItem label="Paul Drake" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10882107_701393473313574_7671196485562187669_n.jpg?oh=3100e182e75a87cfe3b236e32ca3686e&oe=57DA94B4" />
-          <DropdownMenuItem label="Paul Griffin" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/c0.50.200.200/1947402_10152279843568698_519360225_n.jpg?oh=a3c546f01142712ab3a25a2b328df392&oe=579C05BA" />
-          <DropdownMenuItem label="Rob Whelan" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
-          <DropdownMenuItem label="Terry Kennair" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10440915_10100238785384001_3941742026226262266_n.jpg?oh=e57e9df480a0326ee7d0bb46950b9c3f&oe=57CF342E" />
-        </DropdownMenuScroll>
-      </DropdownMultiSelect>
-
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={dropdownExample} scope={exampleScope} noRender={false} />
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Dropdown Select</h3>
-      <Playground codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={DropdownMultiSelectDocs} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

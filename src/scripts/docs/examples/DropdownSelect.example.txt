@@ -4,6 +4,7 @@ class ComponentExample extends React.Component {
     activeFilterKey: null,
     activeFilterAvatarKey: null,
     activeFilterIconKey: null,
+    activeIcon: null,
   };
 
   updateActiveKey = (index) => {
@@ -24,16 +25,17 @@ class ComponentExample extends React.Component {
     });
   };
 
-  updateActiveFilterIconKey = (index) => {
+  updateActiveFilterIconKey = (index, icon) => {
     this.setState({
       activeFilterIconKey: index,
+      activeIcon: icon,
     });
   };
 
   render() {
     return (
     <div>
-      <DropdownSelect label="Dropdown Select" type="primary" activeKey={this.state.activeKey} select={this.updateActiveKey}>
+      <DropdownSelect label="Dropdown Select" type="primary-outline" activeKey={this.state.activeKey} select={this.updateActiveKey}>
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
         <DropdownMenuItem id={1} label="Item" />
         <DropdownMenuItem id={2} label="Another item" />
@@ -42,7 +44,7 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem id={4} label="A fourth item" />
       </DropdownSelect>
       &nbsp;&nbsp;
-      <DropdownSelect wide label="Dropdown Select w/ Filter" type="secondary" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
+      <DropdownSelect wide label="Dropdown Select w/ Filter" type="primary-outline" activeKey={this.state.activeFilterKey} select={this.updateActiveFilterKey}>
         <DropdownSelectFilter placeholder="Filter Contact">
             <DropdownMenuItem id={1} label="Item" />
             <DropdownMenuItem id={2} label="Another item" />
@@ -55,7 +57,7 @@ class ComponentExample extends React.Component {
         </DropdownSelectFilter>
       </DropdownSelect>
       &nbsp;&nbsp;
-      <DropdownSelect wide label="Dropdown Select w/ Filter & Avatar" type="primary" activeKey={this.state.activeFilterAvatarKey} select={this.updateActiveFilterAvatarKey}>
+      <DropdownSelect wide label="Dropdown Select w/ Filter & Avatar" type="primary-outline" activeKey={this.state.activeFilterAvatarKey} select={this.updateActiveFilterAvatarKey}>
         <DropdownSelectFilter placeholder="Filter Member">
           <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868" />
           <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1504523_437875089696117_7378541844854542050_n.jpg?oh=089a2d533f97e5a10f378291880c3dc8&oe=57CEA0AF" />
@@ -71,7 +73,7 @@ class ComponentExample extends React.Component {
         </DropdownSelectFilter>
       </DropdownSelect>
       &nbsp;&nbsp;
-      <DropdownSelect wide label="Dropdown Select w/ Filter & Icon" type="primary" activeKey={this.state.activeFilterIconKey} select={this.updateActiveFilterIconKey}>
+      <DropdownSelect wide label="Dropdown Select w/ Filter & Icon" type="primary-outline" icon={this.state.activeIcon} activeKey={this.state.activeFilterIconKey} select={this.updateActiveFilterIconKey}>
         <DropdownSelectFilter placeholder="Filter Icon">
           <DropdownMenuItem id={1} label="Cog" icon="cog" />
           <DropdownMenuItem id={2} label="Warning" icon="warning" />

@@ -13,6 +13,7 @@ export default {
   entry: {
     vendor:      dependencies,
     avatar:      path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
+    bucket:      path.join(__dirname, '../src/scripts/docs/BucketApp.jsx'),
     button:      path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
     datepicker:  path.join(__dirname, '../src/scripts/docs/DatePickerApp.jsx'),
     dropdown:    path.join(__dirname, '../src/scripts/docs/DropdownApp.jsx'),
@@ -26,6 +27,7 @@ export default {
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx'),
     tabs:        path.join(__dirname, '../src/scripts/docs/TabsApp.jsx'),
+    tooltips:    path.join(__dirname, '../src/scripts/docs/TooltipsApp.jsx'),
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),

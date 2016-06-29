@@ -22,8 +22,15 @@ pre {
   border-radius: @border-radius-base;
   display: flex;
   font-size: 1.4rem;
-  padding: @padding-medium;
+  padding: @padding-base;
 }
+
+
+
+@zindex-site-navigation:    1036;
+@zindex-site-overlay:       1034;
+@site-navigation-bg:        @color-primary;
+@site-navigation-width:     24rem;
 
 
 // -------------------------
@@ -32,6 +39,8 @@ pre {
 
 
 .site-content {
+  margin: 0 auto;
+  max-width: @screen-lg-min;
   padding: @grid-gutter-width / 2;
   position: relative;
 
@@ -44,6 +53,12 @@ pre {
 .site-example-avatar {
   .avatar:not(:last-child) {
     margin-right: @margin-small;
+  }
+}
+
+.site-example-buckets {
+  .bucket:not(:last-child) {
+    margin-bottom: @margin-large;
   }
 }
 
@@ -174,7 +189,7 @@ pre {
 
 .site-copy {
   margin-bottom: 2rem;
-  max-width: 100rem;
+  //max-width: 100rem;
 }
 
 
@@ -207,7 +222,7 @@ pre {
   align-items: center;
   background-color: @color-gray-lightest;
   display: flex;
-  padding: @padding-medium;
+  padding: @padding-base;
   transition: transform 250ms @trans-timing-cubic;
 }
 
@@ -296,16 +311,10 @@ pre {
 // -------------------------
 
 
-@zindex-site-navigation:    1036;
-@zindex-site-overlay:       1034;
-@site-navigation-bg:        @color-secondary;
-@site-navigation-width:     24rem;
-
-
 .site-navigation {
   -webkit-overflow-scrolling: touch;
   background-color: @site-navigation-bg;
-  background-image: linear-gradient(135deg, @color-secondary 0, darken(@color-secondary, 15%) 100%);
+  //background-image: linear-gradient(135deg, @color-secondary 0, darken(@color-secondary, 15%) 100%);
   bottom: 0;
   min-height: 100%;
   overflow-y: scroll;
@@ -355,17 +364,17 @@ pre {
   .no-touch & {
     &:hover,
     &:focus {
-      background-color: lighten(@color-secondary, 6%);
+      background-color: lighten(@site-navigation-bg, 3%);
       box-shadow: none;
     }
   }
 
   &.active {
-    background-color: lighten(@color-secondary, 10%) !important;
+    background-color: lighten(@site-navigation-bg, 6%) !important;
   }
 
   @media (min-height: 1000px) {
-    padding: @padding-medium @padding-half-gutter;
+    padding: @padding-base @padding-half-gutter;
   }
 }
 
@@ -509,10 +518,13 @@ html.navigation-is-locked {
 
 
 .site-wrapper {
+  backface-visibility: hidden; // fix primary color change bug
+  //background: @color-gray-lightest;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   transition: transform 250ms @trans-timing-cubic;
+  
   /*
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load

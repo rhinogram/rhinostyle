@@ -7,7 +7,6 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
-    active:    React.PropTypes.bool,
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
@@ -21,7 +20,6 @@ class Dropdown extends React.Component {
   };
 
   static defaultProps = {
-    active:   false,
     block:    false,
     disabled: false,
     type:     'default',
@@ -58,7 +56,6 @@ class Dropdown extends React.Component {
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),
-      'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
     });
 
@@ -84,5 +81,8 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+const DropdownDocs = Dropdown;
+export { DropdownDocs };
 
 export default onClickOutside(Dropdown);

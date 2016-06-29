@@ -2,13 +2,13 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <Dropdown label="Dropdown" type="secondary">
+      <Dropdown label="Dropdown" type="primary-outline">
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-        <DropdownMenuItem click={() => alert('clicked!')}>Custom click Item</DropdownMenuItem>
-        <DropdownMenuItem url={'http://www.rhinogram.com'} blankWindow>Url Blank Window Item</DropdownMenuItem>
-        <DropdownMenuItem url={'http://www.rhinogram.com'}>Url Item</DropdownMenuItem>
+        <DropdownMenuItem label="Custom click Item" click={() => alert('clicked!')} />
+        <DropdownMenuItem label="Url Blank Window Item" url={'http://www.rhinogram.com'} blankWindow />
+        <DropdownMenuItem label="Url Item" url={'http://www.rhinogram.com'} />
         <DropdownMenuDivider />
-        <DropdownMenuItem>Separated item</DropdownMenuItem>
+        <DropdownMenuItem label="Separated Item" />
       </Dropdown>
     </div>
     );
