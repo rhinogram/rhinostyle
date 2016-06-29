@@ -1,6 +1,6 @@
 class ComponentExample extends React.Component {
-  optionalCallbackFunction = (index, keys) => {
-    console.log('Run optional callback function', index, keys);
+  optionalCallbackFunction = (action, index, keys) => {
+    console.log('Run optional callback function', action, index, keys);
   };
 
   render() {
