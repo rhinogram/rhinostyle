@@ -22,7 +22,7 @@ pre {
   border-radius: @border-radius-base;
   display: flex;
   font-size: 1.4rem;
-  padding: @padding-medium;
+  padding: @padding-base;
 }
 
 
@@ -53,6 +53,12 @@ pre {
 .site-example-avatar {
   .avatar:not(:last-child) {
     margin-right: @margin-small;
+  }
+}
+
+.site-example-buckets {
+  .bucket:not(:last-child) {
+    margin-bottom: @margin-large;
   }
 }
 
@@ -216,7 +222,7 @@ pre {
   align-items: center;
   background-color: @color-gray-lightest;
   display: flex;
-  padding: @padding-medium;
+  padding: @padding-base;
   transition: transform 250ms @trans-timing-cubic;
 }
 
@@ -368,7 +374,7 @@ pre {
   }
 
   @media (min-height: 1000px) {
-    padding: @padding-medium @padding-half-gutter;
+    padding: @padding-base @padding-half-gutter;
   }
 }
 

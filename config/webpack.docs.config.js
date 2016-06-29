@@ -13,6 +13,7 @@ export default {
   entry: {
     vendor:      dependencies,
     avatar:      path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
+    bucket:      path.join(__dirname, '../src/scripts/docs/BucketApp.jsx'),
     button:      path.join(__dirname, '../src/scripts/docs/ButtonApp.jsx'),
     datepicker:  path.join(__dirname, '../src/scripts/docs/DatePickerApp.jsx'),
     dropdown:    path.join(__dirname, '../src/scripts/docs/DropdownApp.jsx'),

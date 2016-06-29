@@ -19,6 +19,7 @@ const PillApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Pill Types</h3>
+      <p className="site-copy"><code>type="default"</code></p>
       <div className="site-example-pills">
         <Pill label="Ben Bruning" />
         <Pill label="Craig Anthony" />
