@@ -1,0 +1,15 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div className="site-example-radio">
+        <RadioGroup inline name="exampleRadio4" label="Radios" selectedValue="3">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);
