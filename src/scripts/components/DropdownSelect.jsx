@@ -33,16 +33,10 @@ class DropdownSelect extends React.Component {
   state = {
     isOpen: false,
     activeKey: this.props.activeKey,
-    items: null,
   };
 
-  componentWillMount() {
-    this.setState({
-      items: this.getChildren(),
-    });
-  }
-
   getChildren = () => {
+    console.log('getting children state/props', this.state.activeKey, this.props.activeKey);
     let returnChild = null;
     const children = this.props.children;
 
@@ -66,8 +60,10 @@ class DropdownSelect extends React.Component {
       } else if (child.type === DropdownSelectFilter) {
         returnChild = React.cloneElement(child, {
           select: this.props.select,
-          activeKey: this.props.activeKey,
+          handleToggle: this.handleToggle,
+          activeKey: this.state.activeKey,
           icon: this.props.icon,
+          updateActiveKey: this.updateActiveKey,
         });
       } else {
         returnChild = child;
@@ -80,7 +76,6 @@ class DropdownSelect extends React.Component {
   handleToggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
-      items: this.getChildren(),
     });
   };
 
@@ -97,7 +92,6 @@ class DropdownSelect extends React.Component {
   render() {
     const { block, className, disabled, icon, label, position, size, type, wide } = this.props;
     const activeKey = this.state.activeKey;
-    const items = this.state.items;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
@@ -153,7 +147,7 @@ class DropdownSelect extends React.Component {
           <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>
         </div>
         <ul className={dropdownMenuClasses}>
-          {items}
+          {this.getChildren()}
         </ul>
       </div>
     );
