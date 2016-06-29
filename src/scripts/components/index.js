@@ -24,6 +24,7 @@ import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
 import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
+import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
 import TabContentPane       from './TabContentPane';
 import TabsContent          from './TabsContent';
@@ -31,6 +32,8 @@ import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
+/* eslint no-duplicate-imports:0 */
+/* eslint import/no-duplicates:0 */
 import { DropdownDocs } from './Dropdown';
 import { DropdownSelectDocs } from './DropdownSelect';
 import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
@@ -66,6 +69,7 @@ export {
   ProgressBar,
   Radio,
   RadioGroup,
+  RhinoSwitch,
   Select,
   TabContentPane,
   TabsContent,
