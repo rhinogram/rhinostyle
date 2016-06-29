@@ -33,27 +33,14 @@ class DropdownMultiSelect extends React.Component {
     items: this.props.children,
   };
 
-  // componentWillMount() {
-  //   console.log('mounting');
-  //   this.setState({
-  //     items: this.getChildren(),
-  //   });
-  // }
-
-  componentWillReceiveProps() {
-    console.log('receiving props');
-    this.clearInput();
-  }
-
   getChildren = () => {
-    console.log('getting children')
     let returnChild = null;
     const children = this.props.children;
 
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.itemClick(child.props.id),
+          click: () => this.itemClick(child.props.id, true),
           active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -81,15 +68,19 @@ class DropdownMultiSelect extends React.Component {
     this.filterInput.value = '';
   }
 
-  itemClick = (id) => {
+  itemClick = (id, toggle) => {
+    let currentKeys = null;
+
     if (this.props.select && typeof(this.props.select === 'function')) {
-      this.updateActiveKeys(id);
-      this.props.select(id);
+      currentKeys = this.updateActiveKeys(id);
+      this.props.select(id, currentKeys);
     } else {
       this.updateActiveKeys(id);
     }
 
-    this.handleToggle();
+    if (toggle) {
+      this.handleToggle();
+    }
   }
 
   handleFilter = (e) => {
@@ -102,7 +93,7 @@ class DropdownMultiSelect extends React.Component {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            click: () => this.itemClick(child.props.id),
+            click: () => this.itemClick(child.props.id, true),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
@@ -132,6 +123,8 @@ class DropdownMultiSelect extends React.Component {
     this.setState({
       activeKeys: currentKeys,
     });
+
+    return currentKeys;
   }
 
   render() {
@@ -164,7 +157,7 @@ class DropdownMultiSelect extends React.Component {
       });
 
       return (
-        <Pill label={label} onClick={() => this.updateActiveKeys(id)} key={id} className="u-m-r-sm" />
+        <Pill label={label} onClick={() => this.itemClick(id)} key={id} className="u-m-r-sm" />
       );
     };
 
