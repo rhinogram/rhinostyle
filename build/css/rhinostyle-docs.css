@@ -949,12 +949,6 @@ a.u-text-warning:hover,
 @pagination-disabled-color:            @color-gray-light;
 @pagination-disabled-bg:               @color-white;
 @pagination-disabled-border:           @color-gray-light;*/
-/*@tooltip-arrow-width:         5px;
-@tooltip-arrow-color:         @tooltip-bg;
-@tooltip-bg:                  @color-gray;
-@tooltip-color:               @color-white;
-@tooltip-opacity:             .9;
-@tooltip-max-width:           200px;*/
 .rhino-animation {
   background-color: #0081c6;
   max-width: 48rem;
@@ -2143,7 +2137,7 @@ button.toast__close {
 .btn .dropdown__toggle__caret {
   top: .1rem;
 }
-.dropdown__toggle__icon {
+.dropdown__toggle:not(.btn--icon) .dropdown__toggle__icon {
   margin-right: 0.4rem;
 }
 [class^='col-'],
@@ -3845,9 +3839,9 @@ fieldset[disabled] .rhinodio label {
 [data-tooltip-left]::after,
 [data-tooltip-right]::after,
 [data-tooltip-top]::after {
-  border-bottom: .6rem solid transparent;
-  border-left: .6rem solid transparent;
-  border-right: .6rem solid transparent;
+  border-bottom: 0.6rem solid transparent;
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
   border-top: 0.6rem solid #6c6c6c;
   content: '';
   height: 0;

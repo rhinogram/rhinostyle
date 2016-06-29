@@ -329,9 +329,13 @@
 // -------------------------
 
 
-.dropdown__toggle__icon {
-  margin-right: @margin-xsmall;
+// only give right margin to toggle icon unless it's a child of btn--icon
+.dropdown__toggle:not(.btn--icon) {
+  .dropdown__toggle__icon {
+    margin-right: @margin-xsmall;
+  }
 }
+
 
 
 
