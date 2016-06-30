@@ -3,10 +3,18 @@ class ComponentExample extends React.Component {
     activeKeys: [],
   };
 
-  updateActiveKeys = (keys) => {
-  console.log('updating', keys)
+  updateActiveKeys = (index) => {
+    let currentKeys = this.state.activeKeys;
+    const currentIndex = currentKeys.indexOf(index);
+
+    if (currentIndex > -1) {
+      currentKeys.splice(currentIndex, 1);
+    } else {
+      currentKeys.push(index);
+    }
+
     this.setState({
-      activeKeys: keys,
+        activeKeys: currentKeys,
     });
   };
 

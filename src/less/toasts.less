@@ -20,6 +20,21 @@
   }
 }
 
+// -------------------------
+// Modal Container
+// -------------------------
+
+
+.modal-container {
+  left: 1rem;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  @media(min-width: 500px) {
+    width: 100%;
+  }
+}
+
 
 // -------------------------
 // Toast
@@ -52,7 +67,7 @@
 }
 
 .toast--default {
-  background: @color-gray-dark;
+  background: @color-gray;
 }
 
 .toast--secondary {
@@ -67,27 +82,11 @@
 
 
 .toast__close {
-  &:extend(.close);
+  &:extend(.close all);
   float: none;
   position: absolute;
   right: .8rem;
   top: 1rem;
-
-  &:hover,
-  &:focus {
-    color: inherit;
-    cursor: pointer;
-    opacity: .75;
-    outline: 0;
-    text-decoration: none;
-  }
-
-  button& {
-    -webkit-appearance: none;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-  }
 }
 
 

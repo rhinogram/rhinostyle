@@ -29,7 +29,7 @@ pre {
 
 @zindex-site-navigation:    1036;
 @zindex-site-overlay:       1034;
-@site-navigation-bg:        @color-secondary;
+@site-navigation-bg:        @color-primary;
 @site-navigation-width:     24rem;
 
 
@@ -306,7 +306,7 @@ pre {
 .site-navigation {
   -webkit-overflow-scrolling: touch;
   background-color: @site-navigation-bg;
-  background-image: linear-gradient(135deg, @color-secondary 0, darken(@color-secondary, 15%) 100%);
+  //background-image: linear-gradient(135deg, @color-secondary 0, darken(@color-secondary, 15%) 100%);
   bottom: 0;
   min-height: 100%;
   overflow-y: scroll;
@@ -356,13 +356,13 @@ pre {
   .no-touch & {
     &:hover,
     &:focus {
-      background-color: lighten(@color-secondary, 6%);
+      background-color: lighten(@site-navigation-bg, 3%);
       box-shadow: none;
     }
   }
 
   &.active {
-    background-color: lighten(@color-secondary, 10%) !important;
+    background-color: lighten(@site-navigation-bg, 6%) !important;
   }
 
   @media (min-height: 1000px) {

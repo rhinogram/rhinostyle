@@ -8,10 +8,13 @@ class Modal extends React.Component {
     children:   React.PropTypes.node,
     className:  React.PropTypes.string,
     size:       React.PropTypes.string,
+    renderModal:  React.PropTypes.func,
+    isOpen:     React.PropTypes.bool,
   };
 
   static defaultProps = {
     type: 'default',
+    isOpen: false,
   };
 
   render() {

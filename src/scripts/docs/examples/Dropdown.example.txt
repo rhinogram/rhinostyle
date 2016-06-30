@@ -2,7 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <Dropdown label="Dropdown" type="secondary">
+      <Dropdown label="Dropdown" type="primary-outline">
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
         <DropdownMenuItem label="Custom click Item" click={() => alert('clicked!')} />
         <DropdownMenuItem label="Url Blank Window Item" url={'http://www.rhinogram.com'} blankWindow />

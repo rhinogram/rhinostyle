@@ -13,7 +13,7 @@ class Button extends React.Component {
     disabled:  React.PropTypes.bool,
     iconOnly:  React.PropTypes.bool,
     size:      React.PropTypes.oneOf(['small', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
+    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link', 'danger']),
   };
 
   static defaultProps = {
@@ -34,6 +34,7 @@ class Button extends React.Component {
       'btn--link':      type === 'link',
       'btn--default-outline':   type === 'default-outline',
       'btn--primary-outline':   type === 'primary-outline',
+      'btn--danger':   type === 'danger',
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--block': block,

@@ -30,7 +30,7 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
-      <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link"</code></p>
+      <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link | danger"</code></p>
       <div className="site-example-buttons">
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
@@ -38,6 +38,7 @@ const ButtonApp = () =>
         <Button type="default-outline">Default Outline</Button>
         <Button type="primary-outline">Primary Outline</Button>
         <Button type="link">Link</Button>
+        <Button type="danger">Danger</Button>
       </div>
     </section>
 

@@ -57,7 +57,7 @@
 
 // Shell div to position the modal with bottom padding
 .modal__container {
-  margin: @margin-medium;
+  margin: @margin-medium @margin-medium 2.6rem @margin-medium;
   position: relative;
   width: auto;
 }
@@ -117,12 +117,14 @@
   padding: @modal-title-padding;
 }
 
-.modal__header .close {
-  margin-top: -.2rem;
+.modal__header__close {
+  &:extend(.close all);
 }
 
 .modal__header__title {
   .u-text-overflow;
+  align-items: center;
+  display: flex;
   line-height: @modal-title-line-height;
   margin: 0;
 }
