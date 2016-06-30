@@ -387,8 +387,8 @@
 @modal-md:                    60rem;
 @modal-sm:                    30rem;
 
-@modal-title-padding:         @padding-half-gutter;
-@modal-title-line-height:     @line-height-base;
+@modal-header-padding:        @padding-half-gutter;
+@modal-header-line-height:    @headings-line-height;
 
 
 // -------------------------
@@ -460,24 +460,6 @@
 @pill-padding-vertical:    .4rem;
 
 @pill-padding:             @pill-padding-vertical @pill-padding-horizontal;
-
-
-// -------------------------
-// Popovers
-// -------------------------
-
-
-/*@popover-arrow-color:                 @popover-bg;
-@popover-arrow-outer-width:           (@popover-arrow-width + 1);
-@popover-arrow-outer-color:           fadein(@popover-border-color, 5%);
-@popover-arrow-outer-fallback-color:  darken(@popover-fallback-border-color, 20%);
-@popover-arrow-width:                 10px;
-
-@popover-bg:                          @color-white;
-@popover-border-color:                rgba(0,0,0,.2);
-@popover-fallback-border-color:       @border-color-base;
-@popover-max-width:                   276px;
-@popover-title-bg:                    transparent;*/
 
 
 // -------------------------
@@ -578,6 +560,15 @@
 
 
 // -------------------------
+// System Alerts
+// -------------------------
+
+
+@system-alert-padding:              @padding-base @padding-large;
+@system-alert-text:                 @color-white;
+
+
+// -------------------------
 // Tables
 // -------------------------
 
@@ -600,7 +591,7 @@
 
 @toast-border-radius:        @border-radius-base;
 @toast-font-weight:          @font-weight-light;
-@toast-padding:              @padding-base (@padding-base + 2.0rem) @padding-base @padding-base;
+@toast-padding:              @padding-base;
 @toast-text:                 @color-white;
 
 
@@ -609,12 +600,14 @@
 // -------------------------
 
 
-/*@tooltip-arrow-width:         5px;
+@tooltip-arrow-width:         .6rem;
 @tooltip-arrow-color:         @tooltip-bg;
-@tooltip-bg:                  @color-gray;
+@tooltip-bg:                  @color-gray-dark;
+@tooltip-border-radius:       @border-radius-base;
 @tooltip-color:               @color-white;
-@tooltip-opacity:             .9;
-@tooltip-max-width:           200px;*/
+@tooltip-padding:             @padding-xsmall @padding-small;
+//@tooltip-opacity:             .9;
+//@tooltip-max-width:           200px;
 
 
 // -------------------------
@@ -674,7 +667,7 @@
 
 @headings-font-family:    inherit;
 @headings-font-weight:    @font-weight-bold;
-@headings-line-height:    1.1;
+@headings-line-height:    @line-height-small;
 @headings-color:          inherit;
 
 @line-height-base:        1.4;

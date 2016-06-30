@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { NotificationActions, Callout, Icon, Toast } from '../components';
+import { NotificationActions, Callout, Icon, SystemAlert, Toast } from '../components';
 
 import Playground from 'component-playground';
 
@@ -11,27 +11,44 @@ const calloutDocs = {
   body: '[Required] - Callout body text',
   className: '[Optional] - Include additional class name(s)',
   heading: '[Required] - Callout heading text',
-  type: '[Optional] - Callout type, as a string -  [danger | info]',
+  type: '[Optional] - Callout type, as a string -  [danger | default | info]',
 };
-const toastExample   = require('raw!./examples/Toast.example.txt');
+const toastExample = require('raw!./examples/Toast.example.txt');
 const toastDocs = {
   body: '[Required] - Toast body text',
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Include icon name',
   onDismiss: '[Required] - Include dismiss function',
-  type: '[Optional] - Callout type, as a string -  [danger | secondary]',
+  type: '[Optional] - Callout type, as a string -  [danger | default | secondary]',
 };
-const toastScope     = {
+const systemAlertExample = require('raw!./examples/SystemAlert.example.txt');
+const systemAlertDocs = {
+  body: '[Required] - SystemAlert body text',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Include icon name',
+  onDismiss: '[Required] - Include dismiss function',
+  type: '[Optional] - SystemAlert type, as a string -  [danger | default | info | success]',
+  url: '[Optional] - SystemAlert url, as a string',
+};
+
+const calloutScope = {
+  React,
+  ReactDOM,
+  Callout,
+};
+const toastScope = {
   React,
   ReactDOM,
   Toast,
   Icon,
 };
-const calloutScope   = {
+const systemAlertScope = {
   React,
   ReactDOM,
-  Callout,
+  SystemAlert,
+  Icon,
 };
+
 
 class FeedbackApp extends React.Component {
   static displayName = 'Rhinostyle Feedback Examples';
@@ -66,6 +83,19 @@ class FeedbackApp extends React.Component {
           </div>
           <h3 className="site-subheadline">Callout Playground</h3>
           <Playground docClass={Callout} propDescriptionMap={calloutDocs} codeText={calloutExample} scope={calloutScope} noRender={false} />
+        </section>
+        <section className="site-section">
+          <h3 className="site-subheadline">SystemAlert</h3>
+          <div className="u-m-b-lg">
+            <div className="site-example-systemalerts">
+              <SystemAlert type="danger" body="Danger System Alert" />
+              <SystemAlert type="default" body="Default System Alert" />
+              <SystemAlert type="info" body="Info System Alert" />
+              <SystemAlert type="success" body="Success System Alert" />
+            </div>
+          </div>
+          <h3 className="site-subheadline">SystemAlert Playground</h3>
+          <Playground docClass={SystemAlert} propDescriptionMap={systemAlertDocs} codeText={systemAlertExample} scope={systemAlertScope} noRender={false} />
         </section>
         <section>
           <h3 className="site-subheadline">Toast</h3>

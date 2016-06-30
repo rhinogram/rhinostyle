@@ -26,6 +26,7 @@ import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
 import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
+import SystemAlert          from './SystemAlert';
 import TabContentPane       from './TabContentPane';
 import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
@@ -71,6 +72,7 @@ export {
   RadioGroup,
   RhinoSwitch,
   Select,
+  SystemAlert,
   TabContentPane,
   TabsContent,
   Textarea,

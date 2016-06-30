@@ -32,13 +32,10 @@
   color: @toast-text;
   display: flex;
   font-weight: @toast-font-weight;
+  line-height: @line-height-small;
   max-width: 50rem;
   padding: @toast-padding;
   position: relative;
-
-  > .icon {
-    margin-right: @margin-small;
-  }
 }
 
 
@@ -68,16 +65,24 @@
 
 .toast__close {
   &:extend(.close all);
-  float: none;
-  position: absolute;
-  right: .8rem;
-  top: 1rem;
+}
+
+
+// -------------------------
+// Toast Icon
+// -------------------------
+
+
+.toast__icon {
+  font-size: @font-size-base + .2rem;
+  margin-right: @margin-small;
 }
 
 
 // -------------------------
 // Toast Link
 // -------------------------
+
 
 .toast__link {
   color: @toast-text;

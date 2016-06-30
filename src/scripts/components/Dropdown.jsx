@@ -39,7 +39,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { active, block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const { block, className, disabled, icon, label, position, size, type, wide } = this.props;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,

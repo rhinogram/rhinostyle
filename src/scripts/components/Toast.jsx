@@ -30,16 +30,16 @@ class Toast extends React.Component {
 
     const renderIcon = () => {
       if (icon) {
-        return (<Icon icon={icon} />);
+        return (<Icon icon={icon} className="toast__icon" />);
       }
       return false;
     };
 
     return (
       <div className={classes}>
-        <button type="button" onClick={onDismiss} className="toast__close" data-dismiss="toast" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {renderIcon()}
         {body}
+        <button type="button" onClick={onDismiss} className="toast__close" data-dismiss="toast" aria-label="Close"><Icon icon="close" /></button>
       </div>
     );
   }

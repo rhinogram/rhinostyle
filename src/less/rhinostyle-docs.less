@@ -27,8 +27,9 @@ pre {
 
 
 
-@zindex-site-navigation:    1036;
-@zindex-site-overlay:       1034;
+@zindex-site-navigation:    20;
+@zindex-site-overlay:       15;
+@zindex-site-wrapper:       1;
 @site-navigation-bg:        @color-primary;
 @site-navigation-width:     24rem;
 
@@ -99,6 +100,12 @@ pre {
 .site-example-pills {
   .pill:not(:last-child) {
     margin-right: @margin-small;
+  }
+}
+
+.site-example-systemalerts {
+  .system-alert:not(:last-child) {
+    margin-bottom: @margin-large;
   }
 }
 
@@ -314,7 +321,6 @@ pre {
 .site-navigation {
   -webkit-overflow-scrolling: touch;
   background-color: @site-navigation-bg;
-  //background-image: linear-gradient(135deg, @color-secondary 0, darken(@color-secondary, 15%) 100%);
   bottom: 0;
   min-height: 100%;
   overflow-y: scroll;
@@ -356,7 +362,6 @@ pre {
   border-radius: .4rem;
   color: @color-white;
   display: block;
-  //font-size: 1.4rem;
   font-weight: @font-weight-light;
   padding: @padding-small @padding-half-gutter;
   transition: background-color 250ms @trans-timing-cubic;
@@ -373,7 +378,7 @@ pre {
     background-color: lighten(@site-navigation-bg, 6%) !important;
   }
 
-  @media (min-height: 1000px) {
+  @media (min-height: 1100px) {
     padding: @padding-base @padding-half-gutter;
   }
 }
@@ -407,7 +412,6 @@ pre {
   opacity: 0;
   position: fixed;
   top: 0;
-  //transition: opacity 250ms @trans-timing-cubic;
   width: 100vw;
   z-index: -1;
 }
@@ -452,6 +456,7 @@ html.navigation-is-locked {
   .site-wrapper {
     margin-left: @site-navigation-width;
     transform: translateX(0) !important;
+    z-index: @zindex-site-navigation + 1;
   }
 }
 
@@ -497,7 +502,6 @@ html.navigation-is-locked {
 
 .site-swatch__sample {
   align-items: center;
-  //background-color: @color-gray-lightest;
   display: flex;
   height: 12rem;
   justify-content: center;
@@ -518,12 +522,12 @@ html.navigation-is-locked {
 
 
 .site-wrapper {
-  backface-visibility: hidden; // fix primary color change bug
-  //background: @color-gray-lightest;
+  //backface-visibility: hidden; // fix primary color change bug
   min-height: 100vh;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   position: relative;
   transition: transform 250ms @trans-timing-cubic;
+  z-index: @zindex-site-wrapper;
   
   /*
   html.navigation-is-locked breakpoint

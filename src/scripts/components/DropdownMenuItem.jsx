@@ -61,7 +61,7 @@ class DropdownMenuItem extends React.Component {
 
     return (
       <li className={classes}><a href="javascript:void(0)" onClick={this.handleClick}>
-        {icon ? (<Icon icon={icon} />) : null}
+        {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
         {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
         <span className="u-text-overflow">{label}</span></a></li>/* eslint no-script-url:0 */
     );
