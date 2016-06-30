@@ -1962,7 +1962,6 @@ button.toast__close {
 .dropdown--multiselect {
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 0.6rem;
 }
 .dropdown--multiselect::after {
   background-position: center center;

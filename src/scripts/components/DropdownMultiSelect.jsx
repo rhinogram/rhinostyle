@@ -133,7 +133,7 @@ class DropdownMultiSelect extends React.Component {
     const items = this.state.items;
     const activeKeys = this.state.activeKeys;
 
-    const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
+    const dropdownClasses = cx('dropdown', 'dropdown--multiselect', 'u-m-b-sm', {
       open:  this.state.isOpen,
     });
 
