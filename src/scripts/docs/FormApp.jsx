@@ -220,7 +220,7 @@ const FormApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inline Rhinodio</h5>
         <p className="site-copy">Add the <code>inline</code> property to create inline radios.</p>
-        <RadioGroup name="exampleRadio3" label="Radios" selectedValue="2">
+        <RadioGroup inline name="exampleRadio3" label="Radios" selectedValue="2">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
