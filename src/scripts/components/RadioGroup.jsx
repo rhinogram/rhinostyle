@@ -16,7 +16,7 @@ class RadioGroup extends React.Component {
   };
 
   static defaultProps = {
-    name: `rhinodioGroup${Date.now()}`,
+    name: `rhinodioGroup-${Math.floor(Math.random() * 1000000)}`,
   };
 
   state = {
