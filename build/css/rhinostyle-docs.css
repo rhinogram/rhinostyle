@@ -3716,16 +3716,16 @@ fieldset[disabled] .rhinodio label {
   position: relative;
 }
 .system-alert--danger {
-  background: repeating-linear-gradient(45deg, #cc2d32, #cc2d32 1rem, rgba(204, 45, 50, 0.96) 0, rgba(204, 45, 50, 0.96) 2rem);
+  background: repeating-linear-gradient(45deg, #cc2d32, #cc2d32 2rem, rgba(204, 45, 50, 0.96) 0, rgba(204, 45, 50, 0.96) 4rem);
 }
 .system-alert--default {
-  background: repeating-linear-gradient(45deg, #9f9f9f, #9f9f9f 1rem, rgba(159, 159, 159, 0.98) 0, rgba(159, 159, 159, 0.98) 2rem);
+  background: repeating-linear-gradient(45deg, #9f9f9f, #9f9f9f 2rem, rgba(159, 159, 159, 0.98) 0, rgba(159, 159, 159, 0.98) 4rem);
 }
 .system-alert--info {
-  background: repeating-linear-gradient(45deg, #005480, #005480 1rem, rgba(0, 84, 128, 0.98) 0, rgba(0, 84, 128, 0.98) 2rem);
+  background: repeating-linear-gradient(45deg, #005480, #005480 2rem, rgba(0, 84, 128, 0.98) 0, rgba(0, 84, 128, 0.98) 4rem);
 }
 .system-alert--success {
-  background: repeating-linear-gradient(45deg, #72aa00, #72aa00 1rem, rgba(114, 170, 0, 0.98) 0, rgba(114, 170, 0, 0.98) 2rem);
+  background: repeating-linear-gradient(45deg, #72aa00, #72aa00 2rem, rgba(114, 170, 0, 0.98) 0, rgba(114, 170, 0, 0.98) 4rem);
 }
 .system-alert__body {
   -ms-flex-align: center;
@@ -4246,7 +4246,7 @@ pre {
   transform: translateX(-24rem);
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   width: 24rem;
-  z-index: 1036;
+  z-index: 20;
   /*
   html.navigation-is-locked breakpoint
   keeps nav from transitioning from left on page load
@@ -4319,7 +4319,7 @@ html.navigation-is-open body {
 }
 html.navigation-is-open .site-overlay {
   opacity: .05;
-  z-index: 1034;
+  z-index: 15;
 }
 html.navigation-is-open .site-navigation {
   transform: translateX(0);
@@ -4333,6 +4333,7 @@ html.navigation-is-locked .site-navigation {
 html.navigation-is-locked .site-wrapper {
   margin-left: 24rem;
   transform: translateX(0) !important;
+  z-index: 21;
 }
 .site-section {
   margin-bottom: 8rem;
@@ -4369,11 +4370,10 @@ html.navigation-is-locked .site-wrapper {
   text-align: center;
 }
 .site-wrapper {
-  backface-visibility: hidden;
   min-height: 100vh;
-  overflow-x: hidden;
   position: relative;
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  z-index: 1;
   /*
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load

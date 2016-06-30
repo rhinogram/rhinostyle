@@ -8,7 +8,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="row row--condensed">
-        <div className="col-sm-2">
+        <div className="col-sm-3">
           <DatePicker className="form__control" readOnly selected={this.state.startDate} onChange={this._handleChange} placeholderText="Click to select a date" />
         </div>
       </div>
