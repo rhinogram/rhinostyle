@@ -3043,7 +3043,7 @@ fieldset[disabled] .rhinodio label {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M21.6%202.2c-.4-.3-.9-.2-1.2.2L8.1%2019.9l-4.7-4.7c-.3-.3-.9-.3-1.2%200-.3.3-.3.9%200%201.2l5.4%205.4c.2.1.4.2.7.2.3%200%20.5-.1.7-.4L21.8%203.3c.3-.4.2-.9-.2-1.1z%22%2F%3E%3C%2Fsvg%3E");
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 1.2rem 1.2rem;
+  background-size: 1.6rem 1.6rem;
   border-color: #0081c6;
 }
 .rhinobox label {
@@ -3825,9 +3825,9 @@ fieldset[disabled] .rhinodio label {
 [data-tooltip-top]:not(a)[data-tooltip-left]:not(.btn),
 [data-tooltip-top]:not(a)[data-tooltip-right]:not(.btn),
 [data-tooltip-top]:not(a)[data-tooltip-top]:not(.btn) {
-  background: linear-gradient(90deg, #6c6c6c 50%, transparent 0) repeat-x;
+  background: linear-gradient(90deg, #c5c5c5 50%, transparent 0) repeat-x;
   background-position: 0 bottom;
-  background-size: .4rem 1px;
+  background-size: .6rem 1px;
 }
 [data-tooltip-bottom]::before,
 [data-tooltip-left]::before,
