@@ -3716,16 +3716,16 @@ fieldset[disabled] .rhinodio label {
   position: relative;
 }
 .system-alert--danger {
-  background: #cc2d32;
+  background: repeating-linear-gradient(45deg, #cc2d32, #cc2d32 1rem, rgba(204, 45, 50, 0.96) 0, rgba(204, 45, 50, 0.96) 2rem);
 }
 .system-alert--default {
-  background: #9f9f9f;
+  background: repeating-linear-gradient(45deg, #9f9f9f, #9f9f9f 1rem, rgba(159, 159, 159, 0.98) 0, rgba(159, 159, 159, 0.98) 2rem);
 }
 .system-alert--info {
-  background: #005480;
+  background: repeating-linear-gradient(45deg, #005480, #005480 1rem, rgba(0, 84, 128, 0.98) 0, rgba(0, 84, 128, 0.98) 2rem);
 }
 .system-alert--success {
-  background: #72aa00;
+  background: repeating-linear-gradient(45deg, #72aa00, #72aa00 1rem, rgba(114, 170, 0, 0.98) 0, rgba(114, 170, 0, 0.98) 2rem);
 }
 .system-alert__body {
   -ms-flex-align: center;

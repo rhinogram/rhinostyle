@@ -1,0 +1,13 @@
+// File: mixin-background-stripes.less
+// Note:
+
+
+// -------------------------
+// Background Diagonal Stripes
+// -------------------------
+
+
+.mixin-bg-diagonal-stripes (@background; @percent) {
+  background: repeating-linear-gradient(45deg, @background, @background 1rem, fade(@background, @percent) 0, fade(@background, @percent) 2rem);
+}
+
