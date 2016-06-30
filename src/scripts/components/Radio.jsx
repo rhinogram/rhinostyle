@@ -10,7 +10,7 @@ class Radio extends React.Component {
     name:          React.PropTypes.string,
     onChange:      React.PropTypes.func,
     selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    value:         React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    value:         React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
   };
 
   static defaultProps = {
@@ -22,7 +22,7 @@ class Radio extends React.Component {
 
   render() {
     const { inline, name, onChange, value } = this.props;
-    const id = `${name}${Date.now()}`;
+    const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
     const classes = cx('rhinodio', {
       'rhinodio--inline': inline,
     });
