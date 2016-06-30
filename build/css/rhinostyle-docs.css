@@ -4279,7 +4279,7 @@ pre {
 .site-navigation__nav__btn.active {
   background-color: #0095e5 !important;
 }
-@media (min-height: 1000px) {
+@media (min-height: 1100px) {
   .site-navigation__nav__btn {
     padding: 1rem 1.6rem;
   }
