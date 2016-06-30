@@ -3734,8 +3734,14 @@ fieldset[disabled] .rhinodio label {
   display: flex;
   -ms-flex: 1;
   flex: 1 1 0%;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -ms-flex-pack: center;
   justify-content: center;
+  text-align: center;
+}
+.system-alert__close {
+  margin-left: 0.6rem;
 }
 .system-alert__icon {
   font-size: 1.8rem;
