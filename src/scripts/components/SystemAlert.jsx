@@ -47,9 +47,11 @@ class SystemAlert extends React.Component {
 
     return (
       <div className={classes}>
-        {renderIcon()}
-        {body}
-        {renderUrl()}
+        <div className="system-alert__body">
+          {renderIcon()}
+          {body}
+          {renderUrl()}
+        </div>
         <button type="button" onClick={onDismiss} className="system-alert__close"><Icon icon="close" /></button>
       </div>
     );

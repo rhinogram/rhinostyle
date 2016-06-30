@@ -3727,6 +3727,16 @@ fieldset[disabled] .rhinodio label {
 .system-alert--success {
   background: #72aa00;
 }
+.system-alert__body {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1 1 0%;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 .system-alert__icon {
   font-size: 1.8rem;
   margin-right: 0.6rem;
