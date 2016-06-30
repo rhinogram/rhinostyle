@@ -1595,12 +1595,12 @@ fieldset[disabled] .btn--link:focus {
 .system-alert__close,
 .toast__close {
   color: inherit;
-  float: right;
-  font-size: 2.4rem;
-  font-weight: 300;
+  font-size: 1.4rem;
   line-height: 1;
-  opacity: .5;
+  margin-left: auto;
+  opacity: .75;
   padding: 0 0.4rem;
+  position: relative;
 }
 .close:hover,
 .close:focus,
@@ -1612,7 +1612,7 @@ fieldset[disabled] .btn--link:focus {
 .toast__close:focus {
   color: inherit;
   cursor: pointer;
-  opacity: .75;
+  opacity: 1;
   outline: 0;
   text-decoration: none;
 }
@@ -1888,7 +1888,7 @@ button.toast__close {
   right: 1rem;
   top: 50%;
   width: 1.2rem;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M13.416%2012.001L23.708%201.708A.999.999%200%201%200%2022.294.294L12.001%2010.587%201.708.294A.999.999%200%201%200%20.294%201.708l10.292%2010.293L.294%2022.294a.999.999%200%201%200%201.414%201.414l10.293-10.293%2010.293%2010.293a.997.997%200%200%200%201.414%200%20.999.999%200%200%200%200-1.414L13.416%2012.001z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M13.2%2012l8.6-8.6c.3-.3.3-.9%200-1.2-.3-.3-.9-.3-1.2%200L12%2010.8%203.4%202.2c-.3-.3-.9-.3-1.2%200-.3.3-.3.9%200%201.2l8.6%208.6-8.6%208.6c-.3.3-.3.9%200%201.2.2.1.4.2.6.2.2%200%20.4-.1.6-.2l8.6-8.6%208.6%208.6c.2.2.4.2.6.2s.4-.1.6-.2c.3-.3.3-.9%200-1.2L13.2%2012z%22%2F%3E%3C%2Fsvg%3E");
 }
 /*.react-datepicker__close-icon::after {
   background-color: @color-secondary;
@@ -1999,7 +1999,7 @@ button.toast__close {
   top: 50%;
   transform: translateY(-50%);
   width: 1.4rem;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%230081c6%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%230081c6%22%20d%3D%22M21.6%202.2c-.4-.3-.9-.2-1.2.2L8.1%2019.9l-4.7-4.7c-.3-.3-.9-.3-1.2%200-.3.3-.3.9%200%201.2l5.4%205.4c.2.1.4.2.7.2.3%200%20.5-.1.7-.4L21.8%203.3c.3-.4.2-.9-.2-1.1z%22%2F%3E%3C%2Fsvg%3E");
 }
 /*.dropdown__input {
   cursor: pointer;
@@ -3040,7 +3040,7 @@ fieldset[disabled] .rhinodio label {
 }
 .rhinobox input:checked + label::before {
   background-color: #0081c6;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M23.576.184a.999.999%200%200%200-1.393.241L7.367%2021.453l-5.66-5.659a.999.999%200%201%200-1.414%201.414l6.5%206.5a1%201%200%200%200%201.524-.131l15.5-22a1%201%200%200%200-.241-1.393z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M21.6%202.2c-.4-.3-.9-.2-1.2.2L8.1%2019.9l-4.7-4.7c-.3-.3-.9-.3-1.2%200-.3.3-.3.9%200%201.2l5.4%205.4c.2.1.4.2.7.2.3%200%20.5-.1.7-.4L21.8%203.3c.3-.4.2-.9-.2-1.1z%22%2F%3E%3C%2Fsvg%3E");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
@@ -3150,6 +3150,7 @@ fieldset[disabled] .rhinodio label {
   pointer-events: none;
 }
 .rhinoswitcher__icon {
+  font-size: 1.8rem;
   top: 0;
 }
 .rhinoswitcher__inner {
@@ -3480,8 +3481,13 @@ fieldset[disabled] .rhinodio label {
 }
 .modal__header {
   border-bottom: 1px solid #ececec;
-  min-height: 3rem;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 2.8rem;
   padding: 1.6rem;
+}
+.modal__header__close {
+  top: 0;
 }
 .modal__header__title {
   overflow: hidden;
@@ -3491,7 +3497,6 @@ fieldset[disabled] .rhinodio label {
   align-items: center;
   display: -ms-flexbox;
   display: flex;
-  line-height: 1.4;
   margin: 0;
 }
 .modal__body {
@@ -3722,12 +3727,6 @@ fieldset[disabled] .rhinodio label {
 .system-alert--success {
   background: #72aa00;
 }
-.system-alert__close {
-  float: none;
-  position: absolute;
-  right: .8rem;
-  top: .8rem;
-}
 .system-alert__icon {
   font-size: 1.8rem;
   margin-right: 0.6rem;
@@ -3762,8 +3761,9 @@ fieldset[disabled] .rhinodio label {
   display: -ms-flexbox;
   display: flex;
   font-weight: 300;
+  line-height: 1.2;
   max-width: 50rem;
-  padding: 1rem 1.2rem 1rem 1rem;
+  padding: 1rem;
   position: relative;
 }
 .toast--danger {
@@ -3775,13 +3775,8 @@ fieldset[disabled] .rhinodio label {
 .toast--secondary {
   background: #83c400;
 }
-.toast__close {
-  float: none;
-  position: absolute;
-  right: .8rem;
-  top: .8rem;
-}
 .toast__icon {
+  font-size: 1.8rem;
   margin-right: 0.6rem;
 }
 .toast__link {
@@ -3925,7 +3920,7 @@ h6 {
   color: inherit;
   font-family: inherit;
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.2;
   margin: 0 0 1.12rem;
 }
 h1 small,

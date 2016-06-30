@@ -113,19 +113,20 @@
 
 .modal__header {
   border-bottom: 1px solid @modal-header-border-color;
+  display: flex;
   min-height: (@modal-title-padding + @modal-title-line-height);
   padding: @modal-title-padding;
 }
 
 .modal__header__close {
   &:extend(.close all);
+  top: 0;
 }
 
 .modal__header__title {
   .u-text-overflow;
   align-items: center;
   display: flex;
-  line-height: @modal-title-line-height;
   margin: 0;
 }
 
