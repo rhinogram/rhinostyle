@@ -46,7 +46,7 @@ legend {
 
 select {
   &:focus {
-    &:extend(.u-tab-focus);
+    .mixin-tab-focus();
   }
 }
 
@@ -97,7 +97,7 @@ select[size] {
 input[type='file']:focus,
 input[type='radio']:focus,
 input[type='checkbox']:focus {
-  &:extend(.u-tab-focus);
+  .mixin-tab-focus();
 }
 
 
@@ -260,7 +260,7 @@ input[type='checkbox']:focus {
   .mixin-input-size(@input-height-base; @padding-base; @font-size-base; @input-border-radius);
 
   &:focus {
-    &:extend(.u-tab-focus);
+    .mixin-tab-focus();
   }
 
   &[disabled],
