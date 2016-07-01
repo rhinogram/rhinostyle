@@ -6,6 +6,17 @@
 
 
 // -------------------------
+// Modal Container
+// -------------------------
+
+
+#js-modal-container {
+  position: fixed;
+  z-index: 40;
+}
+
+
+// -------------------------
 // Modal Open State
 // -------------------------
 
@@ -17,6 +28,32 @@
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+
+// -------------------------
+// Modal Backdrop
+// -------------------------
+
+
+.modal-backdrop {
+  background-color: @modal-backdrop-bg;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  opacity: .5;
+  z-index: 1;
+
+  // Fade for backdrop
+  &.fade {
+    transition: opacity 100ms @modal-easing;
+  }
+
+  &.in {
+    transition: opacity 300ms @modal-easing;
+  }
 }
 
 
@@ -49,7 +86,6 @@
 }
 
 
-
 // -------------------------
 // Modal Container
 // -------------------------
@@ -77,33 +113,6 @@
   box-shadow: @shadow-depth-3;
   outline: 0;
   position: relative;
-}
-
-
-// -------------------------
-// Modal Backdrop
-// -------------------------
-
-
-// Modal background
-.modal__backdrop {
-  background-color: @modal-backdrop-bg;
-  opacity: .5;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: @zindex-modal-background;
-
-  // Fade for backdrop
-  &.fade {
-    transition: opacity 100ms @modal-easing;
-  }
-
-  &.in {
-    transition: opacity 300ms @modal-easing;
-  }
 }
 
 

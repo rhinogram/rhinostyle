@@ -7,8 +7,6 @@ class Modal extends React.Component {
   static propTypes = {
     children:     React.PropTypes.node,
     className:    React.PropTypes.string,
-    isOpen:       React.PropTypes.bool,
-    renderModal:  React.PropTypes.func,
     size:         React.PropTypes.string,
   };
 
@@ -20,9 +18,7 @@ class Modal extends React.Component {
   render() {
     const { className, size } = this.props;
 
-    const siteModalClasses = cx('site-modal', className);
-
-    const modalClasses = cx('modal', 'fade', 'in', className);
+    const modalClasses = cx('fade', 'in', 'modal', className);
 
     const containerClasses = cx('modal__container', className, {
       'modal__container--sm':   size === 'sm',
@@ -30,13 +26,9 @@ class Modal extends React.Component {
     });
 
     return (
-      <div>
-        <div className={siteModalClasses}>
-          <div className={modalClasses}>
-            <div className={containerClasses}>
-              {this.props.children}
-            </div>
-          </div>
+      <div className={modalClasses} style={{ display: 'block' }}>
+        <div className={containerClasses}>
+          {this.props.children}
         </div>
       </div>
     );

@@ -1,7 +1,6 @@
-import React      from 'react';
-import ReactDOM   from 'react-dom';
-import cx         from 'classnames';
-import { Icon }   from '../components';
+import React                    from 'react';
+import cx                       from 'classnames';
+import { Icon, ModalSystem }    from '../components';
 
 
 class ModalHeader extends React.Component {
@@ -11,10 +10,8 @@ class ModalHeader extends React.Component {
     children:       React.PropTypes.node,
     className:      React.PropTypes.string,
     dismissable:    React.PropTypes.bool,
-    isDismissable:  React.PropTypes.func,
     icon:           React.PropTypes.string,
     title:          React.PropTypes.string,
-    dismiss:        React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -38,15 +35,15 @@ class ModalHeader extends React.Component {
   }
 
   closeModal = () => {
-    ReactDOM.render(<div></div>, document.getElementById('js-modal-container'));
+    ModalSystem.removeModal();
   };
 
   render() {
     const { className } = this.props;
 
     const headerClasses =   cx('modal__header', className);
-    const titleClasses =    cx('modal__header__title', className);
 
+    const titleClasses =    cx('modal__header__title', className);
 
     return (
       <div className={headerClasses}>

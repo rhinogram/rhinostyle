@@ -15,10 +15,8 @@ class ModalFooter extends React.Component {
     const classes = cx('modal__footer', className);
 
     return (
-      <div>
-        <div className={classes}>
-          {this.props.children}
-        </div>
+      <div className={classes}>
+        {this.props.children}
       </div>
     );
   }

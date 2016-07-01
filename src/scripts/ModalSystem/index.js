@@ -1,3 +1,4 @@
-import * as ModalActions from '../ModalSystem/helpers';
+import * as ModalSystem from '../ModalSystem/helpers';
+import * as ModalContainer from '../ModalSystem/components/ModalContainer';
 
-export { ModalActions };
+export { ModalSystem, ModalContainer };

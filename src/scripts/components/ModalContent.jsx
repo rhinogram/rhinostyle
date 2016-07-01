@@ -15,10 +15,8 @@ class ModalContent extends React.Component {
     const classes = cx('modal__content', className);
 
     return (
-      <div>
-        <div className={classes}>
-          {this.props.children}
-        </div>
+      <div className={classes}>
+        {this.props.children}
       </div>
     );
   }

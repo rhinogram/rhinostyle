@@ -3446,12 +3446,32 @@ fieldset[disabled] .rhinodio label {
   left: -0.5rem;
   transform: rotate(45deg);
 }
+#js-modal-container {
+  position: fixed;
+  z-index: 40;
+}
 .modal-open {
   overflow: hidden;
 }
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
+}
+.modal-backdrop {
+  background-color: #080808;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  opacity: .5;
+  z-index: 1;
+}
+.modal-backdrop.fade {
+  transition: opacity 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+.modal-backdrop.in {
+  transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 .modal {
   -webkit-overflow-scrolling: touch;
@@ -3484,22 +3504,6 @@ fieldset[disabled] .rhinodio label {
   box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.2);
   outline: 0;
   position: relative;
-}
-.modal__backdrop {
-  background-color: #080808;
-  opacity: .5;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1040;
-}
-.modal__backdrop.fade {
-  transition: opacity 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal__backdrop.in {
-  transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 .modal__header {
   border-bottom: 1px solid #ececec;
@@ -3789,18 +3793,6 @@ fieldset[disabled] .rhinodio label {
     left: 50%;
     margin-left: -20rem;
     width: 40rem;
-  }
-}
-#js-modal-container {
-  left: 1rem;
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
-  z-index: 40;
-}
-@media (min-width: 500px) {
-  #js-modal-container {
-    width: 100%;
   }
 }
 .toast {

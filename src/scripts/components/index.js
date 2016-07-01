@@ -38,7 +38,7 @@ import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
-import { ModalActions } from '../ModalSystem';
+import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
 import { DropdownDocs } from './Dropdown';
@@ -70,8 +70,9 @@ export {
   LoaderLine,
   Message,
   Modal,
-  ModalActions,
+  ModalSystem,
   ModalBody,
+  ModalContainer,
   ModalContent,
   ModalFooter,
   ModalHeader,
