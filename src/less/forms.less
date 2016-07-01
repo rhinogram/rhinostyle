@@ -257,6 +257,16 @@ input[type='checkbox']:focus {
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   width: 100%;
 
+  // hide IE clear on inputs
+  &::-ms-clear {
+    display: none;
+  }
+
+  // hide IE arrow on select elements
+  &::-ms-expand {
+    display: none;
+  }
+
   .mixin-input-size(@input-height-base; @padding-base; @font-size-base; @input-border-radius);
 
   &:focus {
