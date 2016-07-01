@@ -5,6 +5,8 @@ class RhinoSwitch extends React.Component {
   static display = 'RhinoSwitch';
 
   static propTypes = {
+    className: React.PropTypes.string,
+    disabled:  React.PropTypes.bool,
     isChecked: React.PropTypes.bool,
     name:      React.PropTypes.string.isRequired,
   };
@@ -24,13 +26,15 @@ class RhinoSwitch extends React.Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { className, disabled, name } = this.props;
     const { checked } = this.state;
-    const classes = cx('rhinoswitcher');
+    const classes = cx('rhinoswitcher', className, {
+      'rhinoswitcher--disabled': disabled,
+    });
 
     return (
       <div className={classes}>
-        <input type="checkbox" className="rhinoswitcher__input" id={name} checked={checked} onClick={this._toggleChange} />
+        <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} onClick={this._toggleChange} />
         <label className="rhinoswitcher__label" htmlFor={name}>
           <div className="rhinoswitcher__inner">
             <div className="rhinoswitcher__on">

@@ -81,6 +81,19 @@ const radioScope = {
   Radio,
 };
 
+const switchExample = require('raw!./examples/RhinoSwitch.example.txt');
+const switchDocs  = {
+  className: '[Optional] - Any class name you would like to add to the switch',
+  disabled:  '[Optional] - Disable the switch',
+  isChecked: '[Optional] - Set initial on/off state',
+  name:      '[Optional] - The name, and the basis of the id for the switch',
+};
+const switchScope = {
+  React,
+  ReactDOM,
+  RhinoSwitch,
+};
+
 const FormApp = () =>
   <div>
     <h1 className="site-headline">Forms</h1>
@@ -225,7 +238,7 @@ const FormApp = () =>
       <h3 className="site-subheadline">Select</h3>
       <div>
         <h5 className="site-miniheadline">Rhinoselect</h5>
-        <p className="site-copy">Our custom select element is called <strong>rhinoselect</strong>. Simply wrap a <code>select</code> element (containing the standard <code>form__control</code> className) in a container and give it the <code>rhinoselect</code> className.</p>
+        <p className="site-copy">Our custom select element is called <strong>rhinoselect</strong>.</p>
         <Select name="exampleSelect2" label="Select" options={selectOpts} />
       </div>
     </section>
@@ -238,33 +251,14 @@ const FormApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Switcher</h3>
       <h5 className="site-miniheadline">Rhinoswitcher</h5>
-      <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>rhinoswitcher--disabled</code> modifer className.</p>
-      <div className="rhinoswitcher u-m-r-sm">
-        <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
-        <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">
-          <div className="rhinoswitcher__inner">
-            <div className="rhinoswitcher__on">
-              <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark" /></svg>
-            </div>
-            <div className="rhinoswitcher__off">
-              <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close" /></svg>
-            </div>
-          </div>
-        </label>
-      </div>
-      <div className="rhinoswitcher rhinoswitcher--disabled">
-        <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
-        <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">
-          <div className="rhinoswitcher__inner">
-            <div className="rhinoswitcher__on">
-              <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark" /></svg>
-            </div>
-            <div className="rhinoswitcher__off">
-              <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close" /></svg>
-            </div>
-          </div>
-        </label>
-      </div>
+      <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>disabled</code> property.</p>
+      <RhinoSwitch name="rhinoswitch2" className="u-m-r-sm" isChecked />
+      <RhinoSwitch name="rhinoswitch3" isChecked disabled />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Switcher Playground</h3>
+      <Playground docClass={RhinoSwitch} propDescriptionMap={switchDocs} codeText={switchExample} scope={switchScope} noRender={false} />
     </section>
   </div>;
 
