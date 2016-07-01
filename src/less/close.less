@@ -9,18 +9,18 @@
 
 .close {
   color: inherit;
-  float: right;
-  font-size: (@font-size-base * 1.5);
-  font-weight: @close-font-weight;
+  font-size: @font-size-base - .2rem;
   line-height: 1;
-  opacity: .5;
+  margin-left: auto;
+  opacity: .75;
   padding: 0 @padding-xsmall;
+  position: relative;
 
   &:hover,
   &:focus {
     color: inherit;
     cursor: pointer;
-    opacity: .75;
+    opacity: 1;
     outline: 0;
     text-decoration: none;
   }

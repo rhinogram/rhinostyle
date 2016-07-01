@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom';
 import { ModalActions, Button, Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '../components';
 
 class ModalApp extends React.Component {
-  state = {
-    modalIsOpen: false,
-  }
 
   onClick = (event) => {
     event.preventDefault();
@@ -58,7 +55,7 @@ class ModalApp extends React.Component {
           <h3 className="site-subheadline">Modal Example</h3>
           <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
 
-          <Modal size="sm" isOpen>
+          <Modal size="sm">
             <ModalContent>
               <ModalHeader title="This is a small modall" icon="cog" />
               <ModalBody>
@@ -78,7 +75,7 @@ class ModalApp extends React.Component {
             </ModalContent>
           </Modal>
 
-          <Modal isOpen>
+          <Modal>
             <ModalContent>
               <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
               <ModalBody>
@@ -98,7 +95,7 @@ class ModalApp extends React.Component {
             </ModalContent>
           </Modal>
 
-          <Modal size="lg" isOpen>
+          <Modal size="lg">
             <ModalContent>
               <ModalHeader title="This is a really, really longg modal title. Will it wrap? or will we see the elipsis? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
               <ModalBody>

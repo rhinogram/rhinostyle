@@ -17,17 +17,21 @@ class ModalContainer extends React.Component {
   render() {
     const { title, body, footer, icon, dismissable } = this.props;
     return (
-      <Modal>
-        <ModalContent>
-          <ModalHeader title={title} icon={icon} dismissable={dismissable} />
-          <ModalBody>
-            {body}
-          </ModalBody>
-          <ModalFooter>
-            {footer}
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <div>
+        <div className="modal__backdrop">
+        </div>
+        <Modal>
+          <ModalContent>
+            <ModalHeader title={title} icon={icon} dismissable={dismissable} />
+            <ModalBody>
+              {body}
+            </ModalBody>
+            <ModalFooter>
+              {footer}
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </div>
     );
   }
 }

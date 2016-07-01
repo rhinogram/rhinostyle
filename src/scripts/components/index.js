@@ -1,4 +1,5 @@
 import Avatar               from './Avatar';
+import Bucket               from './Bucket';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
@@ -26,7 +27,11 @@ import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
+import Radio                from './Radio';
+import RadioGroup           from './RadioGroup';
+import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
+import SystemAlert          from './SystemAlert';
 import TabContentPane       from './TabContentPane';
 import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
@@ -34,12 +39,15 @@ import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
 import { ModalActions } from '../ModalSystem';
+/* eslint no-duplicate-imports:0 */
+/* eslint import/no-duplicates:0 */
 import { DropdownDocs } from './Dropdown';
 import { DropdownSelectDocs } from './DropdownSelect';
 import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
+  Bucket,
   Button,
   Callout,
   Checkbox,
@@ -72,7 +80,11 @@ export {
   NotificationActions,
   Pill,
   ProgressBar,
+  Radio,
+  RadioGroup,
+  RhinoSwitch,
   Select,
+  SystemAlert,
   TabContentPane,
   TabsContent,
   Textarea,

@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Icon, Input, Select, Textarea } from '../components';
+import { Button, Checkbox, Icon, Input, Radio, RadioGroup, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -58,12 +58,27 @@ const checkboxDocs  = {
   inline:    '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
   name:      '[Required] - An id, and label for the checkbox',
-  onClick:   '[Optional] - Any initial value for the textarea',
+  onClick:   '[Optional] - A function you want to trigger when the checkbox is toggled',
 };
 const checkboxScope = {
   React,
   ReactDOM,
   Checkbox,
+};
+
+const radioExample = require('raw!./examples/Radio.example.txt');
+const radioDocs  = {
+  inline:        '[Optional] - Inline the radios',
+  name:          '[Optional] - The name, and the basis of the id for the radio',
+  onChange:      '[Optional] - A function you which to trigger when you change the selection',
+  selectedValue: '[Optional] - The radio you want selected, when used in a group',
+  value:         '[Optional] - A value for the radio',
+};
+const radioScope = {
+  React,
+  ReactDOM,
+  RadioGroup,
+  Radio,
 };
 
 const FormApp = () =>
@@ -83,21 +98,11 @@ const FormApp = () =>
           <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
           <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
         </div>
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Radios</label>
-          <div className="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio1" />
-            <label htmlFor="exampleRadio1">Radio One</label>
-          </div>
-          <div className="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio2" checked />
-            <label htmlFor="exampleRadio2">Radio Two</label>
-          </div>
-          <div className="rhinodio rhinodio--inline">
-            <input type="radio" name="exampleRadio" id="exampleRadio3" />
-            <label htmlFor="exampleRadio3">Radio Three</label>
-          </div>
-        </div>
+        <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
         <div className="form__group">
           <label htmlFor="" className="u-block">Switcher</label>
           <div className="rhinoswitcher">
@@ -105,10 +110,10 @@ const FormApp = () =>
             <label className="rhinoswitcher__label" htmlFor="exampleSwitcher1">
               <div className="rhinoswitcher__inner">
                 <div className="rhinoswitcher__on">
-                  <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark"/></svg>
+                  <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark" /></svg>
                 </div>
                 <div className="rhinoswitcher__off">
-                  <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close"/></svg>
+                  <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close" /></svg>
                 </div>
               </div>
             </label>
@@ -134,7 +139,7 @@ const FormApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Input</h3>
+      <h3 className="site-subheadline">Input</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Basic Input</h5>
         <div className="site-copy">
@@ -142,50 +147,44 @@ const FormApp = () =>
         </div>
         <Input name="exampleInputEmail31" label="Email Address" type="email" />
         <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="email" initialValue="Ian" />
-        <Input name="exampleInputPassword31" placeholder="Password" type="password" />
-        <div className="u-m-b-md">
-          <h5 className="site-miniheadline">Input Add-On</h5>
-          <div className="site-copy">
-            <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
-          </div>
-        </div>
-        <Input addon="left" type="text" placeholder="Encrypted">
-          <Icon icon="lock" />
-        </Input>
-        <Input addon="right" type="text">
-          {/* eslint no-script-url:0 */}
-          <a href="javascript:void(0)">Go For It!</a>
-        </Input>
-        <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
-          <span>Amount $</span>
-          <span>.00</span>
-        </Input>
+        <Input name="exampleInputPassword31" label="Password" placeholder="Password" type="password" />
       </div>
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Input Add-On</h5>
+        <div className="site-copy">
+          <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
+        </div>
+      </div>
+      <Input addon="left" type="text" placeholder="Encrypted">
+        <Icon icon="lock" />
+      </Input>
+      <Input addon="right" type="text">
+        {/* eslint no-script-url:0 */}
+        <a href="javascript:void(0)">Go For It!</a>
+      </Input>
+      <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
+        <span>Amount $</span>
+        <span>.00</span>
+      </Input>
     </section>
 
-    <section>
-      <h3 className="site-subheadline">Playground</h3>
+    <section className="site-section">
+      <h3 className="site-subheadline">Input Playground</h3>
       <Playground docClass={Input} propDescriptionMap={inputDocs} codeText={inputExample} scope={inputScope} noRender={false} />
     </section>
 
     <section className="site-section">
-      <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Text Area</h5>
-        <div className="site-copy">
-          <p>Our textareas.</p>
-        </div>
-      </div>
+      <h3 className="site-subheadline">Text Area</h3>
       <Textarea label="Text Area" name="exampleTextarea2" placeholder="Enter some text" />
     </section>
 
-    <section>
-      <h3 className="site-subheadline">Playground</h3>
+    <section className="site-section">
+      <h3 className="site-subheadline">Text Area Playground</h3>
       <Playground docClass={Textarea} propDescriptionMap={textareaDocs} codeText={textareaExample} scope={textareaScope} noRender={false} />
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Checkbox</h3>
-      {/* <!-- <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p> -->*/}
+      <h3 className="site-subheadline">Checkbox</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Rhinobox</h5>
         <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
@@ -193,7 +192,7 @@ const FormApp = () =>
         <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
         <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
       </div>
-      <div className="u-m-b-md">
+      <div>
         <h5 className="site-miniheadline">Inline Rhinobox</h5>
         <p className="site-copy">Add the <code>inline</code> modifier to create inline checkboxes.</p>
         <Checkbox inline name="exampleCheckbox21">Checkbox One</Checkbox>
@@ -202,92 +201,81 @@ const FormApp = () =>
       </div>
     </section>
 
-    <section>
-      <h3 className="site-subheadline">Playground</h3>
+    <section className="site-section">
+      <h3 className="site-subheadline">Checkbox Playground</h3>
       <Playground docClass={Checkbox} propDescriptionMap={checkboxDocs} codeText={checkboxExample} scope={checkboxScope} noRender={false} />
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Radio</h3>
+      <h3 className="site-subheadline">Radio</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Rhinodio</h5>
         <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
-        <div className="rhinodio">
-          <input type="radio" name="exampleRadio1" id="exampleRadio11" />
-          <label htmlFor="exampleRadio11">Radio One</label>
-        </div>
-        <div className="rhinodio">
-          <input type="radio" name="exampleRadio1" id="exampleRadio12" checked />
-          <label htmlFor="exampleRadio12">Radio Two</label>
-        </div>
-        <div className="rhinodio">
-          <input type="radio" name="exampleRadio1" id="exampleRadio13" />
-          <label htmlFor="exampleRadio13">Radio Three</label>
-        </div>
+        <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
       </div>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inline Rhinodio</h5>
-        <p className="site-copy">Add the <code>rhinodio--inline</code> modifier to create inline radios.</p>
-        <div className="rhinodio rhinodio--inline">
-          <input type="radio" name="exampleRadio2" id="exampleRadio21" />
-          <label htmlFor="exampleRadio21">Radio One</label>
-        </div>
-        <div className="rhinodio rhinodio--inline">
-          <input type="radio" name="exampleRadio2" id="exampleRadio22" />
-          <label htmlFor="exampleRadio22">Radio Two</label>
-        </div>
-        <div className="rhinodio rhinodio--inline">
-          <input type="radio" name="exampleRadio2" id="exampleRadio23" checked />
-          <label htmlFor="exampleRadio23">Radio Three</label>
-        </div>
+        <p className="site-copy">Add the <code>inline</code> property to create inline radios.</p>
+        <RadioGroup inline name="exampleRadio3" label="Radios" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
       </div>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Select</h3>
-      <div className="u-m-b-md">
+      <h3 className="site-subheadline">Radio Playground</h3>
+      <Playground docClass={Radio} propDescriptionMap={radioDocs} codeText={radioExample} scope={radioScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Select</h3>
+      <div>
         <h5 className="site-miniheadline">Rhinoselect</h5>
         <p className="site-copy">Our custom select element is called <strong>rhinoselect</strong>. Simply wrap a <code>select</code> element (containing the standard <code>form__control</code> className) in a container and give it the <code>rhinoselect</code> className.</p>
         <Select name="exampleSelect2" label="Select" options={selectOpts} />
       </div>
     </section>
 
-    <section>
-      <h3 className="site-subheadline">Playground</h3>
+    <section className="site-section">
+      <h3 className="site-subheadline">Select Playground</h3>
       <Playground docClass={Select} propDescriptionMap={selectDocs} codeText={selectExample} scope={selectScope} noRender={false} />
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Switcher</h3>
-      <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Rhinoswitcher</h5>
-        <p className="site-copy">Our custom radio element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>rhinoswitcher--disabled</code> modifer className.</p>
-        <div className="rhinoswitcher">
-          <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
-          <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">
-            <div className="rhinoswitcher__inner">
-              <div className="rhinoswitcher__on">
-                <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark"/></svg>
-              </div>
-              <div className="rhinoswitcher__off">
-                <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close"/></svg>
-              </div>
+      <h3 className="site-subheadline">Switcher</h3>
+      <h5 className="site-miniheadline">Rhinoswitcher</h5>
+      <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>rhinoswitcher--disabled</code> modifer className.</p>
+      <div className="rhinoswitcher u-m-r-sm">
+        <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
+        <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">
+          <div className="rhinoswitcher__inner">
+            <div className="rhinoswitcher__on">
+              <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark" /></svg>
             </div>
-          </label>
-        </div>
-        <div className="rhinoswitcher rhinoswitcher--disabled">
-          <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
-          <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">
-            <div className="rhinoswitcher__inner">
-              <div className="rhinoswitcher__on">
-                <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark"/></svg>
-              </div>
-              <div className="rhinoswitcher__off">
-                <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close"/></svg>
-              </div>
+            <div className="rhinoswitcher__off">
+              <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close" /></svg>
             </div>
-          </label>
-        </div>
+          </div>
+        </label>
+      </div>
+      <div className="rhinoswitcher rhinoswitcher--disabled">
+        <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher2" />
+        <label className="rhinoswitcher__label" htmlFor="exampleSwitcher2">
+          <div className="rhinoswitcher__inner">
+            <div className="rhinoswitcher__on">
+              <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark" /></svg>
+            </div>
+            <div className="rhinoswitcher__off">
+              <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close" /></svg>
+            </div>
+          </div>
+        </label>
       </div>
     </section>
   </div>;

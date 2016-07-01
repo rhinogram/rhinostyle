@@ -1,0 +1,94 @@
+// File: system-alerts.less
+// Note:
+
+
+// -------------------------
+// System Alert
+// -------------------------
+
+
+.system-alert {
+  align-items: center;
+  color: @system-alert-text;
+  display: flex;
+  font-weight: @font-weight-light;
+  justify-content: center;
+  padding: @system-alert-padding;
+  position: relative;
+}
+
+
+// -------------------------
+// System Alert Modifiers
+// -------------------------
+
+
+.system-alert--danger {
+  .mixin-bg-diagonal-stripes(@color-danger; 96%);
+}
+
+.system-alert--default {
+  .mixin-bg-diagonal-stripes(@color-gray; 98%);
+}
+
+.system-alert--info {
+  .mixin-bg-diagonal-stripes(@color-info; 98%);
+}
+
+.system-alert--success {
+  .mixin-bg-diagonal-stripes(@color-success; 98%);
+}
+
+
+// -------------------------
+// System Alert Body
+// -------------------------
+
+
+.system-alert__body {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+
+// -------------------------
+// System Alert Close
+// -------------------------
+
+
+.system-alert__close {
+  &:extend(.close all);
+  margin-left: @margin-small;
+}
+
+
+// -------------------------
+// System Alert Icon
+// -------------------------
+
+
+.system-alert__icon {
+  font-size: @font-size-base + .2rem;
+  margin-right: @margin-small;
+}
+
+
+// -------------------------
+// System Alert Link
+// -------------------------
+
+
+.system-alert__link {
+  color: @system-alert-text;
+  font-size: @font-size-small;
+  margin-left: @margin-small;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

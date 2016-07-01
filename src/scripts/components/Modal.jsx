@@ -5,15 +5,15 @@ class Modal extends React.Component {
   static displayName = 'RhinoMessage';
 
   static propTypes = {
-    children:   React.PropTypes.node,
-    className:  React.PropTypes.string,
-    size:       React.PropTypes.string,
+    children:     React.PropTypes.node,
+    className:    React.PropTypes.string,
+    isOpen:       React.PropTypes.bool,
     renderModal:  React.PropTypes.func,
-    isOpen:     React.PropTypes.bool,
+    size:         React.PropTypes.string,
   };
 
   static defaultProps = {
-    type: 'default',
+    type:   'default',
     isOpen: false,
   };
 
@@ -22,7 +22,7 @@ class Modal extends React.Component {
 
     const siteModalClasses = cx('site-modal', className);
 
-    const modalClasses = cx('modal', className);
+    const modalClasses = cx('modal', 'fade', 'in', className);
 
     const containerClasses = cx('modal__container', className, {
       'modal__container--sm':   size === 'sm',

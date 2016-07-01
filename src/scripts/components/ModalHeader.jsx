@@ -50,13 +50,13 @@ class ModalHeader extends React.Component {
 
     return (
       <div className={headerClasses}>
-        {this.isDismissable()}
         <h4 className={titleClasses}>
           {this.containsIcon()}
           <span className="u-text-overflow">
             {this.props.title}
           </span>
         </h4>
+        {this.isDismissable()}
       </div>
     );
   }
