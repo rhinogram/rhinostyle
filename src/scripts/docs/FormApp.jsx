@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Icon, Input, Radio, RadioGroup, Select, Textarea } from '../components';
+import { Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -105,19 +105,7 @@ const FormApp = () =>
         </RadioGroup>
         <div className="form__group">
           <label htmlFor="" className="u-block">Switcher</label>
-          <div className="rhinoswitcher">
-            <input type="checkbox" checked className="rhinoswitcher__input" id="exampleSwitcher1" />
-            <label className="rhinoswitcher__label" htmlFor="exampleSwitcher1">
-              <div className="rhinoswitcher__inner">
-                <div className="rhinoswitcher__on">
-                  <svg className="rhinoswitcher__icon icon icon-checkmark"><use xlinkHref="#icon-checkmark" /></svg>
-                </div>
-                <div className="rhinoswitcher__off">
-                  <svg className="rhinoswitcher__icon icon icon-close"><use xlinkHref="#icon-close" /></svg>
-                </div>
-              </div>
-            </label>
-          </div>
+          <RhinoSwitch name="exampleSwitch1" />
         </div>
         <div className="u-text-right">
           <Button type="primary">Submit Form</Button>

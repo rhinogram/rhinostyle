@@ -4,13 +4,47 @@ import cx    from 'classnames';
 class RhinoSwitch extends React.Component {
   static display = 'RhinoSwitch';
 
-  static propTypes = {};
+  static propTypes = {
+    isChecked: React.PropTypes.bool,
+    name:      React.PropTypes.string.isRequired,
+  };
 
-  static defaultProps = {};
+  static defaultProps = {
+    name: `rhinodioswitcher-${Math.floor(Math.random() * 1000000)}`,
+  };
+
+  state = {
+    checked: this.props.isChecked,
+  };
+
+  _toggleChecked = () => {
+    this.setState({
+      checked: !this.state.checked,
+    });
+  }
 
   render() {
+    const { name } = this.props;
+    const { checked } = this.state;
+    const classes = cx('rhinoswitcher');
+
     return (
-      <div className="form__group">
+      <div className={classes}>
+        <input type="checkbox" className="rhinoswitcher__input" id={name} checked={checked} onClick={this._toggleChange} />
+        <label className="rhinoswitcher__label" htmlFor={name}>
+          <div className="rhinoswitcher__inner">
+            <div className="rhinoswitcher__on">
+              <svg className="rhinoswitcher__icon icon icon-checkmark">
+                <use xlinkHref="#icon-checkmark"></use>
+              </svg>
+            </div>
+            <div className="rhinoswitcher__off">
+              <svg className="rhinoswitcher__icon icon icon-close">
+                <use xlinkHref="#icon-close"></use>
+              </svg>
+            </div>
+          </div>
+        </label>
       </div>
     );
   }
