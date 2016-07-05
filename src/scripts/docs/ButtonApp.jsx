@@ -11,7 +11,7 @@ const buttonDocs = {
   active: '[Optional] - Button is active',
   block: '[Optional] - Button is block level',
   className: '[Optional] - Include additional class name(s)',
-  click: '[Required] - Include click function for Button',
+  onClick: '[Required] - Include click function for Button',
   disabled: '[Optional] - Button is disabled',
   iconOnly: '[Optional] - Button has an icon but no text',
   size: '[Optional] - Button size -  [small | large]',

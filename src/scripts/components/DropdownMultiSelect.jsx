@@ -17,7 +17,7 @@ class DropdownMultiSelect extends React.Component {
     label:        React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     position:     React.PropTypes.string,
-    select:       React.PropTypes.func,
+    onSelect:     React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -40,7 +40,7 @@ class DropdownMultiSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          click: () => this.itemClick(child.props.id, true),
+          onClick: () => this.itemClick(child.props.id, true),
           active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -69,9 +69,9 @@ class DropdownMultiSelect extends React.Component {
   }
 
   itemClick = (id, toggle) => {
-    if (this.props.select && typeof(this.props.select === 'function')) {
+    if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
       const result = this.updateActiveKeys(id);
-      this.props.select(...result);
+      this.props.onSelect(...result);
     } else {
       this.updateActiveKeys(id);
     }
@@ -91,7 +91,7 @@ class DropdownMultiSelect extends React.Component {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            click: () => this.itemClick(child.props.id, true),
+            onClick: () => this.itemClick(child.props.id, true),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));

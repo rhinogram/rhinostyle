@@ -12,7 +12,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <NavTabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
+      <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
         <NavTabsItem id={1}>Tab One</NavTabsItem>
         <NavTabsItem id={2}>Tab Two</NavTabsItem>
         <NavTabsItem id={3}>Tab Three</NavTabsItem>
