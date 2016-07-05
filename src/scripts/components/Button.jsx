@@ -9,7 +9,7 @@ class Button extends React.Component {
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
-    click:     React.PropTypes.func.isRequired,
+    onClick:   React.PropTypes.func.isRequired,
     disabled:  React.PropTypes.bool,
     iconOnly:  React.PropTypes.bool,
     size:      React.PropTypes.oneOf(['small', 'large']),
@@ -19,14 +19,14 @@ class Button extends React.Component {
   static defaultProps = {
     active:   false,
     block:    false,
-    click:    () => {},
+    onClick:  () => {},
     disabled: false,
     iconOnly: false,
     type:     'default',
   };
 
   render() {
-    const { active, block, className, click, disabled, iconOnly, size, type, ...props } = this.props;
+    const { active, block, className, onClick, disabled, iconOnly, size, type, ...props } = this.props;
     const classes = cx('btn', className, {
       'btn--default':   type === 'default',
       'btn--primary':   type === 'primary',
@@ -44,7 +44,7 @@ class Button extends React.Component {
     });
 
     /* eslint no-script-url:0 */
-    return (<a href="javascript:void(0)" className={classes} onClick={click} {...props} role="button">{this.props.children}</a>);
+    return (<a href="javascript:void(0)" className={classes} onClick={onClick} {...props} role="button">{this.props.children}</a>);
   }
 }
 

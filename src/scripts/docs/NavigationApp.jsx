@@ -60,7 +60,7 @@ class NavigationApp extends React.Component {
           <h3 className="site-subheadline">NavTabs Types</h3>
           <div className="u-m-b-md">
             <p className="site-copy"><code>type="default"</code></p>
-            <NavTabs activeKey={this.state.activeKey} select={this.updateActiveKey}>
+            <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
               <NavTabsItem id={1}>Tab One</NavTabsItem>
               <NavTabsItem id={2}>Tab Two</NavTabsItem>
               <NavTabsItem id={3}>Tab Three</NavTabsItem>
@@ -74,7 +74,7 @@ class NavigationApp extends React.Component {
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Justifed, Equal Width</h5>
             <p className="site-copy"><code>justified="equal"</code></p>
-            <NavTabs activeKey={this.state.activeEqualKey} select={this.updateActiveEqualKey} justified="equal">
+            <NavTabs activeKey={this.state.activeEqualKey} onSelect={this.updateActiveEqualKey} justified="equal">
               <NavTabsItem id={1}>Tab One</NavTabsItem>
               <NavTabsItem id={2}>Tab Two</NavTabsItem>
               <NavTabsItem id={3}>Tab Three</NavTabsItem>
@@ -84,7 +84,7 @@ class NavigationApp extends React.Component {
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Justified, Auto Width</h5>
             <p className="site-copy"><code>justified="auto"</code></p>
-            <NavTabs activeKey={this.state.activeAutoKey} select={this.updateActiveAutoKey} justified="auto">
+            <NavTabs activeKey={this.state.activeAutoKey} onSelect={this.updateActiveAutoKey} justified="auto">
               <NavTabsItem id={1}>Tab One - With a Really Long Title</NavTabsItem>
               <NavTabsItem id={2}>Tab Two</NavTabsItem>
               <NavTabsItem id={3}>Tab Three</NavTabsItem>

@@ -2944,6 +2944,12 @@ input[type='checkbox']:focus {
     line-height: @input-height;
   }*/
 }
+.form__control::-ms-clear {
+  display: none;
+}
+.form__control::-ms-expand {
+  display: none;
+}
 textarea.form__control,
 select[multiple].form__control {
   height: auto;
@@ -3461,10 +3467,10 @@ fieldset[disabled] .rhinodio label {
   background-color: #080808;
   bottom: 0;
   left: 0;
+  opacity: 0.5;
   position: fixed;
   right: 0;
   top: 0;
-  opacity: .5;
   z-index: 1040;
 }
 .modal-backdrop.fade {

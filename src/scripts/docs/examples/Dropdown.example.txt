@@ -4,7 +4,7 @@ class ComponentExample extends React.Component {
     <div>
       <Dropdown label="Dropdown" type="primary-outline">
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-        <DropdownMenuItem label="Custom click Item" click={() => alert('clicked!')} />
+        <DropdownMenuItem label="Custom click Item" onClick={() => alert('clicked!')} />
         <DropdownMenuItem label="Url Blank Window Item" url={'http://www.rhinogram.com'} blankWindow />
         <DropdownMenuItem label="Url Item" url={'http://www.rhinogram.com'} />
         <DropdownMenuDivider />

@@ -38,7 +38,7 @@ class DropdownSelectFilter extends React.Component {
     React.Children.forEach(children, child => {
       if (child.type === DropdownMenuItem) {
         items.push(React.cloneElement(child, {
-          click: () => this.itemClick(child.props.id, child.props.icon),
+          onClick: () => this.itemClick(child.props.id, child.props.icon),
           active: child.props.id === this.props.activeKey,
           key: child.props.id,
         }));
@@ -70,7 +70,7 @@ class DropdownSelectFilter extends React.Component {
 
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            click: () => this.itemClick(child.props.id, child.props.icon),
+            onClick: () => this.itemClick(child.props.id, child.props.icon),
             active: child.props.id === this.props.activeKey,
             key: child.props.id,
           }));

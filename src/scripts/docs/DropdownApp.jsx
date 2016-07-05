@@ -26,7 +26,7 @@ const dropdownSelectDocs = {
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
-  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 
@@ -37,7 +37,7 @@ const dropdownMultiSelectDocs = {
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
-  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 
@@ -284,7 +284,7 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown MultiSelect</h3>
-      <p className="site-copy">Add the <code>dropdown--multiselect</code> modifier to <code>dropdown</code>.
+      <p className="site-copy">Use <code>DropdownMultiSelect</code> component to create a multi-select list of <code>DropdownMenuItem(s)</code>.
         This dropdown and dropdown menu will always have 100% width. Selected items are shown as "pills" below the dropdown.
       </p>
 
