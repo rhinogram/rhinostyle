@@ -17,9 +17,9 @@ class ModalContainer extends React.Component {
   }
 
   render() {
-    const { body, className, dismissable, footer, icon, size, title } = this.props.modal;
+    const { body, dismissable, footer, icon, size, title } = this.props.modal;
 
-    const classes = cx('modal-backdrop', 'fade', 'in', className);
+    const classes = cx('modal-backdrop', 'fade', 'in');
 
     return (
       <div>

@@ -8,11 +8,11 @@ import Playground from 'component-playground';
 const modalExample = require('raw!./examples/Modal.example.txt');
 
 const modalDocs = {
-  body: '[Required] - Modal Body - Body of the Modal. Typically represented by a renderBody function that returns JSX',
+  body: '[Required] - Modal Body - Typically represented by a renderBody function that returns JSX',
   dismissable: '[Optional] - Gives an X icon in Modal Header to close Modal',
-  footer: '[Required] - Modal Footer - Footer of the Modal. Typically represented by a renderFooter function that returns JSX',
-  icon: '[Optional] - Attachs an Icon to the Modal Header',
-  size: '[Optional] - Modal size -  [sm | lg] - defaults to a normal sized modal',
+  footer: '[Required] - Modal Footer - Typically represented by a renderFooter function that returns JSX',
+  icon: '[Optional] - Attaches an Icon to the Modal Header',
+  size: '[Optional] - Modal size -  [ sm | lg ] - defaults to a normal sized modal',
   title: '[Required] - Modal Title -  String to represent the Modal Header',
 };
 
@@ -46,28 +46,21 @@ class ModalApp extends React.Component {
     alert('the changes have been saved');
     this.closeModal();
   }
-  /* eslint arrow-body-style:0*/
-  renderBody = () => {
-    return (
-      <div className="form">
-        <div className="form__group">
-          <Input label="First Name" />
-        </div>
-        <div>
-          <Input label="Last Name" />
-        </div>
+  renderBody = () =>
+    <div className="form">
+      <div className="form__group">
+        <Input label="First Name" />
       </div>
-    );
-  };
-
-  renderFooter = () => {
-    return (
       <div>
-        <Button type="default" onClick={this.closeModal}>Close</Button>
-        <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+        <Input label="Last Name" />
       </div>
-    );
-  }
+    </div>;
+
+  renderFooter = () =>
+    <div>
+      <Button type="default" onClick={this.closeModal}>Close</Button>
+      <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+    </div>;
 
   render() {
     return (

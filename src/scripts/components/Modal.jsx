@@ -18,9 +18,8 @@ class Modal extends React.Component {
   render() {
     const { className, size } = this.props;
 
-    const modalClasses = cx('fade', 'in', 'modal', className);
-
-    const containerClasses = cx('modal__container', className, {
+    const modalClasses      = cx('fade', 'in', 'modal', className);
+    const containerClasses  = cx('modal__container', 'fade', 'in', {
       'modal__container--sm':   size === 'sm',
       'modal__container--lg':   size === 'lg',
     });
