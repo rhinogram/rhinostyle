@@ -4,9 +4,9 @@ class ComponentExample extends React.Component {
       <div className="site-example-checkbox">
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
-          <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
-          <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
-          <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
+          <Checkbox inline name="exampleCheckbox31">Checkbox One</Checkbox>
+          <Checkbox inline name="exampleCheckbox32">Checkbox Two</Checkbox>
+          <Checkbox inline name="exampleCheckbox33">Checkbox Three</Checkbox>
         </div>
       </div>
     );
