@@ -6,7 +6,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <DropdownSelect label="Dropdown Select" type="primary-outline" select={this.optionalCallbackFunction}>
+      <DropdownSelect label="Dropdown Select" type="primary-outline" onSelect={this.optionalCallbackFunction}>
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
         <DropdownMenuItem id={1} label="Item" />
         <DropdownMenuItem id={2} label="Another item" />

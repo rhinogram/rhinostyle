@@ -17,7 +17,7 @@ class DropdownSelect extends React.Component {
     icon:      React.PropTypes.string,
     label:     React.PropTypes.string,
     position:  React.PropTypes.string,
-    select:    React.PropTypes.func,
+    onSelect:  React.PropTypes.func,
     size:      React.PropTypes.oneOf(['small', 'large']),
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link']),
     wide:      React.PropTypes.bool,
@@ -42,10 +42,10 @@ class DropdownSelect extends React.Component {
 
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
-        const click = () => {
-          if (this.props.select && typeof(this.props.select === 'function')) {
+        const onClick = () => {
+          if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
             this.updateActiveKey(child.props.id, child.props.icon);
-            this.props.select(child.props.id, child.props.icon);
+            this.props.onSelect(child.props.id, child.props.icon);
           } else {
             this.updateActiveKey(child.props.id, child.props.icon);
           }
@@ -54,12 +54,12 @@ class DropdownSelect extends React.Component {
         };
 
         returnChild = React.cloneElement(child, {
-          click,
+          onClick,
           active: child.props.id === this.state.activeKey,
         });
       } else if (child.type === DropdownSelectFilter) {
         returnChild = React.cloneElement(child, {
-          select: this.props.select,
+          onSelect: this.props.onSelect,
           handleToggle: this.handleToggle,
           activeKey: this.state.activeKey,
           icon: this.state.icon,

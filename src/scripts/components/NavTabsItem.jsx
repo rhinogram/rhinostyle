@@ -8,16 +8,16 @@ class NavTabsItem extends React.Component {
     active:           React.PropTypes.bool,
     className:        React.PropTypes.string,
     children:         React.PropTypes.node,
-    click:            React.PropTypes.func,
+    onClick:          React.PropTypes.func,
   }
 
   static defaultProps = {
     active: false,
-    click: () => {},
+    onClick: () => {},
   }
 
   render() {
-    const { className, active, click } = this.props;
+    const { className, active, onClick } = this.props;
 
     const itemClasses = cx('nav-tabs__item', className, {
       'active': active, //eslint-disable-line
@@ -27,7 +27,7 @@ class NavTabsItem extends React.Component {
 
     return (
       <li className={itemClasses}>
-        <div className={linkClasses} onClick={click}>
+        <div className={linkClasses} onClick={onClick}>
           {this.props.children}
         </div>
       </li>

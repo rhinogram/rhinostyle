@@ -22,7 +22,7 @@ class DropdownMenuItem extends React.Component {
     avatar:      customValidator,
     blankWindow: React.PropTypes.bool,
     children:    React.PropTypes.node,
-    click:       React.PropTypes.func,
+    onClick:     React.PropTypes.func,
     className:   React.PropTypes.string,
     disabled:    React.PropTypes.bool,
     icon:        customValidator,
@@ -32,7 +32,7 @@ class DropdownMenuItem extends React.Component {
 
   static defaultProps = {
     active:    false,
-    click:     () => {},
+    onClick:     () => {},
     disabled:  false,
     newWindow: false,
   };
@@ -47,7 +47,7 @@ class DropdownMenuItem extends React.Component {
       }
       returnVal = null;
     } else {
-      returnVal = this.props.click();
+      returnVal = this.props.onClick();
     }
     return returnVal;
   }

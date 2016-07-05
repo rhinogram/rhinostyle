@@ -10,7 +10,7 @@ class NavTabs extends React.Component {
     children:         React.PropTypes.node,
     className:        React.PropTypes.string,
     justified:        React.PropTypes.oneOf(['auto', 'equal']),
-    select:           React.PropTypes.func,
+    onSelect:         React.PropTypes.func,
   };
 
   getChildren = () => {
@@ -21,7 +21,7 @@ class NavTabs extends React.Component {
       if (child.type === NavTabsItem) {
         returnChild = React.cloneElement(child, {
           active: child.props.id === this.props.activeKey,
-          click: () => this.props.select(child.props.id),
+          onClick: () => this.props.onSelect(child.props.id),
         });
       } else {
         returnChild = child;

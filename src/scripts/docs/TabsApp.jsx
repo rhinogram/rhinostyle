@@ -60,4 +60,3 @@ class TabsApp extends React.Component {
 }
 
 ReactDOM.render(<TabsApp />, document.getElementById('js-app'));
-

@@ -26,7 +26,7 @@ const dropdownSelectDocs = {
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
-  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 
@@ -37,7 +37,7 @@ const dropdownMultiSelectDocs = {
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
-  select: '[Optional] - Callback when a DropdownMenuItem is selected',
+  onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 
