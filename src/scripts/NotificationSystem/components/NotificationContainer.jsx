@@ -38,19 +38,21 @@ class NotificationContainer extends React.Component {
   static propTypes = {
     onDismiss:    React.PropTypes.func,
     notification: React.PropTypes.object,
-  }
+  };
 
   componentDidMount() {
     this.addAnimation(_initNotification);
     this.addAnimation(_showNotification);
 
-    setTimeout(() => {
+    this.timeoutId = setTimeout(() => {
       this.hideNotification();
     }, AUTO_DISMISS_TIME);
   }
 
   hideNotification = () => {
     this.addAnimation(_hideNotification);
+
+    clearTimeout(this.timeoutId);
     setTimeout(() => {
       NotificationActions.removeNotification(this.props.notification.id);
     }, 500);
