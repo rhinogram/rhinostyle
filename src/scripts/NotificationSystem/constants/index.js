@@ -8,7 +8,7 @@ const constants = {
   PayloadSources: keymirror({
     VIEW_ACTION: null,
   }),
-  autodismissTime: 6,
+  autodismissTime: 6000,
 };
 
 export default constants;

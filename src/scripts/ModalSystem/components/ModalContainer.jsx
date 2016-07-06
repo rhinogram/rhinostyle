@@ -1,6 +1,7 @@
 import React    from 'react';
 import cx       from 'classnames';
 
+
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '../../components';
 
 class ModalContainer extends React.Component {
@@ -16,6 +17,21 @@ class ModalContainer extends React.Component {
     modal:        React.PropTypes.object,
   }
 
+  state = {
+    isOpen: false,
+  };
+
+  componentDidMount() {
+    this.openModal();
+  }
+  openModal = () => {
+    this.setState({ isOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ isOpen: false });
+  }
+
   render() {
     const { body, dismissable, footer, icon, size, title } = this.props.modal;
 
@@ -25,7 +41,7 @@ class ModalContainer extends React.Component {
       <div>
         <div className={classes}>
         </div>
-        <Modal size={size}>
+        <Modal isOpen={this.state.isOpen} transitionName="modal-anim" size={size}>
           <ModalContent>
             <ModalHeader title={title} icon={icon} dismissable={dismissable} />
             <ModalBody>

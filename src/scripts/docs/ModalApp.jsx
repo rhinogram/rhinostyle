@@ -71,7 +71,7 @@ class ModalApp extends React.Component {
           <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
 
           <div className="site-modal">
-            <Modal>
+            {/*<Modal>
               <ModalContent>
                 <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
                 <ModalBody>
@@ -89,7 +89,7 @@ class ModalApp extends React.Component {
                   <Button type="primary">Save Changes</Button>
                 </ModalFooter>
               </ModalContent>
-            </Modal>
+            </Modal>*/}
           </div>
 
         </section>
