@@ -1,36 +1,32 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class Message extends React.Component {
-  static displayName = 'RhinoMessage';
+const Message = (props) => {
+  const { className, type, direction } = props;
+  const classes = cx('msg', className, {
+    'msg--default': type === 'default',
+    'msg--primary': type === 'primary',
+    'msg--note':    type === 'note',
+    'msg--to':      direction === 'to',
+    'msg--from':    direction === 'from',
+  });
 
-  static propTypes = {
-    children:   React.PropTypes.node,
-    className:  React.PropTypes.string,
-    type:       React.PropTypes.oneOf(['default', 'primary', 'note']),
-    direction:  React.PropTypes.oneOf(['to', 'from']),
-  };
+  return (
+    <span className={classes}>{props.children}</span>
+  );
+};
 
-  static defaultProps = {
-    type: 'default',
-  };
+Message.displayName = 'RhinoMessage';
 
-  render() {
-    const { className, type, direction } = this.props;
+Message.propTypes = {
+  children:  React.PropTypes.node,
+  className: React.PropTypes.string,
+  direction: React.PropTypes.oneOf(['to', 'from']),
+  type:      React.PropTypes.oneOf(['default', 'primary', 'note']),
+};
 
-    const classes = cx('msg', className, {
-      'msg--default':   type === 'default',
-      'msg--primary':   type === 'primary',
-      'msg--note':      type === 'note',
-      'msg--to':        direction === 'to',
-      'msg--from':      direction === 'from',
-
-    });
-
-    return (
-      <span className={classes}>{this.props.children}</span>
-    );
-  }
-}
+Message.defaultProps = {
+  type: 'default',
+};
 
 export default Message;

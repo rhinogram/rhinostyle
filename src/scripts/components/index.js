@@ -37,13 +37,13 @@ import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 
-import { NotificationActions }          from '../NotificationSystem';
-import { ModalSystem, ModalContainer }  from '../ModalSystem';
+import { NotificationActions }         from '../NotificationSystem';
+import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
-import { DropdownDocs }             from './Dropdown';
-import { DropdownSelectDocs }       from './DropdownSelect';
-import { DropdownMultiSelectDocs }  from './DropdownMultiSelect';
+import { DropdownDocs }            from './Dropdown';
+import { DropdownSelectDocs }      from './DropdownSelect';
+import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,

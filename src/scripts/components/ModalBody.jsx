@@ -1,25 +1,13 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class ModalBody extends React.Component {
-  static displayName = 'RhinoModalBody';
+const ModalBody = (props) => <div className={cx('modal__body', props.className)}>{props.children}</div>;
 
-  static propTypes = {
-    children:   React.PropTypes.node,
-    className:  React.PropTypes.string,
-  };
+ModalBody.displayName = 'RhinoModalBody';
 
-  render() {
-    const { className } = this.props;
-
-    const classes = cx('modal__body', className);
-
-    return (
-      <div className={classes}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+ModalBody.propTypes = {
+  children:   React.PropTypes.node,
+  className:  React.PropTypes.string,
+};
 
 export default ModalBody;

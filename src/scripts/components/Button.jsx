@@ -1,51 +1,49 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class Button extends React.Component {
-  static displayName = 'RhinoButton';
+const Button = (props) => {
+  const { active, block, className, onClick, disabled, iconOnly, size, type, ...opts } = props;
+  const classes = cx('btn', className, {
+    'btn--default':         type === 'default',
+    'btn--primary':         type === 'primary',
+    'btn--secondary':       type === 'secondary',
+    'btn--link':            type === 'link',
+    'btn--default-outline': type === 'default-outline',
+    'btn--primary-outline': type === 'primary-outline',
+    'btn--danger':          type === 'danger',
+    'btn--sm':              size === 'small',
+    'btn--lg':              size === 'large',
+    'btn--block':           block,
+    'btn--icon':            iconOnly,
+    'active':               active, //eslint-disable-line
+    'disabled':             disabled, //eslint-disable-line
+  });
 
-  static propTypes = {
-    active:    React.PropTypes.bool,
-    block:     React.PropTypes.bool,
-    children:  React.PropTypes.node,
-    className: React.PropTypes.string,
-    onClick:   React.PropTypes.func.isRequired,
-    disabled:  React.PropTypes.bool,
-    iconOnly:  React.PropTypes.bool,
-    size:      React.PropTypes.oneOf(['small', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link', 'danger']),
-  };
+  /* eslint no-script-url:0 */
+  return (<a href="javascript:void(0)" className={classes} onClick={onClick} {...opts} role="button">{props.children}</a>);
+};
 
-  static defaultProps = {
-    active:   false,
-    block:    false,
-    onClick:  () => {},
-    disabled: false,
-    iconOnly: false,
-    type:     'default',
-  };
+Button.displayName = 'RhinoButton';
 
-  render() {
-    const { active, block, className, onClick, disabled, iconOnly, size, type, ...props } = this.props;
-    const classes = cx('btn', className, {
-      'btn--default':   type === 'default',
-      'btn--primary':   type === 'primary',
-      'btn--secondary': type === 'secondary',
-      'btn--link':      type === 'link',
-      'btn--default-outline':   type === 'default-outline',
-      'btn--primary-outline':   type === 'primary-outline',
-      'btn--danger':   type === 'danger',
-      'btn--sm': size === 'small',
-      'btn--lg': size === 'large',
-      'btn--block': block,
-      'btn--icon': iconOnly,
-      'active': active, //eslint-disable-line
-      'disabled': disabled, //eslint-disable-line
-    });
+Button.propTypes = {
+  active:    React.PropTypes.bool,
+  block:     React.PropTypes.bool,
+  children:  React.PropTypes.node,
+  className: React.PropTypes.string,
+  onClick:   React.PropTypes.func.isRequired,
+  disabled:  React.PropTypes.bool,
+  iconOnly:  React.PropTypes.bool,
+  size:      React.PropTypes.oneOf(['small', 'large']),
+  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link', 'danger']),
+};
 
-    /* eslint no-script-url:0 */
-    return (<a href="javascript:void(0)" className={classes} onClick={onClick} {...props} role="button">{this.props.children}</a>);
-  }
-}
+Button.defaultProps = {
+  active:   false,
+  block:    false,
+  onClick:  () => {},
+  disabled: false,
+  iconOnly: false,
+  type:     'default',
+};
 
 export default Button;

@@ -1,28 +1,26 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class Pill extends React.Component {
-  static displayName = 'RhinoPill';
+const Pill = (props) => {
+  const { className, onClick, label, ...opts } = props;
+  const classes = cx('pill', 'pill--default', className);
 
-  static propTypes = {
-    className: React.PropTypes.string,
-    onClick:   React.PropTypes.func,
-    label:     React.PropTypes.string,
-  };
+  return (
+    /* eslint no-script-url:0 */
+    <a href="javascript:void(0)" className={classes} onClick={onClick} {...opts}>{label}<span className="pill__close">&times;</span></a>
+  );
+};
 
-  static defaultProps = {
-    onClick: () => {},
-  };
+Pill.displayName = 'RhinoPill';
 
-  render() {
-    const { className, onClick, label, ...props } = this.props;
-    const classes = cx('pill', 'pill--default', className);
+Pill.propTypes = {
+  className: React.PropTypes.string,
+  onClick:   React.PropTypes.func,
+  label:     React.PropTypes.string,
+};
 
-    return (
-      /* eslint no-script-url:0 */
-      <a href="javascript:void(0)" className={classes} onClick={onClick} {...props}>{label}<span className="pill__close">&times;</span></a>
-    );
-  }
-}
+Pill.defaultProps = {
+  onClick: () => {},
+};
 
 export default Pill;

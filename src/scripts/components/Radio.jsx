@@ -1,41 +1,39 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class Radio extends React.Component {
-  static displayName = 'Rhinodio';
+const Radio = (props) => {
+  const { inline, name, onChange, value } = props;
+  const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
+  const classes = cx('rhinodio', {
+    'rhinodio--inline': inline,
+  });
 
-  static propTypes = {
-    children:      React.PropTypes.node,
-    inline:        React.PropTypes.bool,
-    name:          React.PropTypes.string,
-    onChange:      React.PropTypes.func,
-    selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    value:         React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
-  };
+  return (
+    <div className={classes}>
+      <input type="radio" name={name} value={value} id={id} checked={props.value === props.selectedValue} onChange={onChange} />
+      <label htmlFor={id}>
+        {props.children}
+      </label>
+    </div>
+  );
+};
 
-  static defaultProps = {
-    inline: false,
-    onChange() {
-      return true;
-    },
-  };
+Radio.displayName = 'Rhinodio';
 
-  render() {
-    const { inline, name, onChange, value } = this.props;
-    const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
-    const classes = cx('rhinodio', {
-      'rhinodio--inline': inline,
-    });
+Radio.propTypes = {
+  children:      React.PropTypes.node,
+  inline:        React.PropTypes.bool,
+  name:          React.PropTypes.string,
+  onChange:      React.PropTypes.func,
+  selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+  value:         React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
+};
 
-    return (
-      <div className={classes}>
-        <input type="radio" name={name} value={value} id={id} checked={this.props.value === this.props.selectedValue} onChange={onChange} />
-        <label htmlFor={id}>
-          {this.props.children}
-        </label>
-      </div>
-    );
-  }
-}
+Radio.defaultProps = {
+  inline: false,
+  onChange() {
+    return true;
+  },
+};
 
 export default Radio;
