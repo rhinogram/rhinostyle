@@ -1,35 +1,33 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class Callout extends React.Component {
-  static displayName: 'RhinoCallout';
+const Callout = (props) => {
+  const { body, className, heading, type } = props;
+  const classes = cx('callout', className, {
+    'callout--danger':  type === 'danger',
+    'callout--default': type === 'default',
+    'callout--info':    type === 'info',
+  });
 
-  static propTypes = {
-    body: React.PropTypes.string.isRequired,
-    className: React.PropTypes.string,
-    heading: React.PropTypes.string.isRequired,
-    type: React.PropTypes.oneOf(['danger', 'default', 'info']),
-  };
+  return (
+    <div className={classes}>
+      <div className="callout__heading">{heading}</div>
+      <div className="callout__body">{body}</div>
+    </div>
+  );
+};
 
-  static defaultProps = {
-    type: 'default',
-  };
+Callout.displayName = 'RhinoCallout';
 
-  render() {
-    const { body, className, heading, type } = this.props;
-    const classes = cx('callout', className, {
-      'callout--danger':  type === 'danger',
-      'callout--default': type === 'default',
-      'callout--info':    type === 'info',
-    });
+Callout.propTypes = {
+  body:      React.PropTypes.string.isRequired,
+  className: React.PropTypes.string,
+  heading:   React.PropTypes.string.isRequired,
+  type:      React.PropTypes.oneOf(['danger', 'default', 'info']),
+};
 
-    return (
-      <div className={classes}>
-        <div className="callout__heading">{heading}</div>
-        <div className="callout__body">{body}</div>
-      </div>
-    );
-  }
-}
+Callout.defaultProps = {
+  type: 'default',
+};
 
 export default Callout;

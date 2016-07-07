@@ -1,33 +1,30 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class Label extends React.Component {
-  static displayName = 'RhinoLabel';
+const Label = (props) => {
+  const { className, label, type } = props;
+  const classes = cx('label', className, {
+    'label--default':   type === 'default',
+    'label--primary':   type === 'primary',
+    'label--secondary': type === 'secondary',
+    'label--accent':    type === 'accent',
+  });
 
-  static propTypes = {
-    className:  React.PropTypes.string,
-    label:      React.PropTypes.string.isRequired,
-    type:       React.PropTypes.string,
-  };
+  return (
+    <span className={classes}>{label}</span>
+  );
+};
 
-  static defaultProps = {
-    type: 'default',
-  };
+Label.displayName = 'RhinoLabel';
 
-  render() {
-    const { className, label, type } = this.props;
+Label.propTypes = {
+  className: React.PropTypes.string,
+  label:     React.PropTypes.string.isRequired,
+  type:      React.PropTypes.string,
+};
 
-    const classes = cx('label', className, {
-      'label--default':   type === 'default',
-      'label--primary':   type === 'primary',
-      'label--secondary': type === 'secondary',
-      'label--accent':    type === 'accent',
-    });
-
-    return (
-      <span className={classes}>{label}</span>
-    );
-  }
-}
+Label.defaultProps = {
+  type: 'default',
+};
 
 export default Label;

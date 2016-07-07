@@ -1,31 +1,30 @@
 import React  from 'react';
 import cx     from 'classnames';
 
-class TabContentPane extends React.Component {
-  static displayName = 'TabContentPane';
+const TabContentPane = (props) => {
+  const { className, active } = props;
 
-  static propTypes = {
-    active:           React.PropTypes.bool,
-    className:        React.PropTypes.string,
-    children:         React.PropTypes.node,
-  }
+  const paneClasses = cx('tabs-content__pane', className, {
+    'active': active, //eslint-disable-line
+  });
 
-  static defaultProps = {
-    active: false,
-  }
+  return (
+    <div className={paneClasses}>
+      {props.children}
+    </div>
+  );
+};
 
-  render() {
-    const { className, active } = this.props;
+TabContentPane.displayName = 'RhinoTabContentPane';
 
-    const paneClasses = cx('tabs-content__pane', className, {
-      'active': active, //eslint-disable-line
-    });
+TabContentPane.propTypes = {
+  active:           React.PropTypes.bool,
+  className:        React.PropTypes.string,
+  children:         React.PropTypes.node,
+};
 
-    return (
-      <div className={paneClasses}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+TabContentPane.defaultProps = {
+  active: false,
+};
+
 export default TabContentPane;

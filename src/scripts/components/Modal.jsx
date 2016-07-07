@@ -1,50 +1,47 @@
-import cx                       from 'classnames';
-import React                    from 'react';
-import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
+import cx                      from 'classnames';
+import React                   from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-class Modal extends React.Component {
-  static displayName = 'RhinoModal';
+const Modal = (props) => {
+  const { className, size } = props;
+  const modalClasses     = cx('modal', className);
+  const containerClasses = cx('modal__container', {
+    'modal__container--sm': size === 'sm',
+    'modal__container--lg': size === 'lg',
+  });
 
-  static propTypes = {
-    children:       React.PropTypes.node,
-    className:      React.PropTypes.string,
-    isOpen:         React.PropTypes.bool,
-    size:           React.PropTypes.string,
-    transitionName: React.PropTypes.node,
-  };
+  let returnVal = null;
 
-  static defaultProps = {
-    type:     'default',
-    isOpen:   false,
-  };
-
-  render() {
-    const { className, size } = this.props;
-
-    const modalClasses      = cx('modal', className);
-    const containerClasses  = cx('modal__container', {
-      'modal__container--sm':   size === 'sm',
-      'modal__container--lg':   size === 'lg',
-    });
-
-    let returnVal = null;
-
-    if (this.props.isOpen) {
-      returnVal = (
-        <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200}>
-          <div className={modalClasses} style={{ display: 'block' }}>
-            <div className={containerClasses}>
-              {this.props.children}
-            </div>
+  if (props.isOpen) {
+    returnVal = (
+      <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200}>
+        <div className={modalClasses} style={{ display: 'block' }}>
+          <div className={containerClasses}>
+            {props.children}
           </div>
-        </ReactCSSTransitionGroup>
-      );
-    } else {
-      returnVal = <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200} />;
-    }
-
-    return returnVal;
+        </div>
+      </ReactCSSTransitionGroup>
+    );
+  } else {
+    returnVal = <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200} />;
   }
-}
+
+  return returnVal;
+};
+
+Modal.displayName = 'RhinoModal';
+
+Modal.propTypes = {
+  children:       React.PropTypes.node,
+  className:      React.PropTypes.string,
+  isOpen:         React.PropTypes.bool,
+  size:           React.PropTypes.string,
+  transitionName: React.PropTypes.node,
+};
+
+Modal.defaultProps = {
+  type:   'default',
+  isOpen: false,
+};
 
 export default Modal;

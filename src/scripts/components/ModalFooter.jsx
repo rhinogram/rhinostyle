@@ -1,25 +1,13 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class ModalFooter extends React.Component {
-  static displayName = 'RhinoModalFooter';
+const ModalFooter = (props) => <div className={cx('modal__footer', props.className)}>{props.children}</div>;
 
-  static propTypes = {
-    children:   React.PropTypes.node,
-    className:  React.PropTypes.string,
-  };
+ModalFooter.displayName = 'RhinoModalFooter';
 
-  render() {
-    const { className } = this.props;
-
-    const classes = cx('modal__footer', className);
-
-    return (
-      <div className={classes}>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+ModalFooter.propTypes = {
+  children:   React.PropTypes.node,
+  className:  React.PropTypes.string,
+};
 
 export default ModalFooter;

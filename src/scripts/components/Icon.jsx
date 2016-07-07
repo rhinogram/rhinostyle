@@ -4,10 +4,6 @@ const Icon = (props) => <svg className={`icon ${props.className}`}><use xlinkHre
 
 Icon.displayName = 'RhinoIcon';
 
-Icon.defaultProps = {
-  className: '',
-};
-
 Icon.propTypes = {
   className:  React.PropTypes.string,
   icon:       React.PropTypes.string.isRequired,
