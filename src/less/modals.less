@@ -4,18 +4,6 @@
 // .modal__container - positioning shell for the actual modal
 // .modal__content   - actual modal w/ bg and corners and shiz
 
-
-// -------------------------
-// Modal Container
-// -------------------------
-
-
-#js-modal-container {
-  position: fixed;
-  z-index: 40;
-}
-
-
 // -------------------------
 // Modal Open State
 // -------------------------
@@ -79,6 +67,7 @@
 .modal-anim-leave.modal-anim-leave-active {
     opacity: 0.00;
     transform: scale(0.7);
+    transition: all 0.2s;
 }
 
 .modal {
@@ -92,16 +81,6 @@
   right: 0;
   top: 0;
   z-index: @zindex-modal;
-
-  &.fade {
-    transform:  scale(1.15);
-    transition: transform 5s @modal-easing 3s;
-  }
-
-  &.in {
-    // transform:  scale(1);
-    // transition: transform 300ms @modal-easing;
-  }
 }
 
 

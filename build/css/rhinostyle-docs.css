@@ -3452,10 +3452,6 @@ fieldset[disabled] .rhinodio label {
   left: -0.5rem;
   transform: rotate(45deg);
 }
-#js-modal-container {
-  position: fixed;
-  z-index: 40;
-}
 .modal-open {
   overflow: hidden;
 }
@@ -3496,6 +3492,7 @@ fieldset[disabled] .rhinodio label {
 .modal-anim-leave.modal-anim-leave-active {
   opacity: 0.00;
   transform: scale(0.7);
+  transition: all 0.2s;
 }
 .modal {
   -webkit-overflow-scrolling: touch;
@@ -3508,10 +3505,6 @@ fieldset[disabled] .rhinodio label {
   right: 0;
   top: 0;
   z-index: 1050;
-}
-.modal.fade {
-  transform: scale(1.15);
-  transition: transform 5s cubic-bezier(0.465, 0.183, 0.153, 0.946) 3s;
 }
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;

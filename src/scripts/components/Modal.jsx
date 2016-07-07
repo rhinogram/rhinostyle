@@ -6,16 +6,16 @@ class Modal extends React.Component {
   static displayName = 'RhinoMessage';
 
   static propTypes = {
-    children:     React.PropTypes.node,
-    className:    React.PropTypes.string,
-    size:         React.PropTypes.string,
-    isOpen:       React.PropTypes.bool,
+    children:       React.PropTypes.node,
+    className:      React.PropTypes.string,
+    isOpen:         React.PropTypes.bool,
+    size:           React.PropTypes.string,
     transitionName: React.PropTypes.node,
   };
 
   static defaultProps = {
-    type:   'default',
-    isOpen: false,
+    type:     'default',
+    isOpen:   false,
   };
 
   render() {
@@ -26,9 +26,11 @@ class Modal extends React.Component {
       'modal__container--sm':   size === 'sm',
       'modal__container--lg':   size === 'lg',
     });
+    let returnVal = null;
+
     if (this.props.isOpen) {
-      return (
-        <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
+      returnVal = (
+        <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           <div className={modalClasses} style={{ display: 'block' }}>
             <div className={containerClasses}>
               {this.props.children}
@@ -37,15 +39,9 @@ class Modal extends React.Component {
         </ReactCSSTransitionGroup>
       );
     } else {
-      return <ReactCSSTransitionGroup transitionName={this.props.transitionName} />;
+      returnVal = <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={500} transitionLeaveTimeout={300} />;
     }
-    // return (
-    //   <div className={modalClasses} style={{ display: 'block' }}>
-    //     <div className={containerClasses}>
-    //       {this.props.children}
-    //     </div>
-    //   </div>
-    // );
+    return returnVal;
   }
 }
 

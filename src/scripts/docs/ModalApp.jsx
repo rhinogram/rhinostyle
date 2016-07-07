@@ -46,6 +46,7 @@ class ModalApp extends React.Component {
     alert('the changes have been saved');
     this.closeModal();
   }
+
   renderBody = () =>
     <div className="form">
       <div className="form__group">
@@ -71,7 +72,7 @@ class ModalApp extends React.Component {
           <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
 
           <div className="site-modal">
-            {/*<Modal>
+            <Modal isOpen transitionName="modal-anim">
               <ModalContent>
                 <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
                 <ModalBody>
@@ -89,7 +90,7 @@ class ModalApp extends React.Component {
                   <Button type="primary">Save Changes</Button>
                 </ModalFooter>
               </ModalContent>
-            </Modal>*/}
+            </Modal>
           </div>
 
         </section>
