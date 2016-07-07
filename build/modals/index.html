@@ -18,7 +18,7 @@
   </head>
   <body>
 
-<section id="js-toasts-container" class="toasts-container" style="z-index: 10"></section>
+<section id="js-toasts-container" class="toasts-container" style="z-index: 1000"></section>
 <nav id="site-navigation" class="site-navigation">
       
     <ul class="site-navigation__nav">
@@ -115,53 +115,8 @@
   <main class="site-content" id="js-app">
     
 
+<script src="../scripts/modal.js"></script>
 
-<h1 class="site-headline">Modals</h1>
-
-
-<section class="site-section">
-  <h3 class="site-subheadline">Modal Example</h3>
-    <div class="site-modal">
-
-      <div class="modal">
-        <div class="modal__container">
-          <div class="modal__content">
-            <div class="modal__header">
-              <h4 class="modal__header__title">
-                <svg class="icon u-m-r-sm"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pencil"></use></svg>
-                <span class="u-text-overflow">Modal Title That is Really Really Long and May Need to Overflow</span>
-              </h4>
-              <button type="button" class="modal__header__close" data-dismiss="modal" aria-label="Close"><svg class="icon "><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></button>
-            </div>
-            <div class="modal__body">
-              <div class="form">
-                <div class="form__group">
-                  <label for="">First Name</label>
-                  <input class="form__control" type="text">
-                </div>
-                <div>
-                  <label for="">Last Name</label>
-                  <input class="form__control" type="text">
-                </div>
-              </div>
-            </div>
-            <div class="modal__footer">
-              <button type="button" class="btn btn--default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn--primary">Save Changes</button>
-            </div>
-          </div><!-- /.modal__content -->
-        </div><!-- /.modal__container -->
-      </div><!-- /.modal -->
-
-    </div>
-
-</section>
-
-<section class="site-section">
-  <h3 class="site-subheadline">Modal Sizes</h3>
-  <p>Add the <code>modal__container--sm</code> modifier to <code>modal__container</code> for a smaller modal.</p>
-  <p>Add the <code>modal__container--lg</code> modifier to <code>modal__container</code> for a larger modal.</p>
-</section>
 
 
   </main>
@@ -299,5 +254,4 @@
     </script>
   </body>
   </html>
-
 

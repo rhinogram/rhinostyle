@@ -6,6 +6,17 @@
 
 
 // -------------------------
+// Modal Container
+// -------------------------
+
+
+#js-modal-container {
+  position: fixed;
+  z-index: 40;
+}
+
+
+// -------------------------
 // Modal Open State
 // -------------------------
 
@@ -49,7 +60,26 @@
 // -------------------------
 // Modal
 // -------------------------
+.modal-anim-enter {
+    transform:  scale(1.15);
+    transition: transform 100ms @modal-easing;
+}
 
+.modal-anim-enter.modal-anim-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 300ms @modal-easing;
+}
+.modal-anim-leave {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.2s;
+}
+
+.modal-anim-leave.modal-anim-leave-active {
+    opacity: 0.00;
+    transform: scale(0.7);
+}
 
 .modal {
   -webkit-overflow-scrolling: touch;
@@ -63,14 +93,14 @@
   top: 0;
   z-index: @zindex-modal;
 
-  &.fade .modal__container {
-    //transform:  scale(1.15);
-    transition: transform 100ms @modal-easing;
+  &.fade {
+    transform:  scale(1.15);
+    transition: transform 5s @modal-easing 3s;
   }
 
-  &.in .modal__container {
-    //transform:  scale(1);
-    transition: transform 300ms @modal-easing;
+  &.in {
+    // transform:  scale(1);
+    // transition: transform 300ms @modal-easing;
   }
 }
 
@@ -211,5 +241,3 @@
     width: @modal-lg;
   }
 }
-
-

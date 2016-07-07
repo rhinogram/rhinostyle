@@ -18,6 +18,11 @@ import Label                from './Label';
 import LoaderPulse          from './LoaderPulse';
 import LoaderLine           from './LoaderLine';
 import Message              from './Message';
+import Modal                from './Modal';
+import ModalBody            from './ModalBody';
+import ModalContent         from './ModalContent';
+import ModalFooter          from './ModalFooter';
+import ModalHeader          from './ModalHeader';
 import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
@@ -33,6 +38,7 @@ import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { NotificationActions } from '../NotificationSystem';
+import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
 import { DropdownDocs } from './Dropdown';
@@ -63,6 +69,13 @@ export {
   LoaderPulse,
   LoaderLine,
   Message,
+  Modal,
+  ModalSystem,
+  ModalBody,
+  ModalContainer,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
   NavTabs,
   NavTabsItem,
   NotificationActions,

@@ -23,6 +23,7 @@ export default {
     label:       path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
     loader:      path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
     message:     path.join(__dirname, '../src/scripts/docs/MessageApp.jsx'),
+    modal:       path.join(__dirname, '../src/scripts/docs/ModalApp.jsx'),
     navigation:  path.join(__dirname, '../src/scripts/docs/NavigationApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx'),
