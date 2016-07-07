@@ -3475,6 +3475,23 @@ fieldset[disabled] .rhinodio label {
 .modal-backdrop.in {
   transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
+.modal-anim-enter {
+  transform: scale(1.15);
+  transition: transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+.modal-anim-enter.modal-anim-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+.modal-anim-leave {
+  transform: scale(1);
+  transition: all 1000ms;
+}
+.modal-anim-leave.modal-anim-leave-active {
+  transform: scale(0.7);
+  transition: all 1000ms;
+}
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
@@ -3486,12 +3503,6 @@ fieldset[disabled] .rhinodio label {
   right: 0;
   top: 0;
   z-index: 1050;
-}
-.modal.fade .modal__container {
-  transition: transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal.in .modal__container {
-  transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;

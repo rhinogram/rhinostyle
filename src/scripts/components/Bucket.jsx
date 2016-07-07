@@ -18,8 +18,8 @@ class Bucket extends React.Component {
   render() {
     const { className, size, type } = this.props;
     const classes = cx('bucket', type, className, {
-      'bucket--warm': type === 'warm',
-      'bucket--sm': size === 'small',
+      'bucket--warm':   type === 'warm',
+      'bucket--sm':     size === 'small',
     });
 
     return (
