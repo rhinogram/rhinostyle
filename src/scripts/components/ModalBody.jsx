@@ -2,7 +2,7 @@ import React from 'react';
 import cx    from 'classnames';
 
 class ModalBody extends React.Component {
-  static displayName = 'RhinoMessage';
+  static displayName = 'RhinoModalBody';
 
   static propTypes = {
     children:   React.PropTypes.node,

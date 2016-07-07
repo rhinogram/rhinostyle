@@ -4,7 +4,7 @@ import { Icon, ModalSystem }    from '../components';
 
 
 class ModalHeader extends React.Component {
-  static displayName = 'RhinoMessage';
+  static displayName = 'RhinoModalHeader';
 
   static propTypes = {
     children:       React.PropTypes.node,
@@ -12,7 +12,7 @@ class ModalHeader extends React.Component {
     dismissable:    React.PropTypes.bool,
     icon:           React.PropTypes.string,
     title:          React.PropTypes.string,
-  };
+  }
 
   static defaultProps = {
     dismissable: true,
@@ -36,7 +36,7 @@ class ModalHeader extends React.Component {
 
   closeModal = () => {
     ModalSystem.removeModal();
-  };
+  }
 
   render() {
     const { className } = this.props;

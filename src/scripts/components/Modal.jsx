@@ -1,9 +1,9 @@
-import React from 'react';
-import cx    from 'classnames';
-const ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+import cx                       from 'classnames';
+import React                    from 'react';
+import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
 
 class Modal extends React.Component {
-  static displayName = 'RhinoMessage';
+  static displayName = 'RhinoModal';
 
   static propTypes = {
     children:       React.PropTypes.node,
@@ -22,15 +22,16 @@ class Modal extends React.Component {
     const { className, size } = this.props;
 
     const modalClasses      = cx('modal', className);
-    const containerClasses  = cx('modal__container', 'fade', 'in', {
+    const containerClasses  = cx('modal__container', {
       'modal__container--sm':   size === 'sm',
       'modal__container--lg':   size === 'lg',
     });
+
     let returnVal = null;
 
     if (this.props.isOpen) {
       returnVal = (
-        <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+        <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200}>
           <div className={modalClasses} style={{ display: 'block' }}>
             <div className={containerClasses}>
               {this.props.children}
@@ -39,8 +40,9 @@ class Modal extends React.Component {
         </ReactCSSTransitionGroup>
       );
     } else {
-      returnVal = <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={500} transitionLeaveTimeout={300} />;
+      returnVal = <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200} />;
     }
+
     return returnVal;
   }
 }

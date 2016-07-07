@@ -2,7 +2,7 @@ import React from 'react';
 import cx    from 'classnames';
 
 class ModalFooter extends React.Component {
-  static displayName = 'RhinoMessage';
+  static displayName = 'RhinoModalFooter';
 
   static propTypes = {
     children:   React.PropTypes.node,
