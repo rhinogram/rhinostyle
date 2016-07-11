@@ -276,6 +276,18 @@ img {
 .u-clearfix::after {
   clear: both;
 }
+.u-font-weight-bold {
+  font-weight: 900 !important;
+}
+.u-font-weight-light {
+  font-weight: 300 !important;
+}
+.u-font-weight-normal {
+  font-weight: 400 !important;
+}
+.u-font-weight-semibold {
+  font-weight: 700 !important;
+}
 .u-img-fluid {
   height: auto;
   max-width: 100%;
@@ -3475,6 +3487,18 @@ fieldset[disabled] .rhinodio label {
 .modal-backdrop.in {
   transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
+.modal {
+  -webkit-overflow-scrolling: touch;
+  bottom: 0;
+  display: none;
+  left: 0;
+  outline: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1050;
+}
 .modal-anim-enter {
   transform: scale(1.15);
   transition: transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
@@ -3491,18 +3515,6 @@ fieldset[disabled] .rhinodio label {
 .modal-anim-leave.modal-anim-leave-active {
   transform: scale(0.7);
   transition: all 1000ms;
-}
-.modal {
-  -webkit-overflow-scrolling: touch;
-  bottom: 0;
-  display: none;
-  left: 0;
-  outline: 0;
-  overflow: hidden;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 1050;
 }
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;
@@ -4195,7 +4207,7 @@ pre {
   margin-bottom: 2rem;
 }
 .site-grid-box {
-  background: #ececec;
+  background: #f9f9f9;
   border: 1px solid #c5c5c5;
   min-height: 4rem;
   padding: 0 1rem;
