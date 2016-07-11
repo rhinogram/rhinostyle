@@ -14,7 +14,7 @@ const Modal = (props) => {
 
   if (props.isOpen) {
     returnVal = (
-      <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200}>
+      <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={10000} transitionLeaveTimeout={10000}>
         <div className={modalClasses} style={{ display: 'block' }}>
           <div className={containerClasses}>
             {props.children}
@@ -23,7 +23,7 @@ const Modal = (props) => {
       </ReactCSSTransitionGroup>
     );
   } else {
-    returnVal = <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={300} transitionLeaveTimeout={200} />;
+    returnVal = <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={10000} transitionLeaveTimeout={10000} />;
   }
 
   return returnVal;

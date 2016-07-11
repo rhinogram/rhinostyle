@@ -13,6 +13,4 @@ export function addModal(modal) {
 
 export function removeModal() {
   body.classList.remove('modal-open');
-  ReactDOM.unmountComponentAtNode(modalContainer);
-  body.removeChild(modalContainer);
 }
