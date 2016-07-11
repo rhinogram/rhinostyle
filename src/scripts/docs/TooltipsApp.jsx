@@ -19,7 +19,7 @@ const TooltipsApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
-      <p className="u-text-lead">Our tooltips are handled purely by CSS via data attributes. These <strong>are not</strong> ReactJS components.</p>
+      <p className="site-text-lead">Our tooltips are handled purely by CSS via data attributes. These <strong>are not</strong> ReactJS components.</p>
     </section>
 
     <section className="site-section">

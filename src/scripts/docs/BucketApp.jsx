@@ -24,7 +24,7 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">About Buckets</h3>
-      <p className="u-text-lead">Buckets are used to contain and separate portions of content.</p>
+      <p className="site-text-lead">Buckets are used to contain and separate portions of content.</p>
     </section>
 
     <section className="site-section">

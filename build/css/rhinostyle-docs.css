@@ -47,23 +47,12 @@ a:hover {
 abbr[title] {
   border-bottom: 1px dotted;
 }
-b,
-strong {
-  font-weight: bold;
-}
 dfn {
   font-style: italic;
 }
 h1 {
   font-size: 2em;
   margin: .67em 0;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-small {
-  font-size: 80%;
 }
 sub,
 sup {
@@ -310,14 +299,19 @@ img {
 .u-text-right {
   text-align: right;
 }
-.u-text-lead {
-  font-size: 2rem;
-  font-weight: 300;
-}
 .u-text-overflow {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.u-text-large {
+  font-size: 2rem !important;
+}
+.u-text-base {
+  font-size: 1.6rem !important;
+}
+.u-text-small {
+  font-size: 1.4rem !important;
 }
 .u-text-underline {
   text-decoration: underline !important;
@@ -3562,12 +3556,6 @@ fieldset[disabled] .rhinodio label {
   margin-bottom: 0;
   margin-left: 0.6rem;
 }
-.modal__footer .btn-group .btn + .btn {
-  margin-left: -0.1rem;
-}
-.modal__footer .btn-block + .btn-block {
-  margin-left: 0;
-}
 .modal-scrollbar-measure {
   height: 5rem;
   overflow: scroll;
@@ -3997,13 +3985,13 @@ h4 small,
 h5 small,
 h6 small {
   color: #c5c5c5;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1;
 }
 h1 small,
 h2 small,
 h3 small {
-  font-size: 65%;
+  font-size: 75%;
 }
 h4 small,
 h5 small,
@@ -4066,7 +4054,7 @@ dd {
   line-height: 1.4;
 }
 dt {
-  font-weight: bold;
+  font-weight: 900;
 }
 dd {
   margin-left: 0;
@@ -4419,6 +4407,10 @@ html.navigation-is-locked .site-wrapper {
 .site-swatch__text {
   padding: 1.2rem 0 0.6rem 0;
   text-align: center;
+}
+.site-text-lead {
+  font-size: 2rem;
+  font-weight: 300;
 }
 .site-wrapper {
   min-height: 100vh;
