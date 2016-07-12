@@ -27,6 +27,7 @@ export default {
     navigation:  path.join(__dirname, '../src/scripts/docs/NavigationApp.jsx'),
     progressbar: path.join(__dirname, '../src/scripts/docs/ProgressBarApp.jsx'),
     pill:        path.join(__dirname, '../src/scripts/docs/PillApp.jsx'),
+    table:       path.join(__dirname, '../src/scripts/docs/TableApp.jsx'),
     tabs:        path.join(__dirname, '../src/scripts/docs/TabsApp.jsx'),
     tooltips:    path.join(__dirname, '../src/scripts/docs/TooltipsApp.jsx'),
   },

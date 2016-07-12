@@ -19,6 +19,7 @@ th {
 }
 
 .table { // lesshint depthLevel: false
+  background: white;
   margin-bottom: @line-height-computed;
   max-width: 100%;
   width: 100%;
@@ -40,7 +41,7 @@ th {
 
   // Bottom align for column headings
   > thead > tr > th {
-    border-bottom: 2px solid @table-border-color;
+    border-bottom: 1px solid @table-border-color;
     vertical-align: bottom;
   }
 
@@ -56,7 +57,7 @@ th {
 
   // Account for multiple tbody instances
   > tbody + tbody {
-    border-top: 2px solid @table-border-color;
+    border-top: 1px solid @table-border-color;
   }
 
   // Nesting
@@ -109,12 +110,12 @@ table {
     }
   }
 
-  > thead > tr {
+  /*> thead > tr {
     > th,
     > td {
       border-bottom-width: 2px;
     }
-  }
+  }*/
 }
 
 .table--hover {
@@ -138,7 +139,7 @@ table {
 
 .table--striped {
   > tbody > tr:nth-of-type(odd) {
-    background-color: @table-bg-accent;
+    background-color: @table-bg-striped;
   }
 }
 

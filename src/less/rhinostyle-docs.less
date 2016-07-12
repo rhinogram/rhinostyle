@@ -4,7 +4,7 @@
 @import 'rhinostyle';
 
 body {
-  background: white;
+  //background: @color-gray-light;
   min-height: 100vh;
 }
 
@@ -105,6 +105,15 @@ pre {
 .site-example-systemalerts {
   .system-alert:not(:last-child) {
     margin-bottom: @margin-large;
+  }
+}
+
+.site-example-tables {
+  .table:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+  .table:last-child {
+    margin-bottom: 0;
   }
 }
 

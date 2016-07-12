@@ -33,6 +33,7 @@ import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
 import SystemAlert          from './SystemAlert';
 import TabContentPane       from './TabContentPane';
+import Table                from './Table';
 import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
@@ -87,6 +88,7 @@ export {
   Select,
   SystemAlert,
   TabContentPane,
+  Table,
   TabsContent,
   Textarea,
   Toast,
