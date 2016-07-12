@@ -21,7 +21,7 @@ class ModalHeader extends React.Component {
   isDismissable = () => {
     let returnVal = null;
     if (this.props.dismissable) {
-      returnVal = <button onClick={this.closeModal} type="button" className="modal__header__close" aria-label="Close"><Icon className="u-m-r-sm" icon="close" /></button>;
+      returnVal = <button onClick={this.closeModal} type="button" className="modal__header__close" aria-label="Close"><Icon icon="close" /></button>;
     }
     return returnVal;
   }

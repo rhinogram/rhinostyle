@@ -3542,6 +3542,7 @@ fieldset[disabled] .rhinodio label {
   align-items: center;
   display: -ms-flexbox;
   display: flex;
+  line-height: 1;
   margin: 0;
 }
 .modal__body {
