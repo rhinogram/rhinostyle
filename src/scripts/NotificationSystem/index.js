@@ -5,7 +5,7 @@ import NotificationsContainer from './components/NotificationsContainer';
 
 import * as NotificationActions from './actions';
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
   const notificationsContainer = document.getElementById('js-toasts-container');
 
   if (notificationsContainer) {
