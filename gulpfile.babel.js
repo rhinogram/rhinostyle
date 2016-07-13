@@ -1,5 +1,3 @@
-
-
 import gulp         from 'gulp';
 import imagemin     from 'gulp-imagemin';
 import svgSprite    from 'gulp-svg-sprite';
@@ -395,7 +393,3 @@ gulp.task('styles:lint', () =>
     .pipe(lesshint())
     .pipe(lesshint.reporter())
 );
-
-
-
-
