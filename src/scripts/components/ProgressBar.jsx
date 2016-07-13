@@ -1,65 +1,60 @@
 import React from 'react';
 import cx    from 'classnames';
 
-class ProgressBar extends React.Component {
-  static displayName = 'RhinoProgressBar';
+const ProgressBar = (props) => {
+  const { className, progress, showLabel, type } = props;
+  const classes = cx('progress', className);
+  const barClasses = cx('progress__bar', {
+    'progress__bar--default':     type === 'default',
+    'progress__bar--primary':     type === 'primary',
+    'progress__bar--secondary':   type === 'secondary',
+    'progress__bar--temperature': type === 'temperature',
+  });
 
-  static propTypes = {
-    className: React.PropTypes.string,
-    progress:  React.PropTypes.number,
-    showLabel: React.PropTypes.bool,
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
-  };
+  let progressTranslation = progress;
+  let label = null;
 
-  static defaultProps = {
-    progress:    0,
-    showLabel:   false,
-    type:        'default',
-  };
+  progressTranslation = parseInt(progress, 10);
 
-  render() {
-    const { className, progress, showLabel, type } = this.props;
+  if (isNaN(progressTranslation) || progressTranslation < 0) {
+    progressTranslation = 0;
+  }
 
-    let progressTranslation = progress;
-
-    progressTranslation = parseInt(progress, 10);
-
-    if (isNaN(progressTranslation) || progressTranslation < 0) {
-      progressTranslation = 0;
-    }
-
-    const classes = cx('progress', className);
-
-    const barClasses = cx('progress__bar', {
-      'progress__bar--default':  type === 'default',
-      'progress__bar--primary':  type === 'primary',
-      'progress__bar--secondary':  type === 'secondary',
-      'progress__bar--temperature':  type === 'temperature',
-    });
-
-    const style = {
-      transform: `translateX(${progressTranslation}%)`,
-      WebkitTransform: `translateX(${progressTranslation}%)`,
-    };
-
-    let label = null;
-
-    if (showLabel && progressTranslation > 1) {
-      label = (
-        <div className="progress__bar__slider__label">{`${progressTranslation}%`}</div>
-      );
-    }
-
-    return (
-      <div className={classes}>
-        <div className={barClasses}>
-          <div className="progress__bar__slider" style={style}>
-            {label}
-          </div>
-        </div>
-      </div>
+  if (showLabel && progressTranslation > 1) {
+    label = (
+      <div className="progress__bar__slider__label">{`${progressTranslation}%`}</div>
     );
   }
-}
+
+  const style = {
+    transform:       `translateX(${progressTranslation}%)`,
+    WebkitTransform: `translateX(${progressTranslation}%)`,
+  };
+
+  return (
+    <div className={classes}>
+      <div className={barClasses}>
+        <div className="progress__bar__slider" style={style}>
+          {label}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+ProgressBar.displayName = 'RhinoProgressBar';
+
+ProgressBar.propTypes = {
+  className: React.PropTypes.string,
+  progress:  React.PropTypes.number,
+  showLabel: React.PropTypes.bool,
+  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
+};
+
+ProgressBar.defaultProps = {
+  progress:  0,
+  showLabel: false,
+  type:      'default',
+};
 
 export default ProgressBar;
