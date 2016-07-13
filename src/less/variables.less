@@ -517,7 +517,7 @@
 @state-accent-text:              darken(@color-accent, 5%);
 
 @state-danger-text:              @color-danger;
-@state-danger-bg:                lighten(@color-danger, 52%);
+@state-danger-bg:                lighten(@color-danger, 42%);
 @state-danger-border:            lighten(@color-danger, 45%);
 
 @state-info-text:                darken(@color-info, 15%);
@@ -529,7 +529,7 @@
 @state-secondary-text:           darken(@color-secondary, 4%);
 
 @state-success-text:             darken(@color-success, 4%);
-@state-success-bg:               lighten(@color-success, 68%);
+@state-success-bg:               lighten(@color-success, 56%);
 @state-success-border:           lighten(@color-success, 40%);
 
 @state-warning-text:             darken(@color-warning, 12%);
@@ -574,10 +574,11 @@
 
 
 @table-bg:                      transparent; // default background color used for all tables.
-@table-bg-accent:               @color-gray-lightest; // background color used for `.table-striped`
-@table-bg-striped:              @color-gray-lightest; // background color used for `.table-striped`
-@table-bg-hover:                darken(@color-gray-lightest, 2%);
 @table-bg-active:               @table-bg-hover;
+@table-bg-danger:               @state-danger-bg;
+@table-bg-hover:                darken(@color-gray-lightest, 2%);
+@table-bg-striped:              @color-gray-lightest;
+@table-bg-success:              @state-success-bg;
 
 @table-border-color:            @border-color-base;
 

@@ -215,27 +215,25 @@ const LabelApp = () =>
 
         <br /> <br /> <br />
 
-        <Table hover striped>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
+        <Table>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ben</td>
-              <td>Bruning</td>
-              <td>@bruning</td>
+            <tr className="table__row--active">
+              <td>.table__row--active</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Blake</td>
-              <td>Guilloud</td>
-              <td>@guilloud</td>
+            <tr className="table__row--danger">
+              <td>.table__row--danger</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr className="table__row--success">
+              <td>.table__row--success</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>3</td>
@@ -249,7 +247,7 @@ const LabelApp = () =>
               <td>Foster</td>
               <td>@foster</td>
             </tr>
-            <tr>
+            <tr >
               <td>5</td>
               <td>Paul</td>
               <td>Griffin</td>

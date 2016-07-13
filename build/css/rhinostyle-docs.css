@@ -3846,7 +3846,7 @@ table {
 .table--bordered th {
   border: 1px solid #c5c5c5;
 }
-.table--hover tr:hover {
+.table--hover tbody tr:hover {
   background-color: #f4f4f4;
 }
 .table--condensed td,
@@ -3878,29 +3878,18 @@ table {
     content: '';
   }
 }*/
-.table > thead > tr > td.active,
-.table > tbody > tr > td.active,
-.table > tfoot > tr > td.active,
-.table > thead > tr > th.active,
-.table > tbody > tr > th.active,
-.table > tfoot > tr > th.active,
-.table > thead > tr.active > td,
-.table > tbody > tr.active > td,
-.table > tfoot > tr.active > td,
-.table > thead > tr.active > th,
-.table > tbody > tr.active > th,
-.table > tfoot > tr.active > th {
+.table__data--active,
+.table__row--active {
   background-color: #f4f4f4;
 }
-/*.table--hover > tbody > tr {
-    > td.@{state}:hover,
-    > th.@{state}:hover,
-    &.@{state}:hover > td,
-    &:hover > .@{state},
-    &.@{state}:hover > th {
-      background-color: darken(@background, 5%);
-    }
-  }*/
+.table__data--danger,
+.table__row--danger {
+  background-color: #f7d9da;
+}
+.table__data--success,
+.table__row--success {
+  background-color: #edffc9;
+}
 /*.mixin-table-row-variant(success; @state-success-bg);
 .mixin-table-row-variant(info; @state-info-bg);
 .mixin-table-row-variant(warning; @state-warning-bg);
@@ -3933,10 +3922,8 @@ table {
   .responsive-table > .table--bordered th:last-child {
     border-right: 0;
   }
-  .responsive-table > .table--bordered > tbody > tr:last-child > th,
-  .responsive-table > .table--bordered > tfoot > tr:last-child > th,
-  .responsive-table > .table--bordered > tbody > tr:last-child > td,
-  .responsive-table > .table--bordered > tfoot > tr:last-child > td {
+  .responsive-table > .table--bordered tbody tr:last-child th,
+  .responsive-table > .table--bordered tbody tr:last-child td {
     border-bottom: 0;
   }
 }
@@ -4279,7 +4266,7 @@ pre {
   margin-bottom: 1.2rem;
 }
 .site-example-tables .responsive-table:not(:last-child) {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 .site-example-tables .responsive-table:last-child {
   margin-bottom: 0;
