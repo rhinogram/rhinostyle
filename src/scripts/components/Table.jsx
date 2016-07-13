@@ -11,9 +11,11 @@ const Table = (props) => {
   });
 
   return (
-    <table className={classes}>
-      {props.children}
-    </table>
+    <div className="responsive-table">
+      <table className={classes}>
+        {props.children}
+      </table>
+    </div>
   );
 };
 
