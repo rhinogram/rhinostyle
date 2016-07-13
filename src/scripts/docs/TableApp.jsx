@@ -26,41 +26,43 @@ const LabelApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Table Types</h3>
-      <div className="u-m-b-md">
-        <p className="site-copy">
-          Our basic table. Does not require any additional properties.
-        </p>
+      <div className="site-example-tables">
+        <div className="u-m-b-md">
+          <p className="site-copy">
+            Our basic table. Does not require any additional properties.
+          </p>
+        </div>
+        <Table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ben</td>
+              <td>Bruning</td>
+              <td>@bruning</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Blake</td>
+              <td>Guilloud</td>
+              <td>@guilloud</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Keaton</td>
+              <td>Foster</td>
+              <td>@foster</td>
+            </tr>
+          </tbody>
+        </Table>
       </div>
-      <Table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Ben</td>
-            <td>Bruning</td>
-            <td>@bruning</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Blake</td>
-            <td>Guilloud</td>
-            <td>@guilloud</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Keaton</td>
-            <td>Foster</td>
-            <td>@foster</td>
-          </tr>
-        </tbody>
-      </Table>
     </section>
 
     <section className="site-section">
@@ -210,6 +212,59 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
+
+        <br /> <br /> <br />
+
+        <Table hover striped>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ben</td>
+              <td>Bruning</td>
+              <td>@bruning</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Blake</td>
+              <td>Guilloud</td>
+              <td>@guilloud</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Craig</td>
+              <td>Anthony</td>
+              <td>@anthony</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Keaton</td>
+              <td>Foster</td>
+              <td>@foster</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Paul</td>
+              <td>Griffin</td>
+              <td>@griffin</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Terry</td>
+              <td>Kennair</td>
+              <td>@kennair</td>
+            </tr>
+          </tbody>
+        </Table>
+
+
       </div>
     </section>
 
