@@ -81,7 +81,7 @@ table {
 }
 
 .table--hover {
-  tr:hover {
+  tbody tr:hover {
     background-color: @table-bg-hover;
   }
 }
@@ -137,6 +137,9 @@ table {
 
 
 .mixin-table-row-variant(active; @table-bg-active);
+.mixin-table-row-variant(danger; @table-bg-danger);
+.mixin-table-row-variant(success; @table-bg-success);
+
 /*.mixin-table-row-variant(success; @state-success-bg);
 .mixin-table-row-variant(info; @state-info-bg);
 .mixin-table-row-variant(warning; @state-warning-bg);
@@ -190,16 +193,12 @@ table {
       // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
       // chances are there will be only one `tr` in a `thead` and that would
       // remove the border altogether.
-      > tbody,
-      > tfoot {
-        > tr:last-child {
-          > th,
-          > td {
-            border-bottom: 0;
-          }
+      tbody tr:last-child {
+        th,
+        td {
+          border-bottom: 0;
         }
       }
-
     }
   }
 }
