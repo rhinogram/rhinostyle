@@ -212,57 +212,116 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
+      </div>
+    </section>
 
-        <br /> <br /> <br />
-
+    <section className="site-section">
+      <h3 className="site-subheadline">Table Background Colors</h3>
+      <div className="site-example-tables">
+        <div className="u-m-b-md">
+          <h5 className="site-miniheadline">Table Data</h5>
+          <p className="site-copy">
+            Add <code>.table__data--active | .table__data--danger | .table__data--success | .table__data--warning</code> className to the <code>&lt;td&gt;</code> element.
+          </p>
+        </div>
         <Table>
           <tbody>
-            <tr className="table__row--active">
-              <td>.table__row--active</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
+            <tr>
+              <td className="table__data--active">1</td>
+              <td>Ben</td>
+              <td>Bruning</td>
+              <td>@bruning</td>
             </tr>
-            <tr className="table__row--danger">
-              <td>.table__row--danger</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-            </tr>
-            <tr className="table__row--success">
-              <td>.table__row--success</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
+            <tr>
+              <td>2</td>
+              <td className="table__data--danger">Blake</td>
+              <td>Guilloud</td>
+              <td>@guilloud</td>
             </tr>
             <tr>
               <td>3</td>
-              <td>Craig</td>
-              <td>Anthony</td>
-              <td>@anthony</td>
+              <td>Keaton</td>
+              <td className="table__data--success">Foster</td>
+              <td>@foster</td>
             </tr>
             <tr>
               <td>4</td>
+              <td>Craig</td>
+              <td>Anthony</td>
+              <td className="table__data--warning">@anthony</td>
+            </tr>
+            <tr>
+              <td>5</td>
               <td>Keaton</td>
               <td>Foster</td>
               <td>@foster</td>
             </tr>
-            <tr >
-              <td>5</td>
+            <tr>
+              <td>6</td>
               <td>Paul</td>
               <td>Griffin</td>
               <td>@griffin</td>
             </tr>
             <tr>
-              <td>6</td>
+              <td>7</td>
               <td>Terry</td>
               <td>Kennair</td>
               <td>@kennair</td>
             </tr>
           </tbody>
         </Table>
-
-
+        <div className="u-m-b-md">
+          <h5 className="site-miniheadline">Table Row</h5>
+          <p className="site-copy">
+            Add <code>.table__row--active | .table__row--danger | .table__row--success | .table__row--warning</code> className to the <code>&lt;tr&gt;</code> element.
+          </p>
+        </div>
+        <Table>
+          <tbody>
+            <tr className="table__row--active">
+              <td>1</td>
+              <td>Ben</td>
+              <td>Bruning</td>
+              <td>@bruning</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Blake</td>
+              <td>Guilloud</td>
+              <td>@guilloud</td>
+            </tr>
+            <tr className="table__row--danger">
+              <td>3</td>
+              <td>Keaton</td>
+              <td>Foster</td>
+              <td>@foster</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Craig</td>
+              <td>Anthony</td>
+              <td>@anthony</td>
+            </tr>
+            <tr className="table__row--success">
+              <td>5</td>
+              <td>Keaton</td>
+              <td>Foster</td>
+              <td>@foster</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Paul</td>
+              <td>Griffin</td>
+              <td>@griffin</td>
+            </tr>
+            <tr className="table__row--warning">
+              <td>7</td>
+              <td>Terry</td>
+              <td>Kennair</td>
+              <td>@kennair</td>
+            </tr>
+          </tbody>
+        </Table>
       </div>
     </section>
 

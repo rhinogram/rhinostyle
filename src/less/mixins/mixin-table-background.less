@@ -1,0 +1,26 @@
+// File: mixin-table-background.less
+// Note:
+
+
+// -------------------------
+// Table Background
+// -------------------------
+
+
+.mixin-table-background-variant(@state; @background) {
+
+  .table__data--@{state},
+  .table__row--@{state} {
+    background-color: @background !important;
+  }
+
+  .table--hover {
+    .table__data--@{state}:hover,
+    .table__row--@{state}:hover {
+      background-color: darken(@background, 2%) !important;
+    }
+  }
+}
+
+
+

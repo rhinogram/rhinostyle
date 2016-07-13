@@ -517,11 +517,11 @@
 @state-accent-text:              darken(@color-accent, 5%);
 
 @state-danger-text:              @color-danger;
-@state-danger-bg:                lighten(@color-danger, 42%);
+@state-danger-bg:                tint(@color-danger, 80%);
 @state-danger-border:            lighten(@color-danger, 45%);
 
 @state-info-text:                darken(@color-info, 15%);
-@state-info-bg:                  lighten(@color-info, 37%);
+@state-info-bg:                  tint(@color-info, 80%);
 @state-info-border:              lighten(@color-info, 27%);
 
 @state-primary-text:             @color-primary;
@@ -529,11 +529,11 @@
 @state-secondary-text:           darken(@color-secondary, 4%);
 
 @state-success-text:             darken(@color-success, 4%);
-@state-success-bg:               lighten(@color-success, 56%);
+@state-success-bg:               tint(@color-success, 80%);
 @state-success-border:           lighten(@color-success, 40%);
 
 @state-warning-text:             darken(@color-warning, 12%);
-@state-warning-bg:               lighten(@color-warning, 38%);
+@state-warning-bg:               tint(@color-warning, 80%);
 @state-warning-border:           lighten(@color-warning, 28%);
 
 
@@ -579,6 +579,7 @@
 @table-bg-hover:                darken(@color-gray-lightest, 2%);
 @table-bg-striped:              @color-gray-lightest;
 @table-bg-success:              @state-success-bg;
+@table-bg-warning:              @state-warning-bg;
 
 @table-border-color:            @border-color-base;
 

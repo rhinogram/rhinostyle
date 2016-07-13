@@ -82,7 +82,7 @@ table {
 
 .table--hover {
   tbody tr:hover {
-    background-color: @table-bg-hover;
+    background-color: @table-bg-hover !important;
   }
 }
 
@@ -136,14 +136,10 @@ table {
 // inheritance to nested tables.
 
 
-.mixin-table-row-variant(active; @table-bg-active);
-.mixin-table-row-variant(danger; @table-bg-danger);
-.mixin-table-row-variant(success; @table-bg-success);
-
-/*.mixin-table-row-variant(success; @state-success-bg);
-.mixin-table-row-variant(info; @state-info-bg);
-.mixin-table-row-variant(warning; @state-warning-bg);
-.mixin-table-row-variant(danger; @state-danger-bg);*/
+.mixin-table-background-variant(active; @table-bg-active);
+.mixin-table-background-variant(danger; @table-bg-danger);
+.mixin-table-background-variant(success; @table-bg-success);
+.mixin-table-background-variant(warning; @table-bg-warning);
 
 
 // -------------------------
