@@ -587,7 +587,6 @@ a.u-text-warning:hover,
 .u-flex-grow-1 {
   -ms-flex: 1 1 0% !important;
   flex: 1 1 0% !important;
-  /* 1 */
 }
 .u-flex-grow-2 {
   -ms-flex: 2 1 0% !important;
@@ -636,6 +635,10 @@ a.u-text-warning:hover,
 .u-flex-order-none {
   -ms-flex-order: 0 !important;
   order: 0 !important;
+}
+.u-flex-shrink-0 {
+  -ms-flex-negative: 0 !important;
+  flex-shrink: 0 !important;
 }
 .u-flex-nowrap {
   -ms-flex-wrap: nowrap !important;
@@ -1058,13 +1061,37 @@ a.u-text-warning:hover,
 .bucket--primary {
   border: 1px solid #0081c6;
 }
+.bucket--primary .bucket__header {
+  border-bottom-color: #0081c6;
+}
 .bucket--sm .bucket__body,
 .bucket--sm .bucket__header,
 .bucket--sm .bucket__footer {
-  padding: 0.6rem;
+  padding: 1rem;
 }
 .bucket__body {
-  padding: 1rem;
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+}
+.bucket__header + .bucket__body {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.bucket__header {
+  border-bottom: 1px solid #c5c5c5;
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.6rem;
+}
+.bucket__header__title {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.8rem;
+  line-height: 1.2;
 }
 a {
   color: #0081c6;
@@ -4243,7 +4270,7 @@ pre {
   margin-right: 0.6rem;
 }
 .site-example-buckets .bucket:not(:last-child) {
-  margin-bottom: 1.2rem;
+  margin-bottom: 4rem;
 }
 .site-example-buttons .btn:not(:last-child) {
   margin-right: 0.6rem;

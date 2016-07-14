@@ -1,6 +1,7 @@
 import Avatar               from './Avatar';
 import Bucket               from './Bucket';
 import BucketBody           from './BucketBody';
+import BucketHeader         from './BucketHeader';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
@@ -51,6 +52,7 @@ export {
   Avatar,
   Bucket,
   BucketBody,
+  BucketHeader,
   Button,
   Callout,
   Checkbox,

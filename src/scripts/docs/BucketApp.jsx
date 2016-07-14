@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Bucket, BucketBody } from '../components';
+import { Bucket, BucketBody, BucketHeader, Icon } from '../components';
 
 import Playground from 'component-playground';
 
@@ -17,6 +17,8 @@ const exampleScope  = {
   ReactDOM,
   Bucket,
   BucketBody,
+  BucketHeader,
+  Icon,
 };
 
 const BucketApp = () =>
@@ -25,7 +27,7 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">About Buckets</h3>
-      <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets must contain a <span className="u-text-accent">BucketBody</span> child component. Optionally include <span className="u-text-accent">BucketHeader</span> and/or <span className="u-text-accent">BucketFooter</span> child components.</p>
+      <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets must contain a <span className="u-text-accent">BucketBody</span> child component. Optionally include <span className="u-text-accent">BucketHeader</span> child component.</p>
     </section>
 
     <section className="site-section">
@@ -33,10 +35,12 @@ const BucketApp = () =>
       <p className="site-copy"><code>type="default | primary"</code></p>
       <div className="site-example-buckets">
         <Bucket>
-          <BucketBody>Bucket body</BucketBody>
+          <BucketHeader title="Bucket Header" icon="pencil" />
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
         </Bucket>
         <Bucket type="primary">
-          <BucketBody>Bucket body</BucketBody>
+          <BucketHeader title="Bucket Header" icon="sms" />
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
         </Bucket>
       </div>
     </section>
@@ -47,9 +51,35 @@ const BucketApp = () =>
         <p className="site-copy"><code>size="small"</code></p>
         <div className="site-example-buckets">
           <Bucket size="small">
-            <BucketBody>I'm a default bucket body.</BucketBody>
+            <BucketHeader title="Bucket Header" icon="pencil" />
+            <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
           </Bucket>
         </div>
+      </div>
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Bucket Examples</h3>
+      <div className="site-example-buckets">
+        <Bucket>
+          <BucketHeader className="u-flex-justify-between" title="Bucket Header That is Really Super Long" icon="pencil">
+            <div>
+              <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
+            </div>
+          </BucketHeader>
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
+        <Bucket>
+          <BucketHeader title="Bucket Header" icon="pencil" className="u-bg-gray-lightest" />
+          <BucketBody className="u-bg-gray-lightest">Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
+        <Bucket>
+          <BucketBody className="u-bg-gray-lightest">Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
+        <Bucket>
+          <BucketHeader className="u-bg-gray-lightest">Bucket Header without Title</BucketHeader>
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
       </div>
     </section>
 
