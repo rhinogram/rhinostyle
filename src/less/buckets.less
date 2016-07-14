@@ -8,7 +8,7 @@
 
 
 .bucket {
-  border: 1px solid @bucket-border-color;
+  background: @bucket-bg-default;
   border-radius: @bucket-border-radius;
 }
 
@@ -19,11 +19,11 @@
 
 
 .bucket--default {
-  background: @bucket-bg-default;
+  border: 1px solid @bucket-default-border;
 }
 
-.bucket--warm {
-  background: @bucket-bg-warm;
+.bucket--primary {
+  border: 1px solid @bucket-primary-border;
 }
 
 
@@ -33,7 +33,9 @@
 
 
 .bucket--sm {
-  .bucket__body {
+  .bucket__body,
+  .bucket__header,
+  .bucket__footer {
     padding: @bucket-body-padding-small;
   }
 }
@@ -45,8 +47,20 @@
 
 
 .bucket__body {
+  //border-radius: @bucket-border-radius;
   padding: @bucket-body-padding;
 }
 
 
+// -------------------------
+// Bucket Body Modifiers
+// -------------------------
 
+
+.bucket__body--default {
+  //background: @bucket-bg-default;
+}
+
+.bucket__body--warm {
+  //background: @bucket-bg-warm;
+}

@@ -1,5 +1,6 @@
 import Avatar               from './Avatar';
 import Bucket               from './Bucket';
+import BucketBody           from './BucketBody';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
@@ -49,6 +50,7 @@ import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 export {
   Avatar,
   Bucket,
+  BucketBody,
   Button,
   Callout,
   Checkbox,

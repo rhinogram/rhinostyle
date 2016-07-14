@@ -27,7 +27,7 @@ const exampleScope  = {
 const ButtonApp = () =>
   <div>
     <h1 className="site-headline">Buttons</h1>
-
+    
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link | danger"</code></p>

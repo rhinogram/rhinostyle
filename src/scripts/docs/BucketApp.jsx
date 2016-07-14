@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Bucket } from '../components';
+import { Bucket, BucketBody } from '../components';
 
 import Playground from 'component-playground';
 
@@ -10,12 +10,13 @@ const bucketExample = require('raw!./examples/Bucket.example.txt');
 const bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - Bucket size -  [small]',
-  type: '[Optional] - Bucket type -  [default | warm]',
+  type: '[Optional] - Bucket type -  [default | primary]',
 };
 const exampleScope  = {
   React,
   ReactDOM,
   Bucket,
+  BucketBody,
 };
 
 const BucketApp = () =>
@@ -24,15 +25,19 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">About Buckets</h3>
-      <p className="site-text-lead">Buckets are used to contain and separate portions of content.</p>
+      <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets must contain a <span className="u-text-accent">BucketBody</span> child component. Optionally include <span className="u-text-accent">BucketHeader</span> and/or <span className="u-text-accent">BucketFooter</span> child components.</p>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Types</h3>
-      <p className="site-copy"><code>type="default | warm"</code></p>
+      <p className="site-copy"><code>type="default | primary"</code></p>
       <div className="site-example-buckets">
-        <Bucket>I'm a default bucket.</Bucket>
-        <Bucket type="warm">I'm a warm bucket.</Bucket>
+        <Bucket>
+          <BucketBody>Bucket body</BucketBody>
+        </Bucket>
+        <Bucket type="primary">
+          <BucketBody>Bucket body</BucketBody>
+        </Bucket>
       </div>
     </section>
 
@@ -41,7 +46,9 @@ const BucketApp = () =>
       <div>
         <p className="site-copy"><code>size="small"</code></p>
         <div className="site-example-buckets">
-          <Bucket size="small">I'm a small bucket.</Bucket>
+          <Bucket size="small">
+            <BucketBody>I'm a default bucket body.</BucketBody>
+          </Bucket>
         </div>
       </div>
     </section>

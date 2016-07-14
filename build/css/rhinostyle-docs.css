@@ -1049,16 +1049,18 @@ a.u-text-warning:hover,
   width: 86%;
 }
 .bucket {
-  border: 1px solid #c5c5c5;
+  background: #fff;
   border-radius: 0.4rem;
 }
 .bucket--default {
-  background: #fff;
+  border: 1px solid #c5c5c5;
 }
-.bucket--warm {
-  background: #f9f9f9;
+.bucket--primary {
+  border: 1px solid #0081c6;
 }
-.bucket--sm .bucket__body {
+.bucket--sm .bucket__body,
+.bucket--sm .bucket__header,
+.bucket--sm .bucket__footer {
   padding: 0.6rem;
 }
 .bucket__body {
@@ -1066,19 +1068,6 @@ a.u-text-warning:hover,
 }
 a {
   color: #0081c6;
-  /*.no-touch &:hover,
-  .no-touch &:focus {
-    color: @link-hover-color;
-    //text-decoration: @link-hover-decoration;
-  }*/
-  /*&:focus {
-    .mixin-tab-focus();
-  }*/
-}
-a,
-a:hover,
-a:focus,
-a.active {
   text-decoration: none;
 }
 a.disabled,
