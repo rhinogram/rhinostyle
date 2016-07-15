@@ -16,8 +16,8 @@ class ComponentExample extends React.Component {
           </div>
         </BucketHeader>
 
-        <BucketHeader icon="sms">
-          Bucket Header Without Title Prop
+        <BucketHeader>
+          <Icon icon="sms" className="u-m-r-sm" /> Bucket Header Without Title or Icon Props
         </BucketHeader>
 
         <BucketHeader>
