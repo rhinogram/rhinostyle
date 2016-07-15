@@ -24,7 +24,7 @@ class ComponentExample extends React.Component {
           <Input label="First Name" />
         </div>
         <div>
-          <Input label="Last Name" />
+          <Input label="Last Name" className="u-m-b-0" />
         </div>
       </div>
     );

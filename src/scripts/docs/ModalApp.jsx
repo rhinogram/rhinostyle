@@ -53,7 +53,7 @@ class ModalApp extends React.Component {
         <Input label="First Name" />
       </div>
       <div>
-        <Input label="Last Name" />
+        <Input label="Last Name" className="u-m-b-0" />
       </div>
     </div>;
 
@@ -78,7 +78,7 @@ class ModalApp extends React.Component {
                 <ModalBody>
                   <div className="form">
                     <Input label="First Name" />
-                    <Input label="Last Name" />
+                    <Input label="Last Name" className="u-m-b-0" />
                   </div>
                 </ModalBody>
                 <ModalFooter>

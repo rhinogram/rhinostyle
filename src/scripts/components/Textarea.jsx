@@ -5,6 +5,7 @@ class Textarea extends React.Component {
   static displayName = 'RhinoTextarea';
 
   static propTypes = {
+    className:    React.PropTypes.string,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
@@ -34,8 +35,9 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { label, name, placeholder, rows } = this.props;
-    const classes = cx('form__control');
+    const { className, label, name, placeholder, rows } = this.props;
+    const textAreaClasses = cx('form__control');
+    const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
@@ -46,9 +48,9 @@ class Textarea extends React.Component {
     };
 
     return (
-      <div className="form__group">
+      <div className={formGroupClasses}>
         {showLabel()}
-        <textarea className={classes} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
+        <textarea className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
       </div>
     );
   }

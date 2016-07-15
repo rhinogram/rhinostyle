@@ -3251,7 +3251,7 @@ fieldset[disabled] .rhinodio label {
   width: 50%;
 }
 .rhinoswitcher__off {
-  background-color: #9f9f9f;
+  background-color: #c5c5c5;
   padding-left: 2.2rem;
   z-index: 2;
 }

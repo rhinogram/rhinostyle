@@ -6,11 +6,12 @@ class Input extends React.Component {
 
   static propTypes = {
     addon:        React.PropTypes.oneOf(['', 'left', 'right', 'both']),
+    className:    React.PropTypes.string,
+    initialValue: React.PropTypes.any,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     type:         React.PropTypes.oneOf(['email', 'password', 'text']),
-    initialValue: React.PropTypes.any,
   };
 
   static defaultProps = {
@@ -35,8 +36,9 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, label, name, placeholder, type } = this.props;
-    const classes = cx('form__control');
+    const { addon, className, label, name, placeholder, type } = this.props;
+    const inputClasses = cx('form__control');
+    const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
@@ -55,13 +57,13 @@ class Input extends React.Component {
                 {/* eslint react/prop-types:0 */}
                 {this.props.children}
               </div>
-              <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+              <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
             </div>
           );
         case 'right':
           return (
             <div className="form__addon">
-              <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+              <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
               <div className="form__addon__item form__addon__item--right">
                 {this.props.children}
               </div>
@@ -73,7 +75,7 @@ class Input extends React.Component {
               <div className="form__addon__item form__addon__item--left">
                 {this.props.children[0]}
               </div>
-              <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+              <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
               <div className="form__addon__item form__addon__item--right">
                 {this.props.children[1]}
               </div>
@@ -81,12 +83,12 @@ class Input extends React.Component {
           );
         case '':
         default:
-          return <input type={type} className={classes} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />;
+          return <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />;
       }
     };
 
     return (
-      <div className="form__group">
+      <div className={formGroupClasses}>
         {showLabel()}
         {showInput()}
       </div>
