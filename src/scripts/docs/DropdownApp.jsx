@@ -61,6 +61,12 @@ const exampleScope  = {
 const DropdownApp = () =>
   <div>
     <h1 className="site-headline">Dropdowns</h1>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">About Dropdowns</h3>
+      <p className="site-text-lead">We have three dropdown components: <span className="u-text-accent">Dropdown</span>, <span className="u-text-accent">DropdownSelect</span>, and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
+    </section>
+
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
       <p className="site-copy">See button component for all of the available <code>type</code> properties.</p>
@@ -273,12 +279,13 @@ const DropdownApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Playground</h3>
+      <h3 className="site-subheadline">Dropdown Playground</h3>
       <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Select</h3>
+      <p className="site-copy">Use <code>DropdownSelect</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button's text.</p>
       <Playground docClass={DropdownSelectDocs} propDescriptionMap={dropdownSelectDocs} codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
     </section>
 

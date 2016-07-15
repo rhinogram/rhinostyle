@@ -27,7 +27,7 @@ class ComponentExample extends React.Component {
         </Bucket>
         
         <Bucket>
-          <BucketBody>Bucket body.</BucketBody>
+          <BucketBody>Bucket body in a default bucket.</BucketBody>
         </Bucket>
 
         <Bucket type="primary">
