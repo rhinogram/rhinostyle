@@ -636,10 +636,6 @@ a.u-text-warning:hover,
   -ms-flex-order: 0 !important;
   order: 0 !important;
 }
-.u-flex-shrink-0 {
-  -ms-flex-negative: 0 !important;
-  flex-shrink: 0 !important;
-}
 .u-flex-nowrap {
   -ms-flex-wrap: nowrap !important;
   flex-wrap: nowrap !important;
@@ -1078,6 +1074,8 @@ a.u-text-warning:hover,
   border-top-right-radius: 0;
 }
 .bucket__header {
+  -ms-flex-align: center;
+  align-items: center;
   border-bottom: 1px solid #c5c5c5;
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
@@ -3812,18 +3810,8 @@ fieldset[disabled] .rhinodio label {
 .system-alert__link:hover {
   text-decoration: underline;
 }
-table {
-  background-color: transparent;
-}
-th {
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-align: left;
-  text-transform: uppercase;
-}
 .table {
-  background: white;
-  margin-bottom: 2.24rem;
+  background-color: transparent;
   max-width: 100%;
   width: 100%;
 }
@@ -3833,6 +3821,12 @@ th {
   line-height: 1.4;
   padding: 1rem;
   vertical-align: top;
+}
+.table th {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
 }
 .table thead th {
   border-bottom: 1px solid #c5c5c5;
@@ -3928,7 +3922,6 @@ table {
 }
 .responsive-table {
   -webkit-overflow-scrolling: touch;
-  background-color: #fff;
   overflow-x: auto;
 }
 @media screen and (max-width: 767px) {
@@ -4230,7 +4223,7 @@ address {
 }
 b,
 strong {
-  font-weight: 900;
+  font-weight: 700;
 }
 small {
   font-size: 87%;
@@ -4271,6 +4264,9 @@ pre {
 }
 .site-example-buckets .bucket:not(:last-child) {
   margin-bottom: 4rem;
+}
+.site-example-bucketheaders .bucket__header:not(:last-child) {
+  margin-bottom: 1.2rem;
 }
 .site-example-buttons .btn:not(:last-child) {
   margin-right: 0.6rem;

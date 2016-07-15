@@ -7,20 +7,9 @@
 // -------------------------
 
 
-table {
-  background-color: @table-bg;
-}
-
-th {
-  font-size: 1.2rem;
-  font-weight: @font-weight-semibold;
-  text-align: left;
-  text-transform: uppercase;
-}
-
 .table { // lesshint depthLevel: false
-  background: white;
-  margin-bottom: @line-height-computed;
+  background-color: @table-bg;
+  //margin-bottom: @line-height-computed;
   max-width: 100%;
   width: 100%;
 
@@ -31,6 +20,13 @@ th {
     line-height: @line-height-base;
     padding: @table-cell-padding;
     vertical-align: top;
+  }
+
+  th {
+    font-size: 1.2rem;
+    font-weight: @font-weight-semibold;
+    text-align: left;
+    text-transform: uppercase;
   }
 
   // Bottom align for column headings
@@ -152,7 +148,6 @@ table {
 
 .responsive-table {
   -webkit-overflow-scrolling: touch;
-  background-color: @color-white;
   //border: 1px solid @table-border-color;
   //border-radius: @border-radius-base;
   overflow-x: auto;

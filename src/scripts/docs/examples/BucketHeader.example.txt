@@ -1,0 +1,27 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div className="site-example-bucketheaders">
+        <BucketHeader title="Bucket Header" icon="pencil" />
+
+        <BucketHeader title="Bucket Header Without Icon" />
+
+        <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="sms">
+          <div>
+            <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
+          </div>
+        </BucketHeader>
+
+        <BucketHeader icon="sms">
+          Bucket Header Without Title Prop
+        </BucketHeader>
+
+        <BucketHeader>
+          Bucket Header Without Title or Icon Props
+        </BucketHeader>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

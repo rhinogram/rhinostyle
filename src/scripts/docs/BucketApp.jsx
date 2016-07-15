@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Bucket, BucketBody, BucketHeader, Icon } from '../components';
+import { Bucket, BucketBody, BucketHeader, Icon, Table } from '../components';
 
 import Playground from 'component-playground';
 
@@ -12,11 +12,23 @@ const bucketDocs = {
   size: '[Optional] - Bucket size -  [small]',
   type: '[Optional] - Bucket type -  [default | primary]',
 };
-const exampleScope  = {
+const bucketScope  = {
   React,
   ReactDOM,
   Bucket,
   BucketBody,
+  BucketHeader,
+  Icon,
+  Table,
+};
+
+const bucketHeaderExample = require('raw!./examples/BucketHeader.example.txt');
+const bucketHeaderDocs = {
+  className: '[Optional] - Include additional class name(s)',
+};
+const bucketHeaderScope  = {
+  React,
+  ReactDOM,
   BucketHeader,
   Icon,
 };
@@ -27,7 +39,7 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">About Buckets</h3>
-      <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets must contain a <span className="u-text-accent">BucketBody</span> child component. Optionally include <span className="u-text-accent">BucketHeader</span> child component.</p>
+      <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets are most often constructed using <span className="u-text-accent">BucketHeader</span> and <span className="u-text-accent">BucketBody</span> child components.</p>
     </section>
 
     <section className="site-section">
@@ -59,33 +71,13 @@ const BucketApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Bucket Examples</h3>
-      <div className="site-example-buckets">
-        <Bucket>
-          <BucketHeader className="u-flex-justify-between" title="Bucket Header That is Really Super Long" icon="pencil">
-            <div>
-              <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
-            </div>
-          </BucketHeader>
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-        <Bucket>
-          <BucketHeader title="Bucket Header" icon="pencil" className="u-bg-gray-lightest" />
-          <BucketBody className="u-bg-gray-lightest">Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-        <Bucket>
-          <BucketBody className="u-bg-gray-lightest">Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-        <Bucket>
-          <BucketHeader className="u-bg-gray-lightest">Bucket Header without Title</BucketHeader>
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-      </div>
+      <h3 className="site-subheadline">Bucket Playground</h3>
+      <Playground docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
     </section>
 
     <section>
-      <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={exampleScope} noRender={false} />
+      <h3 className="site-subheadline">Bucket Header Playground</h3>
+      <Playground docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
     </section>
 
   </div>;

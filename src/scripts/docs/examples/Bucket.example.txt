@@ -2,7 +2,79 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-buckets">
-        <Bucket>Bucket son!</Bucket>
+        <Bucket>
+          <BucketHeader title="Bucket Header" icon="pencil" />
+          <BucketBody>Bucket body.</BucketBody>
+        </Bucket>
+
+        <Bucket>
+          <BucketHeader title="Bucket Header With Background" icon="pencil" className="u-bg-gray-lightest" />
+          <BucketBody>Bucket body.</BucketBody>
+        </Bucket>
+
+        <Bucket>
+          <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="pencil">
+            <div>
+              <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
+            </div>
+          </BucketHeader>
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
+
+        <Bucket>
+          <BucketHeader className="u-bg-gray-lightest">Bucket Header Without Title Property</BucketHeader>
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
+        
+        <Bucket>
+          <BucketBody>Bucket body.</BucketBody>
+        </Bucket>
+
+        <Bucket type="primary">
+          <BucketBody>Bucket body in a primary bucket.</BucketBody>
+        </Bucket>
+
+        <Bucket size="small">
+          <BucketBody>Bucket body in a small bucket.</BucketBody>
+        </Bucket>
+
+        <Bucket>
+          <BucketBody className="u-bg-gray-lightest">Bucket body with background.</BucketBody>
+        </Bucket>
+
+        <Bucket>
+          <Table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Bucket>
+        
       </div>
     );
   }
