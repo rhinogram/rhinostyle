@@ -25,6 +25,9 @@ const bucketScope  = {
 const bucketHeaderExample = require('raw!./examples/BucketHeader.example.txt');
 const bucketHeaderDocs = {
   className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Icon name',
+  iconClassName: '[Optional] - Include additional class name(s) for icon',
+  title: '[Optional] - Include tile for header',
 };
 const bucketHeaderScope  = {
   React,

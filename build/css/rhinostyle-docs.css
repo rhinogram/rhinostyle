@@ -407,6 +407,9 @@ a.u-bg-warning:hover,
 a.u-bg-warning:focus {
   background-color: #efc416 !important;
 }
+.u-bg-white {
+  background-color: #fff;
+}
 .u-text-accent {
   color: #ff8240;
 }
@@ -430,15 +433,15 @@ a.u-text-danger:hover,
   color: #a22428;
 }
 .u-text-info {
-  color: #002234;
+  color: #005480;
 }
 a.u-text-info,
 .btn--link.u-text-info {
-  color: #002234;
+  color: #005480;
 }
 a.u-text-info:hover,
 .btn--link.u-text-info:hover {
-  color: #000000;
+  color: #00334d;
 }
 .u-text-primary {
   color: #0081c6;
@@ -4608,7 +4611,7 @@ html.navigation-is-locked .site-wrapper {
   margin-bottom: 0.4rem;
 }
 .playground > div > ul li b:first-of-type {
-  color: #002234;
+  color: #005480;
   font-weight: 700;
 }
 .playground > div > ul li b:last-of-type {

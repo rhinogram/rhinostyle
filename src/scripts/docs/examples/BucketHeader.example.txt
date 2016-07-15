@@ -4,6 +4,10 @@ class ComponentExample extends React.Component {
       <div className="site-example-bucketheaders">
         <BucketHeader title="Bucket Header" icon="pencil" />
 
+        <BucketHeader title="Bucket Header With Color" icon="pencil" className="u-text-danger" />
+
+        <BucketHeader title="Bucket Header With Colored Icon" icon="pencil" iconClassName="u-text-success" />
+
         <BucketHeader title="Bucket Header Without Icon" />
 
         <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="sms">
