@@ -1,7 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-messages u-bg-gray-lighter u-p-a">
+      <div className="site-example-messages u-p-a">
         <Message direction="to">
           This is a default message.
         </Message>

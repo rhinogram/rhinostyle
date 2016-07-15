@@ -77,12 +77,8 @@ class ModalApp extends React.Component {
                 <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
                 <ModalBody>
                   <div className="form">
-                    <div className="form__group">
-                      <Input label="First Name" />
-                    </div>
-                    <div>
-                      <Input label="Last Name" />
-                    </div>
+                    <Input label="First Name" />
+                    <Input label="Last Name" />
                   </div>
                 </ModalBody>
                 <ModalFooter>

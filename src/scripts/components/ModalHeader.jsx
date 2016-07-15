@@ -29,7 +29,7 @@ class ModalHeader extends React.Component {
   containsIcon = () => {
     let returnVal = null;
     if (this.props.icon) {
-      returnVal = <Icon icon={this.props.icon} className="u-m-r-sm" />;
+      returnVal = <Icon icon={this.props.icon} className="modal__header__title__icon" />;
     }
     return returnVal;
   }

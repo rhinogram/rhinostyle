@@ -5,7 +5,7 @@ import { Icon } from '../components';
 const BucketHeader = (props) => {
   const { className, icon, iconClassName, title } = props;
   const classes = cx('bucket__header', className);
-  const iconClasses = cx('u-m-r-sm', iconClassName);
+  const iconClasses = cx('bucket__header__title__icon', iconClassName);
 
   return (
     <div className={classes}>

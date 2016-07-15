@@ -1094,6 +1094,9 @@ a.u-text-warning:hover,
   font-size: 1.8rem;
   line-height: 1.2;
 }
+.bucket__header__title__icon {
+  margin-right: 1rem;
+}
 a {
   color: #0081c6;
   text-decoration: none;
@@ -3434,7 +3437,7 @@ fieldset[disabled] .rhinodio label {
   text-decoration: underline;
 }
 .msg--default {
-  background: #fff;
+  background: #ececec;
 }
 .msg--note {
   background: #fefbd0;
@@ -3545,8 +3548,8 @@ fieldset[disabled] .rhinodio label {
   border-bottom: 1px solid #ececec;
   display: -ms-flexbox;
   display: flex;
-  min-height: 2.8rem;
-  padding: 1.6rem;
+  min-height: 3.2rem;
+  padding: 2rem 1.6rem;
 }
 .modal__header__close {
   top: 0;
@@ -3561,6 +3564,9 @@ fieldset[disabled] .rhinodio label {
   display: flex;
   line-height: 1;
   margin: 0;
+}
+.modal__header__title__icon {
+  margin-right: 1rem;
 }
 .modal__body {
   padding: 1.6rem;

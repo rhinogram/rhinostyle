@@ -131,8 +131,8 @@
 .modal__header {
   border-bottom: 1px solid @modal-header-border-color;
   display: flex;
-  min-height: (@modal-header-padding + @modal-header-line-height);
-  padding: @modal-header-padding;
+  min-height: (@modal-header-padding-vert + @modal-header-line-height);
+  padding: @modal-header-padding-vert @modal-header-padding-hor;
 }
 
 .modal__header__close {
@@ -146,6 +146,10 @@
   display: flex;
   line-height: 1;
   margin: 0;
+}
+
+.modal__header__title__icon {
+  margin-right: 1rem;
 }
 
 
