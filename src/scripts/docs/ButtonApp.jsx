@@ -30,7 +30,7 @@ const ButtonApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link | danger"</code></p>
-      <div className="site-example-buttons">
+      <div className="site-example-buttons u-m-b-md">
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
@@ -38,6 +38,10 @@ const ButtonApp = () =>
         <Button type="primary-outline">Primary Outline</Button>
         <Button type="link">Link</Button>
         <Button type="danger">Danger</Button>
+      </div>
+      <p className="site-copy"><code>type="inverted-outline"</code></p>
+      <div className="site-example-buttons u-p-a u-bg-primary">
+        <Button type="inverted-outline">Inverted Outline</Button>
       </div>
     </section>
 

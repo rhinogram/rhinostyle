@@ -833,27 +833,27 @@ a.u-text-warning:hover,
   padding-bottom: 1.4rem !important;
 }
 .u-p-a-sm {
-  margin: 0.7rem !important;
+  padding: 0.7rem !important;
 }
 .u-p-t-sm {
-  margin-top: 0.7rem !important;
+  padding-top: 0.7rem !important;
 }
 .u-p-r-sm {
-  margin-right: 0.7rem !important;
+  padding-right: 0.7rem !important;
 }
 .u-p-b-sm {
-  margin-bottom: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
 }
 .u-p-l-sm {
-  margin-left: 0.7rem !important;
+  padding-left: 0.7rem !important;
 }
 .u-p-x-sm {
-  margin-right: 0.7rem !important;
-  margin-left: 0.7rem !important;
+  padding-right: 0.7rem !important;
+  padding-left: 0.7rem !important;
 }
 .u-p-y-sm {
-  margin-top: 0.7rem !important;
-  margin-bottom: 0.7rem !important;
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
 }
 .u-p-a-md {
   padding: 2.8rem !important;
@@ -1339,6 +1339,48 @@ fieldset[disabled] .btn--default-outline.active {
 /*.btn--info {
   .mixin-button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
 }*/
+.btn--inverted-outline {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.btn--inverted-outline:hover,
+.btn--inverted-outline:focus,
+.btn--inverted-outline.focus,
+.btn--inverted-outline:active,
+.btn--inverted-outline.active,
+.open > .dropdown__toggle.btn--inverted-outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  color: #fff;
+}
+.btn--inverted-outline:active,
+.btn--inverted-outline.active,
+.open > .dropdown__toggle.btn--inverted-outline {
+  background-image: none;
+}
+.btn--inverted-outline.disabled,
+.btn--inverted-outline[disabled],
+fieldset[disabled] .btn--inverted-outline,
+.btn--inverted-outline.disabled:hover,
+.btn--inverted-outline[disabled]:hover,
+fieldset[disabled] .btn--inverted-outline:hover,
+.btn--inverted-outline.disabled:focus,
+.btn--inverted-outline[disabled]:focus,
+fieldset[disabled] .btn--inverted-outline:focus,
+.btn--inverted-outline.disabled.focus,
+.btn--inverted-outline[disabled].focus,
+fieldset[disabled] .btn--inverted-outline.focus,
+.btn--inverted-outline.disabled:active,
+.btn--inverted-outline[disabled]:active,
+fieldset[disabled] .btn--inverted-outline:active,
+.btn--inverted-outline.disabled.active,
+.btn--inverted-outline[disabled].active,
+fieldset[disabled] .btn--inverted-outline.active {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
 .btn--primary {
   background-color: #0081c6;
   border-color: #0081c6;

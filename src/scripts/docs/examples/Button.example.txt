@@ -2,7 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-buttons">
-        <div className="u-m-b">
+        <div className="u-m-b u-bg-gray-lightest u-p-a">
           <Button>Default</Button>
           <Button type="default-outline">Default Outline</Button>
           <Button type="primary">Primary</Button>

@@ -4,19 +4,20 @@ import cx    from 'classnames';
 const Button = (props) => {
   const { active, block, className, onClick, disabled, iconOnly, size, type, ...opts } = props;
   const classes = cx('btn', className, {
-    'btn--default':         type === 'default',
-    'btn--primary':         type === 'primary',
-    'btn--secondary':       type === 'secondary',
-    'btn--link':            type === 'link',
-    'btn--default-outline': type === 'default-outline',
-    'btn--primary-outline': type === 'primary-outline',
-    'btn--danger':          type === 'danger',
-    'btn--sm':              size === 'small',
-    'btn--lg':              size === 'large',
-    'btn--block':           block,
-    'btn--icon':            iconOnly,
-    'active':               active, //eslint-disable-line
-    'disabled':             disabled, //eslint-disable-line
+    'btn--default':          type === 'default',
+    'btn--primary':          type === 'primary',
+    'btn--secondary':        type === 'secondary',
+    'btn--link':             type === 'link',
+    'btn--default-outline':  type === 'default-outline',
+    'btn--inverted-outline': type === 'inverted-outline',
+    'btn--primary-outline':  type === 'primary-outline',
+    'btn--danger':           type === 'danger',
+    'btn--sm':               size === 'small',
+    'btn--lg':               size === 'large',
+    'btn--block':            block,
+    'btn--icon':             iconOnly,
+    'active':                active, //eslint-disable-line
+    'disabled':              disabled, //eslint-disable-line
   });
 
   /* eslint no-script-url:0 */
@@ -34,7 +35,7 @@ Button.propTypes = {
   disabled:  React.PropTypes.bool,
   iconOnly:  React.PropTypes.bool,
   size:      React.PropTypes.oneOf(['small', 'large']),
-  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link', 'danger']),
+  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'inverted-outline', 'primary-outline', 'link', 'danger']),
 };
 
 Button.defaultProps = {

@@ -147,6 +147,14 @@ input[type='button'] {
   .mixin-button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
 }*/
 
+.btn--inverted-outline {
+  .mixin-button-outline-variant(@btn-inverted-outline-color;
+                                @btn-inverted-outline-bg;
+                                @btn-inverted-outline-border;
+                                @btn-inverted-outline-hover-bg;
+                                @btn-inverted-outline-hover-border);
+}
+
 .btn--primary {
   .mixin-button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
