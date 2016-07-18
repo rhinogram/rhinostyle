@@ -21,7 +21,6 @@ class DropdownMenuItem extends React.Component {
     active:      React.PropTypes.bool,
     avatar:      customValidator,
     blankWindow: React.PropTypes.bool,
-    children:    React.PropTypes.node,
     onClick:     React.PropTypes.func,
     className:   React.PropTypes.string,
     disabled:    React.PropTypes.bool,
@@ -32,7 +31,7 @@ class DropdownMenuItem extends React.Component {
 
   static defaultProps = {
     active:    false,
-    onClick:     () => {},
+    onClick:   () => {},
     disabled:  false,
     newWindow: false,
   };

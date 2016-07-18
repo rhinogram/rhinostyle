@@ -9,6 +9,7 @@ import Playground from 'component-playground';
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const dropdownSelectExample = require('raw!./examples/DropdownSelect.example.txt');
 const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
+const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example.txt');
 
 const dropdownDocs = {
   className: '[Optional] - Include additional class name(s)',
@@ -41,6 +42,18 @@ const dropdownMultiSelectDocs = {
   type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 
+const dropdownMenuItemDocs = {
+  active: '[Optional] - Active state',
+  avatar: '[Optional] - Path to avatar image',
+  blankWindow: '[Optional] - Open URL in blank browser window',
+  className: '[Optional] - Include additional class name(s)',
+  disabled: '[Optional] - Disabled state',
+  icon: '[Optional] - Name of icon',
+  label: '[Optional] - Label for item',
+  onClick: '[Opational] - Click function',
+  url: '[Optional] - URL for item',
+};
+
 const exampleScope  = {
   React,
   ReactDOM,
@@ -64,7 +77,7 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">About Dropdowns</h3>
-      <p className="site-text-lead">We have three dropdown components: <span className="u-text-accent">Dropdown</span>, <span className="u-text-accent">DropdownSelect</span>, and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
+      <p className="site-text-lead">We have three dropdown components: <span className="u-text-accent">Dropdown</span>, <span className="u-text-accent">DropdownSelect</span>, and <span className="u-text-accent">DropdownMultiSelect</span>. These compnents are comprised of </p>
     </section>
 
     <section className="site-section">
@@ -296,6 +309,11 @@ const DropdownApp = () =>
       </p>
 
       <Playground docClass={DropdownMultiSelectDocs} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">DropdownMenuItem</h3>
+      <Playground docClass={DropdownMenuItem} propDescriptionMap={dropdownMenuItemDocs} codeText={dropdownMenuItemExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

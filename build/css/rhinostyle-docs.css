@@ -2091,6 +2091,9 @@ button.toast__close {
 .dropdown__menu--wide {
   min-width: 24rem;
 }
+.dropdown__menu__item {
+  list-style: none;
+}
 .dropdown__menu__item > a {
   -ms-flex-align: center;
   align-items: center;
