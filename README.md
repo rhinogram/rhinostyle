@@ -1,4 +1,4 @@
-# RhinoStyle <img src="dist/svg/rhinogram-logo.svg" height="30px;"> 
+# RhinoStyle <img src="https://github.com/rhinogram/rhinostyle/blob/master/dist/svg/rhinogram-logo.svg" height="30px;"> 
 
 ## Documentation
 
