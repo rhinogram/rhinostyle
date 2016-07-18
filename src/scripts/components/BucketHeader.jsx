@@ -1,6 +1,6 @@
 import React    from 'react';
 import cx       from 'classnames';
-import { Icon } from '../components';
+import Icon     from './Icon';
 
 const BucketHeader = (props) => {
   const { className, icon, iconClassName, title } = props;

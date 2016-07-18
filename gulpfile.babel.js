@@ -1,5 +1,6 @@
 import gulp         from 'gulp';
 import imagemin     from 'gulp-imagemin';
+import insert       from 'gulp-insert';
 import svgSprite    from 'gulp-svg-sprite';
 import duration     from 'gulp-duration';
 import less         from 'gulp-less';
@@ -25,11 +26,14 @@ import msRootpath   from 'metalsmith-rootpath';
 import msLayouts    from 'metalsmith-layouts';
 import nunjucks     from 'nunjucks';
 
-import { paths }  from './config/gulpConfig';
-import distConfig from './config/webpack.dist.config.js';
-import docsConfig from './config/webpack.docs.config.js';
+import { paths }    from './config/gulpConfig';
+import distConfig   from './config/webpack.dist.config.js';
+import docsConfig   from './config/webpack.docs.config.js';
+import packagedata  from './package.json';
 
 const reload = browserSync.reload;
+
+const RhinoStyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 
 let forceBuild = true;
 
@@ -225,8 +229,10 @@ gulp.task('dist:styles', () => {
   ];
 
   return gulp.src(path.src)
-    .pipe(less({ compress: true }))
+    // Do not compress to allow importing as 'less' in other projects.
+    .pipe(less({ compress: false }))
     .pipe(postcss(processors))
+    .pipe(insert.prepend(RhinoStyleVersion))
     .pipe(gulp.dest(path.dist))
     .pipe(duration('Built Dist Styles'))
     .pipe(reload({ stream: true }));
@@ -277,6 +283,7 @@ gulp.task('docs:scripts', () => {
   ])
     .pipe(concat('rhinostyle-docs.js'))
     .pipe(uglify())
+    .pipe(insert.prepend(RhinoStyleVersion))
     .pipe(gulp.dest(path.build))
     .pipe(duration('Built Doc Scripts'))
     .pipe(reload({ stream: true }));
