@@ -11,6 +11,7 @@ class ModalHeader extends React.Component {
     className:      React.PropTypes.string,
     dismissable:    React.PropTypes.bool,
     icon:           React.PropTypes.string,
+    iconClassName:  React.PropTypes.string,
     title:          React.PropTypes.string,
   }
 
@@ -26,34 +27,24 @@ class ModalHeader extends React.Component {
     return returnVal;
   }
 
-  containsIcon = () => {
-    let returnVal = null;
-    if (this.props.icon) {
-      returnVal = <Icon icon={this.props.icon} className="modal__header__title__icon" />;
-    }
-    return returnVal;
-  }
-
   closeModal = () => {
     ModalSystem.removeModal();
   }
 
   render() {
-    const { className } = this.props;
-
-    const headerClasses =   cx('modal__header', className);
-
-    const titleClasses =    cx('modal__header__title', className);
+    const { className, dismissable, icon, iconClassName, title } = this.props;
+    const classes = cx('modal__header', className);
+    const iconClasses = cx('modal__header__title__icon', iconClassName);
 
     return (
-      <div className={headerClasses}>
-        <h4 className={titleClasses}>
-          {this.containsIcon()}
+      <div className={classes}>
+        <h4 className="modal__header__title">
+          {icon ? (<Icon icon={icon} className={iconClasses} />) : null}
           <span className="u-text-overflow">
-            {this.props.title}
+            {title}
           </span>
         </h4>
-        {this.isDismissable()}
+        {dismissable ? (<button onClick={this.closeModal} type="button" className="modal__header__close" aria-label="Close"><Icon icon="close" /></button>) : null}
       </div>
     );
   }

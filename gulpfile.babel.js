@@ -347,6 +347,7 @@ gulp.task('docs:styles', () => {
   return gulp.src(path.docSrc)
     .pipe(less({ compress: false }))
     .pipe(postcss(processors))
+    .pipe(insert.prepend(RhinoStyleVersion))
     .pipe(gulp.dest(path.build))
     .pipe(duration('Built Doc Styles'))
     .pipe(reload({ stream: true }));
