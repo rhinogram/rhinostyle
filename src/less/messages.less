@@ -9,7 +9,6 @@
 
 .msg {
   border-radius: @msg-border-radius;
-  box-shadow: @msg-shadow-x @msg-shadow-y @msg-shadow-blur rgba(0, 0, 0, .15);
   display: inline-block;
   line-height: @msg-line-height;
   padding: @msg-padding;
@@ -36,7 +35,7 @@
 }
 
 .msg--note {
-  background: #fefbd0;
+  background: #f6f2bc;
 
   a {
     color: inherit;
@@ -45,7 +44,6 @@
 
 .msg--primary {
   background: @color-primary;
-  box-shadow: @msg-shadow-x @msg-shadow-y @msg-shadow-blur darken(@color-primary, 8%);
   color: @color-white;
 
   a {
@@ -67,18 +65,10 @@
     border: inherit;
     border-bottom: 0;
     border-right: 0;
-    box-shadow: @msg-shadow-x @msg-shadow-y @msg-shadow-blur -2px rgba(0, 0, 0, .15);
     content: '';
     padding: .6rem;
     position: absolute;
-    top: 1.2rem;
-    //z-index: -1;
-  }
-
-  &.msg--primary {
-    &::before {
-      box-shadow: @msg-shadow-x @msg-shadow-y @msg-shadow-blur -2px darken(@color-primary, 8%);
-    }
+    top: 1.4rem;
   }
 }
 
