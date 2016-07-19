@@ -103,6 +103,20 @@
 
 
 </nav>
+<div id="site-panel" class="site-panel">
+  <div class="site-panel__header">
+    <div class="site-panel__header__title">Site Panel Header</div>
+    <button type="button" class="site-panel__header__close js-site-panel__header__close" aria-label="Close"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></button>
+  </div>
+  <div class="site-panel__body">
+    <img src="https://unsplash.it/800/400?image=82" alt="" class="u-img-fluid u-m-b">
+    <img src="https://unsplash.it/800/400?image=83" alt="" class="u-img-fluid u-m-b">
+    <img src="https://unsplash.it/800/400?image=84" alt="" class="u-img-fluid u-m-b">
+    <img src="https://unsplash.it/800/400?image=85" alt="" class="u-img-fluid u-m-b">
+    <img src="https://unsplash.it/800/400?image=87" alt="" class="u-img-fluid u-m-b">
+  </div>
+  <div class="site-panel__footer">Site Panel Footer</div>
+</div>
 <div id="site-overlay" class="site-overlay"></div>
 <div class="site-wrapper">
   <header class="site-header">
@@ -128,6 +142,7 @@
 
   </main>
 </div>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="../scripts/rhinostyle-docs.js"></script>
     <script>
@@ -151,21 +166,27 @@
             $('html').addClass('navigation-is-locked');
           }
 
+
+          // panel toggling below 1600px
+          if(window.matchMedia("(max-width: 1599px)").matches) {
+            $('#site-overlay').click(function(){
+              $('html').removeClass('panel-is-open');
+            });
+          }
+
           requestAnimationFrame(loop);
         }
 
         loop();
 
-        // Handle active navigation
-        var split = (document.location.hostname == "localhost") ? 1:2;
 
-        var navLocation = location.pathname.split("/")[split];
+        $('.js-site-panel__header__close').click(function(){
+          $('html').removeClass('panel-is-open');
+        });
 
-        if (navLocation) {
-          $('.site-navigation__nav a[href^="../' + navLocation + '"]').addClass('active');
-        } else {
-          $('.site-navigation__nav a[href=""').addClass('active');
-        }
+        $('.site-header__logo').click(function(){
+          $('html').addClass('panel-is-open');
+        });
 
         // SVG loader
         boomsvgloader.load('../svg/sprite.svg');

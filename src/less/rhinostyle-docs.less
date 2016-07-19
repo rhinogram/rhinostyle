@@ -28,9 +28,13 @@ pre {
 
 @zindex-site-navigation:    20;
 @zindex-site-overlay:       15;
+@zindex-site-panel:         30;
 @zindex-site-wrapper:       1;
 @site-navigation-bg:        @color-primary;
 @site-navigation-width:     24rem;
+@site-panel-width:          40rem;
+
+@global-header-height: 6rem;
 
 
 // -------------------------
@@ -246,7 +250,8 @@ pre {
   align-items: center;
   background-color: @color-gray-lightest;
   display: flex;
-  padding: @padding-base;
+  height: @global-header-height;
+  padding: 0 @padding-base;
   transition: transform 250ms @trans-timing-cubic;
 }
 
@@ -407,13 +412,13 @@ pre {
 
 
 .site-modal .modal {
-    bottom: auto;
-    display: block;
-    left: auto;
-    position: relative;
-    right: auto;
-    top: auto;
-    z-index: 1;
+  bottom: auto;
+  display: block;
+  left: auto;
+  position: relative;
+  right: auto;
+  top: auto;
+  z-index: 1;
 }
 
 
@@ -435,11 +440,78 @@ pre {
 
 
 // -------------------------
+// Site Panel
+// -------------------------
+
+
+.site-panel {
+  background: @color-gray-lightest;
+  bottom: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
+  max-width: @site-panel-width;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 250ms @trans-timing-cubic;
+  width: 100%;
+  z-index: @zindex-site-panel;
+}
+
+
+.site-panel__header {
+  align-items: center;
+  border-bottom: 1px solid @color-gray-lighter;
+  display: flex;
+  flex: none;
+  height: @global-header-height;
+  margin-bottom: @margin-xlarge;
+  padding: 0 @padding-half-gutter;
+}
+
+.site-panel__header__close {
+  &:extend(.close all);
+  //top: 0;
+}
+
+.site-panel__header__title {
+  .u-text-overflow;
+  align-items: center;
+  display: flex;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0;
+}
+
+.site-panel__body {
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0 @padding-half-gutter;
+
+  .no-touch & {
+    overflow-y: auto;
+  }
+}
+
+.site-panel__footer {
+  border-top: 1px solid @color-gray-lighter;
+  flex: none;
+  margin-top: @margin-xlarge;
+  padding: @padding-half-gutter;
+}
+
+
+// -------------------------
 // Site Scaffolding
 // -------------------------
 
 
-html.navigation-is-open {
+html.navigation-is-open,
+html.panel-is-open {
   body {
     bottom: 0;
     left: 0;
@@ -450,7 +522,7 @@ html.navigation-is-open {
   }
 
   .site-overlay {
-    opacity: .05;
+    opacity: .25;
     z-index: @zindex-site-overlay;
   }
 }
@@ -473,7 +545,13 @@ html.navigation-is-locked {
   .site-wrapper {
     margin-left: @site-navigation-width;
     transform: translateX(0) !important;
-    z-index: @zindex-site-navigation + 1;
+    //z-index: @zindex-site-navigation + 1;
+  }
+}
+
+html.panel-is-open {
+  .site-panel {
+    transform: translateX(0);
   }
 }
 

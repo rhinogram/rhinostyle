@@ -74,7 +74,7 @@ class ModalApp extends React.Component {
           <div className="site-modal">
             <Modal isOpen transitionName="modal-anim">
               <ModalContent>
-                <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
+                <ModalHeader dismissable icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
                 <ModalBody>
                   <div className="form">
                     <Input label="First Name" />

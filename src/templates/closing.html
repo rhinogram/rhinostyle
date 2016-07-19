@@ -21,21 +21,27 @@
             $('html').addClass('navigation-is-locked');
           }
 
+
+          // panel toggling below 1600px
+          if(window.matchMedia("(max-width: 1599px)").matches) {
+            $('#site-overlay').click(function(){
+              $('html').removeClass('panel-is-open');
+            });
+          }
+
           requestAnimationFrame(loop);
         }
 
         loop();
 
-        // Handle active navigation
-        var split = (document.location.hostname == "localhost") ? 1:2;
 
-        var navLocation = location.pathname.split("/")[split];
+        $('.js-site-panel__header__close').click(function(){
+          $('html').removeClass('panel-is-open');
+        });
 
-        if (navLocation) {
-          $('.site-navigation__nav a[href^="{{rootPath}}' + navLocation + '"]').addClass('active');
-        } else {
-          $('.site-navigation__nav a[href=""').addClass('active');
-        }
+        $('.site-header__logo').click(function(){
+          $('html').addClass('panel-is-open');
+        });
 
         // SVG loader
         boomsvgloader.load('{{rootPath}}svg/sprite.svg');
