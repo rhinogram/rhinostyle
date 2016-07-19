@@ -9,4 +9,8 @@ Icon.propTypes = {
   icon:       React.PropTypes.string.isRequired,
 };
 
+Icon.defaultProps = {
+  className: '',
+};
+
 export default Icon;
