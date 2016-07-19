@@ -32,7 +32,7 @@ pre {
 @zindex-site-wrapper:       1;
 @site-navigation-bg:        @color-primary;
 @site-navigation-width:     24rem;
-@site-panel-width:          40rem;
+@site-panel-width:          42rem;
 
 @global-header-height: 6rem;
 
@@ -251,7 +251,7 @@ pre {
   background-color: @color-gray-lightest;
   display: flex;
   height: @global-header-height;
-  padding: 0 @padding-base;
+  padding: 0 @padding-half-gutter;
   transition: transform 250ms @trans-timing-cubic;
 }
 
@@ -458,6 +458,10 @@ pre {
   transition: transform 250ms @trans-timing-cubic;
   width: 100%;
   z-index: @zindex-site-panel;
+
+  /*@media (min-width: 420px) {
+    max-width: @site-panel-width;
+  }*/
 }
 
 
@@ -510,8 +514,7 @@ pre {
 // -------------------------
 
 
-html.navigation-is-open,
-html.panel-is-open {
+html.navigation-is-open {
   body {
     bottom: 0;
     left: 0;
@@ -552,6 +555,28 @@ html.navigation-is-locked {
 html.panel-is-open {
   .site-panel {
     transform: translateX(0);
+  }
+
+  @media (max-width: 1499px) {
+    body {
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+
+    .site-overlay {
+      opacity: .25;
+      z-index: @zindex-site-overlay;
+    }
+  }
+
+  @media (min-width: 1500px) {
+    .site-wrapper {
+      margin-right: @site-panel-width;
+    }
   }
 }
 
@@ -632,7 +657,7 @@ html.panel-is-open {
   min-height: 100vh;
   //overflow-x: hidden;
   position: relative;
-  transition: transform 250ms @trans-timing-cubic;
+  transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
   z-index: @zindex-site-wrapper;
   
   /*
