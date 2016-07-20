@@ -1,6 +1,6 @@
 {
   "name": "rhinostyle",
-  "version": "0.1.0-rc2",
+  "version": "0.1.0-rc3",
   "description": "Styleguide for Rhinogram",
   "main": "dist/scripts/rhinostyle.js",
   "devDependencies": {
