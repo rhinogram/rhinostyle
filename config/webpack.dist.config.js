@@ -4,7 +4,7 @@ import path    from 'path';
 export default {
   cache: true,
   entry: {
-    rhinostyle: path.join(__dirname, '../src/scripts/components/index.js'),
+    rhinostyle: [path.join(__dirname, '../src/scripts/components/index.js')],
   },
   output: {
     path: path.join(__dirname, '../dist/scripts'),
