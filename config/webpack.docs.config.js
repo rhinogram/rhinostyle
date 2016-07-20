@@ -8,7 +8,6 @@ const dependencies = [
 ];
 
 export default {
-  cache: true,
   devTool: 'cheap-module-source-map',
   entry: {
     vendor:      dependencies,
@@ -37,11 +36,7 @@ export default {
   },
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: [/node_modules/],
-        loader: 'babel-loader',
-      },
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/] },
     ],
   },
   resolve: {
@@ -53,12 +48,18 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: false, exclude: /vendor/ }),
+    new webpack.optimize.UglifyJsPlugin({
+      exclude:  /vendor/,
+      minimize: true,
+      compress: {
+        warnings: false,
+      },
+    }),
   ],
 };

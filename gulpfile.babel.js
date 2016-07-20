@@ -204,11 +204,8 @@ gulp.task('dist:scripts', (callback) => {
       throw new gutil.PluginError('webpack', err);
     }
 
-    let theStats = stats.toString();
+    const theStats = stats.toString();
 
-    // Remove dropping unused statements and individual modules built
-    const tester = /Dropping unused(.*?)\n|\n(.*?)\[built\]/g;
-    theStats = theStats.replace(tester, '');
     gutil.log('[webpack]', theStats);
     gutil.log('[webpack]', new Date());
 
@@ -257,11 +254,8 @@ gulp.task('docs:react', (callback) => {
       throw new gutil.PluginError('webpack', err);
     }
 
-    let theStats = stats.toString();
+    const theStats = stats.toString();
 
-    // Remove dropping unused statements and individual modules built
-    const tester = /Dropping unused(.*?)\n|\n(.*?)\[built\]/g;
-    theStats = theStats.replace(tester, '');
     gutil.log('[webpack]', theStats);
     gutil.log('[webpack]', new Date());
 

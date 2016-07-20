@@ -1,8 +1,8 @@
 {
   "name": "rhinostyle",
   "version": "0.1.0-rc3",
-  "description": "Styleguide for Rhinogram",
-  "main": "dist/scripts/rhinostyle.js",
+  "description": "Components, patterns, and style guide for Rhinogram.",
+  "main": "dist/scripts/rhinostyle.min.js",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.7",
