@@ -2,6 +2,7 @@
   "name": "rhinostyle",
   "version": "0.1.0-rc2",
   "description": "Styleguide for Rhinogram",
+  "main": "dist/scripts/rhinostyle.js",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.7",
