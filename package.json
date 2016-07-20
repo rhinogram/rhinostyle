@@ -1,6 +1,6 @@
 {
   "name": "RhinoStyle",
-  "version": "0.0.1",
+  "version": "0.1.0-rc1",
   "description": "Styleguide for Rhinogram",
   "devDependencies": {
     "autoprefixer": "^6.3.6",
