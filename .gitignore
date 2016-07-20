@@ -1,12 +1,4 @@
-node_modules
-bower_components
-.grunt/
 .DS_Store
-.tmp
-.orig
-_gh_pages
-tmp
-vendor
 npm-debug.log
-assets
+node_modules/
 .publish/
