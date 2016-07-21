@@ -401,9 +401,9 @@ pre {
     background-color: lighten(@site-navigation-bg, 6%) !important;
   }
 
-  @media (min-height: 1100px) {
+  /*@media (min-height: 1100px) {
     padding: @padding-base @padding-half-gutter;
-  }
+  }*/
 }
 
 
@@ -598,7 +598,9 @@ html.panel-is-open {
 
 
 .site-subheadline {
+  align-items: center;
   border-bottom: 1px solid @color-gray-lighter;
+  display: flex;
   font-size: 2.6rem;
   font-weight: @font-weight-semibold;
   margin-bottom: 3rem;

@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.0-rc3 */
+/*! rhinostyle v0.1.0-rc4 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -3355,6 +3355,11 @@ fieldset[disabled] .rhinodio label {
 .label:empty {
   display: none;
 }
+h1 .label,
+h2 .label,
+h3 .label {
+  font-size: 50%;
+}
 .label--accent {
   background-color: #ff9359;
   border: 1px solid #ff9359;
@@ -4536,6 +4541,9 @@ pre {
   font-weight: 300;
   padding: 0.6rem 1.6rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  /*@media (min-height: 1100px) {
+    padding: @padding-base @padding-half-gutter;
+  }*/
 }
 .no-touch .site-navigation__nav__btn:hover,
 .no-touch .site-navigation__nav__btn:focus {
@@ -4544,11 +4552,6 @@ pre {
 }
 .site-navigation__nav__btn.active {
   background-color: #0095e5 !important;
-}
-@media (min-height: 1100px) {
-  .site-navigation__nav__btn {
-    padding: 1rem 1.6rem;
-  }
 }
 .site-modal .modal {
   bottom: auto;
@@ -4682,7 +4685,11 @@ html.panel-is-open .site-panel {
   margin-bottom: 8rem;
 }
 .site-subheadline {
+  -ms-flex-align: center;
+  align-items: center;
   border-bottom: 1px solid #ececec;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 3rem;

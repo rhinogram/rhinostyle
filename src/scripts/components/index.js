@@ -33,6 +33,7 @@ import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
 import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
+import Scrollbars           from '../../../node_modules/react-custom-scrollbars/dist/react-custom-scrollbars.js';
 import SystemAlert          from './SystemAlert';
 import TabContentPane       from './TabContentPane';
 import Table                from './Table';
@@ -89,6 +90,7 @@ export {
   Radio,
   RadioGroup,
   RhinoSwitch,
+  Scrollbars,
   Select,
   SystemAlert,
   TabContentPane,

@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { DatePicker } from '../components';
+import { DatePicker, Label } from '../components';
 
 import moment from 'moment';
 
@@ -16,6 +16,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   DatePicker,
+  Label,
   moment,
 };
 
@@ -37,8 +38,8 @@ class DatePickerApp extends React.Component {
         <h1 className="site-headline">Date Picker</h1>
 
         <section className="site-section">
-          <h3 className="site-subheadline">DatePicker</h3>
-          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">ReactJS DatePicker</a> with custom styling.</p>
+          <h3 className="site-subheadline">DatePicker <Label className="u-m-l-sm" type="accent" label="third party" /></h3>
+          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">react-datepicker</a> with custom styling.</p>
 
           <div className="row row--condensed">
             <div className="col-sm-2 u-m-b">
