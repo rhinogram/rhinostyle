@@ -1,12 +1,12 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-messages u-p-a">
-        <Message direction="to">
-          This is a default message.
-        </Message>
+      <div>
         <Message direction="from" type="note">
           This is a note.
+        </Message>
+        <Message direction="to">
+          This is a default message.
         </Message>
       </div>
     );

@@ -253,7 +253,6 @@
 @dropdown-padding:               @padding-small @padding-xlarge;
 
 
-
 // -------------------------
 // Grid
 // -------------------------
@@ -346,26 +345,13 @@
 
 
 // -------------------------
-// Media Query Breakpoints
-// -------------------------
-
-
-@screen-xs-min:              480px;
-@screen-sm-min:              768px;
-@screen-md-min:              992px;
-@screen-lg-min:              1200px;
-
-@screen-xs-max:              (@screen-sm-min - 1);
-@screen-sm-max:              (@screen-md-min - 1);
-@screen-md-max:              (@screen-lg-min - 1);
-
-
-// -------------------------
 // Messages
 // -------------------------
 
+
 @msg-border-radius:           @border-radius-base;
 @msg-line-height:             @line-height-small;
+@msg-margin:                  @margin-base;
 @msg-padding:                 @padding-base - .1rem @padding-base @padding-base @padding-base;
 @msg-shadow-x:                0;
 @msg-shadow-y:                2px;
@@ -480,7 +466,6 @@
 @progress-bar-inset-shadow: inset 0 .5rem .5rem rgba(0, 0, 0, .05);
 
 
-
 // -------------------------
 // Scaffolding
 // -------------------------
@@ -493,17 +478,33 @@
 @link-hover-decoration:     underline;
 
 @text-color:                @color-gray-dark; // body text color
-@text-color-muted:                @color-gray;
+@text-color-muted:          @color-gray;
+
+
+
+// -------------------------
+// Screen Breakpoints
+// -------------------------
+
+
+@screen-xs-min:              480px;
+@screen-sm-min:              768px;
+@screen-md-min:              992px;
+@screen-lg-min:              1200px;
+
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
 
 
 // -------------------------
 // Shadows
 // -------------------------
 
+
 @shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .20);
 @shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .20);
 @shadow-depth-3: 0 1.0rem  2.5rem  rgba(0, 0, 0, .20);
-
 
 
 // -------------------------

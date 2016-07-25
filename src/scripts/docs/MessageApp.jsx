@@ -25,7 +25,7 @@ const MessageApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type="default | primary | note"</code></p>
-      <div className="site-example-messages u-p-a">
+      <div className="site-example-messages">
         <Message>
           Default Message <a href="#">www.linktosomething.com</a>
         </Message>
@@ -43,7 +43,7 @@ const MessageApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">From Message</h5>
         <p className="site-copy"><code>direction="from"</code></p>
-        <div className="site-example-messages u-p-a">
+        <div>
           <Message direction="from">
             Default Message
           </Message>
@@ -58,7 +58,7 @@ const MessageApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">To Message</h5>
         <p className="site-copy"><code>direction="to"</code></p>
-        <div className="site-example-messages u-p-a">
+        <div>
           <Message direction="to">
             Default Message
           </Message>
