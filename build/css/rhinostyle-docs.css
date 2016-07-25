@@ -4651,7 +4651,7 @@ html.navigation-is-open body {
   top: 0;
 }
 html.navigation-is-open .site-overlay {
-  opacity: 0.05;
+  opacity: 0.2;
   z-index: 15;
 }
 html.navigation-is-open .site-navigation {
@@ -4681,7 +4681,7 @@ html.panel-is-open .site-panel {
     top: 0;
   }
   html.panel-is-open .site-overlay {
-    opacity: 0.05;
+    opacity: 0.2;
     z-index: 15;
   }
 }
