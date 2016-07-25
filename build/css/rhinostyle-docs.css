@@ -3477,10 +3477,15 @@ h3 .label {
 .msg {
   border-radius: 0.4rem;
   display: inline-block;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   line-height: 1.2;
+  overflow-wrap: break-word;
   padding: 0.9rem 1rem 1rem 1rem;
   position: relative;
   vertical-align: middle;
+  word-wrap: break-word;
 }
 .msg:empty {
   display: none;

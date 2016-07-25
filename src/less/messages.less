@@ -10,10 +10,13 @@
 .msg {
   border-radius: @msg-border-radius;
   display: inline-block;
+  hyphens: auto;
   line-height: @msg-line-height;
+  overflow-wrap: break-word;
   padding: @msg-padding;
   position: relative;
   vertical-align: middle;
+  word-wrap: break-word;
 
   &:empty {
     display: none;
