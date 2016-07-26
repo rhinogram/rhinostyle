@@ -26,9 +26,23 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="add" />
+        </div>
+        <div className="site-swatch__text"><strong>Add</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="bar-graph" />
         </div>
         <div className="site-swatch__text"><strong>Bar Graph</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
+          <Icon icon="bell" />
+        </div>
+        <div className="site-swatch__text"><strong>Bell</strong></div>
       </div>
 
       <div className="site-swatch">
