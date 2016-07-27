@@ -175,11 +175,11 @@ input[type='checkbox']:focus {
 
 
 .form__addon {
-  align-items: center;
   display: flex;
 
   .form__control {
     flex: 1;
+    padding-bottom: .1rem; // fix 1px bug for text alignment
     width: auto;
   }
 
@@ -200,6 +200,7 @@ input[type='checkbox']:focus {
 
 .form__addon__item {
   align-items: center;
+  background: @form-addon-item-bg;
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;

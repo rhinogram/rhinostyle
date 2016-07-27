@@ -2956,14 +2956,13 @@ input[type='checkbox']:focus {
   }
 }
 .form__addon {
-  -ms-flex-align: center;
-  align-items: center;
   display: -ms-flexbox;
   display: flex;
 }
 .form__addon .form__control {
   -ms-flex: 1;
   flex: 1 1 0%;
+  padding-bottom: .1rem;
   width: auto;
 }
 .form__addon .form__control:first-child {
@@ -2980,11 +2979,11 @@ input[type='checkbox']:focus {
 .form__addon__item {
   -ms-flex-align: center;
   align-items: center;
+  background: #f9f9f9;
   border: 1px solid #c5c5c5;
   display: -ms-flexbox;
   display: flex;
   white-space: nowrap;
-  background: #f9f9f9;
   font-size: 1.6rem;
   height: 3.6rem;
   padding: 0 1rem;

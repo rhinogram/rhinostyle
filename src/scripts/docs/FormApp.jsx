@@ -159,6 +159,9 @@ const FormApp = () =>
       <Input addon="left" type="text" placeholder="Encrypted">
         <Icon icon="lock" />
       </Input>
+      <Input addon="left" type="text" placeholder="Search">
+        <Icon icon="search" />
+      </Input>
       <Input addon="right" type="text">
         {/* eslint no-script-url:0 */}
         <a href="javascript:void(0)">Go For It!</a>
