@@ -2891,6 +2891,7 @@ textarea {
   resize: none;
 }
 input[type='search'] {
+  -webkit-appearance: none;
   box-sizing: border-box;
 }
 input[type='radio'],
@@ -2984,7 +2985,7 @@ input[type='checkbox']:focus {
   display: flex;
   white-space: nowrap;
   font-size: 1.6rem;
-  height: 3.4rem;
+  height: 3.6rem;
   padding: 0 1rem;
 }
 .form__addon__item--left {
@@ -2998,6 +2999,7 @@ input[type='checkbox']:focus {
   border-top-right-radius: 0.4rem;
 }
 .form__control {
+  -moz-appearance: none;
   -webkit-appearance: none;
   -ms-flex-align: center;
   align-items: center;
@@ -3011,8 +3013,9 @@ input[type='checkbox']:focus {
   width: 100%;
   border-radius: 0.4rem;
   font-size: 1.6rem;
-  line-height: 3.4rem;
+  height: 3.6rem;
   padding: 0 1rem;
+  vertical-align: middle;
   /*select& {
     height: @input-height;
     line-height: @input-height;
@@ -3071,9 +3074,6 @@ textarea.form__control {
 }*/
 .form__group {
   margin-bottom: 2.24rem;
-}
-input[type='search'] {
-  -webkit-appearance: none;
 }
 .form__optional {
   color: #83c400;

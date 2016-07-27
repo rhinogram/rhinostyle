@@ -60,13 +60,13 @@ textarea {
 // -------------------------
 
 
-// While most of our form styles require extra classes, some basic normalization
-// is required to ensure optimum display with or without those classes to better
-// address browser inconsistencies.
-
-
-// Override content-box in Normalize (* isn't specific enough)
 input[type='search'] {
+  // This overrides the extra rounded corners on search inputs in iOS so that our
+  // `.form__control` class can properly style them. Note that this cannot simply
+  // be added to `.form__control` as it's not specific enough. For details, see
+  // https://github.com/twbs/bootstrap/issues/11586.
+  -webkit-appearance: none;
+  // Override content-box in Normalize (* isn't specific enough)
   box-sizing: border-box;
 }
 
@@ -246,6 +246,7 @@ input[type='checkbox']:focus {
 
 
 .form__control {
+  -moz-appearance: none;
   -webkit-appearance: none;
   align-items: center;
   background-color: @input-bg;
@@ -253,7 +254,6 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  line-height: @input-height-base;
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   width: 100%;
 
@@ -337,22 +337,6 @@ input[type='checkbox']:focus {
 
 .form__group {
   margin-bottom: @form-group-margin-bottom;
-}
-
-
-// -------------------------
-// Form iOS Search Inputs
-// -------------------------
-
-
-// This overrides the extra rounded corners on search inputs in iOS so that our
-// `.form__control` class can properly style them. Note that this cannot simply
-// be added to `.form__control` as it's not specific enough. For details, see
-// https://github.com/twbs/bootstrap/issues/11586.
-
-
-input[type='search'] {
-  -webkit-appearance: none;
 }
 
 

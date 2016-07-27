@@ -77,8 +77,9 @@
 .mixin-input-size(@input-height; @padding-horizontal; @font-size; @border-radius) {
   border-radius: @border-radius;
   font-size: @font-size;
-  line-height: @input-height;
+  height: @input-height;
   padding: 0 @padding-horizontal;
+  vertical-align: middle;
 
   /*select& {
     height: @input-height;
