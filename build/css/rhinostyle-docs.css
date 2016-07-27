@@ -232,7 +232,7 @@ body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   letter-spacing: 0;
-  line-height: 1.4;
+  line-height: 1.42857143;
 }
 figure {
   margin: 0;
@@ -240,8 +240,8 @@ figure {
 hr {
   border: 0;
   border-top: 1px solid #c5c5c5;
-  margin-bottom: 2.24rem;
-  margin-top: 2.24rem;
+  margin-bottom: 2.28571429rem;
+  margin-top: 2.28571429rem;
 }
 img {
   vertical-align: middle;
@@ -2153,7 +2153,7 @@ button.site-panel__header__close {
   display: -ms-flexbox;
   display: flex;
   font-weight: normal;
-  line-height: 1.4;
+  line-height: 1.42857143;
   padding: 0.6rem 1.4rem;
   position: relative;
   white-space: nowrap;
@@ -2187,7 +2187,7 @@ button.site-panel__header__close {
   color: #9f9f9f;
   display: block;
   font-size: 1.4rem;
-  line-height: 1.4;
+  line-height: 1.42857143;
   padding: 0.6rem 1.4rem;
   white-space: nowrap;
 }
@@ -2880,7 +2880,7 @@ legend {
   display: block;
   font-size: 2.4rem;
   line-height: inherit;
-  margin-bottom: 2.24rem;
+  margin-bottom: 2.28571429rem;
   padding: 0;
   width: 100%;
 }
@@ -3069,7 +3069,7 @@ textarea.form__control {
   }
 }*/
 .form__group {
-  margin-bottom: 2.24rem;
+  margin-bottom: 2.28571429rem;
 }
 .form__optional {
   color: #83c400;
@@ -3111,7 +3111,7 @@ fieldset[disabled] input[type='checkbox'] {
   cursor: pointer;
   font-weight: normal;
   margin-bottom: 0;
-  min-height: 2.24rem;
+  min-height: 2.28571429rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3878,7 +3878,7 @@ h3 .label {
 .table td,
 .table th {
   border-top: 1px solid #c5c5c5;
-  line-height: 1.4;
+  line-height: 1.42857143;
   padding: 1rem;
   vertical-align: top;
 }
@@ -3988,7 +3988,7 @@ table {
   .responsive-table {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #c5c5c5;
-    margin-bottom: 1.68rem;
+    margin-bottom: 1.71428572rem;
     overflow-y: hidden;
     width: 100%;
   }
@@ -4193,7 +4193,7 @@ h6 {
   font-family: inherit;
   font-weight: 900;
   line-height: 1.2;
-  margin: 0 0 1.12rem;
+  margin: 0 0 1.14285714rem;
 }
 h1 small,
 h2 small,
@@ -4234,11 +4234,11 @@ h6 {
   font-size: 1.4rem;
 }
 p {
-  margin: 0 0 1.12rem;
+  margin: 0 0 1.14285714rem;
 }
 ul,
 ol {
-  margin-bottom: 1.12rem;
+  margin-bottom: 1.14285714rem;
   margin-top: 0;
 }
 ul ul,
@@ -4263,12 +4263,12 @@ ol ol {
   padding-right: 0.6rem;
 }
 dl {
-  margin-bottom: 2.24rem;
+  margin-bottom: 2.28571429rem;
   margin-top: 0;
 }
 dt,
 dd {
-  line-height: 1.4;
+  line-height: 1.42857143;
 }
 dt {
   font-weight: 900;
@@ -4278,8 +4278,8 @@ dd {
 }
 address {
   font-style: normal;
-  line-height: 1.4;
-  margin-bottom: 2.24rem;
+  line-height: 1.42857143;
+  margin-bottom: 2.28571429rem;
 }
 b,
 strong {
