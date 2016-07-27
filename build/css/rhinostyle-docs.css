@@ -3016,10 +3016,6 @@ input[type='checkbox']:focus {
   height: 3.6rem;
   padding: 0 1rem;
   vertical-align: middle;
-  /*select& {
-    height: @input-height;
-    line-height: @input-height;
-  }*/
 }
 .form__control::-ms-clear {
   display: none;
@@ -3181,8 +3177,8 @@ fieldset[disabled] .rhinodio label {
   display: flex;
 }
 .rhinodio label::before {
-  background-color: #fff;
-  border: 0.2rem solid #fff;
+  background: #fff;
+  border: 2px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #c5c5c5;
   content: '';
