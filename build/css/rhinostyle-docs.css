@@ -2962,7 +2962,6 @@ input[type='checkbox']:focus {
 .form__addon .form__control {
   -ms-flex: 1;
   flex: 1 1 0%;
-  padding-bottom: .1rem;
   width: auto;
 }
 .form__addon .form__control:first-child {
@@ -2985,7 +2984,7 @@ input[type='checkbox']:focus {
   display: flex;
   white-space: nowrap;
   font-size: 1.6rem;
-  height: 3.6rem;
+  height: 3.4rem;
   padding: 0 1rem;
 }
 .form__addon__item--left {
@@ -3012,7 +3011,7 @@ input[type='checkbox']:focus {
   width: 100%;
   border-radius: 0.4rem;
   font-size: 1.6rem;
-  height: 3.6rem;
+  line-height: 3.4rem;
   padding: 0 1rem;
   /*select& {
     height: @input-height;

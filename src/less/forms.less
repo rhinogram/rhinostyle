@@ -179,7 +179,6 @@ input[type='checkbox']:focus {
 
   .form__control {
     flex: 1;
-    padding-bottom: .1rem; // fix 1px bug for text alignment
     width: auto;
   }
 
@@ -254,7 +253,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  height: @input-height-base;
+  line-height: @input-height-base;
   transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
   width: 100%;
 
