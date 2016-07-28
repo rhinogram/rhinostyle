@@ -2,7 +2,8 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-inputs">
-        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="email" value="Ian" />
+        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="text" />
+        <Input name="exampleInputName31" label="Last Name" placeholder="Last Name" type="text" />
         <Input name="exampleInputPassword31" placeholder="Password" type="password" />
         <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
           <span>Amount $</span>

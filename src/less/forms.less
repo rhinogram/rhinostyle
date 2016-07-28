@@ -462,7 +462,9 @@ input[type='checkbox'] {
     display: none;
 
     &:checked+label::before {
-      background-color: @form-element-color;
+      //background-color: @form-element-color;
+      background-image: radial-gradient(@form-element-color 60%, white 0);
+      box-shadow: inset 0 0 0 2px @color-white;
     }
   }
 
@@ -472,9 +474,9 @@ input[type='checkbox'] {
 
     &::before {
       background: @color-white;
-      border: 2px solid @color-white;
+      border: 1px solid @border-color-base;
       border-radius: 50%;
-      box-shadow: 0 0 0 1px @border-color-base;
+      //box-shadow: 0 0 0 1px @border-color-base;
       content: '';
       display: inline-block;
       height: 2rem;
