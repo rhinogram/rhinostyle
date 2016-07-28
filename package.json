@@ -48,6 +48,8 @@
     "nunjucks": "^2.3.0",
     "postcss-flexbugs-fixes": "^2.0.0",
     "raw-loader": "^0.5.1",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
     "stylelint": "^6.2.2",
     "stylelint-config-standard": "^6.0.0",
     "webpack": "^1.13.0"
@@ -67,11 +69,9 @@
     "gsap": "^1.18.4",
     "keymirror": "^0.1.1",
     "moment": "^2.13.0",
-    "react": "^15.0.0",
     "react-addons-css-transition-group": "^15.2.0",
     "react-custom-scrollbars": "^4.0.0",
     "react-datepicker": "^0.27.0",
-    "react-dom": "^15.0.0",
     "react-gsap-enhancer": "^0.2.2",
     "react-onclickoutside": "^5.2.0"
   }
