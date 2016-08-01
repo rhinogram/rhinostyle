@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.0-rc5 */
+/*! rhinostyle v0.1.0-rc7 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -207,16 +207,11 @@ html {
   box-sizing: border-box;
   font-size: 10px;
   overflow-x: hidden;
-  /*@media (min-width: @screen-lg-min) {
+  /*@media (min-width: 2540px) {
     font-size: 12px;
   }*/
 }
 @media (min-width: 2000px) {
-  html {
-    font-size: 11px;
-  }
-}
-@media (min-width: 2540px) {
   html {
     font-size: 12px;
   }
@@ -1162,7 +1157,7 @@ button {
   border-radius: 0.4rem;
   font-size: 1.6rem;
   height: 3.6rem;
-  padding: 0 1.2rem;
+  padding: 0 1rem;
 }
 .btn:hover,
 .btn:focus {
@@ -1188,7 +1183,7 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn .icon {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 .btn--block {
   -ms-flex-pack: center;
@@ -1562,8 +1557,8 @@ fieldset[disabled] .btn--secondary.active {
   padding-right: 0.9rem;
 }
 .btn--icon.btn--lg {
-  padding-left: 1.05rem;
-  padding-right: 1.05rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .btn--icon.btn--sm {
   padding-left: 0.75rem;
@@ -1607,11 +1602,11 @@ fieldset[disabled] .btn--link:focus {
 .btn--lg {
   border-radius: 0.4rem;
   font-size: 2rem;
-  height: 4.2rem;
-  padding: 0 1.4rem;
+  height: 4rem;
+  padding: 0 1.2rem;
 }
 .btn--lg .icon {
-  font-size: 2.2rem;
+  font-size: 2.1rem;
 }
 .btn--sm {
   line-height: 1.2;
@@ -1621,7 +1616,7 @@ fieldset[disabled] .btn--link:focus {
   padding: 0 1rem;
 }
 .btn--sm .icon {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 .callout {
   border-left: .6rem solid transparent;

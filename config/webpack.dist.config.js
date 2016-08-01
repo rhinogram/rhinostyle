@@ -6,6 +6,10 @@ export default {
   entry: {
     rhinostyle: [path.join(__dirname, '../src/scripts/components/index.js')],
   },
+  externals: {
+    react: 'umd react',
+    'react-dom': 'umd react-dom',
+  },
   output: {
     path: path.join(__dirname, '../dist/scripts'),
     filename: '[name].min.js',

@@ -54,7 +54,7 @@ button {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  .mixin-button-size(@btn-height-base; @padding-large; @font-size-base; @btn-border-radius-base);
+  .mixin-button-size(@btn-height-base; @padding-base; @font-size-base; @btn-border-radius-base);
 
   &:hover,
   &:focus {
@@ -88,7 +88,7 @@ button {
   }
 
   .icon {
-    font-size: @font-size-base + .2rem;
+    font-size: @font-size-base + .1rem;
   }
 }
 
@@ -257,10 +257,10 @@ input[type='button'] {
 
 
 .btn--lg {
-  .mixin-button-size(@btn-height-large; @padding-xlarge; @font-size-large; @btn-border-radius-base);
+  .mixin-button-size(@btn-height-large; @padding-large; @font-size-large; @btn-border-radius-base);
 
   .icon {
-    font-size: @font-size-large + .2rem;
+    font-size: @font-size-large + .1rem;
   }
 }
 
@@ -270,7 +270,7 @@ input[type='button'] {
   .mixin-button-size(@btn-height-small; @padding-base; @font-size-small; @btn-border-radius-small);
 
   .icon {
-    font-size: @font-size-small + .2rem;
+    font-size: @font-size-small + .1rem;
   }
 }
 
