@@ -1604,9 +1604,9 @@ fieldset[disabled] .btn--link:focus {
   font-size: 2rem;
   height: 4rem;
   padding: 0 1.2rem;
-}
-.btn--lg .icon {
-  font-size: 2.1rem;
+  /*.icon {
+    font-size: @font-size-large + .1rem;
+  }*/
 }
 .btn--sm {
   line-height: 1.2;
@@ -1614,9 +1614,9 @@ fieldset[disabled] .btn--link:focus {
   font-size: 1.4rem;
   height: 3rem;
   padding: 0 1rem;
-}
-.btn--sm .icon {
-  font-size: 1.5rem;
+  /*.icon {
+    font-size: @font-size-small + .1rem;
+  }*/
 }
 .callout {
   border-left: .6rem solid transparent;
