@@ -1683,9 +1683,7 @@ fieldset[disabled] .btn--link:focus {
 .site-panel__header__close {
   color: inherit;
   line-height: 1;
-  margin-left: auto;
   opacity: .75;
-  padding: 0 0.4rem;
   position: relative;
 }
 .close:hover,
@@ -3601,6 +3599,8 @@ h3 .label {
   padding: 2rem 1.6rem;
 }
 .modal__header__close {
+  font-size: 2rem;
+  margin-left: auto;
   top: 0;
 }
 .modal__header__title {
@@ -3613,6 +3613,7 @@ h3 .label {
   display: flex;
   line-height: 1;
   margin: 0;
+  padding-right: 1rem;
 }
 .modal__header__title__icon {
   margin-right: 1rem;
@@ -4044,6 +4045,9 @@ table {
 }
 .toast--secondary {
   background: #83c400;
+}
+.toast__close {
+  margin-left: auto;
 }
 .toast__icon {
   font-size: 1.8rem;
