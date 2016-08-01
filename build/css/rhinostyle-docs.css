@@ -1679,25 +1679,21 @@ fieldset[disabled] .btn--link:focus {
   border-left: 0.5rem solid transparent;
   border-right: 0.5rem solid transparent;
 }
-.close,
-.site-panel__header__close {
+.close {
   color: inherit;
   line-height: 1;
   opacity: .75;
   position: relative;
 }
 .close:hover,
-.close:focus,
-.site-panel__header__close:hover,
-.site-panel__header__close:focus {
+.close:focus {
   color: inherit;
   cursor: pointer;
   opacity: 1;
   outline: 0;
   text-decoration: none;
 }
-button.close,
-button.site-panel__header__close {
+button.close {
   -webkit-appearance: none;
   background: transparent;
   border: 0;
@@ -4607,6 +4603,10 @@ pre {
   height: 6rem;
   margin-bottom: 1.4rem;
   padding: 0 1.6rem;
+}
+.site-panel__header__close {
+  font-size: 2rem;
+  margin-left: auto;
 }
 .site-panel__header__title {
   overflow: hidden;
