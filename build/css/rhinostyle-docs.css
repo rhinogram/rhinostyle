@@ -1685,7 +1685,6 @@ fieldset[disabled] .btn--link:focus {
 .toast__close,
 .site-panel__header__close {
   color: inherit;
-  font-size: 1.4rem;
   line-height: 1;
   margin-left: auto;
   opacity: .75;

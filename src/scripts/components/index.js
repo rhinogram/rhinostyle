@@ -5,6 +5,7 @@ import BucketHeader         from './BucketHeader';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
+import Close                from './Close';
 import DatePicker           from '../../../node_modules/react-datepicker/dist/react-datepicker.js';
 import Dropdown             from './Dropdown';
 import DropdownMenuDivider  from './DropdownMenuDivider';
@@ -57,6 +58,7 @@ export {
   Button,
   Callout,
   Checkbox,
+  Close,
   DatePicker,
   Dropdown,
   DropdownDocs,
