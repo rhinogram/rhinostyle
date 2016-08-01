@@ -1680,9 +1680,6 @@ fieldset[disabled] .btn--link:focus {
   border-right: 0.5rem solid transparent;
 }
 .close,
-.modal__header__close,
-.system-alert__close,
-.toast__close,
 .site-panel__header__close {
   color: inherit;
   line-height: 1;
@@ -1693,12 +1690,6 @@ fieldset[disabled] .btn--link:focus {
 }
 .close:hover,
 .close:focus,
-.modal__header__close:hover,
-.modal__header__close:focus,
-.system-alert__close:hover,
-.system-alert__close:focus,
-.toast__close:hover,
-.toast__close:focus,
 .site-panel__header__close:hover,
 .site-panel__header__close:focus {
   color: inherit;
@@ -1708,9 +1699,6 @@ fieldset[disabled] .btn--link:focus {
   text-decoration: none;
 }
 button.close,
-button.modal__header__close,
-button.system-alert__close,
-button.toast__close,
 button.site-panel__header__close {
   -webkit-appearance: none;
   background: transparent;

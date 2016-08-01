@@ -23,10 +23,7 @@ const PillApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Close</h3>
-      <p className="site-copy"></p>
-      <div className="site-example-close">
-        <Close />
-      </div>
+      <p className="site-text-lead">The Close component is used within numerous components - particularly in our feedback system.</p>
     </section>
 
     <section>

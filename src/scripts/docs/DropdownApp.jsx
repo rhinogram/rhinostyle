@@ -76,7 +76,7 @@ const DropdownApp = () =>
     <h1 className="site-headline">Dropdowns</h1>
 
     <section className="site-section">
-      <h3 className="site-subheadline">About Dropdowns</h3>
+      <h3 className="site-subheadline">Dropdowns</h3>
       <p className="site-text-lead">We have three dropdown components: <span className="u-text-accent">Dropdown</span>, <span className="u-text-accent">DropdownSelect</span>, and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
     </section>
 
