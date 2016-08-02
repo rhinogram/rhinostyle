@@ -1044,10 +1044,10 @@ a.u-text-warning:hover,
   width: 6rem;
 }
 .avatar--member {
-  background-color: #ff9359;
+  background-color: #7fc0d3;
 }
 .avatar--patient {
-  background-color: #7fc0d3;
+  background-color: #c5c5c5;
 }
 .avatar--lg {
   font-size: 3rem;
