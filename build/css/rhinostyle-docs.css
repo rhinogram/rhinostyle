@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.0-rc7 */
+/*! rhinostyle v0.1.0-rc8 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -388,6 +388,13 @@ a.u-bg-info:focus {
 a.u-bg-primary:hover,
 a.u-bg-primary:focus {
   background-color: #006093 !important;
+}
+.u-bg-primary-rich {
+  background-color: #00a2f9 !important;
+}
+a.u-bg-primary-rich:hover,
+a.u-bg-primary-rich:focus {
+  background-color: #0081c6 !important;
 }
 .u-bg-secondary {
   background-color: #83c400 !important;
@@ -3489,7 +3496,7 @@ h3 .label {
   color: inherit;
 }
 .msg--primary {
-  background: #0081c6;
+  background: #00a2f9;
   color: #fff;
 }
 .msg--primary a {
