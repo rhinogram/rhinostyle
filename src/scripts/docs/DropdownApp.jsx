@@ -13,6 +13,7 @@ const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example
 
 const dropdownDocs = {
   className: '[Optional] - Include additional class name(s)',
+  hideCaret: '[Optional] - Hide Dropdown caret',
   icon: '[Optional] - Name of icon',
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',

@@ -11,6 +11,7 @@ class Dropdown extends React.Component {
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
     disabled:  React.PropTypes.bool,
+    hideCaret: React.PropTypes.bool,
     icon:      React.PropTypes.string,
     label:     React.PropTypes.string,
     position:  React.PropTypes.string,
@@ -20,10 +21,11 @@ class Dropdown extends React.Component {
   };
 
   static defaultProps = {
-    block:    false,
-    disabled: false,
-    type:     'default',
-    wide:     false,
+    block:     false,
+    disabled:  false,
+    hideCaret: false,
+    type:      'default',
+    wide:      false,
   };
 
   state = {
@@ -39,7 +41,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, icon, label, position, size, type, wide } = this.props;
+    const { block, className, disabled, hideCaret, icon, label, position, size, type, wide } = this.props;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
@@ -72,7 +74,7 @@ class Dropdown extends React.Component {
       <div className={dropdownClasses}>
         <div onClick={this._handleToggle} className={dropdownToggleClasses} type="button">
           {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="u-text-overflow">{label}</span>
-          <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>
+          {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>}
         </div>
         <ul className={dropdownMenuClasses}>
           {this.props.children}

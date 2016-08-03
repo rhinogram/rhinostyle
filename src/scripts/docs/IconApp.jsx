@@ -131,6 +131,13 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="inbox-unassigned" />
+        </div>
+        <div className="site-swatch__text"><strong>Inbox Unassigned</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="lock" />
         </div>
         <div className="site-swatch__text"><strong>Lock</strong></div>

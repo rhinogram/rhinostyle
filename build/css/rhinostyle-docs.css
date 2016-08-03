@@ -211,7 +211,7 @@ html {
     font-size: 12px;
   }*/
 }
-@media (min-width: 2000px) {
+@media (min-width: 2540px) {
   html {
     font-size: 12px;
   }
@@ -1593,7 +1593,7 @@ fieldset[disabled] .btn--link {
 .btn--link:hover,
 .btn--link:focus {
   background-color: transparent;
-  color: #004f7a;
+  color: #006093;
   text-decoration: none;
 }
 .btn--link[disabled]:hover,
@@ -2014,7 +2014,6 @@ button.close {
   }*/
 }
 .dropdown.open .dropdown__menu {
-  display: block;
   opacity: 1;
   transform: translateY(0.4rem);
   visibility: visible;
@@ -4736,6 +4735,7 @@ html.panel-is-open .site-panel {
   font-weight: 300;
 }
 .site-wrapper {
+  backface-visibility: hidden;
   min-height: 100vh;
   position: relative;
   transition: transform 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), margin 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
