@@ -2246,12 +2246,12 @@ button.close {
   padding-right: 1.6rem;
 }
 .row--condensed {
-  margin-left: -0.7rem;
-  margin-right: -0.7rem;
+  margin-left: -0.6rem;
+  margin-right: -0.6rem;
 }
 .row--condensed [class*='col-'] {
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 }
 .row.reverse {
   -ms-flex-direction: row-reverse;
