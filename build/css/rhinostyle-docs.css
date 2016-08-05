@@ -1164,6 +1164,9 @@ button {
   font-size: 1.6rem;
   height: 3.6rem;
   padding: 0 1rem;
+  /*.icon {
+    font-size: @font-size-base + .2rem;
+  }*/
 }
 .btn:hover,
 .btn:focus {
@@ -1187,9 +1190,6 @@ fieldset[disabled] .btn {
 a.btn.disabled,
 fieldset[disabled] a.btn {
   pointer-events: none;
-}
-.btn .icon {
-  font-size: 1.7rem;
 }
 .btn--block {
   -ms-flex-pack: center;
@@ -1611,7 +1611,7 @@ fieldset[disabled] .btn--link:focus {
   height: 4rem;
   padding: 0 1.2rem;
   /*.icon {
-    font-size: @font-size-large + .1rem;
+    font-size: @font-size-large + .2rem;
   }*/
 }
 .btn--sm {
@@ -1621,7 +1621,7 @@ fieldset[disabled] .btn--link:focus {
   height: 3rem;
   padding: 0 1rem;
   /*.icon {
-    font-size: @font-size-small + .1rem;
+    font-size: @font-size-small + .2rem;
   }*/
 }
 .callout {
