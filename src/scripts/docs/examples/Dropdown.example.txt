@@ -10,6 +10,22 @@ class ComponentExample extends React.Component {
         <DropdownMenuDivider />
         <DropdownMenuItem label="Separated Item" />
       </Dropdown>
+      &nbsp;&nbsp;
+      <Dropdown label="Dropdown with Menu Scroll" type="primary-outline">
+        <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+        <DropdownMenuScroll>
+          <DropdownMenuItem label="Custom click Item" onClick={() => alert('clicked!')} />
+          <DropdownMenuItem label="Url Blank Window Item" url={'http://www.rhinogram.com'} blankWindow />
+          <DropdownMenuItem label="Url Item One" url={'http://www.rhinogram.com'} />
+          <DropdownMenuItem label="Url Item Two" url={'http://www.rhinogram.com'} />
+          <DropdownMenuItem label="Url Item Three" url={'http://www.rhinogram.com'} />
+          <DropdownMenuItem label="Url Item Four" url={'http://www.rhinogram.com'} />
+          <DropdownMenuItem label="Url Item Five" url={'http://www.rhinogram.com'} />
+          <DropdownMenuItem label="Url Item Six" url={'http://www.rhinogram.com'} />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </DropdownMenuScroll>
+      </Dropdown>
     </div>
     );
   }

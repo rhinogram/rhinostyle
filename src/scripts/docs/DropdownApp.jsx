@@ -270,11 +270,11 @@ const DropdownApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Dropdown with Scroll</h3>
+      <h3 className="site-subheadline">Dropdown with Menu Scroll</h3>
       <p className="site-copy">Use <code>DropdownMenuScroll</code> component to create scrollable <code>DropdownMenuItem(s)</code>.
       This is handy when you have a long list of menu items or if you desire fixed content at the top of the menu.</p>
 
-      <Dropdown label="Dropdown with Scroll">
+      <Dropdown label="Dropdown with Menu Scroll">
         <DropdownMenuHeader>Scrollable Items Below</DropdownMenuHeader>
         <DropdownMenuScroll>
           <DropdownMenuItem label="Item 1" />
@@ -298,7 +298,8 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Select</h3>
-      <p className="site-copy">Use <code>DropdownSelect</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button's text. Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
+      <p className="site-copy">Use <code>DropdownSelect</code> component to create a dropdown with selectable menu items when Rhinoselect (see forms) won't suffice. Selected menu items are reflected in the dropdown button's text.</p>
+      <p className="site-copy">Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
       <Playground docClass={DropdownSelectDocs} propDescriptionMap={dropdownSelectDocs} codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
     </section>
 
