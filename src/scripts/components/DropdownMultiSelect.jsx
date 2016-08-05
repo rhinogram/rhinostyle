@@ -24,7 +24,6 @@ class DropdownMultiSelect extends React.Component {
     activeKeys:   [],
     disabled:     false,
     placeholder:  'Click or type to select more ...',
-    type:         'default',
   };
 
   state = {

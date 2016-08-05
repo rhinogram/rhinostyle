@@ -122,10 +122,6 @@ input[type='button'] {
 // -------------------------
 
 
-/*.btn--accent {
-  .mixin-button-variant(@btn-accent-color; @btn-accent-bg; @btn-accent-border);
-}*/
-
 .btn--danger {
   .mixin-button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
 }
@@ -142,9 +138,9 @@ input[type='button'] {
                                 @btn-default-outline-hover-border);
 }
 
-/*.btn--info {
-  .mixin-button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
-}*/
+.btn--input {
+  .mixin-button-variant(@btn-default-color; @btn-default-bg; @btn-default-border; 0%);
+}
 
 .btn--inverted-outline {
   .mixin-button-outline-variant(@btn-inverted-outline-color;
@@ -169,15 +165,6 @@ input[type='button'] {
 .btn--secondary {
   .mixin-button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
 }
-
-/*.btn--success {
-  .mixin-button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
-}*/
-
-/*.btn--warning {
-  .mixin-button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
-}*/
-
 
 
 // -------------------------

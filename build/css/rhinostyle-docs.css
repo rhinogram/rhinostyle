@@ -1204,9 +1204,6 @@ input[type='reset'].btn--block,
 input[type='button'].btn--block {
   width: 100%;
 }
-/*.btn--accent {
-  .mixin-button-variant(@btn-accent-color; @btn-accent-bg; @btn-accent-border);
-}*/
 .btn--danger {
   background-color: #cc2d32;
   border-color: #cc2d32;
@@ -1357,9 +1354,60 @@ fieldset[disabled] .btn--default-outline.active {
   border-color: #6c6c6c;
   color: #6c6c6c;
 }
-/*.btn--info {
-  .mixin-button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
-}*/
+.btn--input {
+  background-color: #fff;
+  border-color: #c5c5c5;
+  color: #6c6c6c;
+}
+.btn--input:focus {
+  background-color: #ffffff;
+  border-color: #c5c5c5;
+}
+.btn--input:hover {
+  background-color: #ffffff;
+  border-color: #c5c5c5;
+}
+.btn--input:active,
+.btn--input.active,
+.open > .dropdown__toggle.btn--input {
+  background-color: #ffffff;
+  border-color: #c5c5c5;
+}
+.btn--input:active:hover,
+.btn--input.active:hover,
+.open > .dropdown__toggle.btn--input:hover,
+.btn--input:active:focus,
+.btn--input.active:focus,
+.open > .dropdown__toggle.btn--input:focus {
+  background-color: #ffffff;
+  border-color: #c5c5c5;
+}
+.btn--input:active,
+.btn--input.active,
+.open > .dropdown__toggle.btn--input {
+  background-image: none;
+}
+.btn--input.disabled,
+.btn--input[disabled],
+fieldset[disabled] .btn--input,
+.btn--input.disabled:hover,
+.btn--input[disabled]:hover,
+fieldset[disabled] .btn--input:hover,
+.btn--input.disabled:focus,
+.btn--input[disabled]:focus,
+fieldset[disabled] .btn--input:focus,
+.btn--input.disabled:active,
+.btn--input[disabled]:active,
+fieldset[disabled] .btn--input:active,
+.btn--input.disabled.active,
+.btn--input[disabled].active,
+fieldset[disabled] .btn--input.active {
+  background-color: #fff;
+}
+.btn--input .badge {
+  background-color: #6c6c6c;
+  color: #fff;
+}
 .btn--inverted-outline {
   background-color: transparent;
   border-color: #fff;
@@ -1552,12 +1600,6 @@ fieldset[disabled] .btn--secondary.active {
   background-color: #fff;
   color: #83c400;
 }
-/*.btn--success {
-  .mixin-button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
-}*/
-/*.btn--warning {
-  .mixin-button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
-}*/
 .btn--icon {
   padding-left: 0.9rem;
   padding-right: 0.9rem;

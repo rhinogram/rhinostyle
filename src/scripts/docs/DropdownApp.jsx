@@ -29,7 +29,7 @@ const dropdownSelectDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
+  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | default-outline | primary-outline | link]',
 };
 
 const dropdownMultiSelectDocs = {
@@ -40,7 +40,6 @@ const dropdownMultiSelectDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
 };
 
 const dropdownMenuItemDocs = {
@@ -299,14 +298,14 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Select</h3>
-      <p className="site-copy">Use <code>DropdownSelect</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button's text.</p>
+      <p className="site-copy">Use <code>DropdownSelect</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button's text. Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
       <Playground docClass={DropdownSelectDocs} propDescriptionMap={dropdownSelectDocs} codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown MultiSelect</h3>
       <p className="site-copy">Use <code>DropdownMultiSelect</code> component to create a multi-select list of <code>DropdownMenuItem(s)</code>.
-        This dropdown and dropdown menu will always have 100% width. Selected items are shown as "pills" below the dropdown.
+        This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as "pills" below the dropdown.
       </p>
 
       <Playground docClass={DropdownMultiSelectDocs} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
