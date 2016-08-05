@@ -60,8 +60,8 @@
 // -------------------------
 
 
-.msg--from,
-.msg--to {
+.msg--inbound,
+.msg--outbound {
   &::before {
     background: inherit;
     background-clip: border-box;
@@ -75,22 +75,21 @@
   }
 }
 
-
-.msg--from {
-  margin-right: @msg-margin;
-
-  &::before {
-    right: -.5rem;
-    transform: rotate(-45deg);
-  }
-}
-
-.msg--to {
+.msg--inbound {
   margin-left: @msg-margin;
 
   &::before {
     left: -.5rem;
     transform: rotate(45deg);
+  }
+}
+
+.msg--outbound {
+  margin-right: @msg-margin;
+
+  &::before {
+    right: -.5rem;
+    transform: rotate(-45deg);
   }
 }
 

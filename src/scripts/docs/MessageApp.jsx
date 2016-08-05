@@ -10,7 +10,7 @@ const messageExample = require('raw!./examples/Message.example.txt');
 const messageDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - Message type -  [primary | note]',
-  direction: '[Optional] - Message direction -  [to | from]',
+  direction: '[Optional] - Message direction -  [inbound | outbound]',
 };
 const exampleScope  = {
   React,
@@ -41,31 +41,31 @@ const MessageApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Message Direction</h3>
       <div className="u-m-b-md">
-        <h5 className="site-miniheadline">From Message</h5>
-        <p className="site-copy"><code>direction="from"</code></p>
+        <h5 className="site-miniheadline">Inbound Message</h5>
+        <p className="site-copy"><code>direction="inbound"</code></p>
         <div>
-          <Message direction="from">
+          <Message direction="inbound">
             Default Message
           </Message>
-          <Message direction="from" type="primary">
+          <Message direction="inbound" type="primary">
             Primary Message
           </Message>
-          <Message direction="from" type="note">
+          <Message direction="inbound" type="note">
             Note Message
           </Message>
         </div>
       </div>
       <div className="u-m-b-md">
-        <h5 className="site-miniheadline">To Message</h5>
-        <p className="site-copy"><code>direction="to"</code></p>
+        <h5 className="site-miniheadline">Outbound Message</h5>
+        <p className="site-copy"><code>direction="outbound"</code></p>
         <div>
-          <Message direction="to">
+          <Message direction="outbound">
             Default Message
           </Message>
-          <Message direction="to" type="primary">
+          <Message direction="outbound" type="primary">
             Primary Message
           </Message>
-          <Message direction="to" type="note">
+          <Message direction="outbound" type="note">
             Note Message
           </Message>
         </div>

@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.0-rc9 */
+/*! rhinostyle v0.1.0-rc10 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -210,11 +210,6 @@ html {
   /*@media (min-width: 2540px) {
     font-size: 12px;
   }*/
-}
-@media (min-width: 2540px) {
-  html {
-    font-size: 12px;
-  }
 }
 *,
 *::before,
@@ -3542,8 +3537,8 @@ h3 .label {
 .msg--primary a {
   color: inherit;
 }
-.msg--from::before,
-.msg--to::before {
+.msg--inbound::before,
+.msg--outbound::before {
   background: inherit;
   background-clip: border-box;
   border: inherit;
@@ -3554,19 +3549,19 @@ h3 .label {
   position: absolute;
   top: 1.4rem;
 }
-.msg--from {
-  margin-right: 1rem;
-}
-.msg--from::before {
-  right: -0.5rem;
-  transform: rotate(-45deg);
-}
-.msg--to {
+.msg--inbound {
   margin-left: 1rem;
 }
-.msg--to::before {
+.msg--inbound::before {
   left: -0.5rem;
   transform: rotate(45deg);
+}
+.msg--outbound {
+  margin-right: 1rem;
+}
+.msg--outbound::before {
+  right: -0.5rem;
+  transform: rotate(-45deg);
 }
 .modal-open {
   overflow: hidden;
