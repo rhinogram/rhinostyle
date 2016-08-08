@@ -2,8 +2,8 @@ import React from 'react';
 import DropdownMenuItem from './DropdownMenuItem';
 import DropdownMenuScroll from './DropdownMenuScroll';
 
-class DropdownSelectFilter extends React.Component {
-  static displayName = 'RhinoDropdownSelectFilter';
+class DropdownFilter extends React.Component {
+  static displayName = 'RhinoDropdownFilter';
 
   static propTypes = {
     activeKey:       React.PropTypes.number,
@@ -11,12 +11,12 @@ class DropdownSelectFilter extends React.Component {
     icon:            React.PropTypes.string,
     handleToggle:    React.PropTypes.func,
     placeholder:     React.PropTypes.string,
-    select:          React.PropTypes.func,
+    onSelect:        React.PropTypes.func,
     updateActiveKey: React.PropTypes.func,
   };
 
   static defaultProps = {
-    select:   () => {},
+    onSelect:   () => {},
   };
 
   state = {
@@ -32,26 +32,42 @@ class DropdownSelectFilter extends React.Component {
   }
 
   getChildren = () => {
-    const items = [];
     const children = this.props.children;
+    let returnChild = null;
 
-    React.Children.forEach(children, child => {
+    return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
-        items.push(React.cloneElement(child, {
-          onClick: () => this.itemClick(child.props.id, child.props.icon),
-          active: child.props.id === this.props.activeKey,
-          key: child.props.id,
-        }));
-      }
-    });
+        const onClick = () => {
+          if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+            this.props.updateActiveKey(child.props.id, child.props.icon);
+            this.props.onSelect(child.props.id, child.props.icon);
+          } else {
+            this.props.updateActiveKey(child.props.id, child.props.icon);
+          }
 
-    return items;
+          if (child.props.onClick && typeof(child.props.onClick === 'function')) {
+            child.props.onClick();
+          }
+
+          this.props.handleToggle();
+        };
+
+        returnChild = React.cloneElement(child, {
+          onClick,
+          active: this.state.activeKey && (child.props.id === this.state.activeKey),
+          key: child.props.id,
+        });
+      } else {
+        returnChild = child;
+      }
+      return returnChild;
+    });
   }
 
   itemClick = (id, icon) => {
-    if (this.props.select && typeof(this.props.select === 'function')) {
+    if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
       this.props.updateActiveKey(id, icon);
-      this.props.select(id, icon);
+      this.props.onSelect(id, icon);
     } else {
       this.props.updateActiveKey(id, icon);
     }
@@ -68,10 +84,25 @@ class DropdownSelectFilter extends React.Component {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
 
+        const onClick = () => {
+          if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+            this.props.updateActiveKey(child.props.id, child.props.icon);
+            this.props.onSelect(child.props.id, child.props.icon);
+          } else {
+            this.props.updateActiveKey(child.props.id, child.props.icon);
+          }
+
+          if (child.props.onClick && typeof(child.props.onClick === 'function')) {
+            child.props.onClick();
+          }
+
+          this.props.handleToggle();
+        };
+
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child.props.id, child.props.icon),
-            active: child.props.id === this.props.activeKey,
+            onClick,
+            active: this.props.activeKey && (child.props.id === this.props.activeKey),
             key: child.props.id,
           }));
         }
@@ -103,4 +134,4 @@ class DropdownSelectFilter extends React.Component {
   }
 }
 
-export default DropdownSelectFilter;
+export default DropdownFilter;

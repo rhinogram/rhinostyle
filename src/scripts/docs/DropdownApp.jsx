@@ -1,31 +1,22 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownDocs, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownMultiSelectDocs, DropdownSelect, DropdownSelectDocs, DropdownSelectFilter, Icon } from '../components';
+import { Dropdown, DropdownFilter, DropdownDocs, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownMultiSelectDocs, Icon } from '../components';
 
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
-const dropdownSelectExample = require('raw!./examples/DropdownSelect.example.txt');
 const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
 const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example.txt');
 
 const dropdownDocs = {
+  activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
   className: '[Optional] - Include additional class name(s)',
   hideCaret: '[Optional] - Hide Dropdown caret',
   icon: '[Optional] - Name of icon',
   label: '[Optional] - Text in dropdown when closed',
-  position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
-  size: '[Optional] - Size of Dropdown - [small | large]',
-  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | default-outline | primary-outline | link]',
-};
-
-const dropdownSelectDocs = {
-  activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Name of icon',
-  label: '[Optional] - Text in dropdown when closed',
+  lockLabel: '[Optional] - Do not change label text when selecting item',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
@@ -58,6 +49,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Dropdown,
+  DropdownFilter,
   DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
@@ -65,9 +57,6 @@ const exampleScope  = {
   DropdownMenuScroll,
   DropdownMultiSelect,
   DropdownMultiSelectDocs,
-  DropdownSelect,
-  DropdownSelectDocs,
-  DropdownSelectFilter,
   Icon,
 };
 
@@ -270,37 +259,10 @@ const DropdownApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Dropdown with Menu Scroll</h3>
-      <p className="site-copy">Use <code>DropdownMenuScroll</code> component to create scrollable <code>DropdownMenuItem(s)</code>.
-      This is handy when you have a long list of menu items or if you desire fixed content at the top of the menu.</p>
-
-      <Dropdown label="Dropdown with Menu Scroll">
-        <DropdownMenuHeader>Scrollable Items Below</DropdownMenuHeader>
-        <DropdownMenuScroll>
-          <DropdownMenuItem label="Item 1" />
-          <DropdownMenuItem label="Item 2" />
-          <DropdownMenuItem label="Item 3" />
-          <DropdownMenuItem label="Item 4" />
-          <DropdownMenuItem label="Item 5" />
-          <DropdownMenuItem label="Item 6" />
-          <DropdownMenuItem label="Item 7" />
-          <DropdownMenuItem label="Item 8" />
-          <DropdownMenuItem label="Item 9" />
-        </DropdownMenuScroll>
-      </Dropdown>
-
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Dropdown Playground</h3>
-      <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Dropdown Select</h3>
-      <p className="site-copy">Use <code>DropdownSelect</code> component to create a dropdown with selectable menu items when Rhinoselect (see forms) won't suffice. Selected menu items are reflected in the dropdown button's text.</p>
+      <h3 className="site-subheadline">Dropdown</h3>
+      <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items when Rhinoselect (see forms) won't suffice. Selected menu items are reflected in the dropdown button's text.</p>
       <p className="site-copy">Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
-      <Playground docClass={DropdownSelectDocs} propDescriptionMap={dropdownSelectDocs} codeText={dropdownSelectExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
