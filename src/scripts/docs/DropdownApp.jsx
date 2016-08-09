@@ -40,6 +40,7 @@ const dropdownMenuItemDocs = {
   className: '[Optional] - Include additional class name(s)',
   disabled: '[Optional] - Disabled state',
   icon: '[Optional] - Name of icon',
+  id: '[Optional] - Identifies the selected item in Dropdown when you want to use as a Dropdown Select',
   label: '[Optional] - Label for item',
   onClick: '[Opational] - Click function',
   url: '[Optional] - URL for item',
@@ -66,7 +67,7 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdowns</h3>
-      <p className="site-text-lead">We have three dropdown components: <span className="u-text-accent">Dropdown</span>, <span className="u-text-accent">DropdownSelect</span>, and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
+      <p className="site-text-lead">We have two main dropdown components: <span className="u-text-accent">Dropdown</span> and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
     </section>
 
     <section className="site-section">
@@ -260,7 +261,7 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown</h3>
-      <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items when Rhinoselect (see forms) won't suffice. Selected menu items are reflected in the dropdown button's text.</p>
+      <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items when Rhinoselect (see forms) won't suffice. Selected menu items are reflected in the dropdown button's text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
       <p className="site-copy">Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
       <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>

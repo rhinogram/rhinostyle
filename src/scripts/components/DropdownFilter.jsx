@@ -38,11 +38,13 @@ class DropdownFilter extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         const onClick = () => {
-          if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
-            this.props.updateActiveKey(child.props.id, child.props.icon);
-            this.props.onSelect(child.props.id, child.props.icon);
-          } else {
-            this.props.updateActiveKey(child.props.id, child.props.icon);
+          if (child.props.id) {
+            if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+              this.props.updateActiveKey(child.props.id, child.props.icon);
+              this.props.onSelect(child.props.id, child.props.icon);
+            } else {
+              this.props.updateActiveKey(child.props.id, child.props.icon);
+            }
           }
 
           if (child.props.onClick && typeof(child.props.onClick === 'function')) {
@@ -85,11 +87,13 @@ class DropdownFilter extends React.Component {
         const searchText = child.props.label;
 
         const onClick = () => {
-          if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
-            this.props.updateActiveKey(child.props.id, child.props.icon);
-            this.props.onSelect(child.props.id, child.props.icon);
-          } else {
-            this.props.updateActiveKey(child.props.id, child.props.icon);
+          if (child.props.id) {
+            if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+              this.props.updateActiveKey(child.props.id, child.props.icon);
+              this.props.onSelect(child.props.id, child.props.icon);
+            } else {
+              this.props.updateActiveKey(child.props.id, child.props.icon);
+            }
           }
 
           if (child.props.onClick && typeof(child.props.onClick === 'function')) {
