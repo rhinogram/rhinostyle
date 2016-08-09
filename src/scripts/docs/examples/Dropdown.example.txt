@@ -6,15 +6,13 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <Dropdown icon="cog" label="Dropdown" type="primary-outline">
-      <DropdownFilter>
+      <Dropdown label="Dropdown" type="primary-outline">
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
         <DropdownMenuItem label="Custom click Item" onClick={() => alert('clicked!')} />
         <DropdownMenuItem label="Url Blank Window Item" url={'http://www.rhinogram.com'} blankWindow />
         <DropdownMenuItem label="Url Item" url={'http://www.rhinogram.com'} />
         <DropdownMenuDivider />
         <DropdownMenuItem label="Separated Item" />
-        </DropdownFilter>
       </Dropdown>
       &nbsp;&nbsp;
       <Dropdown label="Dropdown Select" type="input" type="primary-outline" onSelect={this.optionalCallbackFunction}>

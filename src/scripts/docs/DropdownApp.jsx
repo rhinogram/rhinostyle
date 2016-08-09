@@ -261,7 +261,7 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown</h3>
-      <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items when Rhinoselect (see forms) won't suffice. Selected menu items are reflected in the dropdown button's text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
+      <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button's text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
       <p className="site-copy">Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
       <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>
