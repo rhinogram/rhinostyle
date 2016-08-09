@@ -39,7 +39,7 @@ class DropdownFilter extends React.Component {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
           onClick: () => this.itemClick(child),
-          active: this.state.activeKey && (child.props.id === this.state.activeKey),
+          active: this.props.activeKey && (child.props.id === this.props.activeKey),
           key: child.props.id,
         });
       } else {
