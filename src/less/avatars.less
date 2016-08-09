@@ -16,14 +16,14 @@
   display: inline-flex;
   font-size: 2.2rem;
   font-weight: @font-weight-light;
-  height: 6rem;
+  height: @avatar-size-base;
   justify-content: center;
   letter-spacing: .1rem;
   overflow: hidden;
   pointer-events: none;
   text-transform: uppercase;
   vertical-align: middle;
-  width: 6rem;
+  width: @avatar-size-base;
 }
 
 
@@ -48,18 +48,18 @@
 
 .avatar--lg {
   font-size: 3rem;
-  height: 8rem;
-  width: 8rem;
+  height: @avatar-size-large;
+  width: @avatar-size-large;
 }
 
 .avatar--sm {
   border-radius: @border-radius-small;
   font-size: 1.4rem;
-  height: 4rem;
+  height: @avatar-size-small;
   // use min-width to prevent flex shrinking since we know the width
   // otherwise we would use flex-shrink: 0;
-  min-width: 4rem;
-  width: 4rem;
+  min-width: @avatar-size-small;
+  width: @avatar-size-small;
 }
 
 
