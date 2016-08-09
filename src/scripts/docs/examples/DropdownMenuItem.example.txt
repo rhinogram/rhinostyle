@@ -10,7 +10,7 @@ class ComponentExample extends React.Component {
       <DropdownMenuItem label="Disabled Item" disabled />
       <DropdownMenuDivider />
       <DropdownMenuItem label="Ian Avatar" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABECOyAoeLlhfOMzQEiC3ZjYXJkX3Bob3RvKig2ZWJmZWEwNjA3NDhkZTY0ZWRhOTczNDU3M2E5YzI0MDA2YmFhZWFhMAF_p4RL_jmWVcGIWRwQZgNrVdicmw?sz=128" />
-      <DropdownMenuItem label="Paul Avatar" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/c0.50.200.200/1947402_10152279843568698_519360225_n.jpg?oh=a3c546f01142712ab3a25a2b328df392&oe=579C05BA" />
+      <DropdownMenuItem label="Paul Avatar" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
       <DropdownMenuItem label="Rob Avatar" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
       <DropdownMenuDivider />
       <DropdownMenuItem icon="sms" label="Icon Item" />
