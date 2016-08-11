@@ -2256,6 +2256,11 @@ button.close {
     outline: 0;
   }
 }*/
+.dropdown__toggle__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .dropdown__toggle__caret {
   fill: currentColor;
   height: 0.7em;

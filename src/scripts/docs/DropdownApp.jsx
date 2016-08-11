@@ -72,7 +72,7 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
-      <p className="site-copy">See button component for all of the available <code>type</code> properties.</p>
+      <p className="site-copy">See button component for all of the available <code>type</code> properties. However, there is one exception</p>
       <div className="site-example-dropdowns">
         <Dropdown label="Dropdown">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
