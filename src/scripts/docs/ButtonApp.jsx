@@ -31,7 +31,7 @@ const ButtonApp = () =>
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link | danger"</code></p>
       <div className="site-example-buttons u-m-b-md">
-        <Button>Default</Button>
+        <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
         <Button type="default-outline">Default Outline</Button>
@@ -127,8 +127,26 @@ const ButtonApp = () =>
     </section>
 
     <section className="site-section">
+      <h3 className="site-subheadline">Button Badges</h3>
+      <h5 className="site-miniheadline">Badges Inside of Buttons</h5>
+      <p>Include a span with <code>btn__badge</code> class.</p>
+      <div className="site-example-buttons u-m-b-md">
+        <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="primary">Primary &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="secondary">Secondary &nbsp;<span className="btn__badge">2</span></Button>
+        <Button type="default-outline">Default Outline &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="primary-outline">Primary Outline &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="link">Link &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="danger">Danger &nbsp;<span className="btn__badge">12</span></Button>
+      </div>
+      <div className="site-example-buttons u-p-a u-bg-primary">
+        <Button type="inverted-outline">Inverted Outline &nbsp;<span className="btn__badge">12</span></Button>
+      </div>
+    </section>
+
+    <section className="site-section">
       <h3 className="site-subheadline">Button Ellipsis</h3>
-      <h5 className="site-miniheadline">Long Text Inside Buttons</h5>
+      <h5 className="site-miniheadline">Long Text Inside of Buttons</h5>
       <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis.</p>
       <div className="u-m-b">
         <Button className="u-m-b-sm"><span className="u-text-overflow">Button With Really Long Name</span></Button>

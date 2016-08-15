@@ -235,6 +235,11 @@ input[type='button'] {
   &.btn--icon {
     text-decoration: none;
   }
+
+  .btn__badge {
+    background: @link-color;
+    color: @color-white;
+  }
 }
 
 
@@ -260,4 +265,33 @@ input[type='button'] {
     font-size: @font-size-small + .2rem;
   }*/
 }
+
+
+
+// -------------------------
+// Button Badges
+// -------------------------
+
+
+.btn__badge {
+  border-radius: @badge-border-radius;
+  line-height: 1;
+  padding: @badge-vertical-padding @badge-horizontal-padding;
+  position: relative;
+  text-align: center;
+  //top: .1rem;
+  //vertical-align: middle;
+  white-space: nowrap;
+  &:empty {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
 

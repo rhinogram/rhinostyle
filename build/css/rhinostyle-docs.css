@@ -939,17 +939,6 @@ a.u-text-warning:hover,
 @alert-warning-bg:            @state-warning-bg;
 @alert-warning-text:          @state-warning-text;
 @alert-warning-border:        @state-warning-border;*/
-/*@badge-active-color:          @link-color;
-@badge-active-bg:             @color-white;
-@badge-bg:                    @color-gray-light;
-@badge-border-radius:         @border-radius-small;
-@badge-color:                 @color-white;
-@badge-font-weight:           normal;
-@badge-horizontal-padding:    @padding-xsmall;
-@badge-line-height:           1;
-@badge-link-hover-color:      @color-white;
-@badge-min-width:             1.8rem;
-@badge-vertical-padding:      .3rem;*/
 /*@container-sm:                 (720px + @grid-gutter-width); // for `@screen-sm-min` and up
 @container-md:                 (940px + @grid-gutter-width); // for `@screen-md-min` and up
 @container-lg:                 (1140px + @grid-gutter-width); // for `@screen-lg-min` and up*/
@@ -1177,6 +1166,9 @@ button {
     font-size: @font-size-base + .2rem;
   }*/
 }
+.btn .btn__badge {
+  font-size: 1.4rem;
+}
 .btn:hover,
 .btn:focus {
   text-decoration: none;
@@ -1263,8 +1255,8 @@ fieldset[disabled] .btn--danger:active,
 fieldset[disabled] .btn--danger.active {
   background-color: #cc2d32;
 }
-.btn--danger .badge {
-  background-color: #fff;
+.btn--danger .btn__badge {
+  background: #fff;
   color: #cc2d32;
 }
 .btn--default {
@@ -1317,8 +1309,8 @@ fieldset[disabled] .btn--default:active,
 fieldset[disabled] .btn--default.active {
   background-color: #fff;
 }
-.btn--default .badge {
-  background-color: #6c6c6c;
+.btn--default .btn__badge {
+  background: #6c6c6c;
   color: #fff;
 }
 .btn--default-outline {
@@ -1362,6 +1354,10 @@ fieldset[disabled] .btn--default-outline.active {
   background-color: transparent;
   border-color: #6c6c6c;
   color: #6c6c6c;
+}
+.btn--default-outline .btn__badge {
+  background: #6c6c6c;
+  color: #fff;
 }
 .btn--input {
   background-color: #fff;
@@ -1413,8 +1409,8 @@ fieldset[disabled] .btn--input:active,
 fieldset[disabled] .btn--input.active {
   background-color: #fff;
 }
-.btn--input .badge {
-  background-color: #6c6c6c;
+.btn--input .btn__badge {
+  background: #6c6c6c;
   color: #fff;
 }
 .btn--inverted-outline {
@@ -1458,6 +1454,10 @@ fieldset[disabled] .btn--inverted-outline.active {
   background-color: transparent;
   border-color: #fff;
   color: #fff;
+}
+.btn--inverted-outline .btn__badge {
+  background: #fff;
+  color: #6c6c6c;
 }
 .btn--primary {
   background-color: #0081c6;
@@ -1509,8 +1509,8 @@ fieldset[disabled] .btn--primary:active,
 fieldset[disabled] .btn--primary.active {
   background-color: #0081c6;
 }
-.btn--primary .badge {
-  background-color: #fff;
+.btn--primary .btn__badge {
+  background: #fff;
   color: #0081c6;
 }
 .btn--primary-outline {
@@ -1554,6 +1554,10 @@ fieldset[disabled] .btn--primary-outline.active {
   background-color: transparent;
   border-color: #0081c6;
   color: #0081c6;
+}
+.btn--primary-outline .btn__badge {
+  background: #0081c6;
+  color: #fff;
 }
 .btn--secondary {
   background-color: #83c400;
@@ -1605,8 +1609,8 @@ fieldset[disabled] .btn--secondary:active,
 fieldset[disabled] .btn--secondary.active {
   background-color: #83c400;
 }
-.btn--secondary .badge {
-  background-color: #fff;
+.btn--secondary .btn__badge {
+  background: #fff;
   color: #83c400;
 }
 .btn--icon {
@@ -1656,6 +1660,10 @@ fieldset[disabled] .btn--link:focus {
 .btn--link.btn--icon {
   text-decoration: none;
 }
+.btn--link .btn__badge {
+  background: #0081c6;
+  color: #fff;
+}
 .btn--lg {
   border-radius: 0.4rem;
   font-size: 2rem;
@@ -1664,6 +1672,9 @@ fieldset[disabled] .btn--link:focus {
   /*.icon {
     font-size: @font-size-large + .2rem;
   }*/
+}
+.btn--lg .btn__badge {
+  font-size: 1.8rem;
 }
 .btn--sm {
   line-height: 1.2;
@@ -1674,6 +1685,20 @@ fieldset[disabled] .btn--link:focus {
   /*.icon {
     font-size: @font-size-small + .2rem;
   }*/
+}
+.btn--sm .btn__badge {
+  font-size: 1.2rem;
+}
+.btn__badge {
+  border-radius: 0.3rem;
+  line-height: 1;
+  padding: 0.3rem 0.4rem;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+.btn__badge:empty {
+  display: none;
 }
 .callout {
   border-left: .6rem solid transparent;
@@ -4040,7 +4065,7 @@ table {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 479px) {
   .responsive-table {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #c5c5c5;

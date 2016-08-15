@@ -13,6 +13,7 @@ class ComponentExample extends React.Component {
           <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
           <Button size="large" iconOnly><Icon icon="cog" /></Button>
           <Button>Default</Button>
+          <Button type="primary-outline">Primary Outline with Badge &nbsp;<span className="btn__badge">12</span></Button>
           <Button><Icon icon="cog" />&nbsp;Default</Button>
           <Button iconOnly><Icon icon="cog" /></Button>
           <Button size="small">Small</Button>

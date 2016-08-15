@@ -59,8 +59,8 @@
     }
   }
 
-  .badge {
-    background-color: @color;
+  .btn__badge {
+    background: @color;
     color: @background;
   }
 }
@@ -101,6 +101,12 @@
       color: @color;
     }
   }
+
+  .btn__badge {
+    background: @color;
+    // http://lesscss.org/functions/#color-operations-contrast
+    color: contrast(@color, @color-white, @text-color, 30%);
+  }
 }
 
 
@@ -114,6 +120,10 @@
   font-size: @font-size;
   height: @height;
   padding: 0 @padding-horizontal;
+
+  .btn__badge {
+    font-size: @font-size - .2rem;
+  }
 }
 
 
