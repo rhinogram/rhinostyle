@@ -77,12 +77,20 @@
   .mixin-text-emphasis-variant(@state-accent-text);
 }
 
+.u-text-body {
+  .mixin-text-emphasis-variant(@text-color);
+}
+
 .u-text-danger {
   .mixin-text-emphasis-variant(@state-danger-text);
 }
 
 .u-text-info {
   .mixin-text-emphasis-variant(@state-info-text);
+}
+
+.u-text-muted {
+  .mixin-text-emphasis-variant(@text-color-muted);
 }
 
 .u-text-primary {
@@ -101,12 +109,8 @@
   .mixin-text-emphasis-variant(@state-warning-text);
 }
 
-
-// -------------------------
-// Text Muted
-// -------------------------
-
-
-.u-text-muted {
-  color: @text-color-muted;
+.u-text-white {
+  .mixin-text-emphasis-variant(@color-white);
 }
+
+

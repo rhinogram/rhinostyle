@@ -29,6 +29,7 @@ class Dropdown extends React.Component {
     block:     false,
     disabled:  false,
     hideCaret: false,
+    type:      'default',
     wide:      false,
   };
 

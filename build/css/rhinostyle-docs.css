@@ -426,6 +426,17 @@ a.u-text-accent:hover,
 .btn--link.u-text-accent:hover {
   color: #ff610d;
 }
+.u-text-body {
+  color: #6c6c6c;
+}
+a.u-text-body,
+.btn--link.u-text-body {
+  color: #6c6c6c;
+}
+a.u-text-body:hover,
+.btn--link.u-text-body:hover {
+  color: #525252;
+}
 .u-text-danger {
   color: #cc2d32;
 }
@@ -447,6 +458,17 @@ a.u-text-info,
 a.u-text-info:hover,
 .btn--link.u-text-info:hover {
   color: #00334d;
+}
+.u-text-muted {
+  color: #9f9f9f;
+}
+a.u-text-muted,
+.btn--link.u-text-muted {
+  color: #9f9f9f;
+}
+a.u-text-muted:hover,
+.btn--link.u-text-muted:hover {
+  color: #868686;
 }
 .u-text-primary {
   color: #0081c6;
@@ -492,8 +514,16 @@ a.u-text-warning:hover,
 .btn--link.u-text-warning:hover {
   color: #bb980d;
 }
-.u-text-muted {
-  color: #9f9f9f;
+.u-text-white {
+  color: #fff;
+}
+a.u-text-white,
+.btn--link.u-text-white {
+  color: #fff;
+}
+a.u-text-white:hover,
+.btn--link.u-text-white:hover {
+  color: #e6e6e6;
 }
 .u-flex-align-content-start {
   -ms-flex-line-pack: start !important;

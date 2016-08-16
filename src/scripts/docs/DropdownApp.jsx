@@ -72,17 +72,9 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
-      <p className="site-copy">Types are the same as the Button component with one exception - you may choose NOT to pass a type which results in a text color Dropdown.</p>
+      <p className="site-copy">Types are the same as the Button component.</p>
       <div className="site-example-dropdowns">
         <Dropdown label="Dropdown">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-          <DropdownMenuItem label="Item" />
-          <DropdownMenuItem label="Another Item" />
-          <DropdownMenuItem label="A third item" />
-          <DropdownMenuDivider />
-          <DropdownMenuItem label="Separated Item" />
-        </Dropdown>
-        <Dropdown label="Dropdown" type="default">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -146,15 +138,6 @@ const DropdownApp = () =>
         </Dropdown>
 
         <br /><br />
-        <Dropdown icon="search">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-          <DropdownMenuItem label="Item" />
-          <DropdownMenuItem label="Another Item" />
-          <DropdownMenuItem label="A third item" />
-          <DropdownMenuDivider />
-          <DropdownMenuItem label="Separated Item" />
-        </Dropdown>
-
         <Dropdown type="default" icon="search">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
@@ -192,6 +175,15 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="primary-outline" icon="lock">
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem label="Item" />
+          <DropdownMenuItem label="Another Item" />
+          <DropdownMenuItem label="A third item" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </Dropdown>
+
+        <Dropdown label="Dropdown" type="link" className="u-text-body">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />

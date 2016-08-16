@@ -31,7 +31,7 @@ const ButtonApp = () =>
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link | danger"</code></p>
       <div className="site-example-buttons u-m-b-md">
-        <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
+        <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
         <Button type="default-outline">Default Outline</Button>
