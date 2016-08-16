@@ -20,7 +20,7 @@ const dropdownDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | default-outline | primary-outline | link]',
+  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
 };
 
 const dropdownMultiSelectDocs = {
@@ -101,7 +101,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="default-outline">
+        <Dropdown label="Dropdown" type="outline-default">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -110,7 +110,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="primary-outline">
+        <Dropdown label="Dropdown" type="outline-primary">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -165,7 +165,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown type="default-outline" icon="search">
+        <Dropdown type="outline-default" icon="search">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -174,7 +174,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown type="primary-outline" icon="lock">
+        <Dropdown type="outline-primary" icon="lock">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />

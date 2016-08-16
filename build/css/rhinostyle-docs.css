@@ -1343,52 +1343,6 @@ fieldset[disabled] .btn--default.active {
   background: #6c6c6c;
   color: #fff;
 }
-.btn--default-outline {
-  background-color: transparent;
-  border-color: #c5c5c5;
-  color: #6c6c6c;
-}
-.btn--default-outline:hover,
-.btn--default-outline:focus,
-.btn--default-outline.focus,
-.btn--default-outline:active,
-.btn--default-outline.active,
-.open > .dropdown__toggle.btn--default-outline {
-  background-color: #868686;
-  border-color: #868686;
-  color: #fff;
-}
-.btn--default-outline:active,
-.btn--default-outline.active,
-.open > .dropdown__toggle.btn--default-outline {
-  background-image: none;
-}
-.btn--default-outline.disabled,
-.btn--default-outline[disabled],
-fieldset[disabled] .btn--default-outline,
-.btn--default-outline.disabled:hover,
-.btn--default-outline[disabled]:hover,
-fieldset[disabled] .btn--default-outline:hover,
-.btn--default-outline.disabled:focus,
-.btn--default-outline[disabled]:focus,
-fieldset[disabled] .btn--default-outline:focus,
-.btn--default-outline.disabled.focus,
-.btn--default-outline[disabled].focus,
-fieldset[disabled] .btn--default-outline.focus,
-.btn--default-outline.disabled:active,
-.btn--default-outline[disabled]:active,
-fieldset[disabled] .btn--default-outline:active,
-.btn--default-outline.disabled.active,
-.btn--default-outline[disabled].active,
-fieldset[disabled] .btn--default-outline.active {
-  background-color: transparent;
-  border-color: #6c6c6c;
-  color: #6c6c6c;
-}
-.btn--default-outline .btn__badge {
-  background: #6c6c6c;
-  color: #fff;
-}
 .btn--input {
   background-color: #fff;
   border-color: #c5c5c5;
@@ -1442,52 +1396,6 @@ fieldset[disabled] .btn--input.active {
 .btn--input .btn__badge {
   background: #6c6c6c;
   color: #fff;
-}
-.btn--inverted-outline {
-  background-color: transparent;
-  border-color: #fff;
-  color: #fff;
-}
-.btn--inverted-outline:hover,
-.btn--inverted-outline:focus,
-.btn--inverted-outline.focus,
-.btn--inverted-outline:active,
-.btn--inverted-outline.active,
-.open > .dropdown__toggle.btn--inverted-outline {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #fff;
-  color: #fff;
-}
-.btn--inverted-outline:active,
-.btn--inverted-outline.active,
-.open > .dropdown__toggle.btn--inverted-outline {
-  background-image: none;
-}
-.btn--inverted-outline.disabled,
-.btn--inverted-outline[disabled],
-fieldset[disabled] .btn--inverted-outline,
-.btn--inverted-outline.disabled:hover,
-.btn--inverted-outline[disabled]:hover,
-fieldset[disabled] .btn--inverted-outline:hover,
-.btn--inverted-outline.disabled:focus,
-.btn--inverted-outline[disabled]:focus,
-fieldset[disabled] .btn--inverted-outline:focus,
-.btn--inverted-outline.disabled.focus,
-.btn--inverted-outline[disabled].focus,
-fieldset[disabled] .btn--inverted-outline.focus,
-.btn--inverted-outline.disabled:active,
-.btn--inverted-outline[disabled]:active,
-fieldset[disabled] .btn--inverted-outline:active,
-.btn--inverted-outline.disabled.active,
-.btn--inverted-outline[disabled].active,
-fieldset[disabled] .btn--inverted-outline.active {
-  background-color: transparent;
-  border-color: #fff;
-  color: #fff;
-}
-.btn--inverted-outline .btn__badge {
-  background: #fff;
-  color: #6c6c6c;
 }
 .btn--primary {
   background-color: #0081c6;
@@ -1543,51 +1451,143 @@ fieldset[disabled] .btn--primary.active {
   background: #fff;
   color: #0081c6;
 }
-.btn--primary-outline {
+.btn--outline-default {
+  background-color: transparent;
+  border-color: #c5c5c5;
+  color: #6c6c6c;
+}
+.btn--outline-default:hover,
+.btn--outline-default:focus,
+.btn--outline-default.focus,
+.btn--outline-default:active,
+.btn--outline-default.active,
+.open > .dropdown__toggle.btn--outline-default {
+  background-color: #868686;
+  border-color: #868686;
+  color: #fff;
+}
+.btn--outline-default:active,
+.btn--outline-default.active,
+.open > .dropdown__toggle.btn--outline-default {
+  background-image: none;
+}
+.btn--outline-default.disabled,
+.btn--outline-default[disabled],
+fieldset[disabled] .btn--outline-default,
+.btn--outline-default.disabled:hover,
+.btn--outline-default[disabled]:hover,
+fieldset[disabled] .btn--outline-default:hover,
+.btn--outline-default.disabled:focus,
+.btn--outline-default[disabled]:focus,
+fieldset[disabled] .btn--outline-default:focus,
+.btn--outline-default.disabled.focus,
+.btn--outline-default[disabled].focus,
+fieldset[disabled] .btn--outline-default.focus,
+.btn--outline-default.disabled:active,
+.btn--outline-default[disabled]:active,
+fieldset[disabled] .btn--outline-default:active,
+.btn--outline-default.disabled.active,
+.btn--outline-default[disabled].active,
+fieldset[disabled] .btn--outline-default.active {
+  background-color: transparent;
+  border-color: #6c6c6c;
+  color: #6c6c6c;
+}
+.btn--outline-default .btn__badge {
+  background: #6c6c6c;
+  color: #fff;
+}
+.btn--outline-primary {
   background-color: transparent;
   border-color: #0081c6;
   color: #0081c6;
 }
-.btn--primary-outline:hover,
-.btn--primary-outline:focus,
-.btn--primary-outline.focus,
-.btn--primary-outline:active,
-.btn--primary-outline.active,
-.open > .dropdown__toggle.btn--primary-outline {
+.btn--outline-primary:hover,
+.btn--outline-primary:focus,
+.btn--outline-primary.focus,
+.btn--outline-primary:active,
+.btn--outline-primary.active,
+.open > .dropdown__toggle.btn--outline-primary {
   background-color: #0081c6;
   border-color: #0081c6;
   color: #fff;
 }
-.btn--primary-outline:active,
-.btn--primary-outline.active,
-.open > .dropdown__toggle.btn--primary-outline {
+.btn--outline-primary:active,
+.btn--outline-primary.active,
+.open > .dropdown__toggle.btn--outline-primary {
   background-image: none;
 }
-.btn--primary-outline.disabled,
-.btn--primary-outline[disabled],
-fieldset[disabled] .btn--primary-outline,
-.btn--primary-outline.disabled:hover,
-.btn--primary-outline[disabled]:hover,
-fieldset[disabled] .btn--primary-outline:hover,
-.btn--primary-outline.disabled:focus,
-.btn--primary-outline[disabled]:focus,
-fieldset[disabled] .btn--primary-outline:focus,
-.btn--primary-outline.disabled.focus,
-.btn--primary-outline[disabled].focus,
-fieldset[disabled] .btn--primary-outline.focus,
-.btn--primary-outline.disabled:active,
-.btn--primary-outline[disabled]:active,
-fieldset[disabled] .btn--primary-outline:active,
-.btn--primary-outline.disabled.active,
-.btn--primary-outline[disabled].active,
-fieldset[disabled] .btn--primary-outline.active {
+.btn--outline-primary.disabled,
+.btn--outline-primary[disabled],
+fieldset[disabled] .btn--outline-primary,
+.btn--outline-primary.disabled:hover,
+.btn--outline-primary[disabled]:hover,
+fieldset[disabled] .btn--outline-primary:hover,
+.btn--outline-primary.disabled:focus,
+.btn--outline-primary[disabled]:focus,
+fieldset[disabled] .btn--outline-primary:focus,
+.btn--outline-primary.disabled.focus,
+.btn--outline-primary[disabled].focus,
+fieldset[disabled] .btn--outline-primary.focus,
+.btn--outline-primary.disabled:active,
+.btn--outline-primary[disabled]:active,
+fieldset[disabled] .btn--outline-primary:active,
+.btn--outline-primary.disabled.active,
+.btn--outline-primary[disabled].active,
+fieldset[disabled] .btn--outline-primary.active {
   background-color: transparent;
   border-color: #0081c6;
   color: #0081c6;
 }
-.btn--primary-outline .btn__badge {
+.btn--outline-primary .btn__badge {
   background: #0081c6;
   color: #fff;
+}
+.btn--outline-reversed {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.btn--outline-reversed:hover,
+.btn--outline-reversed:focus,
+.btn--outline-reversed.focus,
+.btn--outline-reversed:active,
+.btn--outline-reversed.active,
+.open > .dropdown__toggle.btn--outline-reversed {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  color: #fff;
+}
+.btn--outline-reversed:active,
+.btn--outline-reversed.active,
+.open > .dropdown__toggle.btn--outline-reversed {
+  background-image: none;
+}
+.btn--outline-reversed.disabled,
+.btn--outline-reversed[disabled],
+fieldset[disabled] .btn--outline-reversed,
+.btn--outline-reversed.disabled:hover,
+.btn--outline-reversed[disabled]:hover,
+fieldset[disabled] .btn--outline-reversed:hover,
+.btn--outline-reversed.disabled:focus,
+.btn--outline-reversed[disabled]:focus,
+fieldset[disabled] .btn--outline-reversed:focus,
+.btn--outline-reversed.disabled.focus,
+.btn--outline-reversed[disabled].focus,
+fieldset[disabled] .btn--outline-reversed.focus,
+.btn--outline-reversed.disabled:active,
+.btn--outline-reversed[disabled]:active,
+fieldset[disabled] .btn--outline-reversed:active,
+.btn--outline-reversed.disabled.active,
+.btn--outline-reversed[disabled].active,
+fieldset[disabled] .btn--outline-reversed.active {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.btn--outline-reversed .btn__badge {
+  background: #fff;
+  color: #6c6c6c;
 }
 .btn--secondary {
   background-color: #83c400;

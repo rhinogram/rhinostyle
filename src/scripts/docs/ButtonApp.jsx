@@ -15,7 +15,7 @@ const buttonDocs = {
   disabled: '[Optional] - Button is disabled',
   iconOnly: '[Optional] - Button has an icon but no text',
   size: '[Optional] - Button size -  [small | large]',
-  type: '[Optional] - Button type -  [default | primary | secondary | default-outline | primary-outline | link]',
+  type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
 };
 const exampleScope  = {
   React,
@@ -29,19 +29,19 @@ const ButtonApp = () =>
     <h1 className="site-headline">Buttons</h1>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
-      <p className="site-copy"><code>type="default | primary | secondary | default-outline | primary-outline | link | danger"</code></p>
+      <p className="site-copy"><code>type="default | primary | secondary | outline-default | outline-primary | link | danger"</code></p>
       <div className="site-example-buttons u-m-b-md">
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
-        <Button type="default-outline">Default Outline</Button>
-        <Button type="primary-outline">Primary Outline</Button>
+        <Button type="outline-default">Outline Default</Button>
+        <Button type="outline-primary">Outline Primary</Button>
         <Button type="link">Link</Button>
         <Button type="danger">Danger</Button>
       </div>
-      <p className="site-copy"><code>type="inverted-outline"</code></p>
+      <p className="site-copy"><code>type="outline-reversed"</code></p>
       <div className="site-example-buttons u-p-a u-bg-primary">
-        <Button type="inverted-outline">Inverted Outline</Button>
+        <Button type="outline-reversed">Outline Reversed</Button>
       </div>
     </section>
 
@@ -81,8 +81,8 @@ const ButtonApp = () =>
           <Button iconOnly><Icon icon="sms" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
-          <Button type="default-outline" iconOnly><Icon icon="clock" /></Button>
-          <Button type="primary-outline" iconOnly><Icon icon="pencil" /></Button>
+          <Button type="outline-default" iconOnly><Icon icon="clock" /></Button>
+          <Button type="outline-primary" iconOnly><Icon icon="pencil" /></Button>
         </div>
       </div>
     </section>
@@ -112,16 +112,16 @@ const ButtonApp = () =>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
-          <Button type="default-outline">Default Outline</Button>
-          <Button type="default-outline" active>Default Outline Active</Button>
-          <Button type="default-outline" disabled>Default Outline Disabled</Button>
+          <Button type="outline-default">Outline Default</Button>
+          <Button type="outline-default" active>Outline Default Active</Button>
+          <Button type="outline-default" disabled>Outline Default Disabled</Button>
         </div>
       </div>
       <div className="u-m-b">
         <div className="site-example-buttons">
-          <Button type="primary-outline">Primary Outline</Button>
-          <Button type="primary-outline" active>Primary Outline Active</Button>
-          <Button type="primary-outline" disabled>Primary Outline Disabled</Button>
+          <Button type="outline-primary">Outline Primary</Button>
+          <Button type="outline-primary" active>Outline Primary Active</Button>
+          <Button type="outline-primary" disabled>Outline Primary Disabled</Button>
         </div>
       </div>
     </section>
@@ -134,13 +134,13 @@ const ButtonApp = () =>
         <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
         <Button type="primary">Primary &nbsp;<span className="btn__badge">12</span></Button>
         <Button type="secondary">Secondary &nbsp;<span className="btn__badge">2</span></Button>
-        <Button type="default-outline">Default Outline &nbsp;<span className="btn__badge">12</span></Button>
-        <Button type="primary-outline">Primary Outline &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="outline-default">Outline Default &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="outline-primary">Outline Primary &nbsp;<span className="btn__badge">12</span></Button>
         <Button type="link">Link &nbsp;<span className="btn__badge">12</span></Button>
         <Button type="danger">Danger &nbsp;<span className="btn__badge">12</span></Button>
       </div>
       <div className="site-example-buttons u-p-a u-bg-primary">
-        <Button type="inverted-outline">Inverted Outline &nbsp;<span className="btn__badge">12</span></Button>
+        <Button type="outline-reversed">Outline Reversed &nbsp;<span className="btn__badge">12</span></Button>
       </div>
     </section>
 

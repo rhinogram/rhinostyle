@@ -21,7 +21,7 @@ class Dropdown extends React.Component {
     position:  React.PropTypes.string,
     onSelect:  React.PropTypes.func,
     size:      React.PropTypes.oneOf(['small', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'primary-outline', 'link', 'input']),
+    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
     wide:      React.PropTypes.bool,
   };
 
@@ -111,12 +111,13 @@ class Dropdown extends React.Component {
 
     const dropdownToggleClasses = cx('btn', 'dropdown__toggle', className, {
       'btn--default':   type === 'default',
-      'btn--input':   type === 'input',
+      'btn--input':     type === 'input',
       'btn--primary':   type === 'primary',
       'btn--secondary': type === 'secondary',
       'btn--link':      type === 'link',
-      'btn--default-outline':   type === 'default-outline',
-      'btn--primary-outline':   type === 'primary-outline',
+      'btn--outline-default':   type === 'outline-default',
+      'btn--outline-primary':   type === 'outline-primary',
+      'btn--outline-reversed':  type === 'outline-reversed',
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),

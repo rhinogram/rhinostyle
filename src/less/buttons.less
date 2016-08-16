@@ -130,36 +130,36 @@ input[type='button'] {
   .mixin-button-variant(@btn-default-color; @btn-default-bg; @btn-default-border; 4%);
 }
 
-.btn--default-outline {
-  .mixin-button-outline-variant(@btn-default-outline-color;
-                                @btn-default-outline-bg;
-                                @btn-default-outline-border;
-                                @btn-default-outline-hover-bg;
-                                @btn-default-outline-hover-border);
-}
-
 .btn--input {
   .mixin-button-variant(@btn-default-color; @btn-default-bg; @btn-default-border; 0%);
-}
-
-.btn--inverted-outline {
-  .mixin-button-outline-variant(@btn-inverted-outline-color;
-                                @btn-inverted-outline-bg;
-                                @btn-inverted-outline-border;
-                                @btn-inverted-outline-hover-bg;
-                                @btn-inverted-outline-hover-border);
 }
 
 .btn--primary {
   .mixin-button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
 
-.btn--primary-outline {
-  .mixin-button-outline-variant(@btn-primary-outline-color;
-                                @btn-primary-outline-bg;
-                                @btn-primary-outline-border;
-                                @btn-primary-outline-hover-bg;
-                                @btn-primary-outline-hover-border);
+.btn--outline-default {
+  .mixin-button-outline-variant(@btn-outline-default-color;
+                                @btn-outline-default-bg;
+                                @btn-outline-default-border;
+                                @btn-outline-default-hover-bg;
+                                @btn-outline-default-hover-border);
+}
+
+.btn--outline-primary {
+  .mixin-button-outline-variant(@btn-outline-primary-color;
+                                @btn-outline-primary-bg;
+                                @btn-outline-primary-border;
+                                @btn-outline-primary-hover-bg;
+                                @btn-outline-primary-hover-border);
+}
+
+.btn--outline-reversed {
+  .mixin-button-outline-variant(@btn-outline-reversed-color;
+                                @btn-outline-reversed-bg;
+                                @btn-outline-reversed-border;
+                                @btn-outline-reversed-hover-bg;
+                                @btn-outline-reversed-hover-border);
 }
 
 .btn--secondary {
