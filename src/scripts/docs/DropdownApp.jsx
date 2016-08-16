@@ -72,9 +72,17 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
-      <p className="site-copy">See button component for all of the available <code>type</code> properties. However, there is one exception</p>
+      <p className="site-copy">Types are the same as the Button component with one exception - you may choose NOT to pass a type which results in a text color Dropdown.</p>
       <div className="site-example-dropdowns">
         <Dropdown label="Dropdown">
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem label="Item" />
+          <DropdownMenuItem label="Another Item" />
+          <DropdownMenuItem label="A third item" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </Dropdown>
+        <Dropdown label="Dropdown" type="default">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -138,8 +146,16 @@ const DropdownApp = () =>
         </Dropdown>
 
         <br /><br />
-
         <Dropdown icon="search">
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem label="Item" />
+          <DropdownMenuItem label="Another Item" />
+          <DropdownMenuItem label="A third item" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </Dropdown>
+
+        <Dropdown type="default" icon="search">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -195,7 +211,7 @@ const DropdownApp = () =>
         <p className="site-copy">
           Add <code>block</code> property to create 100% width, block level dropdown.
         </p>
-        <Dropdown label="Dropdown Block" icon="cog" block>
+        <Dropdown label="Dropdown Block" type="default" icon="cog" block>
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -208,7 +224,7 @@ const DropdownApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Right</h5>
         <p className="site-copy">Add <code>position="right"</code> property.</p>
-        <Dropdown label="Dropdown Right" position="right">
+        <Dropdown label="Dropdown Right" type="default" position="right">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -221,7 +237,7 @@ const DropdownApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Top</h5>
         <p className="site-copy">Add <code>position="top"</code> property.</p>
-        <Dropdown label="Dropdown Top" position="top">
+        <Dropdown label="Dropdown Top" type="default" position="top">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -234,7 +250,7 @@ const DropdownApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Top &amp; Right</h5>
         <p className="site-copy">Add <code>position="top-right"</code> property.</p>
-        <Dropdown label="Dropdown Top Right" position="top-right">
+        <Dropdown label="Dropdown Top Right" type="default" position="top-right">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -247,7 +263,7 @@ const DropdownApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Wide</h5>
         <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.</p>
-        <Dropdown label="Dropdown Wide" wide>
+        <Dropdown label="Dropdown Wide" type="default" wide>
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
