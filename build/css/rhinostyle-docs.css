@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.0-rc12 */
+/*! rhinostyle v0.1.0-rc13 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -217,6 +217,8 @@ html {
   box-sizing: inherit;
 }
 body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   background-color: #fff;
   color: #6c6c6c;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
