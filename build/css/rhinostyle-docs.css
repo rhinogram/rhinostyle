@@ -1912,17 +1912,17 @@ button.close {
 }
 .react-datepicker__navigation--previous {
   left: 1rem;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%239f9f9f%22%20d%3D%22M18.5%2024c-.228%200-.458-.078-.646-.236l-13-11a1.001%201.001%200%200%201%200-1.528l13-11a1%201%200%200%201%201.292%201.527L7.048%2012l12.098%2010.236A1%201%200%200%201%2018.5%2024z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%239f9f9f%22%20d%3D%22M17.2%2022c-.2%200-.4-.1-.5-.2L5.8%2012.6c-.2-.2-.3-.4-.3-.6%200-.2.1-.5.3-.6l10.8-9.2c.4-.3.9-.3%201.2.1.3.4.3.9-.1%201.2L7.6%2012l10.1%208.5c.4.3.4.8.1%201.2-.2.2-.4.3-.6.3z%22%2F%3E%3C%2Fsvg%3E");
 }
 .react-datepicker__navigation--previous:hover {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M18.5%2024c-.228%200-.458-.078-.646-.236l-13-11a1.001%201.001%200%200%201%200-1.528l13-11a1%201%200%200%201%201.292%201.527L7.048%2012l12.098%2010.236A1%201%200%200%201%2018.5%2024z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M17.2%2022c-.2%200-.4-.1-.5-.2L5.8%2012.6c-.2-.2-.3-.4-.3-.6%200-.2.1-.5.3-.6l10.8-9.2c.4-.3.9-.3%201.2.1.3.4.3.9-.1%201.2L7.6%2012l10.1%208.5c.4.3.4.8.1%201.2-.2.2-.4.3-.6.3z%22%2F%3E%3C%2Fsvg%3E");
 }
 .react-datepicker__navigation--next {
   right: 1rem;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%239f9f9f%22%20d%3D%22M5.5%2024a1%201%200%200%201-.647-1.763L16.952%2012%204.854%201.764A1.001%201.001%200%200%201%206.146.236l13%2011a1%201%200%200%201%200%201.528l-13%2011A1%201%200%200%201%205.5%2024z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%239f9f9f%22%20d%3D%22M5.7%2021.7c-.3-.4-.3-.9.1-1.2L15.9%2012%205.8%203.5c-.4-.3-.4-.9-.1-1.2.3-.4.8-.4%201.2-.1l10.8%209.2c.2.2.3.4.3.6%200%20.2-.1.5-.3.6L6.9%2021.8c-.2.1-.4.2-.6.2-.2%200-.4-.1-.6-.3z%22%2F%3E%3C%2Fsvg%3E");
 }
 .react-datepicker__navigation--next:hover {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M5.5%2024a1%201%200%200%201-.647-1.763L16.952%2012%204.854%201.764A1.001%201.001%200%200%201%206.146.236l13%2011a1%201%200%200%201%200%201.528l-13%2011A1%201%200%200%201%205.5%2024z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%236c6c6c%22%20d%3D%22M5.7%2021.7c-.3-.4-.3-.9.1-1.2L15.9%2012%205.8%203.5c-.4-.3-.4-.9-.1-1.2.3-.4.8-.4%201.2-.1l10.8%209.2c.2.2.3.4.3.6%200%20.2-.1.5-.3.6L6.9%2021.8c-.2.1-.4.2-.6.2-.2%200-.4-.1-.6-.3z%22%2F%3E%3C%2Fsvg%3E");
 }
 .react-datepicker__navigation--years {
   display: block;
