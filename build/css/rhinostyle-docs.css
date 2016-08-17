@@ -4657,7 +4657,6 @@ pre {
   border-radius: .4rem;
   color: #fff;
   display: block;
-  font-weight: 300;
   padding: 0.6rem 1.6rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   /*@media (min-height: 1100px) {
