@@ -3810,7 +3810,6 @@ h3 .label {
 .nav-tabs__item::before {
   border-color: #c5c5c5;
   border-width: 0 0 1px;
-  z-index: -1;
 }
 .nav-tabs__item.active {
   cursor: default;
