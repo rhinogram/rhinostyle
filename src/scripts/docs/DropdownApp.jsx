@@ -72,9 +72,9 @@ const DropdownApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
-      <p className="site-copy">Types are the same as the Button component.</p>
+      <p className="site-copy">Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.</p>
       <div className="site-example-dropdowns">
-        <Dropdown label="Dropdown">
+        <Dropdown label="Defualt">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -83,7 +83,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="primary">
+        <Dropdown label="Input" type="input">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -92,7 +92,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="secondary">
+        <Dropdown label="Primary" type="primary">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -101,7 +101,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="outline-default">
+        <Dropdown label="Secondary" type="secondary">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -110,7 +110,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="outline-primary">
+        <Dropdown label="Outline Default" type="outline-default">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -119,7 +119,16 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="link">
+        <Dropdown label="Outline Primary" type="outline-primary">
+          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuItem label="Item" />
+          <DropdownMenuItem label="Another Item" />
+          <DropdownMenuItem label="A third item" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </Dropdown>
+
+        <Dropdown label="Link" type="link">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -183,7 +192,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Dropdown" type="link" className="u-text-body">
+        <Dropdown label="Link with Color Utility" type="link" className="u-text-body">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
