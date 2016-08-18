@@ -3773,7 +3773,7 @@ h3 .label {
   display: flex;
   list-style: none;
   margin-bottom: 1.6rem;
-  padding-left: 0;
+  padding: 2px 0 0 0;
 }
 .nav-tabs--justified-auto .nav-tabs__item {
   -ms-flex: 1 1 auto;
