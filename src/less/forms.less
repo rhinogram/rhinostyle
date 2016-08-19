@@ -411,7 +411,7 @@ input[type='checkbox'] {
 
   label {
     cursor: pointer;
-    //display: inline;
+    display: flex;
     font-weight: normal;
     margin-bottom: 0;
     min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
@@ -445,8 +445,6 @@ input[type='checkbox'] {
   }
 
   label {
-    align-items: center;
-    display: flex;
 
     &::before {
       background-color: @color-white;
@@ -459,6 +457,7 @@ input[type='checkbox'] {
       padding: 0;
       position: relative;
       speak: none;
+      top: .1rem;
       transition: background-color 250ms @trans-timing-cubic;
       width: 2rem;
     }
@@ -479,8 +478,6 @@ input[type='checkbox'] {
   }
 
   label {
-    align-items: center;
-    display: flex;
 
     &::before {
       background: @color-white;
@@ -491,6 +488,10 @@ input[type='checkbox'] {
       display: inline-block;
       height: 2rem;
       margin-right: @margin-small;
+      min-width: 2rem;
+      position: relative;
+      speak: none;
+      top: .1rem;
       transition: background-color 250ms @trans-timing-cubic;
       width: 2rem;
     }
