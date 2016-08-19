@@ -405,8 +405,7 @@ input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin-bottom: @margin-base;
-  margin-top: @margin-base;
+  margin: @rhinobox-rhinodio-margin 0;
   position: relative;
 
   label {
@@ -502,7 +501,7 @@ input[type='checkbox'] {
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin-right: @margin-half-gutter;
+  margin: (@rhinobox-rhinodio-margin / 2) @margin-half-gutter (@rhinobox-rhinodio-margin / 2) 0;
 }
 
 

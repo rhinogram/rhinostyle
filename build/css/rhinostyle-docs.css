@@ -3211,8 +3211,7 @@ fieldset[disabled] input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0;
   position: relative;
 }
 .rhinobox label,
@@ -3295,7 +3294,7 @@ fieldset[disabled] .rhinodio label {
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin-right: 1.6rem;
+  margin: 0.5rem 1.6rem 0.5rem 0;
 }
 .rhinoselect {
   position: relative;
