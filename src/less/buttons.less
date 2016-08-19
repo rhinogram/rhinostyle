@@ -74,17 +74,11 @@ button {
     box-shadow: none;
     cursor: not-allowed;
     opacity: .5;
+    pointer-events: none;
   }
 
   &:focus {
     .mixin-tab-focus();
-  }
-
-  a& {
-    &.disabled,
-    fieldset[disabled] & {
-      pointer-events: none;
-    }
   }
 
   /*.icon {

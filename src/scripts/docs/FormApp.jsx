@@ -13,6 +13,7 @@ const inputDocs  = {
   name:         '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
   placeholder:  '[Optional] - Any placeholder text you want in the input',
   type:         '[Optional] - As a string, what type of input you are creating - [email | password] - defaults to text',
+  required:     '[Optional] - Field is required and asterisk is added to label',
   initialValue: '[Optional] - Any initial value for the input',
 };
 const inputScope = {
@@ -27,6 +28,7 @@ const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
   options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, {value:string, text:string, selected:bool}',
+  required:     '[Optional] - Field is required and asterisk is added to label',
 };
 const selectScope = {
   React,
@@ -46,6 +48,7 @@ const textareaDocs  = {
   name:         '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
   placeholder:  '[Optional] - Any placeholder text you want in the textarea',
   initialValue: '[Optional] - Any initial value for the textarea',
+  required:     '[Optional] - Field is required and asterisk is added to label',
 };
 const textareaScope = {
   React,
@@ -101,10 +104,10 @@ const FormApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Form Example</h3>
       <form className="form">
-        <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" />
-        <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" />
-        <Select name="exampleSelect1" label="Select" options={selectOpts} />
-        <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" />
+        <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" required />
+        <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
+        <Select name="exampleSelect1" label="Select" options={selectOpts} required />
+        <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>

@@ -1215,13 +1215,10 @@ fieldset[disabled] .btn {
   box-shadow: none;
   cursor: not-allowed;
   opacity: .5;
+  pointer-events: none;
 }
 .btn:focus {
   outline: 0;
-}
-a.btn.disabled,
-fieldset[disabled] a.btn {
-  pointer-events: none;
 }
 .btn--block {
   -ms-flex-pack: center;
@@ -1491,7 +1488,7 @@ fieldset[disabled] .btn--outline-default:active,
 .btn--outline-default[disabled].active,
 fieldset[disabled] .btn--outline-default.active {
   background-color: transparent;
-  border-color: #6c6c6c;
+  border-color: rgba(108, 108, 108, 0.5);
   color: #6c6c6c;
 }
 .btn--outline-default .btn__badge {
@@ -1537,7 +1534,7 @@ fieldset[disabled] .btn--outline-primary:active,
 .btn--outline-primary[disabled].active,
 fieldset[disabled] .btn--outline-primary.active {
   background-color: transparent;
-  border-color: #0081c6;
+  border-color: rgba(0, 129, 198, 0.5);
   color: #0081c6;
 }
 .btn--outline-primary .btn__badge {
@@ -1583,7 +1580,7 @@ fieldset[disabled] .btn--outline-reversed:active,
 .btn--outline-reversed[disabled].active,
 fieldset[disabled] .btn--outline-reversed.active {
   background-color: transparent;
-  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
   color: #fff;
 }
 .btn--outline-reversed .btn__badge {
@@ -3106,6 +3103,9 @@ input[type='checkbox']:focus {
   border-bottom-right-radius: 0.4rem;
   border-left: 0;
   border-top-right-radius: 0.4rem;
+}
+.form__asterisk {
+  color: #cc2d32;
 }
 .form__control {
   -moz-appearance: none;

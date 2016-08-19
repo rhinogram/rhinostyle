@@ -11,14 +11,16 @@ class Input extends React.Component {
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
+    required:     React.PropTypes.bool,
     type:         React.PropTypes.oneOf(['email', 'password', 'text']),
   };
 
   static defaultProps = {
-    addon: '',
-    label: '',
-    name:  '',
-    type:  'text',
+    addon:    '',
+    label:    '',
+    name:     '',
+    required: false,
+    type:     'text',
   };
 
   state = {
@@ -36,13 +38,13 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, className, label, name, placeholder, type } = this.props;
+    const { addon, className, label, name, placeholder, required, type } = this.props;
     const inputClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label}</label>;
+        return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
       }
 
       return false;

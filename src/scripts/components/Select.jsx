@@ -5,14 +5,16 @@ class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    label:   React.PropTypes.string,
-    name:    React.PropTypes.string,
-    options: React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired, text: React.PropTypes.string.isRequired, selected: React.PropTypes.bool })).isRequired,
+    label:    React.PropTypes.string,
+    name:     React.PropTypes.string,
+    options:  React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired, text: React.PropTypes.string.isRequired, selected: React.PropTypes.bool })).isRequired,
+    required: React.PropTypes.bool,
   };
 
   static defaultProps = {
-    label:   '',
-    name:    '',
+    label:    '',
+    name:     '',
+    required: false,
   };
 
   state = {
@@ -36,12 +38,12 @@ class Select extends React.Component {
   }
 
   render() {
-    const { label, name, options } = this.props;
+    const { label, name, options, required } = this.props;
     const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron');
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label}</label>;
+        return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
       }
 
       return false;
