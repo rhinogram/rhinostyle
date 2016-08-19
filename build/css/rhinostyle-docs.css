@@ -3211,18 +3211,19 @@ fieldset[disabled] input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin-bottom: 0.6rem;
-  margin-top: 0.6rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   position: relative;
 }
 .rhinobox label,
 .rhinodio label {
+  color: inherit;
   cursor: pointer;
-  display: -ms-flexbox;
-  display: flex;
   font-weight: normal;
   margin-bottom: 0;
   min-height: 2.28571429rem;
+  padding-left: 2.6rem;
+  position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3258,10 +3259,10 @@ fieldset[disabled] .rhinodio label {
   content: '';
   display: inline-block;
   height: 2rem;
+  left: 0;
   line-height: 1.3rem;
-  margin-right: 0.6rem;
   padding: 0;
-  position: relative;
+  position: absolute;
   speak: none;
   top: .1rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
@@ -3284,9 +3285,8 @@ fieldset[disabled] .rhinodio label {
   content: '';
   display: inline-block;
   height: 2rem;
-  margin-right: 0.6rem;
-  min-width: 2rem;
-  position: relative;
+  left: 0;
+  position: absolute;
   speak: none;
   top: .1rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
@@ -3295,7 +3295,7 @@ fieldset[disabled] .rhinodio label {
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin-right: 1.2rem;
+  margin-right: 1.6rem;
 }
 .rhinoselect {
   position: relative;

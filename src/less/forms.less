@@ -405,16 +405,18 @@ input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin-bottom: @margin-small;
-  margin-top: @margin-small;
+  margin-bottom: @margin-base;
+  margin-top: @margin-base;
   position: relative;
 
   label {
+    color: inherit;
     cursor: pointer;
-    display: flex;
     font-weight: normal;
     margin-bottom: 0;
     min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+    padding-left: 2.6rem;
+    position: relative;
     user-select: none;
   }
 
@@ -452,10 +454,10 @@ input[type='checkbox'] {
       content: '';
       display: inline-block;
       height: 2rem;
+      left: 0;
       line-height: 1.3rem;
-      margin-right: @margin-small;
       padding: 0;
-      position: relative;
+      position: absolute;
       speak: none;
       top: .1rem;
       transition: background-color 250ms @trans-timing-cubic;
@@ -487,9 +489,8 @@ input[type='checkbox'] {
       content: '';
       display: inline-block;
       height: 2rem;
-      margin-right: @margin-small;
-      min-width: 2rem;
-      position: relative;
+      left: 0;
+      position: absolute;
       speak: none;
       top: .1rem;
       transition: background-color 250ms @trans-timing-cubic;
@@ -501,7 +502,7 @@ input[type='checkbox'] {
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin-right: @margin-large;
+  margin-right: @margin-half-gutter;
 }
 
 
