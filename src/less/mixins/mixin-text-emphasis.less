@@ -8,15 +8,15 @@
 
 
 .mixin-text-emphasis-variant(@color) {
-  color: @color;
+  color: @color !important;
 
   a&,
   .btn--link& {
-    color: @color;
+    color: @color !important;
   }
 
   a&:hover,
   .btn--link&:hover {
-    color: darken(@color, 10%);
+    color: darken(@color, 10%) !important;
   }
 }
