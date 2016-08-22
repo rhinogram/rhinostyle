@@ -3912,7 +3912,8 @@ h3 .label {
 .progress__bar__slider__label {
   color: #fff;
   cursor: default;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 900;
   padding: 0 0.4rem;
   position: absolute;
   right: 100%;
