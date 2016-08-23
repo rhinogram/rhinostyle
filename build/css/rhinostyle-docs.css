@@ -3180,9 +3180,8 @@ textarea.form__control {
 .form__group {
   margin-bottom: 2.28571429rem;
 }
-.form__optional {
-  color: #83c400;
-  font-weight: normal;
+.form__section:not(:last-child) {
+  margin-bottom: 4.2rem;
 }
 [placeholder] {
   overflow: hidden;
@@ -3440,7 +3439,7 @@ fieldset[disabled] .rhinodio label {
   color: #fff;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 80%;
+  font-size: 75%;
   font-weight: 700;
   padding: 0 0.5rem;
   position: relative;
@@ -3577,7 +3576,7 @@ h3 .label {
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  line-height: 1.2;
+  line-height: inherit;
   overflow-wrap: break-word;
   padding: 0.9rem 1rem 1rem 1rem;
   position: relative;
