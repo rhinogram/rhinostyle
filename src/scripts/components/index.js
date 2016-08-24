@@ -14,6 +14,7 @@ import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
 import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
+import DropdownWrapper      from './DropdownWrapper';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
@@ -45,8 +46,6 @@ import { NotificationActions }         from '../NotificationSystem';
 import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
-import { DropdownDocs }            from './Dropdown';
-import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
@@ -60,13 +59,12 @@ export {
   DatePicker,
   Dropdown,
   DropdownFilter,
-  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMultiSelect,
-  DropdownMultiSelectDocs,
   DropdownMenuScroll,
+  DropdownWrapper,
   Icon,
   Input,
   Label,
