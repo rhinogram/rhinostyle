@@ -3122,8 +3122,8 @@ input[type='checkbox']:focus {
   background: #c5c5c5;
   border-radius: 50%;
   color: #fff;
-  font-size: 1.3rem;
-  padding: .4rem;
+  font-size: 1.2rem;
+  padding: .2rem;
   position: absolute;
   right: 1rem;
 }
@@ -3181,7 +3181,7 @@ textarea.form__control {
 }
 .form__control--naked {
   background: transparent;
-  border: none;
+  border: 0;
   height: auto;
   padding: 0;
 }
