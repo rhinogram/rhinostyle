@@ -3119,6 +3119,11 @@ input[type='checkbox']:focus {
   position: relative;
 }
 .form__clear__btn {
+  background: #c5c5c5;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: .4rem;
   position: absolute;
   right: 1rem;
 }
