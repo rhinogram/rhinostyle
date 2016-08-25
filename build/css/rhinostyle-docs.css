@@ -1790,7 +1790,11 @@ fieldset[disabled] .btn--link:focus {
   border-right: 0.5rem solid transparent;
 }
 .close {
+  -ms-flex-align: center;
+  align-items: center;
   color: inherit;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   line-height: 1;
   opacity: .75;
   position: relative;
@@ -3107,6 +3111,17 @@ input[type='checkbox']:focus {
 .form__asterisk {
   color: #cc2d32;
 }
+.form__clear {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+.form__clear__btn {
+  position: absolute;
+  right: 1rem;
+}
 .form__control {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -3118,7 +3133,7 @@ input[type='checkbox']:focus {
   color: #6c6c6c;
   display: -ms-flexbox;
   display: flex;
-  transition: border-color cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s, box-shadow cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s;
+  transition: border-color 0.15s cubic-bezier(0.43, 0.41, 0.22, 0.91), box-shadow 0.15s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   width: 100%;
   border-radius: 0.4rem;
   font-size: 1.6rem;
@@ -3156,27 +3171,15 @@ textarea.form__control {
 .form__control--chevron {
   padding-right: 3rem;
 }
-/*.form__control--sm {
-  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
+.form__control--clear {
+  padding-right: 3rem;
 }
-
-.form__control--lg {
-  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
+.form__control--naked {
+  background: transparent;
+  border: none;
+  height: auto;
+  padding: 0;
 }
-
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form__control--static {
-  margin-bottom: 0;
-  min-height: @input-height-base;
-
-  &.form__control--lg,
-  &.form__control--sm {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}*/
 .form__group {
   margin-bottom: 2.28571429rem;
 }

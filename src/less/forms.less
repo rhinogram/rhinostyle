@@ -230,6 +230,23 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Clear
+// -------------------------
+
+
+.form__clear {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.form__clear__btn {
+  position: absolute;
+  right: 1rem;
+}
+
+
+// -------------------------
 // Form Control
 // -------------------------
 
@@ -264,7 +281,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
+  transition: border-color .15s @trans-timing-cubic, box-shadow .15s @trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -313,28 +330,18 @@ input[type='checkbox']:focus {
   padding-right: @form-control-chevron-padding;
 }
 
-
-/*.form__control--sm {
-  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
+// form controls that need right padding to account for clear button
+.form__control--clear {
+  padding-right: @form-control-clear-padding;
 }
 
-.form__control--lg {
-  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
+// form controls that are stripped down in appearance
+.form__control--naked {
+  background: transparent;
+  border: none;
+  height: auto;
+  padding: 0;
 }
-
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form__control--static {
-  margin-bottom: 0;
-  min-height: @input-height-base;
-
-  &.form__control--lg,
-  &.form__control--sm {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}*/
 
 
 // -------------------------
