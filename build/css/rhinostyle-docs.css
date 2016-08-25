@@ -3184,6 +3184,7 @@ textarea.form__control {
   border: 0;
   height: auto;
   padding: 0;
+  padding-right: initial;
 }
 .form__group {
   margin-bottom: 2.28571429rem;
