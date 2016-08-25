@@ -3169,10 +3169,10 @@ textarea.form__control {
   padding-top: 0.6rem;
 }
 .form__control--chevron {
-  padding-right: 3rem;
+  padding-right: 3rem !important;
 }
 .form__control--clear {
-  padding-right: 3rem;
+  padding-right: 3rem !important;
 }
 .form__control--naked {
   background: transparent;
