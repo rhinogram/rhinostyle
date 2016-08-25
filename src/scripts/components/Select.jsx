@@ -5,10 +5,11 @@ class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    label:    React.PropTypes.string,
-    name:     React.PropTypes.string,
-    options:  React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired, text: React.PropTypes.string.isRequired, selected: React.PropTypes.bool })).isRequired,
-    required: React.PropTypes.bool,
+    className:    React.PropTypes.string,
+    label:        React.PropTypes.string,
+    name:         React.PropTypes.string,
+    options:      React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired, text: React.PropTypes.string.isRequired, selected: React.PropTypes.bool })).isRequired,
+    required:     React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -38,8 +39,9 @@ class Select extends React.Component {
   }
 
   render() {
-    const { label, name, options, required } = this.props;
+    const { className, label, name, options, required } = this.props;
     const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron');
+    const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
@@ -52,7 +54,7 @@ class Select extends React.Component {
     const renderOpts = (option) => <option key={option.value} value={option.value}>{option.text}</option>;
 
     return (
-      <div className="form__group">
+      <div className={formGroupClasses}>
         {showLabel()}
         <div className="rhinoselect">
           <select className={classes} id={name} value={this.state.selected} onChange={this._onChange}>
