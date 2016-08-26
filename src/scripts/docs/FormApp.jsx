@@ -231,7 +231,7 @@ const FormApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Message Box </h3>
       <p className="site-copy">We are using a light-weight plugin, <a href="http://www.jacklmoore.com/autosize/" target="_blank">Jack Moore's Autosize</a>, with custom styling for the autogrow functionality.</p>
-      <Textarea label="Message Box" name="exampleTextarea2" placeholder="Enter some text" />
+      <MessageBox label="Message Box" name="exampleTextarea2" placeholder="Enter some text" />
     </section>
 
     <section className="site-section">
