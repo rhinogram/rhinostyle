@@ -3182,7 +3182,6 @@ textarea.form__control {
 .form__control--naked {
   background: transparent;
   border: 0;
-  height: auto;
   padding: 0;
   padding-right: initial;
 }
