@@ -14,14 +14,14 @@ class MessageBox extends React.Component {
     rows:         React.PropTypes.number,
     required:     React.PropTypes.bool,
     initialValue: React.PropTypes.string,
-    onResize:     React.PropTypes.func,
+    onResize:     React.PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     label:       '',
     name:        '',
     placeholder: '',
-    rows:        3,
+    rows:        1,
     required:    false,
   };
 
