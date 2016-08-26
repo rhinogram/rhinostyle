@@ -2,9 +2,9 @@ import React from 'react';
 import cx    from 'classnames';
 
 const Radio = (props) => {
-  const { inline, name, onChange, value } = props;
+  const { className, inline, name, onChange, value } = props;
   const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
-  const classes = cx('rhinodio', {
+  const classes = cx('rhinodio', className, {
     'rhinodio--inline': inline,
   });
 
@@ -22,6 +22,7 @@ Radio.displayName = 'Rhinodio';
 
 Radio.propTypes = {
   children:      React.PropTypes.node,
+  className:     React.PropTypes.string,
   inline:        React.PropTypes.bool,
   name:          React.PropTypes.string,
   onChange:      React.PropTypes.func,

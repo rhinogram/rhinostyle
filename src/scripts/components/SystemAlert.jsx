@@ -1,7 +1,7 @@
 import React from 'react';
 import cx    from 'classnames';
 
-import Icon from './Icon';
+import { Close, Icon } from '../components';
 
 const SystemAlert = (props) => {
   const { body, className, icon, onDismiss, type, url } = props;
@@ -33,7 +33,7 @@ const SystemAlert = (props) => {
         {body}
         {renderUrl()}
       </div>
-      <button type="button" onClick={onDismiss} className="system-alert__close"><Icon icon="close" /></button>
+      <Close onClick={onDismiss} className="system-alert__close" />
     </div>
   );
 };

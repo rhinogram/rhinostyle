@@ -73,6 +73,11 @@ class FeedbackApp extends React.Component {
         <h1 className="site-headline">Feedback</h1>
 
         <section className="site-section">
+          <h3 className="site-subheadline">Feedback</h3>
+          <p className="site-text-lead">Numberous components make up our feedback system: Callout, SystemAlert, and Toast.</p>
+        </section>
+
+        <section className="site-section">
           <h3 className="site-subheadline">Callout</h3>
           <div className="u-m-b-lg">
             <div className="site-example-callouts">

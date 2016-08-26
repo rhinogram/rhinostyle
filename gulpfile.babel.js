@@ -180,6 +180,7 @@ gulp.task('browser-sync', () => {
     server: {
       baseDir: './build',
     },
+    port: 3002,
   });
 });
 

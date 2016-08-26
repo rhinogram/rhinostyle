@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-import onClickOutside from 'react-onclickoutside';
 import DropdownMenuItem from './DropdownMenuItem';
 import DropdownMenuHeader from './DropdownMenuHeader';
 import DropdownMenuScroll from './DropdownMenuScroll';
+import DropdownWrapper from './DropdownWrapper';
 import Pill from './Pill';
 
 class DropdownMultiSelect extends React.Component {
@@ -24,7 +24,6 @@ class DropdownMultiSelect extends React.Component {
     activeKeys:   [],
     disabled:     false,
     placeholder:  'Click or type to select more ...',
-    type:         'default',
   };
 
   state = {
@@ -132,6 +131,7 @@ class DropdownMultiSelect extends React.Component {
     const { disabled, placeholder, position, children } = this.props;
     const items = this.state.items;
     const activeKeys = this.state.activeKeys;
+    const isOpen = this.state.isOpen;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', 'u-m-b-sm', {
       open:  this.state.isOpen,
@@ -164,7 +164,7 @@ class DropdownMultiSelect extends React.Component {
 
     return (
       <span>
-        <div className={dropdownClasses}>
+        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
           {/* eslint no-return-assign:0 */}
           <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <ul className={dropdownMenuClasses}>
@@ -172,7 +172,7 @@ class DropdownMultiSelect extends React.Component {
               {items.length > 0 ? items : <DropdownMenuHeader>No results</DropdownMenuHeader>}
             </DropdownMenuScroll>
           </ul>
-        </div>
+        </DropdownWrapper>
         <div>
           {activeKeys.map(renderPill)}
         </div>
@@ -181,7 +181,4 @@ class DropdownMultiSelect extends React.Component {
   }
 }
 
-const DropdownMultiSelectDocs = DropdownMultiSelect;
-export { DropdownMultiSelectDocs };
-
-export default onClickOutside(DropdownMultiSelect);
+export default DropdownMultiSelect;

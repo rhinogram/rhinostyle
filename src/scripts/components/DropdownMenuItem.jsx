@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import { Link } from 'react-router';
 import Avatar from './Avatar';
 import Icon from './Icon';
 
@@ -26,6 +27,7 @@ class DropdownMenuItem extends React.Component {
     disabled:    React.PropTypes.bool,
     icon:        customValidator,
     label:       React.PropTypes.string,
+    route:       React.PropTypes.string,
     url:         React.PropTypes.string,
   };
 
@@ -52,18 +54,27 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label } = this.props;
+    const { active, avatar, className, disabled, icon, label, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
     });
 
-    return (
-      <li className={classes}><a href="javascript:void(0)" onClick={this.handleClick}>
-        {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-        {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
-        <span className="u-text-overflow">{label}</span></a></li>/* eslint no-script-url:0 */
-    );
+    let markup = '';
+
+    if (route) {
+      markup = (<li className={classes}><Link to={route} onClick={this.handleClick}>
+      {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
+      {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+        <span className="u-text-overflow">{label}</span></Link></li>);
+    } else {
+      markup = (<li className={classes}><a href="javascript:void(0)" onClick={this.handleClick}>
+      {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
+      {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+        <span className="u-text-overflow">{label}</span></a></li>);
+    }
+
+    return markup;
   }
 }
 

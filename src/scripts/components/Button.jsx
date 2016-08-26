@@ -8,9 +8,9 @@ const Button = (props) => {
     'btn--primary':          type === 'primary',
     'btn--secondary':        type === 'secondary',
     'btn--link':             type === 'link',
-    'btn--default-outline':  type === 'default-outline',
-    'btn--inverted-outline': type === 'inverted-outline',
-    'btn--primary-outline':  type === 'primary-outline',
+    'btn--outline-default':  type === 'outline-default',
+    'btn--outline-primary':  type === 'outline-primary',
+    'btn--outline-reversed': type === 'outline-reversed',
     'btn--danger':           type === 'danger',
     'btn--sm':               size === 'small',
     'btn--lg':               size === 'large',
@@ -35,7 +35,7 @@ Button.propTypes = {
   disabled:  React.PropTypes.bool,
   iconOnly:  React.PropTypes.bool,
   size:      React.PropTypes.oneOf(['small', 'large']),
-  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'default-outline', 'inverted-outline', 'primary-outline', 'link', 'danger']),
+  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
 };
 
 Button.defaultProps = {

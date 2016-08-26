@@ -1,7 +1,7 @@
 import React from 'react';
 import cx    from 'classnames';
 
-import Icon from './Icon';
+import { Close, Icon } from '../components';
 
 class Toast extends React.Component {
   static displayName = 'RhinoToast';
@@ -40,7 +40,7 @@ class Toast extends React.Component {
       <div className={classes}>
         {renderIcon()}
         {body}
-        <button type="button" onClick={onDismiss} className="toast__close" data-dismiss="toast" aria-label="Close"><Icon icon="close" /></button>
+        <Close onClick={onDismiss} className="toast__close" />
       </div>
     );
   }

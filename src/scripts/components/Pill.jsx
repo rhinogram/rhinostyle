@@ -15,8 +15,8 @@ Pill.displayName = 'RhinoPill';
 
 Pill.propTypes = {
   className: React.PropTypes.string,
-  onClick:   React.PropTypes.func,
-  label:     React.PropTypes.string,
+  onClick:   React.PropTypes.func.isRequired,
+  label:     React.PropTypes.string.isRequired,
 };
 
 Pill.defaultProps = {

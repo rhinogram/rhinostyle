@@ -7,6 +7,11 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const pillExample = require('raw!./examples/Pill.example.txt');
+const pillDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  onClick: '[Required] - Include click function for Pill',
+  label: '[Required] - Include label for Pill',
+};
 const exampleScope  = {
   React,
   ReactDOM,
@@ -18,17 +23,13 @@ const PillApp = () =>
     <h1 className="site-headline">Pills</h1>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Pill Types</h3>
-      <p className="site-copy"><code>type="default"</code></p>
-      <div className="site-example-pills">
-        <Pill label="Ben Bruning" />
-        <Pill label="Craig Anthony" />
-      </div>
+      <h3 className="site-subheadline">Pills</h3>
+      <p className="site-text-lead">The Pill component is used to display current filters or selections.</p>
     </section>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground codeText={pillExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Pill} propDescriptionMap={pillDocs} codeText={pillExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

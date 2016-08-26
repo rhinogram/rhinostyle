@@ -9,6 +9,7 @@ class Textarea extends React.Component {
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
+    required:     React.PropTypes.bool,
     rows:         React.PropTypes.number,
     initialValue: React.PropTypes.string,
   };
@@ -17,6 +18,7 @@ class Textarea extends React.Component {
     label:       '',
     name:        '',
     placeholder: '',
+    required:    false,
     rows:        3,
   };
 
@@ -35,13 +37,13 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { className, label, name, placeholder, rows } = this.props;
+    const { className, label, name, placeholder, required, rows } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label}</label>;
+        return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
       }
 
       return false;

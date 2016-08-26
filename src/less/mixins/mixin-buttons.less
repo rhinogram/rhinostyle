@@ -7,7 +7,7 @@
 // -------------------------
 
 
-.mixin-button-variant(@color; @background; @border; @darken: 10%) {
+.mixin-button-variant(@color; @background; @border; @darken: 6%) {
   background-color: @background;
   border-color: @border;
   //box-shadow: inset 0 -.2rem 0 rgba(0, 0, 0, 0.5);
@@ -59,8 +59,8 @@
     }
   }
 
-  .badge {
-    background-color: @color;
+  .btn__badge {
+    background: @color;
     color: @background;
   }
 }
@@ -97,9 +97,15 @@
     &:active,
     &.active {
       background-color: transparent;
-      border-color: @color;
+      border-color: fade(@color, 50%);
       color: @color;
     }
+  }
+
+  .btn__badge {
+    background: @color;
+    // http://lesscss.org/functions/#color-operations-contrast
+    color: contrast(@color, @color-white, @text-color, 30%);
   }
 }
 
@@ -114,6 +120,10 @@
   font-size: @font-size;
   height: @height;
   padding: 0 @padding-horizontal;
+
+  .btn__badge {
+    font-size: @font-size - .2rem;
+  }
 }
 
 

@@ -54,7 +54,7 @@ button {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  .mixin-button-size(@btn-height-base; @padding-large; @font-size-base; @btn-border-radius-base);
+  .mixin-button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
 
   &:hover,
   &:focus {
@@ -74,22 +74,16 @@ button {
     box-shadow: none;
     cursor: not-allowed;
     opacity: .5;
+    pointer-events: none;
   }
 
   &:focus {
     .mixin-tab-focus();
   }
 
-  a& {
-    &.disabled,
-    fieldset[disabled] & {
-      pointer-events: none;
-    }
-  }
-
-  .icon {
+  /*.icon {
     font-size: @font-size-base + .2rem;
-  }
+  }*/
 }
 
 
@@ -122,62 +116,49 @@ input[type='button'] {
 // -------------------------
 
 
-/*.btn--accent {
-  .mixin-button-variant(@btn-accent-color; @btn-accent-bg; @btn-accent-border);
-}*/
-
 .btn--danger {
-  .mixin-button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border; 6%);
+  .mixin-button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
 }
 
 .btn--default {
   .mixin-button-variant(@btn-default-color; @btn-default-bg; @btn-default-border; 4%);
 }
 
-.btn--default-outline {
-  .mixin-button-outline-variant(@btn-default-outline-color;
-                                @btn-default-outline-bg;
-                                @btn-default-outline-border;
-                                @btn-default-outline-hover-bg;
-                                @btn-default-outline-hover-border);
-}
-
-/*.btn--info {
-  .mixin-button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
-}*/
-
-.btn--inverted-outline {
-  .mixin-button-outline-variant(@btn-inverted-outline-color;
-                                @btn-inverted-outline-bg;
-                                @btn-inverted-outline-border;
-                                @btn-inverted-outline-hover-bg;
-                                @btn-inverted-outline-hover-border);
+.btn--input {
+  .mixin-button-variant(@btn-default-color; @btn-default-bg; @btn-default-border; 0%);
 }
 
 .btn--primary {
   .mixin-button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
 
-.btn--primary-outline {
-  .mixin-button-outline-variant(@btn-primary-outline-color;
-                                @btn-primary-outline-bg;
-                                @btn-primary-outline-border;
-                                @btn-primary-outline-hover-bg;
-                                @btn-primary-outline-hover-border);
+.btn--outline-default {
+  .mixin-button-outline-variant(@btn-outline-default-color;
+                                @btn-outline-default-bg;
+                                @btn-outline-default-border;
+                                @btn-outline-default-hover-bg;
+                                @btn-outline-default-hover-border);
+}
+
+.btn--outline-primary {
+  .mixin-button-outline-variant(@btn-outline-primary-color;
+                                @btn-outline-primary-bg;
+                                @btn-outline-primary-border;
+                                @btn-outline-primary-hover-bg;
+                                @btn-outline-primary-hover-border);
+}
+
+.btn--outline-reversed {
+  .mixin-button-outline-variant(@btn-outline-reversed-color;
+                                @btn-outline-reversed-bg;
+                                @btn-outline-reversed-border;
+                                @btn-outline-reversed-hover-bg;
+                                @btn-outline-reversed-hover-border);
 }
 
 .btn--secondary {
   .mixin-button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
 }
-
-/*.btn--success {
-  .mixin-button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
-}*/
-
-/*.btn--warning {
-  .mixin-button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
-}*/
-
 
 
 // -------------------------
@@ -187,17 +168,17 @@ input[type='button'] {
 
 
 .btn--icon {
-  padding-left: @btn-height-base / 4;
-  padding-right: @btn-height-base / 4;
+  padding-left: @btn-icon-padding-base;
+  padding-right: @btn-icon-padding-base;
 
   &.btn--lg {
-    padding-left: @btn-height-large / 4;
-    padding-right: @btn-height-large / 4;
+    padding-left: @btn-icon-padding-large;
+    padding-right: @btn-icon-padding-large;
   }
 
   &.btn--sm {
-    padding-left: @btn-height-small / 4;
-    padding-right: @btn-height-small / 4;
+    padding-left: @btn-icon-padding-small;
+    padding-right: @btn-icon-padding-small;
   }
 }
 
@@ -248,6 +229,11 @@ input[type='button'] {
   &.btn--icon {
     text-decoration: none;
   }
+
+  .btn__badge {
+    background: @link-color;
+    color: @color-white;
+  }
 }
 
 
@@ -257,20 +243,49 @@ input[type='button'] {
 
 
 .btn--lg {
-  .mixin-button-size(@btn-height-large; @padding-xlarge; @font-size-large; @btn-border-radius-base);
+  .mixin-button-size(@btn-height-large; @btn-padding-large; @btn-font-size-large; @btn-border-radius-base);
 
-  .icon {
+  /*.icon {
     font-size: @font-size-large + .2rem;
-  }
+  }*/
 }
 
 .btn--sm {
   line-height: @line-height-small;
 
-  .mixin-button-size(@btn-height-small; @padding-base; @font-size-small; @btn-border-radius-small);
+  .mixin-button-size(@btn-height-small; @btn-padding-small; @btn-font-size-small; @btn-border-radius-small);
 
-  .icon {
+  /*.icon {
     font-size: @font-size-small + .2rem;
+  }*/
+}
+
+
+
+// -------------------------
+// Button Badges
+// -------------------------
+
+
+.btn__badge {
+  border-radius: @badge-border-radius;
+  line-height: 1;
+  padding: @badge-vertical-padding @badge-horizontal-padding;
+  position: relative;
+  text-align: center;
+  //top: .1rem;
+  //vertical-align: middle;
+  white-space: nowrap;
+  &:empty {
+    display: none;
   }
 }
+
+
+
+
+
+
+
+
 

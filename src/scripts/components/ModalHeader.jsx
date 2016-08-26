@@ -1,6 +1,6 @@
 import React                    from 'react';
 import cx                       from 'classnames';
-import { Icon, ModalSystem }    from '../components';
+import { Close, Icon, ModalSystem }    from '../components';
 
 
 class ModalHeader extends React.Component {
@@ -44,7 +44,7 @@ class ModalHeader extends React.Component {
             {title}
           </span>
         </h4>
-        {dismissable ? (<button onClick={this.closeModal} type="button" className="modal__header__close" aria-label="Close"><Icon icon="close" /></button>) : null}
+        {dismissable ? (<Close onClick={this.closeModal} className="modal__header__close" />) : null}
       </div>
     );
   }

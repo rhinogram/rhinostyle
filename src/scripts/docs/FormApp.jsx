@@ -9,10 +9,13 @@ import Playground from 'component-playground';
 const inputExample = require('raw!./examples/Input.example.txt');
 const inputDocs  = {
   addon:        '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
+  clear:        '[Optional] - Form control gets a clear value button',
   label:        '[Optional] - A label for the input',
+  naked:        '[Optional] - Form control is stripped down in appearance',
   name:         '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
   placeholder:  '[Optional] - Any placeholder text you want in the input',
-  type:         '[Optional] - As a string, what type of input you are creating - [email | password] - defaults to text',
+  type:         '[Optional] - As a string, what type of input you are creating - [email | password | number | search] - defaults to text',
+  required:     '[Optional] - Field is required and asterisk is added to label',
   initialValue: '[Optional] - Any initial value for the input',
 };
 const inputScope = {
@@ -27,6 +30,7 @@ const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
   options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, {value:string, text:string, selected:bool}',
+  required:     '[Optional] - Field is required and asterisk is added to label',
 };
 const selectScope = {
   React,
@@ -46,6 +50,7 @@ const textareaDocs  = {
   name:         '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
   placeholder:  '[Optional] - Any placeholder text you want in the textarea',
   initialValue: '[Optional] - Any initial value for the textarea',
+  required:     '[Optional] - Field is required and asterisk is added to label',
 };
 const textareaScope = {
   React,
@@ -99,13 +104,18 @@ const FormApp = () =>
     <h1 className="site-headline">Forms</h1>
 
     <section className="site-section">
+      <h3 className="site-subheadline">Forms</h3>
+      <p className="site-text-lead">Forms are assembled using our suite of custom form components. It is important to understand that form components have a <code>form__control</code> class for consistent appearance. Form components are also wrapped in a <code>form__group</code> class which provides vertical spacing. Finally, you may use the <code>form__section</code> class to provide vertical spacing between sections of a form.</p>
+    </section>
+
+    <section className="site-section">
       <h3 className="site-subheadline">Form Example</h3>
       <form className="form">
-        <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" />
-        <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" />
-        <Select name="exampleSelect1" label="Select" options={selectOpts} />
-        <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" />
-        <MessageBox label="Message Box" name="exampleTextarea2" placeholder="Enter some text" />
+        <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" required />
+        <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
+        <Select name="exampleSelect1" label="Select" options={selectOpts} required />
+        <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
+        <MessageBox label="Message Box" name="exampleTextarea2" placeholder="Enter some text" required />
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
@@ -143,11 +153,11 @@ const FormApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Input</h3>
       <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Basic Input</h5>
+        <h5 className="site-miniheadline">Common Input</h5>
         <div className="site-copy">
-          <p>Basic form inputs. Use <code>label, name, placeholder, type and initialValue</code>.</p>
+          <p>Properties include <code>initialValue, label, name, placeholder, required, and type</code>.</p>
         </div>
-        <Input name="exampleInputEmail31" label="Email Address" type="email" />
+        <Input name="exampleInputEmail31" label="Email Address" type="email" required />
         <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="text" initialValue="Ian" />
         <Input name="exampleInputPassword31" label="Password" placeholder="Password" type="password" />
       </div>
@@ -156,21 +166,35 @@ const FormApp = () =>
         <div className="site-copy">
           <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
         </div>
+        <Input addon="left" type="text" placeholder="Encrypted">
+          <Icon icon="lock" />
+        </Input>
+        <Input addon="left" type="text" placeholder="Search">
+          <Icon icon="search" />
+        </Input>
+        <Input addon="right" type="text">
+          {/* eslint no-script-url:0 */}
+          <a href="javascript:void(0)">Go For It!</a>
+        </Input>
+        <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
+          <span>Amount $</span>
+          <span>.00</span>
+        </Input>
       </div>
-      <Input addon="left" type="text" placeholder="Encrypted">
-        <Icon icon="lock" />
-      </Input>
-      <Input addon="left" type="text" placeholder="Search">
-        <Icon icon="search" />
-      </Input>
-      <Input addon="right" type="text">
-        {/* eslint no-script-url:0 */}
-        <a href="javascript:void(0)">Go For It!</a>
-      </Input>
-      <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
-        <span>Amount $</span>
-        <span>.00</span>
-      </Input>
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Clear Input</h5>
+        <div className="site-copy">
+          <p>Use the <code>clear</code> property on Inputs to include a clear value button.</p>
+        </div>
+        <Input name="exampleInputText111" label="Clear Input" type="text" clear />
+      </div>
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Naked Input</h5>
+        <div className="site-copy">
+          <p>Use the <code>naked</code> property on Inputs to strip it of background, border, height, and padding.</p>
+        </div>
+        <Input name="exampleInputText999" placeholder="Naked Input" type="text" naked />
+      </div>
     </section>
 
     <section className="site-section">

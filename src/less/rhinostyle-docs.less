@@ -9,7 +9,7 @@ body {
 }
 
 code {
-  background: @color-gray-lightest;
+  background: darken(@color-gray-lightest, 1%);
   border-radius: @border-radius-base;
   color: @color-gray;
   font-size: 1.4rem;
@@ -385,7 +385,7 @@ pre {
   border-radius: .4rem;
   color: @color-white;
   display: block;
-  font-weight: @font-weight-light;
+  //font-weight: @font-weight-light;
   padding: @padding-small @padding-half-gutter;
   transition: background-color 250ms @trans-timing-cubic;
 
@@ -476,8 +476,8 @@ pre {
 }
 
 .site-panel__header__close {
-  &:extend(.close all);
-  //top: 0;
+  font-size: 2rem;
+  margin-left: auto;
 }
 
 .site-panel__header__title {
@@ -656,7 +656,7 @@ html.panel-is-open {
 
 
 .site-wrapper {
-  //backface-visibility: hidden; // fix primary color change bug
+  backface-visibility: hidden; // fix primary color change bug
   min-height: 100vh;
   //overflow-x: hidden;
   position: relative;

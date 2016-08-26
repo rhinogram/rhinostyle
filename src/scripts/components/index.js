@@ -5,15 +5,16 @@ import BucketHeader         from './BucketHeader';
 import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
+import Close                from './Close';
 import DatePicker           from '../../../node_modules/react-datepicker/dist/react-datepicker.js';
 import Dropdown             from './Dropdown';
+import DropdownFilter       from './DropdownFilter';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
 import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
-import DropdownSelect       from './DropdownSelect';
-import DropdownSelectFilter from './DropdownSelectFilter';
+import DropdownWrapper      from './DropdownWrapper';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
@@ -46,9 +47,6 @@ import { NotificationActions }         from '../NotificationSystem';
 import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
-import { DropdownDocs }            from './Dropdown';
-import { DropdownSelectDocs }      from './DropdownSelect';
-import { DropdownMultiSelectDocs } from './DropdownMultiSelect';
 
 export {
   Avatar,
@@ -58,18 +56,16 @@ export {
   Button,
   Callout,
   Checkbox,
+  Close,
   DatePicker,
   Dropdown,
-  DropdownDocs,
+  DropdownFilter,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMultiSelect,
-  DropdownMultiSelectDocs,
   DropdownMenuScroll,
-  DropdownSelect,
-  DropdownSelectDocs,
-  DropdownSelectFilter,
+  DropdownWrapper,
   Icon,
   Input,
   Label,

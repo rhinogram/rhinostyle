@@ -2,7 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-tables">
-        <Table>
+        <Table bordered>
           <thead>
             <tr>
               <th>#</th>
@@ -14,21 +14,21 @@ class ComponentExample extends React.Component {
           <tbody>
             <tr>
               <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>Ben</td>
+              <td>Bruning</td>
+              <td>@bruning</td>
             </tr>
             <tr>
               <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td>Blake</td>
+              <td>Guilloud</td>
+              <td>@guilloud</td>
             </tr>
             <tr>
               <td>3</td>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td>Keaton</td>
+              <td>Foster</td>
+              <td>@foster</td>
             </tr>
           </tbody>
         </Table>

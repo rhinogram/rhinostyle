@@ -12,6 +12,7 @@ class MessageBox extends React.Component {
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     rows:         React.PropTypes.number,
+    required:     React.PropTypes.bool,
     initialValue: React.PropTypes.string,
     onResize:     React.PropTypes.func,
   };
@@ -21,6 +22,7 @@ class MessageBox extends React.Component {
     name:        '',
     placeholder: '',
     rows:        3,
+    required:    false,
   };
 
   state = {
@@ -70,13 +72,13 @@ class MessageBox extends React.Component {
   }
 
   render() {
-    const { className, label, name, placeholder } = this.props;
+    const { required, className, label, name, placeholder } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label}</label>;
+        return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
       }
 
       return false;

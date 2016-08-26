@@ -38,6 +38,9 @@
         <a href="../buttons/" class="site-navigation__nav__btn">Buttons</a>
       </li>
       <li>
+        <a href="../close/" class="site-navigation__nav__btn">Close</a>
+      </li>
+      <li>
         <a href="../colors/" class="site-navigation__nav__btn">Colors</a>
       </li>
       <li>
@@ -109,7 +112,7 @@
 <div id="site-panel" class="site-panel">
   <div class="site-panel__header">
     <div class="site-panel__header__title">Site Panel Header</div>
-    <button type="button" class="site-panel__header__close js-site-panel__header__close" aria-label="Close"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></button>
+    <a href="javascript:void(0)" class="close site-panel__header__close js-site-panel__header__close" role="button"><svg class="icon "><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg></a>
   </div>
   <div class="site-panel__body">
     <img src="https://unsplash.it/800/400?image=82" alt="" class="u-img-fluid u-m-b">
@@ -357,6 +360,10 @@
       <div class="site-swatch__text">u-bg-primary</div>
     </div>
     <div class="site-swatch">
+      <div class="site-swatch__sample u-bg-primary-rich"></div>
+      <div class="site-swatch__text">u-bg-primary-rich</div>
+    </div>
+    <div class="site-swatch">
       <div class="site-swatch__sample u-bg-secondary"></div>
       <div class="site-swatch__text">u-bg-secondary</div>
     </div>
@@ -379,13 +386,18 @@
     <p>Used to set text color.</p>
     <div class="site-example-utility__text-color">
       <span class="u-text-accent">u-text-accent</span>
+      <span class="u-text-body">u-text-body</span>
       <span class="u-text-danger">u-text-danger</span>
       <span class="u-text-info">u-text-info</span>
+      <span class="u-text-muted">u-text-muted</span>
       <span class="u-text-primary">u-text-primary</span>
       <span class="u-text-secondary">u-text-secondary</span>
       <span class="u-text-success">u-text-success</span>
       <span class="u-text-warning">u-text-warning</span>
-      <span class="u-text-muted">u-text-muted</span>
+      <span class="u-bg-primary">
+        <span class="u-text-white">u-text-white</span>
+      </span>
+      
     </div>
   </div>
 
