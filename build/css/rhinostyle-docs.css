@@ -3607,14 +3607,14 @@ h3 .label {
   color: inherit;
 }
 .msg--primary {
-  background: #0081c6;
+  background: #00a2f9;
   color: #fff;
 }
 .msg--primary a {
   color: inherit;
 }
-.msg--from::before,
-.msg--to::before {
+.msg--inbound::before,
+.msg--outbound::before {
   background: inherit;
   background-clip: border-box;
   border: inherit;
@@ -3625,19 +3625,19 @@ h3 .label {
   position: absolute;
   top: 1.4rem;
 }
-.msg--from {
-  margin-right: 1rem;
-}
-.msg--from::before {
-  right: -0.5rem;
-  transform: rotate(-45deg);
-}
-.msg--to {
+.msg--inbound {
   margin-left: 1rem;
 }
-.msg--to::before {
+.msg--inbound::before {
   left: -0.5rem;
   transform: rotate(45deg);
+}
+.msg--outbound {
+  margin-right: 1rem;
+}
+.msg--outbound::before {
+  right: -0.5rem;
+  transform: rotate(-45deg);
 }
 .modal-open {
   overflow: hidden;
