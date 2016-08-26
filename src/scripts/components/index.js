@@ -20,6 +20,7 @@ import Label                from './Label';
 import LoaderPulse          from './LoaderPulse';
 import LoaderLine           from './LoaderLine';
 import Message              from './Message';
+import MessageBox           from './MessageBox';
 import Modal                from './Modal';
 import ModalBody            from './ModalBody';
 import ModalContent         from './ModalContent';
@@ -75,6 +76,7 @@ export {
   LoaderPulse,
   LoaderLine,
   Message,
+  MessageBox,
   Modal,
   ModalSystem,
   ModalBody,

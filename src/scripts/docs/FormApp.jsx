@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
+import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -105,6 +105,7 @@ const FormApp = () =>
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" />
         <Select name="exampleSelect1" label="Select" options={selectOpts} />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" />
+        <MessageBox label="Message Box" name="exampleTextarea2" placeholder="Enter some text" />
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
