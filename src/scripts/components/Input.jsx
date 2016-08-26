@@ -17,7 +17,7 @@ class Input extends React.Component {
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     required:     React.PropTypes.bool,
-    type:         React.PropTypes.oneOf(['email', 'password', 'text']),
+    type:         React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search']),
   };
 
   static defaultProps = {
