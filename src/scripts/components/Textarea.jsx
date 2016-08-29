@@ -5,6 +5,7 @@ class Textarea extends React.Component {
   static displayName = 'RhinoTextarea';
 
   static propTypes = {
+    children:     React.PropTypes.node,
     className:    React.PropTypes.string,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
@@ -52,7 +53,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
+        <textarea className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}>{this.props.children}</textarea>
       </div>
     );
   }

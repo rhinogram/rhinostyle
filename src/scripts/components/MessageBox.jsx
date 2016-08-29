@@ -3,26 +3,28 @@ import cx    from 'classnames';
 import autosize from 'autosize';
 
 class MessageBox extends React.Component {
-  static displayName = 'RhinoTextarea';
+  static displayName = 'RhinoMessageBox';
 
   static propTypes = {
-    children:     React.PropTypes.node,
-    className:    React.PropTypes.string,
-    label:        React.PropTypes.string,
-    name:         React.PropTypes.string,
-    placeholder:  React.PropTypes.string,
-    rows:         React.PropTypes.number,
-    required:     React.PropTypes.bool,
-    initialValue: React.PropTypes.string,
-    onResize:     React.PropTypes.func.isRequired,
+    children:      React.PropTypes.node,
+    className:     React.PropTypes.string,
+    label:         React.PropTypes.string,
+    name:          React.PropTypes.string,
+    placeholder:   React.PropTypes.string,
+    rows:          React.PropTypes.number,
+    required:      React.PropTypes.bool,
+    initialValue:  React.PropTypes.string,
+    onResize:      React.PropTypes.func.isRequired,
+    maxHeight: React.PropTypes.node,
   };
 
   static defaultProps = {
-    label:       '',
-    name:        '',
-    placeholder: '',
-    rows:        1,
-    required:    false,
+    label:         '',
+    name:          '',
+    placeholder:   '',
+    rows:          1,
+    required:      false,
+    maxHeight: 'none',
   };
 
   state = {
@@ -73,11 +75,12 @@ class MessageBox extends React.Component {
   }
 
   render() {
-    const { required, className, label, name, placeholder } = this.props;
+    const { required, className, label, name, placeholder, maxHeight } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
     const messageBoxStyle = {
       whiteSpace: 'normal',
+      maxHeight,
     };
 
     const showLabel = () => {
@@ -90,7 +93,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} {...this.props} ref="textarea">{this.props.children}</textarea>
+        <textarea placeholder={placeholder} className={textAreaClasses} maxHeight={maxHeight} style={messageBoxStyle} {...this.props} ref="textarea">{this.props.children}</textarea>
       </div>
     );
   }
