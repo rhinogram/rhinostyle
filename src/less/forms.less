@@ -377,23 +377,22 @@ input[type='checkbox']:focus {
 // -------------------------
 
 
-[placeholder] {
-  .u-text-overflow;
-}
-
 // Override Firefox's unusual default opacity
 // see https://github.com/twbs/bootstrap/pull/11526
 &::-moz-placeholder {
+  .u-text-overflow;
   color: @input-color-placeholder;
   opacity: 1;
 }
 
 // Internet Explorer 10+
 &:-ms-input-placeholder {
+  .u-text-overflow;
   color: @input-color-placeholder;
 }
 
 &::-webkit-input-placeholder {
+  .u-text-overflow;
   color: @input-color-placeholder;
 }
 
