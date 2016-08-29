@@ -3108,25 +3108,6 @@ input[type='checkbox']:focus {
   border-left: 0;
   border-top-right-radius: 0.4rem;
 }
-.form__asterisk {
-  color: #cc2d32;
-}
-.form__clear {
-  -ms-flex-align: center;
-  align-items: center;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-.form__clear__btn {
-  background: #c5c5c5;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 1.2rem;
-  padding: .2rem;
-  position: absolute;
-  right: 1rem;
-}
 .form__control {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -3138,7 +3119,7 @@ input[type='checkbox']:focus {
   color: #6c6c6c;
   display: -ms-flexbox;
   display: flex;
-  transition: border-color 0.15s cubic-bezier(0.43, 0.41, 0.22, 0.91), box-shadow 0.15s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  transition: border-color cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s, box-shadow cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s;
   width: 100%;
   border-radius: 0.4rem;
   font-size: 1.6rem;
@@ -3174,22 +3155,35 @@ textarea.form__control {
   padding-top: 0.6rem;
 }
 .form__control--chevron {
-  padding-right: 3rem !important;
+  padding-right: 3rem;
 }
-.form__control--clear {
-  padding-right: 3rem !important;
+/*.form__control--sm {
+  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
 }
-.form__control--naked {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  padding-right: initial;
+
+.form__control--lg {
+  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
 }
+
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
+.form__control--static {
+  margin-bottom: 0;
+  min-height: @input-height-base;
+
+  &.form__control--lg,
+  &.form__control--sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}*/
 .form__group {
   margin-bottom: 2.28571429rem;
 }
-.form__section:not(:last-child) {
-  margin-bottom: 4.2rem;
+.form__optional {
+  color: #83c400;
+  font-weight: normal;
 }
 [placeholder] {
   overflow: hidden;
@@ -3218,18 +3212,16 @@ fieldset[disabled] input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin: 1rem 0;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
   position: relative;
 }
 .rhinobox label,
 .rhinodio label {
-  color: inherit;
   cursor: pointer;
   font-weight: normal;
   margin-bottom: 0;
   min-height: 2.28571429rem;
-  padding-left: 2.6rem;
-  position: relative;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3259,18 +3251,23 @@ fieldset[disabled] .rhinodio label {
   background-size: 1.6rem 1.6rem;
   border-color: #0081c6;
 }
+.rhinobox label {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+}
 .rhinobox label::before {
   background-color: #fff;
   border: 1px solid #c5c5c5;
   content: '';
   display: inline-block;
   height: 2rem;
-  left: 0;
   line-height: 1.3rem;
+  margin-right: 0.6rem;
   padding: 0;
-  position: absolute;
+  position: relative;
   speak: none;
-  top: .1rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   width: 2rem;
 }
@@ -3284,6 +3281,12 @@ fieldset[disabled] .rhinodio label {
   background-image: radial-gradient(#0081c6 60%, white 0);
   box-shadow: inset 0 0 0 2px #fff;
 }
+.rhinodio label {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+}
 .rhinodio label::before {
   background: #fff;
   border: 1px solid #c5c5c5;
@@ -3291,17 +3294,14 @@ fieldset[disabled] .rhinodio label {
   content: '';
   display: inline-block;
   height: 2rem;
-  left: 0;
-  position: absolute;
-  speak: none;
-  top: .1rem;
+  margin-right: 0.6rem;
   transition: background-color 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   width: 2rem;
 }
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin: 0.5rem 1.6rem 0.5rem 0;
+  margin-right: 1.2rem;
 }
 .rhinoselect {
   position: relative;

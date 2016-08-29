@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea, Label } from '../components';
+import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -131,7 +131,7 @@ const FormApp = () =>
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
         <Select name="exampleSelect1" label="Select" options={selectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
-        <MessageBox label="Message Box" name="exampleTextarea2" placeholder="Enter some text" required />
+        <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
@@ -231,7 +231,7 @@ const FormApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Message Box </h3>
       <p className="site-copy">We are using a light-weight plugin, <a href="http://www.jacklmoore.com/autosize/" target="_blank">Jack Moore's Autosize</a>, with custom styling for the autogrow functionality.</p>
-      <MessageBox label="Message Box" name="exampleTextarea2" placeholder="Enter some text" />
+      <MessageBox label="Message Box" name="exampleMessageBoxarea2" placeholder="Enter some text" />
     </section>
 
     <section className="site-section">

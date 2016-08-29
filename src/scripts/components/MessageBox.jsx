@@ -33,22 +33,23 @@ class MessageBox extends React.Component {
   componentDidMount() {
     autosize(this.refs.textarea);
     if (this.props.onResize) {
-      this.refs.textarea.addEventListener('autosize: resized', this.props.onResize);
+      this.refs.textarea.addEventListener('autosize:resized', this.props.onResize);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.getValue(nextProps) !== this.getValue(this.props)) {
-      this.dispatchEvent('autosize: update', true);
+    if (this._getValue(nextProps) !== this._getValue(this.props)) {
+      this.dispatchEvent('autosize:update', true);
     }
   }
 
   componentWillUnmount() {
     if (this.props.onResize) {
-      this.refs.textarea.removeEventListener('autosize: resized');
+      this.refs.textarea.removeEventListener('autosize:resized');
     }
-    this.dispatchEvent('autosize: destroy');
+    this.dispatchEvent('autosize:destroy');
   }
+
 
   dispatchEvent(EVENT_TYPE, defer) {
     const event = document.createEvent('Event');
@@ -75,6 +76,9 @@ class MessageBox extends React.Component {
     const { required, className, label, name, placeholder } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
+    const messageBoxStyle = {
+      whiteSpace: 'normal',
+    };
 
     const showLabel = () => {
       if (label) {
@@ -83,11 +87,10 @@ class MessageBox extends React.Component {
 
       return false;
     };
-
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea placeholder={placeholder} className={textAreaClasses} {...this.props} ref="textarea">{this.props.children}</textarea>
+        <textarea placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} {...this.props} ref="textarea">{this.props.children}</textarea>
       </div>
     );
   }
