@@ -220,6 +220,38 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Asterisk (for required fields)
+// -------------------------
+
+
+.form__asterisk {
+  color: @color-danger;
+}
+
+
+// -------------------------
+// Form Clear
+// -------------------------
+
+
+.form__clear {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.form__clear__btn {
+  background: @color-gray-light;
+  border-radius: 50%;
+  color: @color-white;
+  font-size: 1.2rem;
+  padding: .2rem;
+  position: absolute;
+  right: 1rem;
+}
+
+
+// -------------------------
 // Form Control
 // -------------------------
 
@@ -254,7 +286,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
+  transition: border-color .15s @trans-timing-cubic, box-shadow .15s @trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -267,7 +299,7 @@ input[type='checkbox']:focus {
     display: none;
   }
 
-  .mixin-input-size(@input-height-base; @padding-base; @font-size-base; @input-border-radius);
+  .mixin-input-size(@input-height-base; @input-padding-base; @font-size-base; @input-border-radius);
 
   &:focus {
     .mixin-tab-focus();
@@ -300,31 +332,21 @@ input[type='checkbox']:focus {
 
 // form controls that need right padding to account for chevron-down
 .form__control--chevron {
-  padding-right: @form-control-chevron-padding;
+  padding-right: @form-control-chevron-padding !important;
 }
 
-
-/*.form__control--sm {
-  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
+// form controls that need right padding to account for clear button
+.form__control--clear {
+  padding-right: @form-control-clear-padding !important;
 }
 
-.form__control--lg {
-  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
+// form controls that are stripped down in appearance
+.form__control--naked {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  padding-right: initial;
 }
-
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form__control--static {
-  margin-bottom: 0;
-  min-height: @input-height-base;
-
-  &.form__control--lg,
-  &.form__control--sm {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}*/
 
 
 // -------------------------
@@ -341,13 +363,12 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
-// Form Optional
+// Form Section
 // -------------------------
 
 
-.form__optional {
-  color: @color-secondary;
-  font-weight: normal;
+.form__section:not(:last-child) {
+  margin-bottom: (@spacer-y * 3);
 }
 
 
@@ -395,16 +416,17 @@ input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin-bottom: @margin-small;
-  margin-top: @margin-small;
+  margin: @rhinobox-rhinodio-margin 0;
   position: relative;
 
   label {
+    color: inherit;
     cursor: pointer;
-    //display: inline;
     font-weight: normal;
     margin-bottom: 0;
     min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+    padding-left: 2.6rem;
+    position: relative;
     user-select: none;
   }
 
@@ -435,8 +457,6 @@ input[type='checkbox'] {
   }
 
   label {
-    align-items: center;
-    display: flex;
 
     &::before {
       background-color: @color-white;
@@ -444,11 +464,12 @@ input[type='checkbox'] {
       content: '';
       display: inline-block;
       height: 2rem;
+      left: 0;
       line-height: 1.3rem;
-      margin-right: @margin-small;
       padding: 0;
-      position: relative;
+      position: absolute;
       speak: none;
+      top: .1rem;
       transition: background-color 250ms @trans-timing-cubic;
       width: 2rem;
     }
@@ -469,8 +490,6 @@ input[type='checkbox'] {
   }
 
   label {
-    align-items: center;
-    display: flex;
 
     &::before {
       background: @color-white;
@@ -480,7 +499,10 @@ input[type='checkbox'] {
       content: '';
       display: inline-block;
       height: 2rem;
-      margin-right: @margin-small;
+      left: 0;
+      position: absolute;
+      speak: none;
+      top: .1rem;
       transition: background-color 250ms @trans-timing-cubic;
       width: 2rem;
     }
@@ -490,7 +512,7 @@ input[type='checkbox'] {
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin-right: @margin-large;
+  margin: (@rhinobox-rhinodio-margin / 2) @margin-half-gutter (@rhinobox-rhinodio-margin / 2) 0;
 }
 
 
