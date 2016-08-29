@@ -15,7 +15,7 @@ class MessageBox extends React.Component {
     required:      React.PropTypes.bool,
     initialValue:  React.PropTypes.string,
     onResize:      React.PropTypes.func.isRequired,
-    maxHeight: React.PropTypes.node,
+    maxHeight:     React.PropTypes.node,
   };
 
   static defaultProps = {
@@ -24,7 +24,7 @@ class MessageBox extends React.Component {
     placeholder:   '',
     rows:          1,
     required:      false,
-    maxHeight: 'none',
+    maxHeight:     'none',
   };
 
   state = {
