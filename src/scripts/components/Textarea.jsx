@@ -53,7 +53,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}>{this.props.children}</textarea>
+        <textarea className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
       </div>
     );
   }

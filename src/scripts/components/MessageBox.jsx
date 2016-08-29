@@ -6,7 +6,6 @@ class MessageBox extends React.Component {
   static displayName = 'RhinoMessageBox';
 
   static propTypes = {
-    children:      React.PropTypes.node,
     className:     React.PropTypes.string,
     label:         React.PropTypes.string,
     name:          React.PropTypes.string,
@@ -15,7 +14,7 @@ class MessageBox extends React.Component {
     required:      React.PropTypes.bool,
     initialValue:  React.PropTypes.string,
     onResize:      React.PropTypes.func.isRequired,
-    maxHeight:     React.PropTypes.node,
+    maxHeight:     React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -31,6 +30,11 @@ class MessageBox extends React.Component {
     value: '',
   };
 
+  componentWillMount() {
+    if (this.props.initialValue) {
+      this.setState({ value: this.props.initialValue });
+    }
+  }
 
   componentDidMount() {
     autosize(this.refs.textarea);
@@ -76,7 +80,7 @@ class MessageBox extends React.Component {
 
   render() {
     const { required, className, label, name, placeholder, maxHeight } = this.props;
-    const textAreaClasses = cx('form__control');
+    const textAreaClasses = cx('form__control', 'u-overflow-y-auto');
     const formGroupClasses = cx('form__group', className);
     const messageBoxStyle = {
       whiteSpace: 'normal',
@@ -93,7 +97,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea placeholder={placeholder} className={textAreaClasses} maxHeight={maxHeight} style={messageBoxStyle} {...this.props} ref="textarea">{this.props.children}</textarea>
+        <textarea placeholder={placeholder} className={textAreaClasses} maxHeight={maxHeight} style={messageBoxStyle} ref="textarea"></textarea>
       </div>
     );
   }

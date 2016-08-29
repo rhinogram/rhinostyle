@@ -277,6 +277,9 @@ img {
 .u-overflow-hidden {
   overflow: hidden;
 }
+.u-overflow-y-auto {
+  overflow-y: auto !important;
+}
 .u-text-center {
   text-align: center;
 }
