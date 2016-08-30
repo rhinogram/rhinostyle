@@ -1,0 +1,11 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div className="site-example-messageBox">
+        <MessageBox label="Bio" name="biography" rows={1} placeholder="I like messages!" />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

@@ -277,6 +277,9 @@ img {
 .u-overflow-hidden {
   overflow: hidden;
 }
+.u-overflow-y-auto {
+  overflow-y: auto !important;
+}
 .u-text-center {
   text-align: center;
 }
@@ -3191,19 +3194,23 @@ textarea.form__control {
 .form__section:not(:last-child) {
   margin-bottom: 4.2rem;
 }
-[placeholder] {
+::-moz-placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-::-moz-placeholder {
   color: #bbbbbb;
   opacity: 1;
 }
 :-ms-input-placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #bbbbbb;
 }
 ::-webkit-input-placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #bbbbbb;
 }
 input[type='radio'][disabled],

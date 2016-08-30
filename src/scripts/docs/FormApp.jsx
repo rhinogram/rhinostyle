@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
+import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
 import Playground from 'component-playground';
 
@@ -56,6 +56,21 @@ const textareaScope = {
   React,
   ReactDOM,
   Textarea,
+};
+
+const messageBoxExample = require('raw!./examples/MessageBox.example.txt');
+const messageBoxDocs  = {
+  label:         '[Optional] - A label for the textarea',
+  name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
+  placeholder:   '[Optional] - Any placeholder text you want in the textarea',
+  initialValue:  '[Optional] - Any initial value for the textarea',
+  maxHeight:     '[Optional] - Controls the max-height (default: none)',
+  required:      '[Optional] - Field is required and asterisk is added to label',
+};
+const messageBoxScope = {
+  React,
+  ReactDOM,
+  MessageBox,
 };
 
 const checkboxExample = require('raw!./examples/Checkbox.example.txt');
@@ -115,6 +130,7 @@ const FormApp = () =>
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
         <Select name="exampleSelect1" label="Select" options={selectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
+        <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">
           <label htmlFor="" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
@@ -209,6 +225,17 @@ const FormApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Text Area Playground</h3>
       <Playground docClass={Textarea} propDescriptionMap={textareaDocs} codeText={textareaExample} scope={textareaScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Message Box </h3>
+      <p className="site-copy">We are using a light-weight plugin, <a href="http://www.jacklmoore.com/autosize/" target="_blank">Jack Moore's Autosize</a>, with custom styling for the autogrow functionality.</p>
+      <MessageBox label="Message Box" name="exampleMessageBoxarea2" placeholder="Enter some text" />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Message Box Playground</h3>
+      <Playground docClass={MessageBox} propDescriptionMap={messageBoxDocs} codeText={messageBoxExample} scope={messageBoxScope} noRender={false} />
     </section>
 
     <section className="site-section">
