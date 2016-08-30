@@ -5,7 +5,6 @@ class Textarea extends React.Component {
   static displayName = 'RhinoTextarea';
 
   static propTypes = {
-    children:     React.PropTypes.node,
     className:    React.PropTypes.string,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,

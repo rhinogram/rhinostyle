@@ -13,7 +13,6 @@ class MessageBox extends React.Component {
     rows:          React.PropTypes.number,
     required:      React.PropTypes.bool,
     initialValue:  React.PropTypes.string,
-    onResize:      React.PropTypes.func.isRequired,
     maxHeight:     React.PropTypes.string,
   };
 
@@ -38,8 +37,8 @@ class MessageBox extends React.Component {
 
   componentDidMount() {
     autosize(this.refs.textarea);
-    if (this.props.onResize) {
-      this.refs.textarea.addEventListener('autosize:resized', this.props.onResize);
+    if (this.onResize) {
+      this.refs.textarea.addEventListener('autosize:resized', this.onResize);
     }
   }
 
@@ -50,7 +49,7 @@ class MessageBox extends React.Component {
   }
 
   componentWillUnmount() {
-    if (this.props.onResize) {
+    if (this.onResize) {
       this.refs.textarea.removeEventListener('autosize:resized');
     }
     this.dispatchEvent('autosize:destroy');
@@ -68,6 +67,10 @@ class MessageBox extends React.Component {
     }
   }
 
+  _handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
   _getValue(props) {
     if (props) {
       if (props.valueLink) {
@@ -79,11 +82,10 @@ class MessageBox extends React.Component {
   }
 
   render() {
-    const { required, className, label, name, placeholder, maxHeight } = this.props;
+    const { required, rows, className, label, name, placeholder, maxHeight } = this.props;
     const textAreaClasses = cx('form__control', 'u-overflow-y-auto');
     const formGroupClasses = cx('form__group', className);
     const messageBoxStyle = {
-      whiteSpace: 'normal',
       maxHeight,
     };
 
@@ -97,7 +99,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea placeholder={placeholder} className={textAreaClasses} maxHeight={maxHeight} style={messageBoxStyle} ref="textarea"></textarea>
+        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} maxHeight={maxHeight} style={messageBoxStyle} value={this.state.value} onChange={this._handleChange} ref="textarea"></textarea>
       </div>
     );
   }

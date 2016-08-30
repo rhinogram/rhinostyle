@@ -66,7 +66,6 @@ const messageBoxDocs  = {
   initialValue:  '[Optional] - Any initial value for the textarea',
   maxHeight:     '[Optional] - Controls the max-height (default: none)',
   required:      '[Optional] - Field is required and asterisk is added to label',
-  onResize:      '- Callback function to the imported Autosize library',
 };
 const messageBoxScope = {
   React,
