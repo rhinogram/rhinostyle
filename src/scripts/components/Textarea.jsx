@@ -10,8 +10,8 @@ class Textarea extends React.Component {
     name:         React.PropTypes.string,
     placeholder:  React.PropTypes.string,
     required:     React.PropTypes.bool,
-    rows:         React.PropTypes.number,
     initialValue: React.PropTypes.string,
+    rows:         React.PropTypes.number,
   };
 
   static defaultProps = {

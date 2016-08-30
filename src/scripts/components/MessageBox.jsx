@@ -10,10 +10,10 @@ class MessageBox extends React.Component {
     label:         React.PropTypes.string,
     name:          React.PropTypes.string,
     placeholder:   React.PropTypes.string,
-    rows:          React.PropTypes.number,
     required:      React.PropTypes.bool,
-    initialValue:  React.PropTypes.string,
     maxHeight:     React.PropTypes.string,
+    initialValue:  React.PropTypes.string,
+    rows:          React.PropTypes.number,
   };
 
   static defaultProps = {
