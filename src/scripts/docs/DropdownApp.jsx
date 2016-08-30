@@ -73,7 +73,7 @@ const DropdownApp = () =>
       <h3 className="site-subheadline">Dropdown Types</h3>
       <p className="site-copy">Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.</p>
       <div className="site-example-dropdowns">
-        <Dropdown label="Defualt">
+        <Dropdown label="Default">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />

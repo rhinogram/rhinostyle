@@ -39,6 +39,14 @@ class Dropdown extends React.Component {
     icon: this.props.icon,
   };
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.activeKey !== this.props.activeKey) {
+      this.setState({
+        activeKey: newProps.activeKey,
+      })
+    }
+  }
+
   getChildren = () => {
     let returnChild = null;
     const children = this.props.children;
