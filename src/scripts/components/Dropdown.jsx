@@ -93,10 +93,16 @@ class Dropdown extends React.Component {
   }
 
   updateActiveKey = (index, icon) => {
-    this.setState({
-      activeKey: index,
-      icon,
-    });
+    if (!this.props.lockLabel) {
+      this.setState({
+        activeKey: index,
+        icon,
+      });
+    } else {
+      this.setState({
+        activeKey: index,
+      });
+    }
   }
 
   render() {
