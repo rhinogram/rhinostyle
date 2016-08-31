@@ -12,6 +12,7 @@ class RadioGroup extends React.Component {
     inline:        React.PropTypes.bool,
     label:         React.PropTypes.string,
     name:          React.PropTypes.string.isRequired,
+    onChange:      React.PropTypes.func,
     selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
   };
 
@@ -29,9 +30,9 @@ class RadioGroup extends React.Component {
     });
   }
 
-  handleChange = (event) => {
+  handleChange = (value) => {
     this.setState({
-      selectedValue: event.target.value,
+      selectedValue: value,
     });
   };
 
@@ -43,8 +44,19 @@ class RadioGroup extends React.Component {
 
     return React.Children.map(children, (child) => {
       if (child.type === Radio) {
+        const onChange = () => {
+          if (child.props.value) {
+            if (this.props.onChange && typeof(this.props.onChange === 'function')) {
+              this.handleChange(child.props.value);
+              this.props.onChange(child.props.value);
+            } else {
+              this.handleChange(child.props.value);
+            }
+          }
+        }
+
         returnChild = React.cloneElement(child, {
-          onChange: this.handleChange,
+          onChange,
           selectedValue,
           inline,
           name,
