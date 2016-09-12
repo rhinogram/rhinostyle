@@ -11,6 +11,7 @@ class Input extends React.Component {
     addon:        React.PropTypes.oneOf(['', 'left', 'right', 'both']),
     className:    React.PropTypes.string,
     clear:        React.PropTypes.bool,
+    disabled:     React.PropTypes.bool,
     initialValue: React.PropTypes.any,
     label:        React.PropTypes.string,
     naked:        React.PropTypes.bool,
@@ -23,6 +24,7 @@ class Input extends React.Component {
   static defaultProps = {
     addon:    '',
     clear:    false,
+    disabled: false,
     label:    '',
     naked:    false,
     name:     '',
@@ -50,7 +52,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, className, clear, label, naked, name, placeholder, required, type } = this.props;
+    const { addon, className, clear, disabled, label, naked, name, placeholder, required, type } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear':  clear,
       'form__control--naked':  naked,
@@ -73,7 +75,7 @@ class Input extends React.Component {
       if (clear) {
         inputMarkup = (
           <div className="form__clear">
-            <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={(ref) => this.clearInput = ref} />
+            <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={(ref) => this.clearInput = ref} />
             {input ? <Close className="form__clear__btn" onClick={this._handleClear} /> : null}
           </div>
         );
@@ -86,14 +88,14 @@ class Input extends React.Component {
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
                 </div>
-                <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
               </div>
             );
             break;
           case 'right':
             inputMarkup = (
               <div className="form__addon">
-                <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
                 <div className="form__addon__item form__addon__item--right">
                   {this.props.children}
                 </div>
@@ -106,7 +108,7 @@ class Input extends React.Component {
                 <div className="form__addon__item form__addon__item--left">
                   {this.props.children[0]}
                 </div>
-                <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
                 <div className="form__addon__item form__addon__item--right">
                   {this.props.children[1]}
                 </div>
@@ -114,7 +116,7 @@ class Input extends React.Component {
             );
             break;
           default:
-            inputMarkup = <input type={type} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />;
+            inputMarkup = <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />;
         }
       }
       return inputMarkup;

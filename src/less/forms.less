@@ -305,17 +305,20 @@ input[type='checkbox']:focus {
     .mixin-tab-focus();
   }
 
+  &.disabled,
   &[disabled],
   //&[readonly],
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
-    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    cursor: @cursor-disabled;
+    opacity: .6; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
+ /* &.disabled,
   &[disabled],
   fieldset[disabled] & {
     cursor: @cursor-disabled;
-  }
+  }*/
 
   textarea& {
     height: auto;
@@ -429,13 +432,14 @@ input[type='checkbox'] {
     user-select: none;
   }
 
+  /*&[disabled],
   &.disabled,
   fieldset[disabled] & {
     label {
       cursor: @cursor-disabled;
       opacity: @opacity-disabled;
     }
-  }
+  }*/
 }
 
 .rhinobox {
