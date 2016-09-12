@@ -3172,7 +3172,7 @@ select[multiple].form__control {
 fieldset[disabled] .form__control {
   background-color: #f9f9f9;
   cursor: not-allowed;
-  opacity: .6;
+  opacity: 0.6;
 }
 textarea.form__control {
   height: auto;
@@ -3223,21 +3223,13 @@ input[type='checkbox'].disabled,
 fieldset[disabled] input[type='radio'],
 fieldset[disabled] input[type='checkbox'] {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .rhinobox,
 .rhinodio {
   display: block;
   margin: 1rem 0;
   position: relative;
-  /*&[disabled],
-  &.disabled,
-  fieldset[disabled] & {
-    label {
-      cursor: @cursor-disabled;
-      opacity: @opacity-disabled;
-    }
-  }*/
 }
 .rhinobox label,
 .rhinodio label {
@@ -3252,6 +3244,11 @@ fieldset[disabled] input[type='checkbox'] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.rhinobox--disabled label,
+.rhinodio--disabled label {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 .rhinobox {
   -ms-flex-align: center;

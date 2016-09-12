@@ -311,7 +311,7 @@ input[type='checkbox']:focus {
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
     cursor: @cursor-disabled;
-    opacity: .6; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    opacity: @opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
  /* &.disabled,
@@ -431,15 +431,14 @@ input[type='checkbox'] {
     position: relative;
     user-select: none;
   }
+}
 
-  /*&[disabled],
-  &.disabled,
-  fieldset[disabled] & {
-    label {
-      cursor: @cursor-disabled;
-      opacity: @opacity-disabled;
-    }
-  }*/
+.rhinobox--disabled,
+.rhinodio--disabled {
+  label {
+    cursor: @cursor-disabled;
+    opacity: @opacity-disabled;
+  }
 }
 
 .rhinobox {

@@ -34,7 +34,7 @@ class RadioGroup extends React.Component {
     if (newProps.selectedValue !== this.props.selectedValue) {
       this.setState({
         selectedValue: newProps.selectedValue,
-      })
+      });
     }
   }
 
@@ -61,7 +61,7 @@ class RadioGroup extends React.Component {
               this.handleChange(child.props.value);
             }
           }
-        }
+        };
 
         returnChild = React.cloneElement(child, {
           onChange,
