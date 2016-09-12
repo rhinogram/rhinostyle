@@ -3673,7 +3673,6 @@ h3 .label {
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
-  display: none;
   left: 0;
   outline: 0;
   overflow: hidden;
@@ -3682,23 +3681,28 @@ h3 .label {
   top: 0;
   z-index: 1050;
 }
-.modal-anim-enter {
+/*.modal-anim-enter {
   transform: scale(1.15);
-  transition: transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  transition: transform 100ms @modal-easing;
 }
+
 .modal-anim-enter.modal-anim-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  transition: transform 300ms @modal-easing;
 }
+
 .modal-anim-leave {
+  // opacity: 1;
   transform: scale(1);
   transition: all 1000ms;
 }
+
 .modal-anim-leave.modal-anim-leave-active {
-  transform: scale(0.7);
+  // opacity: 0.00;
+  transform: scale(.7);
   transition: all 1000ms;
-}
+}*/
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;
   position: relative;
