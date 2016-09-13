@@ -3179,6 +3179,9 @@ textarea.form__control {
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 }
+.form__control--error {
+  border-color: #cc2d32;
+}
 .form__control--chevron {
   padding-right: 3rem !important;
 }
@@ -3193,9 +3196,6 @@ textarea.form__control {
 }
 .form__group {
   margin-bottom: 2.28571429rem;
-}
-.form__section:not(:last-child) {
-  margin-bottom: 4.2rem;
 }
 ::-moz-placeholder {
   overflow: hidden;
@@ -3215,6 +3215,13 @@ textarea.form__control {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #bbbbbb;
+}
+.form__section:not(:last-child) {
+  margin-bottom: 4.2rem;
+}
+.form__validation-message {
+  color: #cc2d32;
+  font-size: 1.4rem;
 }
 input[type='radio'][disabled],
 input[type='checkbox'][disabled],
@@ -3664,12 +3671,6 @@ h3 .label {
   top: 0;
   z-index: 1040;
 }
-.modal-backdrop.fade {
-  transition: opacity 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal-backdrop.in {
-  transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
@@ -3681,28 +3682,6 @@ h3 .label {
   top: 0;
   z-index: 1050;
 }
-/*.modal-anim-enter {
-  transform: scale(1.15);
-  transition: transform 100ms @modal-easing;
-}
-
-.modal-anim-enter.modal-anim-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform 300ms @modal-easing;
-}
-
-.modal-anim-leave {
-  // opacity: 1;
-  transform: scale(1);
-  transition: all 1000ms;
-}
-
-.modal-anim-leave.modal-anim-leave-active {
-  // opacity: 0.00;
-  transform: scale(.7);
-  transition: all 1000ms;
-}*/
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;
   position: relative;

@@ -327,6 +327,10 @@ input[type='checkbox']:focus {
   }
 }
 
+.form__control--error {
+  border-color: @color-danger;
+}
+
 
 // -------------------------
 // Form Control Modifiers
@@ -355,23 +359,11 @@ input[type='checkbox']:focus {
 // -------------------------
 // Form Group
 // -------------------------
+// Designed to help with the organization and spacing of vertical forms.
 
-
-// Designed to help with the organization and spacing of vertical forms. For
-// horizontal forms, use the predefined grid classes.
 
 .form__group {
   margin-bottom: @form-group-margin-bottom;
-}
-
-
-// -------------------------
-// Form Section
-// -------------------------
-
-
-.form__section:not(:last-child) {
-  margin-bottom: (@spacer-y * 3);
 }
 
 
@@ -398,6 +390,29 @@ input[type='checkbox']:focus {
   .u-text-overflow;
   color: @input-color-placeholder;
 }
+
+
+// -------------------------
+// Form Section
+// -------------------------
+// Designed to help with vertical spacing of form sections.
+
+
+.form__section:not(:last-child) {
+  margin-bottom: (@spacer-y * 3);
+}
+
+
+// -------------------------
+// Form Validation Message
+// -------------------------
+
+
+.form__validation-message {
+  color: @color-danger;
+  font-size: 1.4rem;
+}
+
 
 
 // -------------------------

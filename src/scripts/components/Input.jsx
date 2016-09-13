@@ -8,17 +8,18 @@ class Input extends React.Component {
   static displayName = 'RhinoInput';
 
   static propTypes = {
-    addon:        React.PropTypes.oneOf(['', 'left', 'right', 'both']),
-    className:    React.PropTypes.string,
-    clear:        React.PropTypes.bool,
-    disabled:     React.PropTypes.bool,
-    initialValue: React.PropTypes.any,
-    label:        React.PropTypes.string,
-    naked:        React.PropTypes.bool,
-    name:         React.PropTypes.string,
-    placeholder:  React.PropTypes.string,
-    required:     React.PropTypes.bool,
-    type:         React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search']),
+    addon:              React.PropTypes.oneOf(['', 'left', 'right', 'both']),
+    className:          React.PropTypes.string,
+    clear:              React.PropTypes.bool,
+    disabled:           React.PropTypes.bool,
+    initialValue:       React.PropTypes.any,
+    label:              React.PropTypes.string,
+    naked:              React.PropTypes.bool,
+    name:               React.PropTypes.string,
+    placeholder:        React.PropTypes.string,
+    required:           React.PropTypes.bool,
+    type:               React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search']),
+    validationMessage:  React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -52,16 +53,25 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, className, clear, disabled, label, naked, name, placeholder, required, type } = this.props;
+    const { addon, className, clear, disabled, label, naked, name, placeholder, required, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear':  clear,
       'form__control--naked':  naked,
+      'form__control--error':  validationMessage,
     });
     const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
         return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
+      }
+
+      return false;
+    };
+
+    const showValidationMessage = () => {
+      if (validationMessage) {
+        return <div className="form__validation-message">{validationMessage}</div>;
       }
 
       return false;
@@ -126,6 +136,7 @@ class Input extends React.Component {
       <div className={formGroupClasses}>
         {showLabel()}
         {showInput()}
+        {showValidationMessage()}
       </div>
     );
   }
