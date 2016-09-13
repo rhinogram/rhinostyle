@@ -16,6 +16,12 @@ export function addModal(modal) {
 export function removeModal() {
   body.classList.remove('modal-open');
 
+  TweenMax.to('.modal-backdrop', 0.35, {
+    opacity: 0,
+    /* eslint no-undef:0 */
+    ease: Expo.easeInOut,
+  });
+
   TweenMax.to('#rhino-modal', 0.35, {
     scale: 0.9,
     opacity: 0,

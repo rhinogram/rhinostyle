@@ -1,6 +1,6 @@
 /* eslint no-return-assign:0 */
-import cx                      from 'classnames';
-import React                   from 'react';
+import cx       from 'classnames';
+import React    from 'react';
 import TweenMax from 'gsap';
 
 class Modal extends React.Component {
@@ -18,19 +18,30 @@ class Modal extends React.Component {
     isOpen: false,
   };
 
-  componentDidUpdate() {
-    TweenMax.set(this.modal, {
-      display: 'flex',
-      opacity: 0,
-      scale: 0.9
-    });
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isOpen && this.props.isOpen) {
+      TweenMax.set('.modal-backdrop', {
+        opacity: 0,
+      });
 
-    TweenMax.to(this.modal, 0.35, {
-      scale: 1,
-      opacity: 1,
-      /* eslint no-undef:0 */
-      ease: Expo.easeInOut
-    });
+      TweenMax.set(this.modal, {
+        opacity: 0,
+        scale: 0.9
+      });
+
+      TweenMax.to('.modal-backdrop', 0.35, {
+        opacity: 0.5,
+        /* eslint no-undef:0 */
+        ease: Expo.easeInOut,
+      });
+
+      TweenMax.to(this.modal, 0.35, {
+        scale: 1,
+        opacity: 1,
+        /* eslint no-undef:0 */
+        ease: Expo.easeInOut
+      });
+    }
   }
 
   render() {
