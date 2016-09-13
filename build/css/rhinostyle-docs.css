@@ -1816,6 +1816,85 @@ button.close {
   border: 0;
   cursor: pointer;
 }
+.cover {
+  background: #fff;
+  bottom: 0;
+  display: none;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1080;
+}
+.cover__header {
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: none;
+  flex: none;
+}
+.cover__header__container {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.cover__header__container,
+.cover__footer__container {
+  padding: 1.6rem;
+}
+.cover__header__close-btn {
+  font-size: 2rem;
+  margin-left: auto;
+}
+.cover__header__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.cover__header__title__icon {
+  margin-right: 1rem;
+}
+.cover__body {
+  -webkit-overflow-scrolling: touch;
+  -ms-flex: 1;
+  flex: 1 1 0%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.no-touchevents .cover__body {
+  overflow-y: auto;
+}
+.cover__body__container {
+  margin: 0 auto;
+  padding: 3.2rem 1.6rem;
+}
+.cover__body__container--sm {
+  max-width: 768px;
+}
+.cover__body__container--md {
+  max-width: 992px;
+}
+.cover__body__container--lg {
+  max-width: 1200px;
+}
+.cover__footer {
+  background: #fff;
+  border-top: 1px solid #ececec;
+  -ms-flex: none;
+  flex: none;
+}
 .react-datepicker__tether-element-attached-top .react-datepicker__triangle,
 .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle,
 .react-datepicker__year-read-view--down-arrow {
@@ -3179,6 +3258,9 @@ textarea.form__control {
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 }
+.form__control--error {
+  border-color: #cc2d32;
+}
 .form__control--chevron {
   padding-right: 3rem !important;
 }
@@ -3193,9 +3275,6 @@ textarea.form__control {
 }
 .form__group {
   margin-bottom: 2.28571429rem;
-}
-.form__section:not(:last-child) {
-  margin-bottom: 4.2rem;
 }
 ::-moz-placeholder {
   overflow: hidden;
@@ -3215,6 +3294,13 @@ textarea.form__control {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #bbbbbb;
+}
+.form__section:not(:last-child) {
+  margin-bottom: 4.2rem;
+}
+.form__validation-message {
+  color: #cc2d32;
+  font-size: 1.4rem;
 }
 input[type='radio'][disabled],
 input[type='checkbox'][disabled],
@@ -3664,12 +3750,6 @@ h3 .label {
   top: 0;
   z-index: 1040;
 }
-.modal-backdrop.fade {
-  transition: opacity 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal-backdrop.in {
-  transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
@@ -3681,28 +3761,6 @@ h3 .label {
   top: 0;
   z-index: 1050;
 }
-/*.modal-anim-enter {
-  transform: scale(1.15);
-  transition: transform 100ms @modal-easing;
-}
-
-.modal-anim-enter.modal-anim-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform 300ms @modal-easing;
-}
-
-.modal-anim-leave {
-  // opacity: 1;
-  transform: scale(1);
-  transition: all 1000ms;
-}
-
-.modal-anim-leave.modal-anim-leave-active {
-  // opacity: 0.00;
-  transform: scale(.7);
-  transition: all 1000ms;
-}*/
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;
   position: relative;

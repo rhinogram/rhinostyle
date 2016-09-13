@@ -11,6 +11,7 @@ class ComponentExample extends React.Component {
         </Input>
         <Input name="exampleInputText0202" label="Clear Input" type="text" clear />
         <Input name="exampleInputText002" placeholder="Naked Input" type="text" naked />
+        <Input name="exampleInputValidation" label="Validation" initialValue="bademail.com" type="email" validationMessage="This is not a valid email address." />
       </div>
     );
   }
