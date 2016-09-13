@@ -3,7 +3,7 @@ import cx     from 'classnames';
 import TweenMax from 'gsap';
 
 
-import { CoverBody, CoverSystem, CoverFooter, CoverHeader, Cover, Close } from '../../components';
+import { CoverBody, Button, Icon, CoverSystem, CoverFooter, CoverHeader, Cover, Close } from '../../components';
 
 class CoverContainer extends React.Component {
   static displayName = 'RhinoCoverContainer';
@@ -48,10 +48,10 @@ class CoverContainer extends React.Component {
   }
 
   render() {
-    const { body, footer, icon, title } = this.props.cover;
+    const { body, footer, icon, title, iconClassName } = this.props.cover;
 
     const classes = cx('cover');
-
+    const iconClasses = cx('cover__header__title__icon', iconClassName);
     /*
     .cover__body__container--sm {
   max-width: @screen-sm-min;
@@ -70,7 +70,7 @@ class CoverContainer extends React.Component {
         <div className="cover__header">
           <div className="cover__header__container">
             <div className="cover__header__title">
-              {/* icon here className="cover__header__title__icon" */}
+              {icon ? (<Icon icon={icon} className={iconClasses} />) : null}
               <span className="u-text-overflow">Edit Jason Cole</span>
             </div>
             <Close className="cover__header__close-btn" onClick={this.closeCover} />
@@ -82,7 +82,10 @@ class CoverContainer extends React.Component {
         </div>
         <div className="cover__footer">
           <div className="cover__footer__container">
-            Footer
+            <div className="u-text-right">
+              <Button type="default" onClick={this.closeCover}>Cancel</Button>&nbsp;
+              <Button type="secondary">Save Changes</Button>
+            </div>
           </div>
         </div>
       {/*  <Cover isOpen={this.state.isOpen}>

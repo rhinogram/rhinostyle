@@ -5,6 +5,7 @@ class ComponentExample extends React.Component {
       body:         this.renderBody(),
       footer:       this.renderFooter(),
       title:        'This is a sample Cover',
+      icon:         'pencil',
     });
   };
 
@@ -42,7 +43,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.onClick}>Playground Cover</Button>
+        <Button type="primary" onClick={this.onClick}>Launch Cover</Button>
       </div>
     );
   }

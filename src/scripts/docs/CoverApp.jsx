@@ -30,7 +30,7 @@ class CoverApp extends React.Component {
     CoverSystem.addCover({
       body:         this.renderBody(),
       footer:       this.renderFooter(),
-      icon:         'cog',
+      icon:         'pencil',
       title:        'This is a Demo Cover',
     });
   };
