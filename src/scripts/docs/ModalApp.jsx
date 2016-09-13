@@ -72,9 +72,9 @@ class ModalApp extends React.Component {
           <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
 
           <div className="site-modal">
-            <Modal isOpen transitionName="modal-anim">
+            <Modal isOpen>
               <ModalContent>
-                <ModalHeader dismissable icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
+                <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
                 <ModalBody>
                   <div className="form">
                     <Input label="First Name" />
