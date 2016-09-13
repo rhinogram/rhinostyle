@@ -1,0 +1,51 @@
+class ComponentExample extends React.Component {
+  onClick = (event) => {
+    event.preventDefault();
+    CoverSystem.addCover({
+      body:         this.renderBody(),
+      footer:       this.renderFooter(),
+      title:        'This is a sample Cover',
+    });
+  };
+
+  closeModal = () => {
+    CoverSystem.removeCover();
+  }
+
+  saveChanges = () => {
+    alert('the changes have been saved');
+    this.closeModal();
+  }
+
+  renderBody = () => {
+    return (
+      <div className="form">
+        <div className="form__group">
+          <Input label="First Name" />
+        </div>
+        <div>
+          <Input label="Last Name" className="u-m-b-0" />
+        </div>
+      </div>
+    );
+  }
+
+  renderFooter = () => {
+    return (
+      <div>
+        <Button type="default" onClick={this.closeModal}>Close</Button>
+        <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <Button type="primary" onClick={this.onClick}>Playground Cover</Button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);
