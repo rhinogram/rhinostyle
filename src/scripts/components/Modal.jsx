@@ -24,7 +24,7 @@ class Modal extends React.Component {
         opacity: 0,
       });
 
-      TweenMax.set(this.modal, {
+      TweenMax.set('#rhino-modal', {
         opacity: 0,
         scale: 0.9
       });
@@ -35,7 +35,7 @@ class Modal extends React.Component {
         ease: Expo.easeInOut,
       });
 
-      TweenMax.to(this.modal, 0.35, {
+      TweenMax.to('#rhino-modal', 0.35, {
         scale: 1,
         opacity: 1,
         /* eslint no-undef:0 */
@@ -57,7 +57,7 @@ class Modal extends React.Component {
 
     if (props.isOpen) {
       returnVal = (
-        <div id="rhino-modal" ref={(ref) => this.modal = ref} className={modalClasses}>
+        <div id="rhino-modal" className={modalClasses}>
           <div className={containerClasses}>
             {props.children}
           </div>
