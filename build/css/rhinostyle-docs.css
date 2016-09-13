@@ -1816,6 +1816,82 @@ button.close {
   border: 0;
   cursor: pointer;
 }
+.cover {
+  background: #fff;
+  bottom: 0;
+  display: none;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1080;
+}
+.cover__header {
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: none;
+  flex: none;
+}
+.cover__header__container {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.cover__header__container,
+.cover__footer__container {
+  padding: 1.6rem;
+}
+.cover__body__container {
+  margin: 0 auto;
+  padding: 3.2rem 1.6rem;
+}
+.cover__body__container--sm {
+  max-width: 768px;
+}
+.cover__body__container--md {
+  max-width: 992px;
+}
+.cover__body__container--lg {
+  max-width: 1200px;
+}
+.cover__header__close-btn {
+  font-size: 2rem;
+  margin-left: auto;
+}
+.cover__header__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.cover__body {
+  -webkit-overflow-scrolling: touch;
+  -ms-flex: 1;
+  flex: 1 1 0%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.no-touchevents .cover__body {
+  overflow-y: auto;
+}
+.cover__footer {
+  background: #fff;
+  border-top: 1px solid #ececec;
+  -ms-flex: none;
+  flex: none;
+}
 .react-datepicker__tether-element-attached-top .react-datepicker__triangle,
 .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle,
 .react-datepicker__year-read-view--down-arrow {
