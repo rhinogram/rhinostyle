@@ -12,7 +12,7 @@ const avatarDocs = {
   image: '[Optional] - Include source to image',
   name: '[Optional] - Name of Avatar, as a string',
   size: '[Optional] - Size of Avatar, as a string - [small | large]',
-  type: '[Required] - Type of Avatar, as a string -  [member | patient]',
+  type: '[Optional] - Type of Avatar, as a string -  [default | member]',
 };
 const exampleScope  = {
   React,
@@ -28,21 +28,21 @@ const AvatarApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>
       <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Default Avatar</h5>
+        <p className="site-copy"><code>type="default"</code></p>
+        <div className="site-example-avatar">
+          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" />
+          <Avatar name="Ben Bruning" />
+          <Avatar />
+        </div>
+      </div>
+      <div className="u-m-b-md">
         <h5 className="site-miniheadline">Member Avatar</h5>
         <p className="site-copy"><code>type="member"</code></p>
         <div className="site-example-avatar">
           <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" type="member" />
           <Avatar name="Ben Bruning" type="member" />
           <Avatar type="member" />
-        </div>
-      </div>
-      <div className="u-m-b-md">
-        <h5 className="site-miniheadline">Patient Avatar</h5>
-        <p className="site-copy"><code>type="patient"</code></p>
-        <div className="site-example-avatar">
-          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" type="patient" />
-          <Avatar name="Ben Bruning" type="patient" />
-          <Avatar type="patient" />
         </div>
       </div>
     </section>

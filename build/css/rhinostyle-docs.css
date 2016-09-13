@@ -1082,11 +1082,11 @@ a.u-text-white:hover,
   vertical-align: middle;
   width: 6rem;
 }
+.avatar--default {
+  background-color: #c5c5c5;
+}
 .avatar--member {
   background-color: #7fc0d3;
-}
-.avatar--patient {
-  background-color: #c5c5c5;
 }
 .avatar--lg {
   font-size: 3rem;
