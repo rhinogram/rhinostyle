@@ -6,6 +6,10 @@ import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
 import Close                from './Close';
+import Cover                from './Cover';
+import CoverBody            from './CoverBody';
+import CoverFooter          from './CoverFooter';
+import CoverHeader          from './CoverHeader';
 import DatePicker           from '../../../node_modules/react-datepicker/dist/react-datepicker.js';
 import Dropdown             from './Dropdown';
 import DropdownFilter       from './DropdownFilter';
@@ -43,6 +47,7 @@ import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 
+import { CoverSystem, CoverContainer } from '../CoverSystem';
 import { NotificationActions }         from '../NotificationSystem';
 import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
@@ -57,6 +62,12 @@ export {
   Callout,
   Checkbox,
   Close,
+  Cover,
+  CoverSystem,
+  CoverBody,
+  CoverContainer,
+  CoverFooter,
+  CoverHeader,
   DatePicker,
   Dropdown,
   DropdownFilter,

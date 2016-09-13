@@ -59,5 +59,4 @@ class ModalContainer extends React.Component {
   }
 }
 
-/* eslint new-cap:0 */
 export default ModalContainer;
