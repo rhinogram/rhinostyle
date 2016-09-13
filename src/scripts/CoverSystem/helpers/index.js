@@ -4,7 +4,7 @@ import ReactDOM       from 'react-dom';
 import TweenMax       from 'gsap';
 
 const body            = document.getElementsByTagName('body')[0];
-const coverContainer  = document.createElement('span');
+const coverContainer  = document.createElement('div');
 
 /* do not render to body > https://medium.com/@dan_abramov/two-weird-tricks-that-fix-react-7cf9bbdef375#.jouodrjb5 */
 export function addCover(cover) {

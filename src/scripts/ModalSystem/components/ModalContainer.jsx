@@ -14,7 +14,6 @@ class ModalContainer extends React.Component {
     dismissable:  React.PropTypes.bool,
     footer:       React.PropTypes.node,
     icon:         React.PropTypes.string,
-    modal:        React.PropTypes.object,
     size:         React.PropTypes.string,
     title:        React.PropTypes.string,
   };
@@ -36,7 +35,7 @@ class ModalContainer extends React.Component {
   }
 
   render() {
-    const { body, dismissable, footer, icon, size, title } = this.props.modal;
+    const { body, dismissable, footer, icon, size, title } = this.props;
 
     const classes = cx('modal-backdrop');
 
