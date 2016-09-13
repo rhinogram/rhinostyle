@@ -1,6 +1,7 @@
 import ModalContainer from '../components/ModalContainer';
 import React          from 'react';
 import ReactDOM       from 'react-dom';
+import TweenMax       from 'gsap';
 
 const body            = document.getElementsByTagName('body')[0];
 const modalContainer  = document.createElement('div');
@@ -14,6 +15,15 @@ export function addModal(modal) {
 
 export function removeModal() {
   body.classList.remove('modal-open');
-  ReactDOM.unmountComponentAtNode(modalContainer);
-  body.removeChild(modalContainer);
+
+  TweenMax.to('#rhino-modal', 0.35, {
+    scale: 0.9,
+    opacity: 0,
+    /* eslint no-undef:0 */
+    ease: Expo.easeInOut,
+    onComplete: () => {
+      ReactDOM.unmountComponentAtNode(modalContainer);
+      body.removeChild(modalContainer);
+    },
+  });
 }

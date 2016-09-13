@@ -43,7 +43,7 @@ class ModalContainer extends React.Component {
     return (
       <div>
         <div className={classes}></div>
-        <Modal isOpen={this.state.isOpen} transitionName="modal-anim" size={size}>
+        <Modal isOpen={this.state.isOpen} size={size}>
           <ModalContent>
             <ModalHeader title={title} icon={icon} dismissable={dismissable} />
             <ModalBody>
