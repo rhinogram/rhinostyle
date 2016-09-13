@@ -6,6 +6,7 @@
 // Cover
 // -------------------------
 
+
 .cover {
   background: @color-white;
   bottom: 0;
@@ -17,6 +18,12 @@
   top: 0;
   z-index: @zindex-cover;
 }
+
+
+// -------------------------
+// Cover Header
+// -------------------------
+
 
 .cover__header {
   background: @color-white;
@@ -36,6 +43,41 @@
   padding: @padding-half-gutter;
 }
 
+.cover__header__close-btn {
+  font-size: @font-size-large;
+  margin-left: auto;
+}
+
+.cover__header__title {
+  .u-text-overflow;
+  align-items: center;
+  display: flex;
+  font-size: 2rem;
+  line-height: @line-height-small;
+  margin: 0;
+}
+
+.cover__header__title__icon {
+  margin-right: 1rem;
+}
+
+
+// -------------------------
+// Cover Body
+// -------------------------
+
+
+.cover__body {
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  .no-touchevents & {
+    overflow-y: auto;
+  }
+}
+
 .cover__body__container {
   margin: 0 auto;
   padding: @padding-gutter @padding-half-gutter;
@@ -53,30 +95,11 @@
   max-width: @screen-lg-min;
 }
 
-.cover__header__close-btn {
-  font-size: @font-size-large;
-  margin-left: auto;
-}
 
-.cover__header__title {
-  .u-text-overflow;
-  align-items: center;
-  display: flex;
-  font-size: 2rem;
-  line-height: @line-height-small;
-  margin: 0;
-}
+// -------------------------
+// Cover Footer
+// -------------------------
 
-.cover__body {
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: scroll;
-
-  .no-touchevents & {
-    overflow-y: auto;
-  }
-}
 
 .cover__footer {
   background: @color-white;

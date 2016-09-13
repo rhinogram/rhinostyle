@@ -1847,19 +1847,6 @@ button.close {
 .cover__footer__container {
   padding: 1.6rem;
 }
-.cover__body__container {
-  margin: 0 auto;
-  padding: 3.2rem 1.6rem;
-}
-.cover__body__container--sm {
-  max-width: 768px;
-}
-.cover__body__container--md {
-  max-width: 992px;
-}
-.cover__body__container--lg {
-  max-width: 1200px;
-}
 .cover__header__close-btn {
   font-size: 2rem;
   margin-left: auto;
@@ -1876,6 +1863,9 @@ button.close {
   line-height: 1.2;
   margin: 0;
 }
+.cover__header__title__icon {
+  margin-right: 1rem;
+}
 .cover__body {
   -webkit-overflow-scrolling: touch;
   -ms-flex: 1;
@@ -1885,6 +1875,19 @@ button.close {
 }
 .no-touchevents .cover__body {
   overflow-y: auto;
+}
+.cover__body__container {
+  margin: 0 auto;
+  padding: 3.2rem 1.6rem;
+}
+.cover__body__container--sm {
+  max-width: 768px;
+}
+.cover__body__container--md {
+  max-width: 992px;
+}
+.cover__body__container--lg {
+  max-width: 1200px;
 }
 .cover__footer {
   background: #fff;
