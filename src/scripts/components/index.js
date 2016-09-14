@@ -6,7 +6,6 @@ import Button               from './Button';
 import Callout              from './Callout';
 import Checkbox             from './Checkbox';
 import Close                from './Close';
-import Cover                from './Cover';
 import CoverBody            from './CoverBody';
 import CoverFooter          from './CoverFooter';
 import CoverHeader          from './CoverHeader';
@@ -62,7 +61,6 @@ export {
   Callout,
   Checkbox,
   Close,
-  Cover,
   CoverSystem,
   CoverBody,
   CoverContainer,

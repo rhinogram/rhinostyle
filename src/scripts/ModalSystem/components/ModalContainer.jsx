@@ -8,13 +8,13 @@ class ModalContainer extends React.Component {
   static displayName = 'RhinoModalContainer';
 
   static propTypes = {
-    body:          React.PropTypes.node,
+    body:          React.PropTypes.node.isRequired,
     dismissable:   React.PropTypes.bool,
-    footer:        React.PropTypes.node,
+    footer:        React.PropTypes.node.isRequired,
     icon:          React.PropTypes.string,
     iconClassName: React.PropTypes.string,
     size:          React.PropTypes.string,
-    title:         React.PropTypes.string,
+    title:         React.PropTypes.string.isRequired,
   };
 
   state = {

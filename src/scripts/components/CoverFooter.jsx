@@ -1,13 +1,21 @@
 import React from 'react';
-import cx    from 'classnames';
 
-const CoverFooter = (props) => <div className={cx('modal__footer', props.className)}>{props.children}</div>;
+const CoverFooter = (props) => {
+  const { children } = props;
+
+  return (
+    <div className="cover__footer">
+      <div className="cover__footer__container">
+        {children}
+      </div>
+    </div>
+  )
+};
 
 CoverFooter.displayName = 'RhinoCoverFooter';
 
 CoverFooter.propTypes = {
   children:   React.PropTypes.node,
-  className:  React.PropTypes.string,
 };
 
 export default CoverFooter;

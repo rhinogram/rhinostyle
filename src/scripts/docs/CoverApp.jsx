@@ -8,11 +8,12 @@ import Playground from 'component-playground';
 const coverExample = require('raw!./examples/Cover.example.txt');
 
 const coverDocs = {
-  body: '[Required] - Modal Body - Typically represented by a renderBody function that returns JSX',
-  footer: '[Required] - Modal Footer - Typically represented by a renderFooter function that returns JSX',
-  icon: '[Optional] - Attaches an Icon to the Modal Header',
+  body: '[Required] - Cover Body - Typically represented by a renderBody function that returns JSX',
+  footer: '[Required] - Cover Footer - Typically represented by a renderFooter function that returns JSX',
+  icon: '[Optional] - Attaches an Icon to the Cover Header',
+  iconClassName: '[Optional] - Adds a class to the Cover Header icon',
   size: '[Optional] - Container size -  [ sm | md | lg ] - defaults to a small sized cover body',
-  title: '[Required] - Modal Title -  String to represent the Modal Header',
+  title: '[Required] - Cover Title -  String to represent the Cover Header',
 };
 
 const exampleScope  = {
@@ -30,7 +31,7 @@ class CoverApp extends React.Component {
     CoverSystem.addCover({
       body:         this.renderBody(),
       footer:       this.renderFooter(),
-      icon:         'pencil',
+      icon:         'cog',
       title:        'This is a Demo Cover',
     });
   };
@@ -55,9 +56,9 @@ class CoverApp extends React.Component {
     </div>;
 
   renderFooter = () =>
-    <div>
-      <Button type="default" onClick={this.closeCover}>Close</Button>
-      <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+    <div className="u-text-right">
+      <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
+      <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
     </div>;
 
   render() {

@@ -5,7 +5,7 @@ class ComponentExample extends React.Component {
       body:         this.renderBody(),
       footer:       this.renderFooter(),
       title:        'This is a sample Cover',
-      icon:         'pencil',
+      icon:         'cog',
     });
   };
 
@@ -33,9 +33,9 @@ class ComponentExample extends React.Component {
 
   renderFooter = () => {
     return (
-      <div>
-        <Button type="default" onClick={this.closeCover}>Close</Button>
-        <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+      <div className="u-text-right">
+        <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
+        <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
       </div>
     );
   }
