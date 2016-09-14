@@ -19,7 +19,7 @@ CoverBody.displayName = 'RhinoCoverBody';
 
 CoverBody.propTypes = {
   children:   React.PropTypes.node,
-  size:       React.PropTypes.size,
+  size:       React.PropTypes.string,
 };
 
 export default CoverBody;

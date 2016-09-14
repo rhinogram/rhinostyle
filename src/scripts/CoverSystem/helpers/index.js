@@ -1,9 +1,8 @@
-import CoverContainer from '../components/CoverContainer';
-import React          from 'react';
-import ReactDOM       from 'react-dom';
-import TweenMax       from 'gsap';
+import CoverContainer     from '../components/CoverContainer';
+import React              from 'react';
+import ReactDOM           from 'react-dom';
+import { TweenMax, Expo } from 'gsap';
 
-const body            = document.getElementsByTagName('body')[0];
 const coverContainer  = document.createElement('div');
 
 /* do not render to body > https://medium.com/@dan_abramov/two-weird-tricks-that-fix-react-7cf9bbdef375#.jouodrjb5 */
@@ -16,11 +15,10 @@ export function removeCover() {
   TweenMax.to('.cover', 0.35, {
     scale: 0.9,
     opacity: 0,
-    /* eslint no-undef:0 */
     ease: Expo.easeInOut,
     onComplete: () => {
       ReactDOM.unmountComponentAtNode(coverContainer);
-      body.removeChild(coverContainer);
+      document.body.removeChild(coverContainer);
     },
   });
 }

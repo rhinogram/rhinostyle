@@ -1,7 +1,7 @@
 /* eslint no-return-assign:0 */
-import cx       from 'classnames';
-import React    from 'react';
-import TweenMax from 'gsap';
+import cx                 from 'classnames';
+import React              from 'react';
+import { TweenMax, Expo } from 'gsap';
 
 class Modal extends React.Component {
   static displayName = 'RhinoModal';
@@ -30,14 +30,12 @@ class Modal extends React.Component {
 
       TweenMax.to('.modal-backdrop', 0.35, {
         opacity: 0.5,
-        /* eslint no-undef:0 */
         ease: Expo.easeInOut,
       });
 
       TweenMax.to('#rhino-modal', 0.35, {
         scale: 1,
         opacity: 1,
-        /* eslint no-undef:0 */
         ease: Expo.easeInOut
       });
     }

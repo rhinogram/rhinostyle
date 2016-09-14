@@ -1,6 +1,6 @@
 import React                                   from 'react';
 import cx                                      from 'classnames';
-import TweenMax                                from 'gsap';
+import { TweenMax, Expo }                      from 'gsap';
 import { CoverBody, CoverFooter, CoverHeader } from '../../components';
 
 class CoverContainer extends React.Component {
@@ -29,7 +29,6 @@ class CoverContainer extends React.Component {
     TweenMax.to('.cover', 0.35, {
       scale: 1,
       opacity: 1,
-      /* eslint no-undef:0 */
       ease: Expo.easeInOut
     });
   }

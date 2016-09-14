@@ -1,6 +1,6 @@
-import React    from 'react';
-import GSAP     from 'react-gsap-enhancer';
-import TweenMax from 'gsap';
+import React              from 'react';
+import GSAP               from 'react-gsap-enhancer';
+import { TweenMax, Expo } from 'gsap';
 
 import * as NotificationActions from '../actions';
 import NotificationConstants    from '../constants';
@@ -22,7 +22,6 @@ function _showNotification({ target }) {
   return TweenMax.to(target, 0.5, {
     marginTop:  0,
     opacity:    1,
-    /* eslint no-undef:0 */
     ease:       Expo.easeOut,
   });
 }
