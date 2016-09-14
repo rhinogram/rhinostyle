@@ -71,6 +71,7 @@ class CoverApp extends React.Component {
 
         <section>
           <h3 className="site-subheadline">Playground</h3>
+          <p className="site-copy">The following properties can be used in the object you pass into CoverSystem.addCover().</p>
           <Playground docClass={CoverContainer.default} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
         </section>
 

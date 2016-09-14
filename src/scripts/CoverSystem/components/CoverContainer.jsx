@@ -14,7 +14,6 @@ class CoverContainer extends React.Component {
     className:    React.PropTypes.string,
     footer:       React.PropTypes.node,
     icon:         React.PropTypes.string,
-    cover:        React.PropTypes.object,
     size:         React.PropTypes.string,
     title:        React.PropTypes.string,
   };
@@ -33,6 +32,7 @@ class CoverContainer extends React.Component {
     TweenMax.to('.cover', 0.35, {
       scale: 1,
       opacity: 1,
+      /* eslint no-undef:0 */
       ease: Expo.easeInOut
     });
 
@@ -48,7 +48,7 @@ class CoverContainer extends React.Component {
   }
 
   render() {
-    const { body, footer, icon, title, iconClassName } = this.props.cover;
+    const { body, footer, icon, title, iconClassName } = this.props;
 
     const classes = cx('cover');
     const iconClasses = cx('cover__header__title__icon', iconClassName);

@@ -8,14 +8,13 @@ class ModalContainer extends React.Component {
   static displayName = 'RhinoModalContainer';
 
   static propTypes = {
-    body:         React.PropTypes.node,
-    children:     React.PropTypes.node,
-    className:    React.PropTypes.string,
-    dismissable:  React.PropTypes.bool,
-    footer:       React.PropTypes.node,
-    icon:         React.PropTypes.string,
-    size:         React.PropTypes.string,
-    title:        React.PropTypes.string,
+    body:          React.PropTypes.node,
+    dismissable:   React.PropTypes.bool,
+    footer:        React.PropTypes.node,
+    icon:          React.PropTypes.string,
+    iconClassName: React.PropTypes.string,
+    size:          React.PropTypes.string,
+    title:         React.PropTypes.string,
   };
 
   state = {
@@ -35,7 +34,7 @@ class ModalContainer extends React.Component {
   }
 
   render() {
-    const { body, dismissable, footer, icon, size, title } = this.props;
+    const { body, dismissable, footer, icon, iconClassName, size, title } = this.props;
 
     const classes = cx('modal-backdrop');
 
@@ -44,7 +43,7 @@ class ModalContainer extends React.Component {
         <div className={classes}></div>
         <Modal isOpen={this.state.isOpen} size={size}>
           <ModalContent>
-            <ModalHeader title={title} icon={icon} dismissable={dismissable} />
+            <ModalHeader title={title} icon={icon} iconClassName={iconClassName} dismissable={dismissable} />
             <ModalBody>
               {body}
             </ModalBody>

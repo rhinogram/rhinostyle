@@ -8,7 +8,6 @@ class Modal extends React.Component {
 
   static propTypes = {
     children:       React.PropTypes.node,
-    className:      React.PropTypes.string,
     isOpen:         React.PropTypes.bool,
     size:           React.PropTypes.string,
   };
@@ -45,9 +44,8 @@ class Modal extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const { className, size } = props;
-    const modalClasses     = cx('modal', className);
+    const { children, isOpen, size } = this.props;
+    const modalClasses     = cx('modal');
     const containerClasses = cx('modal__container', {
       'modal__container--sm': size === 'sm',
       'modal__container--lg': size === 'lg',
@@ -55,11 +53,11 @@ class Modal extends React.Component {
 
     let returnVal = null;
 
-    if (props.isOpen) {
+    if (isOpen) {
       returnVal = (
         <div id="rhino-modal" className={modalClasses}>
           <div className={containerClasses}>
-            {props.children}
+            {children}
           </div>
         </div>
       );

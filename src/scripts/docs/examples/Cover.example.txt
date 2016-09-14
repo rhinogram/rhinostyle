@@ -9,13 +9,13 @@ class ComponentExample extends React.Component {
     });
   };
 
-  closeModal = () => {
+  closeCover = () => {
     CoverSystem.removeCover();
   }
 
   saveChanges = () => {
     alert('the changes have been saved');
-    this.closeModal();
+    this.closeCover();
   }
 
   renderBody = () => {
@@ -34,7 +34,7 @@ class ComponentExample extends React.Component {
   renderFooter = () => {
     return (
       <div>
-        <Button type="default" onClick={this.closeModal}>Close</Button>
+        <Button type="default" onClick={this.closeCover}>Close</Button>
         <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
       </div>
     );
