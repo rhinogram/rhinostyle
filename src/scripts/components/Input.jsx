@@ -16,6 +16,7 @@ class Input extends React.Component {
     label:              React.PropTypes.string,
     naked:              React.PropTypes.bool,
     name:               React.PropTypes.string,
+    onChange:           React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     required:           React.PropTypes.bool,
     type:               React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search']),
@@ -45,6 +46,10 @@ class Input extends React.Component {
 
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
+
+    if (this.props.onChange && typeof(this.props.onChange === 'function')) {
+      this.props.onChange(event);
+    }
   }
 
   _handleClear = () => {
