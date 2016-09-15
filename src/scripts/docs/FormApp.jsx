@@ -13,6 +13,7 @@ const inputDocs  = {
   label:        '[Optional] - A label for the input',
   naked:        '[Optional] - Form control is stripped down in appearance',
   name:         '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
+  onChange:     '[Optional] - A callback function that is executed when the input value changes',
   placeholder:  '[Optional] - Any placeholder text you want in the input',
   type:         '[Optional] - As a string, what type of input you are creating - [email | password | number | search] - defaults to text',
   required:     '[Optional] - Field is required and asterisk is added to label',
