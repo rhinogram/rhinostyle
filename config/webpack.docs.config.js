@@ -2,7 +2,6 @@ import webpack from 'webpack';
 import path    from 'path';
 
 const dependencies = [
-  'react',
   'classnames',
   'component-playground',
 ];
