@@ -42,7 +42,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.onClick}>Playground Modal</Button>
+        <Button type="primary" onClick={this.onClick}>Launch Modal</Button>
       </div>
     );
   }

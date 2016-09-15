@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownFilter, DropdownDocs, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, DropdownMultiSelectDocs, Icon } from '../components';
+import { Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, Icon } from '../components';
 
 import Playground from 'component-playground';
 
@@ -52,13 +52,11 @@ const exampleScope  = {
   ReactDOM,
   Dropdown,
   DropdownFilter,
-  DropdownDocs,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMenuScroll,
   DropdownMultiSelect,
-  DropdownMultiSelectDocs,
   Icon,
 };
 
@@ -75,7 +73,7 @@ const DropdownApp = () =>
       <h3 className="site-subheadline">Dropdown Types</h3>
       <p className="site-copy">Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.</p>
       <div className="site-example-dropdowns">
-        <Dropdown label="Defualt">
+        <Dropdown label="Default">
           <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -281,7 +279,7 @@ const DropdownApp = () =>
       <h3 className="site-subheadline">Dropdown</h3>
       <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button's text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
       <p className="site-copy">Use <code>type="input"</code> if you want dropdown to appear like a form input.</p>
-      <Playground docClass={DropdownDocs} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={Dropdown} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -290,7 +288,7 @@ const DropdownApp = () =>
         This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as "pills" below the dropdown.
       </p>
 
-      <Playground docClass={DropdownMultiSelectDocs} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={DropdownMultiSelect} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">

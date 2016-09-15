@@ -9,9 +9,9 @@ class ComponentExample extends React.Component {
           <Avatar size="large" type="member" />
         </div>
         <div className="u-m-b">
-          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" type="patient" />
-          <Avatar image="//badimage.jpg" name="Craig Anthony" type="patient" />
-          <Avatar name="Craig Anthony" type="patient" />
+          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" />
+          <Avatar image="//badimage.jpg" name="Craig Anthony" />
+          <Avatar name="Craig Anthony" />
           <Avatar type="patient" />
         </div>
         <div>

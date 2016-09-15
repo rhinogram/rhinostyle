@@ -12,6 +12,7 @@ const modalDocs = {
   dismissable: '[Optional] - Gives an X icon in Modal Header to close Modal',
   footer: '[Required] - Modal Footer - Typically represented by a renderFooter function that returns JSX',
   icon: '[Optional] - Attaches an Icon to the Modal Header',
+  iconClassName: '[Optional] - Adds a class to the Modal Header icon',
   size: '[Optional] - Modal size -  [ sm | lg ] - defaults to a normal sized modal',
   title: '[Required] - Modal Title -  String to represent the Modal Header',
 };
@@ -72,9 +73,9 @@ class ModalApp extends React.Component {
           <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
 
           <div className="site-modal">
-            <Modal isOpen transitionName="modal-anim">
+            <Modal isOpen>
               <ModalContent>
-                <ModalHeader dismissable icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
+                <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
                 <ModalBody>
                   <div className="form">
                     <Input label="First Name" />
@@ -91,14 +92,9 @@ class ModalApp extends React.Component {
 
         </section>
 
-        <section className="site-section">
-          <h3 className="site-subheadline">Modal Sizes</h3>
-          <p>Add the <code>modal__container--sm</code> modifier to <code>modal__container</code> for a smaller modal.</p>
-          <p>Add the <code>modal__container--lg</code> modifier to <code>modal__container</code> for a larger modal.</p>
-        </section>
-
         <section>
           <h3 className="site-subheadline">Playground</h3>
+          <p className="site-copy">The following properties can be used in the object you pass into ModalSystem.addModal().</p>
           <Playground docClass={ModalContainer.default} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
         </section>
 

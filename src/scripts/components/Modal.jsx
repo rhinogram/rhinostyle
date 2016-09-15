@@ -1,47 +1,70 @@
-import cx                      from 'classnames';
-import React                   from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+/* eslint no-return-assign:0 */
+import cx                 from 'classnames';
+import React              from 'react';
+import { TweenMax, Expo } from 'gsap';
 
-const Modal = (props) => {
-  const { className, size } = props;
-  const modalClasses     = cx('modal', className);
-  const containerClasses = cx('modal__container', {
-    'modal__container--sm': size === 'sm',
-    'modal__container--lg': size === 'lg',
-  });
+class Modal extends React.Component {
+  static displayName = 'RhinoModal';
 
-  let returnVal = null;
+  static propTypes = {
+    children:       React.PropTypes.node,
+    isOpen:         React.PropTypes.bool,
+    size:           React.PropTypes.string,
+  };
 
-  if (props.isOpen) {
-    returnVal = (
-      <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={10000} transitionLeaveTimeout={10000}>
-        <div className={modalClasses} style={{ display: 'block' }}>
-          <div className={containerClasses}>
-            {props.children}
-          </div>
-        </div>
-      </ReactCSSTransitionGroup>
-    );
-  } else {
-    returnVal = <ReactCSSTransitionGroup transitionName={props.transitionName} transitionEnterTimeout={10000} transitionLeaveTimeout={10000} />;
+  static defaultProps = {
+    type:   'default',
+    isOpen: false,
+  };
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isOpen && this.props.isOpen) {
+      TweenMax.set('.modal-backdrop', {
+        opacity: 0,
+      });
+
+      TweenMax.set('#rhino-modal', {
+        opacity: 0,
+        scale: 0.9
+      });
+
+      TweenMax.to('.modal-backdrop', 0.35, {
+        opacity: 0.5,
+        ease: Expo.easeInOut,
+      });
+
+      TweenMax.to('#rhino-modal', 0.35, {
+        scale: 1,
+        opacity: 1,
+        ease: Expo.easeInOut
+      });
+    }
   }
 
-  return returnVal;
-};
+  render() {
+    const { children, isOpen, size } = this.props;
+    const modalClasses     = cx('modal');
+    const containerClasses = cx('modal__container', {
+      'modal__container--sm': size === 'sm',
+      'modal__container--lg': size === 'lg',
+    });
 
-Modal.displayName = 'RhinoModal';
+    let returnVal = null;
 
-Modal.propTypes = {
-  children:       React.PropTypes.node,
-  className:      React.PropTypes.string,
-  isOpen:         React.PropTypes.bool,
-  size:           React.PropTypes.string,
-  transitionName: React.PropTypes.node,
-};
+    if (isOpen) {
+      returnVal = (
+        <div id="rhino-modal" className={modalClasses}>
+          <div className={containerClasses}>
+            {children}
+          </div>
+        </div>
+      );
+    } else {
+      returnVal = null;
+    }
 
-Modal.defaultProps = {
-  type:   'default',
-  isOpen: false,
-};
+    return returnVal;
+  }
+}
 
 export default Modal;

@@ -29,7 +29,7 @@ label {
   color: @color-gray;
   display: inline-block;
   font-weight: @font-weight-semibold;
-  margin-bottom: .5rem;
+  margin-bottom: @margin-small;
 }
 
 legend {
@@ -230,6 +230,28 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Clear
+// -------------------------
+
+
+.form__clear {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.form__clear__btn {
+  background: @color-gray-light;
+  border-radius: 50%;
+  color: @color-white;
+  font-size: 1.2rem;
+  padding: .2rem;
+  position: absolute;
+  right: 1rem;
+}
+
+
+// -------------------------
 // Form Control
 // -------------------------
 
@@ -264,7 +286,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  transition: border-color @trans-timing-cubic .15s, box-shadow @trans-timing-cubic .15s;
+  transition: border-color .15s @trans-timing-cubic, box-shadow .15s @trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -283,23 +305,30 @@ input[type='checkbox']:focus {
     .mixin-tab-focus();
   }
 
+  &.disabled,
   &[disabled],
   //&[readonly],
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
-    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    cursor: @cursor-disabled;
+    opacity: @opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
+ /* &.disabled,
   &[disabled],
   fieldset[disabled] & {
     cursor: @cursor-disabled;
-  }
+  }*/
 
   textarea& {
     height: auto;
     padding-bottom: @padding-small;
     padding-top: @padding-small;
   }
+}
+
+.form__control--error {
+  border-color: @color-danger;
 }
 
 
@@ -310,53 +339,31 @@ input[type='checkbox']:focus {
 
 // form controls that need right padding to account for chevron-down
 .form__control--chevron {
-  padding-right: @form-control-chevron-padding;
+  padding-right: @form-control-chevron-padding !important;
 }
 
-
-/*.form__control--sm {
-  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
+// form controls that need right padding to account for clear button
+.form__control--clear {
+  padding-right: @form-control-clear-padding !important;
 }
 
-.form__control--lg {
-  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
+// form controls that are stripped down in appearance
+.form__control--naked {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  padding-right: initial;
 }
-
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form__control--static {
-  margin-bottom: 0;
-  min-height: @input-height-base;
-
-  &.form__control--lg,
-  &.form__control--sm {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}*/
 
 
 // -------------------------
 // Form Group
 // -------------------------
+// Designed to help with the organization and spacing of vertical forms.
 
-
-// Designed to help with the organization and spacing of vertical forms. For
-// horizontal forms, use the predefined grid classes.
 
 .form__group {
   margin-bottom: @form-group-margin-bottom;
-}
-
-
-// -------------------------
-// Form Section
-// -------------------------
-
-
-.form__section:not(:last-child) {
-  margin-bottom: (@spacer-y * 3);
 }
 
 
@@ -365,25 +372,47 @@ input[type='checkbox']:focus {
 // -------------------------
 
 
-[placeholder] {
-  .u-text-overflow;
-}
-
 // Override Firefox's unusual default opacity
 // see https://github.com/twbs/bootstrap/pull/11526
 &::-moz-placeholder {
+  .u-text-overflow;
   color: @input-color-placeholder;
   opacity: 1;
 }
 
 // Internet Explorer 10+
 &:-ms-input-placeholder {
+  .u-text-overflow;
   color: @input-color-placeholder;
 }
 
 &::-webkit-input-placeholder {
+  .u-text-overflow;
   color: @input-color-placeholder;
 }
+
+
+// -------------------------
+// Form Section
+// -------------------------
+// Designed to help with vertical spacing of form sections.
+
+
+.form__section:not(:last-child) {
+  margin-bottom: (@spacer-y * 3);
+}
+
+
+// -------------------------
+// Form Validation Message
+// -------------------------
+
+
+.form__validation-message {
+  color: @color-danger;
+  font-size: 1.4rem;
+}
+
 
 
 // -------------------------
@@ -417,13 +446,13 @@ input[type='checkbox'] {
     position: relative;
     user-select: none;
   }
+}
 
-  &.disabled,
-  fieldset[disabled] & {
-    label {
-      cursor: @cursor-disabled;
-      opacity: @opacity-disabled;
-    }
+.rhinobox--disabled,
+.rhinodio--disabled {
+  label {
+    cursor: @cursor-disabled;
+    opacity: @opacity-disabled;
   }
 }
 
@@ -698,6 +727,3 @@ input[type='checkbox'] {
   width: @switcher-toggler-width;
   z-index: 10;
 }
-
-
-

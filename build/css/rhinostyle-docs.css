@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.0-rc14 */
+/*! rhinostyle v0.1.2 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -276,6 +276,9 @@ img {
 }
 .u-overflow-hidden {
   overflow: hidden;
+}
+.u-overflow-y-auto {
+  overflow-y: auto !important;
 }
 .u-text-center {
   text-align: center;
@@ -1079,11 +1082,11 @@ a.u-text-white:hover,
   vertical-align: middle;
   width: 6rem;
 }
+.avatar--default {
+  background-color: #c5c5c5;
+}
 .avatar--member {
   background-color: #7fc0d3;
-}
-.avatar--patient {
-  background-color: #c5c5c5;
 }
 .avatar--lg {
   font-size: 3rem;
@@ -1790,7 +1793,11 @@ fieldset[disabled] .btn--link:focus {
   border-right: 0.5rem solid transparent;
 }
 .close {
+  -ms-flex-align: center;
+  align-items: center;
   color: inherit;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   line-height: 1;
   opacity: .75;
   position: relative;
@@ -1808,6 +1815,85 @@ button.close {
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+.cover {
+  background: #fff;
+  bottom: 0;
+  display: none;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1080;
+}
+.cover__header {
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: none;
+  flex: none;
+}
+.cover__header__container {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.cover__header__container,
+.cover__footer__container {
+  padding: 1.6rem;
+}
+.cover__header__close-btn {
+  font-size: 2rem;
+  margin-left: auto;
+}
+.cover__header__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.cover__header__title__icon {
+  margin-right: 1rem;
+}
+.cover__body {
+  -webkit-overflow-scrolling: touch;
+  -ms-flex: 1;
+  flex: 1 1 0%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.no-touchevents .cover__body {
+  overflow-y: auto;
+}
+.cover__body__container {
+  margin: 0 auto;
+  padding: 3.2rem 1.6rem;
+}
+.cover__body__container--sm {
+  max-width: 768px;
+}
+.cover__body__container--md {
+  max-width: 992px;
+}
+.cover__body__container--lg {
+  max-width: 1200px;
+}
+.cover__footer {
+  background: #fff;
+  border-top: 1px solid #ececec;
+  -ms-flex: none;
+  flex: none;
 }
 .react-datepicker__tether-element-attached-top .react-datepicker__triangle,
 .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle,
@@ -2977,7 +3063,7 @@ label {
   color: #9f9f9f;
   display: inline-block;
   font-weight: 700;
-  margin-bottom: .5rem;
+  margin-bottom: 0.6rem;
 }
 legend {
   border: 0;
@@ -3107,6 +3193,22 @@ input[type='checkbox']:focus {
 .form__asterisk {
   color: #cc2d32;
 }
+.form__clear {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+.form__clear__btn {
+  background: #c5c5c5;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: .2rem;
+  position: absolute;
+  right: 1rem;
+}
 .form__control {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -3118,13 +3220,18 @@ input[type='checkbox']:focus {
   color: #6c6c6c;
   display: -ms-flexbox;
   display: flex;
-  transition: border-color cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s, box-shadow cubic-bezier(0.43, 0.41, 0.22, 0.91) 0.15s;
+  transition: border-color 0.15s cubic-bezier(0.43, 0.41, 0.22, 0.91), box-shadow 0.15s cubic-bezier(0.43, 0.41, 0.22, 0.91);
   width: 100%;
   border-radius: 0.4rem;
   font-size: 1.6rem;
   height: 3.6rem;
   padding: 0 1rem;
   vertical-align: middle;
+  /* &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }*/
 }
 .form__control::-ms-clear {
   display: none;
@@ -3139,64 +3246,61 @@ select[multiple].form__control {
 .form__control:focus {
   outline: 0;
 }
+.form__control.disabled,
 .form__control[disabled],
 fieldset[disabled] .form__control {
-  background-color: #ececec;
-  opacity: 1;
-}
-.form__control[disabled],
-fieldset[disabled] .form__control {
+  background-color: #f9f9f9;
   cursor: not-allowed;
+  opacity: 0.6;
 }
 textarea.form__control {
   height: auto;
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 }
+.form__control--error {
+  border-color: #cc2d32;
+}
 .form__control--chevron {
-  padding-right: 3rem;
+  padding-right: 3rem !important;
 }
-/*.form__control--sm {
-  .mixin-input-size(@input-height-small; @padding-base; @font-size-small; @input-border-radius-small);
+.form__control--clear {
+  padding-right: 3rem !important;
 }
-
-.form__control--lg {
-  .mixin-input-size(@input-height-large; @padding-xlarge; @font-size-large; @input-border-radius-large);
+.form__control--naked {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  padding-right: initial;
 }
-
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
-
-.form__control--static {
-  margin-bottom: 0;
-  min-height: @input-height-base;
-
-  &.form__control--lg,
-  &.form__control--sm {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}*/
 .form__group {
   margin-bottom: 2.28571429rem;
 }
-.form__section:not(:last-child) {
-  margin-bottom: 4.2rem;
-}
-[placeholder] {
+::-moz-placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-::-moz-placeholder {
   color: #bbbbbb;
   opacity: 1;
 }
 :-ms-input-placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #bbbbbb;
 }
 ::-webkit-input-placeholder {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #bbbbbb;
+}
+.form__section:not(:last-child) {
+  margin-bottom: 4.2rem;
+}
+.form__validation-message {
+  color: #cc2d32;
+  font-size: 1.4rem;
 }
 input[type='radio'][disabled],
 input[type='checkbox'][disabled],
@@ -3205,7 +3309,7 @@ input[type='checkbox'].disabled,
 fieldset[disabled] input[type='radio'],
 fieldset[disabled] input[type='checkbox'] {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .rhinobox,
 .rhinodio {
@@ -3227,12 +3331,10 @@ fieldset[disabled] input[type='checkbox'] {
   -ms-user-select: none;
   user-select: none;
 }
-.rhinobox.disabled label,
-.rhinodio.disabled label,
-fieldset[disabled] .rhinobox label,
-fieldset[disabled] .rhinodio label {
+.rhinobox--disabled label,
+.rhinodio--disabled label {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .rhinobox {
   -ms-flex-align: center;
@@ -3648,16 +3750,9 @@ h3 .label {
   top: 0;
   z-index: 1040;
 }
-.modal-backdrop.fade {
-  transition: opacity 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal-backdrop.in {
-  transition: opacity 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
 .modal {
   -webkit-overflow-scrolling: touch;
   bottom: 0;
-  display: none;
   left: 0;
   outline: 0;
   overflow: hidden;
@@ -3665,23 +3760,6 @@ h3 .label {
   right: 0;
   top: 0;
   z-index: 1050;
-}
-.modal-anim-enter {
-  transform: scale(1.15);
-  transition: transform 100ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal-anim-enter.modal-anim-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform 300ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
-}
-.modal-anim-leave {
-  transform: scale(1);
-  transition: all 1000ms;
-}
-.modal-anim-leave.modal-anim-leave-active {
-  transform: scale(0.7);
-  transition: all 1000ms;
 }
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;

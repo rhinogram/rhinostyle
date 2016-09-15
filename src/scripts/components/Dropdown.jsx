@@ -2,8 +2,8 @@ import React from 'react';
 import cx from 'classnames';
 import DropdownMenuItem from './DropdownMenuItem';
 import DropdownFilter from './DropdownFilter';
+import DropdownWrapper from './DropdownWrapper';
 import Icon from './Icon';
-import onClickOutside from 'react-onclickoutside';
 
 class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
@@ -38,6 +38,14 @@ class Dropdown extends React.Component {
     activeKey: this.props.activeKey,
     icon: this.props.icon,
   };
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.activeKey !== this.props.activeKey) {
+      this.setState({
+        activeKey: newProps.activeKey,
+      })
+    }
+  }
 
   getChildren = () => {
     let returnChild = null;
@@ -93,16 +101,23 @@ class Dropdown extends React.Component {
   }
 
   updateActiveKey = (index, icon) => {
-    this.setState({
-      activeKey: index,
-      icon,
-    });
+    if (!this.props.lockLabel) {
+      this.setState({
+        activeKey: index,
+        icon,
+      });
+    } else {
+      this.setState({
+        activeKey: index,
+      });
+    }
   }
 
   render() {
     const { block, className, disabled, hideCaret, label, lockLabel, position, size, type, wide } = this.props;
     const activeKey = this.state.activeKey;
     const icon = this.state.icon;
+    const isOpen = this.state.isOpen;
 
     const dropdownClasses = cx('dropdown', {
       open:  this.state.isOpen,
@@ -154,7 +169,7 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <div className={dropdownClasses}>
+      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
         <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
           {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>}
@@ -162,12 +177,9 @@ class Dropdown extends React.Component {
         <ul className={dropdownMenuClasses}>
           {this.getChildren()}
         </ul>
-      </div>
+      </DropdownWrapper>
     );
   }
 }
 
-const DropdownDocs = Dropdown;
-export { DropdownDocs };
-
-export default onClickOutside(Dropdown);
+export default Dropdown;

@@ -16,8 +16,8 @@ const Button = (props) => {
     'btn--lg':               size === 'large',
     'btn--block':            block,
     'btn--icon':             iconOnly,
-    'active':                active, //eslint-disable-line
-    'disabled':              disabled, //eslint-disable-line
+    active,
+    disabled,
   });
 
   /* eslint no-script-url:0 */

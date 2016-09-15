@@ -7,6 +7,7 @@ class Checkbox extends React.Component {
   static propTypes = {
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
+    disabled:  React.PropTypes.bool,
     inline:    React.PropTypes.bool,
     isChecked: React.PropTypes.bool,
     name:      React.PropTypes.string.isRequired,
@@ -32,15 +33,16 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { className, inline, name, onClick } = this.props;
+    const { className, disabled, inline, name, onClick } = this.props;
     const { checked } = this.state;
     const classes = cx('rhinobox', className, {
-      'rhinobox--inline': inline,
+      'rhinobox--inline':   inline,
+      'rhinobox--disabled': disabled,
     });
 
     return (
       <div className={classes}>
-        <input type="checkbox" id={name} checked={checked} onChange={this._toggleChecked} onClick={onClick} />
+        <input type="checkbox" disabled={disabled} id={name} checked={checked} onChange={this._toggleChecked} onClick={onClick} />
         <label htmlFor={name}>
           {this.props.children}
         </label>

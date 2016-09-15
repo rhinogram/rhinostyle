@@ -1,6 +1,6 @@
 {
   "name": "rhinostyle",
-  "version": "0.1.0-rc14",
+  "version": "0.1.2",
   "description": "Components, patterns, and style guide for Rhinogram.",
   "main": "dist/scripts/rhinostyle.min.js",
   "peerDependencies": {
@@ -69,6 +69,7 @@
     "url": "https://github.com/rhinogram/rhinostyle"
   },
   "dependencies": {
+    "autosize": "^3.0.17",
     "classnames": "^2.2.4",
     "flux": "^2.1.1",
     "gsap": "^1.18.4",

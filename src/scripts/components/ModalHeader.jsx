@@ -8,7 +8,6 @@ class ModalHeader extends React.Component {
 
   static propTypes = {
     children:       React.PropTypes.node,
-    className:      React.PropTypes.string,
     dismissable:    React.PropTypes.bool,
     icon:           React.PropTypes.string,
     iconClassName:  React.PropTypes.string,
@@ -32,8 +31,8 @@ class ModalHeader extends React.Component {
   }
 
   render() {
-    const { className, dismissable, icon, iconClassName, title } = this.props;
-    const classes = cx('modal__header', className);
+    const { dismissable, icon, iconClassName, title } = this.props;
+    const classes = cx('modal__header');
     const iconClasses = cx('modal__header__title__icon', iconClassName);
 
     return (

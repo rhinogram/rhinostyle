@@ -9,12 +9,13 @@ class Avatar extends React.Component {
     image:     React.PropTypes.string,
     name:      React.PropTypes.string,
     size:      React.PropTypes.oneOf(['small', 'default', 'large']),
-    type:      React.PropTypes.oneOf(['member', 'patient']).isRequired,
+    type:      React.PropTypes.oneOf(['default', 'member']),
   };
 
   static defaultProps = {
     image: '',
     size: 'default',
+    type: 'default',
   };
 
   state = {
@@ -38,7 +39,7 @@ class Avatar extends React.Component {
     const classes = cx('avatar', className, {
       'avatar--sm': size === 'small',
       'avatar--lg': size === 'large',
-      'avatar--patient':  type === 'patient',
+      'avatar--default':  type === 'default',
       'avatar--member': type === 'member',
     });
     const styles = {
