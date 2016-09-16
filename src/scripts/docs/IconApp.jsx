@@ -180,6 +180,13 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="globe" />
+        </div>
+        <div className="site-swatch__text"><strong>Globe</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="inbox" />
         </div>
         <div className="site-swatch__text"><strong>Inbox</strong></div>
