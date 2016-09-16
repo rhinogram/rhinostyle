@@ -34,18 +34,19 @@ class CoverContainer extends React.Component {
   }
 
   render() {
-    const { body, footer, icon, size, title, iconClassName } = this.props;
+    const { children, content } = this.props;
     const classes = cx('cover');
 
     return (
       <div className={classes}>
-        <CoverHeader icon={icon} iconClassName={iconClassName} title={title} />
+      {/*  <CoverHeader icon={icon} iconClassName={iconClassName} title={title} />
         <CoverBody size={size}>
           {body}
         </CoverBody>
         <CoverFooter>
           {footer}
-        </CoverFooter>
+        </CoverFooter>*/}
+        {content}
       </div>
     );
   }

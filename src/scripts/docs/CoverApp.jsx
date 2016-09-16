@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { CoverSystem, CoverContainer, Button, Input } from '../components';
+import { CoverSystem, CoverContainer, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
@@ -22,19 +22,40 @@ const exampleScope  = {
   Button,
   Input,
   CoverSystem,
+  Icon,
 };
 
 class CoverApp extends React.Component {
 
+  state = {
+    firstName: '',
+    lastName: '',
+  }
+
   onClick = (event) => {
     event.preventDefault();
     CoverSystem.addCover({
-      body:         this.renderBody(),
-      footer:       this.renderFooter(),
-      icon:         'cog',
-      title:        'This is a Demo Cover',
+      content: this.renderContent(),
+      // body:         this.renderBody(),
+      // footer:       this.renderFooter(),
+      // icon:         'cog',
+      // title:        'This is a Demo Cover',
     });
   };
+
+
+  handleEditProfileSave = () => {
+    console.log('this');
+  }
+
+  handleChange = (name, value) => {
+    console.log('changing')
+    const newState = {};
+
+    newState[name] = value;
+    this.setState(newState);
+  }
+
 
   closeCover = () => {
     CoverSystem.removeCover();
@@ -55,6 +76,27 @@ class CoverApp extends React.Component {
       </div>
     </div>;
 
+  renderContent = () =>
+    <div>
+      <CoverHeader title="test" />
+      <CoverBody>
+        <div className="form">
+          <div className="form__group">
+          <Input label="First Name" name="firstName" initialValue="hey" required onChange={this.handleChange} />
+          </div>
+          <div>
+            <Input label="Last Name" className="u-m-b-0" />
+          </div>
+        </div>
+      </CoverBody>
+      <CoverFooter>
+        <div className="u-text-right">
+          <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
+          <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+        </div>
+      </CoverFooter>
+    </div>;
+
   renderFooter = () =>
     <div className="u-text-right">
       <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
@@ -62,6 +104,7 @@ class CoverApp extends React.Component {
     </div>;
 
   render() {
+    console.log('re rendering')
     return (
       <div>
         <h1 className="site-headline">Covers</h1>
