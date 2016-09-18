@@ -15,6 +15,10 @@ class CoverContainer extends React.Component {
     title:         React.PropTypes.string.isRequired,
   };
 
+  state = {
+    visible: false,
+  }
+
   static defaultProps = {
     size: 'sm',
   };
@@ -36,9 +40,10 @@ class CoverContainer extends React.Component {
   render() {
     const { children, content } = this.props;
     const classes = cx('cover');
+    console.log('container shit3!', this.props, this.state.visible)
 
-    return (
-      <div className={classes}>
+    return (<span>
+      { this.props.visible ? <div className={classes}>
       {/*  <CoverHeader icon={icon} iconClassName={iconClassName} title={title} />
         <CoverBody size={size}>
           {body}
@@ -47,7 +52,7 @@ class CoverContainer extends React.Component {
           {footer}
         </CoverFooter>*/}
         {content}
-      </div>
+      </div> : null }</span>
     );
   }
 }

@@ -7,7 +7,6 @@ const coverContainer  = document.createElement('div');
 
 /* do not render to body > https://medium.com/@dan_abramov/two-weird-tricks-that-fix-react-7cf9bbdef375#.jouodrjb5 */
 export function addCover(cover) {
-  console.log('here', cover);
   document.body.insertBefore(coverContainer, document.body.childNodes[0]);
   ReactDOM.render(<CoverContainer {...cover} />, coverContainer);
 }
