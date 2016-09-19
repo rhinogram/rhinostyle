@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom';
 import { CoverSystem, CoverContainer, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
 import Playground from 'component-playground';
 
-
-const coverContainer  = document.createElement('div');
-
 /* eslint import/no-unresolved: 0 */
 const coverExample = require('raw!./examples/Cover.example.txt');
 
@@ -35,76 +32,64 @@ class CoverApp extends React.Component {
     lastName: '',
   }
 
-  onClick = (event) => {
-    event.preventDefault();
-    // CoverSystem.addCover({
-    //   content: this.renderContent(),
-    //   visible: true,
-    //   // body:         this.renderBody(),
-    //   // footer:       this.renderFooter(),
-    //   // icon:         'cog',
-    //   // title:        'This is a Demo Cover',
-    // });
-
-    this.setState({
-      visible: true,
-    });
+  onClick = () => {
+    CoverSystem.addCover(this.renderContent());
   };
 
-
   handleChange = (name, value) => {
-    console.log('changing')
     const newState = {};
 
     newState[name] = value;
     this.setState(newState);
   }
 
-
   closeCover = () => {
     CoverSystem.removeCover();
   }
 
   saveChanges = () => {
-  //  alert(this.state.firstName);
-    this.setState({
-      firstNameError: 'testing this shit',
-    });
-  //  this.closeCover();
-  }
+    const errors = {};
 
-  renderContent = () =>
-    <div>
-      <CoverHeader title="test" />
-      <CoverBody>
-        <div className="form">
-          <div className="form__group">
-            <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={this.state.firstNameError} required onChange={this.handleChange} />
-          </div>
-          <div>
-            <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={this.state.lastNameError} required onChange={this.handleChange} />
-          </div>
-        </div>
-      </CoverBody>
-      <CoverFooter>
-        <div className="u-text-right">
-          <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
-          <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-        </div>
-      </CoverFooter>
-    </div>;
-
-
-  render() {
-    console.log('yoooo', this.state, this.props)
-    if (this.state.visible) {
-      console.log('here');
-      const coverContainer  = document.createElement('div');
-      document.body.insertBefore(coverContainer, document.body.childNodes[0]);
-      ReactDOM.render(<CoverContainer />, coverContainer);
+    if (!this.state.firstName) {
+      errors.firstName = 'FirstName is required!';
     }
 
-    console.log('re rendering', this.state.firstNameError)
+    const errorCount  = Object.keys(errors).length
+
+    if (errorCount > 0) {
+      CoverSystem.refreshCover(this.renderContent(errors));
+    } else {
+      this.closeCover();
+    }
+  }
+
+  renderContent = (errors) => {
+    const errorList = errors || {};
+
+    return (
+      <div>
+        <CoverHeader title="This is a sample Cover" />
+        <CoverBody>
+          <div className="form">
+            <div className="form__group">
+              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+            </div>
+            <div>
+              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+            </div>
+          </div>
+        </CoverBody>
+        <CoverFooter>
+          <div className="u-text-right">
+            <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
+            <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+          </div>
+        </CoverFooter>
+      </div>
+    );
+  }
+
+  render() {
     return (
       <div>
         <h1 className="site-headline">Covers</h1>

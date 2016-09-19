@@ -1,26 +1,12 @@
-import React                                   from 'react';
-import cx                                      from 'classnames';
-import { TweenMax, Expo }                      from 'gsap';
-import { CoverBody, CoverFooter, CoverHeader } from '../../components';
+import React              from 'react';
+import cx                 from 'classnames';
+import { TweenMax, Expo } from 'gsap';
 
 class CoverContainer extends React.Component {
   static displayName = 'RhinoCoverContainer';
 
   static propTypes = {
-    body:          React.PropTypes.node.isRequired,
-    footer:        React.PropTypes.node.isRequired,
-    icon:          React.PropTypes.string,
-    iconClassName: React.PropTypes.string,
-    size:          React.PropTypes.string,
-    title:         React.PropTypes.string.isRequired,
-  };
-
-  state = {
-    visible: false,
-  }
-
-  static defaultProps = {
-    size: 'sm',
+    children:      React.PropTypes.node,
   };
 
   componentDidMount() {
@@ -38,21 +24,13 @@ class CoverContainer extends React.Component {
   }
 
   render() {
-    const { children, content } = this.props;
+    const { children } = this.props;
     const classes = cx('cover');
-    console.log('container shit3!', this.props, this.state.visible)
 
-    return (<span>
-      { this.props.visible ? <div className={classes}>
-      {/*  <CoverHeader icon={icon} iconClassName={iconClassName} title={title} />
-        <CoverBody size={size}>
-          {body}
-        </CoverBody>
-        <CoverFooter>
-          {footer}
-        </CoverFooter>*/}
-        {content}
-      </div> : null }</span>
+    return (
+      <div className={classes}>
+        {children}
+      </div>
     );
   }
 }
