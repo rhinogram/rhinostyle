@@ -5,7 +5,7 @@ const CoverBody = (props) => {
   const { children, size } = props;
 
   const containerClasses = cx('cover__body__container', {
-    'cover__body__container--sm': size === 'sm',
+    'cover__body__container--sm': !size || size === 'sm',
     'cover__body__container--md': size === 'md',
     'cover__body__container--lg': size === 'lg',
   });
