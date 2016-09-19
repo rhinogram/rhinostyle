@@ -37,36 +37,31 @@ const exampleScope  = {
   Icon,
 };
 
-class CoverApp extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1 className="site-headline">Covers</h1>
+const CoverApp = () =>
+  <div>
+    <h1 className="site-headline">Covers</h1>
 
-        <section className="site-section">
-          <h3 className="site-subheadline">Cover Example</h3>
-          <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>Cover</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
-          <Playground docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
-        </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">Cover Example</h3>
+      <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>Cover</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
+      <Playground docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
+    </section>
 
-        <section className="site-section">
-          <h3 className="site-subheadline">CoverHeader</h3>
-          <Playground docClass={CoverHeader} propDescriptionMap={coverHeaderDocs} codeText={coverHeaderExample} scope={exampleScope} noRender={false} />
-        </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">CoverHeader</h3>
+      <Playground docClass={CoverHeader} propDescriptionMap={coverHeaderDocs} codeText={coverHeaderExample} scope={exampleScope} noRender={false} />
+    </section>
 
-        <section className="site-section">
-          <h3 className="site-subheadline">CoverBody</h3>
-          <Playground docClass={CoverBody} propDescriptionMap={coverBodyDocs} codeText={coverBodyExample} scope={exampleScope} noRender={false} />
-        </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">CoverBody</h3>
+      <Playground docClass={CoverBody} propDescriptionMap={coverBodyDocs} codeText={coverBodyExample} scope={exampleScope} noRender={false} />
+    </section>
 
-        <section className="site-section">
-          <h3 className="site-subheadline">CoverFooter</h3>
-          <Playground docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
-        </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">CoverFooter</h3>
+      <Playground docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
+    </section>
 
-      </div>
-    );
-  }
-}
+  </div>;
 
 ReactDOM.render(<CoverApp />, document.getElementById('js-app'));
