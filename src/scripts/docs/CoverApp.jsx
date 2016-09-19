@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { CoverSystem, CoverContainer, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
+import { CoverSystem, Cover, CoverContainer, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
@@ -25,6 +25,7 @@ const exampleScope  = {
   ReactDOM,
   Button,
   Input,
+  Cover,
   CoverSystem,
   CoverHeader,
   CoverBody,
@@ -33,73 +34,6 @@ const exampleScope  = {
 };
 
 class CoverApp extends React.Component {
-
-  state = {
-    firstName: '',
-    lastName: '',
-  }
-
-  onClick = () => {
-    CoverSystem.addCover(this.renderContent());
-  };
-
-  handleChange = (name, value) => {
-    const newState = {};
-
-    newState[name] = value;
-    this.setState(newState);
-  }
-
-  closeCover = () => {
-    CoverSystem.removeCover();
-  }
-
-  saveChanges = () => {
-    const errors = {};
-
-    if (!this.state.firstName) {
-      errors.firstName = 'FirstName is required!';
-    }
-
-    if (!this.state.lastName) {
-      errors.lastName = 'LastName is required!';
-    }
-
-    const errorCount  = Object.keys(errors).length
-
-    if (errorCount > 0) {
-      CoverSystem.refreshCover(this.renderContent(errors));
-    } else {
-      this.closeCover();
-    }
-  }
-
-  renderContent = (errors) => {
-    const errorList = errors || {};
-
-    return (
-      <div className="cover">
-        <CoverHeader title="This is a sample Cover" />
-        <CoverBody>
-          <div className="form">
-            <div className="form__group">
-              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-            </div>
-            <div>
-              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-            </div>
-          </div>
-        </CoverBody>
-        <CoverFooter>
-          <div className="u-text-right">
-            <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
-            <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-          </div>
-        </CoverFooter>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div>
