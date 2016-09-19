@@ -22,6 +22,9 @@ const exampleScope  = {
   Button,
   Input,
   CoverSystem,
+  CoverHeader,
+  CoverBody,
+  CoverFooter,
   Icon,
 };
 
@@ -52,6 +55,10 @@ class CoverApp extends React.Component {
 
     if (!this.state.firstName) {
       errors.firstName = 'FirstName is required!';
+    }
+
+    if (!this.state.lastName) {
+      errors.lastName = 'LastName is required!';
     }
 
     const errorCount  = Object.keys(errors).length
