@@ -28,7 +28,6 @@ import Message              from './Message';
 import MessageBox           from './MessageBox';
 import Modal                from './Modal';
 import ModalBody            from './ModalBody';
-import ModalContent         from './ModalContent';
 import ModalFooter          from './ModalFooter';
 import ModalHeader          from './ModalHeader';
 import NavTabs              from './NavTabs';
@@ -48,8 +47,8 @@ import Textarea             from './Textarea';
 import Toast                from './Toast';
 
 import { CoverSystem } from '../CoverSystem';
-import { NotificationActions }         from '../NotificationSystem';
-import { ModalSystem, ModalContainer } from '../ModalSystem';
+import { NotificationActions } from '../NotificationSystem';
+import { ModalSystem } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
 
@@ -86,8 +85,6 @@ export {
   Modal,
   ModalSystem,
   ModalBody,
-  ModalContainer,
-  ModalContent,
   ModalFooter,
   ModalHeader,
   NavTabs,

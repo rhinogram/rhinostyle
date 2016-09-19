@@ -1,41 +1,69 @@
 class ComponentExample extends React.Component {
+  state = {
+    firstName: '',
+    lastName: '',
+  }
+
   onClick = (event) => {
     event.preventDefault();
-    ModalSystem.addModal({
-      body:         this.renderBody(),
-      footer:       this.renderFooter(),
-      title:        'This is a sample Modal',
-    });
+    ModalSystem.addModal(this.renderContent());
   };
 
   closeModal = () => {
     ModalSystem.removeModal();
   }
 
+  handleChange = (name, value) => {
+    const newState = {};
+
+    newState[name] = value;
+    this.setState(newState);
+  }
+
   saveChanges = () => {
-    alert('the changes have been saved');
-    this.closeModal();
+    const errors = {};
+
+    if (!this.state.firstName) {
+      errors.firstName = 'FirstName is required!';
+    }
+
+    if (!this.state.lastName) {
+      errors.lastName = 'LastName is required!';
+    }
+
+    const errorCount  = Object.keys(errors).length
+
+    if (errorCount > 0) {
+      ModalSystem.refreshModal(this.renderContent(errors));
+    } else {
+      alert('Changes were saved!');
+      this.closeModal();
+    }
   }
 
-  renderBody = () => {
-    return (
-      <div className="form">
-        <div className="form__group">
-          <Input label="First Name" />
-        </div>
-        <div>
-          <Input label="Last Name" className="u-m-b-0" />
-        </div>
-      </div>
-    );
-  }
+  renderContent = (errors) => {
+    const errorList = errors || {};
 
-  renderFooter = () => {
     return (
-      <div>
-        <Button type="default" onClick={this.closeModal}>Close</Button>
-        <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
-      </div>
+      <Modal>
+        <ModalHeader icon="pencil" title="This is a sample Modal" />
+        <ModalBody>
+          <div className="form">
+            <div className="form__group">
+              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+            </div>
+            <div>
+              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+            </div>
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <div className="u-text-right">
+            <Button type="default" onClick={this.closeModal}>Close</Button>&nbsp;
+            <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+          </div>
+        </ModalFooter>
+      </Modal>
     );
   }
 

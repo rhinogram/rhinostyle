@@ -1,4 +1,3 @@
-import ModalContainer     from '../components/ModalContainer';
 import React              from 'react';
 import ReactDOM           from 'react-dom';
 import { TweenMax, Expo } from 'gsap';
@@ -9,11 +8,11 @@ const modalContainer  = document.createElement('div');
 export function addModal(modal) {
   document.body.insertBefore(modalContainer, document.body.childNodes[0]);
   document.body.classList.add('modal-open');
-  ReactDOM.render(<ModalContainer>{modal}</ModalContainer>, modalContainer);
+  ReactDOM.render(<div>{modal}</div>, modalContainer);
 }
 
 export function refreshModal(modal) {
-  ReactDOM.render(<ModalContainer>{modal}</ModalContainer>, modalContainer);
+  ReactDOM.render(<div>{modal}</div>, modalContainer);
 }
 
 export function removeModal() {
