@@ -25,7 +25,7 @@ class CoverContainer extends React.Component {
 
   render() {
     const { children } = this.props;
-    const classes = cx('cover');
+    const classes = cx('covers');
 
     return (
       <div className={classes}>

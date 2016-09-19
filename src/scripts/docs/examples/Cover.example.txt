@@ -36,6 +36,7 @@ class ComponentExample extends React.Component {
     if (errorCount > 0) {
       CoverSystem.refreshCover(this.renderContent(errors));
     } else {
+      alert('Changes were saved!');
       this.closeCover();
     }
   }
@@ -44,8 +45,8 @@ class ComponentExample extends React.Component {
     const errorList = errors || {};
 
     return (
-      <div>
-        <CoverHeader title="This is a sample Cover" />
+      <div className="cover">
+        <CoverHeader icon="pencil" title="This is a sample Cover" />
         <CoverBody>
           <div className="form">
             <div className="form__group">

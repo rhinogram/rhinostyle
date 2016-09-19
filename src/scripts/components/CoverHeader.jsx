@@ -7,7 +7,6 @@ class CoverHeader extends React.Component {
   static displayName = 'RhinoCoverHeader';
 
   static propTypes = {
-    children:       React.PropTypes.node,
     icon:           React.PropTypes.string,
     iconClassName:  React.PropTypes.string,
     title:          React.PropTypes.string,

@@ -6,14 +6,18 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const coverExample = require('raw!./examples/Cover.example.txt');
+const coverHeaderExample = require('raw!./examples/CoverHeader.example.txt');
+const coverBodyExample = require('raw!./examples/CoverBody.example.txt');
+const coverFooterExample = require('raw!./examples/CoverFooter.example.txt');
 
-const coverDocs = {
-  body: '[Required] - Cover Body - Typically represented by a renderBody function that returns JSX',
-  footer: '[Required] - Cover Footer - Typically represented by a renderFooter function that returns JSX',
+const coverHeaderDocs = {
   icon: '[Optional] - Attaches an Icon to the Cover Header',
   iconClassName: '[Optional] - Adds a class to the Cover Header icon',
+  title: '[Optional] - Cover Title -  String to represent the Cover Header',
+};
+
+const coverBodyDocs = {
   size: '[Optional] - Container size -  [ sm | md | lg ] - defaults to a small sized cover body',
-  title: '[Required] - Cover Title -  String to represent the Cover Header',
 };
 
 const exampleScope  = {
@@ -74,7 +78,7 @@ class CoverApp extends React.Component {
     const errorList = errors || {};
 
     return (
-      <div>
+      <div className="cover">
         <CoverHeader title="This is a sample Cover" />
         <CoverBody>
           <div className="form">
@@ -100,15 +104,26 @@ class CoverApp extends React.Component {
     return (
       <div>
         <h1 className="site-headline">Covers</h1>
+
         <section className="site-section">
           <h3 className="site-subheadline">Cover Example</h3>
-          <p className="site-copy">To see a cover in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
+          <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>div className="cover"</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
+          <Playground docClass={CoverContainer.default} codeText={coverExample} scope={exampleScope} noRender={false} />
         </section>
 
-        <section>
-          <h3 className="site-subheadline">Playground</h3>
-          <p className="site-copy">The following properties can be used in the object you pass into CoverSystem.addCover().</p>
-          <Playground docClass={CoverContainer.default} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
+        <section className="site-section">
+          <h3 className="site-subheadline">CoverHeader</h3>
+          <Playground docClass={CoverHeader} propDescriptionMap={coverHeaderDocs} codeText={coverHeaderExample} scope={exampleScope} noRender={false} />
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">CoverBody</h3>
+          <Playground docClass={CoverBody} propDescriptionMap={coverBodyDocs} codeText={coverBodyExample} scope={exampleScope} noRender={false} />
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">CoverFooter</h3>
+          <Playground docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
         </section>
 
       </div>
