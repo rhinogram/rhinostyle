@@ -1,20 +1,23 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { ModalSystem, ModalContainer, Button, Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '../components';
+import { ModalSystem, ModalContainer, Button, Input, ModalHeader, ModalBody, ModalFooter, Icon } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const modalExample = require('raw!./examples/Modal.example.txt');
+const modalHeaderExample = require('raw!./examples/ModalHeader.example.txt');
+const modalBodyExample = require('raw!./examples/ModalBody.example.txt');
+const modalFooterExample = require('raw!./examples/ModalFooter.example.txt');
 
-const modalDocs = {
-  body: '[Required] - Modal Body - Typically represented by a renderBody function that returns JSX',
-  dismissable: '[Optional] - Gives an X icon in Modal Header to close Modal',
-  footer: '[Required] - Modal Footer - Typically represented by a renderFooter function that returns JSX',
+const modalHeaderDocs = {
   icon: '[Optional] - Attaches an Icon to the Modal Header',
   iconClassName: '[Optional] - Adds a class to the Modal Header icon',
-  size: '[Optional] - Modal size -  [ sm | lg ] - defaults to a normal sized modal',
-  title: '[Required] - Modal Title -  String to represent the Modal Header',
+  title: '[Optional] - Modal Title -  String to represent the Modal Header',
+};
+
+const modalBodyDocs = {
+  size: '[Optional] - Container size -  [ sm | md | lg ] - defaults to a small sized modal body',
 };
 
 const exampleScope  = {
@@ -23,79 +26,104 @@ const exampleScope  = {
   Button,
   Input,
   ModalSystem,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Icon,
 };
 
 class ModalApp extends React.Component {
 
-  onClick = (event) => {
-    event.preventDefault();
-    ModalSystem.addModal({
-      body:         this.renderBody(),
-      dismissable:  true,
-      footer:       this.renderFooter(),
-      icon:         'cog',
-      size:         'lg',
-      title:        'This is a Demo Modal',
-    });
+  state = {
+    firstName: '',
+    lastName: '',
+  }
+
+  onClick = () => {
+    ModalSystem.addModal(this.renderContent());
   };
+
+  handleChange = (name, value) => {
+    const newState = {};
+
+    newState[name] = value;
+    this.setState(newState);
+  }
 
   closeModal = () => {
     ModalSystem.removeModal();
   }
 
   saveChanges = () => {
-    alert('the changes have been saved');
-    this.closeModal();
+    const errors = {};
+
+    if (!this.state.firstName) {
+      errors.firstName = 'FirstName is required!';
+    }
+
+    if (!this.state.lastName) {
+      errors.lastName = 'LastName is required!';
+    }
+
+    const errorCount  = Object.keys(errors).length
+
+    if (errorCount > 0) {
+      ModalSystem.refreshModal(this.renderContent(errors));
+    } else {
+      this.closeModal();
+    }
   }
 
-  renderBody = () =>
-    <div className="form">
-      <div className="form__group">
-        <Input label="First Name" />
-      </div>
-      <div>
-        <Input label="Last Name" className="u-m-b-0" />
-      </div>
-    </div>;
+  renderContent = (errors) => {
+    const errorList = errors || {};
 
-  renderFooter = () =>
-    <div>
-      <Button type="default" onClick={this.closeModal}>Close</Button>
-      <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
-    </div>;
+    return (
+      <div className="modal">
+        <ModalHeader title="This is a sample Modal" />
+        <ModalBody>
+          <div className="form">
+            <div className="form__group">
+              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+            </div>
+            <div>
+              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+            </div>
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <div className="u-text-right">
+            <Button type="default" onClick={this.closeModal}>Close</Button>&nbsp;
+            <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+          </div>
+        </ModalFooter>
+      </div>
+    );
+  }
 
   render() {
     return (
       <div>
         <h1 className="site-headline">Modals</h1>
+
         <section className="site-section">
           <h3 className="site-subheadline">Modal Example</h3>
-          <p className="site-copy">To see a modal in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
-
-          <div className="site-modal">
-            <Modal isOpen>
-              <ModalContent>
-                <ModalHeader dismissable={false} icon="calendar" title="This is a normal, non-dismissable modal with an Icon" />
-                <ModalBody>
-                  <div className="form">
-                    <Input label="First Name" />
-                    <Input label="Last Name" className="u-m-b-0" />
-                  </div>
-                </ModalBody>
-                <ModalFooter>
-                  <Button type="default">Close</Button>
-                  <Button type="primary">Save Changes</Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          </div>
-
+          <p className="site-copy">You can inject a modal by calling <code>ModalSystem.addModal(modal)</code>, where <code>modal</code> can be <code>div className="modal"</code> containing <code>ModalHeader</code>, <code>ModalBody</code>, <code>ModalFooter</code>.</p>
+          <Playground docClass={ModalContainer.default} codeText={modalExample} scope={exampleScope} noRender={false} />
         </section>
 
-        <section>
-          <h3 className="site-subheadline">Playground</h3>
-          <p className="site-copy">The following properties can be used in the object you pass into ModalSystem.addModal().</p>
-          <Playground docClass={ModalContainer.default} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
+        <section className="site-section">
+          <h3 className="site-subheadline">ModalHeader</h3>
+          <Playground docClass={ModalHeader} propDescriptionMap={modalHeaderDocs} codeText={modalHeaderExample} scope={exampleScope} noRender={false} />
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">ModalBody</h3>
+          <Playground docClass={ModalBody} propDescriptionMap={modalBodyDocs} codeText={modalBodyExample} scope={exampleScope} noRender={false} />
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">ModalFooter</h3>
+          <Playground docClass={ModalFooter} codeText={modalFooterExample} scope={exampleScope} noRender={false} />
         </section>
 
       </div>

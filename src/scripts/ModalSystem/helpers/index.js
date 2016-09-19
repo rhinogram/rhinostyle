@@ -9,7 +9,11 @@ const modalContainer  = document.createElement('div');
 export function addModal(modal) {
   document.body.insertBefore(modalContainer, document.body.childNodes[0]);
   document.body.classList.add('modal-open');
-  ReactDOM.render(<ModalContainer {...modal} />, modalContainer);
+  ReactDOM.render(<ModalContainer>{modal}</ModalContainer>, modalContainer);
+}
+
+export function refreshModal(modal) {
+  ReactDOM.render(<ModalContainer>{modal}</ModalContainer>, modalContainer);
 }
 
 export function removeModal() {
