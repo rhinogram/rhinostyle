@@ -2,7 +2,9 @@ import webpack from 'webpack';
 import path    from 'path';
 
 const dependencies = [
-  'classnames',
+  'react',
+  'react-dom',
+  'moment',
   'component-playground',
 ];
 
@@ -55,7 +57,11 @@ export default {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChuncks: Infinity,
+    }),
     new webpack.optimize.UglifyJsPlugin({
       exclude:  /vendor/,
       minimize: true,
