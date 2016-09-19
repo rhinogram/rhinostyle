@@ -47,7 +47,7 @@ import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 
-import { CoverSystem, CoverContainer } from '../CoverSystem';
+import { CoverSystem } from '../CoverSystem';
 import { NotificationActions }         from '../NotificationSystem';
 import { ModalSystem, ModalContainer } from '../ModalSystem';
 /* eslint no-duplicate-imports:0 */
@@ -63,7 +63,6 @@ export {
   Checkbox,
   Close,
   Cover,
-  CoverContainer,
   CoverSystem,
   CoverBody,
   CoverFooter,

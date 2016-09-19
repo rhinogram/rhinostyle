@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { CoverSystem, Cover, CoverContainer, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
+import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
@@ -9,6 +9,10 @@ const coverExample = require('raw!./examples/Cover.example.txt');
 const coverHeaderExample = require('raw!./examples/CoverHeader.example.txt');
 const coverBodyExample = require('raw!./examples/CoverBody.example.txt');
 const coverFooterExample = require('raw!./examples/CoverFooter.example.txt');
+
+const coverDocs = {
+  className: '[Optional] - Additional class to add to cover div',
+};
 
 const coverHeaderDocs = {
   icon: '[Optional] - Attaches an Icon to the Cover Header',
@@ -41,8 +45,8 @@ class CoverApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Cover Example</h3>
-          <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>div className="cover"</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
-          <Playground docClass={CoverContainer.default} codeText={coverExample} scope={exampleScope} noRender={false} />
+          <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>Cover</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
+          <Playground docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
         </section>
 
         <section className="site-section">

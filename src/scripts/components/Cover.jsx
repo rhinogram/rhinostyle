@@ -2,11 +2,12 @@ import React              from 'react';
 import cx                 from 'classnames';
 import { TweenMax, Expo } from 'gsap';
 
-class CoverContainer extends React.Component {
-  static displayName = 'RhinoCoverContainer';
+class Cover extends React.Component {
+  static displayName = 'RhinoCover';
 
   static propTypes = {
     children:      React.PropTypes.node,
+    className:     React.PropTypes.string,
   };
 
   componentDidMount() {
@@ -24,8 +25,8 @@ class CoverContainer extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
-    const classes = cx('covers');
+    const { children, className } = this.props;
+    const classes = cx('cover', className);
 
     return (
       <div className={classes}>
@@ -35,4 +36,4 @@ class CoverContainer extends React.Component {
   }
 }
 
-export default CoverContainer;
+export default Cover;

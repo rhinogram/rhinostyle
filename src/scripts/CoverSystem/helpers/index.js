@@ -1,8 +1,6 @@
-import CoverContainer     from '../components/CoverContainer';
 import React              from 'react';
 import ReactDOM           from 'react-dom';
 import { TweenMax, Expo } from 'gsap';
-import Cover from '../../components/Cover';
 
 const coverContainer  = document.createElement('div');
 
