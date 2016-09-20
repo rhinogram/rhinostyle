@@ -2,16 +2,12 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <CoverBody>
-        <div className="form">
-          <div className="form__group">
-            <Input label="First Name" name="firstName" initialValue="First Name" validationMessage="" required />
-          </div>
-          <div>
-            <Input label="Last Name" name="lastName" initialValue="" validationMessage="LastName is required!" required />
-          </div>
+      <ModalFooter>
+        <div className="u-text-right">
+          <Button type="default">Close</Button>&nbsp;
+          <Button type="secondary">Save Changes</Button>
         </div>
-      </CoverBody>
+      </ModalFooter>
     </div>
     );
   }

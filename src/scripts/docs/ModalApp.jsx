@@ -10,15 +10,17 @@ const modalHeaderExample = require('raw!./examples/ModalHeader.example.txt');
 const modalBodyExample = require('raw!./examples/ModalBody.example.txt');
 const modalFooterExample = require('raw!./examples/ModalFooter.example.txt');
 
+const modalDocs = {
+  className: '[Optional] - Additional class to add to modal div',
+  size: '[Optional] - Modal size -  [ sm | lg ] - defaults to a normal sized modal',
+};
+
 const modalHeaderDocs = {
   icon: '[Optional] - Attaches an Icon to the Modal Header',
   iconClassName: '[Optional] - Adds a class to the Modal Header icon',
   title: '[Optional] - Modal Title -  String to represent the Modal Header',
 };
 
-const modalBodyDocs = {
-  size: '[Optional] - Container size -  [ sm | md | lg ] - defaults to a small sized modal body',
-};
 
 const exampleScope  = {
   React,
@@ -39,8 +41,8 @@ const ModalApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
-      <p className="site-copy">You can inject a modal by calling <code>ModalSystem.addModal(modal)</code>, where <code>modal</code> can be <code>div className="modal"</code> containing <code>ModalHeader</code>, <code>ModalBody</code>, <code>ModalFooter</code>.</p>
-      <Playground docClass={Modal} codeText={modalExample} scope={exampleScope} noRender={false} />
+      <p className="site-copy">You can inject a modal by calling <code>ModalSystem.addModal(modal)</code>, where <code>modal</code> can be <code>Modal</code> containing <code>ModalHeader</code>, <code>ModalBody</code>, <code>ModalFooter</code>.</p>
+      <Playground docClass={Modal} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -50,7 +52,7 @@ const ModalApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalBody</h3>
-      <Playground docClass={ModalBody} propDescriptionMap={modalBodyDocs} codeText={modalBodyExample} scope={exampleScope} noRender={false} />
+      <Playground docClass={ModalBody} codeText={modalBodyExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
