@@ -11,6 +11,7 @@ class ModalHeader extends React.Component {
     dismissable:    React.PropTypes.bool,
     icon:           React.PropTypes.string,
     iconClassName:  React.PropTypes.string,
+    onClose:        React.PropTypes.func,
     title:          React.PropTypes.string,
   }
 
@@ -27,7 +28,12 @@ class ModalHeader extends React.Component {
   }
 
   closeModal = () => {
-    ModalSystem.removeModal();
+    if (this.props.onClose && typeof(this.props.onClose === 'function')) {
+      this.props.onClose();
+      ModalSystem.removeModal();
+    } else {
+      ModalSystem.removeModal();
+    }
   }
 
   render() {

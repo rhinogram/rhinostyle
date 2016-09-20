@@ -18,6 +18,7 @@ const modalDocs = {
 const modalHeaderDocs = {
   icon: '[Optional] - Attaches an Icon to the Modal Header',
   iconClassName: '[Optional] - Adds a class to the Modal Header icon',
+  onClose: '[Optional] - Callback function to execute in addition to closing the modal',
   title: '[Optional] - Modal Title -  String to represent the Modal Header',
 };
 

@@ -17,6 +17,7 @@ const coverDocs = {
 const coverHeaderDocs = {
   icon: '[Optional] - Attaches an Icon to the Cover Header',
   iconClassName: '[Optional] - Adds a class to the Cover Header icon',
+  onClose: '[Optional] - Callback function to execute in addition to closing the cover',
   title: '[Optional] - Cover Title -  String to represent the Cover Header',
 };
 

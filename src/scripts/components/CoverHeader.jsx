@@ -9,11 +9,17 @@ class CoverHeader extends React.Component {
   static propTypes = {
     icon:           React.PropTypes.string,
     iconClassName:  React.PropTypes.string,
+    onClose:        React.PropTypes.func,
     title:          React.PropTypes.string,
   }
 
   closeCover = () => {
-    CoverSystem.removeCover();
+    if (this.props.onClose && typeof(this.props.onClose === 'function')) {
+      this.props.onClose();
+      CoverSystem.removeCover();
+    } else {
+      CoverSystem.removeCover();
+    }
   }
 
   render() {
