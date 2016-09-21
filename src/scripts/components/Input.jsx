@@ -19,7 +19,7 @@ class Input extends React.Component {
     onChange:           React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     required:           React.PropTypes.bool,
-    type:               React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search']),
+    type:               React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
     validationMessage:  React.PropTypes.string,
   };
 
