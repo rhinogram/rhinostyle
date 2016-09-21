@@ -81,6 +81,12 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleFilter = (e) => {
+    if (!this.state.isOpen) {
+      this.setState({
+        isOpen: true,
+      });
+    }
+
     const query = e.target.value;
     const items = [];
     const children = this.props.children;
