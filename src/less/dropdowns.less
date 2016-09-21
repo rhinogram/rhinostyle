@@ -190,29 +190,8 @@
 .dropdown__menu__item {
   list-style: none;
 
-  // Links within the dropdown menu
-  > a {
-    align-items: center;
-    color: @dropdown-link-color;
-    cursor: pointer;
-    display: flex;
-    font-weight: normal;
-    line-height: @line-height-base;
-    padding: @dropdown-padding;
-    position: relative;
-    white-space: nowrap;
-
-    &:hover,
-    &:focus {
-      background-color: @dropdown-link-hover-bg;
-      color: @dropdown-link-hover-color;
-      outline: 0;
-      text-decoration: none;
-    }
-  }
-
   // Active state
-  &.active > a {
+  &.active > .dropdown__menu__item__link {
     &,
     &:hover,
     &:focus {
@@ -224,7 +203,7 @@
   }
 
   // Disabled state
-  &.disabled > a {
+  &.disabled > .dropdown__menu__item__link {
     &,
     &:hover,
     &:focus {
@@ -232,6 +211,32 @@
       cursor: not-allowed;
       pointer-events: none;
     }
+  }
+}
+
+
+// -------------------------
+// Dropdown Menu Item Link
+// -------------------------
+
+
+.dropdown__menu__item__link {
+  align-items: center;
+  color: @dropdown-link-color;
+  cursor: pointer;
+  display: flex;
+  font-weight: normal;
+  line-height: @line-height-base;
+  padding: @dropdown-padding;
+  position: relative;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: @dropdown-link-hover-bg;
+    color: @dropdown-link-hover-color;
+    outline: 0;
+    text-decoration: none;
   }
 }
 

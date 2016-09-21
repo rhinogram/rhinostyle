@@ -63,15 +63,25 @@ class DropdownMenuItem extends React.Component {
     let markup = '';
 
     if (route) {
-      markup = (<li className={classes}><Link to={route} onClick={this.handleClick}>
-      {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-      {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
-        <span className="u-text-overflow">{label}</span></Link></li>);
+      markup = (
+        <li className={classes}>
+          <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
+            {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
+            {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+            <span className="u-text-overflow">{label}</span>
+          </Link>
+        </li>
+      );
     } else {
-      markup = (<li className={classes}><a href="javascript:void(0)" onClick={this.handleClick}>
-      {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-      {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
-        <span className="u-text-overflow">{label}</span></a></li>);
+      markup = (
+        <li className={classes}>
+          <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
+            {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
+            {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+            <span className="u-text-overflow">{label}</span>
+          </a>
+        </li>
+      );
     }
 
     return markup;

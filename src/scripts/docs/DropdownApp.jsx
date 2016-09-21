@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, Icon } from '../components';
+import { Button, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuScroll, DropdownMultiSelect, Icon } from '../components';
 
 import Playground from 'component-playground';
 
@@ -50,6 +50,7 @@ const dropdownMenuItemDocs = {
 const exampleScope  = {
   React,
   ReactDOM,
+  Button,
   Dropdown,
   DropdownFilter,
   DropdownMenuDivider,
@@ -80,6 +81,7 @@ const DropdownApp = () =>
           <DropdownMenuItem label="A third item" />
           <DropdownMenuDivider />
           <DropdownMenuItem label="Separated Item" />
+          <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Log Out</Button></div>
         </Dropdown>
 
         <Dropdown label="Input" type="input">

@@ -13,6 +13,7 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem label="Url Item" url={'http://www.rhinogram.com'} />
         <DropdownMenuDivider />
         <DropdownMenuItem label="Separated Item" />
+        <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Log Out</Button></div>
       </Dropdown>
       &nbsp;&nbsp;
       <Dropdown label="Dropdown Select" type="input" onSelect={this.optionalCallbackFunction}>
