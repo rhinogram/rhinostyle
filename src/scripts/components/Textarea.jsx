@@ -8,7 +8,7 @@ class Textarea extends React.Component {
     className:    React.PropTypes.string,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
-    onChange:           React.PropTypes.func,
+    onChange:     React.PropTypes.func,
     placeholder:  React.PropTypes.string,
     required:     React.PropTypes.bool,
     initialValue: React.PropTypes.string,
@@ -57,7 +57,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
+        <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
       </div>
     );
   }
