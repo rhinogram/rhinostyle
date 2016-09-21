@@ -8,6 +8,7 @@ class Textarea extends React.Component {
     className:    React.PropTypes.string,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
+    onChange:           React.PropTypes.func,
     placeholder:  React.PropTypes.string,
     required:     React.PropTypes.bool,
     initialValue: React.PropTypes.string,
@@ -34,6 +35,10 @@ class Textarea extends React.Component {
 
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
+
+    if (this.props.onChange && typeof(this.props.onChange === 'function')) {
+      this.props.onChange(event.target.id, event.target.value);
+    }
   }
 
   render() {

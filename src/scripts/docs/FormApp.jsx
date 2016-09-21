@@ -15,7 +15,7 @@ const inputDocs  = {
   name:         '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
   onChange:     '[Optional] - A callback function that is executed when the input value changes',
   placeholder:  '[Optional] - Any placeholder text you want in the input',
-  type:         '[Optional] - As a string, what type of input you are creating - [email | password | number | search] - defaults to text',
+  type:         '[Optional] - As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
   required:     '[Optional] - Field is required and asterisk is added to label',
   initialValue: '[Optional] - Any initial value for the input',
 };
@@ -49,6 +49,7 @@ const textareaExample = require('raw!./examples/Textarea.example.txt');
 const textareaDocs  = {
   label:        '[Optional] - A label for the textarea',
   name:         '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  onChange:     '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder:  '[Optional] - Any placeholder text you want in the textarea',
   initialValue: '[Optional] - Any initial value for the textarea',
   required:     '[Optional] - Field is required and asterisk is added to label',
