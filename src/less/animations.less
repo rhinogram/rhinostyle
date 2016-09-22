@@ -13,6 +13,18 @@
   overflow: hidden;
   position: relative;
 
+  // extra measure used to cover white artifacts at certain sizes
+  &::after {
+    background: @color-primary;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   &::before {
   	content: '';
   	display: block;
