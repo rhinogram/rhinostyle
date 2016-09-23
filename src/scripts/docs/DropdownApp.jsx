@@ -8,6 +8,7 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved: 0 */
 const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
+const dropdownMenuHeaderExample = require('raw!./examples/DropdownMenuHeader.example.txt');
 const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example.txt');
 
 const dropdownDocs = {
@@ -31,6 +32,11 @@ const dropdownMultiSelectDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
+};
+
+const dropdownMenuHeaderDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  label: '[Required] - Label for header',
 };
 
 const dropdownMenuItemDocs = {
@@ -76,7 +82,7 @@ const DropdownApp = () =>
       <p className="site-copy">Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.</p>
       <div className="site-example-dropdowns">
         <Dropdown label="Default">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -86,7 +92,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Input" type="input">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -95,7 +101,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Primary" type="primary">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -104,7 +110,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Secondary" type="secondary">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -113,7 +119,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Outline Default" type="outline-default">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -122,7 +128,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Outline Primary" type="outline-primary">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -131,7 +137,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Link" type="link">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -140,7 +146,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="link" icon="search">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -150,7 +156,7 @@ const DropdownApp = () =>
 
         <br /><br />
         <Dropdown type="default" icon="search">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -159,7 +165,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="primary" icon="lock">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -168,7 +174,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="secondary" icon="cog">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -177,7 +183,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="outline-default" icon="search">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -186,7 +192,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="outline-primary" icon="lock">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -195,7 +201,7 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown label="Link with Color Utility" type="link" className="u-text-body">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -215,7 +221,7 @@ const DropdownApp = () =>
           Add <code>block</code> property to create 100% width, block level dropdown.
         </p>
         <Dropdown label="Dropdown Block" type="default" icon="cog" block>
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -228,7 +234,7 @@ const DropdownApp = () =>
         <h5 className="site-miniheadline">Dropdown Right</h5>
         <p className="site-copy">Add <code>position="right"</code> property.</p>
         <Dropdown label="Dropdown Right" type="default" position="right">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -241,7 +247,7 @@ const DropdownApp = () =>
         <h5 className="site-miniheadline">Dropdown Top</h5>
         <p className="site-copy">Add <code>position="top"</code> property.</p>
         <Dropdown label="Dropdown Top" type="default" position="top">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -254,7 +260,7 @@ const DropdownApp = () =>
         <h5 className="site-miniheadline">Dropdown Top &amp; Right</h5>
         <p className="site-copy">Add <code>position="top-right"</code> property.</p>
         <Dropdown label="Dropdown Top Right" type="default" position="top-right">
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -267,7 +273,7 @@ const DropdownApp = () =>
         <h5 className="site-miniheadline">Dropdown Wide</h5>
         <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.</p>
         <Dropdown label="Dropdown Wide" type="default" wide>
-          <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
           <DropdownMenuItem label="A third item" />
@@ -292,6 +298,11 @@ const DropdownApp = () =>
       </p>
 
       <Playground docClass={DropdownMultiSelect} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">DropdownMenuHeader</h3>
+      <Playground docClass={DropdownMenuHeader} propDescriptionMap={dropdownMenuHeaderDocs} codeText={dropdownMenuHeaderExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">

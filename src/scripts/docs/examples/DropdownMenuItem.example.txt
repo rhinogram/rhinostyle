@@ -9,9 +9,9 @@ class ComponentExample extends React.Component {
       <DropdownMenuItem label="Active Item" active />
       <DropdownMenuItem label="Disabled Item" disabled />
       <DropdownMenuDivider />
-      <DropdownMenuItem label="Ian Avatar" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABECOyAoeLlhfOMzQEiC3ZjYXJkX3Bob3RvKig2ZWJmZWEwNjA3NDhkZTY0ZWRhOTczNDU3M2E5YzI0MDA2YmFhZWFhMAF_p4RL_jmWVcGIWRwQZgNrVdicmw?sz=128" />
-      <DropdownMenuItem label="Paul Avatar" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
-      <DropdownMenuItem label="Rob Avatar" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
+      <DropdownMenuItem label="Ian Avatar" avatar="//unsplash.it/400/400?image=1062" />
+      <DropdownMenuItem label="Paul Avatar" avatar="//unsplash.it/400/400?image=1069" />
+      <DropdownMenuItem label="Rob Avatar" avatar="//unsplash.it/400/400?image=648" />
       <DropdownMenuDivider />
       <DropdownMenuItem icon="sms" label="Icon Item" />
       <DropdownMenuItem icon="email" label="Icon Item" />

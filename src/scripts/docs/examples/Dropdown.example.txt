@@ -5,20 +5,26 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-    <div>
-      <Dropdown label="Dropdown" type="outline-primary">
-        <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+    <div className="site-example-dropdowns">
+      <Dropdown label="Dropdown">
+        <DropdownMenuHeader label="Menu Header" />
         <DropdownMenuItem label="Custom Click Item" labelDesc="Click me and I will fire an alert." onClick={() => alert('clicked!')} />
         <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url={'http://www.rhinogram.com'} blankWindow />
-        <DropdownMenuItem label="Url Item" labelDesc="Click me and I will redirect you to a new website." url={'http://www.rhinogram.com'} />
+        <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url={'http://www.rhinogram.com'} />
         <DropdownMenuDivider />
         <DropdownMenuItem label="Separated Item" />
         <DropdownMenuDivider />
         <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
       </Dropdown>
-      &nbsp;&nbsp;
-      <Dropdown label="Dropdown Select" type="input" onSelect={this.optionalCallbackFunction}>
-        <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
+      <Dropdown label="Dropdown with Whatever" wide>
+        <div className="dropdown__menu__container">
+          <p>Menu contents are wrapped in <span className="u-text-accent">dropdown__menu__container</span> class. Put whatever you want in here. Even a Pug.</p>
+          <p><img className="u-img-fluid" src="//unsplash.it/400/400?image=1062"/></p>
+          <Button block type="outline-primary" size="small">Button Up In Here</Button>
+        </div>
+      </Dropdown>
+      <Dropdown label="Dropdown Select" type="outline-primary" onSelect={this.optionalCallbackFunction}>
+        <DropdownMenuHeader label="Menu Header" />
         <DropdownMenuItem id={1} label="Item" />
         <DropdownMenuItem id={2} label="Another item" />
         <DropdownMenuItem id={3} label="A third item" />
@@ -26,7 +32,6 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem id={4} label="A fourth item" />
         <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
       </Dropdown>
-      &nbsp;&nbsp;
       <Dropdown wide label="Dropdown Select w/ Filter" type="outline-primary">
         <DropdownFilter placeholder="Filter Contact">
             <DropdownMenuItem id={1} label="Item" />
@@ -39,23 +44,21 @@ class ComponentExample extends React.Component {
             <DropdownMenuItem id={8} label="An eighth item" />
         </DropdownFilter>
       </Dropdown>
-      &nbsp;&nbsp;
       <Dropdown wide label="Dropdown Select w/ Filter & Avatar" type="outline-primary">
         <DropdownFilter placeholder="Filter Member">
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/24263_391743639328_3523852_n.jpg?oh=260c184e71abf5fdaff9eddb361b0139&oe=57E56868" />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/1504523_437875089696117_7378541844854542050_n.jpg?oh=089a2d533f97e5a10f378291880c3dc8&oe=57CEA0AF" />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//pbs.twimg.com/profile_images/378800000504047619/e16493b0b7a4f578a3be767e3cc105ed_400x400.jpeg" />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABECOyAoeLlhfOMzQEiC3ZjYXJkX3Bob3RvKig2ZWJmZWEwNjA3NDhkZTY0ZWRhOTczNDU3M2E5YzI0MDA2YmFhZWFhMAF_p4RL_jmWVcGIWRwQZgNrVdicmw?sz=128" />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/11377393_810816385765_6827778412867830242_n.jpg?oh=35b08f99b81268988c15eecbf9929e56&oe=57DFE90F" />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
-          <DropdownMenuItem id={7} label="Max Krause" avatar="//scontent-iad3-1.xx.fbcdn.net/t31.0-8/12977098_10207580224281040_1166679891101945990_o.jpg" />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10882107_701393473313574_7671196485562187669_n.jpg?oh=3100e182e75a87cfe3b236e32ca3686e&oe=57DA94B4" />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//plus.google.com/u/1/_/focus/photos/private/AIbEiAIAAABDCNuE-Zj_i4n2dCILdmNhcmRfcGhvdG8qKDcxMmRiMTQ3MmFiZmU4NTgzODE0NDk5ZDg5ZmNjMTY5NGI0NjI0ODAwAaWW6J75GIbWx96SLvOdg2LBY44Z?sz=128" />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/10440915_10100238785384001_3941742026226262266_n.jpg?oh=e57e9df480a0326ee7d0bb46950b9c3f&oe=57CF342E" />
+          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
+          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
+          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />
+          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//unsplash.it/400/400?image=433" />
+          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//unsplash.it/400/400?image=856" />
+          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//unsplash.it/400/400?image=65" />
+          <DropdownMenuItem id={7} label="Max Krause" avatar="//unsplash.it/400/400?image=64" />
+          <DropdownMenuItem id={8} label="Paul Drake" avatar="//unsplash.it/400/400?image=837" />
+          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//unsplash.it/400/400?image=429" />
+          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//unsplash.it/400/400?image=660" />
+          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//unsplash.it/400/400?image=783" />
         </DropdownFilter>
       </Dropdown>
-      &nbsp;&nbsp;
       <Dropdown wide label="Dropdown Select w/ Filter & Icon" type="outline-primary">
         <DropdownFilter placeholder="Filter Icon">
           <DropdownMenuItem id={1} label="Item One" icon="cog" />

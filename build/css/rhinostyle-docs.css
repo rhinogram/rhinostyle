@@ -2343,7 +2343,7 @@ button.close {
   top: auto;
 }
 .dropdown__menu--wide {
-  min-width: 24rem;
+  min-width: 26rem;
 }
 .dropdown__menu__item {
   list-style: none;
@@ -4541,6 +4541,9 @@ pre {
 }
 .site-example-callouts .callout:not(:last-child) {
   margin-bottom: 1.2rem;
+}
+.site-example-dropdowns .dropdown {
+  margin-bottom: 0.6rem;
 }
 .site-example-dropdowns .dropdown:not(:last-child) {
   margin-right: 0.6rem;
