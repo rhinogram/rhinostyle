@@ -26,7 +26,8 @@ class DropdownMenuItem extends React.Component {
     className:   React.PropTypes.string,
     disabled:    React.PropTypes.bool,
     icon:        customValidator,
-    label:       React.PropTypes.string,
+    label:       React.PropTypes.string.isRequired,
+    labelDesc:   React.PropTypes.string,
     route:       React.PropTypes.string,
     url:         React.PropTypes.string,
   };
@@ -54,7 +55,7 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, route } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       'active': active, //eslint-disable-line
       'disabled': disabled, //eslint-disable-line
@@ -66,9 +67,12 @@ class DropdownMenuItem extends React.Component {
       markup = (
         <li className={classes}>
           <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
-            {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-            {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
-            <span className="u-text-overflow">{label}</span>
+            <div className="dropdown__menu__item__link__label">
+              {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
+              {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+              <span className="u-text-overflow">{label}</span>
+            </div>
+            {labelDesc ? (<div className="dropdown__menu__item__link__desc">{labelDesc}</div>) : null}
           </Link>
         </li>
       );
@@ -76,9 +80,12 @@ class DropdownMenuItem extends React.Component {
       markup = (
         <li className={classes}>
           <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
-            {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-            {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
-            <span className="u-text-overflow">{label}</span>
+            <div className="dropdown__menu__item__link__label">
+              {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
+              {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+              <span className="u-text-overflow">{label}</span>
+            </div>
+            {labelDesc ? (<div className="dropdown__menu__item__link__desc">{labelDesc}</div>) : null}
           </a>
         </li>
       );

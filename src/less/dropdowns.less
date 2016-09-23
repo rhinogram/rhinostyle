@@ -120,6 +120,7 @@
   left: 0;
   list-style: none;
   margin: .2rem 0 0;
+  max-width: 28rem;
   opacity: 0;
   padding: @padding-xsmall 0;
   position: absolute;
@@ -143,6 +144,10 @@
     top: -.7rem;
     transform: rotate(45deg);
     z-index: -1;
+  }
+
+  @media (min-width: @screen-xs-min) {
+    max-width: 44rem;
   }
 }
 
@@ -189,6 +194,7 @@
 
 .dropdown__menu__item {
   list-style: none;
+  position: relative; // needed for active state with checkmark
 
   // Active state
   &.active > .dropdown__menu__item__link {
@@ -221,15 +227,12 @@
 
 
 .dropdown__menu__item__link {
-  align-items: center;
   color: @dropdown-link-color;
   cursor: pointer;
-  display: flex;
+  display: block;
   font-weight: normal;
   line-height: @line-height-base;
   padding: @dropdown-padding;
-  position: relative;
-  white-space: nowrap;
 
   &:hover,
   &:focus {
@@ -238,6 +241,30 @@
     outline: 0;
     text-decoration: none;
   }
+}
+
+
+// -------------------------
+// Dropdown Menu Item Link Label
+// -------------------------
+
+
+.dropdown__menu__item__link__label {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+
+// -------------------------
+// Dropdown Menu Item Link Description
+// -------------------------
+
+
+.dropdown__menu__item__link__desc {
+  font-size: 1.4rem;
+  min-width: 24rem;
+  opacity: .8;
 }
 
 

@@ -8,12 +8,13 @@ class ComponentExample extends React.Component {
     <div>
       <Dropdown label="Dropdown" type="outline-primary">
         <DropdownMenuHeader>Menu Header</DropdownMenuHeader>
-        <DropdownMenuItem label="Custom click Item" onClick={() => alert('clicked!')} />
-        <DropdownMenuItem label="Url Blank Window Item" url={'http://www.rhinogram.com'} blankWindow />
-        <DropdownMenuItem label="Url Item" url={'http://www.rhinogram.com'} />
+        <DropdownMenuItem label="Custom Click Item" labelDesc="Click me and I will fire an alert." onClick={() => alert('clicked!')} />
+        <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url={'http://www.rhinogram.com'} blankWindow />
+        <DropdownMenuItem label="Url Item" labelDesc="Click me and I will redirect you to a new website." url={'http://www.rhinogram.com'} />
         <DropdownMenuDivider />
         <DropdownMenuItem label="Separated Item" />
-        <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Log Out</Button></div>
+        <DropdownMenuDivider />
+        <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
       </Dropdown>
       &nbsp;&nbsp;
       <Dropdown label="Dropdown Select" type="input" onSelect={this.optionalCallbackFunction}>
@@ -23,6 +24,7 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem id={3} label="A third item" />
         <DropdownMenuDivider />
         <DropdownMenuItem id={4} label="A fourth item" />
+        <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
       </Dropdown>
       &nbsp;&nbsp;
       <Dropdown wide label="Dropdown Select w/ Filter" type="outline-primary">

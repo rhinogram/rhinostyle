@@ -16,6 +16,11 @@ class ComponentExample extends React.Component {
       <DropdownMenuItem icon="sms" label="Icon Item" />
       <DropdownMenuItem icon="email" label="Icon Item" />
       <DropdownMenuItem icon="lock" label="Icon Item" />
+      <DropdownMenuDivider />
+      <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for for dropdown menu item." />
+      <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for for dropdown menu item." />
+      <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for for dropdown menu item." active />
+      <DropdownMenuItem label="Dropdown Menu Item Four" labelDesc="Label description for for dropdown menu item." />
     </div>
     );
   }
