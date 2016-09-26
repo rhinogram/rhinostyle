@@ -4,6 +4,7 @@ class ComponentExample extends React.Component {
       <div className="site-example-pills">
         <Pill label="Ben" />
         <Pill label="Click Me" onClick={() => alert('clicked!')} />
+        <Pill label="Disabled Pill" disabled />
       </div>
     );
   }

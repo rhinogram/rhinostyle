@@ -9,8 +9,9 @@ import Playground from 'component-playground';
 const pillExample = require('raw!./examples/Pill.example.txt');
 const pillDocs = {
   className: '[Optional] - Include additional class name(s)',
-  onClick: '[Required] - Include click function for Pill',
-  label: '[Required] - Include label for Pill',
+  disabled:  '[Optional] - Pill is disabled',
+  onClick:   '[Required] - Include click function for Pill',
+  label:     '[Required] - Include label for Pill',
 };
 const exampleScope  = {
   React,

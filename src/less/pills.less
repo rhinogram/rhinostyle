@@ -32,6 +32,16 @@
   .mixin-pill-variant(@pill-default-bg; @pill-default-border; @pill-default-color);
 }
 
+.pill--disabled {
+  cursor: @cursor-disabled;
+  opacity: @opacity-disabled;
+  pointer-events: none;
+
+  .pill__close {
+    display: none;
+  }
+}
+
 
 // -------------------------
 // Pill Close

@@ -3971,6 +3971,14 @@ h3 .label {
 .pill--default:focus {
   background-color: #fafafa;
 }
+.pill--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.pill--disabled .pill__close {
+  display: none;
+}
 .pill__close {
   color: #6c6c6c;
   margin-left: 0.6rem;

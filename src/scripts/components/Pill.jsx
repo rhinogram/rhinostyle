@@ -2,8 +2,10 @@ import React from 'react';
 import cx    from 'classnames';
 
 const Pill = (props) => {
-  const { className, onClick, label, ...opts } = props;
-  const classes = cx('pill', 'pill--default', className);
+  const { className, disabled, onClick, label, ...opts } = props;
+  const classes = cx('pill', 'pill--default', className, {
+    'pill--disabled':   disabled,
+  });
 
   return (
     /* eslint no-script-url:0 */
@@ -15,6 +17,7 @@ Pill.displayName = 'RhinoPill';
 
 Pill.propTypes = {
   className: React.PropTypes.string,
+  disabled:  React.PropTypes.bool,
   onClick:   React.PropTypes.func.isRequired,
   label:     React.PropTypes.string.isRequired,
 };
