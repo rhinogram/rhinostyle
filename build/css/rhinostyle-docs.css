@@ -707,20 +707,14 @@ a.u-text-white:hover,
   -ms-flex-wrap: wrap-reverse !important;
   flex-wrap: wrap-reverse !important;
 }
-.u-m-auto {
+.u-m-a-auto {
   margin: auto !important;
-}
-.u-m-b-auto {
-  margin-bottom: auto !important;
 }
 .u-m-l-auto {
   margin-left: auto !important;
 }
 .u-m-r-auto {
   margin-right: auto !important;
-}
-.u-m-t-auto {
-  margin-top: auto !important;
 }
 .u-m-x-auto {
   margin-right: auto !important;

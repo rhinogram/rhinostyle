@@ -26,7 +26,7 @@ class DropdownMenuItem extends React.Component {
     className:   React.PropTypes.string,
     disabled:    React.PropTypes.bool,
     icon:        customValidator,
-    label:       React.PropTypes.string.isRequired,
+    label:       React.PropTypes.string,
     labelDesc:   React.PropTypes.string,
     route:       React.PropTypes.string,
     url:         React.PropTypes.string,

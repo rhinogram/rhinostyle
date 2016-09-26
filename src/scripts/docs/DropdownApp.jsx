@@ -47,7 +47,7 @@ const dropdownMenuItemDocs = {
   disabled: '[Optional] - Disabled state',
   icon: '[Optional] - Name of icon',
   id: '[Optional] - Identifies the selected item in Dropdown when you want to use as a Dropdown Select',
-  label: '[Required] - Label for item',
+  label: '[Optional] - Label for item',
   labelDesc: '[Optional] - Description for label',
   onClick: '[Opational] - Click function',
   route: '[Optional] - React-router route to use for item',
