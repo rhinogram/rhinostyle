@@ -43,7 +43,7 @@ class Dropdown extends React.Component {
     if (newProps.activeKey !== this.props.activeKey) {
       this.setState({
         activeKey: newProps.activeKey,
-      })
+      });
     }
   }
 

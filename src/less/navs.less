@@ -8,12 +8,33 @@
 
 
 .nav-tabs {
-  border-bottom: 1px solid @border-color-base;
   display: flex;
   list-style: none;
   margin-bottom: @margin-half-gutter;
-  padding: @nav-tabs-active-border-width 0 0 0;
+  padding: @nav-tabs-active-border-width 0;
 }
+
+
+// When tabs are not justified they don't fill the width of parent container.
+// Therefore we add a pseudo border after the last nav-tabs__item's link and have it run to the right of the page.
+// Basically emulates .nav-tabs having a bottom border.
+.nav-tabs--justified-none {
+  overflow-x: hidden;
+
+  .nav-tabs__item:last-child .nav-tabs__item__link {
+    &::after {
+      background: @border-color-base;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 100%;
+      margin-left: -1px;
+      position: absolute;
+      width: 6000px;
+    }
+  }
+}
+
 
 .nav-tabs--justified-auto {
   .nav-tabs__item {
@@ -42,8 +63,6 @@
 
   cursor: pointer;
   display: flex;
-  margin-bottom: -1px; // align with .nav-tabs border-bottom
-  margin-right: -1px;
   position: relative;
 
   // left and right tab borders
@@ -94,11 +113,6 @@
 
 
 .nav-tabs__item__link {
-
-  //transform: translate3d(0, 0, 0);
-  //backface-visibility: hidden;
-  //transform-style: preserve-3d;
-
   align-items: center;
   color: @link-color;
   display: flex;
@@ -111,18 +125,7 @@
 
   .nav-tabs__item.active & {
     color: @text-color;
-
-    &::after {
-      background: @color-white; // to cover .nav-tabs border
-      bottom: 0;
-      content: '';
-      height: 1px;
-      left: 0;
-      position: absolute;
-      right: 0;
-    }
   }
-
 }
 
 

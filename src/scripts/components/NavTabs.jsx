@@ -9,8 +9,12 @@ class NavTabs extends React.Component {
     activeKey:        React.PropTypes.number,
     children:         React.PropTypes.node,
     className:        React.PropTypes.string,
-    justified:        React.PropTypes.oneOf(['auto', 'equal']),
+    justified:        React.PropTypes.oneOf(['auto', 'equal', 'none']),
     onSelect:         React.PropTypes.func,
+  };
+
+  static defaultProps = {
+    justified:    'none',
   };
 
   getChildren = () => {
@@ -33,8 +37,9 @@ class NavTabs extends React.Component {
   render() {
     const { className, justified } = this.props;
     const classes = cx('nav-tabs', className, {
-      'nav-tabs--justified-equal':    justified === 'equal',
       'nav-tabs--justified-auto':     justified === 'auto',
+      'nav-tabs--justified-equal':    justified === 'equal',
+      'nav-tabs--justified-none':     justified === 'none',
     });
     return (
       <ul className={classes}>
