@@ -3875,6 +3875,7 @@ h3 .label {
   height: 1px;
   left: 100%;
   margin-left: -1px;
+  pointer-events: none;
   position: absolute;
   width: 6000px;
 }
@@ -3886,11 +3887,38 @@ h3 .label {
   -ms-flex: 1;
   flex: 1 1 0%;
 }
+.nav-tabs--stacked {
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.nav-tabs--stacked .nav-tabs__item::after,
+.nav-tabs--stacked .nav-tabs__item::before {
+  display: none;
+}
+.nav-tabs--stacked .nav-tabs__item + .nav-tabs__item {
+  margin-top: -1px;
+}
+.nav-tabs--stacked .nav-tabs__item.active {
+  z-index: 15;
+}
+.nav-tabs--stacked .nav-tabs__item.active .nav-tabs__item__link {
+  background: #0081c6;
+  border-color: #0081c6;
+  color: #fff;
+}
+.nav-tabs--stacked .nav-tabs__item__link {
+  border: 1px solid #c5c5c5;
+  padding: 0.6rem 1rem;
+}
+.nav-tabs--stacked .nav-tabs__item__link::after {
+  display: none;
+}
 .nav-tabs__item {
   cursor: pointer;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  z-index: 10;
 }
 .nav-tabs__item::after,
 .nav-tabs__item::before {
@@ -3914,6 +3942,7 @@ h3 .label {
 }
 .nav-tabs__item.active {
   cursor: default;
+  z-index: 1;
 }
 .nav-tabs__item.active::after {
   transform: scale(1, 1);
@@ -3935,7 +3964,6 @@ h3 .label {
   flex: 1 1 auto;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-right: -1px;
   padding: 1rem 1.6rem;
   position: relative;
   text-align: center;

@@ -10,8 +10,8 @@ const navTabsExample = require('raw!./examples/NavTabs.example.txt');
 const navTabsDocs = {
   activeKey: '[Optional] - Include active key',
   className: '[Optional] - Include additional class name(s)',
-  justified: '[Optional] - Justified type -  [auto | equal]',
-  select: '[Optional] - Include select function',
+  justified: '[Optional] - Justified options -  [auto | equal | none]',
+  select:    '[Optional] - Include select function',
 };
 const exampleScope  = {
   React,
@@ -23,6 +23,7 @@ class NavigationApp extends React.Component {
 
   state = {
     activeKey: 1,
+    activeStackedKey: 3,
     activeEqualKey: 1,
     activeAutoKey: 1,
   };
@@ -30,6 +31,12 @@ class NavigationApp extends React.Component {
   updateActiveKey = (index) => {
     this.setState({
       activeKey: index,
+    });
+  };
+
+  updateActiveStackedKey = (index) => {
+    this.setState({
+      activeStackedKey: index,
     });
   };
 
@@ -61,23 +68,22 @@ class NavigationApp extends React.Component {
           <div className="u-m-b-md">
             <p className="site-copy"><code>type="default"</code></p>
             <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
-              <NavTabsItem id={1}>Tab One</NavTabsItem>
-              <NavTabsItem id={2}>Tab Two</NavTabsItem>
-              <NavTabsItem id={3}>Tab Three</NavTabsItem>
+              <NavTabsItem id={1}>Code</NavTabsItem>
+              <NavTabsItem id={2}>Issues</NavTabsItem>
+              <NavTabsItem id={3}>Pull Requests</NavTabsItem>
             </NavTabs>
           </div>
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Modifiers</h3>
-
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Justifed, Equal Width</h5>
             <p className="site-copy"><code>justified="equal"</code></p>
             <NavTabs activeKey={this.state.activeEqualKey} onSelect={this.updateActiveEqualKey} justified="equal">
-              <NavTabsItem id={1}>Tab One</NavTabsItem>
-              <NavTabsItem id={2}>Tab Two</NavTabsItem>
-              <NavTabsItem id={3}>Tab Three</NavTabsItem>
+              <NavTabsItem id={1}>Code</NavTabsItem>
+              <NavTabsItem id={2}>Issues</NavTabsItem>
+              <NavTabsItem id={3}>Pull Requests</NavTabsItem>
             </NavTabs>
           </div>
 
@@ -85,9 +91,21 @@ class NavigationApp extends React.Component {
             <h5 className="site-miniheadline">Justified, Auto Width</h5>
             <p className="site-copy"><code>justified="auto"</code></p>
             <NavTabs activeKey={this.state.activeAutoKey} onSelect={this.updateActiveAutoKey} justified="auto">
-              <NavTabsItem id={1}>Tab One - With a Really Long Title</NavTabsItem>
-              <NavTabsItem id={2}>Tab Two</NavTabsItem>
-              <NavTabsItem id={3}>Tab Three</NavTabsItem>
+              <NavTabsItem id={1}>Code</NavTabsItem>
+              <NavTabsItem id={2}>Issues</NavTabsItem>
+              <NavTabsItem id={3}>Pull Requests</NavTabsItem>
+            </NavTabs>
+          </div>
+        </section>
+
+        <section className="site-section">
+          <h3 className="site-subheadline">NavTabs Helper Class</h3>
+          <p className="site-copy">Use <code>.nav-tabs--stacked</code> helper/modifier class (with CSS media queries) when necessary to collapse tabs into stacked layout. This is particularly useful on small screens.</p>
+          <div style={{ maxWidth: '32rem' }}>
+            <NavTabs activeKey={this.state.activeStackedKey} onSelect={this.updateActiveStackedKey} className="nav-tabs--stacked">
+              <NavTabsItem id={1}>Code</NavTabsItem>
+              <NavTabsItem id={2}>Issues</NavTabsItem>
+              <NavTabsItem id={3}>Pull Requests</NavTabsItem>
             </NavTabs>
           </div>
         </section>
