@@ -29,6 +29,7 @@
       height: 1px;
       left: 100%;
       margin-left: -1px;
+      pointer-events: none;
       position: absolute;
       width: 6000px;
     }
@@ -48,6 +49,42 @@
   }
 }
 
+// Helper class used to stack tabs when necessary
+.nav-tabs--stacked {
+  flex-direction: column;
+
+  .nav-tabs__item {
+    // hide left, right, top borders
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+
+  .nav-tabs__item + .nav-tabs__item {
+    margin-top: -1px;
+  }
+
+  .nav-tabs__item.active {
+    z-index: 15;
+  }
+
+  .nav-tabs__item.active .nav-tabs__item__link {
+    background: @color-primary;
+    border-color: @color-primary;
+    color: @color-white;
+  }
+
+  .nav-tabs__item__link {
+    border: 1px solid @border-color-base;
+    padding: @nav-link-padding-small;
+
+    // hide pseudo border that runs to the run for non-justified tabs
+    &::after {
+      display: none;
+    }
+  }
+}
 
 
 // -------------------------
@@ -64,6 +101,7 @@
   cursor: pointer;
   display: flex;
   position: relative;
+  z-index: 10;
 
   // left and right tab borders
   &::after,
@@ -91,6 +129,7 @@
 
   &.active {
     cursor: default;
+    z-index: 1;
 
     &::after {
       transform: scale(1, 1);
@@ -104,6 +143,7 @@
       transition: transform .35s @trans-timing-cubic;
     }
   }
+
 }
 
 
@@ -118,7 +158,7 @@
   display: flex;
   flex: 1 1 auto;
   justify-content: center;
-  margin-right: -1px;
+  //margin-right: -1px;
   padding: @nav-link-padding;
   position: relative;
   text-align: center;
