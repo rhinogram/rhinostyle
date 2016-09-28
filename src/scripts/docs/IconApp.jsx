@@ -8,6 +8,7 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved: 0 */
 const iconExample = require('raw!./examples/Icon.example.txt');
 const iconDocs = {
+  bump: '[Optional] - Bump [down | up] - used to move icon up or down slightly for precise positioning',
   className: '[Optional] - Include additional class name(s)',
   icon: '[Required] - Icon name',
 };
