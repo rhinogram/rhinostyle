@@ -33,6 +33,20 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="arrow-left" />
+        </div>
+        <div className="site-swatch__text"><strong>Arrow Left</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
+          <Icon icon="arrow-right" />
+        </div>
+        <div className="site-swatch__text"><strong>Arrow Right</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="bank" />
         </div>
         <div className="site-swatch__text"><strong>Bank</strong></div>
