@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<g>
-	<path d="M0.351,23.095c-0.04,0.168,0.011,0.345,0.133,0.468c0.118,0.119,0.292,0.174,0.468,0.133l6.466-1.516
-		c0.043-0.01,0.083-0.027,0.122-0.047l-5.625-5.625c-0.021,0.038-0.037,0.079-0.047,0.122L0.351,23.095z"/>
-	<rect x="18.516" y="1.031" transform="matrix(-0.7074 0.7069 -0.7069 -0.7074 36.0232 -4.8515)" width="1" height="8"/>
-	<rect x="2.841" y="8.352" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 28.6981 12.8173)" width="17.707" height="8"/>
-	<path d="M22.905,6.799l0.354-0.354c0.975-0.974,0.975-2.56,0-3.535l-2.121-2.12c-0.472-0.474-1.1-0.733-1.768-0.733
-		c-0.668,0-1.296,0.26-1.768,0.733l-0.354,0.353L22.905,6.799z"/>
-</g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>pencil</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" >
+        <g id="pencil" >
+            <path d="M21.7440093,6.18445545 L21.5281336,6.4003312 L17.591495,2.46163006 L17.8066832,2.24644182 C17.8066832,2.24644182 18.749249,1 20.0898786,1 C20.6804432,1 21.349383,1.24268834 22.0485729,1.94187826 C24.3544559,4.24776125 21.7440093,6.18445545 21.7440093,6.18445545 L21.7440093,6.18445545 Z M20.2356291,7.69352318 L6.83002019,21.1039446 L1,22.9993887 L2.89475656,17.165931 L2.89475656,17.1638685 L2.89613157,17.1638685 L16.299678,3.75413454 L16.4729286,3.92807264 L20.2356291,7.69352318 Z M2.89750657,21.1011946 L5.81045416,20.2631292 L3.82082227,18.1442469 L2.89750657,21.1011946 L2.89750657,21.1011946 Z" id="Shape"></path>
+        </g>
+    </g>
 </svg>

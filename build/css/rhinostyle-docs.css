@@ -3063,8 +3063,11 @@ button.close {
   vertical-align: middle;
   width: 1em;
 }
-.icon--email {
+.icon--bump-down {
   top: .1rem;
+}
+.icon--bump-up {
+  top: -0.1rem;
 }
 fieldset {
   border: 0;

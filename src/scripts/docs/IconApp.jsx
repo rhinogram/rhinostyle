@@ -8,6 +8,7 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved: 0 */
 const iconExample = require('raw!./examples/Icon.example.txt');
 const iconDocs = {
+  bump: '[Optional] - Bump [down | up] - used to move icon up or down slightly for precise positioning',
   className: '[Optional] - Include additional class name(s)',
   icon: '[Required] - Icon name',
 };
@@ -29,6 +30,20 @@ const IconApp = () =>
           <Icon icon="add" />
         </div>
         <div className="site-swatch__text"><strong>Add</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
+          <Icon icon="arrow-left" />
+        </div>
+        <div className="site-swatch__text"><strong>Arrow Left</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
+          <Icon icon="arrow-right" />
+        </div>
+        <div className="site-swatch__text"><strong>Arrow Right</strong></div>
       </div>
 
       <div className="site-swatch">
@@ -180,6 +195,20 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="gender-female" />
+        </div>
+        <div className="site-swatch__text"><strong>Gender Female</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
+          <Icon icon="gender-male" />
+        </div>
+        <div className="site-swatch__text"><strong>Gender Male</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="globe" />
         </div>
         <div className="site-swatch__text"><strong>Globe</strong></div>
@@ -190,20 +219,6 @@ const IconApp = () =>
           <Icon icon="inbox" />
         </div>
         <div className="site-swatch__text"><strong>Inbox</strong></div>
-      </div>
-
-      <div className="site-swatch">
-        <div className="site-swatch__sample">
-          <Icon icon="inbox-all" />
-        </div>
-        <div className="site-swatch__text"><strong>Inbox All</strong></div>
-      </div>
-
-      <div className="site-swatch">
-        <div className="site-swatch__sample">
-          <Icon icon="inbox-unassigned" />
-        </div>
-        <div className="site-swatch__text"><strong>Inbox Unassigned</strong></div>
       </div>
 
       <div className="site-swatch">
