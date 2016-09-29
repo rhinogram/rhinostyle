@@ -195,6 +195,20 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="gender-female" />
+        </div>
+        <div className="site-swatch__text"><strong>Gender Female</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
+          <Icon icon="gender-male" />
+        </div>
+        <div className="site-swatch__text"><strong>Gender Male</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="globe" />
         </div>
         <div className="site-swatch__text"><strong>Globe</strong></div>
