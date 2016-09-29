@@ -1,50 +1,83 @@
 import React from 'react';
 import cx    from 'classnames';
+import { Link } from 'react-router';
 
-const Button = (props) => {
-  const { active, block, className, onClick, disabled, iconOnly, size, type, ...opts } = props;
-  const classes = cx('btn', className, {
-    'btn--default':          type === 'default',
-    'btn--primary':          type === 'primary',
-    'btn--secondary':        type === 'secondary',
-    'btn--link':             type === 'link',
-    'btn--outline-default':  type === 'outline-default',
-    'btn--outline-primary':  type === 'outline-primary',
-    'btn--outline-reversed': type === 'outline-reversed',
-    'btn--danger':           type === 'danger',
-    'btn--sm':               size === 'small',
-    'btn--lg':               size === 'large',
-    'btn--block':            block,
-    'btn--icon':             iconOnly,
-    active,
-    disabled,
-  });
+class Button extends React.Component {
+  static displayName = 'RhinoButton';
 
-  /* eslint no-script-url:0 */
-  return (<a href="javascript:void(0)" className={classes} onClick={onClick} {...opts} role="button">{props.children}</a>);
-};
+  static propTypes = {
+    active:      React.PropTypes.bool,
+    blankWindow: React.PropTypes.bool,
+    block:       React.PropTypes.bool,
+    children:    React.PropTypes.node,
+    className:   React.PropTypes.string,
+    onClick:     React.PropTypes.func,
+    disabled:    React.PropTypes.bool,
+    iconOnly:    React.PropTypes.bool,
+    route:       React.PropTypes.string,
+    size:        React.PropTypes.oneOf(['small', 'large']),
+    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    url:         React.PropTypes.string,
+  };
 
-Button.displayName = 'RhinoButton';
+  static defaultProps = {
+    active:   false,
+    block:    false,
+    onClick:  () => {},
+    disabled: false,
+    iconOnly: false,
+    type:     'default',
+  };
 
-Button.propTypes = {
-  active:    React.PropTypes.bool,
-  block:     React.PropTypes.bool,
-  children:  React.PropTypes.node,
-  className: React.PropTypes.string,
-  onClick:   React.PropTypes.func.isRequired,
-  disabled:  React.PropTypes.bool,
-  iconOnly:  React.PropTypes.bool,
-  size:      React.PropTypes.oneOf(['small', 'large']),
-  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
-};
+  handleClick = () => {
+    let returnVal = null;
+    if (this.props.url) {
+      if (!this.props.blankWindow) {
+        window.location = this.props.url;
+      } else {
+        window.open(this.props.url);
+      }
+      returnVal = null;
+    } else {
+      returnVal = this.props.onClick();
+    }
+    return returnVal;
+  }
 
-Button.defaultProps = {
-  active:   false,
-  block:    false,
-  onClick:  () => {},
-  disabled: false,
-  iconOnly: false,
-  type:     'default',
-};
+  render() {
+    const { active, block, className, disabled, iconOnly, route, size, type, ...opts } = this.props;
+    const classes = cx('btn', className, {
+      'btn--default':          type === 'default',
+      'btn--primary':          type === 'primary',
+      'btn--secondary':        type === 'secondary',
+      'btn--link':             type === 'link',
+      'btn--outline-default':  type === 'outline-default',
+      'btn--outline-primary':  type === 'outline-primary',
+      'btn--outline-reversed': type === 'outline-reversed',
+      'btn--danger':           type === 'danger',
+      'btn--sm':               size === 'small',
+      'btn--lg':               size === 'large',
+      'btn--block':            block,
+      'btn--icon':             iconOnly,
+      active,
+      disabled,
+    });
+
+    let markup = '';
+
+    if (route) {
+      markup = (
+        <Link to={route} className={classes} onClick={this.handleClick} {...opts}>{this.props.children}</Link>
+      );
+    } else {
+      markup = (
+        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts} role="button">{this.props.children}</a>
+      );
+    }
+
+    return markup;
+  }
+
+}
 
 export default Button;

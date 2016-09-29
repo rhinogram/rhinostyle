@@ -14,13 +14,13 @@ class Cover extends React.Component {
     TweenMax.set('.cover', {
       display: 'flex',
       opacity: 0,
-      scale: 0.9
+      scale: 0.9,
     });
 
     TweenMax.to('.cover', 0.35, {
       scale: 1,
       opacity: 1,
-      ease: Expo.easeInOut
+      ease: Expo.easeInOut,
     });
   }
 
