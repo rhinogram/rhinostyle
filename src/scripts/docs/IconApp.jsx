@@ -223,20 +223,6 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
-          <Icon icon="inbox-all" />
-        </div>
-        <div className="site-swatch__text"><strong>Inbox All</strong></div>
-      </div>
-
-      <div className="site-swatch">
-        <div className="site-swatch__sample">
-          <Icon icon="inbox-unassigned" />
-        </div>
-        <div className="site-swatch__text"><strong>Inbox Unassigned</strong></div>
-      </div>
-
-      <div className="site-swatch">
-        <div className="site-swatch__sample">
           <Icon icon="info-circle" />
         </div>
         <div className="site-swatch__text"><strong>Info Circle</strong></div>
