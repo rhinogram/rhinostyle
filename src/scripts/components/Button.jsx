@@ -23,29 +23,28 @@ class Button extends React.Component {
   static defaultProps = {
     active:   false,
     block:    false,
-    onClick:  () => {},
     disabled: false,
     iconOnly: false,
+    onClick:  () => {},
     type:     'default',
   };
 
   handleClick = () => {
-    let returnVal = null;
     if (this.props.url) {
       if (!this.props.blankWindow) {
         window.location = this.props.url;
       } else {
         window.open(this.props.url);
       }
-      returnVal = null;
-    } else {
-      returnVal = this.props.onClick();
     }
-    return returnVal;
+
+    if (this.props.onClick && typeof(this.props.onClick === 'function')) {
+      this.props.onClick();
+    }
   }
 
   render() {
-    const { active, block, className, disabled, iconOnly, route, size, type, ...opts } = this.props;
+    const { active, block, className, disabled, iconOnly, onClick, route, size, type, ...opts } = this.props;
     const classes = cx('btn', className, {
       'btn--default':          type === 'default',
       'btn--primary':          type === 'primary',
@@ -71,7 +70,7 @@ class Button extends React.Component {
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts} role="button">{this.props.children}</a>
+        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts}>{this.props.children}</a>
       );
     }
 

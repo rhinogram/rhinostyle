@@ -9,9 +9,10 @@ import Playground from 'component-playground';
 const buttonExample = require('raw!./examples/Button.example.txt');
 const buttonDocs = {
   active: '[Optional] - Button is active',
+  blankWindow: '[Optional] - Open URL in blank browser window',
   block: '[Optional] - Button is block level',
   className: '[Optional] - Include additional class name(s)',
-  onClick: '[Required] - Include click function for Button',
+  onClick: '[Optional] - Include click function for Button',
   disabled: '[Optional] - Button is disabled',
   iconOnly: '[Optional] - Button has an icon but no text',
   route: '[Optional] - React-router route to use for item',
