@@ -3,8 +3,8 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-buttons">
         <div className="u-m-b u-bg-gray-lightest u-p-a">
-          <Button>Default</Button>
-          <Button type="outline-default">Outline Default</Button>
+          <Button url="http://www.rhinogram.com" blankWindow>Default</Button>
+          <Button type="outline-default" route="/home">Outline Default</Button>
           <Button type="primary">Primary</Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
         </div>
