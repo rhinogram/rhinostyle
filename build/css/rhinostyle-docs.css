@@ -1,4 +1,4 @@
-/*! rhinostyle v0.1.8 */
+/*! rhinostyle v0.1.9 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -1146,6 +1146,9 @@ a.u-text-white:hover,
   display: -ms-flexbox;
   display: flex;
   padding: 1.6rem;
+}
+.bucket__header__avatar {
+  margin-right: 1rem;
 }
 .bucket__header__title {
   -ms-flex-align: center;

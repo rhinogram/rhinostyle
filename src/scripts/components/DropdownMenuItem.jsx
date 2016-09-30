@@ -36,7 +36,6 @@ class DropdownMenuItem extends React.Component {
     active:    false,
     onClick:   () => {},
     disabled:  false,
-    newWindow: false,
   };
 
   handleClick = () => {
@@ -57,8 +56,8 @@ class DropdownMenuItem extends React.Component {
   render() {
     const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
-      'active': active, //eslint-disable-line
-      'disabled': disabled, //eslint-disable-line
+      active,
+      disabled,
     });
 
     let markup = '';
