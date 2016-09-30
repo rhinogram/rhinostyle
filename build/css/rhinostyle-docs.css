@@ -1147,9 +1147,6 @@ a.u-text-white:hover,
   display: flex;
   padding: 1.6rem;
 }
-.bucket__header__avatar {
-  margin-right: 1rem;
-}
 .bucket__header__title {
   -ms-flex-align: center;
   align-items: center;
@@ -1157,6 +1154,9 @@ a.u-text-white:hover,
   display: flex;
   font-size: 1.8rem;
   line-height: 1.2;
+}
+.bucket__header__title__avatar {
+  margin-right: 1rem;
 }
 .bucket__header__title__icon {
   margin-right: 1rem;
