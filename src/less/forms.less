@@ -204,6 +204,11 @@ input[type='checkbox']:focus {
   display: flex;
   white-space: nowrap;
   .mixin-addon-size(@input-height-base; @padding-base; @font-size-base);
+
+  &.disabled,
+  &[disabled] {
+    opacity: @opacity-disabled;
+  }
 }
 
 .form__addon__item--left {

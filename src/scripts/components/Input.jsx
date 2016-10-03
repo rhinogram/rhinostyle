@@ -99,7 +99,7 @@ class Input extends React.Component {
           case 'left':
             inputMarkup = (
               <div className="form__addon">
-                <div className="form__addon__item form__addon__item--left">
+                <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
                 </div>
@@ -111,7 +111,7 @@ class Input extends React.Component {
             inputMarkup = (
               <div className="form__addon">
                 <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
-                <div className="form__addon__item form__addon__item--right">
+                <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children}
                 </div>
               </div>
@@ -120,11 +120,11 @@ class Input extends React.Component {
           case 'both':
             inputMarkup = (
               <div className="form__addon">
-                <div className="form__addon__item form__addon__item--left">
+                <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {this.props.children[0]}
                 </div>
                 <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
-                <div className="form__addon__item form__addon__item--right">
+                <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children[1]}
                 </div>
               </div>
