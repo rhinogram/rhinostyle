@@ -4,8 +4,7 @@ class ComponentExample extends React.Component {
     lastName: '',
   }
 
-  onClick = (event) => {
-    event.preventDefault();
+  onClick = () => {
     ModalSystem.addModal(this.renderContent());
   };
 
