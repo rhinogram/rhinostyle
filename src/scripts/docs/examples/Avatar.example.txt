@@ -12,7 +12,7 @@ class ComponentExample extends React.Component {
           <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" />
           <Avatar image="//badimage.jpg" name="Craig Anthony" />
           <Avatar name="Craig Anthony" />
-          <Avatar type="patient" />
+          <Avatar />
         </div>
         <div>
           <Avatar image="//bit.ly/1VMXoDP" name="Ian Greulich" size="small" type="member" />

@@ -8,7 +8,7 @@ const Icon = (props) => {
     'icon--bump-up':    bump === 'up',
   });
 
-  return (<svg className={classes}><use xlinkHref={`#icon-${props.icon}`} /></svg>);
+  return (<svg className={classes} style={props.style}><use xlinkHref={`#icon-${props.icon}`} /></svg>);
 };
 
 Icon.displayName = 'RhinoIcon';

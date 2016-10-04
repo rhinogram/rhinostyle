@@ -67,6 +67,24 @@ class ComponentExample extends React.Component {
           <DropdownMenuItem id={4} label="Item Four" icon="search" />
         </DropdownFilter>
       </Dropdown>
+      <Dropdown label="Search to add a contact" block type="link" className="u-p-l-0" hideCaret icon="add">
+        <DropdownFilter placeholder="Search contacts">
+          <div className="dropdown__menu__container">
+            <Button type="link" className="u-flex u-p-l-0"><Icon icon="add" style={{width:'4rem',marginRight:'.4rem'}}/>Create new contact</Button>
+          </div>
+          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
+          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
+          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />
+          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//unsplash.it/400/400?image=433" />
+          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//unsplash.it/400/400?image=856" />
+          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//unsplash.it/400/400?image=65" />
+          <DropdownMenuItem id={7} label="Max Krause" avatar="//unsplash.it/400/400?image=64" />
+          <DropdownMenuItem id={8} label="Paul Drake" avatar="//unsplash.it/400/400?image=837" />
+          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//unsplash.it/400/400?image=429" />
+          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//unsplash.it/400/400?image=660" />
+          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//unsplash.it/400/400?image=783" />
+        </DropdownFilter>
+      </Dropdown>
     </div>
     );
   }
