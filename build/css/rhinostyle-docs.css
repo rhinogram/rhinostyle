@@ -556,31 +556,27 @@ a.u-text-white:hover,
 }
 .u-flex-align-items-baseline {
   -ms-flex-align: baseline !important;
-  -ms-grid-row-align: baseline !important;
   align-items: baseline !important;
 }
 .u-flex-align-items-center {
   -ms-flex-align: center !important;
-  -ms-grid-row-align: center !important;
   align-items: center !important;
 }
 .u-flex-align-items-end {
   -ms-flex-align: end !important;
-  -ms-grid-row-align: flex-end !important;
   align-items: flex-end !important;
 }
 .u-flex-align-items-start {
   -ms-flex-align: start !important;
-  -ms-grid-row-align: flex-start !important;
   align-items: flex-start !important;
 }
 .u-flex-align-items-stretch {
   -ms-flex-align: stretch !important;
-  -ms-grid-row-align: stretch !important;
   align-items: stretch !important;
 }
 .u-flex-align-self-auto {
   -ms-flex-item-align: auto !important;
+  -ms-grid-row-align: auto !important;
   align-self: auto !important;
 }
 .u-flex-align-self-baseline {
@@ -589,6 +585,7 @@ a.u-text-white:hover,
 }
 .u-flex-align-self-center {
   -ms-flex-item-align: center !important;
+  -ms-grid-row-align: center !important;
   align-self: center !important;
 }
 .u-flex-align-self-end {
@@ -601,6 +598,7 @@ a.u-text-white:hover,
 }
 .u-flex-align-self-stretch {
   -ms-flex-item-align: stretch !important;
+  -ms-grid-row-align: stretch !important;
   align-self: stretch !important;
 }
 .u-flex-direction-column {
@@ -2228,11 +2226,7 @@ button.close {
   margin-left: auto;
 }
 .dropdown--block .dropdown__menu {
-  width: 100%;
-}
-.dropdown--multiselect {
-  display: -ms-flexbox;
-  display: flex;
+  min-width: 100%;
 }
 .dropdown--multiselect::after {
   background-position: center center;
@@ -2592,17 +2586,14 @@ button.close {
 }
 .top-xs {
   -ms-flex-align: start;
-  -ms-grid-row-align: flex-start;
   align-items: flex-start;
 }
 .middle-xs {
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 .bottom-xs {
   -ms-flex-align: end;
-  -ms-grid-row-align: flex-end;
   align-items: flex-end;
 }
 .around-xs {
@@ -2736,17 +2727,14 @@ button.close {
   }
   .top-sm {
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
   }
   .middle-sm {
     -ms-flex-align: center;
-    -ms-grid-row-align: center;
     align-items: center;
   }
   .bottom-sm {
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .around-sm {
@@ -2881,17 +2869,14 @@ button.close {
   }
   .top-md {
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
   }
   .middle-md {
     -ms-flex-align: center;
-    -ms-grid-row-align: center;
     align-items: center;
   }
   .bottom-md {
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .around-md {
@@ -3026,17 +3011,14 @@ button.close {
   }
   .top-lg {
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
   }
   .middle-lg {
     -ms-flex-align: center;
-    -ms-grid-row-align: center;
     align-items: center;
   }
   .bottom-lg {
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .around-lg {
@@ -3368,7 +3350,6 @@ fieldset[disabled] input[type='checkbox'] {
 }
 .rhinobox {
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
   padding-left: 0;
 }
@@ -4047,6 +4028,7 @@ h3 .label {
   background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%201%201%22%20preserveAspectRatio%3D%22none%22%3E%3ClinearGradient%20id%3D%22gradient%22%20gradientUnits%3D%22userSpaceOnUse%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%220%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2372aa00%22%2F%3E%3Cstop%20offset%3D%2275%25%22%20stop-color%3D%22%23f2d046%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23cc2d32%22%2F%3E%3C%2FlinearGradient%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%221%22%20height%3D%221%22%20fill%3D%22url(%23gradient)%22%20%2F%3E%3C%2Fsvg%3E');
 }
 .progress__bar__slider {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background: #ececec;
   box-shadow: inset 0 0.5rem 0.5rem rgba(0, 0, 0, 0.05);
@@ -4985,6 +4967,7 @@ html.panel-is-open .site-panel {
   font-weight: 300;
 }
 .site-wrapper {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   min-height: 100vh;
   position: relative;

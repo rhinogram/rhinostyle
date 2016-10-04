@@ -1,7 +1,6 @@
 {
     "depthLevel": {
-      "enabled": true,
-      "depth": 3
+      "enabled": false
     },
     "qualifyingElement": {
         "enabled": false,
@@ -31,6 +30,12 @@
         "style": "none"
     },
     "importantRule": {
+        "enabled": false
+    },
+    "maxCharPerLine": {
+        "enabled": false
+    },
+    "spaceAfterPropertyColon": {
         "enabled": false
     },
     "excludedFiles": ["rhinostyle-docs.less","utilities-spacing.less"]

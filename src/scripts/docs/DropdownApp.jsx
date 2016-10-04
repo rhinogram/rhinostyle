@@ -13,6 +13,7 @@ const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example
 
 const dropdownDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
+  block: '[Optional] - Block level dropdown',
   className: '[Optional] - Include additional class name(s)',
   hideCaret: '[Optional] - Hide Dropdown caret',
   icon: '[Optional] - Name of icon',
@@ -22,16 +23,19 @@ const dropdownDocs = {
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
 };
 
 const dropdownMultiSelectDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
+  block: '[Optional] - Block level dropdown',
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Name of icon',
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
+  wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
 };
 
 const dropdownMenuHeaderDocs = {

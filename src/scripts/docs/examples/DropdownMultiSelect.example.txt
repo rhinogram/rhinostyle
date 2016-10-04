@@ -6,7 +6,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div>
-      <DropdownMultiSelect placeholder="Select these people..." type="primary" onSelect={this.optionalCallbackFunction}>
+      <DropdownMultiSelect block placeholder="Select these people..." type="primary" onSelect={this.optionalCallbackFunction}>
         <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
         <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
         <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />

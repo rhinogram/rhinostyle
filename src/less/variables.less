@@ -1,6 +1,8 @@
 // File: variables.less
 // Note:
 
+// lesshint spaceAfterPropertyColon: false
+// lesshint spaceAfterPropertyColon: { enabled: false }
 
 // -------------------------
 // Alerts
@@ -211,7 +213,7 @@
 @padding-half-gutter:       @grid-gutter-width / 2; // 16px
 @padding-xlarge:            1.4rem;
 @padding-large:             1.2rem;
-@padding-base:              1.0rem;
+@padding-base:              1rem;
 @padding-small:             .6rem;
 @padding-xsmall:            .4rem;
 
@@ -220,7 +222,7 @@
 @margin-half-gutter:        @grid-gutter-width / 2; // 16px
 @margin-xlarge:             1.4rem;
 @margin-large:              1.2rem;
-@margin-base:               1.0rem;
+@margin-base:               1rem;
 @margin-small:              .6rem;
 @margin-xsmall:             .4rem;
 
@@ -534,9 +536,9 @@
 // -------------------------
 
 
-@shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .20);
-@shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .20);
-@shadow-depth-3: 0 1.0rem  2.5rem  rgba(0, 0, 0, .20);
+@shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .2);
+@shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .2);
+@shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, .2);
 
 
 // -------------------------
@@ -623,7 +625,7 @@
 
 @table-border-color:            @border-color-base;
 
-@table-cell-padding:            1.0rem; // padding for `<th>`s and `<td>`s
+@table-cell-padding:            1rem; // padding for `<th>`s and `<td>`s
 @table-condensed-cell-padding:  .6rem; // padding for cells in `.table-condensed`
 
 
@@ -659,7 +661,7 @@
 
 
 @trans-timing-cubic:          cubic-bezier(.43, .41, .22, .91);
-@trans-timing-elastic:        cubic-bezier(1, 0.6, 0, 1.22);
+@trans-timing-elastic:        cubic-bezier(1, .6, 0, 1.22);
 
 
 // -------------------------
@@ -683,17 +685,17 @@
 
 @font-family-base:        @font-family-sans-serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, 'Courier New', monospace;
-@font-family-sans-serif:  'Lato','Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, 'Times New Roman', Times, serif;
 
 @font-size-root:          10px;
 
 @font-size-base:          1.6rem;
-@font-size-large:         2.0rem;
+@font-size-large:         2rem;
 @font-size-small:         1.4rem;
 
 
-@font-size-h1:            3.0rem;
+@font-size-h1:            3rem;
 @font-size-h2:            2.6rem;
 @font-size-h3:            2.2rem;
 @font-size-h4:            1.8rem;
@@ -727,7 +729,3 @@
 @zindex-popover:           1060;
 @zindex-tooltip:           1070;
 @zindex-cover:             1080;
-
-
-
-

@@ -11,19 +11,23 @@ class DropdownMultiSelect extends React.Component {
 
   static propTypes = {
     activeKeys:   React.PropTypes.arrayOf(React.PropTypes.number),
+    block:        React.PropTypes.bool,
     children:     React.PropTypes.node,
     className:    React.PropTypes.string,
     disabled:     React.PropTypes.bool,
     label:        React.PropTypes.string,
+    onSelect:     React.PropTypes.func,
     placeholder:  React.PropTypes.string,
     position:     React.PropTypes.string,
-    onSelect:     React.PropTypes.func,
+    wide:         React.PropTypes.bool,
   };
 
   static defaultProps = {
     activeKeys:   [],
+    block:        false,
     disabled:     false,
     placeholder:  'Click or type to select more ...',
+    wide:         false,
   };
 
   state = {
@@ -134,13 +138,14 @@ class DropdownMultiSelect extends React.Component {
   }
 
   render() {
-    const { disabled, placeholder, position, children } = this.props;
+    const { block, children, disabled, placeholder, position, wide } = this.props;
     const items = this.state.items;
     const activeKeys = this.state.activeKeys;
     const isOpen = this.state.isOpen;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', 'u-m-b-sm', {
-      open:  this.state.isOpen,
+      'dropdown--block': block,
+      open:              this.state.isOpen,
     });
 
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
@@ -151,6 +156,7 @@ class DropdownMultiSelect extends React.Component {
       'dropdown__menu--right': position === 'right',
       'dropdown__menu--top': position === 'top',
       'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+      'dropdown__menu--wide': wide,
     });
 
     const renderPill = (id) => {

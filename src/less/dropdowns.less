@@ -49,7 +49,7 @@
   }
 
   .dropdown__menu {
-    width: 100%;
+    min-width: 100%;
   }
 }
 
@@ -60,7 +60,6 @@
 
 
 .dropdown--multiselect { // lesshint depthLevel: false
-  display: flex;
 
   .mixin-chevron-down(); // add chevron
 
@@ -130,8 +129,7 @@
   position: absolute;
   text-align: left;
   top: 90%;
-  transition: opacity 250ms @trans-timing-cubic,
-              transform 500ms @trans-timing-cubic;
+  transition: opacity 250ms @trans-timing-cubic, transform 500ms @trans-timing-cubic;
   visibility: hidden;
   z-index: @zindex-dropdown;
 
@@ -382,13 +380,3 @@
     margin-right: @margin-xsmall;
   }
 }
-
-
-
-
-
-
-
-
-
-
