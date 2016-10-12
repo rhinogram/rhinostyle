@@ -1,4 +1,4 @@
-/*! rhinostyle v0.2.1 */
+/*! rhinostyle v0.2.2 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -3264,6 +3264,7 @@ fieldset[disabled] .form__control {
 }
 textarea.form__control {
   height: auto;
+  min-height: 3.6rem;
   padding-bottom: 0.6rem;
   padding-top: 0.6rem;
 }
