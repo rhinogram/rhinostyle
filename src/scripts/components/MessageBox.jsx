@@ -22,7 +22,7 @@ class MessageBox extends React.Component {
     placeholder:   '',
     rows:          1,
     required:      false,
-    maxHeight:     'none',
+    maxHeight:     '20rem',
   };
 
   state = {
@@ -99,7 +99,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} maxHeight={maxHeight} style={messageBoxStyle} value={this.state.value} onChange={this._handleChange} ref="textarea"></textarea>
+        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onChange={this._handleChange} ref="textarea"></textarea>
       </div>
     );
   }
