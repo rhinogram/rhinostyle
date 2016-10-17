@@ -3,7 +3,7 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-avatar">
         <div className="u-m-b">
-          <Avatar image="//bit.ly/1VMOwOw" name="Ben Bruning" size="large" type="member" />
+          <Avatar image="//unsplash.it/200/200?image=804" name="Ben Bruning" size="large" type="member" />
           <Avatar image="//brokenimage.jpg" name="Ben Bruning" size="large" type="member" />
           <Avatar name="Ben Bruning" size="large" type="member" />
           <Avatar size="large" type="member" />
@@ -15,7 +15,7 @@ class ComponentExample extends React.Component {
           <Avatar />
         </div>
         <div>
-          <Avatar image="//bit.ly/1VMXoDP" name="Ian Greulich" size="small" type="member" />
+          <Avatar image="//unsplash.it/200/200?image=856" name="Ian Greulich" size="small" type="member" />
           <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="member" />
           <Avatar name="Ian Greulich" size="small" type="member" />
           <Avatar size="small" type="member" />
