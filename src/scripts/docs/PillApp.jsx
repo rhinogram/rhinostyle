@@ -7,11 +7,13 @@ import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const pillExample = require('raw!./examples/Pill.example.txt');
+
 const pillDocs = {
   className: '[Optional] - Include additional class name(s)',
   disabled:  '[Optional] - Pill is disabled',
   onClick:   '[Required] - Include click function for Pill',
   label:     '[Required] - Include label for Pill',
+  type:      '[Optional] - Pill type, as a string -  [default | neutral]',
 };
 const exampleScope  = {
   React,

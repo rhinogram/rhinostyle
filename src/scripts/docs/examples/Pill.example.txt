@@ -2,9 +2,14 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-pills">
-        <Pill label="Ben" />
+        <Pill label="Default Pill" />
+        <Pill label="Default Pill" />
+        <Pill label="Default Pill Disabled" disabled />
+        <Pill label="Neutral Pill" type="neutral" />
+        <Pill label="Neutral Pill" type="neutral" />
+        <Pill label="Neutral Pill Disabled" type="neutral" disabled />
+        <br />
         <Pill label="Click Me" onClick={() => alert('clicked!')} />
-        <Pill label="Disabled Pill" disabled />
       </div>
     );
   }

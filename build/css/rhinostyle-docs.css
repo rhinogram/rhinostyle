@@ -3997,9 +3997,18 @@ h3 .label {
 .pill--disabled .pill__close {
   display: none;
 }
+.pill--neutral {
+  background: #f9f9f9;
+  border: 1px solid #f9f9f9;
+  color: #0081c6;
+}
+.pill--neutral:hover,
+.pill--neutral:focus {
+  background-color: #f4f4f4;
+}
 .pill__close {
   color: #6c6c6c;
-  margin-left: 0.6rem;
+  margin-left: 0.4rem;
 }
 .progress {
   border-radius: 1rem;
@@ -4580,6 +4589,9 @@ pre {
 }
 .site-example-messages .msg:not(:last-child) {
   margin-right: 1.2rem;
+}
+.site-example-pills .pill {
+  margin-bottom: 0.6rem;
 }
 .site-example-pills .pill:not(:last-child) {
   margin-right: 0.6rem;
