@@ -6,7 +6,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
     <div className="site-example-dropdowns">
-      <Dropdown label="Dropdown">
+      <Dropdown label="Dropdown" wide>
         <DropdownMenuHeader label="Menu Header" />
         <DropdownMenuItem label="Custom Click Item" labelDesc="Click me and I will fire an alert." onClick={() => alert('clicked!')} />
         <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url="http://www.rhinogram.com" blankWindow />

@@ -2369,17 +2369,26 @@ button.close {
   outline: 0;
   text-decoration: none;
 }
-.dropdown__menu__item__link__label {
+.dropdown__menu__item__content {
   -ms-flex-align: center;
   align-items: center;
   display: -ms-flexbox;
   display: flex;
   position: relative;
 }
-.dropdown__menu__item__link__desc {
+.dropdown__menu__item__content__container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown__menu__item__content__desc {
   font-size: 1.4rem;
-  min-width: 24rem;
+  min-width: 20rem;
   opacity: .8;
+}
+.dropdown__menu__item__content__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .dropdown__menu__container {
   padding: 0.6rem 1.4rem;

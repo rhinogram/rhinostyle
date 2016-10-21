@@ -66,12 +66,12 @@ class DropdownMenuItem extends React.Component {
       markup = (
         <li className={classes}>
           <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
-            <div className="dropdown__menu__item__link__label">
+            <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
               {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
               <span className="u-text-overflow">{label}</span>
             </div>
-            {labelDesc ? (<div className="dropdown__menu__item__link__desc">{labelDesc}</div>) : null}
+            {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
           </Link>
         </li>
       );
@@ -79,12 +79,14 @@ class DropdownMenuItem extends React.Component {
       markup = (
         <li className={classes}>
           <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
-            <div className="dropdown__menu__item__link__label">
+            <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
               {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
-              <span className="u-text-overflow">{label}</span>
+              <div className="dropdown__menu__item__content__container">
+                <div className="dropdown__menu__item__content__label">{label}</div>
+                {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
+              </div>
             </div>
-            {labelDesc ? (<div className="dropdown__menu__item__link__desc">{labelDesc}</div>) : null}
           </a>
         </li>
       );

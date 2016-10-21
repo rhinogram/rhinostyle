@@ -7,8 +7,6 @@ class DropdownMenuItemWild extends React.Component {
   static propTypes = {
     children:        React.PropTypes.node,
     className:       React.PropTypes.string,
-    handleToggle:    React.PropTypes.func,
-    triggerToggle:   React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -16,15 +14,14 @@ class DropdownMenuItemWild extends React.Component {
   };
 
   render() {
-    const { children, className, handleToggle, triggerToggle } = this.props;
+    const { children, className } = this.props;
     const classes = cx('dropdown__menu__item-wild', className);
 
     return (
       <div className={classes}>
-        {props.children}
+        {children}
       </div>
     );
-
   }
 }
 
