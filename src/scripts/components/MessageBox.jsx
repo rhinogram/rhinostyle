@@ -47,6 +47,12 @@ class MessageBox extends React.Component {
     if (this._getValue(nextProps) !== this._getValue(this.props)) {
       this.dispatchEvent('autosize:update', true);
     }
+
+    if (nextProps.initialValue !== this.props.initialValue) {
+      this.setState({
+        value: nextProps.initialValue,
+      });
+    }
   }
 
   componentWillUnmount() {
