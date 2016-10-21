@@ -2212,9 +2212,6 @@ button.close {
   transform: translateY(0.4rem);
   visibility: visible;
 }
-.dropdown.open .dropdown__menu > * {
-  visibility: visible;
-}
 .dropdown.open .dropdown__menu--top {
   transform: translateY(-0.4rem);
 }
@@ -2313,9 +2310,6 @@ button.close {
   .dropdown__menu {
     max-width: 44rem;
   }
-}
-.dropdown__menu > * {
-  visibility: hidden;
 }
 .dropdown__menu--right {
   left: auto;
