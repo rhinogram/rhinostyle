@@ -65,7 +65,7 @@ const ButtonApp = () =>
         <div className="site-example-buttons">
           <Button size="small">Small</Button>
           <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
-          <Button size="small"iconOnly><Icon icon="cog" /></Button>
+          <Button size="small" iconOnly><Icon icon="cog" /></Button>
         </div>
       </div>
     </section>
