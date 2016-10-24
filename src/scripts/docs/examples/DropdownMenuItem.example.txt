@@ -13,6 +13,10 @@ class ComponentExample extends React.Component {
       <DropdownMenuItem label="Paul Avatar" avatar="//unsplash.it/400/400?image=1069" />
       <DropdownMenuItem label="Rob Avatar" avatar="//unsplash.it/400/400?image=648" />
       <DropdownMenuDivider />
+      <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar="//unsplash.it/400/400?image=1062" />
+      <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar="//unsplash.it/400/400?image=1069" />
+      <DropdownMenuItem label="Ben Bruning" labelDesc="The Grinder" avatar="//unsplash.it/400/400?image=648" />
+      <DropdownMenuDivider />
       <DropdownMenuItem icon="sms" label="Icon Item" />
       <DropdownMenuItem icon="email" label="Icon Item" />
       <DropdownMenuItem icon="lock" label="Icon Item" />

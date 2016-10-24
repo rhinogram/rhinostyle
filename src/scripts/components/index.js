@@ -16,6 +16,7 @@ import DropdownFilter       from './DropdownFilter';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
+import DropdownMenuItemWild from './DropdownMenuItem';
 import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
 import DropdownWrapper      from './DropdownWrapper';
@@ -30,7 +31,6 @@ import Modal                from './Modal';
 import ModalBody            from './ModalBody';
 import ModalFooter          from './ModalFooter';
 import ModalHeader          from './ModalHeader';
-import NavPagination        from './NavPagination';
 import NavTabs              from './NavTabs';
 import NavTabsItem          from './NavTabsItem';
 import Pill                 from './Pill';
@@ -73,6 +73,7 @@ export {
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
+  DropdownMenuItemWild,
   DropdownMultiSelect,
   DropdownMenuScroll,
   DropdownWrapper,
@@ -88,7 +89,6 @@ export {
   ModalBody,
   ModalFooter,
   ModalHeader,
-  NavPagination,
   NavTabs,
   NavTabsItem,
   NotificationActions,

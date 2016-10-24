@@ -243,11 +243,11 @@
 
 
 // -------------------------
-// Dropdown Menu Item Link Label
+// Dropdown Menu Item Content
 // -------------------------
 
 
-.dropdown__menu__item__link__label {
+.dropdown__menu__item__content {
   align-items: center;
   display: flex;
   position: relative;
@@ -255,14 +255,37 @@
 
 
 // -------------------------
-// Dropdown Menu Item Link Description
+// Dropdown Menu Item Content Container
+// -------------------------
+// Isolates label and desc from avatar and icon for alignment
+// Also allows for text overflow of label but not description
+
+
+.dropdown__menu__item__content__container {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+// -------------------------
+// Dropdown Menu Item Content Description
 // -------------------------
 
 
-.dropdown__menu__item__link__desc {
+.dropdown__menu__item__content__desc {
   font-size: 1.4rem;
-  min-width: 24rem;
+  min-width: 20rem;
   opacity: .8;
+}
+
+
+// -------------------------
+// Dropdown Menu Item Content Label
+// -------------------------
+
+
+.dropdown__menu__item__content__label {
+  .u-text-overflow;
 }
 
 

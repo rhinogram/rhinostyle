@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { NavPagination, NavTabs, NavTabsItem } from '../components';
+import { NavTabs, NavTabsItem } from '../components';
 
 import Playground from 'component-playground';
 
@@ -61,14 +61,6 @@ class NavigationApp extends React.Component {
           <h3 className="site-subheadline">Navigation</h3>
           <p className="site-text-lead">Below you will find our set of navigation components. This page exists to demonstrate the UI of each - appearance, layout, animation, and active states.
            Some of these components may be used in conjunction with other components - see <a href="../tabs"> Tabs</a> for example.</p>
-        </section>
-
-        <section className="site-section">
-          <h3 className="site-subheadline">NavPagination Types</h3>
-          <div className="u-m-b-md">
-            <p className="site-copy"><code>type="default"</code></p>
-            <NavPagination />
-          </div>
         </section>
 
         <section className="site-section">
