@@ -1,5 +1,6 @@
 import React from 'react';
 import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuItemWild from './DropdownMenuItemWild';
 import DropdownMenuScroll from './DropdownMenuScroll';
 
 class DropdownFilter extends React.Component {
@@ -41,6 +42,10 @@ class DropdownFilter extends React.Component {
           onClick: () => this.itemClick(child),
           active: this.props.activeKey && (child.props.id === this.props.activeKey),
           key: child.props.id,
+        });
+      } else if (child.type === DropdownMenuItemWild) {
+        returnChild = React.cloneElement(child, {
+          onClick: () => this.props.handleToggle(),
         });
       } else {
         returnChild = child;

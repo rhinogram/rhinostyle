@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuItemWild from './DropdownMenuItemWild';
 import DropdownFilter from './DropdownFilter';
 import DropdownWrapper from './DropdownWrapper';
 import Icon from './Icon';
@@ -81,6 +82,10 @@ class Dropdown extends React.Component {
           activeKey: this.state.activeKey,
           icon: this.state.icon,
           updateActiveKey: this.updateActiveKey,
+        });
+      } else if (child.type === DropdownMenuItemWild) {
+        returnChild = React.cloneElement(child, {
+          handleToggle: this.handleToggle,
         });
       } else {
         returnChild = child;

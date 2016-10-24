@@ -16,7 +16,7 @@ import DropdownFilter       from './DropdownFilter';
 import DropdownMenuDivider  from './DropdownMenuDivider';
 import DropdownMenuHeader   from './DropdownMenuHeader';
 import DropdownMenuItem     from './DropdownMenuItem';
-import DropdownMenuItemWild from './DropdownMenuItem';
+import DropdownMenuItemWild from './DropdownMenuItemWild';
 import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
 import DropdownWrapper      from './DropdownWrapper';

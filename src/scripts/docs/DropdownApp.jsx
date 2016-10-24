@@ -10,6 +10,7 @@ const dropdownExample = require('raw!./examples/Dropdown.example.txt');
 const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
 const dropdownMenuHeaderExample = require('raw!./examples/DropdownMenuHeader.example.txt');
 const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example.txt');
+const dropdownMenuItemWildExample = require('raw!./examples/DropdownMenuItemWild.example.txt');
 
 const dropdownDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
@@ -56,6 +57,10 @@ const dropdownMenuItemDocs = {
   onClick: '[Opational] - Click function',
   route: '[Optional] - React-router route to use for item',
   url: '[Optional] - URL for item',
+};
+
+const dropdownMenuItemWildDocs = {
+  toggleDropdown: '[Optional] - Clicking will close the dropdown',
 };
 
 const exampleScope  = {
@@ -313,6 +318,11 @@ const DropdownApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuItem</h3>
       <Playground docClass={DropdownMenuItem} propDescriptionMap={dropdownMenuItemDocs} codeText={dropdownMenuItemExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">DropdownMenuItemWild</h3>
+      <Playground docClass={DropdownMenuItemWild} propDescriptionMap={dropdownMenuItemWildDocs} codeText={dropdownMenuItemWildExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 
