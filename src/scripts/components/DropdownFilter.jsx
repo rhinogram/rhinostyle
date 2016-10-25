@@ -45,13 +45,17 @@ class DropdownFilter extends React.Component {
         });
       } else if (child.type === DropdownMenuItemWild) {
         returnChild = React.cloneElement(child, {
-          onClick: () => this.props.handleToggle(),
+          handleToggle: this.props.handleToggle,
         });
       } else {
         returnChild = child;
       }
       return returnChild;
     });
+  }
+
+  itemClick2 = () => {
+    this.props.handleToggle();
   }
 
   itemClick = (child) => {

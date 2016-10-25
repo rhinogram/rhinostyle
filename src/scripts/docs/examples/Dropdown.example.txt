@@ -65,7 +65,6 @@ class ComponentExample extends React.Component {
           <DropdownMenuItemWild toggleDropdown>
             <Button type="link" className="u-flex u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
           </DropdownMenuItemWild>
-          <DropdownMenuItem icon="add" label="Create new contact" />
           <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
           <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
           <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />
