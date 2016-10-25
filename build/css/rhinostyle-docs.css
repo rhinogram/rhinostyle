@@ -1,4 +1,4 @@
-/*! rhinostyle v0.2.4 */
+/*! rhinostyle v0.2.5 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -3983,6 +3983,7 @@ h3 .label {
   font-size: 1.4rem;
   line-height: 1;
   padding: 0.4rem 0.6rem;
+  vertical-align: middle;
   white-space: nowrap;
 }
 .pill:empty {
@@ -4017,6 +4018,9 @@ h3 .label {
 .pill__close {
   color: #6c6c6c;
   margin-left: 0.4rem;
+}
+.pill__icon {
+  margin-right: .2rem;
 }
 .progress {
   border-radius: 1rem;
