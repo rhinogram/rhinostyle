@@ -265,6 +265,13 @@ const IconApp = () =>
 
       <div className="site-swatch">
         <div className="site-swatch__sample">
+          <Icon icon="note" />
+        </div>
+        <div className="site-swatch__text"><strong>Note</strong></div>
+      </div>
+
+      <div className="site-swatch">
+        <div className="site-swatch__sample">
           <Icon icon="pencil" />
         </div>
         <div className="site-swatch__text"><strong>Pencil</strong></div>
