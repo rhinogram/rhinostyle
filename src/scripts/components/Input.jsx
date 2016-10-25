@@ -44,6 +44,14 @@ class Input extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.initialValue !== this.props.initialValue) {
+      this.setState({
+        value: nextProps.initialValue,
+      });
+    }
+  }
+
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
 
