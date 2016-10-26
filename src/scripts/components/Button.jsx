@@ -44,7 +44,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, block, className, disabled, iconOnly, onClick, route, size, type } = this.props;
+    const { active, block, className, disabled, iconOnly, route, size, type, ...opts } = this.props;
     const classes = cx('btn', className, {
       'btn--default':          type === 'default',
       'btn--primary':          type === 'primary',
@@ -66,11 +66,11 @@ class Button extends React.Component {
 
     if (route) {
       markup = (
-        <Link to={route} className={classes} onClick={this.handleClick}>{this.props.children}</Link>
+        <Link to={route} className={classes} onClick={this.handleClick} {...opts}>{this.props.children}</Link>
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} onClick={this.handleClick}>{this.props.children}</a>
+        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts}>{this.props.children}</a>
       );
     }
 
