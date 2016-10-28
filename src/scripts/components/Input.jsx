@@ -12,13 +12,14 @@ class Input extends React.Component {
     className:          React.PropTypes.string,
     clear:              React.PropTypes.bool,
     disabled:           React.PropTypes.bool,
-    initialValue:       React.PropTypes.any,
+    initialValue:       React.PropTypes.string,
     label:              React.PropTypes.string,
     naked:              React.PropTypes.bool,
     name:               React.PropTypes.string,
     onChange:           React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     required:           React.PropTypes.bool,
+    focus:              React.PropTypes.bool,
     type:               React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
     validationMessage:  React.PropTypes.string,
   };
@@ -32,6 +33,7 @@ class Input extends React.Component {
     name:     '',
     required: false,
     type:     'text',
+    focus:    false,
   };
 
   state = {
@@ -44,6 +46,12 @@ class Input extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.focus) {
+      this.rhinoInput.focus();
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
@@ -52,17 +60,25 @@ class Input extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    console.log(this.props.focus);
+    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
+      console.log(this.rhinoInput, this.props.focus)
+      this.rhinoInput.focus();
+    }
+  }
+
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
 
-    if (this.props.onChange && typeof(this.props.onChange === 'function')) {
+    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
       this.props.onChange(event.target.id, event.target.value);
     }
   }
 
   _handleClear = () => {
     this.setState({ value: '' });
-    this.clearInput.focus();
+    this.rhinoInput.focus();
   }
 
   render() {
@@ -98,7 +114,7 @@ class Input extends React.Component {
       if (clear) {
         inputMarkup = (
           <div className="form__clear">
-            <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={(ref) => this.clearInput = ref} />
+            <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
             {input ? <Close className="form__clear__btn" onClick={this._handleClear} /> : null}
           </div>
         );
@@ -111,14 +127,14 @@ class Input extends React.Component {
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
                 </div>
-                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
               </div>
             );
             break;
           case 'right':
             inputMarkup = (
               <div className="form__addon">
-                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children}
                 </div>
@@ -131,7 +147,7 @@ class Input extends React.Component {
                 <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {this.props.children[0]}
                 </div>
-                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children[1]}
                 </div>
@@ -139,7 +155,7 @@ class Input extends React.Component {
             );
             break;
           default:
-            inputMarkup = <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />;
+            inputMarkup = <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />;
         }
       }
       return inputMarkup;

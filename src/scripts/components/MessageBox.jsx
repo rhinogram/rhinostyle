@@ -1,3 +1,4 @@
+/* eslint no-return-assign:0 */
 import React from 'react';
 import cx    from 'classnames';
 import autosize from 'autosize';
@@ -14,6 +15,7 @@ class MessageBox extends React.Component {
     required:      React.PropTypes.bool,
     maxHeight:     React.PropTypes.string,
     initialValue:  React.PropTypes.string,
+    focus:         React.PropTypes.bool,
     rows:          React.PropTypes.number,
   };
 
@@ -24,6 +26,7 @@ class MessageBox extends React.Component {
     rows:          1,
     required:      false,
     maxHeight:     '20rem',
+    focus:         false,
   };
 
   state = {
@@ -37,9 +40,13 @@ class MessageBox extends React.Component {
   }
 
   componentDidMount() {
-    autosize(this.refs.textarea);
+    autosize(this.rhinoTextArea);
     if (this.onResize) {
-      this.refs.textarea.addEventListener('autosize:resized', this.onResize);
+      this.rhinoTextArea.addEventListener('autosize:resized', this.onResize);
+    }
+
+    if (this.props.focus) {
+      this.rhinoTextArea.focus();
     }
   }
 
@@ -55,9 +62,15 @@ class MessageBox extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
+      this.rhinoTextArea.focus();
+    }
+  }
+
   componentWillUnmount() {
     if (this.onResize) {
-      this.refs.textarea.removeEventListener('autosize:resized');
+      this.rhinoTextArea.removeEventListener('autosize:resized');
     }
     this.dispatchEvent('autosize:destroy');
   }
@@ -66,7 +79,7 @@ class MessageBox extends React.Component {
   dispatchEvent(EVENT_TYPE, defer) {
     const event = document.createEvent('Event');
     event.initEvent(EVENT_TYPE, true, false);
-    const dispatch = () => this.refs.textarea.dispatchEvent(event);
+    const dispatch = () => this.rhinoTextArea.dispatchEvent(event);
     if (defer) {
       setTimeout(dispatch);
     } else {
@@ -110,7 +123,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onChange={this._handleChange} ref="textarea"></textarea>
+        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoTextArea = ref} />
       </div>
     );
   }
