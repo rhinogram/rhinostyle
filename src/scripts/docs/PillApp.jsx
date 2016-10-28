@@ -11,6 +11,7 @@ const pillExample = require('raw!./examples/Pill.example.txt');
 const pillDocs = {
   className: '[Optional] - Include additional class name(s)',
   disabled:  '[Optional] - Pill is disabled',
+  icon:      '[Optional] - Attaches an Icon to the Pill',
   onClick:   '[Required] - Include click function for Pill',
   label:     '[Required] - Include label for Pill',
   type:      '[Optional] - Pill type, as a string -  [default | neutral]',
