@@ -11,6 +11,7 @@ class MessageBox extends React.Component {
     label:         React.PropTypes.string,
     name:          React.PropTypes.string,
     onChange:      React.PropTypes.func,
+    onKeyPress:    React.PropTypes.func,
     placeholder:   React.PropTypes.string,
     required:      React.PropTypes.bool,
     maxHeight:     React.PropTypes.string,
@@ -91,6 +92,12 @@ class MessageBox extends React.Component {
     }
   }
 
+  _handleKeyPress = (event) => {
+    if (this.props.onKeyPress && typeof (this.props.onKeyPress === 'function')) {
+      this.props.onKeyPress(event);
+    }
+  }
+
   _getValue(props) {
     if (props) {
       if (props.valueLink) {
@@ -119,7 +126,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoTextArea = ref} />
+        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoTextArea = ref} />
       </div>
     );
   }

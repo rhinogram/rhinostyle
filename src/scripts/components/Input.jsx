@@ -17,6 +17,7 @@ class Input extends React.Component {
     naked:              React.PropTypes.bool,
     name:               React.PropTypes.string,
     onChange:           React.PropTypes.func,
+    onKeyPress:         React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     required:           React.PropTypes.bool,
     focus:              React.PropTypes.bool,
@@ -68,6 +69,12 @@ class Input extends React.Component {
     }
   }
 
+  _handleKeyPress = (event) => {
+    if (this.props.onKeyPress && typeof (this.props.onKeyPress === 'function')) {
+      this.props.onKeyPress(event);
+    }
+  }
+
   _handleClear = () => {
     this.setState({ value: '' });
     this.rhinoInput.focus();
@@ -106,7 +113,7 @@ class Input extends React.Component {
       if (clear) {
         inputMarkup = (
           <div className="form__clear">
-            <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+            <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
             {input ? <Close className="form__clear__btn" onClick={this._handleClear} /> : null}
           </div>
         );
@@ -119,14 +126,14 @@ class Input extends React.Component {
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
                 </div>
-                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
               </div>
             );
             break;
           case 'right':
             inputMarkup = (
               <div className="form__addon">
-                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children}
                 </div>
@@ -139,7 +146,7 @@ class Input extends React.Component {
                 <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {this.props.children[0]}
                 </div>
-                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+                <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children[1]}
                 </div>
@@ -147,7 +154,7 @@ class Input extends React.Component {
             );
             break;
           default:
-            inputMarkup = <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />;
+            inputMarkup = <input type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />;
         }
       }
       return inputMarkup;
