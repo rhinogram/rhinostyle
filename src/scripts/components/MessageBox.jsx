@@ -44,10 +44,6 @@ class MessageBox extends React.Component {
     if (this.onResize) {
       this.rhinoTextArea.addEventListener('autosize:resized', this.onResize);
     }
-
-    if (this.props.focus) {
-      this.rhinoTextArea.focus();
-    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -62,8 +58,8 @@ class MessageBox extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
+  componentDidUpdate() {
+    if (this.props.focus) {
       this.rhinoTextArea.focus();
     }
   }

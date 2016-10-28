@@ -46,12 +46,6 @@ class Input extends React.Component {
     }
   }
 
-  componentDidMount() {
-    if (this.props.focus) {
-      this.rhinoInput.focus();
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
@@ -60,10 +54,8 @@ class Input extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    console.log(this.props.focus);
-    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
-      console.log(this.rhinoInput, this.props.focus)
+  componentDidUpdate() {
+    if (this.props.focus) {
       this.rhinoInput.focus();
     }
   }
