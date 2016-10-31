@@ -1,4 +1,4 @@
-/*! rhinostyle v0.2.5 */
+/*! rhinostyle v0.2.6 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -452,6 +452,18 @@ a.u-text-danger,
 a.u-text-danger:hover,
 .btn--link.u-text-danger:hover {
   color: #a22428 !important;
+}
+.u-text-highlight {
+  color: #6c6c6c !important;
+  background: #f9ea3f !important;
+}
+a.u-text-highlight,
+.btn--link.u-text-highlight {
+  color: #6c6c6c !important;
+}
+a.u-text-highlight:hover,
+.btn--link.u-text-highlight:hover {
+  color: #525252 !important;
 }
 .u-text-info {
   color: #005480 !important;
