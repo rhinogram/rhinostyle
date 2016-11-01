@@ -2,6 +2,18 @@
 // Note:
 
 
+
+// -------------------------
+// Cover Open State
+// -------------------------
+
+
+// class added to body
+.cover-open {
+  overflow: hidden;
+}
+
+
 // -------------------------
 // Cover
 // -------------------------
@@ -27,7 +39,7 @@
 
 .cover__header {
   background: @color-white;
-  border-bottom: 1px solid @border-color-light;
+  border-bottom: 2px solid @border-color-light;
   display: flex;
   flex: none;
 }
@@ -69,6 +81,7 @@
 
 .cover__body {
   -webkit-overflow-scrolling: touch;
+  background: @color-gray-lightest;
   flex: 1;
   overflow-x: hidden;
   overflow-y: scroll;

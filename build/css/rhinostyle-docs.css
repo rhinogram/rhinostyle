@@ -206,7 +206,6 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   box-sizing: border-box;
   font-size: 10px;
-  overflow-x: hidden;
   /*@media (min-width: 2540px) {
     font-size: 12px;
   }*/
@@ -1833,6 +1832,9 @@ button.close {
   border: 0;
   cursor: pointer;
 }
+.cover-open {
+  overflow: hidden;
+}
 .cover {
   background: #fff;
   bottom: 0;
@@ -1847,7 +1849,7 @@ button.close {
 }
 .cover__header {
   background: #fff;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 2px solid #ececec;
   display: -ms-flexbox;
   display: flex;
   -ms-flex: none;
@@ -1885,6 +1887,7 @@ button.close {
 }
 .cover__body {
   -webkit-overflow-scrolling: touch;
+  background: #f9f9f9;
   -ms-flex: 1;
   flex: 1 1 0%;
   overflow-x: hidden;
@@ -3805,7 +3808,7 @@ h3 .label {
   position: relative;
 }
 .modal__header {
-  border-bottom: 1px solid #ececec;
+  border-bottom: 2px solid #ececec;
   display: -ms-flexbox;
   display: flex;
   min-height: 3.2rem;
