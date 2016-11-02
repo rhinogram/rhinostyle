@@ -155,14 +155,16 @@ const FormApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Modifiers</h3>
+      <h3 className="site-subheadline">Form Utilities</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inline Form</h5>
-        <p className="site-copy">Add the <code>form--inline</code> modifier to <code>form</code>.</p>
-        <form className="form form--inline">
-          <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
-          <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
-          <Button type="primary">Sign In</Button>
+        <p className="site-copy">Wrap elements you want inlined with <code>form__inline</code> class.</p>
+        <form className="form">
+          <div className="form__inline">
+            <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />&nbsp;&nbsp;
+            <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />&nbsp;&nbsp;
+            <Button type="primary">Sign In</Button>
+          </div>
         </form>
       </div>
     </section>

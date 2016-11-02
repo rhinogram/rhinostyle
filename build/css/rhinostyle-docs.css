@@ -3140,7 +3140,7 @@ input[type='checkbox']:focus {
   position: relative;
 }
 @media (min-width: 768px) {
-  .form--inline .form__group {
+  .form__inline .form__group {
     -ms-flex-align: center;
     align-items: center;
     display: -ms-inline-flexbox;
@@ -3148,31 +3148,31 @@ input[type='checkbox']:focus {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  .form--inline .form__group > label {
+  .form__inline .form__group > label {
     margin-bottom: 0;
     margin-right: 0.6rem;
   }
-  .form--inline .form__control {
+  .form__inline .form__control {
     display: inline-block;
     vertical-align: middle;
     width: auto;
   }
-  .form--inline .form__control--static {
+  .form__inline .form__control--static {
     display: inline-block;
   }
-  .form--inline .rhinodio,
-  .form--inline .rhinobox {
+  .form__inline .rhinodio,
+  .form__inline .rhinobox {
     display: inline-block;
     margin-bottom: 0;
     margin-top: 0;
     vertical-align: middle;
   }
-  .form--inline .rhinodio label,
-  .form--inline .rhinobox label {
+  .form__inline .rhinodio label,
+  .form__inline .rhinobox label {
     padding-left: 0;
   }
-  .form--inline .rhinodio input[type='radio'],
-  .form--inline .rhinobox input[type='checkbox'] {
+  .form__inline .rhinodio input[type='radio'],
+  .form__inline .rhinobox input[type='checkbox'] {
     margin-left: 0;
     position: relative;
   }
