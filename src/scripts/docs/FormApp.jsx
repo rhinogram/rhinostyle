@@ -161,8 +161,8 @@ const FormApp = () =>
         <p className="site-copy">Wrap elements you want inlined with <code>form__inline</code> class.</p>
         <form className="form">
           <div className="form__inline">
-            <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />&nbsp;&nbsp;
-            <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />&nbsp;&nbsp;
+            <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
+            <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
             <Button type="primary">Sign In</Button>
           </div>
         </form>

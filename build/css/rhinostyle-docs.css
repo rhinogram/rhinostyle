@@ -3146,6 +3146,7 @@ input[type='checkbox']:focus {
     display: -ms-inline-flexbox;
     display: inline-flex;
     margin-bottom: 0;
+    margin-right: 1rem;
     vertical-align: middle;
   }
   .form__inline .form__group > label {

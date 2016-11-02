@@ -120,11 +120,12 @@ input[type='checkbox']:focus {
 
   // Kick in the inline
   @media (min-width: @screen-sm-min) {
-    // Inline-block all the things for 'inline'
+    // Inline-flex all the things for 'inline'
     .form__group {
       align-items: center;
       display: inline-flex;
       margin-bottom: 0;
+      margin-right: @margin-base;
       vertical-align: middle;
 
       > label {
@@ -133,11 +134,10 @@ input[type='checkbox']:focus {
       }
     }
 
-    // In navbar-form, allow folks to *not* use `.form-group`
     .form__control {
       display: inline-block;
       vertical-align: middle;
-      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      width: auto; // Prevent labels from stacking above inputs in `.form__group`
     }
 
     // Make static controls behave like regular ones
@@ -148,7 +148,6 @@ input[type='checkbox']:focus {
 
     // Remove default margin on radios/checkboxes that were used for stacking, and
     // then undo the floating of radios and checkboxes to match.
-
     .rhinodio,
     .rhinobox {
       display: inline-block;
