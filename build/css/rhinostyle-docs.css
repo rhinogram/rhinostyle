@@ -218,6 +218,8 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   background-color: #fff;
   color: #6c6c6c;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
