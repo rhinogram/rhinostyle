@@ -18,6 +18,9 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem id={9} label="Paul Griffin" avatar="//unsplash.it/400/400?image=429" />
         <DropdownMenuItem id={10} label="Rob Whelan" avatar="//unsplash.it/400/400?image=660" />
         <DropdownMenuItem id={11} label="Terry Kennair" avatar="//unsplash.it/400/400?image=783" />
+        <DropdownMenuItem id={12} icon="sms" label="Icon Item" />
+        <DropdownMenuItem id={13} icon="email" label="Icon Item" />
+        <DropdownMenuItem id={14} icon="lock" label="Icon Item" />
       </DropdownMultiSelect>
     </div>
     );
