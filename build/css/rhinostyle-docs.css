@@ -3307,6 +3307,11 @@ textarea.form__control {
   padding: 0;
   padding-right: initial;
 }
+.form__explanation-message {
+  font-size: 1.4rem;
+  font-style: italic;
+  padding-top: .2rem;
+}
 .form__group {
   margin-bottom: 2.28571429rem;
 }
@@ -3335,6 +3340,7 @@ textarea.form__control {
 .form__validation-message {
   color: #cc2d32;
   font-size: 1.4rem;
+  padding-top: .2rem;
 }
 input[type='radio'][disabled],
 input[type='checkbox'][disabled],

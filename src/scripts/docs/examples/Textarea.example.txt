@@ -2,7 +2,8 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-textareas">
-        <Textarea label="Bio" name="biography" rows={5} placeholder="I like pizza!" />
+        <Textarea label="Bio" name="exampleTextArea" rows={5} placeholder="I like pizza!" />
+        <Textarea label="Explanation Message" name="exampleExplanationTextArea" rows={5} placeholder="Enter description." explanationMessage="This is an explanation message to help user." />
       </div>
     )
   }

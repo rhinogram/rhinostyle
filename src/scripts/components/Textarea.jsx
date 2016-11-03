@@ -5,14 +5,15 @@ class Textarea extends React.Component {
   static displayName = 'RhinoTextarea';
 
   static propTypes = {
-    className:    React.PropTypes.string,
-    label:        React.PropTypes.string,
-    name:         React.PropTypes.string,
-    onChange:     React.PropTypes.func,
-    placeholder:  React.PropTypes.string,
-    required:     React.PropTypes.bool,
-    initialValue: React.PropTypes.string,
-    rows:         React.PropTypes.number,
+    className:          React.PropTypes.string,
+    explanationMessage: React.PropTypes.string,
+    initialValue:       React.PropTypes.string,
+    label:              React.PropTypes.string,
+    name:               React.PropTypes.string,
+    onChange:           React.PropTypes.func,
+    placeholder:        React.PropTypes.string,
+    required:           React.PropTypes.bool,
+    rows:               React.PropTypes.number,
   };
 
   static defaultProps = {
@@ -42,9 +43,17 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { className, label, name, placeholder, required, rows } = this.props;
+    const { className, explanationMessage, label, name, placeholder, required, rows } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
+
+    const showExplanationMessage = () => {
+      if (explanationMessage) {
+        return <div className="form__explanation-message">{explanationMessage}</div>;
+      }
+
+      return false;
+    };
 
     const showLabel = () => {
       if (label) {
@@ -58,6 +67,7 @@ class Textarea extends React.Component {
       <div className={formGroupClasses}>
         {showLabel()}
         <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
+        {showExplanationMessage()}
       </div>
     );
   }
