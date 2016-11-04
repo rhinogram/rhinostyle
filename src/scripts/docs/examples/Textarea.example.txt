@@ -3,9 +3,9 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-textareas">
         <Textarea label="Text Area" name="exampleTextArea" rows={3} placeholder="I like pizza!" />
-        <Textarea label="Text Area with Explanation Message" name="exampleExplanationTextArea" rows={5} placeholder="Text area with explanation message" explanationMessage="This is an explanation message to help the user." />
-        <Textarea label="Text Area with Character Count" name="exampleCharacterCount" rows={5} placeholder="Text area with character count" maxCharacters={130} />
-        <Textarea label="Text Area with Character Count and Explanation" name="exampleExplanationPlusCharacterCount" rows={5} initialValue="Lorem ipsum dolor." placeholder="Text area with character count and explanation message" maxCharacters={80} explanationMessage="This is an explanation message to help the user." />
+        <Textarea label="Text Area with Explanation Message" name="exampleExplanationTextArea" rows={3} placeholder="Text area with explanation message" explanationMessage="This is an explanation message to help the user." />
+        <Textarea label="Text Area with Character Count" name="exampleCharacterCount" rows={3} placeholder="Text area with character count" maxCharacters={130} />
+        <Textarea label="Text Area with Character Count and Explanation" name="exampleExplanationPlusCharacterCount" rows={3} initialValue="Nulla ipsum metus, pellentesque eget pulvinar ac, cursus et enim. Nam laoreet mattis odio, vel efficitur nisi laoreet pellen.." placeholder="Text area with character count and explanation message" maxCharacters={130} explanationMessage="This is an explanation message to help the user." />
       </div>
     )
   }

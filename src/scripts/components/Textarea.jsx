@@ -5,6 +5,7 @@ class Textarea extends React.Component {
   static displayName = 'RhinoTextarea';
 
   static propTypes = {
+    abbrMaxCharacters:  React.PropTypes.bool,
     className:          React.PropTypes.string,
     explanationMessage: React.PropTypes.string,
     initialValue:       React.PropTypes.string,
@@ -18,12 +19,13 @@ class Textarea extends React.Component {
   };
 
   static defaultProps = {
-    label:         '',
-    maxCharacters: null,
-    name:          '',
-    placeholder:   '',
-    required:      false,
-    rows:          3,
+    abbrMaxCharacters: false,
+    label:             '',
+    maxCharacters:     null,
+    name:              '',
+    placeholder:       '',
+    required:          false,
+    rows:              3,
   };
 
   state = {
@@ -56,7 +58,7 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { className, explanationMessage, label, maxCharacters, name, placeholder, required, rows } = this.props;
+    const { abbrMaxCharacters, className, explanationMessage, label, maxCharacters, name, placeholder, required, rows } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
     const characterCountClasses = cx('form__character-count', {
@@ -81,7 +83,7 @@ class Textarea extends React.Component {
 
     const showCharacterCount = () => {
       if (maxCharacters) {
-        return <div className={characterCountClasses}>{this.state.charactersLeft} characters left</div>;
+        return <div className={characterCountClasses}>{this.state.charactersLeft} {!abbrMaxCharacters ? <span>characters left</span> : null}</div>;
       }
 
       return false;

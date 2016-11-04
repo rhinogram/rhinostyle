@@ -49,9 +49,11 @@ const selectOpts = [
 
 const textareaExample = require('raw!./examples/Textarea.example.txt');
 const textareaDocs  = {
+  abbrMaxCharacters:  '[Optional] - Abbreviated max character count - only the count is displayed',
   explanationMessage: '[Optional] - Explanation message to help user',
   initialValue:       '[Optional] - Any initial value for the textarea',
   label:              '[Optional] - A label for the textarea',
+  maxCharacters:      '[Optional] - Set a maximum character limit in order to display character count',
   name:               '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
   onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the textarea',
