@@ -112,6 +112,16 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Asterisk (for required fields)
+// -------------------------
+
+
+.form__asterisk {
+  color: @color-danger;
+}
+
+
+// -------------------------
 // Form Inline
 // -------------------------
 
@@ -223,11 +233,18 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
-// Form Asterisk (for required fields)
+// Form Character Count
 // -------------------------
 
 
-.form__asterisk {
+.form__character-count {
+  font-size: 1.4rem;
+  line-height: @line-height-small;
+  margin-left: auto;
+  padding: @padding-xsmall 0 0 @padding-xsmall;
+}
+
+.form__character-count--danger {
   color: @color-danger;
 }
 
@@ -361,6 +378,20 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Control Footer
+// -------------------------
+
+
+.form__control-footer {
+  display: flex;
+
+  &:empty {
+    display: none;
+  }
+}
+
+
+// -------------------------
 // Form Explanation Message
 // -------------------------
 
@@ -368,7 +399,8 @@ input[type='checkbox']:focus {
 .form__explanation-message {
   font-size: 1.4rem;
   font-style: italic;
-  padding-top: .2rem;
+  line-height: @line-height-small;
+  padding-top: @padding-xsmall;
 }
 
 
