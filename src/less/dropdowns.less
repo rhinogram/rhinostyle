@@ -64,7 +64,7 @@
   .mixin-chevron-down(); // add chevron
 
   .dropdown__menu__item.active > .dropdown__menu__item__link {
-    padding-right: 3rem;
+    padding-right: 3.6rem;
 
     &,
     &:focus {
@@ -74,16 +74,16 @@
       &::after {
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: 1.6rem 1.6rem;
+        background-size: 2rem 2rem;
         content: '';
-        height: 1.6rem;
+        height: 2rem;
         pointer-events: none;
         position: absolute;
         right: @padding-large;
         top: 50%;
         transform: translateY(-50%);
-        width: 1.6rem;
-        .mixin-svg-bg-add-fill('@{svg-path}checkmark.svg', @color-primary);
+        width: 2rem;
+        .mixin-svg-bg-add-fill('@{svg-path}checkmark-circle.svg', @color-primary);
       }
     }
 
@@ -93,6 +93,14 @@
     }
   }
 }
+
+// this is the div below dropdown--multiselect that contains pills
+.dropdown-multiselect-pills {
+  .pill {
+    margin: @margin-small @margin-small 0 0;
+  }
+}
+
 
 // -------------------------
 // Dropdown Input

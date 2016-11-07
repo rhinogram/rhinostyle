@@ -143,7 +143,7 @@ class DropdownMultiSelect extends React.Component {
     const activeKeys = this.state.activeKeys;
     const isOpen = this.state.isOpen;
 
-    const dropdownClasses = cx('dropdown', 'dropdown--multiselect', 'u-m-b-sm', {
+    const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       'dropdown--block': block,
       open:              this.state.isOpen,
     });
@@ -172,7 +172,7 @@ class DropdownMultiSelect extends React.Component {
       });
 
       return (
-        <Pill label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} className="u-m-r-sm" />
+        <Pill label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} />
       );
     };
 
@@ -187,7 +187,7 @@ class DropdownMultiSelect extends React.Component {
             </DropdownMenuScroll>
           </ul>
         </DropdownWrapper>
-        <div>
+        <div className="dropdown-multiselect-pills">
           {activeKeys.map(renderPill)}
         </div>
       </span>
