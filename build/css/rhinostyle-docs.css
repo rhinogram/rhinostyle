@@ -1847,7 +1847,7 @@ button.close {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1080;
+  z-index: 1010;
 }
 .cover__header {
   background: #fff;
@@ -2310,7 +2310,7 @@ button.close {
   top: 90%;
   transition: opacity 250ms cubic-bezier(0.43, 0.41, 0.22, 0.91), transform 500ms cubic-bezier(0.43, 0.41, 0.22, 0.91);
   visibility: hidden;
-  z-index: 1000;
+  z-index: 1040;
 }
 .dropdown__menu::before {
   background: inherit;
@@ -3232,6 +3232,7 @@ input[type='checkbox']:focus {
   border-top-right-radius: 0.4rem;
 }
 .form__character-count {
+  color: #9f9f9f;
   -ms-flex-negative: 0;
   flex-shrink: 0;
   font-size: 1.4rem;
@@ -3813,7 +3814,7 @@ h3 .label {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1040;
+  z-index: 1020;
 }
 .modal {
   -webkit-overflow-scrolling: touch;
@@ -3824,7 +3825,7 @@ h3 .label {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1050;
+  z-index: 1030;
 }
 .modal__container {
   margin: 1rem 1rem 2.6rem 1rem;
@@ -4315,6 +4316,7 @@ table {
   position: fixed;
   right: 1rem;
   top: 1rem;
+  z-index: 2000;
 }
 @media (min-width: 500px) {
   .toasts-container {
@@ -4422,7 +4424,7 @@ table {
 [data-tooltip-left]:hover,
 [data-tooltip-right]:hover,
 [data-tooltip-top]:hover {
-  z-index: 1070;
+  z-index: 1060;
 }
 [data-tooltip-bottom]:hover::before,
 [data-tooltip-left]:hover::before,
