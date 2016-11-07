@@ -3237,7 +3237,7 @@ input[type='checkbox']:focus {
   font-size: 1.4rem;
   line-height: 1.2;
   margin-left: auto;
-  padding: 0.4rem 0 0 0.4rem;
+  padding: 0.6rem 0 0 0.6rem;
 }
 .form__character-count--danger {
   color: #cc2d32;
@@ -3331,10 +3331,11 @@ textarea.form__control {
   display: none;
 }
 .form__explanation-message {
+  color: #9f9f9f;
   font-size: 1.4rem;
   font-style: italic;
   line-height: 1.2;
-  padding-top: 0.4rem;
+  padding-top: 0.6rem;
 }
 .form__group {
   margin-bottom: 2.28571429rem;
@@ -3364,7 +3365,8 @@ textarea.form__control {
 .form__validation-message {
   color: #cc2d32;
   font-size: 1.4rem;
-  padding-top: .2rem;
+  line-height: 1.2;
+  padding-top: 0.6rem;
 }
 input[type='radio'][disabled],
 input[type='checkbox'][disabled],
