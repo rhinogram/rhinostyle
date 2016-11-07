@@ -7,9 +7,9 @@ class Modal extends React.Component {
   static displayName = 'RhinoModal';
 
   static propTypes = {
-    children:       React.PropTypes.node,
-    className:     React.PropTypes.string,
-    size:           React.PropTypes.string,
+    children:  React.PropTypes.node,
+    className: React.PropTypes.string,
+    size:      React.PropTypes.string,
   };
 
   componentDidMount() {
@@ -19,7 +19,7 @@ class Modal extends React.Component {
 
     TweenMax.set('#rhino-modal', {
       opacity: 0,
-      scale: 0.9
+      scale: 0.9,
     });
 
     TweenMax.to('.modal-backdrop', 0.35, {
@@ -30,7 +30,7 @@ class Modal extends React.Component {
     TweenMax.to('#rhino-modal', 0.35, {
       scale: 1,
       opacity: 1,
-      ease: Expo.easeInOut
+      ease: Expo.easeInOut,
     });
   }
 
@@ -44,7 +44,7 @@ class Modal extends React.Component {
 
     return (
       <div>
-        <div className="modal-backdrop"></div>
+        <div className="modal-backdrop" />
         <div id="rhino-modal" className={modalClasses}>
           <div className={containerClasses}>
             <div className="modal__content">
