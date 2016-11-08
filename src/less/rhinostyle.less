@@ -44,7 +44,7 @@
 
 
 
-// TODO: tables, links, buckets, responsive tabs
+
 
 
 // transform: translate3d(0, 0, 0);
@@ -52,4 +52,11 @@
 // transform: scale(1);
 // backface-visibility: hidden;
 
-// plus icon, search input
+// we are using -webkit-font-smoothing: antialiased on the body element
+// this results in some crappy and unpredictable text rendering on retina
+// removing this style may fix many transform rendering issues.
+
+
+// IE 11 computed heights don't include borders. Input text alignement
+// should be easy using height and line-height (3.6rem). This fixes
+// webkit alignment issues but breaks them in IE 11.

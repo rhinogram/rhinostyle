@@ -44,7 +44,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, block, className, disabled, iconOnly, route, size, type, ...opts } = this.props;
+    const { active, blankWindow, block, className, disabled, iconOnly, route, size, type, url, ...opts } = this.props; // eslint-disable-line
     const classes = cx('btn', className, {
       'btn--default':          type === 'default',
       'btn--primary':          type === 'primary',

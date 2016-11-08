@@ -8,16 +8,18 @@ import Playground from 'component-playground';
 /* eslint import/no-unresolved:0 */
 const inputExample = require('raw!./examples/Input.example.txt');
 const inputDocs  = {
-  addon:        '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
-  clear:        '[Optional] - Form control gets a clear value button',
-  label:        '[Optional] - A label for the input',
-  naked:        '[Optional] - Form control is stripped down in appearance',
-  name:         '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
-  onChange:     '[Optional] - A callback function that is executed when the input value changes',
-  placeholder:  '[Optional] - Any placeholder text you want in the input',
-  type:         '[Optional] - As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
-  required:     '[Optional] - Field is required and asterisk is added to label',
-  initialValue: '[Optional] - Any initial value for the input',
+  addon:              '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
+  clear:              '[Optional] - Form control gets a clear value button',
+  explanationMessage: '[Optional] - Explanation message to help user',
+  initialValue:       '[Optional] - Any initial value for the input',
+  label:              '[Optional] - A label for the input',
+  naked:              '[Optional] - Form control is stripped down in appearance',
+  name:               '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
+  onChange:           '[Optional] - A callback function that is executed when the input value changes',
+  placeholder:        '[Optional] - Any placeholder text you want in the input',
+  required:           '[Optional] - Field is required and asterisk is added to label',
+  type:               '[Optional] - As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
+  validationMessage:  '[Optional] - Validation message for errors',
 };
 const inputScope = {
   React,
@@ -47,12 +49,15 @@ const selectOpts = [
 
 const textareaExample = require('raw!./examples/Textarea.example.txt');
 const textareaDocs  = {
-  label:        '[Optional] - A label for the textarea',
-  name:         '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
-  onChange:     '[Optional] - A callback function that is executed when the textarea value changes',
-  placeholder:  '[Optional] - Any placeholder text you want in the textarea',
-  initialValue: '[Optional] - Any initial value for the textarea',
-  required:     '[Optional] - Field is required and asterisk is added to label',
+  abbrMaxCharacters:  '[Optional] - Abbreviated max character count - only the count is displayed',
+  explanationMessage: '[Optional] - Explanation message to help user',
+  initialValue:       '[Optional] - Any initial value for the textarea',
+  label:              '[Optional] - A label for the textarea',
+  maxCharacters:      '[Optional] - Set a maximum character limit in order to display character count',
+  name:               '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
+  placeholder:        '[Optional] - Any placeholder text you want in the textarea',
+  required:           '[Optional] - Field is required and asterisk is added to label',
 };
 const textareaScope = {
   React,
@@ -155,14 +160,16 @@ const FormApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Form Modifiers</h3>
+      <h3 className="site-subheadline">Form Utilities</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inline Form</h5>
-        <p className="site-copy">Add the <code>form--inline</code> modifier to <code>form</code>.</p>
-        <form className="form form--inline">
-          <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
-          <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
-          <Button type="primary">Sign In</Button>
+        <p className="site-copy">Wrap elements you want inlined with <code>form__inline</code> class.</p>
+        <form className="form">
+          <div className="form__inline">
+            <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
+            <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
+            <Button type="primary">Sign In</Button>
+          </div>
         </form>
       </div>
     </section>

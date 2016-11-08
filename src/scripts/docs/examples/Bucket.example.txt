@@ -4,7 +4,7 @@ class ComponentExample extends React.Component {
       <div className="site-example-buckets">
 
         <Bucket>
-          <BucketHeader title="Bucket Header" avatar="//unsplash.it/400/400?image=1062" />
+          <BucketHeader title="Bucket Header" avatar="//source.unsplash.com/category/people/200x200" />
           <BucketBody>Bucket body.</BucketBody>
         </Bucket>
 
@@ -28,7 +28,7 @@ class ComponentExample extends React.Component {
         </Bucket>
 
         <Bucket>
-          <BucketHeader className="u-bg-gray-lightest" avatar="//unsplash.it/400/400?image=1062">Bucket Header Without Title Property</BucketHeader>
+          <BucketHeader className="u-bg-gray-lightest" avatar="//source.unsplash.com/category/people/200x200">Bucket Header Without Title Property</BucketHeader>
           <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
         </Bucket>
         

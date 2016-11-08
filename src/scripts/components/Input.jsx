@@ -12,6 +12,7 @@ class Input extends React.Component {
     className:          React.PropTypes.string,
     clear:              React.PropTypes.bool,
     disabled:           React.PropTypes.bool,
+    explanationMessage: React.PropTypes.string,
     initialValue:       React.PropTypes.string,
     label:              React.PropTypes.string,
     naked:              React.PropTypes.bool,
@@ -87,7 +88,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, className, clear, disabled, label, naked, name, placeholder, required, type, validationMessage } = this.props;
+    const { addon, className, clear, disabled, explanationMessage, label, naked, name, placeholder, required, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear':  clear,
       'form__control--naked':  naked,
@@ -106,6 +107,14 @@ class Input extends React.Component {
     const showValidationMessage = () => {
       if (validationMessage) {
         return <div className="form__validation-message">{validationMessage}</div>;
+      }
+
+      return false;
+    };
+
+    const showExplanationMessage = () => {
+      if (explanationMessage) {
+        return <div className="form__explanation-message">{explanationMessage}</div>;
       }
 
       return false;
@@ -171,6 +180,7 @@ class Input extends React.Component {
         {showLabel()}
         {showInput()}
         {showValidationMessage()}
+        {showExplanationMessage()}
       </div>
     );
   }

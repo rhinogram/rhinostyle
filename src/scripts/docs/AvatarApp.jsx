@@ -31,7 +31,7 @@ const AvatarApp = () =>
         <h5 className="site-miniheadline">Default Avatar</h5>
         <p className="site-copy"><code>type="default"</code></p>
         <div className="site-example-avatar">
-          <Avatar image="//unsplash.it/200/200?image=804" name="Ben Bruning" />
+          <Avatar image="//source.unsplash.com/category/people/200x200" name="Ben Bruning" />
           <Avatar name="Ben Bruning" />
           <Avatar />
         </div>
@@ -40,7 +40,7 @@ const AvatarApp = () =>
         <h5 className="site-miniheadline">Member Avatar</h5>
         <p className="site-copy"><code>type="member"</code></p>
         <div className="site-example-avatar">
-          <Avatar image="//unsplash.it/200/200?image=804" name="Ben Bruning" type="member" />
+          <Avatar image="//source.unsplash.com/category/people/200x200" name="Ben Bruning" type="member" />
           <Avatar name="Ben Bruning" type="member" />
           <Avatar type="member" />
         </div>

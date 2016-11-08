@@ -112,19 +112,30 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
-// Form Modifiers
+// Form Asterisk (for required fields)
 // -------------------------
 
 
-.form--inline {
+.form__asterisk {
+  color: @color-danger;
+}
+
+
+// -------------------------
+// Form Inline
+// -------------------------
+
+
+.form__inline {
 
   // Kick in the inline
   @media (min-width: @screen-sm-min) {
-    // Inline-block all the things for 'inline'
+    // Inline-flex all the things for 'inline'
     .form__group {
       align-items: center;
       display: inline-flex;
       margin-bottom: 0;
+      margin-right: @margin-small;
       vertical-align: middle;
 
       > label {
@@ -133,11 +144,10 @@ input[type='checkbox']:focus {
       }
     }
 
-    // In navbar-form, allow folks to *not* use `.form-group`
     .form__control {
       display: inline-block;
       vertical-align: middle;
-      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      width: auto; // Prevent labels from stacking above inputs in `.form__group`
     }
 
     // Make static controls behave like regular ones
@@ -145,10 +155,7 @@ input[type='checkbox']:focus {
       display: inline-block;
     }
 
-
-    // Remove default margin on radios/checkboxes that were used for stacking, and
-    // then undo the floating of radios and checkboxes to match.
-
+    // Remove default margin on radios/checkboxes that were used for stacking, and then undo the floating of radios and checkboxes to match.
     .rhinodio,
     .rhinobox {
       display: inline-block;
@@ -166,7 +173,6 @@ input[type='checkbox']:focus {
       margin-left: 0;
       position: relative;
     }
-
   }
 }
 
@@ -227,11 +233,20 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
-// Form Asterisk (for required fields)
+// Form Character Count
 // -------------------------
 
 
-.form__asterisk {
+.form__character-count {
+  color: @text-color-muted;
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  line-height: @line-height-small;
+  margin-left: auto;
+  padding: @padding-small 0 0 @padding-small;
+}
+
+.form__character-count--danger {
   color: @color-danger;
 }
 
@@ -365,6 +380,34 @@ input[type='checkbox']:focus {
 
 
 // -------------------------
+// Form Control Footer
+// -------------------------
+
+
+.form__control-footer {
+  display: flex;
+
+  &:empty {
+    display: none;
+  }
+}
+
+
+// -------------------------
+// Form Explanation Message
+// -------------------------
+
+
+.form__explanation-message {
+  color: @text-color-muted;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: @line-height-small;
+  padding-top: @padding-small;
+}
+
+
+// -------------------------
 // Form Group
 // -------------------------
 // Designed to help with the organization and spacing of vertical forms.
@@ -421,8 +464,9 @@ input[type='checkbox']:focus {
 .form__validation-message {
   color: @color-danger;
   font-size: 1.4rem;
+  line-height: @line-height-small;
+  padding-top: @padding-small;
 }
-
 
 
 // -------------------------

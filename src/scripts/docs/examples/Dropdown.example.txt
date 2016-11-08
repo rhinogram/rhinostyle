@@ -39,17 +39,17 @@ class ComponentExample extends React.Component {
       </Dropdown>
       <Dropdown wide label="Dropdown Select with Filter & Avatar" type="outline-primary">
         <DropdownFilter placeholder="Filter Member">
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//unsplash.it/400/400?image=433" />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//unsplash.it/400/400?image=856" />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//unsplash.it/400/400?image=65" />
-          <DropdownMenuItem id={7} label="Max Krause" avatar="//unsplash.it/400/400?image=64" />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar="//unsplash.it/400/400?image=837" />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//unsplash.it/400/400?image=429" />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//unsplash.it/400/400?image=660" />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//unsplash.it/400/400?image=783" />
+          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//source.unsplash.com/random/200x200" />
+          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//source.unsplash.com/random/200x200" />
+          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={7} label="Max Krause" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={8} label="Paul Drake" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//source.unsplash.com/category/people/200x200" />
         </DropdownFilter>
       </Dropdown>
       <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
@@ -65,23 +65,23 @@ class ComponentExample extends React.Component {
           <DropdownMenuItemWild toggleDropdown>
             <Button type="link" className="u-flex u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
           </DropdownMenuItemWild>
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//unsplash.it/400/400?image=433" />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//unsplash.it/400/400?image=856" />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//unsplash.it/400/400?image=65" />
-          <DropdownMenuItem id={7} label="Max Krause" avatar="//unsplash.it/400/400?image=64" />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar="//unsplash.it/400/400?image=837" />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//unsplash.it/400/400?image=429" />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//unsplash.it/400/400?image=660" />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//unsplash.it/400/400?image=783" />
+          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={7} label="Max Krause" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={8} label="Paul Drake" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//source.unsplash.com/category/people/200x200" />
         </DropdownFilter>
       </Dropdown>
       <Dropdown label="Dropdown with Wild Content" wide>
         <DropdownMenuItemWild>
           <p>DropdownMenuItemWild with a paragraph and image.</p>
-          <img className="u-img-fluid" src="//unsplash.it/400/400?image=1062"/>
+          <img className="u-img-fluid" src="//source.unsplash.com/category/people/200x200"/>
         </DropdownMenuItemWild>
         <DropdownMenuItemWild toggleDropdown>
           <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>
