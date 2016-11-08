@@ -7,17 +7,17 @@ class ComponentExample extends React.Component {
     return (
     <div>
       <DropdownMultiSelect block placeholder="Select these people..." type="primary" onSelect={this.optionalCallbackFunction}>
-        <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//unsplash.it/400/400?image=1027" />
-        <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//unsplash.it/400/400?image=1062" />
-        <DropdownMenuItem id={3} label="Craig Anthony" avatar="//unsplash.it/400/400?image=646" />
-        <DropdownMenuItem id={4} label="Ian Greulich" avatar="//unsplash.it/400/400?image=433" />
-        <DropdownMenuItem id={5} label="Keaton Foster" avatar="//unsplash.it/400/400?image=856" />
-        <DropdownMenuItem id={6} label="Lauren Farr" avatar="//unsplash.it/400/400?image=65" />
-        <DropdownMenuItem id={7} label="Max Krause" avatar="//unsplash.it/400/400?image=64" />
-        <DropdownMenuItem id={8} label="Paul Drake" avatar="//unsplash.it/400/400?image=837" />
-        <DropdownMenuItem id={9} label="Paul Griffin" avatar="//unsplash.it/400/400?image=429" />
-        <DropdownMenuItem id={10} label="Rob Whelan" avatar="//unsplash.it/400/400?image=660" />
-        <DropdownMenuItem id={11} label="Terry Kennair" avatar="//unsplash.it/400/400?image=783" />
+        <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={3} label="Craig Anthony" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={4} label="Ian Greulich" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={5} label="Keaton Foster" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={6} label="Lauren Farr" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={7} label="Max Krause" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={8} label="Paul Drake" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={9} label="Paul Griffin" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={10} label="Rob Whelan" avatar="//source.unsplash.com/category/people/200x200" />
+        <DropdownMenuItem id={11} label="Terry Kennair" avatar="//source.unsplash.com/category/people/200x200" />
         <DropdownMenuItem id={12} icon="sms" label="Icon Item" />
         <DropdownMenuItem id={13} icon="email" label="Icon Item" />
         <DropdownMenuItem id={14} icon="lock" label="Icon Item" />

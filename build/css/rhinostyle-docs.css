@@ -2264,7 +2264,7 @@ button.close {
 }
 .dropdown--multiselect .dropdown__menu__item.active > .dropdown__menu__item__link,
 .dropdown--multiselect .dropdown__menu__item.active > .dropdown__menu__item__link:focus {
-  background: transparent;
+  background: #fcfcfc;
   color: #6c6c6c;
 }
 .dropdown--multiselect .dropdown__menu__item.active > .dropdown__menu__item__link::after,
@@ -2283,7 +2283,7 @@ button.close {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%230081c6%22%20d%3D%22M12.001.001c-6.617%200-12%205.384-12%2012s5.383%2012%2012%2012c6.616%200%2012-5.384%2012-12s-5.383-12-12-12zm5.341%208.866l-7.5%207a.502.502%200%200%201-.695-.012l-2.5-2.5a.5.5%200%200%201%20.707-.707l2.158%202.158%207.147-6.67a.5.5%200%200%201%20.683.731z%22%2F%3E%3C%2Fsvg%3E");
 }
 .dropdown--multiselect .dropdown__menu__item.active > .dropdown__menu__item__link:hover {
-  background: #f9f9f9;
+  background: #fcfcfc;
   color: #6c6c6c;
 }
 .dropdown-multiselect-pills .pill {

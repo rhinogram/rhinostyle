@@ -68,7 +68,7 @@
 
     &,
     &:focus {
-      background: transparent;
+      background: lighten(@dropdown-link-hover-bg, 1%);
       color: @dropdown-link-color;
 
       &::after {
@@ -88,7 +88,7 @@
     }
 
     &:hover {
-      background: @dropdown-link-hover-bg;
+      background: lighten(@dropdown-link-hover-bg, 1%);
       color: @dropdown-link-color;
     }
   }

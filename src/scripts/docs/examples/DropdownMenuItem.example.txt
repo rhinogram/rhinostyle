@@ -9,13 +9,13 @@ class ComponentExample extends React.Component {
       <DropdownMenuItem label="Active Item" active />
       <DropdownMenuItem label="Disabled Item" disabled />
       <DropdownMenuDivider />
-      <DropdownMenuItem label="Ian Avatar" avatar="//unsplash.it/400/400?image=1062" />
-      <DropdownMenuItem label="Paul Avatar" avatar="//unsplash.it/400/400?image=1069" />
-      <DropdownMenuItem label="Rob Avatar" avatar="//unsplash.it/400/400?image=648" />
+      <DropdownMenuItem label="Ian Avatar" avatar="//source.unsplash.com/category/people/200x200" />
+      <DropdownMenuItem label="Paul Avatar" avatar="//source.unsplash.com/category/people/200x200" />
+      <DropdownMenuItem label="Rob Avatar" avatar="//source.unsplash.com/category/people/200x200" />
       <DropdownMenuDivider />
-      <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar="//unsplash.it/400/400?image=1062" />
-      <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar="//unsplash.it/400/400?image=1069" />
-      <DropdownMenuItem label="Ben Bruning" labelDesc="The Grinder" avatar="//unsplash.it/400/400?image=648" />
+      <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar="//source.unsplash.com/category/people/200x200" />
+      <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar="//source.unsplash.com/category/people/200x200" />
+      <DropdownMenuItem label="Ben Bruning" labelDesc="The Grinder" avatar="//source.unsplash.com/category/people/200x200" />
       <DropdownMenuDivider />
       <DropdownMenuItem icon="sms" label="Icon Item" />
       <DropdownMenuItem icon="email" label="Icon Item" />
