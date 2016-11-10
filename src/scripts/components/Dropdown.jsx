@@ -10,7 +10,7 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
-    activeKey: React.PropTypes.number,
+    activeKey: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
     block:     React.PropTypes.bool,
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
