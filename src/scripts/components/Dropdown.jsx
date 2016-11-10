@@ -151,8 +151,6 @@ class Dropdown extends React.Component {
       'dropdown__menu--wide': wide,
     });
 
-    const caretDirection = (position === 'top' || position === 'top-right') ? '#icon-chevron-up' : '#icon-chevron-down';
-
     let selectedLabel = null;
 
     if (activeKey && !lockLabel) {
@@ -177,7 +175,7 @@ class Dropdown extends React.Component {
       <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
         <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
           {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
-          {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref={caretDirection} /></svg>}
+          {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
         </div>
         <ul className={dropdownMenuClasses}>
           {this.getChildren()}
