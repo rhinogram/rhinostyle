@@ -4279,6 +4279,9 @@ table {
 .table--hover .table__row--warning:hover {
   background-color: #fcf3d0 !important;
 }
+.table__row--valign-middle td {
+  vertical-align: middle;
+}
 .responsive-table {
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
