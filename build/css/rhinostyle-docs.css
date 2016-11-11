@@ -3664,7 +3664,7 @@ h3 .label {
   width: 3.2rem;
 }
 .loader-circle::after {
-  animation: loadercircle 750ms infinite linear;
+  animation: loadercircle 625ms infinite linear;
   animation-fill-mode: both;
   border: 3px solid transparent;
   border-radius: 100%;
