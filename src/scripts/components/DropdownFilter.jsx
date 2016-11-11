@@ -13,6 +13,7 @@ class DropdownFilter extends React.Component {
     handleToggle:    React.PropTypes.func,
     placeholder:     React.PropTypes.string,
     onSelect:        React.PropTypes.func,
+    onChange:        React.PropTypes.func,
     updateActiveKey: React.PropTypes.func,
   };
 
@@ -80,29 +81,34 @@ class DropdownFilter extends React.Component {
   }
 
   handleFilter = (e) => {
-    const query = e.target.value;
-    const items = [];
-    const children = this.props.children;
+    const onChange = this.props.onChange;
+    if (onChange && typeof(onChange === 'function')) {
+      onChange(this.filterInput.value);
+    } else {
+      const query = e.target.value;
+      const items = [];
+      const children = this.props.children;
 
-    React.Children.forEach(children, child => {
-      if (child.type === DropdownMenuItem) {
-        const searchText = child.props.label;
+      React.Children.forEach(children, child => {
+        if (child.type === DropdownMenuItem) {
+          const searchText = child.props.label;
 
-        if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-          items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child),
-            active: this.props.activeKey && (child.props.id === this.props.activeKey),
-            key: child.props.id,
-          }));
+          if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+            items.push(React.cloneElement(child, {
+              onClick: () => this.itemClick(child),
+              active: this.props.activeKey && (child.props.id === this.props.activeKey),
+              key: child.props.id,
+            }));
+          }
+        } else {
+          items.push(child);
         }
-      } else {
-        items.push(child);
-      }
-    });
+      });
 
-    this.setState({
-      items,
-    });
+      this.setState({
+        items,
+      });
+    }
   }
 
   render() {

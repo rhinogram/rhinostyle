@@ -21,6 +21,7 @@ class Dropdown extends React.Component {
     lockLabel: React.PropTypes.bool,
     position:  React.PropTypes.string,
     onSelect:  React.PropTypes.func,
+    onChange:  React.PropTypes.func,
     size:      React.PropTypes.oneOf(['small', 'large']),
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
     wide:      React.PropTypes.bool,
@@ -78,6 +79,7 @@ class Dropdown extends React.Component {
       } else if (child.type === DropdownFilter) {
         returnChild = React.cloneElement(child, {
           onSelect: this.props.onSelect,
+          onChange: this.props.onChange,
           handleToggle: this.handleToggle,
           activeKey: this.state.activeKey,
           icon: this.state.icon,
