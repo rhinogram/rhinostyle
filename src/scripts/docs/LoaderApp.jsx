@@ -1,10 +1,21 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { LoaderPulse, LoaderLine } from '../components';
+import { LoaderCircle, LoaderPulse, LoaderLine } from '../components';
 
 import Playground from 'component-playground';
 
+const loaderCircleExample  = require('raw!./examples/LoaderCircle.example.txt');
+const loaderCircleDocs = {
+  className: '[Optional] - Include additional class name(s)',
+  size: '[Optional] - LoaderCircle size -  [small | large]',
+  type: '[Optional] - LoaderCircle type -  [default | primary]',
+};
+const loaderCircleScope = {
+  React,
+  ReactDOM,
+  LoaderCircle,
+};
 /* eslint import/no-unresolved: 0 */
 const loaderLineExample  = require('raw!./examples/LoaderLine.example.txt');
 const loaderLineDocs = {
@@ -29,6 +40,23 @@ const loaderPulseScope = {
 const LoaderApp = () =>
   <div>
     <h1 className="site-headline">Loaders</h1>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">LoaderCircle Types</h3>
+      <p className="site-copy"><code>type="default | primary"</code></p>
+      <LoaderCircle /> <LoaderCircle type="primary" />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">LoaderCircle Sizes</h3>
+      <p className="site-copy"><code>size="small | large"</code></p>
+      <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large"/>
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">LoaderCircle Playground</h3>
+      <Playground docClass={LoaderCircle} propDescriptionMap={loaderCircleDocs} codeText={loaderCircleExample} scope={loaderCircleScope} noRender={false} />
+    </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Types</h3>

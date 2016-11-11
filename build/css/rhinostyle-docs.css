@@ -3654,6 +3654,64 @@ h3 .label {
 .label--secondary[href]:focus {
   background-color: #619100;
 }
+.loader-circle {
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 3px;
+  display: inline-block;
+  height: 3.2rem;
+  position: relative;
+  width: 3.2rem;
+}
+.loader-circle::after {
+  animation: loadercircle 750ms infinite linear;
+  animation-fill-mode: both;
+  border: 3px solid transparent;
+  border-radius: 100%;
+  content: '';
+  height: 3.2rem;
+  left: -3px;
+  position: absolute;
+  top: -3px;
+  width: 3.2rem;
+  z-index: 100;
+}
+.loader-circle--default {
+  border-color: #c5c5c5;
+}
+.loader-circle--default::after {
+  border-top-color: #9f9f9f;
+}
+.loader-circle--primary {
+  border-color: #00a2f9;
+}
+.loader-circle--primary::after {
+  border-top-color: #005480;
+}
+.loader-circle--lg {
+  height: 3.8rem;
+  width: 3.8rem;
+}
+.loader-circle--lg::after {
+  height: 3.8rem;
+  width: 3.8rem;
+}
+.loader-circle--sm {
+  height: 2.6rem;
+  width: 2.6rem;
+}
+.loader-circle--sm::after {
+  height: 2.6rem;
+  width: 2.6rem;
+}
+@keyframes loadercircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .loader-line {
   background: #ececec;
   height: .2rem;

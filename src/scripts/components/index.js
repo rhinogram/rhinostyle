@@ -23,6 +23,7 @@ import DropdownWrapper      from './DropdownWrapper';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
+import LoaderCircle         from './LoaderCircle';
 import LoaderPulse          from './LoaderPulse';
 import LoaderLine           from './LoaderLine';
 import Message              from './Message';
@@ -80,6 +81,7 @@ export {
   Icon,
   Input,
   Label,
+  LoaderCircle,
   LoaderPulse,
   LoaderLine,
   Message,

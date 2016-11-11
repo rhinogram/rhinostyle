@@ -1,0 +1,16 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div>
+        <LoaderCircle size="small" />
+        <LoaderCircle />
+        <LoaderCircle size="large" />
+        <LoaderCircle size="small" type="primary" />
+        <LoaderCircle type="primary" />
+        <LoaderCircle size="large" type="primary" />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

@@ -3,6 +3,101 @@
 
 
 // -------------------------
+// Loader Circle
+// -------------------------
+
+
+.loader-circle {
+  //animation: loadercircle 1s infinite ease-out;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: @loader-circle-border-size;
+  display: inline-block;
+  height: @loader-circle-size;
+  position: relative;
+  width: @loader-circle-size;
+
+  &::after {
+    animation: loadercircle 750ms infinite linear;
+    animation-fill-mode: both;
+    border: @loader-circle-border-size solid transparent;
+    border-radius: 100%;
+    content: '';
+    height: @loader-circle-size;
+    left: -@loader-circle-border-size;
+    position: absolute;
+    top: -@loader-circle-border-size;
+    width: @loader-circle-size;
+    z-index: 100;
+  }
+}
+
+
+// -------------------------
+// Loader Circle Color Modifiers
+// -------------------------
+
+
+.loader-circle--default {
+  border-color: @color-gray-light;
+
+  &::after {
+    border-top-color: @color-gray;
+  }
+}
+
+.loader-circle--primary {
+  border-color: @color-primary-rich;
+
+  &::after {
+    border-top-color: @color-info;
+  }
+}
+
+
+// -------------------------
+// Loader Circle Size Modifiers
+// -------------------------
+
+
+.loader-circle--lg {
+  height: @loader-circle-size-lg;
+  width: @loader-circle-size-lg;
+
+  &::after {
+    height: @loader-circle-size-lg;
+    width: @loader-circle-size-lg;
+  }
+}
+
+.loader-circle--sm {
+  height: @loader-circle-size-sm;
+  width: @loader-circle-size-sm;
+
+  &::after {
+    height: @loader-circle-size-sm;
+    width: @loader-circle-size-sm;
+  }
+}
+
+
+// -------------------------
+// Loader Circle Animations
+// -------------------------
+
+
+@keyframes loadercircle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+// -------------------------
 // Loader Line
 // -------------------------
 
