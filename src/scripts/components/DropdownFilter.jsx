@@ -25,16 +25,18 @@ class DropdownFilter extends React.Component {
     items: this.props.children,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      items: this.getChildren(),
+      items: this.getChildren(nextProps.children),
     });
 
-    this.filterInput.value = '';
+    if (!this.props.onChange) {
+      this.filterInput.value = '';
+    }
   }
 
-  getChildren = () => {
-    const children = this.props.children;
+  getChildren = (nextChildren) => {
+    const children = nextChildren;
     let returnChild = null;
 
     return React.Children.map(children, child => {
