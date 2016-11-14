@@ -1,9 +1,9 @@
+import Alert                from './Alert';
 import Avatar               from './Avatar';
 import Bucket               from './Bucket';
 import BucketBody           from './BucketBody';
 import BucketHeader         from './BucketHeader';
 import Button               from './Button';
-import Callout              from './Callout';
 import Checkbox             from './Checkbox';
 import Close                from './Close';
 import Cover                from './Cover';
@@ -55,12 +55,12 @@ import { ModalSystem } from '../ModalSystem';
 /* eslint import/no-duplicates:0 */
 
 export {
+  Alert,
   Avatar,
   Bucket,
   BucketBody,
   BucketHeader,
   Button,
-  Callout,
   Checkbox,
   Close,
   Cover,

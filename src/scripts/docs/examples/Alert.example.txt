@@ -1,0 +1,16 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <div>
+        <div className="site-example-alerts">
+          <Alert title="This is a default alert!">This is a default alert for random stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+          <Alert title="This is a default alert with a title icon!" titleIcon="star">This is a default alert for random stuff.</Alert>
+          <Alert title="This is a default alert with a title icon and it's dismissible!" titleIcon="lock" dismissible>This is a default alert for random stuff.</Alert>
+          <Alert title="This is a default alert with a title icon, it's dismissible, and it has no children!" titleIcon="lock" dismissible />
+          <Alert dismissible>This is a default alert without a title that is dismissible.</Alert>
+        </div>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<ComponentExample />, mountNode);

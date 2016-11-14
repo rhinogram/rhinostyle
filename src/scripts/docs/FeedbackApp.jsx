@@ -1,17 +1,19 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { NotificationActions, Callout, Icon, SystemAlert, Toast } from '../components';
+import { Alert, Icon, NotificationActions, SystemAlert, Toast } from '../components';
 
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const calloutExample = require('raw!./examples/Callout.example.txt');
-const calloutDocs = {
-  body: '[Required] - Callout body text',
+const alertExample = require('raw!./examples/Alert.example.txt');
+const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
-  heading: '[Required] - Callout heading text',
-  type: '[Optional] - Callout type, as a string -  [danger | default | info]',
+  dismissible: '[Optional] - Include close button used to dismiss alert',
+  onDismiss: '[Optional] - Include dismiss function',
+  title: '[Required] - Alert title text',
+  titleIcon: '[Optional] - Alert title icon',
+  type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning]',
 };
 const toastExample = require('raw!./examples/Toast.example.txt');
 const toastDocs = {
@@ -31,10 +33,10 @@ const systemAlertDocs = {
   url: '[Optional] - SystemAlert url, as a string',
 };
 
-const calloutScope = {
+const alertScope = {
   React,
   ReactDOM,
-  Callout,
+  Alert,
 };
 const toastScope = {
   React,
@@ -74,20 +76,18 @@ class FeedbackApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Feedback</h3>
-          <p className="site-text-lead">Numberous components make up our feedback system: Callout, SystemAlert, and Toast.</p>
+          <p className="site-text-lead">Numberous components make up our feedback system: Alert, SystemAlert, and Toast.</p>
         </section>
 
         <section className="site-section">
-          <h3 className="site-subheadline">Callout</h3>
+          <h3 className="site-subheadline">Alert</h3>
           <div className="u-m-b-lg">
-            <div className="site-example-callouts">
-              <Callout type="danger" heading="Callout Danger" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-              <Callout type="default" heading="Callout Default" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
-              <Callout type="info" heading="Callout Info" body="Rhinogram’s mission is to help you seamlessly communicate with your patients across all channels with one simple tool." />
+            <div className="site-example-alerts">
+              <Alert title="This is a default alert!">This is a default alert for random stuff.</Alert>
             </div>
           </div>
-          <h3 className="site-subheadline">Callout Playground</h3>
-          <Playground docClass={Callout} propDescriptionMap={calloutDocs} codeText={calloutExample} scope={calloutScope} noRender={false} />
+          <h3 className="site-subheadline">Alert Playground</h3>
+          <Playground docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">SystemAlert</h3>
