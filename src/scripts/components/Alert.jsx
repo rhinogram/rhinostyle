@@ -6,12 +6,17 @@ import { Close, Icon } from '../components';
 const Alert = (props) => {
   const { className, dismissible, onDismiss, title, titleIcon, type } = props;
   const classes = cx('alert', className, {
-    'alert--danger':      type === 'danger',
-    'alert--default':     type === 'default',
-    'alert--info':        type === 'info',
-    'alert--success':     type === 'success',
-    'alert--warning':     type === 'warning',
-    'alert--dismissible': dismissible,
+    'alert--danger':            type === 'danger',
+    'alert--default':           type === 'default',
+    'alert--info':              type === 'info',
+    'alert--success':           type === 'success',
+    'alert--warning':           type === 'warning',
+    'alert--dismissible':       dismissible,
+    'alert--outline-danger':    type === 'outline-danger',
+    'alert--outline-default':   type === 'outline-default',
+    'alert--outline-info':      type === 'outline-info',
+    'alert--outline-success':   type === 'outline-success',
+    'alert--outline-warning':   type === 'outline-warning',
   });
 
   const renderClose = () => {

@@ -17,3 +17,22 @@
     }
   }
 }
+
+
+.mixin-outline-alert-variant(@color) {
+  border: 1px solid @color;
+
+  .alert__title {
+    color: @color-gray-darker;
+  }
+
+  .alert__title__icon {
+    color: @color;
+  }
+
+  .alert__body {
+    .icon {
+      color: @color;
+    }
+  }
+}

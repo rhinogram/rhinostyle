@@ -1015,9 +1015,6 @@ a.u-text-white:hover,
 .alert--danger .alert__body a {
   color: #fff;
 }
-.alert--dismissible {
-  padding-right: 2rem;
-}
 .alert--default {
   background: #ececec;
 }
@@ -1038,6 +1035,66 @@ a.u-text-white:hover,
 }
 .alert--info .alert__body a {
   color: #fff;
+}
+.alert--outline-danger {
+  border: 1px solid #cc2d32;
+}
+.alert--outline-danger .alert__title {
+  color: #404040;
+}
+.alert--outline-danger .alert__title__icon {
+  color: #cc2d32;
+}
+.alert--outline-danger .alert__body .icon {
+  color: #cc2d32;
+}
+.alert--outline-default {
+  border: 1px solid #9f9f9f;
+}
+.alert--outline-default .alert__title {
+  color: #404040;
+}
+.alert--outline-default .alert__title__icon {
+  color: #9f9f9f;
+}
+.alert--outline-default .alert__body .icon {
+  color: #9f9f9f;
+}
+.alert--outline-info {
+  border: 1px solid #005480;
+}
+.alert--outline-info .alert__title {
+  color: #404040;
+}
+.alert--outline-info .alert__title__icon {
+  color: #005480;
+}
+.alert--outline-info .alert__body .icon {
+  color: #005480;
+}
+.alert--outline-success {
+  border: 1px solid #72aa00;
+}
+.alert--outline-success .alert__title {
+  color: #404040;
+}
+.alert--outline-success .alert__title__icon {
+  color: #72aa00;
+}
+.alert--outline-success .alert__body .icon {
+  color: #72aa00;
+}
+.alert--outline-warning {
+  border: 1px solid #f2d046;
+}
+.alert--outline-warning .alert__title {
+  color: #404040;
+}
+.alert--outline-warning .alert__title__icon {
+  color: #f2d046;
+}
+.alert--outline-warning .alert__body .icon {
+  color: #f2d046;
 }
 .alert--success {
   background-color: #72aa00;
