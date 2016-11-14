@@ -1008,6 +1008,13 @@ a.u-text-white:hover,
   padding: 1.2rem;
   position: relative;
 }
+.alert--danger {
+  background-color: #cc2d32;
+  color: #fff;
+}
+.alert--danger .alert__body a {
+  color: #fff;
+}
 .alert--dismissible {
   padding-right: 2rem;
 }
@@ -1023,7 +1030,28 @@ a.u-text-white:hover,
 .alert--dismissible .alert__close {
   position: absolute;
   right: 1rem;
-  top: 1.2rem;
+  top: 1.5rem;
+}
+.alert--info {
+  background-color: #005480;
+  color: #fff;
+}
+.alert--info .alert__body a {
+  color: #fff;
+}
+.alert--success {
+  background-color: #72aa00;
+  color: #fff;
+}
+.alert--success .alert__body a {
+  color: #fff;
+}
+.alert--warning {
+  background-color: #f2d046;
+  color: #fff;
+}
+.alert--warning .alert__body a {
+  color: #fff;
 }
 .alert__body {
   font-style: italic;
@@ -1035,21 +1063,17 @@ a.u-text-white:hover,
   font-style: normal;
   text-decoration: underline;
 }
-.alert__title + .alert__body {
-  margin-top: 0.6rem;
+.alert__body p:last-child {
+  margin-bottom: 0;
 }
 .alert__title {
   display: -ms-flexbox;
   display: flex;
   font-weight: 700;
-  line-height: 1.2;
-}
-.alert__title:empty {
-  display: none;
 }
 .alert__title__icon {
   margin-right: 0.6rem;
-  top: .1rem;
+  top: .2rem;
 }
 .rhino-animation {
   background-color: #0081c6;
@@ -4405,7 +4429,7 @@ table {
 .toast--default {
   background: #9f9f9f;
 }
-.toast--secondary {
+.toast--success {
   background: #83c400;
 }
 .toast__close {

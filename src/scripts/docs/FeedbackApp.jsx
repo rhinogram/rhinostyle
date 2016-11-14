@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Alert, Icon, NotificationActions, SystemAlert, Toast } from '../components';
+import { Alert, Button, Icon, NotificationActions, SystemAlert, Toast } from '../components';
 
 import Playground from 'component-playground';
 
@@ -21,7 +21,7 @@ const toastDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Include icon name',
   onDismiss: '[Required] - Include dismiss function',
-  type: '[Optional] - Callout type, as a string -  [danger | default | secondary]',
+  type: '[Optional] - Toast type, as a string -  [danger | default | success]',
 };
 const systemAlertExample = require('raw!./examples/SystemAlert.example.txt');
 const systemAlertDocs = {
@@ -37,6 +37,8 @@ const alertScope = {
   React,
   ReactDOM,
   Alert,
+  Button,
+  Icon,
 };
 const toastScope = {
   React,
@@ -83,7 +85,11 @@ class FeedbackApp extends React.Component {
           <h3 className="site-subheadline">Alert</h3>
           <div className="u-m-b-lg">
             <div className="site-example-alerts">
-              <Alert title="This is a default alert!">This is a default alert for random stuff.</Alert>
+              <Alert title="This is a danger alert!" titleIcon="star" type="danger" dismissible>This is a default alert for dangerous stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+              <Alert title="This is a defualt  alert!" titleIcon="star" dismissible>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+              <Alert title="This is a info alert!" titleIcon="star" type="info" dismissible>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+              <Alert title="This is a success alert!" titleIcon="star" type="success" dismissible>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+              <Alert title="This is a warning alert!" titleIcon="star" type="warning" dismissible>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
             </div>
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
@@ -106,9 +112,9 @@ class FeedbackApp extends React.Component {
           <h3 className="site-subheadline">Toast</h3>
           <p className="site-copy">To see a toast in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
           <div className="site-example-toasts u-m-b-lg">
-            <Toast type="default" body="Default notification" />
-            <Toast type="secondary" icon="checkmark" body="Default notification" />
-            <Toast type="danger" body="Danger notification" />
+            <Toast type="default" body="Default toast notification" />
+            <Toast type="success" icon="checkmark" body="Success toast notification" />
+            <Toast type="danger" body="Danger toast notification" />
           </div>
           <h3 className="site-subheadline">Toast Playground</h3>
           <Playground docClass={Toast} propDescriptionMap={toastDocs} codeText={toastExample} scope={toastScope} noRender={false} />

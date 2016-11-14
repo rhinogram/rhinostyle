@@ -2,7 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-        <Toast type="secondary" icon="checkmark" body="Default notification" />
+        <Toast type="success" icon="checkmark" body="Success toast notification" />
       </div>
     );
   }
