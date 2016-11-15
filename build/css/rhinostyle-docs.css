@@ -1,4 +1,4 @@
-/*! rhinostyle v0.2.7 */
+/*! rhinostyle v0.2.8 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -845,6 +845,10 @@ a.u-text-white:hover,
 .u-m-y-lg {
   margin-top: 4.2rem !important;
   margin-bottom: 4.2rem !important;
+}
+.u-m-y-xlg {
+  margin-top: 5.6rem !important;
+  margin-bottom: 5.6rem !important;
 }
 .u-p-a-0 {
   padding: 0 !important;
