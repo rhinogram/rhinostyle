@@ -173,6 +173,21 @@ gulp.task('animation:time', () => {
 });
 
 // -------------------------
+// Audio
+// -------------------------
+gulp.task('audio', () => {
+  const path = paths.audio;
+
+  return gulp.src([
+    path.src,
+  ])
+  .pipe(gulp.dest(path.build))
+  .pipe(gulp.dest(path.dist))
+  .pipe(duration('Copied Audio'))
+  .pipe(reload({ stream: true }));
+});
+
+// -------------------------
 // Browswer Sync
 // -------------------------
 gulp.task('browser-sync', () => {
@@ -276,12 +291,12 @@ gulp.task('docs:scripts', () => {
     './node_modules/boomsvgloader/dist/js/boomsvgloader.js',
     path.docSrc,
   ])
-    .pipe(concat('rhinostyle-docs.js'))
-    .pipe(uglify())
-    .pipe(insert.prepend(RhinoStyleVersion))
-    .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Doc Scripts'))
-    .pipe(reload({ stream: true }));
+  .pipe(concat('rhinostyle-docs.js'))
+  .pipe(uglify())
+  .pipe(insert.prepend(RhinoStyleVersion))
+  .pipe(gulp.dest(path.build))
+  .pipe(duration('Built Doc Scripts'))
+  .pipe(reload({ stream: true }));
 });
 
 

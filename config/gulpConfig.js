@@ -19,6 +19,11 @@ export const paths = {
     dist:  './dist/animation/time/',
     build: './build/animation/time/',
   },
+  audio: {
+    src:   './src/audio/*.mp3',
+    dist:  './dist/audio/',
+    build: './build/audio/',
+  },
   metalsmith: {
     pages:     './src/pages/**/*.html',
     templates: './src/templates/*.html',
