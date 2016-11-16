@@ -45,6 +45,15 @@ class Textarea extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.initialValue !== this.props.initialValue) {
+      this.setState({
+        value: nextProps.initialValue,
+        charactersLeft: this.props.maxCharacters - nextProps.initialValue.length,
+      });
+    }
+  }
+
   _handleChange = (event) => {
     this.setState({
       value: event.target.value,
