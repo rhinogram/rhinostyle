@@ -10,42 +10,38 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
-    activeKey: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    block:     React.PropTypes.bool,
-    children:  React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled:  React.PropTypes.bool,
-    hideCaret: React.PropTypes.bool,
-    icon:      React.PropTypes.string,
-    label:     React.PropTypes.string,
-    lockLabel: React.PropTypes.bool,
-    position:  React.PropTypes.string,
-    onClick:   React.PropTypes.func,
-    onSelect:  React.PropTypes.func,
-    size:      React.PropTypes.oneOf(['small', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
-    wide:      React.PropTypes.bool,
+    activeKey:  React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    block:      React.PropTypes.bool,
+    children:   React.PropTypes.node,
+    className:  React.PropTypes.string,
+    disabled:   React.PropTypes.bool,
+    hideCaret:  React.PropTypes.bool,
+    hideActive: React.PropTypes.bool,
+    icon:       React.PropTypes.string,
+    label:      React.PropTypes.string,
+    lockLabel:  React.PropTypes.bool,
+    position:   React.PropTypes.string,
+    onClick:    React.PropTypes.func,
+    onSelect:   React.PropTypes.func,
+    size:       React.PropTypes.oneOf(['small', 'large']),
+    type:       React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
+    wide:       React.PropTypes.bool,
   };
 
   static defaultProps = {
-    block:     false,
-    disabled:  false,
-    hideCaret: false,
-    type:      'default',
-    wide:      false,
+    block:      false,
+    disabled:   false,
+    hideCaret:  false,
+    hideActive: false,
+    type:       'default',
+    wide:       false,
   };
 
   state = {
     isOpen: false,
-    activeKey: this.props.activeKey,
+    activeKey: null,
     icon: this.props.icon,
   };
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      activeKey: newProps.activeKey,
-    });
-  }
 
   getChildren = () => {
     let returnChild = null;
@@ -113,6 +109,10 @@ class Dropdown extends React.Component {
   }
 
   updateActiveKey = (index, icon) => {
+    if (this.props.hideActive) {
+      return;
+    }
+
     if (!this.props.lockLabel) {
       this.setState({
         activeKey: index,
