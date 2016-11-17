@@ -3,7 +3,13 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-bucketheaders">
 
-        <BucketHeader title="Bucket Header" avatar="//source.unsplash.com/category/people/200x200" />
+        <BucketHeader title="Bucket Header" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Robert Plant", type: "member"}} />
+
+        <BucketHeader title="Bucket Header" avatar={{image: "//badimage.jpg", name: "Robert Plant", type: "member"}} />
+
+        <BucketHeader title="Bucket Header" avatar={{name: "Robert Plant", type: "member"}} />
+
+        <BucketHeader title="Bucket Header" avatar={{type: "member"}} />
         
         <BucketHeader title="Bucket Header" icon="pencil" />
 
