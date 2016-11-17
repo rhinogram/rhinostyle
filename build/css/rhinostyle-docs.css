@@ -3993,7 +3993,7 @@ h3 .label {
   display: -ms-flexbox;
   display: flex;
   min-height: 3.2rem;
-  padding: 2rem 1.6rem;
+  padding: 2rem 1.6rem 1.8rem;
 }
 .modal__header__close {
   font-size: 2rem;
