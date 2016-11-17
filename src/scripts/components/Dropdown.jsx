@@ -20,8 +20,8 @@ class Dropdown extends React.Component {
     label:     React.PropTypes.string,
     lockLabel: React.PropTypes.bool,
     position:  React.PropTypes.string,
+    onClick:   React.PropTypes.func,
     onSelect:  React.PropTypes.func,
-    onChange:  React.PropTypes.func,
     size:      React.PropTypes.oneOf(['small', 'large']),
     type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
     wide:      React.PropTypes.bool,
@@ -42,11 +42,9 @@ class Dropdown extends React.Component {
   };
 
   componentWillReceiveProps(newProps) {
-    if (newProps.activeKey !== this.props.activeKey) {
-      this.setState({
-        activeKey: newProps.activeKey,
-      });
-    }
+    this.setState({
+      activeKey: newProps.activeKey,
+    });
   }
 
   getChildren = () => {
@@ -79,7 +77,6 @@ class Dropdown extends React.Component {
       } else if (child.type === DropdownFilter) {
         returnChild = React.cloneElement(child, {
           onSelect: this.props.onSelect,
-          onChange: this.props.onChange,
           handleToggle: this.handleToggle,
           activeKey: this.state.activeKey,
           icon: this.state.icon,
@@ -101,10 +98,18 @@ class Dropdown extends React.Component {
     this.setState({
       isOpen: !this.state.isOpen,
     });
+
+    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+      this.props.onClick();
+    }
   };
 
   handleClickOutside = () => {
     this.setState({ isOpen: false });
+
+    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+      this.props.onClick();
+    }
   }
 
   updateActiveKey = (index, icon) => {
@@ -121,7 +126,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, hideCaret, label, lockLabel, position, size, type, wide } = this.props;
+    const { block, className, disabled, hideCaret, label, lockLabel, position, size, type, wide, onClick } = this.props;
     const activeKey = this.state.activeKey;
     const icon = this.state.icon;
     const isOpen = this.state.isOpen;

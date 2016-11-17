@@ -9,11 +9,9 @@ class DropdownFilter extends React.Component {
   static propTypes = {
     activeKey:       React.PropTypes.number,
     children:        React.PropTypes.node,
-    icon:            React.PropTypes.string,
     handleToggle:    React.PropTypes.func,
     placeholder:     React.PropTypes.string,
     onSelect:        React.PropTypes.func,
-    onChange:        React.PropTypes.func,
     updateActiveKey: React.PropTypes.func,
   };
 
@@ -25,18 +23,16 @@ class DropdownFilter extends React.Component {
     items: this.props.children,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     this.setState({
-      items: this.getChildren(nextProps.children),
+      items: this.getChildren(),
     });
 
-    if (!this.props.onChange) {
-      this.filterInput.value = '';
-    }
+    this.filterInput.value = '';
   }
 
-  getChildren = (nextChildren) => {
-    const children = nextChildren;
+  getChildren = () => {
+    const children = this.props.children;
     let returnChild = null;
 
     return React.Children.map(children, child => {
@@ -83,34 +79,29 @@ class DropdownFilter extends React.Component {
   }
 
   handleFilter = (e) => {
-    const onChange = this.props.onChange;
-    if (onChange && typeof(onChange === 'function')) {
-      onChange(this.filterInput.value);
-    } else {
-      const query = e.target.value;
-      const items = [];
-      const children = this.props.children;
+    const query = e.target.value;
+    const items = [];
+    const children = this.props.children;
 
-      React.Children.forEach(children, child => {
-        if (child.type === DropdownMenuItem) {
-          const searchText = child.props.label;
+    React.Children.forEach(children, child => {
+      if (child.type === DropdownMenuItem) {
+        const searchText = child.props.label;
 
-          if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-            items.push(React.cloneElement(child, {
-              onClick: () => this.itemClick(child),
-              active: this.props.activeKey && (child.props.id === this.props.activeKey),
-              key: child.props.id,
-            }));
-          }
-        } else {
-          items.push(child);
+        if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+          items.push(React.cloneElement(child, {
+            onClick: () => this.itemClick(child),
+            active: this.props.activeKey && (child.props.id === this.props.activeKey),
+            key: child.props.id,
+          }));
         }
-      });
+      } else {
+        items.push(child);
+      }
+    });
 
-      this.setState({
-        items,
-      });
-    }
+    this.setState({
+      items,
+    });
   }
 
   render() {
