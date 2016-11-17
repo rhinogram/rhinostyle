@@ -1,4 +1,4 @@
-/*! rhinostyle v0.2.8 */
+/*! rhinostyle v0.2.9 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -310,6 +310,9 @@ img {
 }
 .u-text-large {
   font-size: 2rem !important;
+}
+.u-text-medium {
+  font-size: 1.8rem !important;
 }
 .u-text-base {
   font-size: 1.6rem !important;
