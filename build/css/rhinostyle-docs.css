@@ -4008,7 +4008,7 @@ h3 .label {
   align-items: center;
   display: -ms-flexbox;
   display: flex;
-  line-height: 1;
+  line-height: 1.2;
   margin: 0;
   padding-right: 1rem;
 }
