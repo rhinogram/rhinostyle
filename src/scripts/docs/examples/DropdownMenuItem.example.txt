@@ -9,13 +9,13 @@ class ComponentExample extends React.Component {
       <DropdownMenuItem label="Active Item" active />
       <DropdownMenuItem label="Disabled Item" disabled />
       <DropdownMenuDivider />
-      <DropdownMenuItem label="Ian Avatar" avatar="//source.unsplash.com/category/people/200x200" />
-      <DropdownMenuItem label="Paul Avatar" avatar="//source.unsplash.com/category/people/200x200" />
-      <DropdownMenuItem label="Rob Avatar" avatar="//source.unsplash.com/category/people/200x200" />
+      <DropdownMenuItem label="Ian Avatar" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ian Greulich", type: "member"}} />
+      <DropdownMenuItem label="Paul Avatar" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Drake", type: "member"}} />
+      <DropdownMenuItem label="Rob Avatar" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Rob Whelan", type: "member"}} />
       <DropdownMenuDivider />
-      <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar="//source.unsplash.com/category/people/200x200" />
-      <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar="//source.unsplash.com/category/people/200x200" />
-      <DropdownMenuItem label="Ben Bruning" labelDesc="The Grinder" avatar="//source.unsplash.com/category/people/200x200" />
+      <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ian Greulich", type: "member"}} />
+      <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Drake", type: "member"}} />
+      <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ben Bruning", type: "member"}} />
       <DropdownMenuDivider />
       <DropdownMenuItem icon="sms" label="Icon Item" />
       <DropdownMenuItem icon="email" label="Icon Item" />

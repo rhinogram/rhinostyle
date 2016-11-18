@@ -20,7 +20,11 @@ class DropdownMenuItem extends React.Component {
 
   static propTypes = {
     active:      React.PropTypes.bool,
-    avatar:      customValidator,
+    avatar:      React.PropTypes.shape({
+      image:      React.PropTypes.string,
+      name:       React.PropTypes.string,
+      type:       React.PropTypes.oneOf(['default', 'member']),
+    }),
     blankWindow: React.PropTypes.bool,
     onClick:     React.PropTypes.func,
     className:   React.PropTypes.string,
@@ -68,7 +72,7 @@ class DropdownMenuItem extends React.Component {
           <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
             <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-              {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+              {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
               <span className="u-text-overflow">{label}</span>
             </div>
             {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
@@ -81,7 +85,7 @@ class DropdownMenuItem extends React.Component {
           <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
             <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-              {avatar ? (<Avatar size="small" type="member" image={avatar} className="u-m-r-sm" />) : null}
+              {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
               <div className="dropdown__menu__item__content__container">
                 <div className="dropdown__menu__item__content__label">{label}</div>
                 {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}

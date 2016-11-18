@@ -39,17 +39,17 @@ class ComponentExample extends React.Component {
       </Dropdown>
       <Dropdown wide label="Dropdown Select with Filter & Avatar" type="outline-primary">
         <DropdownFilter placeholder="Filter Member">
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//source.unsplash.com/random/200x200" />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//source.unsplash.com/random/200x200" />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={7} label="Max Krause" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ben Bruning", type: "member"}} />
+          <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Blake Guilloud", type: "member"}} />
+          <DropdownMenuItem id={3} label="Craig Anthony" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Craig Anthony", type: "member"}} />
+          <DropdownMenuItem id={4} label="Ian Greulich" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ian Greulich", type: "member"}} />
+          <DropdownMenuItem id={5} label="Keaton Foster" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Keaton Foster", type: "member"}} />
+          <DropdownMenuItem id={6} label="Lauren Farr" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Lauren Farr", type: "member"}} />
+          <DropdownMenuItem id={7} label="Max Krause" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Max Krause", type: "member"}} />
+          <DropdownMenuItem id={8} label="Paul Drake" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Drake", type: "member"}} />
+          <DropdownMenuItem id={9} label="Paul Griffin" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Griffin", type: "member"}} />
+          <DropdownMenuItem id={10} label="Rob Whelan" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Rob Whelan", type: "member"}} />
+          <DropdownMenuItem id={11} label="Terry Kennair" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Terry Kennair", type: "member"}} />
         </DropdownFilter>
       </Dropdown>
       <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
@@ -65,17 +65,17 @@ class ComponentExample extends React.Component {
           <DropdownMenuItemWild toggleDropdown>
             <Button type="link" className="u-flex u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
           </DropdownMenuItemWild>
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={7} label="Max Krause" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar="//source.unsplash.com/category/people/200x200" />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar="//source.unsplash.com/category/people/200x200" />
+          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ben Bruning", type: "member"}} />
+          <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Blake Guilloud", type: "member"}} />
+          <DropdownMenuItem id={3} label="Craig Anthony" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Craig Anthony", type: "member"}} />
+          <DropdownMenuItem id={4} label="Ian Greulich" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ian Greulich", type: "member"}} />
+          <DropdownMenuItem id={5} label="Keaton Foster" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Keaton Foster", type: "member"}} />
+          <DropdownMenuItem id={6} label="Lauren Farr" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Lauren Farr", type: "member"}} />
+          <DropdownMenuItem id={7} label="Max Krause" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Max Krause", type: "member"}} />
+          <DropdownMenuItem id={8} label="Paul Drake" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Drake", type: "member"}} />
+          <DropdownMenuItem id={9} label="Paul Griffin" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Griffin", type: "member"}} />
+          <DropdownMenuItem id={10} label="Rob Whelan" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Rob Whelan", type: "member"}} />
+          <DropdownMenuItem id={11} label="Terry Kennair" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Terry Kennair", type: "member"}} />
         </DropdownFilter>
       </Dropdown>
       <Dropdown label="Dropdown with Wild Content" wide>
