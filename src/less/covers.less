@@ -118,4 +118,10 @@
   background: @color-white;
   border-top: 1px solid @border-color-light;
   flex: none;
+
+  // Properly space out buttons
+  .btn + .btn {
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+    margin-left: @margin-small;
+  }
 }

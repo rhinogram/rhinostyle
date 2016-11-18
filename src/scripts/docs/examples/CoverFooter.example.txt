@@ -4,8 +4,7 @@ class ComponentExample extends React.Component {
     <div>
       <CoverFooter>
         <div className="u-text-right">
-          <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
-          <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+          <Button type="default" onClick={this.closeCover}>Close</Button><Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
         </div>
       </CoverFooter>
     </div>

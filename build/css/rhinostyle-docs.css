@@ -2006,6 +2006,10 @@ button.close {
   -ms-flex: none;
   flex: none;
 }
+.cover__footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 0.6rem;
+}
 .react-datepicker__tether-element-attached-top .react-datepicker__triangle,
 .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle,
 .react-datepicker__year-read-view--down-arrow {
