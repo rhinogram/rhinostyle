@@ -18,9 +18,9 @@ export function refreshCover(cover) {
 export function removeCover() {
   document.body.classList.remove('cover-open');
   TweenMax.to('.cover', 0.35, {
-    scale: 0.9,
     opacity: 0,
-    ease: Expo.easeInOut,
+    ease: Expo.easeOut,
+    scale: 0.95,
     onComplete: () => {
       ReactDOM.unmountComponentAtNode(coverContainer);
       document.body.removeChild(coverContainer);

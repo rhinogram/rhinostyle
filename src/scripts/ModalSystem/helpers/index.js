@@ -20,13 +20,13 @@ export function removeModal() {
 
   TweenMax.to('.modal-backdrop', 0.35, {
     opacity: 0,
-    ease: Expo.easeInOut,
+    ease: Expo.easeOut,
   });
 
   TweenMax.to('#rhino-modal', 0.35, {
-    scale: 0.9,
+    scale: 0.95,
     opacity: 0,
-    ease: Expo.easeInOut,
+    ease: Expo.easeOut,
     onComplete: () => {
       ReactDOM.unmountComponentAtNode(modalContainer);
       document.body.removeChild(modalContainer);
