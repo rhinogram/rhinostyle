@@ -47,12 +47,28 @@
       "babel"
   ],
   "rules": {
+    "no-trailing-spaces": 1,
+    "no-unused-vars": 1,
+    "arrow-body-style": 1,
+    "import/prefer-default-export": 1,
+    "import/extensions": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "arrow-parens": 1,
+    "class-methods-use-this": 0,
+    "react/jsx-indent": 1,
+    "react/no-unused-prop-types": 1,
+    "react/forbid-prop-types": 0,
+    "react/prefer-stateless-function": 1,
+    "spaced-comment": 0,
     "key-spacing": [2, { mode: minimum }],
     "no-multi-spaces": [2, { exceptions: { ImportDeclaration: true, VariableDeclarator: true } }],
     "max-len": [0],
     "no-script-url": 0,
     "no-underscore-dangle": 0,
     "space-before-function-paren": ["error", "never"],
-    "no-use-before-define": ["error", { "functions": false }]
+    "no-use-before-define": ["error", { "functions": false }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "react/require-extension": ["error", { "extensions": [".jsx"] }],
+    "no-confusing-arrow": ["error", {"allowParens": true}],
   }
 }

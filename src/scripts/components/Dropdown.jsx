@@ -45,8 +45,17 @@ class Dropdown extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.activeKey !== this.props.activeKey) {
+      let newIcon = '';
+
+      React.Children.map(this.props.children, (child) => { // set correct icon
+        if ((child.type === DropdownMenuItem) && (child.props.id === newProps.activeKey)) {
+          newIcon = child.props.icon;
+        }
+      });
+
       this.setState({
         activeKey: newProps.activeKey,
+        icon: newIcon,
       });
     }
   }
@@ -55,11 +64,11 @@ class Dropdown extends React.Component {
     let returnChild = null;
     const children = this.props.children;
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, (child) => {
       if (child.type === DropdownMenuItem) {
         const onClick = () => {
           if (child.props.id) {
-            if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+            if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
               this.updateActiveKey(child.props.id, child.props.icon);
               this.props.onSelect(child.props.id, child.props.icon);
             } else {
@@ -67,7 +76,7 @@ class Dropdown extends React.Component {
             }
           }
 
-          if (child.props.onClick && typeof(child.props.onClick === 'function')) {
+          if (child.props.onClick && typeof (child.props.onClick === 'function')) {
             child.props.onClick();
           }
 
@@ -76,7 +85,7 @@ class Dropdown extends React.Component {
 
         returnChild = React.cloneElement(child, {
           onClick,
-          active: this.state.activeKey && (child.props.id === this.state.activeKey),
+          active: this.state.activeKey && (child.props.id === this.state.activeKey) ? true : false, // eslint-disable-line
         });
       } else if (child.type === DropdownFilter) {
         returnChild = React.cloneElement(child, {
@@ -134,7 +143,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, hideCaret, label, lockLabel, position, size, type, wide, onClick } = this.props;
+    const { block, className, disabled, hideCaret, label, lockLabel, position, size, type, wide } = this.props;
     const activeKey = this.state.activeKey;
     const icon = this.state.icon;
     const isOpen = this.state.isOpen;
@@ -169,13 +178,13 @@ class Dropdown extends React.Component {
     let selectedLabel = null;
 
     if (activeKey && !lockLabel) {
-      React.Children.forEach(this.props.children, child => {
+      React.Children.forEach(this.props.children, (child) => {
         if (child.type === DropdownMenuItem) {
           if (child.props.id === activeKey) {
             selectedLabel = child.props.label;
           }
         } else if (child.type === DropdownFilter) {
-          React.Children.forEach(child.props.children, filterChild => {
+          React.Children.forEach(child.props.children, (filterChild) => {
             if (filterChild.type === DropdownMenuItem) {
               if (filterChild.props.id === activeKey) {
                 selectedLabel = filterChild.props.label;
