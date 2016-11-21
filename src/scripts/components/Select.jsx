@@ -6,6 +6,7 @@ class Select extends React.Component {
 
   static propTypes = {
     className:    React.PropTypes.string,
+    disabled:     React.PropTypes.bool,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
     options:      React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired, text: React.PropTypes.string.isRequired, selected: React.PropTypes.bool })).isRequired,
@@ -13,6 +14,7 @@ class Select extends React.Component {
   };
 
   static defaultProps = {
+    disabled: false,
     label:    '',
     name:     '',
     required: false,
@@ -39,7 +41,7 @@ class Select extends React.Component {
   }
 
   render() {
-    const { className, label, name, options, required } = this.props;
+    const { className, disabled, label, name, options, required } = this.props;
     const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron');
     const formGroupClasses = cx('form__group', className);
 
@@ -57,7 +59,7 @@ class Select extends React.Component {
       <div className={formGroupClasses}>
         {showLabel()}
         <div className="rhinoselect">
-          <select className={classes} id={name} value={this.state.selected} onChange={this._onChange}>
+          <select className={classes} disabled={disabled} id={name} value={this.state.selected} onChange={this._onChange}>
             {options.map(renderOpts)}
           </select>
         </div>
