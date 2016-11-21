@@ -2504,7 +2504,7 @@ button.close {
   white-space: nowrap;
 }
 .dropdown__menu__item__content__label .icon {
-  margin-right: 0.4rem;
+  margin-right: .2rem;
   top: -0.1rem;
 }
 .dropdown__menu__container {
