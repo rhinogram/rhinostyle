@@ -54,6 +54,7 @@ const dropdownMenuItemDocs = {
   id: '[Optional] - Identifies the selected item in Dropdown when you want to use as a Dropdown Select',
   label: '[Optional] - Label for item',
   labelDesc: '[Optional] - Description for label',
+  labelIcon: '[Optional] - Places icon inside of the label. Only use along with labelDesc.',
   onClick: '[Opational] - Click function',
   route: '[Optional] - React-router route to use for item',
   url: '[Optional] - URL for item',

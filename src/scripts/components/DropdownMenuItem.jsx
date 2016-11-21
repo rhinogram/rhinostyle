@@ -32,6 +32,7 @@ class DropdownMenuItem extends React.Component {
     icon:        customValidator,
     label:       React.PropTypes.string,
     labelDesc:   React.PropTypes.string,
+    labelIcon:   React.PropTypes.string,
     route:       React.PropTypes.string,
     url:         React.PropTypes.string,
   };
@@ -58,7 +59,7 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, labelIcon, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       active,
       disabled,
@@ -73,7 +74,7 @@ class DropdownMenuItem extends React.Component {
             <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
               {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
-              <span className="u-text-overflow">{label}</span>
+              <span className="u-text-overflow">{labelIcon ? (<Icon icon={labelIcon} />) : null} {label}</span>
             </div>
             {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
           </Link>
@@ -87,7 +88,7 @@ class DropdownMenuItem extends React.Component {
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
               {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
               <div className="dropdown__menu__item__content__container">
-                <div className="dropdown__menu__item__content__label">{label}</div>
+                <div className="dropdown__menu__item__content__label">{labelIcon ? (<Icon icon={labelIcon} />) : null} {label}</div>
                 {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
               </div>
             </div>

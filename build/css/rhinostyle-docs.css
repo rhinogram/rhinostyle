@@ -2503,6 +2503,10 @@ button.close {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.dropdown__menu__item__content__label .icon {
+  margin-right: 0.4rem;
+  top: -0.1rem;
+}
 .dropdown__menu__container {
   padding: 0.6rem 1.4rem;
 }
