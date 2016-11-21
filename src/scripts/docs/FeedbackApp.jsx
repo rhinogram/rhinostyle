@@ -13,8 +13,10 @@ const alertDocs = {
   onDismiss: '[Optional] - Include dismiss function',
   title: '[Required] - Alert title text',
   titleIcon: '[Optional] - Alert title icon',
-  type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning]',
+  type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning | outline-danger | outline-default | outline-info | outline-success | outline-warning ]',
 };
+
+
 const toastExample = require('raw!./examples/Toast.example.txt');
 const toastDocs = {
   body: '[Required] - Toast body text',

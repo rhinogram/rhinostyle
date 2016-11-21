@@ -4476,11 +4476,11 @@ table {
   top: 1rem;
   z-index: 2000;
 }
-@media (min-width: 500px) {
+@media (min-width: 800px) {
   .toasts-container {
     left: 50%;
-    margin-left: -20rem;
-    width: 40rem;
+    margin-left: -38rem;
+    width: 76rem;
   }
 }
 .toast {
@@ -4491,7 +4491,7 @@ table {
   display: -ms-flexbox;
   display: flex;
   line-height: 1.2;
-  max-width: 50rem;
+  max-width: 80rem;
   padding: 1rem;
   position: relative;
 }

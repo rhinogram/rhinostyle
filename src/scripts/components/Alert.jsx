@@ -55,7 +55,7 @@ Alert.propTypes = {
   onDismiss:    React.PropTypes.func.isRequired,
   title:        React.PropTypes.string,
   titleIcon:    React.PropTypes.string,
-  type:         React.PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
+  type:         React.PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning', 'outline-danger', 'outline-default', 'outline-info', 'outline-success', 'outline-warning']),
 };
 
 Alert.defaultProps = {
