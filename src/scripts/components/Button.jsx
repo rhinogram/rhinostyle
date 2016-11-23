@@ -38,7 +38,7 @@ class Button extends React.Component {
       }
     }
 
-    if (this.props.onClick && typeof(this.props.onClick === 'function')) {
+    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick();
     }
   }

@@ -14,7 +14,7 @@ class CoverHeader extends React.Component {
   }
 
   closeCover = () => {
-    if (this.props.onClose && typeof(this.props.onClose === 'function')) {
+    if (this.props.onClose && typeof (this.props.onClose === 'function')) {
       this.props.onClose();
       CoverSystem.removeCover();
     } else {

@@ -21,7 +21,7 @@ const SystemAlert = (props) => {
 
   const renderUrl = () => {
     if (url) {
-      return <a href={url} className="system-alert__link" target="_blank">More Information</a>;
+      return <a href={url} className="system-alert__link" target="_blank" rel="noopener noreferrer">More Information</a>;
     }
     return false;
   };

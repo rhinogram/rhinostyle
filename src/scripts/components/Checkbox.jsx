@@ -35,7 +35,7 @@ class Checkbox extends React.Component {
   }
 
   _toggleChecked = () => {
-    if (this.props.onClick && typeof(this.props.onClick === 'function')) {
+    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick(!this.state.checked);
     }
 
@@ -45,7 +45,7 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { className, disabled, inline, name, onClick } = this.props;
+    const { className, disabled, inline, name } = this.props;
     const { checked } = this.state;
 
     const classes = cx('rhinobox', className, {

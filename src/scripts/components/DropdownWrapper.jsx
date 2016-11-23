@@ -7,8 +7,8 @@ class DropdownWrapper extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
-    disableOnClickOutside: React.PropTypes.func,
-    enableOnClickOutside: React.PropTypes.func,
+    // disableOnClickOutside: React.PropTypes.func,
+    // enableOnClickOutside: React.PropTypes.func,
     handleClick: React.PropTypes.func,
   };
 

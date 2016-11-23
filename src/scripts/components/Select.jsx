@@ -53,7 +53,7 @@ class Select extends React.Component {
       return false;
     };
 
-    const renderOpts = (option) => <option key={option.value} value={option.value}>{option.text}</option>;
+    const renderOpts = option => <option key={option.value} value={option.value}>{option.text}</option>;
 
     return (
       <div className={formGroupClasses}>

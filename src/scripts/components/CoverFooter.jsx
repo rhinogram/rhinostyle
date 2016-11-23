@@ -9,7 +9,7 @@ const CoverFooter = (props) => {
         {children}
       </div>
     </div>
-  )
+  );
 };
 
 CoverFooter.displayName = 'RhinoCoverFooter';

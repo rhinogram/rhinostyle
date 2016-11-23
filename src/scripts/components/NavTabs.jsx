@@ -1,6 +1,6 @@
 import React        from 'react';
-import NavTabsItem  from './NavTabsItem';
 import cx           from 'classnames';
+import NavTabsItem  from './NavTabsItem';
 
 class NavTabs extends React.Component {
   static displayName = 'RhinoNavTabs';
@@ -21,7 +21,7 @@ class NavTabs extends React.Component {
     let returnChild = null;
     const children = this.props.children;
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, (child) => {
       if (child.type === NavTabsItem) {
         returnChild = React.cloneElement(child, {
           active: child.props.id === this.props.activeKey,

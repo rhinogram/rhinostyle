@@ -7,7 +7,6 @@ class ModalHeader extends React.Component {
   static displayName = 'RhinoModalHeader';
 
   static propTypes = {
-    children:       React.PropTypes.node,
     dismissable:    React.PropTypes.bool,
     icon:           React.PropTypes.string,
     iconClassName:  React.PropTypes.string,
@@ -28,7 +27,7 @@ class ModalHeader extends React.Component {
   }
 
   closeModal = () => {
-    if (this.props.onClose && typeof(this.props.onClose === 'function')) {
+    if (this.props.onClose && typeof (this.props.onClose === 'function')) {
       this.props.onClose();
       ModalSystem.removeModal();
     } else {

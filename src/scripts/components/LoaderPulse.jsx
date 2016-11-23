@@ -11,7 +11,7 @@ const LoaderPulse = (props) => {
 
   return (
     <div className={classes}>
-      <span className="loader-pulse__pulse"></span><span className="loader-pulse__pulse"></span><span className="loader-pulse__pulse"></span>
+      <span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" />
     </div>
   );
 };

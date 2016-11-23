@@ -1,6 +1,6 @@
 import React          from 'react';
-import TabContentPane from './TabContentPane';
 import cx             from 'classnames';
+import TabContentPane from './TabContentPane';
 
 class TabsContent extends React.Component {
   static displayName = 'TabsContent';
@@ -15,7 +15,7 @@ class TabsContent extends React.Component {
     let returnChild = null;
     const children = this.props.children;
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, (child) => {
       if (child.type === TabContentPane) {
         returnChild = React.cloneElement(child, {
           active: child.props.id === this.props.activeKey,

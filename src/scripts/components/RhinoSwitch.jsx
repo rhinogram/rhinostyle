@@ -39,12 +39,12 @@ class RhinoSwitch extends React.Component {
           <div className="rhinoswitcher__inner">
             <div className="rhinoswitcher__on">
               <svg className="rhinoswitcher__icon icon icon-checkmark">
-                <use xlinkHref="#icon-checkmark"></use>
+                <use xlinkHref="#icon-checkmark" />
               </svg>
             </div>
             <div className="rhinoswitcher__off">
               <svg className="rhinoswitcher__icon icon icon-close">
-                <use xlinkHref="#icon-close"></use>
+                <use xlinkHref="#icon-close" />
               </svg>
             </div>
           </div>

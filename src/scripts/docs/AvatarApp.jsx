@@ -1,12 +1,12 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { Avatar, Icon } from '../components';
 
-import Playground from 'component-playground';
-
 /* eslint import/no-unresolved: 0 */
 const avatarExample = require('raw!./examples/Avatar.example.txt');
+
 const avatarDocs = {
   className: '[Optional] - Include additional class name(s)',
   image: '[Optional] - Include source to image',

@@ -61,7 +61,7 @@ class Textarea extends React.Component {
 
     this.setState({ charactersLeft: this.props.maxCharacters - event.target.value.length });
 
-    if (this.props.onChange && typeof(this.props.onChange === 'function')) {
+    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
       this.props.onChange(event.target.id, event.target.value);
     }
   }
@@ -101,7 +101,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange}></textarea>
+        <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
         <div className="form__control-footer">
           {showExplanationMessage()}
           {showCharacterCount()}

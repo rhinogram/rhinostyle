@@ -59,7 +59,7 @@ class Avatar extends React.Component {
     if (!image && !name) {
       return (
         <figure className={classes}>
-          <svg className="avatar__icon"><use xlinkHref="#icon-user"></use></svg>
+          <svg className="avatar__icon"><use xlinkHref="#icon-user" /></svg>
         </figure>
       );
     }

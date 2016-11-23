@@ -35,7 +35,7 @@ class DropdownFilter extends React.Component {
     const children = this.props.children;
     let returnChild = null;
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, (child) => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
           onClick: () => this.itemClick(child),
@@ -63,7 +63,7 @@ class DropdownFilter extends React.Component {
     const onClick = child.props.onClick;
 
     if (id) {
-      if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+      if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
         this.props.updateActiveKey(id, icon);
         this.props.onSelect(id, icon);
       } else {
@@ -83,7 +83,7 @@ class DropdownFilter extends React.Component {
     const items = [];
     const children = this.props.children;
 
-    React.Children.forEach(children, child => {
+    React.Children.forEach(children, (child) => {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
 
@@ -112,7 +112,7 @@ class DropdownFilter extends React.Component {
       <div>
         <div className="dropdown__menu__container">
           {/* eslint no-return-assign:0 */}
-          <input type="text" className="form__control" ref={(ref) => this.filterInput = ref} placeholder={placeholder} onChange={this.handleFilter} />
+          <input type="text" className="form__control" ref={ref => this.filterInput = ref} placeholder={placeholder} onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {items}

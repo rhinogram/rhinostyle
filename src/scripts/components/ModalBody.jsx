@@ -1,7 +1,7 @@
 import React from 'react';
 import cx    from 'classnames';
 
-const ModalBody = (props) => <div className={cx('modal__body')}>{props.children}</div>;
+const ModalBody = props => <div className={cx('modal__body')}>{props.children}</div>;
 
 ModalBody.displayName = 'RhinoModalBody';
 
