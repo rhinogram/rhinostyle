@@ -17,7 +17,7 @@ Icon.propTypes = {
   bump:       React.PropTypes.string,
   className:  React.PropTypes.string,
   icon:       React.PropTypes.string.isRequired,
-  style:      React.PropTypes.string,
+  style:      React.PropTypes.object,
 };
 
 Icon.defaultProps = {
