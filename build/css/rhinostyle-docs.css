@@ -1,4 +1,4 @@
-/*! rhinostyle v0.3.0 */
+/*! rhinostyle v0.3.1 */
 /*! normalize.css v3..3 | MIT License | github.com/necolas/normalize.css */
 html {
   -ms-text-size-adjust: 100%;
@@ -1018,7 +1018,7 @@ a.u-text-white:hover,
 @pagination-disabled-border:           @color-gray-light;*/
 .alert {
   border-radius: 0.4rem;
-  padding: 1.2rem;
+  padding: 1.4rem;
   position: relative;
 }
 .alert--sm {
@@ -1039,7 +1039,7 @@ a.u-text-white:hover,
   color: #5f5f5f;
 }
 .alert--dismissible {
-  padding-right: 3.2rem;
+  padding-right: 3.4rem;
 }
 .alert--dismissible .alert__close {
   position: absolute;
@@ -1143,6 +1143,7 @@ a.u-text-white:hover,
   display: -ms-flexbox;
   display: flex;
   font-weight: 700;
+  margin-bottom: .2rem;
 }
 .alert__title__icon {
   margin-right: 0.6rem;
