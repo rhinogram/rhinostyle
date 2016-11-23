@@ -13,6 +13,11 @@
   position: relative;
 }
 
+.alert--sm {
+  font-size: @font-size-small;
+  padding: @alert-padding-small;
+}
+
 
 // -------------------------
 // Alert Modifiers
@@ -27,7 +32,7 @@
   background: @color-gray-lighter;
 
   .alert__title {
-    color: @color-gray-darker;
+    color: darken(@text-color, 5%);
   }
 }
 
@@ -87,7 +92,7 @@
   }
 
   a {
-    font-style: normal;
+    //font-style: normal;
     text-decoration: underline;
   }
 

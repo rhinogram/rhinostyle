@@ -4,8 +4,9 @@ import cx    from 'classnames';
 import { Close, Icon } from '../components';
 
 const Alert = (props) => {
-  const { className, dismissible, onDismiss, title, titleIcon, type } = props;
+  const { className, dismissible, onDismiss, title, titleIcon, size, type } = props;
   const classes = cx('alert', className, {
+    'alert--sm':                size === 'small',
     'alert--danger':            type === 'danger',
     'alert--default':           type === 'default',
     'alert--info':              type === 'info',
@@ -53,6 +54,7 @@ Alert.propTypes = {
   className:    React.PropTypes.string,
   dismissible:  React.PropTypes.bool,
   onDismiss:    React.PropTypes.func.isRequired,
+  size:         React.PropTypes.oneOf(['small']),
   title:        React.PropTypes.string,
   titleIcon:    React.PropTypes.string,
   type:         React.PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning', 'outline-danger', 'outline-default', 'outline-info', 'outline-success', 'outline-warning']),

@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Alert, Button, Icon, NotificationActions, SystemAlert, Toast } from '../components';
+import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
 
 import Playground from 'component-playground';
 
@@ -11,6 +11,7 @@ const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
   dismissible: '[Optional] - Include close button used to dismiss alert',
   onDismiss: '[Optional] - Include dismiss function',
+  size: '[Optional] - Alert size -  [small]',
   title: '[Required] - Alert title text',
   titleIcon: '[Optional] - Alert title icon',
   type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning | outline-danger | outline-default | outline-info | outline-success | outline-warning ]',
@@ -40,6 +41,7 @@ const alertScope = {
   ReactDOM,
   Alert,
   Button,
+  Checkbox,
   Icon,
 };
 const toastScope = {
@@ -97,6 +99,7 @@ class FeedbackApp extends React.Component {
               <Alert title="This is a outline info alert!" titleIcon="star" type="outline-info" dismissible>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a outline success alert!" titleIcon="star" type="outline-success" dismissible>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a outline warning alert!" titleIcon="star" type="outline-warning" dismissible>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+              <Alert title="This is a small outline warning alert!" titleIcon="star" type="outline-warning" size="small" dismissible>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
             </div>
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
