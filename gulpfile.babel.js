@@ -236,8 +236,8 @@ gulp.task('dist:scripts', (callback) => {
 gulp.task('dist:styles', () => {
   const path = paths.styles;
   const processors = [
-    autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
-    cssnano(),
+    autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', '>2%'], cascade: false }),
+    cssnano({ zindex: false }),
     flexbugs(),
   ];
 
@@ -351,7 +351,8 @@ gulp.task('docs:site', () =>
 gulp.task('docs:styles', () => {
   const path = paths.styles;
   const processors = [
-    autoprefixer({ browsers: ['last 2 versions', 'ie 10'], cascade: false }),
+    autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', '>2%'], cascade: false }),
+    cssnano({ zindex: false }),
     flexbugs(),
   ];
   return gulp.src(path.docSrc)

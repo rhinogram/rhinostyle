@@ -8,7 +8,7 @@
     "react-dom": ">=0.14.0"
   },
   "devDependencies": {
-    "autoprefixer": "6.5.0",
+    "autoprefixer": "6.5.3",
     "babel-core": "6.17.0",
     "babel-eslint": "7.0.0",
     "babel-loader": "6.2.5",
@@ -21,7 +21,7 @@
     "boomsvgloader": "0.0.2",
     "browser-sync": "2.17.0",
     "component-playground": "rhinogram/component-playground",
-    "cssnano": "3.7.6",
+    "cssnano": "3.8.1",
     "del": "2.2.2",
     "eslint": "^3.10.2",
     "eslint-config-airbnb": "^13.0.0",
