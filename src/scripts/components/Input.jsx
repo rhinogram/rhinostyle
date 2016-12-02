@@ -19,6 +19,7 @@ class Input extends React.Component {
     name:               React.PropTypes.string,
     onChange:           React.PropTypes.func,
     onKeyPress:         React.PropTypes.func,
+    onClear:            React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     required:           React.PropTypes.bool,
     focus:              React.PropTypes.bool,
@@ -82,7 +83,11 @@ class Input extends React.Component {
     }
   }
 
-  _handleClear = () => {
+  _handleClear = (event) => {
+    if (this.props.onClear && typeof (this.props.onClear === 'function')) {
+      this.props.onClear(event);
+    }
+
     this.setState({ value: '' });
     this.rhinoInput.focus();
   }
