@@ -70,7 +70,6 @@
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/require-extension": ["error", { "extensions": [".jsx"] }],
     "no-confusing-arrow": ["error", {"allowParens": true}],
-    "import/no-webpack-loader-syntax": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-webpack-loader-syntax": 0
   }
 }
