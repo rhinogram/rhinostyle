@@ -43,8 +43,8 @@ nunjucks.configure('./src/templates', { watch: false });
 // All Tasks
 // -------------------------
 gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
-gulp.task('dist', ['icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
+gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
 gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
 gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
@@ -207,7 +207,7 @@ gulp.task('clean', () =>
   del([
     './build/**/*',
     './dist/**/*',
-  ])
+  ]),
 );
 
 
@@ -257,7 +257,7 @@ gulp.task('dist:styles', () => {
 // -------------------------
 gulp.task('docs:deploy', () =>
   gulp.src('./build/**/*')
-    .pipe(ghPages())
+    .pipe(ghPages()),
 );
 
 
@@ -341,7 +341,7 @@ gulp.task('docs:site', () =>
     } else {
       browserSync.reload();
     }
-  })
+  }),
 );
 
 
@@ -410,5 +410,5 @@ gulp.task('icons', () => {
 gulp.task('styles:lint', () =>
   gulp.src('./src/less/**/*.less')
     .pipe(lesshint())
-    .pipe(lesshint.reporter())
+    .pipe(lesshint.reporter()),
 );
