@@ -64,8 +64,8 @@ class MessageBox extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    if (this.props.focus) {
+  componentDidUpdate(prevProps) {
+    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
       this.rhinoTextArea.focus();
     }
   }
