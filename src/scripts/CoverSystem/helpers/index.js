@@ -20,7 +20,7 @@ export function removeCover() {
   TweenMax.to('.cover', 0.35, {
     opacity: 0,
     ease: Expo.easeOut,
-    scale: 0.95,
+    scale: 0.98,
     onComplete: () => {
       ReactDOM.unmountComponentAtNode(coverContainer);
       document.body.removeChild(coverContainer);

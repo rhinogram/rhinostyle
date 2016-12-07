@@ -14,7 +14,7 @@ class Cover extends React.Component {
     TweenMax.set('.cover', {
       display: 'flex',
       opacity: 0,
-      scale: 0.95,
+      scale: 0.98,
     });
 
     TweenMax.to('.cover', 0.35, {
