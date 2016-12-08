@@ -28,6 +28,7 @@
     position: absolute;
     top: -@loader-circle-border-size;
     width: @loader-circle-size;
+    will-change: transform;
     z-index: 100;
   }
 }
@@ -126,11 +127,13 @@
 
 .loader-line__line:first-child {
   animation: loaderline1 1s infinite ease-in-out;
+  will-change: transform;
 }
 
 .loader-line__line:last-child {
   animation: loaderline2 1s infinite ease-in-out;
   animation-delay: .05s;
+  will-change: transform;
 }
 
 
@@ -212,6 +215,7 @@
   opacity: .5;
   transform: scale(.75);
   width: .8rem;
+  will-change: opacity, transform;
 
   &:first-child {
     -webkit-animation-delay: -.25s;

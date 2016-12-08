@@ -24,7 +24,7 @@ export function removeModal() {
   });
 
   TweenMax.to('#rhino-modal', 0.35, {
-    scale: 0.95,
+    scale: 0.98,
     opacity: 0,
     ease: Expo.easeOut,
     onComplete: () => {

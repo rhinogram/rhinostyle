@@ -19,7 +19,7 @@ class Modal extends React.Component {
 
     TweenMax.set('#rhino-modal', {
       opacity: 0,
-      scale: 0.95,
+      scale: 0.98,
     });
 
     TweenMax.to('.modal-backdrop', 0.35, {
