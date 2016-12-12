@@ -5,6 +5,7 @@ const Bucket = (props) => {
   const { className, size, type } = props;
   const classes = cx('bucket', className, {
     'bucket--default': type === 'default',
+    'bucket--light':   type === 'light',
     'bucket--primary': type === 'primary',
     'bucket--sm':      size === 'small',
   });
@@ -22,7 +23,7 @@ Bucket.propTypes = {
   children:  React.PropTypes.node,
   className: React.PropTypes.string,
   size:      React.PropTypes.oneOf(['small']),
-  type:      React.PropTypes.oneOf(['default', 'primary']),
+  type:      React.PropTypes.oneOf(['default', 'light', 'primary']),
 };
 
 Bucket.defaultProps = {

@@ -10,7 +10,7 @@ const bucketExample = require('raw!./examples/Bucket.example.txt');
 const bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - Bucket size -  [small]',
-  type: '[Optional] - Bucket type -  [default | primary]',
+  type: '[Optional] - Bucket type -  [default | light | primary]',
 };
 const bucketScope  = {
   React,
@@ -47,14 +47,18 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Types</h3>
-      <p className="site-copy"><code>type="default | primary"</code></p>
+      <p className="site-copy"><code>type="default | light | primary"</code></p>
       <div className="site-example-buckets">
         <Bucket>
-          <BucketHeader title="Bucket Header" icon="pencil" />
+          <BucketHeader title="Bucket Default" icon="pencil" />
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
+        <Bucket type="light">
+          <BucketHeader title="Bucket Light" icon="cog" />
           <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
         </Bucket>
         <Bucket type="primary">
-          <BucketHeader title="Bucket Header" icon="sms" />
+          <BucketHeader title="Bucket Primary" icon="sms" />
           <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
         </Bucket>
       </div>

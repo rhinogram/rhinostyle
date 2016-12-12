@@ -36,6 +36,11 @@ class ComponentExample extends React.Component {
           <BucketBody>Bucket body in a default bucket.</BucketBody>
         </Bucket>
 
+        <Bucket type="light">
+          <BucketBody>Bucket body in a light bucket.</BucketBody>
+        </Bucket>
+
+
         <Bucket type="primary">
           <BucketBody>Bucket body in a primary bucket.</BucketBody>
         </Bucket>

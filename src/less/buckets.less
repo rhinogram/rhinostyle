@@ -8,7 +8,6 @@
 
 
 .bucket {
-  //background: @bucket-bg;
   border-radius: @bucket-border-radius;
 }
 
@@ -20,6 +19,14 @@
 
 .bucket--default {
   border: 1px solid @bucket-default-border;
+}
+
+.bucket--light {
+  border: 1px solid @bucket-light-border;
+
+  .bucket__header {
+    border-bottom-color: @bucket-light-border;
+  }
 }
 
 .bucket--primary {
@@ -51,7 +58,6 @@
 
 
 .bucket__body {
-  //border-radius: @bucket-border-radius;
   border-radius: @bucket-border-radius;
   padding: @bucket-padding;
 
