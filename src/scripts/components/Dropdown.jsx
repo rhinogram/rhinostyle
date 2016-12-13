@@ -46,7 +46,8 @@ class Dropdown extends React.Component {
   };
 
   componentWillMount() {
-    React.Children.map(this.props.children, (child) => { // set correct icon
+    React.Children.map(this.props.children, (child) => {
+      if (!child) return;
       if (child.type === DropdownFilter) {
         this.setState({ hasFilter: true });
       }
