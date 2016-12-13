@@ -69,7 +69,7 @@ class DropdownMenuItem extends React.Component {
 
     if (route) {
       markup = (
-        <li className={classes}>
+        <div className={classes}>
           <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
             <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
@@ -78,11 +78,11 @@ class DropdownMenuItem extends React.Component {
             </div>
             {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
           </Link>
-        </li>
+        </div>
       );
     } else {
       markup = (
-        <li className={classes}>
+        <div className={classes}>
           <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
             <div className="dropdown__menu__item__content">
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
@@ -93,7 +93,7 @@ class DropdownMenuItem extends React.Component {
               </div>
             </div>
           </a>
-        </li>
+        </div>
       );
     }
 
