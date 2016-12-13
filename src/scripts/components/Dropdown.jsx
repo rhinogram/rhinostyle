@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import DropdownMenuItem from './DropdownMenuItem';
 import DropdownMenuItemWild from './DropdownMenuItemWild';
+import DropdownMenuScroll from './DropdownMenuScroll';
 import DropdownFilter from './DropdownFilter';
 import DropdownWrapper from './DropdownWrapper';
 import Icon from './Icon';
@@ -38,10 +39,19 @@ class Dropdown extends React.Component {
   };
 
   state = {
-    isOpen: false,
     activeKey: this.props.activeKey,
     icon: this.props.icon,
+    isOpen: false,
+    hasFilter: false,
   };
+
+  componentWillMount() {
+    React.Children.map(this.props.children, (child) => { // set correct icon
+      if (child.type === DropdownFilter) {
+        this.setState({ hasFilter: true });
+      }
+    });
+  }
 
   componentWillReceiveProps(newProps) {
     if (newProps.activeKey !== this.props.activeKey) {
@@ -147,6 +157,7 @@ class Dropdown extends React.Component {
   render() {
     const { block, className, disabled, hideCaret, label, lockLabel, position, size, type, wide } = this.props;
     const activeKey = this.state.activeKey;
+    const hasFilter = this.state.hasFilter;
     const icon = this.state.icon;
     const isOpen = this.state.isOpen;
 
@@ -203,9 +214,9 @@ class Dropdown extends React.Component {
           {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
         </div>
-        <ul className={dropdownMenuClasses}>
-          {this.getChildren()}
-        </ul>
+        <div className={dropdownMenuClasses}>
+          {hasFilter ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
+        </div>
       </DropdownWrapper>
     );
   }

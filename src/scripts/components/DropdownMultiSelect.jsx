@@ -181,11 +181,11 @@ class DropdownMultiSelect extends React.Component {
         <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
           {/* eslint no-return-assign:0 */}
           <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
-          <ul className={dropdownMenuClasses}>
+          <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
               {items || <DropdownMenuHeader label="No results" />}
             </DropdownMenuScroll>
-          </ul>
+          </div>
         </DropdownWrapper>
         <div className="dropdown-multiselect-pills">
           {activeKeys.map(renderPill)}
