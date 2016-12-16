@@ -16,6 +16,7 @@ const dropdownDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
   block: '[Optional] - Block level dropdown',
   className: '[Optional] - Include additional class name(s)',
+  disableScroll: '[Optional] - Disabled default dropdown menu scrolling. Does not apply when filter is used.',
   hideCaret: '[Optional] - Hide Dropdown caret',
   icon: '[Optional] - Name of icon',
   label: '[Optional] - Text in dropdown when closed',
