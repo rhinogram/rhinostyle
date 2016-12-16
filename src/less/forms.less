@@ -490,6 +490,11 @@ input[type='checkbox'] {
   margin: @rhinobox-rhinodio-margin 0;
   position: relative;
 
+  input {
+    clip: rect(0,0,0,0);
+    position: absolute;
+  }
+
   label {
     color: inherit;
     cursor: pointer;
@@ -515,8 +520,6 @@ input[type='checkbox'] {
   padding-left: 0;
 
   input {
-    display: none;
-
     &:checked+label::before {
       background-color: @form-element-color;
       .mixin-svg-bg-add-fill('@{svg-path}checkmark.svg', @color-white);
@@ -528,7 +531,6 @@ input[type='checkbox'] {
   }
 
   label {
-
     &::before {
       background-color: @color-white;
       border: 1px solid @border-color-base;
@@ -551,22 +553,29 @@ input[type='checkbox'] {
   padding-left: 0;
 
   input {
-    display: none;
-
-    &:checked+label::before {
-      //background-color: @form-element-color;
-      background-image: radial-gradient(@form-element-color 60%, white 0);
-      box-shadow: inset 0 0 0 2px @color-white;
+    &:checked+label::after {
+      transform: scale(1);
     }
   }
 
   label {
+    &::after{
+      background-color: @form-element-color;
+      border-radius: 50%;
+      content: '';
+      height: 1.4rem;
+      left: .3rem;
+      position: absolute;
+      top: .4rem;
+      transform: scale(0);
+      transition: transform 250ms;
+      width: 1.4rem;
+    }
 
     &::before {
-      background: @color-white;
+      background-color: @color-white;
       border: 1px solid @border-color-base;
       border-radius: 50%;
-      //box-shadow: 0 0 0 1px @border-color-base;
       content: '';
       display: inline-block;
       height: 2rem;
@@ -574,7 +583,6 @@ input[type='checkbox'] {
       position: absolute;
       speak: none;
       top: .1rem;
-      transition: background-color 250ms @trans-timing-cubic;
       width: 2rem;
     }
   }
