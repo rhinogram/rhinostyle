@@ -60,9 +60,9 @@ class Dropdown extends React.Component {
     if (newProps.activeKey !== this.props.activeKey) {
       let newIcon = '';
 
-      React.Children.map(this.props.children, (child) => { // set correct icon
+      React.Children.map(newProps.children, (child) => { // set correct icon
         if ((child.type === DropdownMenuItem) && (child.props.id === newProps.activeKey)) {
-          newIcon = child.props.icon;
+          newIcon = child.props.icon || child.props.labelIcon;
         }
       });
 
@@ -84,10 +84,10 @@ class Dropdown extends React.Component {
         const onClick = () => {
           if (child.props.id) {
             if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
-              this.updateActiveKey(child.props.id, child.props.icon);
-              this.props.onSelect(child.props.id, child.props.icon);
+              this.updateActiveKey(child.props.id, child.props.icon || child.props.labelIcon);
+              this.props.onSelect(child.props.id, child.props.icon || child.props.labelIcon);
             } else {
-              this.updateActiveKey(child.props.id, child.props.icon);
+              this.updateActiveKey(child.props.id, child.props.icon || child.props.labelIcon);
             }
           }
 
@@ -192,18 +192,21 @@ class Dropdown extends React.Component {
     });
 
     let selectedLabel = null;
+    let selectedIcon = null;
 
     if (activeKey && !lockLabel) {
       React.Children.forEach(this.props.children, (child) => {
         if (child.type === DropdownMenuItem) {
           if (child.props.id === activeKey) {
             selectedLabel = child.props.label;
+            selectedIcon = child.props.icon;
           }
         } else if (child.type === DropdownFilter) {
           React.Children.forEach(child.props.children, (filterChild) => {
             if (filterChild.type === DropdownMenuItem) {
               if (filterChild.props.id === activeKey) {
                 selectedLabel = filterChild.props.label;
+                selectedIcon = filterChild.props.icon;
               }
             }
           });
@@ -214,7 +217,7 @@ class Dropdown extends React.Component {
     return (
       <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
         <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
-          {icon ? <Icon className="dropdown__toggle__icon" icon={icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
+          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
         </div>
         <div className={dropdownMenuClasses}>
