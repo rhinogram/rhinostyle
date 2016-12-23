@@ -42,7 +42,6 @@ class Dropdown extends React.Component {
 
   state = {
     activeKey: this.props.activeKey,
-    icon: this.props.icon,
     isOpen: false,
     hasFilter: false,
   };
@@ -58,17 +57,8 @@ class Dropdown extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.activeKey !== this.props.activeKey) {
-      let newIcon = '';
-
-      React.Children.map(newProps.children, (child) => { // set correct icon
-        if ((child.type === DropdownMenuItem) && (child.props.id === newProps.activeKey)) {
-          newIcon = child.props.icon || child.props.labelIcon;
-        }
-      });
-
       this.setState({
         activeKey: newProps.activeKey,
-        icon: newIcon,
       });
     }
   }
@@ -84,10 +74,10 @@ class Dropdown extends React.Component {
         const onClick = () => {
           if (child.props.id) {
             if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
-              this.updateActiveKey(child.props.id, child.props.icon || child.props.labelIcon);
-              this.props.onSelect(child.props.id, child.props.icon || child.props.labelIcon);
+              this.updateActiveKey(child.props.id);
+              this.props.onSelect(child.props.id);
             } else {
-              this.updateActiveKey(child.props.id, child.props.icon || child.props.labelIcon);
+              this.updateActiveKey(child.props.id);
             }
           }
 
@@ -107,7 +97,7 @@ class Dropdown extends React.Component {
           onSelect: this.props.onSelect,
           handleToggle: this.handleToggle,
           activeKey: this.state.activeKey,
-          icon: this.state.icon,
+          icon: this.props.icon,
           updateActiveKey: this.updateActiveKey,
         });
       } else if (child.type === DropdownMenuItemWild) {
@@ -140,28 +130,20 @@ class Dropdown extends React.Component {
     }
   }
 
-  updateActiveKey = (index, icon) => {
+  updateActiveKey = (index) => {
     if (this.props.hideActive) {
       return;
     }
 
-    if (!this.props.lockLabel) {
-      this.setState({
-        activeKey: index,
-        icon,
-      });
-    } else {
-      this.setState({
-        activeKey: index,
-      });
-    }
+    this.setState({
+      activeKey: index,
+    });
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, lockLabel, position, size, type, wide } = this.props;
+    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, size, type, wide } = this.props;
     const activeKey = this.state.activeKey;
     const hasFilter = this.state.hasFilter;
-    const icon = this.state.icon;
     const isOpen = this.state.isOpen;
 
     const dropdownClasses = cx('dropdown', {
@@ -199,14 +181,14 @@ class Dropdown extends React.Component {
         if (child.type === DropdownMenuItem) {
           if (child.props.id === activeKey) {
             selectedLabel = child.props.label;
-            selectedIcon = child.props.icon;
+            selectedIcon = child.props.icon || child.props.labelIcon;
           }
         } else if (child.type === DropdownFilter) {
           React.Children.forEach(child.props.children, (filterChild) => {
             if (filterChild.type === DropdownMenuItem) {
               if (filterChild.props.id === activeKey) {
                 selectedLabel = filterChild.props.label;
-                selectedIcon = filterChild.props.icon;
+                selectedIcon = filterChild.props.icon || child.props.labelIcon;
               }
             }
           });
