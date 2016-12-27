@@ -32,7 +32,6 @@ class DropdownMenuItem extends React.Component {
     icon:        customValidator,
     label:       React.PropTypes.string,
     labelDesc:   React.PropTypes.string,
-    labelIcon:   React.PropTypes.string,
     route:       React.PropTypes.string,
     url:         React.PropTypes.string,
   };
@@ -59,11 +58,23 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, labelIcon, route } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       active,
       disabled,
     });
+
+    const renderContent = () => {
+      return (
+        <div className="dropdown__menu__item__content">
+          {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
+          <div className="dropdown__menu__item__content__container">
+            <div className="dropdown__menu__item__content__label">{icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}<span className="u-text-overflow">{label}</span></div>
+            {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
+          </div>
+        </div>
+      );
+    };
 
     let markup = '';
 
@@ -71,12 +82,7 @@ class DropdownMenuItem extends React.Component {
       markup = (
         <div className={classes}>
           <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
-            <div className="dropdown__menu__item__content">
-              {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-              {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
-              <span className="u-text-overflow">{labelIcon ? (<Icon icon={labelIcon} />) : null} {label}</span>
-            </div>
-            {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
+            {renderContent()}
           </Link>
         </div>
       );
@@ -84,14 +90,7 @@ class DropdownMenuItem extends React.Component {
       markup = (
         <div className={classes}>
           <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
-            <div className="dropdown__menu__item__content">
-              {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
-              {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
-              <div className="dropdown__menu__item__content__container">
-                <div className="dropdown__menu__item__content__label">{labelIcon ? (<Icon icon={labelIcon} className="u-m-r-sm" />) : null}{label}</div>
-                {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
-              </div>
-            </div>
+            {renderContent()}
           </a>
         </div>
       );
