@@ -4,7 +4,7 @@ import cx    from 'classnames';
 import { Close, Icon } from '../components';
 
 const Alert = (props) => {
-  const { className, dismissible, onDismiss, title, titleIcon, size, type } = props;
+  const { className, onDismiss, title, titleIcon, size, type } = props;
   const classes = cx('alert', className, {
     'alert--sm':                size === 'small',
     'alert--danger':            type === 'danger',
@@ -12,7 +12,7 @@ const Alert = (props) => {
     'alert--info':              type === 'info',
     'alert--success':           type === 'success',
     'alert--warning':           type === 'warning',
-    'alert--dismissible':       dismissible,
+    'alert--dismissible':       onDismiss,
     'alert--outline-danger':    type === 'outline-danger',
     'alert--outline-default':   type === 'outline-default',
     'alert--outline-info':      type === 'outline-info',
@@ -21,7 +21,7 @@ const Alert = (props) => {
   });
 
   const renderClose = () => {
-    if (dismissible) {
+    if (onDismiss) {
       return (<Close onClick={onDismiss} className="alert__close" />);
     }
     return false;
@@ -53,7 +53,7 @@ Alert.displayName = 'RhinoAlert';
 Alert.propTypes = {
   className:    React.PropTypes.string,
   dismissible:  React.PropTypes.bool,
-  onDismiss:    React.PropTypes.func.isRequired,
+  onDismiss:    React.PropTypes.func,
   size:         React.PropTypes.oneOf(['small']),
   title:        React.PropTypes.string,
   titleIcon:    React.PropTypes.string,
@@ -63,7 +63,7 @@ Alert.propTypes = {
 
 Alert.defaultProps = {
   dismissible: false,
-  onDismiss:   () => {},
+  onDismiss:   null,
   titleIcon:   '',
   type:        'default',
 };

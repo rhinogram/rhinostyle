@@ -7,13 +7,13 @@ class ComponentExample extends React.Component {
           
           <Alert title="This is a default alert with a title icon!" titleIcon="star">Donec eu erat sit amet arcu consectetur tincidunt nec eu quam. Mauris eros tortor, venenatis in lorem vel, fringilla suscipit erat. Integer velit arcu, pulvinar eu bibendum et, eleifend eu neque</Alert>
           
-          <Alert title="This is a default alert with a title icon and it's dismissible!" titleIcon="lock" dismissible>This is a default alert for random stuff.</Alert>
+          <Alert title="This is a default alert with a title icon and it's dismissible!" titleIcon="lock" onDismiss={() => alert('dismissed!')}>This is a default alert for random stuff.</Alert>
           
-          <Alert title="This is a default alert with a title icon, it's dismissible, and it has no children!" titleIcon="lock" dismissible />
+          <Alert title="This is a default alert with a title icon, it's dismissible, and it has no children!" titleIcon="lock" onDismiss={() => alert('dismissed!')} />
           
-          <Alert dismissible>This is a default alert without a title and is dismissible.</Alert>
+          <Alert onDismiss={() => alert('dismissed!')}>This is a default alert without a title and is dismissible.</Alert>
 
-          <Alert dismissible><Icon icon="cog" bump="up"/> This is a default alert without a title and is dismissible.</Alert>
+          <Alert onDismiss={() => alert('dismissed!')}><Icon icon="cog" bump="up"/> This is a default alert without a title and is dismissible.</Alert>
 
           <Alert title="Warning" titleIcon="warning" type="outline-warning">
             Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href="javascript:void(0)" className="u-text-muted">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className="u-text-normal"><Checkbox inline name="exampleCheckbox666" className="u-m-b-0">Checkbox</Checkbox></span>
