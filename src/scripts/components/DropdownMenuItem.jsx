@@ -88,7 +88,7 @@ class DropdownMenuItem extends React.Component {
               {icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}
               {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
               <div className="dropdown__menu__item__content__container">
-                <div className="dropdown__menu__item__content__label">{labelIcon ? (<Icon icon={labelIcon} />) : null} {label}</div>
+                <div className="dropdown__menu__item__content__label">{labelIcon ? (<Icon icon={labelIcon} className="u-m-r-sm" />) : null}{label}</div>
                 {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
               </div>
             </div>
