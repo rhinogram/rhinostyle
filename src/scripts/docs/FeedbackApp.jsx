@@ -99,6 +99,7 @@ class FeedbackApp extends React.Component {
               <Alert title="This is a outline success alert!" titleIcon="star" type="outline-success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a outline warning alert!" titleIcon="star" type="outline-warning" onDismiss={() => alert('dismissed!')}>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a small outline warning alert!" titleIcon="star" type="outline-warning" size="small" onDismiss={() => alert('dismissed!')}>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+              <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
             </div>
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>

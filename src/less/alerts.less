@@ -38,12 +38,6 @@
 
 .alert--dismissible {
   padding-right: (@alert-padding + 2rem);
-
-  .alert__close {
-    position: absolute;
-    right: 1rem;
-    top: 1.5rem;
-  }
 }
 
 .alert--info {
@@ -100,6 +94,22 @@
     margin-bottom: 0;
   }
 
+}
+
+
+// -------------------------
+// Alert Close
+// -------------------------
+
+
+.alert__close {
+  position: absolute !important;
+  right: 1rem;
+  top: 1.5rem;
+
+  .alert--sm & {
+    top: 1.25rem;
+  }
 }
 
 
