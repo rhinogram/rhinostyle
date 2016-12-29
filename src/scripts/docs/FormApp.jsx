@@ -48,10 +48,10 @@ const selectScope = {
 
 const selectOpts = [
   { id: 0, value: '--' },
-  { id: 1, value: 'Mr.' },
-  { id: 2, value: 'Mrs.' },
-  { id: 3, value: 'Dr.' },
-  { id: 4, value: 'Rabbi' },
+  { id: 1, value: 'Option One' },
+  { id: 2, value: 'Option Two' },
+  { id: 3, value: 'Option Three' },
+  { id: 4, value: 'Option Four' },
 ];
 
 const textareaExample = require('raw!./examples/Textarea.example.txt');
@@ -148,7 +148,7 @@ const FormApp = () =>
       <form className="form">
         <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" required />
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
-        <Select name="exampleSelect1" label="Select" selected="Mr." options={selectOpts} required />
+        <Select name="exampleSelect1" label="Select" options={selectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">

@@ -5,14 +5,14 @@ class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    className:    React.PropTypes.string,
-    disabled:     React.PropTypes.bool,
-    label:        React.PropTypes.string,
-    name:         React.PropTypes.string,
-    options:      React.PropTypes.arrayOf(React.PropTypes.shape({ id: React.PropTypes.number.isRequired, value: React.PropTypes.string.isRequired })).isRequired,
-    onSelect:     React.PropTypes.func,
-    required:     React.PropTypes.bool,
-    selected:     React.PropTypes.string,
+    className: React.PropTypes.string,
+    disabled:  React.PropTypes.bool,
+    label:     React.PropTypes.string,
+    name:      React.PropTypes.string,
+    options:   React.PropTypes.arrayOf(React.PropTypes.shape({ id: React.PropTypes.number.isRequired, value: React.PropTypes.string.isRequired })).isRequired,
+    onSelect:  React.PropTypes.func,
+    required:  React.PropTypes.bool,
+    selected:  React.PropTypes.string,
   };
 
   static defaultProps = {
