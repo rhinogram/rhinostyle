@@ -5,12 +5,14 @@ class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    className:    React.PropTypes.string,
-    disabled:     React.PropTypes.bool,
-    label:        React.PropTypes.string,
-    name:         React.PropTypes.string,
-    options:      React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired, text: React.PropTypes.string.isRequired, selected: React.PropTypes.bool })).isRequired,
-    required:     React.PropTypes.bool,
+    className: React.PropTypes.string,
+    disabled:  React.PropTypes.bool,
+    label:     React.PropTypes.string,
+    name:      React.PropTypes.string,
+    options:   React.PropTypes.arrayOf(React.PropTypes.shape({ id: React.PropTypes.number.isRequired, value: React.PropTypes.string.isRequired })).isRequired,
+    onSelect:  React.PropTypes.func,
+    required:  React.PropTypes.bool,
+    selected:  React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -18,26 +20,21 @@ class Select extends React.Component {
     label:    '',
     name:     '',
     required: false,
+    selected: '',
   };
 
   state = {
-    selected: '',
-  }
-
-  componentWillMount() {
-    this.props.options.forEach((option) => {
-      if (option.selected) {
-        this.setState({
-          selected: option.value,
-        });
-      }
-    });
+    selected: this.props.selected,
   }
 
   _onChange = (event) => {
     this.setState({
       selected: event.target.value,
     });
+
+    if (this.props.onSelect && typeof this.props.onSelect === 'function') {
+      this.props.onSelect(event.target.id, event.target.value);
+    }
   }
 
   render() {
@@ -53,7 +50,7 @@ class Select extends React.Component {
       return false;
     };
 
-    const renderOpts = option => <option key={option.value} value={option.value}>{option.text}</option>;
+    const renderOpts = option => <option key={option.id} value={option.value}>{option.value}</option>;
 
     return (
       <div className={formGroupClasses}>
