@@ -1,12 +1,13 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
-import Playground from 'component-playground';
-
 /* eslint import/no-unresolved:0 */
+/* eslint import/no-extraneous-dependencies:0 */
 const inputExample = require('raw!./examples/Input.example.txt');
+
 const inputDocs  = {
   addon:              '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
   clear:              '[Optional] - Form control gets a clear value button',
@@ -29,6 +30,7 @@ const inputScope = {
 };
 
 const selectExample = require('raw!./examples/Select.example.txt');
+
 const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
@@ -40,14 +42,24 @@ const selectScope = {
   ReactDOM,
   Select,
 };
+
 const selectOpts = [
   { value: '1', text: 'Option One' },
   { value: '2', text: 'Option Two' },
-  { value: '3', text: 'Option Three', selected: true },
+  { value: '3', text: 'Option Three' },
   { value: '4', text: 'Option Four' },
 ];
 
+const newSelectOpts = [
+  { value: '--' },
+  { value: 'Mr.' },
+  { value: 'Mrs.' },
+  { value: 'Dr.' },
+  { value: 'Rabbi.' },
+];
+
 const textareaExample = require('raw!./examples/Textarea.example.txt');
+
 const textareaDocs  = {
   abbrMaxCharacters:  '[Optional] - Abbreviated max character count - only the count is displayed',
   explanationMessage: '[Optional] - Explanation message to help user',
@@ -66,6 +78,7 @@ const textareaScope = {
 };
 
 const messageBoxExample = require('raw!./examples/MessageBox.example.txt');
+
 const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
   name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
@@ -81,6 +94,7 @@ const messageBoxScope = {
 };
 
 const checkboxExample = require('raw!./examples/Checkbox.example.txt');
+
 const checkboxDocs  = {
   inline:    '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
@@ -94,6 +108,7 @@ const checkboxScope = {
 };
 
 const radioExample = require('raw!./examples/Radio.example.txt');
+
 const radioDocs  = {
   inline:        '[Optional] - Inline the radios',
   name:          '[Optional] - The name, and the basis of the id for the radio',
@@ -109,6 +124,7 @@ const radioScope = {
 };
 
 const switchExample = require('raw!./examples/RhinoSwitch.example.txt');
+
 const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',
   disabled:  '[Optional] - Disable the switch',
@@ -135,11 +151,11 @@ const FormApp = () =>
       <form className="form">
         <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" required />
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
-        <Select name="exampleSelect1" label="Select" options={selectOpts} required />
+        <Select name="exampleSelect1" label="Select" selected="Mr." options={newSelectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">
-          <label htmlFor="" className="u-block">Checkboxes</label>
+          <label htmlFor="checkboxes" className="u-block">Checkboxes</label>
           <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
           <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
           <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
@@ -150,7 +166,7 @@ const FormApp = () =>
           <Radio value="3">Radio Three</Radio>
         </RadioGroup>
         <div className="form__group">
-          <label htmlFor="" className="u-block">Switcher</label>
+          <label htmlFor="switcher" className="u-block">Switcher</label>
           <RhinoSwitch name="exampleSwitch1" />
         </div>
         <div className="u-text-right">
