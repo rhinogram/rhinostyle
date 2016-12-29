@@ -24,7 +24,7 @@ class Select extends React.Component {
   };
 
   state = {
-    selected: this.props.selected,
+    selected: this.props.selected ? this.props.selected : '',
   }
 
   _onChange = (event) => {
