@@ -9,7 +9,7 @@ class Select extends React.Component {
     disabled:  React.PropTypes.bool,
     label:     React.PropTypes.string,
     name:      React.PropTypes.string,
-    options:   React.PropTypes.isRequired,
+    options:   React.PropTypes.array.isRequired,
     onSelect:  React.PropTypes.func,
     required:  React.PropTypes.bool,
     selected:  React.PropTypes.string,
