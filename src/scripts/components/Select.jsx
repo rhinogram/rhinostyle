@@ -9,7 +9,7 @@ class Select extends React.Component {
     disabled:  React.PropTypes.bool,
     label:     React.PropTypes.string,
     name:      React.PropTypes.string,
-    options:   React.PropTypes.arrayOf(React.PropTypes.shape({ id: React.PropTypes.number.isRequired, value: React.PropTypes.string.isRequired })).isRequired,
+    options:   React.PropTypes.isRequired,
     onSelect:  React.PropTypes.func,
     required:  React.PropTypes.bool,
     selected:  React.PropTypes.string,
@@ -24,7 +24,7 @@ class Select extends React.Component {
   };
 
   state = {
-    selected: this.props.selected,
+    selected: this.props.selected ? this.props.selected : '',
   }
 
   _onChange = (event) => {
