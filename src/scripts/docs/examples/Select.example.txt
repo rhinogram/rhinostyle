@@ -1,15 +1,23 @@
 var selectOpts = [
-  { value: '1', text: 'Option One' }, 
-  { value: '2', text: 'Option Two' }, 
-  { value: '3', text: 'Option Three', selected: true }, 
-  { value: '4', text: 'Option Four' },
+  { id: 1, value: 'Option One' },
+  { id: 2, value: 'Option Two' },
+  { id: 3, value: 'Option Three' },
+  { id: 4, value: 'Option Four' },
 ];
 
 class ComponentExample extends React.Component {
+  handleSelect = (name, value) => {
+    const newState = {};
+
+    newState[name] = value;
+
+    console.log(newState);
+  }
+
   render() {
     return (
       <div className="site-example-selects">
-        <Select name="mySelect" label="Choose One" options={selectOpts} />
+        <Select onSelect={this.handleSelect} selected="Option One" name="mySelect" label="Choose One" options={selectOpts} />
       </div>
     );
   }

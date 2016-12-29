@@ -34,9 +34,12 @@ const selectExample = require('raw!./examples/Select.example.txt');
 const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
-  options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, {value:string, text:string, selected:bool}',
-  required:     '[Optional] - Field is required and asterisk is added to label',
+  options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number, value: string }',
+  required: '[Optional] - Field is required and asterisk is added to label',
+  onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
+  selected: '[Optional] - String that pre-selects an option',
 };
+
 const selectScope = {
   React,
   ReactDOM,
@@ -44,18 +47,11 @@ const selectScope = {
 };
 
 const selectOpts = [
-  { value: '1', text: 'Option One' },
-  { value: '2', text: 'Option Two' },
-  { value: '3', text: 'Option Three' },
-  { value: '4', text: 'Option Four' },
-];
-
-const newSelectOpts = [
-  { value: '--' },
-  { value: 'Mr.' },
-  { value: 'Mrs.' },
-  { value: 'Dr.' },
-  { value: 'Rabbi.' },
+  { id: 0, value: '--' },
+  { id: 1, value: 'Mr.' },
+  { id: 2, value: 'Mrs.' },
+  { id: 3, value: 'Dr.' },
+  { id: 4, value: 'Rabbi' },
 ];
 
 const textareaExample = require('raw!./examples/Textarea.example.txt');
@@ -131,6 +127,7 @@ const switchDocs  = {
   isChecked: '[Optional] - Set initial on/off state',
   name:      '[Optional] - The name, and the basis of the id for the switch',
 };
+
 const switchScope = {
   React,
   ReactDOM,
@@ -151,7 +148,7 @@ const FormApp = () =>
       <form className="form">
         <Input name="exampleInputEmail1" label="Email Address" placeholder="Email" type="email" required />
         <Input name="exampleInputPassword1" label="Password" placeholder="Password" type="password" required />
-        <Select name="exampleSelect1" label="Select" selected="Mr." options={newSelectOpts} required />
+        <Select name="exampleSelect1" label="Select" selected="Mr." options={selectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">

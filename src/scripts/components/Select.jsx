@@ -9,7 +9,7 @@ class Select extends React.Component {
     disabled:     React.PropTypes.bool,
     label:        React.PropTypes.string,
     name:         React.PropTypes.string,
-    options:      React.PropTypes.arrayOf(React.PropTypes.shape({ value: React.PropTypes.string.isRequired })).isRequired,
+    options:      React.PropTypes.arrayOf(React.PropTypes.shape({ id: React.PropTypes.number.isRequired, value: React.PropTypes.string.isRequired })).isRequired,
     onSelect:     React.PropTypes.func,
     required:     React.PropTypes.bool,
     selected:     React.PropTypes.string,
@@ -50,7 +50,7 @@ class Select extends React.Component {
       return false;
     };
 
-    const renderOpts = option => <option key={option.value} value={option.value}>{option.value}</option>;
+    const renderOpts = option => <option key={option.id} value={option.value}>{option.value}</option>;
 
     return (
       <div className={formGroupClasses}>
