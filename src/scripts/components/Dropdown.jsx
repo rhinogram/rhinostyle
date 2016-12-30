@@ -178,6 +178,7 @@ class Dropdown extends React.Component {
 
     if (activeKey && !lockLabel) {
       React.Children.forEach(this.props.children, (child) => {
+        if (!child) return;
         if (child.type === DropdownMenuItem) {
           if (child.props.id === activeKey) {
             selectedLabel = child.props.label;
