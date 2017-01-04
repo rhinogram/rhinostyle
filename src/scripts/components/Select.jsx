@@ -12,7 +12,7 @@ class Select extends React.Component {
     options:   React.PropTypes.array.isRequired,
     onSelect:  React.PropTypes.func,
     required:  React.PropTypes.bool,
-    selected:  React.PropTypes.string,
+    selected:  React.PropTypes.number,
   };
 
   static defaultProps = {
@@ -20,20 +20,22 @@ class Select extends React.Component {
     label:    '',
     name:     '',
     required: false,
-    selected: '',
+    selected: -1,
   };
 
   state = {
-    selected: this.props.selected ? this.props.selected : '',
+    selected: this.props.selected ? this.props.selected : -1,
   }
 
   _onChange = (event) => {
+    const selected = typeof event.target.value !== 'number' ? JSON.parse(event.target.value) : event.target.value;
+
     this.setState({
-      selected: event.target.value,
+      selected,
     });
 
     if (this.props.onSelect && typeof this.props.onSelect === 'function') {
-      this.props.onSelect(event.target.id, event.target.value);
+      this.props.onSelect(event.target.id, selected);
     }
   }
 
@@ -50,7 +52,7 @@ class Select extends React.Component {
       return false;
     };
 
-    const renderOpts = option => <option key={option.id} value={option.value}>{option.value}</option>;
+    const renderOpts = option => <option key={option.id} value={option.id}>{option.value}</option>;
 
     return (
       <div className={formGroupClasses}>
