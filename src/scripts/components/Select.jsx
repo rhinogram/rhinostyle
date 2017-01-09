@@ -5,14 +5,16 @@ class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    disabled:  React.PropTypes.bool,
-    label:     React.PropTypes.string,
-    name:      React.PropTypes.string,
-    options:   React.PropTypes.array.isRequired,
-    onSelect:  React.PropTypes.func,
-    required:  React.PropTypes.bool,
-    selected:  React.PropTypes.number,
+    className:          React.PropTypes.string,
+    disabled:           React.PropTypes.bool,
+    explanationMessage: React.PropTypes.string,
+    label:              React.PropTypes.string,
+    name:               React.PropTypes.string,
+    options:            React.PropTypes.array.isRequired,
+    onSelect:           React.PropTypes.func,
+    required:           React.PropTypes.bool,
+    selected:           React.PropTypes.number,
+    validationMessage:  React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -40,13 +42,33 @@ class Select extends React.Component {
   }
 
   render() {
-    const { className, disabled, label, name, options, required } = this.props;
-    const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron');
+    const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
+
+    const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron', {
+      'form__control--error': validationMessage,
+    });
+
     const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
       if (label) {
         return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
+      }
+
+      return false;
+    };
+
+    const showValidationMessage = () => {
+      if (validationMessage) {
+        return <div className="form__validation-message">{validationMessage}</div>;
+      }
+
+      return false;
+    };
+
+    const showExplanationMessage = () => {
+      if (explanationMessage) {
+        return <div className="form__explanation-message">{explanationMessage}</div>;
       }
 
       return false;
@@ -62,6 +84,8 @@ class Select extends React.Component {
             {options.map(renderOpts)}
           </select>
         </div>
+        {showValidationMessage()}
+        {showExplanationMessage()}
       </div>
     );
   }
