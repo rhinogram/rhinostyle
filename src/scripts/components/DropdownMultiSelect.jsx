@@ -207,11 +207,11 @@ class DropdownMultiSelect extends React.Component {
             </DropdownMenuScroll>
           </div>
         </DropdownWrapper>
+        {showValidationMessage()}
+        {showExplanationMessage()}
         <div className="dropdown-multiselect-pills">
           {activeKeys.map(renderPill)}
         </div>
-        {showValidationMessage()}
-        {showExplanationMessage()}
       </span>
     );
   }
