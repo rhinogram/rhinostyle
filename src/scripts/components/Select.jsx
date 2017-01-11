@@ -5,14 +5,16 @@ class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    disabled:  React.PropTypes.bool,
-    label:     React.PropTypes.string,
-    name:      React.PropTypes.string,
-    options:   React.PropTypes.array.isRequired,
-    onSelect:  React.PropTypes.func,
-    required:  React.PropTypes.bool,
-    selected:  React.PropTypes.string,
+    className:          React.PropTypes.string,
+    disabled:           React.PropTypes.bool,
+    explanationMessage: React.PropTypes.string,
+    label:              React.PropTypes.string,
+    name:               React.PropTypes.string,
+    options:            React.PropTypes.array.isRequired,
+    onSelect:           React.PropTypes.func,
+    required:           React.PropTypes.bool,
+    selected:           React.PropTypes.number,
+    validationMessage:  React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -20,26 +22,32 @@ class Select extends React.Component {
     label:    '',
     name:     '',
     required: false,
-    selected: '',
+    selected: -1,
   };
 
   state = {
-    selected: this.props.selected ? this.props.selected : '',
+    selected: this.props.selected ? this.props.selected : -1,
   }
 
   _onChange = (event) => {
+    const selected = typeof event.target.value !== 'number' ? JSON.parse(event.target.value) : event.target.value;
+
     this.setState({
-      selected: event.target.value,
+      selected,
     });
 
     if (this.props.onSelect && typeof this.props.onSelect === 'function') {
-      this.props.onSelect(event.target.id, event.target.value);
+      this.props.onSelect(event.target.id, selected);
     }
   }
 
   render() {
-    const { className, disabled, label, name, options, required } = this.props;
-    const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron');
+    const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
+
+    const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron', {
+      'form__control--error': validationMessage,
+    });
+
     const formGroupClasses = cx('form__group', className);
 
     const showLabel = () => {
@@ -50,7 +58,23 @@ class Select extends React.Component {
       return false;
     };
 
-    const renderOpts = option => <option key={option.id} value={option.value}>{option.value}</option>;
+    const showValidationMessage = () => {
+      if (validationMessage) {
+        return <div className="form__validation-message">{validationMessage}</div>;
+      }
+
+      return false;
+    };
+
+    const showExplanationMessage = () => {
+      if (explanationMessage) {
+        return <div className="form__explanation-message">{explanationMessage}</div>;
+      }
+
+      return false;
+    };
+
+    const renderOpts = option => <option key={option.id} value={option.id}>{option.value}</option>;
 
     return (
       <div className={formGroupClasses}>
@@ -60,6 +84,8 @@ class Select extends React.Component {
             {options.map(renderOpts)}
           </select>
         </div>
+        {showValidationMessage()}
+        {showExplanationMessage()}
       </div>
     );
   }

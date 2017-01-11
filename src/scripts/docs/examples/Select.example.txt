@@ -17,7 +17,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-selects">
-        <Select onSelect={this.handleSelect} selected="Option One" name="mySelect" label="Choose One" options={selectOpts} />
+        <Select onSelect={this.handleSelect} selected={1} name="mySelect" label="Choose One" options={selectOpts} />
       </div>
     );
   }
