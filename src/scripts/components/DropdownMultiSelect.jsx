@@ -10,16 +10,18 @@ class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
-    activeKeys:   React.PropTypes.arrayOf(React.PropTypes.number),
-    block:        React.PropTypes.bool,
-    children:     React.PropTypes.node,
-    className:    React.PropTypes.string,
-    disabled:     React.PropTypes.bool,
-    label:        React.PropTypes.string,
-    onSelect:     React.PropTypes.func,
-    placeholder:  React.PropTypes.string,
-    position:     React.PropTypes.string,
-    wide:         React.PropTypes.bool,
+    activeKeys:         React.PropTypes.arrayOf(React.PropTypes.number),
+    block:              React.PropTypes.bool,
+    children:           React.PropTypes.node,
+    className:          React.PropTypes.string,
+    disabled:           React.PropTypes.bool,
+    explanationMessage: React.PropTypes.string,
+    label:              React.PropTypes.string,
+    onSelect:           React.PropTypes.func,
+    placeholder:        React.PropTypes.string,
+    position:           React.PropTypes.string,
+    wide:               React.PropTypes.bool,
+    validationMessage:  React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -72,7 +74,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   itemClick = (id, toggle) => {
-    if (this.props.onSelect && typeof(this.props.onSelect === 'function')) {
+    if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
       const result = this.updateActiveKeys(id);
       this.props.onSelect(...result);
     } else {
@@ -138,7 +140,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   render() {
-    const { block, children, disabled, placeholder, position, wide } = this.props;
+    const { block, children, disabled, explanationMessage, placeholder, position, wide, validationMessage } = this.props;
     const items = this.state.items;
     const activeKeys = this.state.activeKeys;
     const isOpen = this.state.isOpen;
@@ -149,7 +151,9 @@ class DropdownMultiSelect extends React.Component {
     });
 
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
-      'disabled': disabled, //eslint-disable-line
+      'disabled':                  disabled, //eslint-disable-line
+      'form__control--error':      validationMessage,
+      'form__explanation-message': explanationMessage,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {
@@ -158,6 +162,22 @@ class DropdownMultiSelect extends React.Component {
       'dropdown__menu--top dropdown__menu--right': position === 'top-right',
       'dropdown__menu--wide': wide,
     });
+
+    const showValidationMessage = () => {
+      if (validationMessage) {
+        return <div className="form__validation-message">{validationMessage}</div>;
+      }
+
+      return false;
+    };
+
+    const showExplanationMessage = () => {
+      if (explanationMessage) {
+        return <div className="form__explanation-message">{explanationMessage}</div>;
+      }
+
+      return false;
+    };
 
     const renderPill = (id) => {
       let icon = '';
@@ -180,13 +200,15 @@ class DropdownMultiSelect extends React.Component {
       <span>
         <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
           {/* eslint no-return-assign:0 */}
-          <input onClick={this.handleToggle} ref={(ref) => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
+          <input onClick={this.handleToggle} ref={ref => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
               {items || <DropdownMenuHeader label="No results" />}
             </DropdownMenuScroll>
           </div>
         </DropdownWrapper>
+        {showValidationMessage()}
+        {showExplanationMessage()}
         <div className="dropdown-multiselect-pills">
           {activeKeys.map(renderPill)}
         </div>
