@@ -49,7 +49,7 @@ const LoaderApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
       <p className="site-copy"><code>size="small | large"</code></p>
-      <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large"/>
+      <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />
     </section>
 
     <section className="site-section">
