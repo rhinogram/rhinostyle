@@ -1,16 +1,17 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import Playground from 'component-playground';
 
 import { Close } from '../components';
 
-import Playground from 'component-playground';
-
 /* eslint import/no-unresolved: 0 */
 const closeExample = require('raw!./examples/Close.example.txt');
+
 const closeDocs = {
   className: '[Optional] - Include additional class name(s)',
   onClick: '[Required] - Include click function for Close',
 };
+
 const exampleScope  = {
   React,
   ReactDOM,

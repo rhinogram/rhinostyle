@@ -1,11 +1,9 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import moment     from 'moment';
 
 import { DatePicker, Label } from '../components';
-
-import moment from 'moment';
-
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const datePickerExample = require('raw!./examples/DatePicker.example.txt');
@@ -62,4 +60,3 @@ class DatePickerApp extends React.Component {
 }
 
 ReactDOM.render(<DatePickerApp />, document.getElementById('js-app'));
-
