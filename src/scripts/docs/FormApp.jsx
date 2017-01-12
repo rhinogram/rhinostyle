@@ -5,7 +5,6 @@ import Playground from 'component-playground';
 import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
 /* eslint import/no-unresolved:0 */
-/* eslint import/no-extraneous-dependencies:0 */
 const inputExample = require('raw!./examples/Input.example.txt');
 
 const inputDocs  = {

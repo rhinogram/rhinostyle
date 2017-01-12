@@ -4,7 +4,6 @@ import Playground from 'component-playground';
 import { Close }  from '../components';
 
 /* eslint import/no-unresolved: 0 */
-/* eslint import/no-extraneous-dependencies: 0 */
 const closeExample = require('raw!./examples/Close.example.txt');
 
 const closeDocs = {

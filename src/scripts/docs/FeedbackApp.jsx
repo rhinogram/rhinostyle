@@ -6,7 +6,6 @@ import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast 
 
 
 /* eslint import/no-unresolved: 0 */
-/* eslint import/no-extraneous-dependencies:0 */
 const alertExample = require('raw!./examples/Alert.example.txt');
 
 const alertDocs = {

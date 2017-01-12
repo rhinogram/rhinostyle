@@ -13,7 +13,6 @@ import {
 }                  from '../components';
 
 /* eslint import/no-unresolved: 0 */
-/* eslint import/no-extraneous-dependencies: 0 */
 const coverBodyExample   = require('raw!./examples/CoverBody.example.txt');
 const coverExample       = require('raw!./examples/Cover.example.txt');
 const coverFooterExample = require('raw!./examples/CoverFooter.example.txt');

@@ -5,7 +5,6 @@ import Playground from 'component-playground';
 import { Button, Icon } from '../components';
 
 /* eslint import/no-unresolved: 0 */
-/* eslint import/no-extraneous-dependencies: 0 */
 const buttonExample = require('raw!./examples/Button.example.txt');
 
 const buttonDocs = {
