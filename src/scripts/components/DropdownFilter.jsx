@@ -71,7 +71,7 @@ class DropdownFilter extends React.Component {
       }
     }
 
-    if (onClick && typeof(onClick === 'function')) {
+    if (onClick && typeof (onClick === 'function')) {
       onClick();
     }
 

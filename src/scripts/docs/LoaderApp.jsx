@@ -1,9 +1,8 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import Playground from 'component-playground';
 
 import { LoaderCircle, LoaderPulse, LoaderLine } from '../components';
-
-import Playground from 'component-playground';
 
 const loaderCircleExample  = require('raw!./examples/LoaderCircle.example.txt');
 const loaderCircleDocs = {
@@ -50,7 +49,7 @@ const LoaderApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
       <p className="site-copy"><code>size="small | large"</code></p>
-      <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large"/>
+      <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />
     </section>
 
     <section className="site-section">

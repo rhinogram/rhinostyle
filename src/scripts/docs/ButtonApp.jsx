@@ -1,12 +1,12 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import Playground from 'component-playground';
 
 import { Button, Icon } from '../components';
 
-import Playground from 'component-playground';
-
 /* eslint import/no-unresolved: 0 */
 const buttonExample = require('raw!./examples/Button.example.txt');
+
 const buttonDocs = {
   active: '[Optional] - Button is active',
   blankWindow: '[Optional] - Open URL in blank browser window',
@@ -20,6 +20,7 @@ const buttonDocs = {
   type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item',
 };
+
 const exampleScope  = {
   React,
   ReactDOM,

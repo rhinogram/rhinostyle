@@ -1,5 +1,5 @@
-import React from 'react';
-import cx    from 'classnames';
+import React    from 'react';
+import cx       from 'classnames';
 import { Link } from 'react-router';
 
 class Button extends React.Component {

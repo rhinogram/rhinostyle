@@ -51,4 +51,3 @@ class ScrollBarApp extends React.Component {
 }
 
 ReactDOM.render(<ScrollBarApp />, document.getElementById('js-app'));
-

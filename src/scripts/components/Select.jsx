@@ -1,5 +1,5 @@
-import React from 'react';
 import cx    from 'classnames';
+import React from 'react';
 
 class Select extends React.Component {
   static displayName = 'RhinoSelect';
