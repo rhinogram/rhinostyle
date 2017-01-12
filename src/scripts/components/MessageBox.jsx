@@ -1,6 +1,6 @@
 /* eslint no-return-assign:0 */
-import React from 'react';
-import cx    from 'classnames';
+import React    from 'react';
+import cx       from 'classnames';
 import autosize from 'autosize';
 
 class MessageBox extends React.Component {

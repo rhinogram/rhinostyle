@@ -1,12 +1,14 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
 
 import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
 
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
+/* eslint import/no-extraneous-dependencies:0 */
 const alertExample = require('raw!./examples/Alert.example.txt');
+
 const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
   onDismiss: '[Optional] - Include dismiss function',
@@ -18,6 +20,7 @@ const alertDocs = {
 
 
 const toastExample = require('raw!./examples/Toast.example.txt');
+
 const toastDocs = {
   body: '[Required] - Toast body text',
   className: '[Optional] - Include additional class name(s)',
@@ -25,7 +28,9 @@ const toastDocs = {
   onDismiss: '[Required] - Include dismiss function',
   type: '[Optional] - Toast type, as a string -  [danger | default | success]',
 };
+
 const systemAlertExample = require('raw!./examples/SystemAlert.example.txt');
+
 const systemAlertDocs = {
   body: '[Required] - SystemAlert body text',
   className: '[Optional] - Include additional class name(s)',

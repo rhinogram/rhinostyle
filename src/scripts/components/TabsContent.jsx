@@ -6,9 +6,9 @@ class TabsContent extends React.Component {
   static displayName = 'TabsContent';
 
   static propTypes = {
-    activeKey:        React.PropTypes.number,
-    children:         React.PropTypes.node,
-    className:        React.PropTypes.string,
+    activeKey: React.PropTypes.number,
+    children:  React.PropTypes.node,
+    className: React.PropTypes.string,
   }
 
   getChildren = () => {

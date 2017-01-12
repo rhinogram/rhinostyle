@@ -5,9 +5,9 @@ import { Icon }  from '../components';
 const Pill = (props) => {
   const { className, disabled, icon, onClick, label, type } = props;
   const classes = cx('pill', className, {
-    'pill--disabled':   disabled,
-    'pill--default': type === 'default',
-    'pill--neutral': type === 'neutral',
+    'pill--disabled': disabled,
+    'pill--default':  type === 'default',
+    'pill--neutral':  type === 'neutral',
   });
 
   return (

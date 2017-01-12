@@ -18,9 +18,9 @@ const TabContentPane = (props) => {
 TabContentPane.displayName = 'RhinoTabContentPane';
 
 TabContentPane.propTypes = {
-  active:           React.PropTypes.bool,
-  className:        React.PropTypes.string,
-  children:         React.PropTypes.node,
+  active:    React.PropTypes.bool,
+  className: React.PropTypes.string,
+  children:  React.PropTypes.node,
 };
 
 TabContentPane.defaultProps = {

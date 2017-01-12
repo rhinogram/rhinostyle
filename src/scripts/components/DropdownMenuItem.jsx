@@ -64,17 +64,14 @@ class DropdownMenuItem extends React.Component {
       disabled,
     });
 
-    const renderContent = () => {
-      return (
-        <div className="dropdown__menu__item__content">
-          {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
-          <div className="dropdown__menu__item__content__container">
-            <div className="dropdown__menu__item__content__label">{icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}<span className="u-text-overflow">{label}</span></div>
-            {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
-          </div>
+    const renderContent = () =>
+      <div className="dropdown__menu__item__content">
+        {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-sm" />) : null}
+        <div className="dropdown__menu__item__content__container">
+          <div className="dropdown__menu__item__content__label">{icon ? (<Icon icon={icon} className="u-m-r-sm" />) : null}<span className="u-text-overflow">{label}</span></div>
+          {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
         </div>
-      );
-    };
+      </div>;
 
     let markup = '';
 

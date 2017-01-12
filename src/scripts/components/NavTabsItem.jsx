@@ -20,10 +20,10 @@ const NavTabsItem = (props) => {
 NavTabsItem.displayName = 'RhinoNavTabsItem';
 
 NavTabsItem.propTypes = {
-  active:           React.PropTypes.bool,
-  className:        React.PropTypes.string,
-  children:         React.PropTypes.node,
-  onClick:          React.PropTypes.func,
+  active:    React.PropTypes.bool,
+  className: React.PropTypes.string,
+  children:  React.PropTypes.node,
+  onClick:   React.PropTypes.func,
 };
 
 NavTabsItem.defaultProps = {

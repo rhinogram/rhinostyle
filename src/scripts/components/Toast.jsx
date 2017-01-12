@@ -23,9 +23,9 @@ class Toast extends React.Component {
   render() {
     const { body, className, icon, onDismiss, type } = this.props;
     const classes = cx('toast', className, {
-      'toast--danger':    type === 'danger',
-      'toast--default':   type === 'default',
-      'toast--success':   type === 'success',
+      'toast--danger':  type === 'danger',
+      'toast--default': type === 'default',
+      'toast--success': type === 'success',
     });
 
     const renderIcon = () => {

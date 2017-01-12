@@ -1,14 +1,23 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
-
-import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon } from '../components';
 import Playground from 'component-playground';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import {
+  CoverSystem,
+  Cover,
+  Button,
+  Input,
+  CoverHeader,
+  CoverBody,
+  CoverFooter,
+  Icon,
+}                  from '../components';
 
 /* eslint import/no-unresolved: 0 */
-const coverExample = require('raw!./examples/Cover.example.txt');
-const coverHeaderExample = require('raw!./examples/CoverHeader.example.txt');
-const coverBodyExample = require('raw!./examples/CoverBody.example.txt');
+/* eslint import/no-extraneous-dependencies: 0 */
+const coverBodyExample   = require('raw!./examples/CoverBody.example.txt');
+const coverExample       = require('raw!./examples/Cover.example.txt');
 const coverFooterExample = require('raw!./examples/CoverFooter.example.txt');
+const coverHeaderExample = require('raw!./examples/CoverHeader.example.txt');
 
 const coverDocs = {
   className: '[Optional] - Additional class to add to cover div',
