@@ -29,10 +29,11 @@ export const paths = {
     templates: './src/templates/*.html',
   },
   scripts: {
-    docSrc: './src/scripts/docs/*.js',
-    cmpSrc: './src/scripts/docs/*.jsx',
-    dist:   './dist/scripts/',
-    build:  './build/scripts/',
+    componentsSrc: './src/scripts/components/*.jsx',
+    docSrc:        './src/scripts/docs/*.js',
+    cmpSrc:        './src/scripts/docs/*.jsx',
+    dist:          './dist/scripts/',
+    build:         './build/scripts/',
   },
   styles: {
     src:    './src/less/rhinostyle.less',

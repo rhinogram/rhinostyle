@@ -310,6 +310,7 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
   gulp.watch(paths.styles.src, ['dist:styles']);
   gulp.watch(paths.scripts.docSrc, ['docs:scripts']);
   gulp.watch(paths.scripts.cmpSrc, ['docs:react']);
+  gulp.watch(paths.scripts.componentsSrc, ['docs:react']);
   gulp.watch(paths.styles.docAll, ['docs:styles']);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
     forceBuild = true;
