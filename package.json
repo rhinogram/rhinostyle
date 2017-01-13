@@ -77,6 +77,6 @@
     "react-datepicker": "0.39.0",
     "react-gsap-enhancer": "0.3.0",
     "react-onclickoutside": "5.8.3",
-    "react-router": "2.8.1"
+    "react-router": "3.0.1"
   }
 }
