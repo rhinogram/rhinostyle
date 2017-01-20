@@ -17,6 +17,7 @@ const buttonDocs = {
   iconOnly: '[Optional] - Button has an icon but no text',
   route: '[Optional] - React-router route to use for item',
   size: '[Optional] - Button size -  [small | large]',
+  title: '[Optional] - Include title attribute that represents advisory information',
   type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item',
 };

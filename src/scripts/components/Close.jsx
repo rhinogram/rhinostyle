@@ -8,7 +8,7 @@ const Close = (props) => {
   const classes = cx('close', className);
 
   /* eslint no-script-url:0 */
-  return (<a href="javascript:void(0)" className={classes} onClick={onClick} {...opts} role="button"><Icon icon="close" /></a>);
+  return (<a href="javascript:void(0)" className={classes} onClick={onClick} {...opts} role="button" title="Close"><Icon icon="close" /></a>);
 };
 
 Close.displayName = 'RhinoClose';
