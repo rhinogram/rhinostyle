@@ -3,7 +3,7 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-buttons">
         <div className="u-m-b u-bg-gray-lightest u-p-a">
-          <Button onClick={() => console.log('clicked too')} url="http://www.rhinogram.com" blankWindow>Default</Button>
+          <Button onClick={() => console.log('clicked too')} url="http://www.rhinogram.com" blankWindow title="Visit Rhinogram">Default</Button>
           <Button type="outline-default" route="/home">Outline Default</Button>
           <Button type="primary">Primary</Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>

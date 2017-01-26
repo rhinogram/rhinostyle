@@ -16,6 +16,7 @@ class Button extends React.Component {
     iconOnly:    React.PropTypes.bool,
     route:       React.PropTypes.string,
     size:        React.PropTypes.oneOf(['small', 'large']),
+    title:       React.PropTypes.string,
     type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
     url:         React.PropTypes.string,
   };
@@ -44,7 +45,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, blankWindow, block, className, disabled, iconOnly, route, size, type, url, ...opts } = this.props; // eslint-disable-line
+    const { active, blankWindow, block, className, disabled, iconOnly, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
     const classes = cx('btn', className, {
       'btn--default':          type === 'default',
       'btn--primary':          type === 'primary',
@@ -66,11 +67,11 @@ class Button extends React.Component {
 
     if (route) {
       markup = (
-        <Link to={route} className={classes} onClick={this.handleClick} {...opts}>{this.props.children}</Link>
+        <Link to={route} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>{this.props.children}</Link>
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts}>{this.props.children}</a>
+        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>{this.props.children}</a>
       );
     }
 
