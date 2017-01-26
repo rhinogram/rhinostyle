@@ -29,6 +29,14 @@ class Select extends React.Component {
     selected: this.props.selected ? this.props.selected : -1,
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.selected !== this.props.selected) {
+      this.setState({
+        selected: newProps.selected,
+      });
+    }
+  }
+
   _onChange = (event) => {
     const selected = typeof event.target.value !== 'number' ? JSON.parse(event.target.value) : event.target.value;
 
