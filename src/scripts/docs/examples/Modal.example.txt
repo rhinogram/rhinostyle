@@ -45,15 +45,11 @@ class ComponentExample extends React.Component {
 
     return (
       <Modal>
-        <ModalHeader icon="pencil" title="This is a sample Modal" />
+        <ModalHeader icon="pencil" title="Sample Modal" />
         <ModalBody>
           <div className="form">
-            <div className="form__group">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-            </div>
-            <div>
-              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-            </div>
+              <Input className="u-m-b-0" label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
           </div>
         </ModalBody>
         <ModalFooter>

@@ -422,27 +422,33 @@ input[type='checkbox']:focus {
 // -------------------------
 // Form Placeholder
 // -------------------------
+// Do not chain these styles as it will break.
+// https://css-tricks.com/almanac/selectors/p/placeholder/
 
-
-// Override Firefox's unusual default opacity
-// see https://github.com/twbs/bootstrap/pull/11526
 
 &::-moz-placeholder {
-  .u-text-overflow;
   color: @input-color-placeholder;
   opacity: 1;
 }
 
-// Internet Explorer 10+
-
 &:-ms-input-placeholder {
-  .u-text-overflow;
   color: @input-color-placeholder;
 }
 
 &::-webkit-input-placeholder {
-  .u-text-overflow;
   color: @input-color-placeholder;
+}
+
+input::-moz-placeholder, {
+  text-overflow: ellipsis;
+}
+
+input:-ms-input-placeholder {
+  text-overflow: ellipsis;
+}
+
+input::-webkit-input-placeholder {
+  text-overflow: ellipsis;
 }
 
 
