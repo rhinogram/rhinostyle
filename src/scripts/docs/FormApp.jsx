@@ -9,6 +9,8 @@ const inputExample = require('raw!./examples/Input.example.txt');
 
 const inputDocs  = {
   addon:              '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
+  autoCapitalize:     '[Optional] - Adjust the capitalization settings of an input - [none | sentences | words | characters]',
+  autoComplete:       '[Optional] - Adjust the completion settings on an input - [off | on]',
   clear:              '[Optional] - Form control gets a clear value button',
   explanationMessage: '[Optional] - Explanation message to help user',
   initialValue:       '[Optional] - Any initial value for the input',

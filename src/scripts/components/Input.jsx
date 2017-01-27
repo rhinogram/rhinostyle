@@ -9,8 +9,8 @@ class Input extends React.Component {
 
   static propTypes = {
     addon:              React.PropTypes.oneOf(['', 'left', 'right', 'both']),
-    autoCapitalize:     React.PropTypes.string,
-    autoComplete:       React.PropTypes.string,
+    autoCapitalize:     React.PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
+    autoComplete:       React.PropTypes.oneOf(['off', 'on']),
     className:          React.PropTypes.string,
     clear:              React.PropTypes.bool,
     disabled:           React.PropTypes.bool,
