@@ -2,7 +2,7 @@
 
 import React from 'react';
 import cx    from 'classnames';
-import { Close } from '../components';
+import { Icon } from '../components';
 
 class Input extends React.Component {
   static displayName = 'RhinoInput';
@@ -136,7 +136,7 @@ class Input extends React.Component {
         inputMarkup = (
           <div className="form__clear">
             <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
-            {input ? <Close className="form__clear__btn" onClick={this._handleClear} /> : null}
+            {input ? <a href="javascript:void(0)" className="form__clear__btn" onClick={this._handleClear} ><Icon icon="close" /></a> : null}
           </div>
         );
       } else {
