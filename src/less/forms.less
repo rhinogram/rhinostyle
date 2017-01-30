@@ -264,13 +264,27 @@ input[type='checkbox']:focus {
 }
 
 .form__clear__btn {
+  align-items: center;
   background: @color-gray-light;
   border-radius: 50%;
   color: @color-white;
+  display: inline-flex;
   font-size: 1.2rem;
-  padding: .2rem;
+  height: 1.8rem;
+  justify-content: center;
+  opacity: .85;
   position: absolute;
   right: 1rem;
+  text-decoration: none;
+  top: 1rem;
+  width: 1.8rem;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    outline: 0;
+    text-decoration: none;
+  }
 }
 
 

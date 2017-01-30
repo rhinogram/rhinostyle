@@ -9,6 +9,8 @@ const inputExample = require('raw!./examples/Input.example.txt');
 
 const inputDocs  = {
   addon:              '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
+  autoCapitalize:     '[Optional] - Adjust the capitalization settings of an input - [none | sentences | words | characters]',
+  autoComplete:       '[Optional] - Adjust the completion settings on an input - [off | on]',
   clear:              '[Optional] - Form control gets a clear value button',
   explanationMessage: '[Optional] - Explanation message to help user',
   initialValue:       '[Optional] - Any initial value for the input',
@@ -190,9 +192,6 @@ const FormApp = () =>
       <h3 className="site-subheadline">Input</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Common Input</h5>
-        <div className="site-copy">
-          <p>Properties include <code>initialValue, label, name, placeholder, required, and type</code>.</p>
-        </div>
         <Input name="exampleInputEmail31" label="Email Address" type="email" required />
         <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="text" initialValue="Ian" />
         <Input name="exampleInputPassword31" label="Password" placeholder="Password" type="password" />
