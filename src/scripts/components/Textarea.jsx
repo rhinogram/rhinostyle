@@ -62,7 +62,8 @@ class Textarea extends React.Component {
     this.setState({ charactersLeft: this.props.maxCharacters - event.target.value.length });
 
     if (this.props.onChange && typeof (this.props.onChange === 'function')) {
-      this.props.onChange(event.target.id, event.target.value);
+      console.log('changing', event.target.value.trim());
+      this.props.onChange(event.target.id, event.target.value.trim());
     }
   }
 
