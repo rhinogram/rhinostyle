@@ -37,7 +37,7 @@ class MessageBox extends React.Component {
 
   componentWillMount() {
     if (this.props.initialValue) {
-      this.setState({ value: this.props.initialValue });
+      this.setState({ value: this.props.initialValue.trim() });
     }
   }
 

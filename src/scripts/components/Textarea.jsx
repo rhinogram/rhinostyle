@@ -35,7 +35,7 @@ class Textarea extends React.Component {
 
   componentWillMount() {
     if (this.props.initialValue) {
-      this.setState({ value: this.props.initialValue });
+      this.setState({ value: this.props.initialValue.trim() });
     }
 
     if (this.props.maxCharacters && this.props.initialValue) {
