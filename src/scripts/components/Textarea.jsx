@@ -35,7 +35,7 @@ class Textarea extends React.Component {
 
   componentWillMount() {
     if (this.props.initialValue) {
-      this.setState({ value: this.props.initialValue });
+      this.setState({ value: this.props.initialValue.trim() });
     }
 
     if (this.props.maxCharacters && this.props.initialValue) {
@@ -62,7 +62,7 @@ class Textarea extends React.Component {
     this.setState({ charactersLeft: this.props.maxCharacters - event.target.value.length });
 
     if (this.props.onChange && typeof (this.props.onChange === 'function')) {
-      this.props.onChange(event.target.id, event.target.value);
+      this.props.onChange(event.target.id, event.target.value.trim());
     }
   }
 
