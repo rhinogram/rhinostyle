@@ -54,13 +54,6 @@ pre {
   }
 }
 
-
-.site-example-avatar {
-  .avatar:not(:last-child) {
-    margin-right: @margin-small;
-  }
-}
-
 .site-example-alerts {
   .alert:not(:last-child) {
     margin-bottom: @margin-large;
@@ -76,48 +69,6 @@ pre {
 .site-example-bucketheaders {
   .bucket__header:not(:last-child) {
     margin-bottom: @margin-large;
-  }
-}
-
-.site-example-buttons {
-  .btn:not(:last-child) {
-    margin-right: @margin-small;
-  }
-}
-
-.site-example-dropdowns {
-  .dropdown {
-    margin-bottom: @margin-small;
-  }
-
-  .dropdown:not(:last-child) {
-    margin-right: @margin-small;
-  }
-}
-
-.site-example-labels {
-  .label:not(:last-child) {
-    margin-right: @margin-small;
-  }
-}
-
-.site-example-messages {
-  .msg {
-    margin-bottom: @margin-small;
-    margin-top: @margin-small;
-  }
-  .msg:not(:last-child) {
-    margin-right: @margin-large;
-  }
-}
-
-.site-example-pills {
-  .pill {
-    margin-bottom: @margin-small;
-  }
-
-  .pill:not(:last-child) {
-    margin-right: @margin-small;
   }
 }
 
@@ -626,7 +577,6 @@ html.panel-is-open {
 .site-swatch {
   border: 1px solid @color-gray-light;
   display: inline-block;
-  margin: 0 @margin-large @margin-large 0;
   max-width: 20rem;
   padding: @padding-small;
   width: 100%;
@@ -637,6 +587,7 @@ html.panel-is-open {
   display: flex;
   height: 12rem;
   justify-content: center;
+
   > .icon {
     font-size: 6rem;
   }
@@ -671,7 +622,7 @@ html.panel-is-open {
   position: relative;
   transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
   z-index: @zindex-site-wrapper;
-  
+
   /*
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load
@@ -701,7 +652,7 @@ html.panel-is-open {
   li {
     //color: @color-gray-dark;
     margin-bottom: @margin-xsmall;
-    
+
     b:first-of-type {
       color: @state-info-text;
       font-weight: @font-weight-semibold;

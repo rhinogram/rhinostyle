@@ -101,7 +101,10 @@
         <a href="../typography/" class="site-navigation__nav__btn">Typography</a>
       </li>
       <li>
-        <a href="../utilities/" class="site-navigation__nav__btn">Utilities</a>
+        <a href="../utility-classes/" class="site-navigation__nav__btn">Utility Classes</a>
+      </li>
+      <li>
+        <a href="../utility-components/" class="site-navigation__nav__btn">Utility Components</a>
       </li>
     </ul>
 
@@ -166,15 +169,6 @@
         }
 
         loop();
-
-
-        $('.js-site-panel__header__close').click(function(){
-          $('html').removeClass('panel-is-open');
-        });
-
-        $('.site-header__logo').click(function(){
-          $('html').addClass('panel-is-open');
-        });
 
         // SVG loader
         boomsvgloader.load('../svg/sprite.svg');

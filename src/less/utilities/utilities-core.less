@@ -1,0 +1,198 @@
+// File: utilities.less
+// Note:
+
+
+// -------------------------
+// Block
+// -------------------------
+
+
+.u-block {
+  display: block;
+}
+
+
+// -------------------------
+// Clearfix
+// -------------------------
+
+
+.u-clearfix {
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+
+// -------------------------
+// Font Weights
+// -------------------------
+
+
+.u-font-weight-bold {
+  font-weight: @font-weight-bold !important;
+}
+
+.u-font-weight-light {
+  font-weight: @font-weight-light !important;
+}
+
+.u-font-weight-normal {
+  font-weight: @font-weight-normal !important;
+}
+
+.u-font-weight-semibold {
+  font-weight: @font-weight-semibold !important;
+}
+
+
+// -------------------------
+// Images
+// -------------------------
+
+
+.u-img-fluid {
+  height: auto;
+  max-width: 100%;
+}
+
+
+// -------------------------
+// Overflow
+// -------------------------
+
+
+.u-overflow-hidden {
+  overflow: hidden;
+}
+
+.u-overflow-y-auto {
+  overflow-y: auto !important;
+}
+
+
+// -------------------------
+// Text Alignment
+// -------------------------
+
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-text-justify {
+  text-align: justify;
+}
+
+.u-text-left {
+  text-align: left;
+}
+
+/*.u-text-nowrap {
+  white-space: nowrap;
+}*/
+
+.u-text-right {
+  text-align: right;
+}
+
+
+// -------------------------
+// Text Break
+// -------------------------
+// See https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+
+.u-text-break {
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+
+// -------------------------
+// Text Overflow
+// -------------------------
+// See https://css-tricks.com/flexbox-truncated-text/
+// Ellipsis within flex items can be span or div. Otherwise should be div.
+
+.u-text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// -------------------------
+// Text Size
+// -------------------------
+
+
+.u-text-large {
+  font-size: @font-size-large !important;
+}
+
+.u-text-medium {
+  font-size: @font-size-medium !important;
+}
+
+.u-text-base {
+  font-size: @font-size-base !important;
+}
+
+.u-text-small {
+  font-size: @font-size-small !important;
+}
+
+
+// -------------------------
+// Text Style
+// -------------------------
+
+
+.u-text-italic {
+  font-style: italic !important;
+}
+
+.u-text-normal {
+  font-style: normal !important;
+}
+
+
+// -------------------------
+// Text Transform
+// -------------------------
+
+
+.u-text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.u-text-capitalize-first {
+  &::first-letter {
+    text-transform: uppercase !important;
+  }
+}
+
+.u-text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.u-text-uppercase {
+  text-transform: uppercase !important;
+}
+
+
+// -------------------------
+// Text Underline
+// -------------------------
+
+
+.u-text-underline {
+  text-decoration: underline !important;
+}

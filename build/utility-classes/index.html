@@ -1,0 +1,1483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>RhinoStyles: Utility Classes</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400"> -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"/> -->
+    <link rel="stylesheet" href="../css/rhinostyle-docs.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/mode/javascript/javascript.min.js"></script>
+    <script src="../scripts/vendor.bundle.js"></script>
+  </head>
+  <body>
+
+<section id="js-toasts-container" class="toasts-container" style="z-index: 1000"></section>
+<nav id="site-navigation" class="site-navigation">
+  
+    <ul class="site-navigation__nav">
+      <li>
+        <a href="../" class="site-navigation__nav__btn">Introduction</a>
+      </li>
+      <li>
+        <a href="../animations/" class="site-navigation__nav__btn">Animations</a>
+      </li>
+      <li>
+        <a href="../avatars/" class="site-navigation__nav__btn">Avatars</a>
+      </li>
+      <li>
+        <a href="../buckets/" class="site-navigation__nav__btn">Buckets</a>
+      </li>
+      <li>
+        <a href="../buttons/" class="site-navigation__nav__btn">Buttons</a>
+      </li>
+      <li>
+        <a href="../close/" class="site-navigation__nav__btn">Close</a>
+      </li>
+      <li>
+        <a href="../colors/" class="site-navigation__nav__btn">Colors</a>
+      </li>
+      <li>
+        <a href="../covers/" class="site-navigation__nav__btn">Covers</a>
+      </li>
+      <li>
+        <a href="../datepicker/" class="site-navigation__nav__btn">Date Picker</a>
+      </li>
+      <li>
+        <a href="../dropdowns/" class="site-navigation__nav__btn">Dropdowns</a>
+      </li>
+      <li>
+        <a href="../feedback/" class="site-navigation__nav__btn">Feedback</a>
+      </li>
+      <li>
+        <a href="../forms/" class="site-navigation__nav__btn">Forms</a>
+      </li>
+      <li>
+        <a href="../grid/" class="site-navigation__nav__btn">Grid</a>
+      </li>
+      <li>
+        <a href="../icons/" class="site-navigation__nav__btn">Icons</a>
+      </li>
+      <li>
+        <a href="../labels/" class="site-navigation__nav__btn">Labels</a>
+      </li>
+      <li>
+        <a href="../loaders/" class="site-navigation__nav__btn">Loaders</a>
+      </li>
+      <li>
+        <a href="../messages/" class="site-navigation__nav__btn">Messages</a>
+      </li>
+      <li>
+        <a href="../navigation/" class="site-navigation__nav__btn">Navigation</a>
+      </li>
+      <li>
+        <a href="../modals/" class="site-navigation__nav__btn">Modals</a>
+      </li>
+      <li>
+        <a href="../pills/" class="site-navigation__nav__btn">Pills</a>
+      </li>
+      <li>
+        <a href="../progressbars/" class="site-navigation__nav__btn">Progress Bars</a>
+      </li>
+      <li>
+        <a href="../scrollbars/" class="site-navigation__nav__btn">Scroll Bars</a>
+      </li>
+      <li>
+        <a href="../tables/" class="site-navigation__nav__btn">Tables</a>
+      </li>
+      <li>
+        <a href="../tabs/" class="site-navigation__nav__btn">Tabs</a>
+      </li>
+      <li>
+        <a href="../tooltips/" class="site-navigation__nav__btn">Tooltips</a>
+      </li>
+      <li>
+        <a href="../typography/" class="site-navigation__nav__btn">Typography</a>
+      </li>
+      <li>
+        <a href="../utility-classes/" class="site-navigation__nav__btn">Utility Classes</a>
+      </li>
+      <li>
+        <a href="../utility-components/" class="site-navigation__nav__btn">Utility Components</a>
+      </li>
+    </ul>
+
+</nav>
+<div id="site-overlay" class="site-overlay"></div>
+<div class="site-wrapper">
+  <header class="site-header">
+    <div id="site-header__menu" class="site-header__menu">
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+      <div class="site-header__menu__bar"></div>
+    </div>
+    <div class="site-header__title">
+      <span class="u-text-overflow"><span class="site-header__title__treatment">RhinoStyle:</span> Utility Classes</span>
+    </div>
+    <div class="site-header__logo">
+      <img src="../svg/rhinogram-logo.svg" alt="">
+    </div>
+  </header>
+  <main class="site-content" id="js-app">
+    
+
+
+<h1 class="site-headline">Utility Classes</h1>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Utility Classes</h3>
+  <div class="site-copy">
+    <p>A utility class applies a single rule or a very simple, universal pattern. Utility classes are simple, composable, and reusable. They will (intentionally) end up scattered throughout your markup.</p>
+    <p>All utility classes are prefixed with <code>u-</code>.</p>
+  </div>
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Core Utilities</h3>
+  <div class="site-example-utility">
+    <h4>u-block</h4>
+    <p>Use to create block level element.</p>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-font-weight-bold</h4>
+    <p>Use to force bold font weight. Optionally, use the <code>&lt;strong&gt;</code> tag.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-font-weight-bold">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-font-weight-light</h4>
+    <p>Use to force light font weight.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-font-weight-light">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-font-weight-normal</h4>
+    <p>Use to force normal font weight.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-font-weight-normal">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-font-weight-semibold</h4>
+    <p>Use to force semibold font weight.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-font-weight-semibold">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-img-fluid</h4>
+    <p>Use to create a responsive image. Resize browser and image will scale.</p>
+    <img src="https://source.unsplash.com/category/people/1000x600" alt="" class="u-img-fluid">
+  </div>
+  <div class="site-example-utility">
+    <h4>u-overflow-hidden</h4>
+    <p>Use to hide overflowing content. Resize browser and observe how the <code>u-overflow-hidden</code> container hides content.</p>
+    <div class="u-overflow-hidden" style="max-width: 800px; height: 400px;">
+      <img src="https://source.unsplash.com/category/people/1000x600" alt="">
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-overflow-y-auto</h4>
+    <p>Use to set overflow-y to auto</p>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-center</h4>
+    <p>Use to center align text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-justify</h4>
+    <p>Use to justify text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-justify">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper. Maecenas et pretium leo. Nam blandit imperdiet porta. Donec ante leo, aliquam at laoreet vel, laoreet nec nunc. Proin tincidunt efficitur libero, vitae consectetur dui consectetur quis.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-left</h4>
+    <p>Use to left align text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-left">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <!-- <div class="site-example-utility">
+    <h4>u-text-nowrap</h4>
+    <p>Use to prevent text wrapping.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-nowrap">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper. Maecenas et pretium leo. Nam blandit imperdiet porta. Donec ante leo, aliquam at laoreet vel, laoreet nec nunc. Proin tincidunt efficitur libero, vitae consectetur dui consectetur quis.
+      </p>
+    </div>
+  </div> -->
+  <div class="site-example-utility">
+    <h4>u-text-right</h4>
+    <p>Use to right align text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-right">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-small</h4>
+    <p>Use for smaller text. Optionally, use <code>&lt;small&gt;</code> for percentage based, smaller text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-small">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-base</h4>
+    <p>Use to force base text size.</p>
+    <div class="site-example-utility__panel">
+      <h3 class="u-text-base">&lt;h3&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/h3&gt;</h3>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-medium</h4>
+    <p>Use for medium text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-medium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-large</h4>
+    <p>Use for larger text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-large">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <!-- <div class="site-example-utility">
+    <h4>site-text-lead</h4>
+    <p>Use to create leading / introductory text.</p>
+    <div class="site-example-utility__panel">
+      <p class="site-text-lead">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Proin tincidunt efficitur libero, vitae consectetur dui consectetur quis.
+      </p>
+    </div>
+  </div> -->
+  <div class="site-example-utility">
+    <h4>u-text-break</h4>
+    <p>Use to prevent long URLs from breaking out of container.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-break">
+        Prevent long urls <a href="http://www.auriviverrurnaveportaasdfsdaf.com">http://www.likethislongwordybloviatingwebaddressrighthere.com</a> from breaking out of container. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-overflow</h4>
+    <p>Use to truncate (ellipsis) overflowing text. Resize browser to observe.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-overflow">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed quam eget sapien consequat cursus eget pretium est. Maecenas porta tincidunt ullamcorper.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-underline</h4>
+    <p>Use to underline text.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-underline">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-normal</h4>
+    <p>Use to set normal font style.</p>
+    <div class="site-example-utility__panel">
+      <p>
+        <em>Lorem ipsum <span class="u-text-normal">this text is wrapped in u-text-normal</span>, consectetur adipiscing elit.</em>
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-italic</h4>
+    <p>Use to force italic font style. Optionally, use <code>&lt;em&gt;</code> tags.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-italic">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-capitalize</h4>
+    <p>Use to capitalize.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-capitalize">
+        capitalize the first letter of every word in this paragraph
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-capitalize-first</h4>
+    <p>Use to capitalize first letter only.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-capitalize-first">
+        capitalize the first letter of first word in this paragraph
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-lowercase</h4>
+    <p>Use to make lowercase.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-lowercase">
+        ALL OF THIS TEXT IS LOWERCASE
+      </p>
+    </div>
+  </div>
+  <div class="site-example-utility">
+    <h4>u-text-uppercase</h4>
+    <p>Use to make uppercase.</p>
+    <div class="site-example-utility__panel">
+      <p class="u-text-uppercase">
+        all of this text is uppercase
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Color Utilities</h3>
+  <div class="site-example-utility">
+    <h4>u-bg-<em>color</em></h4>
+    <p>Use to set background color.</p>
+    <div class="u-inline-grid">
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-accent"></div>
+        <div class="site-swatch__text">u-bg-accent</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-danger"></div>
+        <div class="site-swatch__text">u-bg-danger</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-gray"></div>
+        <div class="site-swatch__text">u-bg-gray</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-gray-dark"></div>
+        <div class="site-swatch__text">u-bg-gray-dark</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-gray-darker"></div>
+        <div class="site-swatch__text">u-bg-gray-darker</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-gray-light"></div>
+        <div class="site-swatch__text">u-bg-gray-light</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-gray-lighter"></div>
+        <div class="site-swatch__text">u-bg-gray-lighter</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-gray-lightest"></div>
+        <div class="site-swatch__text">u-bg-gray-lightest</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-info"></div>
+        <div class="site-swatch__text">u-bg-info</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-primary"></div>
+        <div class="site-swatch__text">u-bg-primary</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-primary-rich"></div>
+        <div class="site-swatch__text">u-bg-primary-rich</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-secondary"></div>
+        <div class="site-swatch__text">u-bg-secondary</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-success"></div>
+        <div class="site-swatch__text">u-bg-success</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-warning"></div>
+        <div class="site-swatch__text">u-bg-warning</div>
+      </div>
+      <div class="site-swatch">
+        <div class="site-swatch__sample u-bg-white"></div>
+        <div class="site-swatch__text">u-bg-white</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-text-<em>color</em></h4>
+    <p>Used to set text color.</p>
+    <div class="site-example-utility__text-color">
+      <span class="u-text-accent">u-text-accent</span>
+      <span class="u-text-body">u-text-body</span>
+      <span class="u-text-danger">u-text-danger</span>
+      <span class="u-text-highlight">u-text-highlight</span>
+      <span class="u-text-info">u-text-info</span>
+      <span class="u-text-muted">u-text-muted</span>
+      <span class="u-text-primary">u-text-primary</span>
+      <span class="u-text-secondary">u-text-secondary</span>
+      <span class="u-text-success">u-text-success</span>
+      <span class="u-text-warning">u-text-warning</span>
+      <span class="u-bg-primary">
+        <span class="u-text-white">u-text-white</span>
+      </span>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="site-section">
+  <h3 class="site-subheadline">Flexbox Utilities</h3>
+  <div class="site-copy">
+    <p>Most of our layout will be handled by our Flexbox grid system or within the CSS of complex components. However, we have included some helpful Flexbox utility classes to compliment our layout system and offer additional flexibility.</p>
+    <p>For a Flexbox refresher, see this <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks</a> article.</p>
+  </div>
+
+  <br>
+
+  <h5 class="site-miniheadline">Aligning Items</h5>
+  <p>Align items in the cross axis of the current line of the flex container. Similar to 'justify-content' but in the perpendicular direction.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-baseline</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-baseline">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-center</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-center">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-end</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-end">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-start</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-items-stretch</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-stretch" style="height: 8rem;">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item" style="font-size: 1.8rem">item two</div>
+        <div class="site-example-utility__flex-item" style="font-size: 2rem">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Aligning Content</h5>
+  <p>Aligns items within the flex container when there is extra space in the cross-axis. Has no effect when there is only one line of flex items. Requires that flex items are wrapping.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-start</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-start u-flex-wrap" style="height: 14rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-end</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-end u-flex-wrap" style="height: 14rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-center</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-center u-flex-wrap" style="height: 14rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-content-stretch</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-content-stretch u-flex-wrap" style="height: 14rem;">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Aligning Self</h5>
+  <p>Override default alignment of single item when specified by 'align-items.'</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-auto</h4>
+    <p>Inherits 'align-items' from parent container. In this case, the parent has <code>align-items: flex-start</code>. Items one and two have <code>align-self: flex-end</code>.</p>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-auto">u-flex-align-self-auto</div>
+        <div class="site-example-utility__flex-item u-flex-align-self-end">flex item</div>
+        <div class="site-example-utility__flex-item u-flex-align-self-end">flex item</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-center</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-center">u-flex-align-self-center</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-end</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-end">u-flex-align-self-end</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-start</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-end" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-start">u-flex-align-self-start</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-align-self-stretch</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-align-items-start" style="height: 10rem;">
+        <div class="site-example-utility__flex-item u-flex-align-self-stretch">u-flex-align-self-stretch</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Direction</h5><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-direction-column</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-direction-column">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-direction-column-reverse</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-direction-column-reverse">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-direction-row</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-direction-row">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-direction-row-reverse</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-direction-row-reverse">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Display</h5><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex</h4>
+    <div class="site-grid-box-container">
+      <div class="site-example-utility__flex-item u-flex">u-flex</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-inline-flex</h4>
+    <div class="site-grid-box-container">
+      <div class="site-example-utility__flex-item u-inline-flex">u-inline-flex</div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Grow</h5>
+  <p>Specify the flex grow factor, which determines how much the flex item will grow relative to the rest of the flex items in the flex container.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-grow-<em>size (1-5)</em></h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-m-b-sm">
+        <div class="site-example-utility__flex-item u-flex-grow-1">u-flex-grow-1</div>
+        <div class="site-example-utility__flex-item u-flex-grow-2">u-flex-grow-2</div>
+      </div>
+      <div class="u-flex u-m-b-sm">
+        <div class="site-example-utility__flex-item u-flex-grow-1">u-flex-grow-1</div>
+        <div class="site-example-utility__flex-item u-flex-grow-3">u-flex-grow-3</div>
+      </div>
+      <div class="u-flex u-m-b-sm">
+        <div class="site-example-utility__flex-item u-flex-grow-1">u-flex-grow-1</div>
+        <div class="site-example-utility__flex-item u-flex-grow-4">u-flex-grow-4</div>
+      </div>
+      <div class="u-flex">
+        <div class="site-example-utility__flex-item u-flex-grow-1">u-flex-grow-1</div>
+        <div class="site-example-utility__flex-item u-flex-grow-5">u-flex-grow-5</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Justify</h5>
+  <p>Align items along the main axis of the current line of the flex container.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-justify-around</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-justify-around">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-justify-between</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-justify-between">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-justify-center</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-justify-center">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-justify-end</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-justify-end">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-justify-start</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-justify-start">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Order</h5>
+  <p>Change order without editing underlying HTML.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-order-first</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex">
+        <div class="site-example-utility__flex-item">item one</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item u-flex-order-first">item three (u-flex-order-first)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-order-last</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex">
+        <div class="site-example-utility__flex-item u-flex-order-last">item one (u-flex-order-last)</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-order-none</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex">
+        <div class="site-example-utility__flex-item u-flex-order-none">item one (u-flex-order-none)</div>
+        <div class="site-example-utility__flex-item">item two</div>
+        <div class="site-example-utility__flex-item">item three</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Shrink</h5>
+  <p>Specify the flex shrink factor, which determines how much the flex item will shrink relative to the rest of the flex items in the flex container.</p><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-shrink-<em>size (0-3)</em></h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex">
+        <div class="site-example-utility__flex-item u-flex-grow-1 u-flex-shrink-0">u-flex-shrink-0</div>
+        <div class="site-example-utility__flex-item u-flex-grow-1 u-flex-shrink-1">u-flex-shrink-1</div>
+        <div class="site-example-utility__flex-item u-flex-grow-1 u-flex-shrink-2">u-flex-shrink-2</div>
+        <div class="site-example-utility__flex-item u-flex-grow-1 u-flex-shrink-3">u-flex-shrink-3</div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Flex Wrap</h5><br>
+
+  <div class="site-example-utility">
+    <h4>u-flex-nowrap</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-nowrap">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-wrap</h4>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-wrap">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-flex-wrap-reverse</h4>
+    <p>Flex items wrap upwards.</p>
+    <div class="site-grid-box-container">
+      <div class="u-flex u-flex-wrap-reverse">
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+        <div class="site-example-utility__flex-item">flex item</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="site-section">
+  <h3 class="site-subheadline">Spacing Utilities</h3>
+  <div class="site-copy"></div>
+
+  <h5 class="site-miniheadline">Margins</h5>
+  <div class="site-copy">
+    <p>Dark yellow areas represent margin. Use these utility classes to add or remove margin to page elements. We offer four (4) size options: small, default, medium, and large.</p>
+  </div><br>
+
+  <div class="site-example-utility">
+    <h4>u-m-<em>side</em>-auto</h4>
+    <p>Auto margin for a particlar side or sides.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-a-auto">u-m-a-auto</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-l-auto">u-m-l-auto</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-r-auto">u-m-r-auto</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-x-auto">u-m-x-auto</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-<em>side</em>-0</h4>
+    <p>Remove margin from a particlar side or sides.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-a-0">u-m-a-0</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-t-0">u-m-t-0</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-r-0">u-m-r-0</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-b-0">u-m-b-0</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-l-0">u-m-l-0</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-x-0">u-m-x-0</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__default-item u-m-y-0">u-m-y-0</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-a</h4>
+    <p>Add margin around all sides.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-a-sm">u-m-a-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-a">u-m-a</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-a-md">u-m-a-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-a-lg">u-m-a-lg</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-t</h4>
+    <p>Add top margin.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-t-sm">u-m-t-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-t">u-m-t</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-t-md">u-m-t-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-t-lg">u-m-t-lg</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-r</h4>
+    <p>Add right margin.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-r-sm">u-m-r-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-r">u-m-r</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-r-md">u-m-r-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-r-lg">u-m-r-lg</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-b</h4>
+    <p>Add bottom margin.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-b-sm">u-m-b-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-b">u-m-b</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-b-md">u-m-b-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-b-lg">u-m-b-lg</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-l</h4>
+    <p>Add left margin.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-l-sm">u-m-l-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-l">u-m-l</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-l-md">u-m-l-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-l-lg">u-m-l-lg</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-x</h4>
+    <p>Add left and right margin.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-x-sm">u-m-x-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-x">u-m-x</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-x-md">u-m-x-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-x-lg">u-m-x-lg</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-m-y</h4>
+    <p>Add top and bottom margin.</p>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-y-sm">u-m-y-sm</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-y">u-m-y</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-y-md">u-m-y-md</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-y-lg">u-m-y-lg</div>
+    </div>
+    <div class="site-example-utility__margin">
+      <div class="site-example-utility__margin__item u-m-y-xlg">u-m-y-xlg</div>
+    </div>
+  </div>
+
+  <h5 class="site-miniheadline">Padding</h5>
+  <div class="site-copy">
+    <p>Dark blue areas represent padding. Use these utility classes to add or remove padding to page elements. We offer four (4) size options: small, default, medium, and large.</p>
+  </div><br>
+
+  <div class="site-example-utility">
+    <h4>u-p-<em>side</em>-0</h4>
+    <p>Remove padding from a particlar side or sides.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-a-0">&nbsp;u-p-a-0&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-t-0">&nbsp;u-p-t-0&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-r-0">&nbsp;u-p-r-0&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-b-0">&nbsp;u-p-b-0&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-l-0">&nbsp;u-p-l-0&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-x-0">&nbsp;u-p-x-0&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__default-item u-p-y-0">&nbsp;u-p-y-0&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-p-a</h4>
+    <p>Add padding around all sides.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-a-sm">&nbsp;u-p-a-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-a">&nbsp;u-p-a&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-a-md">&nbsp;u-p-a-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-a-lg">&nbsp;u-p-a-lg&nbsp;</div>
+    </div>
+  </div>
+
+    <div class="site-example-utility">
+    <h4>u-p-t</h4>
+    <p>Add top padding.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-t-sm">&nbsp;u-p-t-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-t">&nbsp;u-p-t&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-t-md">&nbsp;u-p-t-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-t-lg">&nbsp;u-p-t-lg&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-p-r</h4>
+    <p>Add right padding.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-r-sm">&nbsp;u-p-r-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-r">&nbsp;u-p-r&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-r-md">&nbsp;u-p-r-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-r-lg">&nbsp;u-p-r-lg&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-p-b</h4>
+    <p>Add bottom padding.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-b-sm">&nbsp;u-p-b-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-b">&nbsp;u-p-b&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-b-md">&nbsp;u-p-b-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-b-lg">&nbsp;u-p-b-lg&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-p-l</h4>
+    <p>Add left padding.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-l-sm">&nbsp;u-p-l-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-l">&nbsp;u-p-l&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-l-md">&nbsp;u-p-l-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-l-lg">&nbsp;u-p-l-lg&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-p-x</h4>
+    <p>Add left and right padding.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-x-sm">&nbsp;u-p-x-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-x">&nbsp;u-p-x&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-x-md">&nbsp;u-p-x-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-x-lg">&nbsp;u-p-x-lg&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="site-example-utility">
+    <h4>u-p-y</h4>
+    <p>Add top and bottom padding.</p>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-y-sm">&nbsp;u-p-y-sm&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-y">&nbsp;u-p-y&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-y-md">&nbsp;u-p-y-md&nbsp;</div>
+    </div>
+    <div class="site-example-utility__padding">
+      <div class="site-example-utility__padding__item u-p-y-lg">&nbsp;u-p-y-lg&nbsp;</div>
+    </div>
+  </div>
+
+</section>
+
+
+<section>
+  <h3 class="site-subheadline">Inline Grid</h3>
+  <div class="site-copy">
+    <p>Variable-width content; like buttons and/or list items, can wrap at certain widths within our app when placed next to each other. We can use the <code>u-inline-grid</code> class to provide adequate spacing.</p>
+    <p>Read more about this on the <a href="../utility-components/">Utility Components</a> page.</p>
+  </div>
+
+  <br>
+
+  <div class="site-example-utility__panel">
+    <div class="u-inline-grid">
+      <a href="javascript:void(0)" class="btn btn--default">Default</a>
+      <a href="javascript:void(0)" class="btn btn--primary">Primary</a>
+      <a href="javascript:void(0)" class="btn btn--secondary">Secondary</a>
+      <a href="javascript:void(0)" class="btn btn--outline-default">Outline Default</a>
+      <a href="javascript:void(0)" class="btn btn--outline-primary">Outline Primary</a>
+      <a href="javascript:void(0)" class="btn btn--link">Link</a>
+      <a href="javascript:void(0)" class="btn btn--danger">Danger</a>
+    </div>
+  </div>
+
+</section>
+
+
+
+  </main>
+</div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="../scripts/rhinostyle-docs.js"></script>
+    <script>
+      $(document).ready(function() {
+        function loop() {
+          // nav toggling below 1200px
+          if(window.matchMedia("(max-width: 1199px)").matches) {
+            $('html').removeClass('navigation-is-locked');
+            $('#site-header__menu').click(function(){
+              $('#site-navigation').scrollTop(0);
+              $('html').addClass('navigation-is-open');
+            });
+            $('#site-overlay').click(function(){
+              $('html').removeClass('navigation-is-open');
+            });
+          }
+
+          // lock nav in open position at 1200px
+          if(window.matchMedia("(min-width: 1200px)").matches) {
+            $('html').removeClass('navigation-is-open');
+            $('html').addClass('navigation-is-locked');
+          }
+
+
+          // panel toggling below 1500px
+          if(window.matchMedia("(max-width: 1499px)").matches) {
+            $('#site-overlay').click(function(){
+              $('html').removeClass('panel-is-open');
+            });
+          }
+
+          requestAnimationFrame(loop);
+        }
+
+        loop();
+
+        // SVG loader
+        boomsvgloader.load('../svg/sprite.svg');
+
+        // progress bars - send to random position
+        /*$('.progress__bar').each(function(){
+          var position = Math.floor(Math.random()*100);
+          if(position<4) { position = 4; }
+          // add % to label
+          if($(this).find('.progress__bar__slider__label').length > 0) {
+            $(this).find('.progress__bar__slider__label').html(position+'%');
+          }
+          // position bar
+          $(this).find('.progress__bar__slider').css('transform','translateX('+position+'%)');
+          $(this).find('.progress__bar__slider').css('-webkit-transform','translateX('+position+'%)');
+        });
+
+
+        // progress bars - click progress bar to transition
+        $(".progress__bar").on("click", function(e) {
+          var offset = $(this).offset(),
+              position = Math.floor((e.pageX - offset.left)/$(this).width()*100) + 1;
+          // check for label
+          if($(this).find('.progress__bar__slider__label').length > 0) {
+            // add % to label
+            $(this).find('.progress__bar__slider__label').html(position+'%');
+            if (position < 3 ) { position = 3; }
+          }
+          // position bar
+          $(this).find('.progress__bar__slider').css('transform','translateX('+position+'%)');
+          $(this).find('.progress__bar__slider').css('-webkit-transform','translateX('+position+'%)');
+        });*/
+
+
+        // animation testing
+        var rhinoFlagFrames = 51, // 52 total frames minus 1
+            rhinoFlagEase = new SteppedEase(rhinoFlagFrames),
+            rhinoFlagPosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
+            rhinoFlagSpeed = 3,
+
+            rhinoLoginFrames = 64, // 65 total frames minus 1
+            rhinoLoginEase = new SteppedEase(rhinoLoginFrames),
+            rhinoLoginPosition = '-98.46%', // total height of svg (29900) minus height of 1 frame (460px) / 29900 * 100
+            rhinoLoginSpeed = 3,
+
+            rhinoSecureFrames = 51, // 52 total frames minus 1
+            rhinoSecureEase = new SteppedEase(rhinoSecureFrames),
+            rhinoSecurePosition = '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
+            rhinoSecureSpeed = 3;
+
+            rhinoTimeFrames = 58, // 59 total frames minus 1
+            rhinoTimeEase = new SteppedEase(rhinoTimeFrames),
+            rhinoTimePosition = '-98.3%', // total height of svg (51920) minus height of 1 frame (880px) / 51920 * 100
+            rhinoTimeSpeed = 3;
+
+        var rhinoFlagTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoFlagTL.to('.rhino-animation__flag', rhinoFlagSpeed, {
+          y: rhinoFlagPosition,
+          ease: rhinoFlagEase
+        });
+
+        var rhinoLoginTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoLoginTL.to('.rhino-animation__login', rhinoLoginSpeed, {
+          y: rhinoLoginPosition,
+          ease: rhinoLoginEase
+        });
+
+        var rhinoSecureTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoSecureTL.to('.rhino-animation__secure', rhinoSecureSpeed, {
+          y: rhinoSecurePosition,
+          ease: rhinoSecureEase
+        });
+
+        var rhinoTimeTL = new TimelineMax({repeat:-1,repeatDelay:2});
+        rhinoTimeTL.to('.rhino-animation__time', rhinoTimeSpeed, {
+          y: rhinoTimePosition,
+          ease: rhinoTimeEase
+        });
+
+        var hostName = document.location.hostname;
+
+        // Handle active navigation
+        var split = (hostName == "localhost") ? 1:2;
+
+        var navLocation = location.pathname.split("/")[split];
+
+        if (navLocation) {
+          $('.site-navigation__nav a[href^="../' + navLocation + '"]').addClass('active');
+        } else {
+          $('.site-navigation__nav a[href=""').addClass('active');
+        }
+      });
+    </script>
+  </body>
+  </html>
+

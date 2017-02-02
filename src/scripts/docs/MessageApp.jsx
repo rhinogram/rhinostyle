@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Message } from '../components';
+import { Message, UtilityInlineGrid } from '../components';
 
 import Playground from 'component-playground';
 
@@ -16,6 +16,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Message,
+  UtilityInlineGrid
 };
 
 const MessageApp = () =>
@@ -25,17 +26,23 @@ const MessageApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type="default | primary | note"</code></p>
-      <div className="site-example-messages">
-        <Message>
-          Default Message <a href="#">www.linktosomething.com</a>
-        </Message>
-        <Message type="primary">
-          Primary Message <a href="#">www.linktosomething.com</a>
-        </Message>
-        <Message type="note">
-          Note Message <a href="#">www.linktosomething.com</a>
-        </Message>
-      </div>
+      <UtilityInlineGrid>
+        <div>
+          <Message>
+            Default Message <a href="#">www.linktosomething.com</a>
+          </Message>
+        </div>
+        <div>
+          <Message type="primary">
+            Primary Message <a href="#">www.linktosomething.com</a>
+          </Message>
+        </div>
+        <div>
+          <Message type="note">
+            Note Message <a href="#">www.linktosomething.com</a>
+          </Message>
+        </div>
+      </UtilityInlineGrid>
     </section>
 
     <section className="site-section">
@@ -43,32 +50,44 @@ const MessageApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inbound Message</h5>
         <p className="site-copy"><code>direction="inbound"</code></p>
-        <div>
-          <Message direction="inbound">
-            Default Message
-          </Message>
-          <Message direction="inbound" type="primary">
-            Primary Message
-          </Message>
-          <Message direction="inbound" type="note">
-            Note Message
-          </Message>
-        </div>
+        <UtilityInlineGrid>
+          <div>
+            <Message direction="inbound">
+              Default Message
+            </Message>
+          </div>
+          <div>
+            <Message direction="inbound" type="primary">
+              Primary Message
+            </Message>
+          </div>
+          <div>
+            <Message direction="inbound" type="note">
+              Note Message
+            </Message>
+          </div>
+        </UtilityInlineGrid>
       </div>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Outbound Message</h5>
         <p className="site-copy"><code>direction="outbound"</code></p>
-        <div>
-          <Message direction="outbound">
-            Default Message
-          </Message>
-          <Message direction="outbound" type="primary">
-            Primary Message
-          </Message>
-          <Message direction="outbound" type="note">
-            Note Message
-          </Message>
-        </div>
+        <UtilityInlineGrid>
+          <div>
+            <Message direction="outbound">
+              Default Message
+            </Message>
+          </div>
+          <div>
+            <Message direction="outbound" type="primary">
+              Primary Message
+            </Message>
+          </div>
+          <div>
+            <Message direction="outbound" type="note">
+              Note Message
+            </Message>
+          </div>
+        </UtilityInlineGrid>
       </div>
     </section>
 

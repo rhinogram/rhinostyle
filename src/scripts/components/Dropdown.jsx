@@ -1,11 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
-import DropdownMenuItem from './DropdownMenuItem';
-import DropdownMenuItemWild from './DropdownMenuItemWild';
-import DropdownMenuScroll from './DropdownMenuScroll';
-import DropdownFilter from './DropdownFilter';
-import DropdownWrapper from './DropdownWrapper';
-import Icon from './Icon';
+
+import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
 class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';

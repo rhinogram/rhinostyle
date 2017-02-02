@@ -1,14 +1,18 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div>
-        <Message direction="outbound" type="note">
-          This is a note.
-        </Message>
-        <Message direction="inbound">
-          This is a default message.
-        </Message>
-      </div>
+      <UtilityInlineGrid>
+        <div>
+          <Message direction="outbound" type="note">
+            This is a note.
+          </Message>
+        </div>
+        <div>
+          <Message direction="inbound">
+            This is a default message.
+          </Message>
+        </div>
+      </UtilityInlineGrid>
     );
   }
 }

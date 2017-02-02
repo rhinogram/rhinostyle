@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon } from '../components';
+import { Button, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
 
 import Playground from 'component-playground';
 
@@ -77,6 +77,7 @@ const exampleScope  = {
   DropdownMenuScroll,
   DropdownMultiSelect,
   Icon,
+  UtilityInlineGrid,
 };
 
 const DropdownApp = () =>
@@ -91,7 +92,7 @@ const DropdownApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
       <p className="site-copy">Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.</p>
-      <div className="site-example-dropdowns">
+      <UtilityInlineGrid>
         <Dropdown label="Default">
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
@@ -165,7 +166,6 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <br /><br />
         <Dropdown type="default" icon="search">
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
@@ -219,7 +219,7 @@ const DropdownApp = () =>
           <DropdownMenuDivider />
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
-      </div>
+      </UtilityInlineGrid>
 
     </section>
 

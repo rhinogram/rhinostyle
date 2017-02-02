@@ -1,24 +1,26 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-buttons">
-        <div className="u-m-b u-bg-gray-lightest u-p-a">
+      <div>
+        <UtilityInlineGrid>
           <Button onClick={() => console.log('clicked too')} url="http://www.rhinogram.com" blankWindow title="Visit Rhinogram">Default</Button>
           <Button type="outline-default" route="/home">Outline Default</Button>
           <Button type="primary">Primary</Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
-        </div>
-        <div className="u-m-b">
-          <Button size="large">Large</Button>
-          <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
-          <Button size="large" iconOnly><Icon icon="cog" /></Button>
-          <Button>Default</Button>
-          <Button type="outline-primary">Outline Primary with Badge &nbsp;<span className="btn__badge">12</span></Button>
-          <Button><Icon icon="cog" />&nbsp;Default</Button>
-          <Button iconOnly><Icon icon="cog" /></Button>
-          <Button size="small">Small</Button>
-          <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
-          <Button size="small" iconOnly><Icon icon="cog" /></Button>
+        </UtilityInlineGrid>
+        <div className="u-m-t">
+          <UtilityInlineGrid>
+            <Button size="large">Large</Button>
+            <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+            <Button size="large" iconOnly><Icon icon="cog" /></Button>
+            <Button>Default</Button>
+            <Button type="outline-primary">Outline Primary with Badge &nbsp;<span className="btn__badge">12</span></Button>
+            <Button><Icon icon="cog" />&nbsp;Default</Button>
+            <Button iconOnly><Icon icon="cog" /></Button>
+            <Button size="small">Small</Button>
+            <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+            <Button size="small" iconOnly><Icon icon="cog" /></Button>
+          </UtilityInlineGrid>
         </div>
       </div>
     );
