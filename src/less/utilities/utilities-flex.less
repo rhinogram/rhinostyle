@@ -1,0 +1,248 @@
+// File: utilities-layout.less
+// Note: Inspired by https://github.com/suitcss/utils-flex
+
+// Aligning with `auto` margins (http://www.w3.org/TR/css-flexbox-1/#auto-margins)
+// can be accomplished using our auto margin utilities found in `utilities-spacing`
+
+
+// -------------------------
+// Flex Align Content
+// -------------------------
+// Aligns items within the flex container when there is extra space in the cross-axis
+// Has no effect when there is only one line of flex items.
+
+
+.u-flex-align-content-start {
+  align-content: flex-start !important;
+}
+
+.u-flex-align-content-end {
+  align-content: flex-end !important;
+}
+
+.u-flex-align-content-center {
+  align-content: center !important;
+}
+
+.u-flex-align-content-stretch {
+  align-content: stretch !important;
+}
+
+.u-flex-align-content-between {
+  align-content: space-between !important;
+}
+
+.u-flex-align-content-around {
+  align-content: space-around !important;
+}
+
+
+// -------------------------
+// Flex Align Items
+// -------------------------
+// Align items in the cross axis of the current line of the flex container
+// Similar to `justify-content` but in the perpendicular direction
+
+
+.u-flex-align-items-baseline {
+  align-items: baseline !important;
+}
+
+.u-flex-align-items-center {
+  align-items: center !important;
+}
+
+.u-flex-align-items-end {
+  align-items: flex-end !important;
+}
+
+.u-flex-align-items-start {
+  align-items: flex-start !important;
+}
+
+.u-flex-align-items-stretch {
+  align-items: stretch !important;
+}
+
+
+// -------------------------
+// Flex Align Self
+// -------------------------
+// Override default alignment of single item when specified by `align-items`
+
+
+.u-flex-align-self-auto {
+  align-self: auto !important;
+}
+
+.u-flex-align-self-baseline {
+  align-self: baseline !important;
+}
+
+.u-flex-align-self-center {
+  align-self: center !important;
+}
+
+.u-flex-align-self-end {
+  align-self: flex-end !important;
+}
+
+.u-flex-align-self-start {
+  align-self: flex-start !important;
+}
+
+.u-flex-align-self-stretch {
+  align-self: stretch !important;
+}
+
+
+// -------------------------
+// Flex Direction
+// -------------------------
+
+
+.u-flex-direction-column {
+  flex-direction: column !important;
+}
+
+.u-flex-direction-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.u-flex-direction-row {
+  flex-direction: row !important;
+}
+
+.u-flex-direction-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+
+// -------------------------
+// Flex Display
+// -------------------------
+
+
+.u-flex {
+  display: flex !important;
+}
+
+.u-inline-flex {
+  display: inline-flex !important;
+}
+
+
+// -------------------------
+// Flex Grow
+// -------------------------
+// Specify the flex grow factor, which determines how much the flex item will
+// grow relative to the rest of the flex items in the flex container.
+
+
+.u-flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.u-flex-grow-2 {
+  flex-grow: 2 !important;
+}
+
+.u-flex-grow-3 {
+  flex-grow: 3 !important;
+}
+
+.u-flex-grow-4 {
+  flex-grow: 4 !important;
+}
+
+.u-flex-grow-5 {
+  flex-grow: 5 !important;
+}
+
+
+// -------------------------
+// Flex Justify
+// -------------------------
+// Align items along the main axis of the current line of the flex container
+
+
+.u-flex-justify-around {
+  justify-content: space-around !important;
+}
+
+.u-flex-justify-between {
+  justify-content: space-between !important;
+}
+
+.u-flex-justify-center {
+  justify-content: center !important;
+}
+
+.u-flex-justify-end {
+  justify-content: flex-end !important;
+}
+
+.u-flex-justify-start {
+  justify-content: flex-start !important;
+}
+
+
+// -------------------------
+// Flex Order
+// -------------------------
+// Change order without editing underlying HTML
+
+
+.u-flex-order-first {
+  order: -1 !important;
+}
+
+.u-flex-order-last {
+  order: 1 !important;
+}
+
+.u-flex-order-none {
+  order: 0 !important;
+}
+
+
+// -------------------------
+// Flex Shrink
+// -------------------------
+// Specify the flex shrink factor, which determines how much the flex item will
+// shrink relative to the rest of the flex items in the flex container.
+
+
+.u-flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+.u-flex-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+.u-flex-shrink-2 {
+  flex-shrink: 2 !important;
+}
+
+.u-flex-shrink-3 {
+  flex-shrink: 3 !important;
+}
+
+
+// -------------------------
+// Flex Wrap
+// -------------------------
+
+
+.u-flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.u-flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.u-flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}

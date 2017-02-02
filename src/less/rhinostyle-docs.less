@@ -54,13 +54,6 @@ pre {
   }
 }
 
-
-.site-example-avatar {
-  .avatar:not(:last-child) {
-    margin-right: @margin-small;
-  }
-}
-
 .site-example-alerts {
   .alert:not(:last-child) {
     margin-bottom: @margin-large;
@@ -108,16 +101,6 @@ pre {
   }
   .msg:not(:last-child) {
     margin-right: @margin-large;
-  }
-}
-
-.site-example-pills {
-  .pill {
-    margin-bottom: @margin-small;
-  }
-
-  .pill:not(:last-child) {
-    margin-right: @margin-small;
   }
 }
 
@@ -671,7 +654,7 @@ html.panel-is-open {
   position: relative;
   transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
   z-index: @zindex-site-wrapper;
-  
+
   /*
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load
@@ -701,7 +684,7 @@ html.panel-is-open {
   li {
     //color: @color-gray-dark;
     margin-bottom: @margin-xsmall;
-    
+
     b:first-of-type {
       color: @state-info-text;
       font-weight: @font-weight-semibold;

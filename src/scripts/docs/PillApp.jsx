@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Pill } from '../components';
+import { Pill, UtilityInlineGrid } from '../components';
 
 import Playground from 'component-playground';
 
@@ -20,6 +20,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Pill,
+  UtilityInlineGrid,
 };
 
 const PillApp = () =>

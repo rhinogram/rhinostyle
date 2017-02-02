@@ -1,10 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import DropdownMenuItem from './DropdownMenuItem';
-import DropdownMenuHeader from './DropdownMenuHeader';
-import DropdownMenuScroll from './DropdownMenuScroll';
-import DropdownWrapper from './DropdownWrapper';
-import Pill from './Pill';
+import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, Pill, UtilityInlineGrid } from '../components';
 
 class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
@@ -209,9 +205,11 @@ class DropdownMultiSelect extends React.Component {
         </DropdownWrapper>
         {showValidationMessage()}
         {showExplanationMessage()}
-        <div className="dropdown-multiselect-pills">
-          {activeKeys.map(renderPill)}
-        </div>
+        {activeKeys.length ? <div className="u-p-t-sm">
+          <UtilityInlineGrid size="small">
+            {activeKeys.map(renderPill)}
+          </UtilityInlineGrid>
+        </div> : null }
       </span>
     );
   }

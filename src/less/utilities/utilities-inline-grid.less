@@ -1,0 +1,37 @@
+// File: utilities-inline.less
+
+// Used for side-by-side variable content for proper wrapping
+
+.u-inline-grid {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: (-@margin-base) 0 0 (-@margin-base);
+  padding: 0;
+
+  > * {
+    margin-left: @margin-base;
+    margin-top: @margin-base;
+  }
+}
+
+.u-inline-grid--small {
+  margin-left: (-@margin-small);
+  margin-top: (-@margin-small);
+
+  > * {
+    margin-left: @margin-small;
+    margin-top: @margin-small;
+  }
+}
+
+.u-inline-grid--large {
+  margin-left: (-@margin-large);
+  margin-top: (-@margin-large);
+
+  > * {
+    margin-left: @margin-large;
+    margin-top: @margin-large;
+  }
+}

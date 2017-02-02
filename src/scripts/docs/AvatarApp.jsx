@@ -2,7 +2,7 @@ import Playground from 'component-playground';
 import React      from 'react';
 import ReactDOM   from 'react-dom';
 
-import { Avatar, Icon } from '../components';
+import { Avatar, Icon, UtilityInlineGrid } from '../components';
 
 /* eslint import/no-unresolved: 0 */
 const avatarExample = require('raw!./examples/Avatar.example.txt');
@@ -19,6 +19,7 @@ const exampleScope  = {
   ReactDOM,
   Avatar,
   Icon,
+  UtilityInlineGrid,
 };
 
 const AvatarApp = () =>
@@ -30,20 +31,20 @@ const AvatarApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Default Avatar</h5>
         <p className="site-copy"><code>type="default"</code></p>
-        <div className="site-example-avatar">
+        <UtilityInlineGrid>
           <Avatar image="//source.unsplash.com/category/people/200x200" name="Ben Bruning" />
           <Avatar name="Ben Bruning" />
           <Avatar />
-        </div>
+        </UtilityInlineGrid>
       </div>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Member Avatar</h5>
         <p className="site-copy"><code>type="member"</code></p>
-        <div className="site-example-avatar">
+        <UtilityInlineGrid>
           <Avatar image="//source.unsplash.com/category/people/200x200" name="Ben Bruning" type="member" />
           <Avatar name="Ben Bruning" type="member" />
           <Avatar type="member" />
-        </div>
+        </UtilityInlineGrid>
       </div>
     </section>
 
@@ -52,20 +53,20 @@ const AvatarApp = () =>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Large Avatar</h5>
         <p className="site-copy"><code>size="large"</code></p>
-        <div className="site-example-avatar">
+        <UtilityInlineGrid>
           <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="large" type="member" />
           <Avatar name="Craig Anthony" size="large" type="member" />
           <Avatar type="member" size="large" />
-        </div>
+        </UtilityInlineGrid>
       </div>
       <div>
         <h5 className="site-miniheadline">Small Avatar</h5>
         <p className="site-copy"><code>size="small"</code></p>
-        <div className="site-example-avatar">
+        <UtilityInlineGrid>
           <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="small" type="member" />
           <Avatar name="Craig Anthony" size="small" type="member" />
           <Avatar type="member" size="small" />
-        </div>
+        </UtilityInlineGrid>
       </div>
     </section>
 

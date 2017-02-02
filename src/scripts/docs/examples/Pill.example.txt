@@ -1,7 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-pills">
+      <UtilityInlineGrid>
         <Pill label="Default Pill" icon="cog" />
         <Pill label="Default Pill" />
         <Pill label="Default Pill Disabled" disabled />
@@ -10,7 +10,7 @@ class ComponentExample extends React.Component {
         <Pill label="Neutral Pill Disabled" type="neutral" disabled />
         <br />
         <Pill label="Click Me" onClick={() => alert('clicked!')} />
-      </div>
+      </UtilityInlineGrid>
     );
   }
 }
