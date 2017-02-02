@@ -5,7 +5,7 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-    <div className="site-example-dropdowns">
+    <UtilityInlineGrid>
       <Dropdown label="Dropdown" wide>
         <DropdownMenuHeader label="Menu Header" />
         <DropdownMenuItem label="Custom Click Item" labelDesc="Click me and I will fire an alert." onClick={() => alert('clicked!')} />
@@ -88,7 +88,7 @@ class ComponentExample extends React.Component {
           <Button block type="outline-primary" size="small" onClick={() => alert('clicked!')}>Button Up In Here</Button>
         </DropdownMenuItemWild>
       </Dropdown>
-    </div>
+    </UtilityInlineGrid>
     );
   }
 }
