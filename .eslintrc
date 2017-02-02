@@ -68,7 +68,7 @@
     "no-script-url": 0,
     "no-underscore-dangle": 0,
     "space-before-function-paren": ["error", "never"],
-    "no-use-before-define": ["error", { "functions": false
+    "no-use-before-define": ["error", { "functions": false }],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/require-extension": ["error", { "extensions": [".jsx"] }],
     "no-confusing-arrow": ["error", {"allowParens": true}],
