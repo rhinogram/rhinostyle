@@ -1,10 +1,10 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-labels">
+      <UtilityInlineGrid>
         <Label label="ben bruning" />
         <Label type="primary" label="craig anthony" />
-      </div>
+      </UtilityInlineGrid>
     );
   }
 }

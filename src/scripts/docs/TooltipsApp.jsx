@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Icon } from '../components';
+import { Button, Icon, UtilityInlineGrid } from '../components';
 
 import Playground from 'component-playground';
 
@@ -12,6 +12,7 @@ const exampleScope  = {
   ReactDOM,
   Button,
   Icon,
+  UtilityInlineGrid
 };
 const TooltipsApp = () =>
   <div>

@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { Label } from '../components';
+import { Label, UtilityInlineGrid } from '../components';
 
 import Playground from 'component-playground';
 
@@ -16,6 +16,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Label,
+  UtilityInlineGrid,
 };
 
 const LabelApp = () =>
@@ -24,12 +25,12 @@ const LabelApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Label Types</h3>
-      <div className="site-example-labels">
+      <UtilityInlineGrid>
         <Label label="default label" />
         <Label type="primary" label="primary label" />
         <Label type="secondary" label="secondary label" />
         <Label type="accent" label="accent label" />
-      </div>
+      </UtilityInlineGrid>
     </section>
 
     <section>
