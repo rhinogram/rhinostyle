@@ -4,8 +4,8 @@
   "description": "Components, patterns, and style guide for Rhinogram.",
   "main": "dist/scripts/rhinostyle.min.js",
   "scripts": {
-    "version": "gulp dist && git add -A",
-    "postversion": "git push && git push --tags && gulp website"
+    "version": "gulp && git add -A",
+    "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
     "react": ">=15.4.2",
