@@ -82,7 +82,7 @@
         height: 2rem;
         pointer-events: none;
         position: absolute;
-        right: @padding-large;
+        right: @whitespace-large;
         top: 50%;
         transform: translateY(-50%);
         width: 2rem;
@@ -126,7 +126,7 @@
   margin: .2rem 0 0;
   max-width: 28rem;
   opacity: 0;
-  padding: @padding-xsmall 0;
+  padding: @whitespace-xsmall 0;
   position: absolute;
   text-align: left;
   top: 90%;
@@ -329,7 +329,7 @@
 .dropdown__menu__divider {
   background-color: @color-gray-lighter;
   height: .1rem;
-  margin: @margin-xsmall 0;
+  margin: @whitespace-xsmall 0;
   overflow: hidden;
 }
 
@@ -381,7 +381,7 @@
   fill: currentColor;
   height: @dropdown-chevron-size;
   line-height: 1;
-  margin-left: @margin-small;
+  margin-left: @whitespace-small;
   min-width: @dropdown-chevron-size;
   position: relative;
   vertical-align: middle;
@@ -402,6 +402,6 @@
 // only give right margin to toggle icon unless it's a child of btn--icon
 .dropdown__toggle:not(.btn--icon) {
   .dropdown__toggle__icon {
-    margin-right: @margin-xsmall;
+    margin-right: @whitespace-xsmall;
   }
 }
