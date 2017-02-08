@@ -10,8 +10,8 @@
 
 
 @alert-border-radius:         @border-radius-base;
-@alert-padding:               @padding-xlarge;
-@alert-padding-small:         @padding-base;
+@alert-padding:               @whitespace-xlarge;
+@alert-padding-small:         @whitespace-base;
 
 
 // -------------------------
@@ -38,7 +38,7 @@
 @badge-border-radius:         @border-radius-small;
 //@badge-color:                 @color-white;
 //@badge-font-weight:           normal;
-@badge-horizontal-padding:    @padding-xsmall;
+@badge-horizontal-padding:    @whitespace-xsmall;
 //@badge-line-height:           1;
 //@badge-link-hover-color:      @color-white;
 @badge-min-width:             1rem;
@@ -67,8 +67,8 @@
 
 @bucket-bg:                      @color-white;
 @bucket-border-radius:           @border-radius-base;
-@bucket-padding:                 @padding-xlarge;
-@bucket-padding-small:           @padding-base;
+@bucket-padding:                 @whitespace-xlarge;
+@bucket-padding-small:           @whitespace-base;
 
 @bucket-default-border:          @border-color-base;
 @bucket-light-border:            @color-gray-lighter;
@@ -99,9 +99,9 @@
 @btn-icon-padding-large:            @btn-height-large / 4;
 @btn-icon-padding-small:            @btn-height-small / 4;
 
-@btn-padding-base:                  @padding-base; // 1rem
-@btn-padding-large:                 @padding-large; // 1.2rem
-@btn-padding-small:                 @padding-base;
+@btn-padding-base:                  @whitespace-base; // 1rem
+@btn-padding-large:                 @whitespace-large; // 1.2rem
+@btn-padding-small:                 @whitespace-base;
 
 @btn-accent-color:                  @color-white;
 @btn-accent-bg:                     @color-accent;
@@ -200,20 +200,26 @@
 // fine-tune component padding
 @padding-gutter:            @grid-gutter-width; // 32px
 @padding-half-gutter:       @grid-gutter-width / 2; // 16px
-@padding-xlarge:            1.4rem;
-@padding-large:             1.2rem;
-@padding-base:              1rem;
-@padding-small:             .6rem;
-@padding-xsmall:            .4rem;
+
+// The following variable group is deprecated and will be removed in a future release
+// Note the `@whitespace-X` component variables they map to
+@padding-xlarge:            @whitespace-xlarge;
+@padding-large:             @whitespace-large;
+@padding-base:              @whitespace-base;
+@padding-small:             @whitespace-small;
+@padding-xsmall:            @whitespace-xsmall;
 
 // fine-tune component margin
 @margin-gutter:             @grid-gutter-width; // 32px
 @margin-half-gutter:        @grid-gutter-width / 2; // 16px
-@margin-xlarge:             1.4rem;
-@margin-large:              1.2rem;
-@margin-base:               1rem;
-@margin-small:              .6rem;
-@margin-xsmall:             .4rem;
+
+// The following variable group is deprecated and will be removed in a future release
+// Note the `@whitespace-X` component variables they map to
+@margin-xlarge:             @whitespace-xlarge;
+@margin-large:              @whitespace-large;
+@margin-base:               @whitespace-base;
+@margin-small:              @whitespace-small;
+@margin-xsmall:             @whitespace-xsmall;
 
 @component-active-color:    @color-white; // global color for active items (e.g., navs or dropdowns)
 @component-active-bg:       @color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
@@ -264,7 +270,7 @@
 @dropdown-link-active-bg:        @component-active-bg;
 @dropdown-link-disabled-color:   @color-gray-light;
 @dropdown-menu-shadow:           @shadow-depth-1;
-@dropdown-padding:               @padding-small @padding-xlarge;
+@dropdown-padding:               @whitespace-small @whitespace-xlarge;
 
 
 // -------------------------
@@ -317,7 +323,7 @@
 @legend-border-color:            #e5e5e5;
 
 
-@rhinobox-rhinodio-margin:       @margin-small;
+@rhinobox-rhinodio-margin:       @whitespace-small;
 
 
 // -------------------------
@@ -385,8 +391,8 @@
 
 @msg-border-radius:           @border-radius-base;
 @msg-line-height:             inherit;
-@msg-margin:                  @margin-base;
-@msg-padding:                 @padding-base - .1rem @padding-base @padding-base @padding-base;
+@msg-margin:                  @whitespace-base;
+@msg-padding:                 @whitespace-base - .1rem @whitespace-base @whitespace-base @whitespace-base;
 @msg-shadow-x:                0;
 @msg-shadow-y:                2px;
 @msg-shadow-blur:             2px;
@@ -423,8 +429,8 @@
 // -------------------------
 
 
-@nav-link-padding:             @padding-base @padding-half-gutter;
-@nav-link-padding-small:       @padding-small @padding-base;
+@nav-link-padding:             @whitespace-base @padding-half-gutter;
+@nav-link-padding-small:       @whitespace-small @whitespace-base;
 
 @nav-tabs-active-border-width: 2px;
 
@@ -613,7 +619,7 @@
 // -------------------------
 
 
-@system-alert-padding:              @padding-base @padding-large;
+@system-alert-padding:              @whitespace-base @whitespace-large;
 @system-alert-text:                 @color-white;
 
 
@@ -643,7 +649,7 @@
 
 @toast-border-radius:        @border-radius-base;
 @toast-font-weight:          @font-weight-light;
-@toast-padding:              @padding-base;
+@toast-padding:              @whitespace-base;
 @toast-text:                 @color-white;
 
 
@@ -657,7 +663,7 @@
 @tooltip-bg:                  @color-gray-dark;
 @tooltip-border-radius:       @border-radius-base;
 @tooltip-color:               @color-white;
-@tooltip-padding:             @padding-xsmall @padding-small;
+@tooltip-padding:             @whitespace-xsmall @whitespace-small;
 //@tooltip-opacity:             .9;
 //@tooltip-max-width:           200px;
 
@@ -724,6 +730,18 @@
 @line-height-computed:    @font-size-base * @line-height-base; // ~22px
 @line-height-large:       1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:       1.2;
+
+
+// -------------------------
+// Whitespace
+// -------------------------
+
+
+@whitespace-xlarge:             1.4rem;
+@whitespace-large:              1.2rem;
+@whitespace-base:               1rem;
+@whitespace-small:              .6rem;
+@whitespace-xsmall:             .4rem;
 
 
 // -------------------------
