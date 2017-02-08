@@ -11,7 +11,21 @@ class Modal extends React.Component {
     children:  React.PropTypes.node,
     className: React.PropTypes.string,
     size:      React.PropTypes.string,
+    onComplete: React.PropTypes.func,
+    onReverseComplete: React.PropTypes.func,
+    onReverseStart: React.PropTypes.func,
+    onStart: React.PropTypes.func,
   };
+
+  static defaultProps = {
+    children: null,
+    className: null,
+    size: null,
+    onComplete: () => {},
+    onReverseComplete: () => {},
+    onReverseStart: () => {},
+    onStart: () => {},
+  }
 
   componentDidMount() {
     const $body = document.body;
@@ -24,29 +38,39 @@ class Modal extends React.Component {
     // Attach timeline to each instance
     $modal.timeline = new TimelineMax({
       paused: true,
-      onStart() {
+      onStart: () => {
         $body.classList.add('modal-open');
-        console.log('started');
+
+        // Fire off prop update
+        this.props.onStart();
       },
       onUpdate: () => {
         const newTime = $modal.timeline.time();
         if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
           forward = !forward;
           if (!forward) {
+            // Fire off prop update
+            this.props.onReverseStart();
+
             $body.classList.remove('modal-open');
             $modal.classList.remove('is-open');
           }
         }
         lastTime = newTime;
       },
-      onComplete() {
+      onComplete: () => {
         // Focus on active modal for screen readers
         $modal.focus();
+
+        // Fire off prop update
+        this.props.onComplete();
       },
-      onReverseComplete() {
+      onReverseComplete: () => {
         ReactDOM.unmountComponentAtNode($modalContainer);
         $body.removeChild($modalContainer);
-        console.log('reverse completed');
+
+        // Fire off prop update
+        this.props.onReverseComplete();
       },
     });
 

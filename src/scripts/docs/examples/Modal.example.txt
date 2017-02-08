@@ -53,10 +53,10 @@ class ComponentExample extends React.Component {
           </div>
         </ModalBody>
         <ModalFooter>
-          <div className="u-text-right">
+          <UtilityInlineGrid size="small" align="right">
             <Button type="default" onClick={this.closeModal}>Close</Button>&nbsp;
-            <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-          </div>
+            <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+          </UtilityInlineGrid>
         </ModalFooter>
       </Modal>
     );
