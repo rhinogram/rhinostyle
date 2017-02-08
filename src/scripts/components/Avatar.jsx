@@ -72,7 +72,7 @@ class Avatar extends React.Component {
 
     if (name) {
       splitName = name.split(' ');
-      initials = splitName[0][0] + splitName[1][0];
+      initials = splitName[0][0] + splitName[splitName.length - 1][0];
     }
 
     return (
