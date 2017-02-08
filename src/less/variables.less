@@ -403,8 +403,7 @@
 // -------------------------
 
 
-@modal-backdrop-bg:           @color-black;
-@modal-backdrop-opacity:      .5;
+@modal-backdrop-bg:           fade(@color-black, 50%);
 
 @modal-content-bg:            @color-white;
 @modal-content-border-color:  @color-gray-lighter;
@@ -750,9 +749,8 @@
 
 
 @zindex-cover:             1010;
-@zindex-modal-background:  1020;
-@zindex-modal:             1030;
-@zindex-dropdown:          1040;
-@zindex-popover:           1050;
-@zindex-tooltip:           1060;
+@zindex-modal:             1020;
+@zindex-dropdown:          1030;
+@zindex-popover:           1040;
+@zindex-tooltip:           1050;
 @zindex-toast:             2000;
