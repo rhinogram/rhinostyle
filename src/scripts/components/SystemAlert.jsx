@@ -4,7 +4,7 @@ import cx    from 'classnames';
 import { Close, Icon } from '../components';
 
 const SystemAlert = (props) => {
-  const { body, className, icon, onDismiss, type, url } = props;
+  const { body, className, icon, onDismiss, type, url, urlText } = props;
   const classes = cx('system-alert', className, {
     'system-alert--danger':  type === 'danger',
     'system-alert--default': type === 'default',
@@ -20,8 +20,10 @@ const SystemAlert = (props) => {
   };
 
   const renderUrl = () => {
+    const text = urlText || 'More Information';
+
     if (url) {
-      return <a href={url} className="system-alert__link" target="_blank" rel="noopener noreferrer">More Information</a>;
+      return <a href={url} className="system-alert__link" target="_blank" rel="noopener noreferrer">{text}</a>;
     }
     return false;
   };
@@ -47,13 +49,16 @@ SystemAlert.propTypes = {
   onDismiss: React.PropTypes.func.isRequired,
   type:      React.PropTypes.oneOf(['danger', 'default', 'info', 'success']),
   url:       React.PropTypes.string,
+  urlText:   React.PropTypes.string,
 };
 
 SystemAlert.defaultProps = {
+  className: null,
   icon:      '',
   onDismiss: () => {},
   type:      'default',
   url:       '',
+  urlText:   null,
 };
 
 export default SystemAlert;
