@@ -149,7 +149,6 @@ class DropdownMultiSelect extends React.Component {
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
       'disabled':                  disabled, //eslint-disable-line
       'form__control--error':      validationMessage,
-      'form__explanation-message': explanationMessage,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {
