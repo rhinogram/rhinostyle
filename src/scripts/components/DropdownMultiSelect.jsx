@@ -12,7 +12,6 @@ class DropdownMultiSelect extends React.Component {
     className:          React.PropTypes.string,
     disabled:           React.PropTypes.bool,
     explanationMessage: React.PropTypes.string,
-    label:              React.PropTypes.string,
     onSelect:           React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     position:           React.PropTypes.string,

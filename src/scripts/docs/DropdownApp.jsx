@@ -32,11 +32,15 @@ const dropdownMultiSelectDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
   block: '[Optional] - Block level dropdown',
   className: '[Optional] - Include additional class name(s)',
+  disabled: '[Optional] - Disabled state',
+  explanationMessage: '[Optional] - Explanation message to help user',
   icon: '[Optional] - Name of icon',
   label: '[Optional] - Text in dropdown when closed',
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
+  placeholder:        '[Optional] - Any placeholder text you want in the dropdown',
+  validationMessage:  '[Optional] - Validation message for errors',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
 };
 
