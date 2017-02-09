@@ -20,10 +20,8 @@ const SystemAlert = (props) => {
   };
 
   const renderUrl = () => {
-    const text = urlText || 'More Information';
-
     if (url) {
-      return <a href={url} className="system-alert__link" target="_blank" rel="noopener noreferrer">{text}</a>;
+      return <a href={url} className="system-alert__link" target="_blank" rel="noopener noreferrer">{urlText}</a>;
     }
     return false;
   };
@@ -53,12 +51,12 @@ SystemAlert.propTypes = {
 };
 
 SystemAlert.defaultProps = {
-  className: null,
+  className: '',
   icon:      '',
   onDismiss: () => {},
   type:      'default',
   url:       '',
-  urlText:   null,
+  urlText:   'More Information',
 };
 
 export default SystemAlert;
