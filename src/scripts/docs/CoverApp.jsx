@@ -31,6 +31,7 @@ const coverHeaderDocs = {
 
 const coverBodyDocs = {
   size: '[Optional] - Container size -  [ sm | md | lg ] - defaults to a small sized cover body',
+  contentMiddle: 'Vertically center content within cover',
 };
 
 const exampleScope  = {

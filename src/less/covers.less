@@ -91,6 +91,17 @@
   }
 }
 
+// When we need to vertically center the content within the cover
+.cover__body--content-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > * {
+    width: 100%;
+  }
+}
+
 .cover__body__container {
   margin: 0 auto;
   padding: @padding-gutter @padding-half-gutter;
