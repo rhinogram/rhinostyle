@@ -12,7 +12,6 @@ class DropdownMultiSelect extends React.Component {
     className:          React.PropTypes.string,
     disabled:           React.PropTypes.bool,
     explanationMessage: React.PropTypes.string,
-    label:              React.PropTypes.string,
     onSelect:           React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     position:           React.PropTypes.string,
@@ -149,7 +148,6 @@ class DropdownMultiSelect extends React.Component {
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
       'disabled':                  disabled, //eslint-disable-line
       'form__control--error':      validationMessage,
-      'form__explanation-message': explanationMessage,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {
