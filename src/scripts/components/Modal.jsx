@@ -19,13 +19,13 @@ class Modal extends React.Component {
 
   static defaultProps = {
     children: null,
-    className: null,
-    size: null,
+    className: '',
+    size: '',
     onComplete: () => {},
     onReverseComplete: () => {},
     onReverseStart: () => {},
     onStart: () => {},
-  }
+  };
 
   componentDidMount() {
     const $body = document.body;
