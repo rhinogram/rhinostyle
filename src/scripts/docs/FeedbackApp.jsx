@@ -37,6 +37,7 @@ const systemAlertDocs = {
   onDismiss: '[Required] - Include dismiss function',
   type: '[Optional] - SystemAlert type, as a string -  [danger | default | info | success]',
   url: '[Optional] - SystemAlert url, as a string',
+  urlText: '[Optional] - SystemAlert urlText, as a string - defaults to "More Information"',
 };
 
 const alertScope = {

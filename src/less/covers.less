@@ -84,10 +84,20 @@
   background: @color-gray-lightest;
   flex: 1;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   .no-touchevents & {
     overflow-y: auto;
+  }
+}
+
+// When we need to vertically center the content within the cover
+.cover__body--content-middle {
+  display: flex;
+
+  .cover__body__container {
+    margin: auto;
+    width: 100%;
   }
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import cx    from 'classnames';
 
 const CoverBody = (props) => {
-  const { children, className, size } = props;
+  const { children, className, contentMiddle, size } = props;
 
   const containerClasses = cx('cover__body__container', className, {
     'cover__body__container--sm': !size || size === 'sm',
@@ -10,17 +10,29 @@ const CoverBody = (props) => {
     'cover__body__container--lg': size === 'lg',
   });
 
+  const bodyClasses = cx('cover__body', {
+    'cover__body--content-middle': contentMiddle,
+  });
+
   return (
-    <div className="cover__body"><div className={containerClasses}>{children}</div></div>
+    <div className={bodyClasses}><div className={containerClasses}>{children}</div></div>
   );
 };
 
 CoverBody.displayName = 'RhinoCoverBody';
 
+CoverBody.defaultProps = {
+  children: null,
+  className: '',
+  contentMiddle: false,
+  size: '',
+};
+
 CoverBody.propTypes = {
-  children:   React.PropTypes.node,
-  className:  React.PropTypes.string,
-  size:       React.PropTypes.string,
+  children:      React.PropTypes.node,
+  className:     React.PropTypes.string,
+  contentMiddle: React.PropTypes.bool,
+  size:          React.PropTypes.string,
 };
 
 export default CoverBody;
