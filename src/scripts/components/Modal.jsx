@@ -15,6 +15,7 @@ class Modal extends React.Component {
     onReverseComplete: React.PropTypes.func,
     onReverseStart: React.PropTypes.func,
     onStart: React.PropTypes.func,
+    open: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -25,12 +26,12 @@ class Modal extends React.Component {
     onReverseComplete: () => {},
     onReverseStart: () => {},
     onStart: () => {},
+    open: false,
   }
 
   componentDidMount() {
     const $body = document.body;
     const $modal = this.modal;
-    const $modalContainer = document.querySelector('[data-js="modalContainer"]');
 
     let forward = true;
     let lastTime = 0;
@@ -66,9 +67,6 @@ class Modal extends React.Component {
         this.props.onComplete();
       },
       onReverseComplete: () => {
-        ReactDOM.unmountComponentAtNode($modalContainer);
-        $body.removeChild($modalContainer);
-
         // Fire off prop update
         this.props.onReverseComplete();
       },
@@ -89,6 +87,38 @@ class Modal extends React.Component {
       },
       ease: Expo.easeInOut,
     });
+
+    if (this.props.open) {
+      this.open();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('did update', prevProps, this.props);
+    if (this.props.open !== prevProps.open) {
+      if (this.props.open) {
+        console.log('should open');
+        this.open();
+      } else {
+        console.log('should close');
+        this.close();
+      }
+    }
+  }
+
+  open() {
+    console.log('open it now')
+    const $modal = this.modal;
+
+    console.log($modal);
+
+    $modal.timeline.play();
+  }
+
+  close() {
+    const $modal = this.modal;
+
+    $modal.timeline.reverse();
   }
 
   render() {

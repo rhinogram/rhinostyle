@@ -1,7 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 
-import { ModalSystem, Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
+import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
 import Playground from 'component-playground'; //eslint-disable-line
 
 /* eslint import/no-unresolved: 0 */
@@ -30,7 +30,6 @@ const exampleScope  = {
   Button,
   Input,
   Modal,
-  ModalSystem,
   ModalHeader,
   ModalBody,
   ModalFooter,

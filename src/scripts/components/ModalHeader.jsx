@@ -1,6 +1,6 @@
 import React                    from 'react';
 import cx                       from 'classnames';
-import { Close, Icon, ModalSystem }    from '../components';
+import { Close, Icon }    from '../components';
 
 
 class ModalHeader extends React.Component {
@@ -29,9 +29,9 @@ class ModalHeader extends React.Component {
   closeModal = () => {
     if (this.props.onClose && typeof (this.props.onClose === 'function')) {
       this.props.onClose();
-      ModalSystem.removeModal();
+    //  Modal.close();
     } else {
-      ModalSystem.removeModal();
+      //Modal.close();
     }
   }
 
