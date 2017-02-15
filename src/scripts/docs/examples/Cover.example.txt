@@ -57,10 +57,10 @@ class ComponentExample extends React.Component {
           </div>
         </CoverBody>
         <CoverFooter>
-          <div className="u-text-right">
+          <UtilityInlineGrid size="small" align="right">
             <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
             <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-          </div>
+          </UtilityInlineGrid>
         </CoverFooter>
       </Cover>
     );
