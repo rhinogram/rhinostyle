@@ -9,7 +9,7 @@
 // -------------------------
 
 
-@alert-border-radius:         @border-radius-base;
+@alert-border-radius:         @border-radius;
 @alert-padding:               @whitespace-xlarge;
 @alert-padding-small:         @whitespace-base;
 
@@ -35,7 +35,7 @@
 //@badge-active-color:          @link-color;
 //@badge-active-bg:             @color-white;
 //@badge-bg:                    @color-gray-light;
-@badge-border-radius:         @border-radius-small;
+@badge-border-radius:         @border-radius;
 //@badge-color:                 @color-white;
 //@badge-font-weight:           normal;
 @badge-horizontal-padding:    @whitespace-xsmall;
@@ -53,9 +53,7 @@
 @border-color-base:             @color-gray-light;
 @border-color-light:            @color-gray-lighter;
 @border-color-focus:            #66afe9;
-@border-radius-base:            .4rem;
-@border-radius-large:           .5rem;
-@border-radius-small:           .3rem;
+@border-radius:           .3rem;
 @border-shadow-focus:           ~'inset 0 0 1px rgba(0, 0, 0, .075), 0 0 .4rem @{border-shadow-color-focus}';
 @border-shadow-color-focus:     rgba(red(@border-color-focus), green(@border-color-focus), blue(@border-color-focus), .75);
 
@@ -66,7 +64,7 @@
 
 
 @bucket-bg:                      @color-white;
-@bucket-border-radius:           @border-radius-base;
+@bucket-border-radius:           @border-radius;
 @bucket-padding:                 @whitespace-xlarge;
 @bucket-padding-small:           @whitespace-base;
 
@@ -84,9 +82,7 @@
 
 @btn-link-disabled-color:           @color-gray-light;
 
-@btn-border-radius-base:            @border-radius-base;
-@btn-border-radius-large:           @border-radius-large;
-@btn-border-radius-small:           @border-radius-small;
+@btn-border-radius:                 @border-radius;
 
 @btn-font-size-large:               @font-size-large;
 @btn-font-size-small:               @font-size-small;
@@ -244,7 +240,7 @@
 
 
 @datepicker-border-color:        @border-color-base;
-@datepicker-border-radius:       @border-radius-base;
+@datepicker-border-radius:       @border-radius;
 @datepicker-border-radius-day:   50%;
 @datepicker-day-size:            3.2rem;
 @datepicker-nav-color:           @color-gray;
@@ -295,9 +291,7 @@
 @input-bg-disabled:              @color-gray-lightest;
 @input-border:                   @border-color-base;
 @input-border-focus:             @border-color-focus;
-@input-border-radius:            @border-radius-base;
-@input-border-radius-large:      @border-radius-large;
-@input-border-radius-small:      @border-radius-small;
+@input-border-radius:            @border-radius;
 @input-color:                    @text-color;
 @input-color-placeholder:        darken(@color-gray-light, 4%);
 @input-group-addon-bg:           @color-gray-lighter; // bg color for textual input addons
@@ -356,7 +350,7 @@
 
 /*@list-group-bg:                  @color-white; // bg color on `.list-group-item`
 @list-group-border:              @border-color-base; // `.list-group-item` border color
-@list-group-border-radius:       @border-radius-base;
+@list-group-border-radius:       @border-radius;
 @list-group-active-color:        @component-active-color; // text color of active list items
 @list-group-active-bg:           @component-active-bg;
 @list-group-active-border:       @list-group-border;
@@ -389,7 +383,7 @@
 // -------------------------
 
 
-@msg-border-radius:           @border-radius-base;
+@msg-border-radius:           @border-radius;
 @msg-line-height:             inherit;
 @msg-margin:                  @whitespace-base;
 @msg-padding:                 @whitespace-base - .1rem @whitespace-base @whitespace-base @whitespace-base;
@@ -444,23 +438,6 @@
 
 
 // -------------------------
-// Pager
-// -------------------------
-
-
-/*@pager-bg:                             @pagination-bg;
-@pager-border:                         @pagination-border;
-@pager-border-radius:                  1.5rem;
-
-@pager-hover-bg:                       @pagination-hover-bg;
-
-@pager-active-bg:                      @pagination-active-bg;
-@pager-active-color:                   @pagination-active-color;
-
-@pager-disabled-color:                 @pagination-disabled-color;*/
-
-
-// -------------------------
 // Pagination
 // -------------------------
 
@@ -506,9 +483,8 @@
 // -------------------------
 
 
-@progress-bar-radius:       1rem;
+@progress-bar-radius:       @progress-bar-height / 2;
 @progress-bar-height:       1.4rem;
-@progress-bar-height-sm:    1.4rem;
 @progress-bar-inset-shadow: inset 0 .5rem .5rem rgba(0, 0, 0, .05);
 
 
@@ -604,7 +580,7 @@
 // -------------------------
 
 
-@switcher-border-radius:         @border-radius-small;
+@switcher-border-radius:         @border-radius;
 @switcher-height:                2.6rem;
 @switcher-state-line-height:     @switcher-height;
 @switcher-state-padding:         2.2rem;
@@ -647,7 +623,7 @@
 // -------------------------
 
 
-@toast-border-radius:        @border-radius-base;
+@toast-border-radius:        @border-radius;
 @toast-font-weight:          @font-weight-light;
 @toast-padding:              @whitespace-base;
 @toast-text:                 @color-white;
@@ -661,7 +637,7 @@
 @tooltip-arrow-width:         .6rem;
 @tooltip-arrow-color:         @tooltip-bg;
 @tooltip-bg:                  @color-gray-dark;
-@tooltip-border-radius:       @border-radius-base;
+@tooltip-border-radius:       @border-radius;
 @tooltip-color:               @color-white;
 @tooltip-padding:             @whitespace-xsmall @whitespace-small;
 //@tooltip-opacity:             .9;
