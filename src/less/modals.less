@@ -1,8 +1,7 @@
 // File: modals.less
 // .modal-open       - body class for killing the scroll
-// .modal            - container to scroll within
-// .modal__container - positioning shell for the actual modal
-// .modal__content   - actual modal w/ bg and corners and shiz
+// .modal            - contains both the backdrop and dialog
+// .modal__dialog    - the actual modal
 
 
 // -------------------------
@@ -15,41 +14,19 @@
   overflow: hidden;
 }
 
-.modal-open .modal {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-
-// -------------------------
-// Modal Backdrop
-// -------------------------
-
-
-.modal-backdrop {
-  background-color: @modal-backdrop-bg;
-  bottom: 0;
-  left: 0;
-  opacity: @modal-backdrop-opacity;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: @zindex-modal-background;
-}
-
 
 // -------------------------
 // Modal
 // -------------------------
 
-
+// 1. JS styles
 .modal {
-  -webkit-overflow-scrolling: touch;
+  background: @modal-backdrop-bg;
   bottom: 0;
-  //display: none;
+  display: none; // 1
   left: 0;
-  outline: 0;
-  overflow: hidden;
+  opacity: 0; // 1
+  overflow-y: auto;
   position: fixed;
   right: 0;
   top: 0;
@@ -57,34 +34,39 @@
 }
 
 
-
-// -------------------------
-// Modal Container
-// -------------------------
-
-
-// Shell div to position the modal with bottom padding
-.modal__container {
-  margin: @whitespace-base @whitespace-base 2.6rem @whitespace-base;
-  position: relative;
-  width: auto;
-}
-
-
 // -------------------------
 // Modal Content
 // -------------------------
 
-
-// Actual modal
-.modal__content {
-  background-clip: padding-box;
+// 1. JS styles
+.modal__dialog {
+  -webkit-overflow-scrolling: touch;
   background-color: @modal-content-bg;
   border: 1px solid @modal-content-border-color;
   border-radius: @border-radius;
   box-shadow: @shadow-depth-3;
-  outline: 0;
-  position: relative;
+  margin: @whitespace-base;
+  opacity: 0; // 1
+  transform: translateY(25%) scale(.5); // 1
+  transform-origin: center bottom; // 1
+  z-index: @zindex-modal;
+
+  @media (min-width: @screen-sm-min) {
+    margin: @whitespace-large auto;
+    width: @modal-md;
+  }
+}
+
+.modal__dialog--sm {
+  @media (min-width: @screen-sm-min) {
+    width: @modal-sm;
+  }
+}
+
+.modal__container--lg {
+  @media (min-width: @screen-md-min) {
+    width: @modal-lg;
+  }
 }
 
 
@@ -128,6 +110,18 @@
 .modal__body {
   padding: @modal-inner-padding;
   position: relative;
+
+  * {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    > * {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 
@@ -139,53 +133,4 @@
 .modal__footer {
   padding: @modal-inner-padding;
   text-align: right;
-
-  // Properly space out buttons
-  .btn + .btn {
-    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
-    margin-left: @whitespace-small;
-  }
-}
-
-
-// -------------------------
-// Modal Scrollbar Measure
-// -------------------------
-
-
-// Measure scrollbar width for padding body during modal show/hide
-.modal-scrollbar-measure {
-  height: 5rem;
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
-  width: 5rem;
-}
-
-
-// -------------------------
-// Modal Responsiveness
-// -------------------------
-
-
-// Scale up the modal
-@media (min-width: @screen-sm-min) {
-  .modal__container {
-    margin: 3rem auto;
-    width: @modal-md;
-  }
-
-  /*.modal__content {
-    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.5);
-  }*/
-
-  .modal__container--sm {
-    width: @modal-sm;
-  }
-}
-
-@media (min-width: @screen-md-min) {
-  .modal__container--lg {
-    width: @modal-lg;
-  }
 }

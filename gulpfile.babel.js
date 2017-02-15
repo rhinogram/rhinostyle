@@ -220,10 +220,10 @@ gulp.task('dist:scripts', (callback) => {
       throw new gutil.PluginError('webpack', err);
     }
 
-    const theStats = stats.toString();
+    //const theStats = stats.toString();
 
-    gutil.log('[webpack]', theStats);
-    gutil.log('[webpack]', new Date());
+    //gutil.log('[webpack]', theStats);
+    //gutil.log('[webpack]', new Date());
 
     callback();
   });
@@ -270,10 +270,10 @@ gulp.task('docs:react', (callback) => {
       throw new gutil.PluginError('webpack', err);
     }
 
-    const theStats = stats.toString();
+    //const theStats = stats.toString();
 
-    gutil.log('[webpack]', theStats);
-    gutil.log('[webpack]', new Date());
+    //gutil.log('[webpack]', theStats);
+    //gutil.log('[webpack]', new Date());
 
     callback();
     browserSync.reload();
