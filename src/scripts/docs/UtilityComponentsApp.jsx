@@ -9,6 +9,7 @@ import { Button, Icon, UtilityInlineGrid } from '../components';
 const utilityInlineGridExample = require('raw!./examples/UtilityInlineGrid.example.txt');
 
 const utilityInlineGridDocs = {
+  align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
   size: '[Optional] - Gutter size for list -  [small | large]',
 };
 
