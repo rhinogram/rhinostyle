@@ -10,7 +10,7 @@ body {
 
 code {
   background: darken(@color-gray-lightest, 1%);
-  border-radius: @border-radius-base;
+  border-radius: @border-radius;
   color: @color-gray;
   font-size: 1.4rem;
   padding: .2rem .4rem;
@@ -19,7 +19,7 @@ code {
 pre {
   align-items: center;
   background-color: @color-gray-lighter;
-  border-radius: @border-radius-base;
+  border-radius: @border-radius;
   display: flex;
   font-size: 1.4rem;
   padding: @whitespace-base;
@@ -342,7 +342,7 @@ pre {
 }
 
 .site-navigation__nav__btn {
-  border-radius: .4rem;
+  border-radius: @border-radius;
   color: @color-white;
   display: block;
   //font-weight: @font-weight-light;
