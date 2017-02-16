@@ -30,6 +30,7 @@
   right: 0;
   top: 0;
   transform: scale(.8); // 1
+  transform-origin: center center;
   z-index: @zindex-cover;
 }
 
@@ -130,10 +131,4 @@
   background: @color-white;
   border-top: 1px solid @border-color-light;
   flex: none;
-
-  // Properly space out buttons
-  .btn + .btn {
-    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
-    margin-left: @whitespace-small;
-  }
 }

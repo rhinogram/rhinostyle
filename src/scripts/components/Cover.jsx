@@ -78,7 +78,7 @@ class Cover extends React.Component {
         display: 'flex',
       },
     })
-    .to($cover, 0.25, {
+    .to($cover, 0.5, {
       css: {
         opacity: 1,
         scale: 1,

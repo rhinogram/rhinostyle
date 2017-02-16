@@ -10,6 +10,7 @@ import {
   CoverBody,
   CoverFooter,
   Icon,
+  UtilityInlineGrid,
 }                  from '../components';
 
 /* eslint import/no-unresolved: 0 */
@@ -45,6 +46,7 @@ const exampleScope  = {
   CoverBody,
   CoverFooter,
   Icon,
+  UtilityInlineGrid,
 };
 
 const CoverApp = () =>
