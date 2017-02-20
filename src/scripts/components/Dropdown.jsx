@@ -1,5 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { TimelineMax } from 'gsap';
 import cx from 'classnames';
+import { config } from '../config';
 
 import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
@@ -24,6 +27,10 @@ class Dropdown extends React.Component {
     size:          React.PropTypes.oneOf(['small', 'large']),
     type:          React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
     wide:          React.PropTypes.bool,
+    onComplete: React.PropTypes.func,
+    onReverseComplete: React.PropTypes.func,
+    onReverseStart: React.PropTypes.func,
+    onStart: React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -34,6 +41,10 @@ class Dropdown extends React.Component {
     hideActive:    false,
     type:          'default',
     wide:          false,
+    onComplete: () => {},
+    onReverseComplete: () => {},
+    onReverseStart: () => {},
+    onStart: () => {},
   };
 
   state = {
@@ -48,6 +59,62 @@ class Dropdown extends React.Component {
       if (child.type === DropdownFilter) {
         this.setState({ hasFilter: true });
       }
+    });
+  }
+
+  componentDidMount() {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+    let forward = true;
+    let lastTime = 0;
+
+    // Attach GSAP
+    $dropdown.timeline = new TimelineMax({
+      paused: true,
+      onStart: () => {
+        $dropdown.classList.add(config.classes.open);
+        // Toggle aria state
+        $dropdown.setAttribute('aria-expanded', true);
+
+        // Fire off prop update
+        this.props.onStart();
+      },
+      onComplete: () => {
+        // Focus on active dropdown
+        $dropdown.focus();
+
+        // Fire off prop update
+        this.props.onComplete();
+      },
+      onUpdate: () => {
+        const newTime = $dropdown.timeline.time();
+        if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
+          forward = !forward;
+          if (!forward) {
+            // Fire off prop update
+            this.props.onReverseStart();
+
+            $dropdown.classList.remove(config.classes.open);
+            // Toggle aria state
+            $dropdown.setAttribute('aria-expanded', false);
+          }
+        }
+        lastTime = newTime;
+      },
+      onReverseComplete: () => {
+        // Fire off prop update
+        this.props.onReverseComplete();
+      },
+    });
+
+    $dropdown.timeline
+    .to($dropdown.querySelector('.dropdown__menu'), 0.25, {
+      css: {
+        display: 'block',
+        y: 0,
+        opacity: 1,
+      },
+      ease: config.easing,
     });
   }
 
@@ -109,6 +176,17 @@ class Dropdown extends React.Component {
   }
 
   handleToggle = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+    if (this.state.isOpen) {
+      // Close dropdown
+      $dropdown.timeline.reverse();
+    } else {
+      // Open dropdown
+      $dropdown.timeline.play();
+    }
+
+    // Update state
     this.setState({
       isOpen: !this.state.isOpen,
     });
@@ -119,6 +197,11 @@ class Dropdown extends React.Component {
   };
 
   handleClickOutside = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+    // Close dropdown
+    $dropdown.timeline.reverse();
+
     this.setState({ isOpen: false });
 
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
@@ -143,7 +226,6 @@ class Dropdown extends React.Component {
     const isOpen = this.state.isOpen;
 
     const dropdownClasses = cx('dropdown', {
-      open:  this.state.isOpen,
       'dropdown--block': block,
     });
 
@@ -194,7 +276,7 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
+      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => this.dropdown = ref}>
         <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
           {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
