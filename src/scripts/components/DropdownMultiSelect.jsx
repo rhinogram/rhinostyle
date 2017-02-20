@@ -41,7 +41,7 @@ class DropdownMultiSelect extends React.Component {
     return React.Children.map(children, child => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          onClick: () => this.itemClick(child.props.id, true),
+          onClick: () => this.itemClick(child.props.id, false),
           active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -65,23 +65,39 @@ class DropdownMultiSelect extends React.Component {
     this.filterInput.value = '';
   }
 
-  handleToggle = () => {
+  handleToggle = (e) => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
 
-    if (this.state.isOpen) {
-      // Close dropdown
-      $dropdown.timeline.reverse();
+    // If we're focusing on the input
+    if (e.target.tagName === 'INPUT') {
+      // If the dropdown is not already open
+      if (!this.state.isOpen) {
+        // Open dropdown
+        $dropdown.timeline.play();
+
+        this.setState({
+          isOpen: true,
+          items: this.getChildren(),
+        });
+      }
+      // Leave input open if it's already there
     } else {
-      // Open dropdown
-      $dropdown.timeline.play();
+      // Handle everything else as normal
+      if (this.state.isOpen) {
+        // Close dropdown
+        $dropdown.timeline.reverse();
+      } else {
+        // Open dropdown
+        $dropdown.timeline.play();
+      }
+
+      this.setState({
+        isOpen: !this.state.isOpen,
+        items: this.getChildren(),
+      });
+
+      this.filterInput.value = '';
     }
-
-    this.setState({
-      isOpen: !this.state.isOpen,
-      items: this.getChildren(),
-    });
-
-    this.filterInput.value = '';
   }
 
   itemClick = (id, toggle) => {
@@ -94,6 +110,10 @@ class DropdownMultiSelect extends React.Component {
 
     if (toggle) {
       this.handleToggle();
+    } else {
+      this.setState({
+        items: this.getChildren(),
+      });
     }
   }
 
@@ -118,7 +138,7 @@ class DropdownMultiSelect extends React.Component {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child.props.id, true),
+            onClick: () => this.itemClick(child.props.id, false),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
