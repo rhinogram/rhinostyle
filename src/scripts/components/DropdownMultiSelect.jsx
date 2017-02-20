@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, Pill, UtilityInlineGrid } from '../components';
 
@@ -52,6 +53,11 @@ class DropdownMultiSelect extends React.Component {
   }
 
   clearInput = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+    // Close dropdown
+    $dropdown.timeline.reverse();
+
     this.setState({
       isOpen: false,
     });
@@ -60,6 +66,16 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleToggle = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+    if (this.state.isOpen) {
+      // Close dropdown
+      $dropdown.timeline.reverse();
+    } else {
+      // Open dropdown
+      $dropdown.timeline.play();
+    }
+
     this.setState({
       isOpen: !this.state.isOpen,
       items: this.getChildren(),
@@ -83,6 +99,11 @@ class DropdownMultiSelect extends React.Component {
 
   handleFilter = (e) => {
     if (!this.state.isOpen) {
+      const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+      // Open dropdown
+      $dropdown.timeline.play();
+
       this.setState({
         isOpen: true,
       });
@@ -142,7 +163,6 @@ class DropdownMultiSelect extends React.Component {
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       'dropdown--block': block,
-      open:              this.state.isOpen,
     });
 
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
@@ -192,7 +212,7 @@ class DropdownMultiSelect extends React.Component {
 
     return (
       <span>
-        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
+        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => this.dropdown = ref}>
           {/* eslint no-return-assign:0 */}
           <input onClick={this.handleToggle} ref={ref => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <div className={dropdownMenuClasses}>

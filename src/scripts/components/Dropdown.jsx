@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TimelineMax } from 'gsap';
 import cx from 'classnames';
-import { config } from '../config';
 
 import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
@@ -27,10 +25,6 @@ class Dropdown extends React.Component {
     size:          React.PropTypes.oneOf(['small', 'large']),
     type:          React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
     wide:          React.PropTypes.bool,
-    onComplete: React.PropTypes.func,
-    onReverseComplete: React.PropTypes.func,
-    onReverseStart: React.PropTypes.func,
-    onStart: React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -41,10 +35,6 @@ class Dropdown extends React.Component {
     hideActive:    false,
     type:          'default',
     wide:          false,
-    onComplete: () => {},
-    onReverseComplete: () => {},
-    onReverseStart: () => {},
-    onStart: () => {},
   };
 
   state = {
@@ -59,62 +49,6 @@ class Dropdown extends React.Component {
       if (child.type === DropdownFilter) {
         this.setState({ hasFilter: true });
       }
-    });
-  }
-
-  componentDidMount() {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
-
-    let forward = true;
-    let lastTime = 0;
-
-    // Attach GSAP
-    $dropdown.timeline = new TimelineMax({
-      paused: true,
-      onStart: () => {
-        $dropdown.classList.add(config.classes.open);
-        // Toggle aria state
-        $dropdown.setAttribute('aria-expanded', true);
-
-        // Fire off prop update
-        this.props.onStart();
-      },
-      onComplete: () => {
-        // Focus on active dropdown
-        $dropdown.focus();
-
-        // Fire off prop update
-        this.props.onComplete();
-      },
-      onUpdate: () => {
-        const newTime = $dropdown.timeline.time();
-        if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
-          forward = !forward;
-          if (!forward) {
-            // Fire off prop update
-            this.props.onReverseStart();
-
-            $dropdown.classList.remove(config.classes.open);
-            // Toggle aria state
-            $dropdown.setAttribute('aria-expanded', false);
-          }
-        }
-        lastTime = newTime;
-      },
-      onReverseComplete: () => {
-        // Fire off prop update
-        this.props.onReverseComplete();
-      },
-    });
-
-    $dropdown.timeline
-    .to($dropdown.querySelector('.dropdown__menu'), 0.25, {
-      css: {
-        display: 'block',
-        y: 0,
-        opacity: 1,
-      },
-      ease: config.easing,
     });
   }
 
