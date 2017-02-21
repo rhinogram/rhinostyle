@@ -25,6 +25,10 @@ class Dropdown extends React.Component {
     size:          React.PropTypes.oneOf(['small', 'large']),
     type:          React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
     wide:          React.PropTypes.bool,
+    onComplete: React.PropTypes.func,
+    onReverseComplete: React.PropTypes.func,
+    onReverseStart: React.PropTypes.func,
+    onStart: React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -35,6 +39,10 @@ class Dropdown extends React.Component {
     hideActive:    false,
     type:          'default',
     wide:          false,
+    onComplete: () => {},
+    onReverseComplete: () => {},
+    onReverseStart: () => {},
+    onStart: () => {},
   };
 
   state = {
@@ -154,7 +162,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, size, type, wide } = this.props;
+    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete } = this.props;
     const activeKey = this.state.activeKey;
     const hasFilter = this.state.hasFilter;
     const isOpen = this.state.isOpen;
@@ -210,7 +218,7 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => this.dropdown = ref}>
+      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => this.dropdown = ref}>
         <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
           {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
