@@ -92,7 +92,7 @@ class Textarea extends React.Component {
 
     const showCharacterCount = () => {
       if (maxCharacters) {
-        return <div className={characterCountClasses}>{this.state.charactersLeft} {!abbrMaxCharacters ? <span>characters left</span> : null}</div>;
+        return <div className={characterCountClasses}>{this.state.charactersLeft} {!abbrMaxCharacters ? <span>character{(this.state.charactersLeft !== 1) ? 's' : ''} left</span> : null}</div>;
       }
 
       return false;
