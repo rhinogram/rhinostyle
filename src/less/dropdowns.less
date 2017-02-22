@@ -107,7 +107,7 @@
   padding: @whitespace-xsmall 0;
   position: absolute;
   text-align: left;
-  top: calc(~'100% + ' @dropdown-menu-offset);
+  top: ~'calc(100% + @{dropdown-menu-offset})';
   transform: translateY(-@dropdown-menu-offset);
   transform-origin: left top;
   z-index: @zindex-dropdown;
@@ -150,7 +150,7 @@
 }
 
 .dropdown__menu--top {
-  bottom: calc(~'100% + ' @dropdown-menu-offset);
+  bottom: ~'calc(100% + @{dropdown-menu-offset})';
   top: auto;
   transform: translateY(@dropdown-menu-offset);
   transform-origin: left bottom;
