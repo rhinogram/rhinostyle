@@ -16,6 +16,7 @@ class Textarea extends React.Component {
     placeholder:        React.PropTypes.string,
     required:           React.PropTypes.bool,
     rows:               React.PropTypes.number,
+    validationMessage:  React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -26,6 +27,7 @@ class Textarea extends React.Component {
     placeholder:       '',
     required:          false,
     rows:              3,
+    validationMessage: '',
   };
 
   state = {
@@ -67,12 +69,20 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { abbrMaxCharacters, className, explanationMessage, label, maxCharacters, name, placeholder, required, rows } = this.props;
+    const { abbrMaxCharacters, className, explanationMessage, label, maxCharacters, name, placeholder, required, rows, validationMessage } = this.props;
     const textAreaClasses = cx('form__control');
     const formGroupClasses = cx('form__group', className);
     const characterCountClasses = cx('form__character-count', {
       'form__character-count--danger': this.state.charactersLeft < 11,
     });
+
+    const showValidationMessage = () => {
+      if (validationMessage) {
+        return <div className="form__validation-message">{validationMessage}</div>;
+      }
+
+      return false;
+    };
 
     const showExplanationMessage = () => {
       if (explanationMessage) {
@@ -103,6 +113,7 @@ class Textarea extends React.Component {
         {showLabel()}
         <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
         <div className="form__control-footer">
+          {showValidationMessage()}
           {showExplanationMessage()}
           {showCharacterCount()}
         </div>
