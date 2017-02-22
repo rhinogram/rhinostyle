@@ -38,7 +38,7 @@ class DropdownMultiSelect extends React.Component {
     let returnChild = null;
     const children = this.props.children;
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, (child) => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
           onClick: () => this.itemClick(child.props.id, false),
@@ -114,6 +114,13 @@ class DropdownMultiSelect extends React.Component {
       this.setState({
         items: this.getChildren(),
       });
+
+      const $input = this.filterInput;
+
+      if ($input.value !== '') {
+        const event = new Event('input', { bubbles: true });
+        this.filterInput.dispatchEvent(event);
+      }
     }
   }
 
@@ -133,7 +140,7 @@ class DropdownMultiSelect extends React.Component {
     const items = [];
     const children = this.props.children;
 
-    React.Children.forEach(children, child => {
+    React.Children.forEach(children, (child) => {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
@@ -218,7 +225,7 @@ class DropdownMultiSelect extends React.Component {
       let label = '';
 
       // Figure out label
-      React.Children.forEach(children, child => {
+      React.Children.forEach(children, (child) => {
         if (child.type === DropdownMenuItem && child.props.id === id) {
           icon = child.props.icon;
           label = child.props.label;
