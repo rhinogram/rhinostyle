@@ -118,8 +118,10 @@ class DropdownMultiSelect extends React.Component {
       const $input = this.filterInput;
 
       if ($input.value !== '') {
-        const event = new Event('input', { bubbles: true });
-        this.filterInput.dispatchEvent(event);
+        // Mock event target
+        this.handleFilter({
+          target: $input,
+        });
       }
     }
   }
