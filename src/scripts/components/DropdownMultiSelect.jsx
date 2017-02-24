@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import cx from 'classnames';
 import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, Pill, UtilityInlineGrid } from '../components';
 
@@ -37,10 +38,10 @@ class DropdownMultiSelect extends React.Component {
     let returnChild = null;
     const children = this.props.children;
 
-    return React.Children.map(children, child => {
+    return React.Children.map(children, (child) => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          onClick: () => this.itemClick(child.props.id, true),
+          onClick: () => this.itemClick(child.props.id, false),
           active: this.props.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -52,6 +53,11 @@ class DropdownMultiSelect extends React.Component {
   }
 
   clearInput = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+    // Close dropdown
+    $dropdown.timeline.reverse();
+
     this.setState({
       isOpen: false,
     });
@@ -59,13 +65,39 @@ class DropdownMultiSelect extends React.Component {
     this.filterInput.value = '';
   }
 
-  handleToggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-      items: this.getChildren(),
-    });
+  handleToggle = (e) => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
 
-    this.filterInput.value = '';
+    // If we're focusing on the input
+    if (e.target.tagName === 'INPUT') {
+      // If the dropdown is not already open
+      if (!this.state.isOpen) {
+        // Open dropdown
+        $dropdown.timeline.play();
+
+        this.setState({
+          isOpen: true,
+          items: this.getChildren(),
+        });
+      }
+      // Leave input open if it's already there
+    } else {
+      // Handle everything else as normal
+      if (this.state.isOpen) {
+        // Close dropdown
+        $dropdown.timeline.reverse();
+      } else {
+        // Open dropdown
+        $dropdown.timeline.play();
+      }
+
+      this.setState({
+        isOpen: !this.state.isOpen,
+        items: this.getChildren(),
+      });
+
+      this.filterInput.value = '';
+    }
   }
 
   itemClick = (id, toggle) => {
@@ -78,11 +110,29 @@ class DropdownMultiSelect extends React.Component {
 
     if (toggle) {
       this.handleToggle();
+    } else {
+      this.setState({
+        items: this.getChildren(),
+      });
+
+      const $input = this.filterInput;
+
+      if ($input.value !== '') {
+        // Mock event target
+        this.handleFilter({
+          target: $input,
+        });
+      }
     }
   }
 
   handleFilter = (e) => {
     if (!this.state.isOpen) {
+      const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+
+      // Open dropdown
+      $dropdown.timeline.play();
+
       this.setState({
         isOpen: true,
       });
@@ -92,12 +142,12 @@ class DropdownMultiSelect extends React.Component {
     const items = [];
     const children = this.props.children;
 
-    React.Children.forEach(children, child => {
+    React.Children.forEach(children, (child) => {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child.props.id, true),
+            onClick: () => this.itemClick(child.props.id, false),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
@@ -142,7 +192,6 @@ class DropdownMultiSelect extends React.Component {
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       'dropdown--block': block,
-      open:              this.state.isOpen,
     });
 
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
@@ -178,7 +227,7 @@ class DropdownMultiSelect extends React.Component {
       let label = '';
 
       // Figure out label
-      React.Children.forEach(children, child => {
+      React.Children.forEach(children, (child) => {
         if (child.type === DropdownMenuItem && child.props.id === id) {
           icon = child.props.icon;
           label = child.props.label;
@@ -192,7 +241,7 @@ class DropdownMultiSelect extends React.Component {
 
     return (
       <span>
-        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen}>
+        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => this.dropdown = ref}>
           {/* eslint no-return-assign:0 */}
           <input onClick={this.handleToggle} ref={ref => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <div className={dropdownMenuClasses}>

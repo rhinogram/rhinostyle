@@ -14,25 +14,6 @@
   vertical-align: middle;
 }
 
-.dropdown.open {
-  .dropdown__menu {
-    clip: auto;
-    height: auto;
-    opacity: 1;
-    transform: translateY(.4rem);
-    visibility: visible;
-    width: auto;
-  }
-
-  .dropdown__menu--top {
-    transform: translateY(-.4rem);
-  }
-
-  /*> a {
-    outline: 0;
-  }*/
-}
-
 
 // -------------------------
 // Dropdown Modifier (Block)
@@ -53,6 +34,7 @@
 
   .dropdown__menu {
     min-width: 100%;
+    transform-origin: center top;
   }
 }
 
@@ -112,42 +94,37 @@
 // Dropdown Menu
 // -------------------------
 
-
+// 1. JS styles
 .dropdown__menu {
-  background-clip: padding-box;
   background-color: @dropdown-bg;
   border: 1px solid @dropdown-border;
   border-radius: @border-radius;
   box-shadow: @dropdown-menu-shadow;
-  clip: rect(0, 0, 0, 0);
-  display: block;
-  height: 0;
+  display: none; // 1
   left: 0;
-  margin: .2rem 0 0;
   max-width: 28rem;
-  opacity: 0;
+  opacity: 0; // 1
   padding: @whitespace-xsmall 0;
   position: absolute;
   text-align: left;
-  top: 90%;
-  transition: opacity 250ms @trans-timing-cubic, transform 500ms @trans-timing-cubic;
-  visibility: hidden;
-  width: 0;
+  top: ~'calc(100% + @{dropdown-menu-offset})';
+  transform: translateY(-@dropdown-menu-offset);
+  transform-origin: left top;
   z-index: @zindex-dropdown;
 
   &::before {
-    background: inherit;
-    background-clip: border-box;
-    border: inherit;
-    border-bottom: 0;
+    background: @dropdown-bg;
+    border: 1px solid @dropdown-border;
+    border-bottom-left-radius: @border-radius;
     border-right: 0;
+    border-top: 0;
     content: '';
-    left: 1.2rem;
-    padding: .6rem;
+    height: @dropdown-arrow-size;
+    left: @dropdown-arrow-size;
     position: absolute;
-    top: -.7rem;
-    transform: rotate(45deg);
-    z-index: -1;
+    top: (-@dropdown-arrow-size / 2);
+    transform: rotate(135deg);
+    width: @dropdown-arrow-size;
   }
 
   @media (min-width: @screen-xs-min) {
@@ -164,25 +141,28 @@
 .dropdown__menu--right {
   left: auto;
   right: 0;
+  transform-origin: right top;
 
-  &::after,
   &::before {
     left: auto;
-    right: 1.2rem;
+    right: @dropdown-arrow-size;
   }
 }
 
 .dropdown__menu--top {
-  bottom: 100%;
+  bottom: ~'calc(100% + @{dropdown-menu-offset})';
   top: auto;
+  transform: translateY(@dropdown-menu-offset);
+  transform-origin: left bottom;
 
   &::before {
-    border-bottom: inherit;
-    border-left: 0;
-    border-right: inherit;
-    border-top: 0;
-    bottom: -.7rem;
+    bottom: (-@dropdown-arrow-size / 2);
     top: auto;
+    transform: rotate(-45deg);
+  }
+
+  &.dropdown__menu--right {
+    transform-origin: right bottom;
   }
 }
 

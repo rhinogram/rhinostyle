@@ -113,8 +113,12 @@ class Textarea extends React.Component {
         {showLabel()}
         <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} />
         <div className="form__control-footer">
-          {showValidationMessage()}
-          {showExplanationMessage()}
+          {(showValidationMessage() || showExplanationMessage()) ?
+            <div>
+              {showValidationMessage()}
+              {showExplanationMessage()}
+            </div>
+          : ''}
           {showCharacterCount()}
         </div>
       </div>
