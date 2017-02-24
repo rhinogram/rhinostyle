@@ -10,6 +10,7 @@ const labelExample = require('raw!./examples/Label.example.txt');
 const labelDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',
+  iconBump: '[Optional] - Icon bump [down | up] - used to move icon up or down slightly for precise positioning',
   label: '[Required] - Label text',
   type: '[Optional] - Label type -  [default | primary | secondary | accent]',
 };
