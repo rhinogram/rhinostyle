@@ -9,6 +9,7 @@ import Playground from 'component-playground';
 const labelExample = require('raw!./examples/Label.example.txt');
 const labelDocs = {
   className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Icon name',
   label: '[Required] - Label text',
   type: '[Optional] - Label type -  [default | primary | secondary | accent]',
 };
@@ -25,11 +26,30 @@ const LabelApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Label Types</h3>
+      <div className="u-m-b">
+        <UtilityInlineGrid>
+          <Label label="DEFAULT" />
+          <Label type="secondary" label="SECONDARY" />
+          <Label type="accent" label="ACCENT" />
+          <Label type="danger" label="DANGER" />
+          <Label label="DEFAULT" icon="cog" />
+        </UtilityInlineGrid>
+      </div>
+      <div className="u-m-b">
+        <UtilityInlineGrid>
+          <Label label="Default" />
+          <Label type="secondary" label="Secondary" />
+          <Label type="accent" label="Accent" />
+          <Label type="danger" label="Danger" />
+          <Label label="Default" icon="cog" />
+        </UtilityInlineGrid>
+      </div>
       <UtilityInlineGrid>
-        <Label label="default label" />
-        <Label type="primary" label="primary label" />
-        <Label type="secondary" label="secondary label" />
-        <Label type="accent" label="accent label" />
+        <Label label="default" />
+        <Label type="secondary" label="secondary" />
+        <Label type="accent" label="accent" />
+        <Label type="danger" label="danger" />
+        <Label label="default" icon="cog" />
       </UtilityInlineGrid>
     </section>
 
