@@ -4,7 +4,7 @@ import cx    from 'classnames';
 import Icon from './Icon';
 
 const Label = (props) => {
-  const { className, icon, label, type } = props;
+  const { className, icon, iconBump, label, type } = props;
   const classes = cx('label', className, {
     'label--accent':    type === 'accent',
     'label--danger':    type === 'danger',
@@ -13,7 +13,7 @@ const Label = (props) => {
   });
 
   return (
-    <span className={classes}>{icon ? (<Icon icon={icon} className="label__icon" />) : null}{label}</span>
+    <span className={classes}>{icon ? (<Icon icon={icon} bump={iconBump} className="label__icon" />) : null}<span>{label}</span></span>
   );
 };
 
@@ -22,6 +22,7 @@ Label.displayName = 'RhinoLabel';
 Label.propTypes = {
   className: React.PropTypes.string,
   icon:      React.PropTypes.string,
+  iconBump:  React.PropTypes.oneOf(['down', 'up']),
   label:     React.PropTypes.string.isRequired,
   type:      React.PropTypes.string,
 };

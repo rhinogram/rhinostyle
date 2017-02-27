@@ -14,7 +14,7 @@ const Icon = (props) => {
 Icon.displayName = 'RhinoIcon';
 
 Icon.propTypes = {
-  bump:       React.PropTypes.string,
+  bump:       React.PropTypes.oneOf(['down', 'up']),
   className:  React.PropTypes.string,
   icon:       React.PropTypes.string.isRequired,
   style:      React.PropTypes.object,
