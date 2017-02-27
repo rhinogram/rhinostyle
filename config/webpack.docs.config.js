@@ -23,6 +23,7 @@ export default {
     form:                 path.join(__dirname, '../src/scripts/docs/FormApp.jsx'),
     icon:                 path.join(__dirname, '../src/scripts/docs/IconApp.jsx'),
     label:                path.join(__dirname, '../src/scripts/docs/LabelApp.jsx'),
+    lightbox:             path.join(__dirname, '../src/scripts/docs/LightboxApp.jsx'),
     loader:               path.join(__dirname, '../src/scripts/docs/LoaderApp.jsx'),
     message:              path.join(__dirname, '../src/scripts/docs/MessageApp.jsx'),
     modal:                path.join(__dirname, '../src/scripts/docs/ModalApp.jsx'),

@@ -80,6 +80,7 @@
     "react-custom-scrollbars": "4.0.1",
     "react-datepicker": "0.40.0",
     "react-gsap-enhancer": "0.3.0",
+    "react-image-lightbox": "3.4.2",
     "react-onclickoutside": "5.8.3",
     "react-router": "3.0.1"
   }
