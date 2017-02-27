@@ -6,11 +6,7 @@ import Button     from '../components/Button';
 
 const lightboxExample  = require('raw!./examples/Lightbox.example.txt');
 
-const lightboxDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  size: '[Optional] - LoaderCircle size -  [small | large]',
-  type: '[Optional] - LoaderCircle type -  [default | primary]',
-};
+const lightboxDocs = {};
 const lightboxScope = {
   React,
   ReactDOM,
