@@ -22,7 +22,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   className: '',
-  bump:      '',
+  bump:      null,
 };
 
 export default Icon;
