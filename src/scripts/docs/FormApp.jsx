@@ -67,6 +67,7 @@ const textareaDocs  = {
   onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the textarea',
   required:           '[Optional] - Field is required and asterisk is added to label',
+  validationMessage:  '[Optional] - Validation message for errors',
 };
 const textareaScope = {
   React,
