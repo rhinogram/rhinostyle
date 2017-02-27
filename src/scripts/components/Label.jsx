@@ -28,6 +28,9 @@ Label.propTypes = {
 };
 
 Label.defaultProps = {
+  className: '',
+  icon: null,
+  iconBump: null,
   type: 'default',
 };
 
