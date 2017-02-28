@@ -6,7 +6,7 @@ import { Label, UtilityInlineGrid } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const labelExample = require('raw!./examples/Label.example.txt');
+const labelExample = require('raw-loader!./examples/Label.example.txt');
 const labelDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',

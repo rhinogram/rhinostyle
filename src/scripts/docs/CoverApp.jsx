@@ -14,10 +14,10 @@ import {
 }                  from '../components';
 
 /* eslint import/no-unresolved: 0 */
-const coverBodyExample   = require('raw!./examples/CoverBody.example.txt');
-const coverExample       = require('raw!./examples/Cover.example.txt');
-const coverFooterExample = require('raw!./examples/CoverFooter.example.txt');
-const coverHeaderExample = require('raw!./examples/CoverHeader.example.txt');
+const coverBodyExample   = require('raw-loader!./examples/CoverBody.example.txt');
+const coverExample       = require('raw-loader!./examples/Cover.example.txt');
+const coverFooterExample = require('raw-loader!./examples/CoverFooter.example.txt');
+const coverHeaderExample = require('raw-loader!./examples/CoverHeader.example.txt');
 
 const coverDocs = {
   className: '[Optional] - Additional class to add to cover div',

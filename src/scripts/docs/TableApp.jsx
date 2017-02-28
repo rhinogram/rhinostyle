@@ -6,7 +6,7 @@ import { Button, Table } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const tableExample = require('raw!./examples/Table.example.txt');
+const tableExample = require('raw-loader!./examples/Table.example.txt');
 const tableDocs = {
   bordered: '[Optional] - Create bordered table',
   className: '[Optional] - Include additional class name(s)',

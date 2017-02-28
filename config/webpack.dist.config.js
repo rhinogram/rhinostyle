@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path    from 'path';
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     rhinostyle: [path.join(__dirname, '../src/scripts/components/index.js')],
   },

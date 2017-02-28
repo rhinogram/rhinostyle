@@ -5,7 +5,7 @@ import Playground from 'component-playground';
 import { Button, Icon, UtilityInlineGrid } from '../components';
 
 /* eslint import/no-unresolved: 0 */
-const buttonExample = require('raw!./examples/Button.example.txt');
+const buttonExample = require('raw-loader!./examples/Button.example.txt');
 
 const buttonDocs = {
   active: '[Optional] - Button is active',

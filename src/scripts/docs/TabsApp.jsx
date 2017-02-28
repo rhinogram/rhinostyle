@@ -6,7 +6,7 @@ import { TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../components
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const tabsExample = require('raw!./examples/Tabs.example.txt');
+const tabsExample = require('raw-loader!./examples/Tabs.example.txt');
 
 const exampleScope  = {
   React,

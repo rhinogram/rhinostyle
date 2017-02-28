@@ -6,11 +6,11 @@ import { Button, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHead
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const dropdownExample = require('raw!./examples/Dropdown.example.txt');
-const dropdownMultiSelectExample = require('raw!./examples/DropdownMultiSelect.example.txt');
-const dropdownMenuHeaderExample = require('raw!./examples/DropdownMenuHeader.example.txt');
-const dropdownMenuItemExample = require('raw!./examples/DropdownMenuItem.example.txt');
-const dropdownMenuItemWildExample = require('raw!./examples/DropdownMenuItemWild.example.txt');
+const dropdownExample = require('raw-loader!./examples/Dropdown.example.txt');
+const dropdownMultiSelectExample = require('raw-loader!./examples/DropdownMultiSelect.example.txt');
+const dropdownMenuHeaderExample = require('raw-loader!./examples/DropdownMenuHeader.example.txt');
+const dropdownMenuItemExample = require('raw-loader!./examples/DropdownMenuItem.example.txt');
+const dropdownMenuItemWildExample = require('raw-loader!./examples/DropdownMenuItemWild.example.txt');
 
 const dropdownDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',

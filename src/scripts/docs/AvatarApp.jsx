@@ -5,7 +5,7 @@ import ReactDOM   from 'react-dom';
 import { Avatar, Icon, UtilityInlineGrid } from '../components';
 
 /* eslint import/no-unresolved: 0 */
-const avatarExample = require('raw!./examples/Avatar.example.txt');
+const avatarExample = require('raw-loader!./examples/Avatar.example.txt');
 
 const avatarDocs = {
   className: '[Optional] - Include additional class name(s)',

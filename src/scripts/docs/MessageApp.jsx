@@ -6,7 +6,7 @@ import { Message, UtilityInlineGrid } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const messageExample = require('raw!./examples/Message.example.txt');
+const messageExample = require('raw-loader!./examples/Message.example.txt');
 const messageDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - Message type -  [primary | note]',

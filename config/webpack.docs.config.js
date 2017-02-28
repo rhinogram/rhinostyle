@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path    from 'path';
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     avatar:               path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
     close:                path.join(__dirname, '../src/scripts/docs/CloseApp.jsx'),
@@ -25,7 +26,7 @@ module.exports = {
     tabs:                 path.join(__dirname, '../src/scripts/docs/TabsApp.jsx'),
     tooltips:             path.join(__dirname, '../src/scripts/docs/TooltipsApp.jsx'),
     'utility-components': path.join(__dirname, '../src/scripts/docs/UtilityComponentsApp.jsx'),
-    init:                 path.join(__dirname, '../src/scripts/docs/init.js'),
+    //init:                 path.join(__dirname, '../src/scripts/docs/init.js'),
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
@@ -34,9 +35,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, '../src/scripts'),
+        exclude: [/node_modules/],
       },
     ],
   },
