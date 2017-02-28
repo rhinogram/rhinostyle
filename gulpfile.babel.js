@@ -4,9 +4,7 @@ import insert       from 'gulp-insert';
 import svgSprite    from 'gulp-svg-sprite';
 import duration     from 'gulp-duration';
 import less         from 'gulp-less';
-import concat       from 'gulp-concat';
 import postcss      from 'gulp-postcss';
-import uglify       from 'gulp-uglify';
 import ghPages      from 'gulp-gh-pages';
 import gutil        from 'gulp-util';
 import lesshint     from 'gulp-lesshint';
@@ -16,6 +14,7 @@ import autoprefixer from 'autoprefixer';
 import flexbugs     from 'postcss-flexbugs-fixes';
 
 import webpack      from 'webpack';
+import webpackStream from 'webpack-stream';
 import browserSync  from 'browser-sync';
 import del          from 'del';
 
@@ -43,9 +42,9 @@ nunjucks.configure('./src/templates', { watch: false });
 // All Tasks
 // -------------------------
 gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:react', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
-gulp.task('docs', ['icons', 'docs:scripts', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
+gulp.task('docs', ['icons', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
 gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
 gulp.task('website', ['docs:deploy']);
@@ -214,19 +213,9 @@ gulp.task('clean', () =>
 // -------------------------
 // Dist Scripts
 // -------------------------
-gulp.task('dist:scripts', (callback) => {
-  webpack(distConfig, (err, stats) => {
-    if (err) {
-      throw new gutil.PluginError('webpack', err);
-    }
-
-    //const theStats = stats.toString();
-
-    //gutil.log('[webpack]', theStats);
-    //gutil.log('[webpack]', new Date());
-
-    callback();
-  });
+gulp.task('dist:scripts', () => {
+  return gulp.src('src/scripts/components/index.js')
+  .pipe(webpackStream(require('./config/webpack.dist.config.js'), webpack));
 });
 
 
@@ -264,39 +253,9 @@ gulp.task('docs:deploy', () =>
 // -------------------------
 // Docs React
 // -------------------------
-gulp.task('docs:react', (callback) => {
-  webpack(docsConfig, (err, stats) => {
-    if (err) {
-      throw new gutil.PluginError('webpack', err);
-    }
-
-    //const theStats = stats.toString();
-
-    //gutil.log('[webpack]', theStats);
-    //gutil.log('[webpack]', new Date());
-
-    callback();
-    browserSync.reload();
-  });
-});
-
-
-// -------------------------
-// Docs Scripts
-// -------------------------
-gulp.task('docs:scripts', () => {
-  const path = paths.scripts;
-
-  return gulp.src([
-    './node_modules/boomsvgloader/dist/js/boomsvgloader.js',
-    path.docSrc,
-  ])
-  .pipe(concat('rhinostyle-docs.js'))
-  .pipe(uglify())
-  .pipe(insert.prepend(RhinoStyleVersion))
-  .pipe(gulp.dest(path.build))
-  .pipe(duration('Built Doc Scripts'))
-  .pipe(reload({ stream: true }));
+gulp.task('docs:react', () => {
+  return gulp.src('src/scripts/components/index.js')
+  .pipe(webpackStream(require('./config/webpack.docs.config.js'), webpack));
 });
 
 
@@ -308,9 +267,8 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
 
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
-  gulp.watch(paths.scripts.docSrc, ['docs:scripts']);
   gulp.watch(paths.scripts.cmpSrc, ['docs:react']);
-  gulp.watch(paths.scripts.componentsSrc, ['docs:react']);
+  gulp.watch([paths.scripts.componentsSrc, paths.scripts.docSrc], ['docs:react']);
   gulp.watch(paths.styles.docAll, ['docs:styles']);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
     forceBuild = true;

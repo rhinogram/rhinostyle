@@ -3,11 +3,6 @@
 
 @import 'rhinostyle';
 
-body {
-  //background: @color-gray-lighter;
-  min-height: 100vh;
-}
-
 code {
   background: darken(@color-gray-lightest, 1%);
   border-radius: @border-radius;
@@ -82,9 +77,11 @@ pre {
   .responsive-table:not(:last-child) {
     margin-bottom: 4rem;
   }
+
   .responsive-table:last-child {
     margin-bottom: 0;
   }
+
   .table {
     margin-bottom: 0;
   }
@@ -160,8 +157,8 @@ pre {
 
 .site-example-utility__padding__default-item,
 .site-example-utility__padding__item {
-  background-color: rgba(255, 255, 255, .5);
   background-clip: content-box;
+  background-color: rgba(255, 255, 255, .5);
   display: inline-block;
 }
 
@@ -218,8 +215,8 @@ pre {
 .site-header__logo {
   display: none;
   position: relative;
-  width: 7.2rem;
   top: -.2rem;
+  width: 7.2rem;
 
   > img {
     display: inline-block;
@@ -246,7 +243,8 @@ pre {
   background-color: @color-gray-dark;
   height: .3rem;
   width: 2.2rem;
-  &+& {
+
+  & + & {
     margin-top: .3rem;
   }
 }
@@ -390,12 +388,12 @@ pre {
 
 .site-overlay {
   background-color: black;
-  height: 100vh;
+  bottom: 0;
   left: 0;
   opacity: 0;
   position: fixed;
+  right: 0;
   top: 0;
-  width: 100vw;
   z-index: -1;
 }
 
@@ -514,7 +512,7 @@ html.navigation-is-locked {
 
 html.panel-is-open {
   .site-panel {
-    box-shadow: 0 0 10px rgba(0,0,0,.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
     transform: translateX(0);
   }
 
@@ -617,7 +615,6 @@ html.panel-is-open {
 
 .site-wrapper {
   backface-visibility: hidden; // fix primary color change bug
-  min-height: 100vh;
   //overflow-x: hidden;
   position: relative;
   transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
@@ -657,6 +654,7 @@ html.panel-is-open {
       color: @state-info-text;
       font-weight: @font-weight-semibold;
     }
+
     b:last-of-type {
       color: @state-danger-text;
       font-size: 1.4rem;

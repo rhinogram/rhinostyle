@@ -1,17 +1,8 @@
 import webpack from 'webpack';
 import path    from 'path';
 
-const dependencies = [
-  'react',
-  'react-dom',
-  'moment',
-  'component-playground',
-];
-
-export default {
-  devTool: 'cheap-module-source-map',
+module.exports = {
   entry: {
-    vendor:               dependencies,
     avatar:               path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
     close:                path.join(__dirname, '../src/scripts/docs/CloseApp.jsx'),
     cover:                path.join(__dirname, '../src/scripts/docs/CoverApp.jsx'),
@@ -34,21 +25,26 @@ export default {
     tabs:                 path.join(__dirname, '../src/scripts/docs/TabsApp.jsx'),
     tooltips:             path.join(__dirname, '../src/scripts/docs/TooltipsApp.jsx'),
     'utility-components': path.join(__dirname, '../src/scripts/docs/UtilityComponentsApp.jsx'),
+    init:                 path.join(__dirname, '../src/scripts/docs/init.js'),
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
     filename: '[name].js',
   },
   module: {
-    loaders: [
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/] },
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+        include: path.join(__dirname, '../src/scripts'),
+      },
     ],
   },
   resolve: {
     alias: {
       react: path.join(__dirname, '../', 'node_modules', 'react'),
     },
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -56,19 +52,15 @@ export default {
         process.env.NODE_ENV || 'development',
       ),
     }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js',
-      minChuncks: Infinity,
+      minChuncks: 3,
     }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       exclude:  /vendor/,
       minimize: true,
-      compress: {
-        warnings: false,
-      },
     }),
   ],
 };
