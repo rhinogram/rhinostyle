@@ -45,7 +45,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, blankWindow, block, className, disabled, iconOnly, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
+    const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
     const classes = cx('btn', className, {
       'btn--default':          type === 'default',
       'btn--primary':          type === 'primary',
@@ -71,7 +71,7 @@ class Button extends React.Component {
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>{this.props.children}</a>
+        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} title={this.props.title} {...opts}>{this.props.children}</a>
       );
     }
 
