@@ -6,7 +6,6 @@ import duration     from 'gulp-duration';
 import less         from 'gulp-less';
 import postcss      from 'gulp-postcss';
 import ghPages      from 'gulp-gh-pages';
-import gutil        from 'gulp-util';
 import lesshint     from 'gulp-lesshint';
 
 import cssnano      from 'cssnano';
@@ -26,13 +25,13 @@ import msLayouts    from 'metalsmith-layouts';
 import nunjucks     from 'nunjucks';
 
 import { paths }    from './config/gulpConfig';
-import distConfig   from './config/webpack.dist.config.js';
-import docsConfig   from './config/webpack.docs.config.js';
 import packagedata  from './package.json';
 
 const reload = browserSync.reload;
 
 const RhinoStyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
+const distConfig = './config/webpack.dist.config.js';
+const docsConfig = './config/webpack.docs.config.js';
 
 let forceBuild = true;
 
@@ -42,9 +41,9 @@ nunjucks.configure('./src/templates', { watch: false });
 // All Tasks
 // -------------------------
 gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:react', 'docs:styles', 'docs:site']);
+gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
-gulp.task('docs', ['icons', 'docs:react', 'docs:styles', 'docs:site', 'styles:lint']);
+gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
 gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
 gulp.task('website', ['docs:deploy']);
@@ -215,7 +214,7 @@ gulp.task('clean', () =>
 // -------------------------
 gulp.task('dist:scripts', () => {
   return gulp.src('src/scripts/components/index.js')
-  .pipe(webpackStream(require('./config/webpack.dist.config.js'), webpack))
+  .pipe(webpackStream(require(distConfig), webpack))
   .pipe(gulp.dest(paths.scripts.dist));
 });
 
@@ -254,9 +253,9 @@ gulp.task('docs:deploy', () =>
 // -------------------------
 // Docs React
 // -------------------------
-gulp.task('docs:react', () => {
-  return gulp.src('src/scripts/components/index.js')
-  .pipe(webpackStream(require('./config/webpack.docs.config.js'), webpack))
+gulp.task('docs:scripts', () => {
+  return gulp.src('src/scripts/docs/init.js')
+  .pipe(webpackStream(require(docsConfig), webpack))
   .pipe(gulp.dest(paths.scripts.build));
 });
 
@@ -269,8 +268,7 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
 
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
-  gulp.watch(paths.scripts.cmpSrc, ['docs:react']);
-  gulp.watch([paths.scripts.componentsSrc, paths.scripts.docSrc], ['docs:react']);
+  gulp.watch([paths.scripts.componentsSrc, paths.scripts.cmpSrc, paths.scripts.docSrc], ['docs:scripts']);
   gulp.watch(paths.styles.docAll, ['docs:styles']);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
     forceBuild = true;
