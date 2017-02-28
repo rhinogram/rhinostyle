@@ -213,8 +213,7 @@ gulp.task('clean', () =>
 // Dist Scripts
 // -------------------------
 gulp.task('dist:scripts', () => {
-  return gulp.src('src/scripts/components/index.js')
-  .pipe(webpackStream(require(distConfig), webpack))
+  return webpackStream(require(distConfig), webpack)
   .pipe(gulp.dest(paths.scripts.dist));
 });
 
@@ -254,8 +253,7 @@ gulp.task('docs:deploy', () =>
 // Docs React
 // -------------------------
 gulp.task('docs:scripts', () => {
-  return gulp.src('src/scripts/docs/init.js')
-  .pipe(webpackStream(require(docsConfig), webpack))
+  return webpackStream(require(docsConfig), webpack)
   .pipe(gulp.dest(paths.scripts.build));
 });
 
