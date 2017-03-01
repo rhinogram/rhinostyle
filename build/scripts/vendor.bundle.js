@@ -4974,12 +4974,13 @@
 	          className = _props.className,
 	          disabled = _props.disabled,
 	          iconOnly = _props.iconOnly,
+	          onClick = _props.onClick,
 	          route = _props.route,
 	          size = _props.size,
 	          title = _props.title,
 	          type = _props.type,
 	          url = _props.url,
-	          opts = _objectWithoutProperties(_props, ['active', 'blankWindow', 'block', 'className', 'disabled', 'iconOnly', 'route', 'size', 'title', 'type', 'url']); // eslint-disable-line
+	          opts = _objectWithoutProperties(_props, ['active', 'blankWindow', 'block', 'className', 'disabled', 'iconOnly', 'onClick', 'route', 'size', 'title', 'type', 'url']); // eslint-disable-line
 
 
 	      var classes = (0, _classnames2.default)('btn', className, {
@@ -5010,7 +5011,7 @@
 	      } else {
 	        markup = _react2.default.createElement(
 	          'a',
-	          _extends({ href: 'javascript:void(0)', className: classes, onClick: this.handleClick }, opts, { title: this.props.title }),
+	          _extends({ href: 'javascript:void(0)', className: classes, onClick: this.handleClick, title: this.props.title }, opts),
 	          this.props.children
 	        );
 	      }
