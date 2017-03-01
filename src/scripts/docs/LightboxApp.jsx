@@ -2,7 +2,7 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
 import Lightbox   from 'react-image-lightbox';
-import Button     from '../components/Button';
+import { Button } from '../components';
 
 const lightboxExample  = require('raw!./examples/Lightbox.example.txt');
 
