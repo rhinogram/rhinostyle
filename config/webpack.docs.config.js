@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path    from 'path';
 
+const nodeEnv = process.env.NODE_ENV || 'development';
+
 module.exports = {
   devtool: 'source-map',
   entry: {
@@ -37,7 +39,9 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        exclude: [/node_modules/],
+        include: [
+          path.resolve(__dirname, '../src/scripts'),
+        ],
       },
     ],
   },
@@ -48,20 +52,17 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development',
-      ),
-    }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.bundle.js',
+      name: 'vendor.bundle',
       minChuncks: 3,
     }),
     new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false },
+      output: { comments: false },
       sourceMap: true,
-      exclude:  /vendor/,
-      minimize: true,
+    }),
+    new webpack.DefinePlugin({
+      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),
   ],
 };
