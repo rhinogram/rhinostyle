@@ -30,8 +30,8 @@ import packagedata  from './package.json';
 const reload = browserSync.reload;
 
 const RhinoStyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
-const distConfig = './config/webpack.dist.config.js';
-const docsConfig = './config/webpack.docs.config.js';
+const distConfig = require('./config/webpack.dist.config.js');
+const docsConfig = require('./config/webpack.docs.config.js');
 
 let forceBuild = true;
 
@@ -213,7 +213,7 @@ gulp.task('clean', () =>
 // Dist Scripts
 // -------------------------
 gulp.task('dist:scripts', () => {
-  return webpackStream(require(distConfig), webpack)
+  return webpackStream(distConfig, webpack)
   .pipe(gulp.dest(paths.scripts.dist));
 });
 
@@ -253,7 +253,7 @@ gulp.task('docs:deploy', () =>
 // Docs React
 // -------------------------
 gulp.task('docs:scripts', () => {
-  return webpackStream(require(docsConfig), webpack)
+  return webpackStream(docsConfig, webpack)
   .pipe(gulp.dest(paths.scripts.build));
 });
 
@@ -266,7 +266,7 @@ gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
 
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
-  gulp.watch([paths.scripts.componentsSrc, paths.scripts.cmpSrc, paths.scripts.docSrc], ['docs:scripts']);
+  gulp.watch([paths.scripts.componentsSrc, paths.scripts.docSrc], ['docs:scripts']);
   gulp.watch(paths.styles.docAll, ['docs:styles']);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
     forceBuild = true;
