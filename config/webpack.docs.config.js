@@ -2,11 +2,17 @@ import webpack from 'webpack';
 import path    from 'path';
 
 const nodeEnv = process.env.NODE_ENV || 'development';
+const vendor = [
+  'react',
+  'react-dom',
+  'moment',
+  'component-playground',
+];
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    //'rhinostyle-docs':    path.join(__dirname, '../src/scripts/docs/init.js'),
+    vendor,
     avatar:               path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
     close:                path.join(__dirname, '../src/scripts/docs/CloseApp.jsx'),
     cover:                path.join(__dirname, '../src/scripts/docs/CoverApp.jsx'),
@@ -30,6 +36,7 @@ module.exports = {
     tabs:                 path.join(__dirname, '../src/scripts/docs/TabsApp.jsx'),
     tooltips:             path.join(__dirname, '../src/scripts/docs/TooltipsApp.jsx'),
     'utility-components': path.join(__dirname, '../src/scripts/docs/UtilityComponentsApp.jsx'),
+    //'rhinostyle-docs':    path.join(__dirname, '../src/scripts/docs/init.js'),
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
@@ -54,8 +61,9 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor.bundle',
-      minChuncks: 3,
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChuncks: Infinity,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
