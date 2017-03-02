@@ -12,7 +12,6 @@ const vendor = [
 module.exports = {
   devtool: 'source-map',
   entry: {
-    vendor,
     avatar:               path.join(__dirname, '../src/scripts/docs/AvatarApp.jsx'),
     close:                path.join(__dirname, '../src/scripts/docs/CloseApp.jsx'),
     cover:                path.join(__dirname, '../src/scripts/docs/CoverApp.jsx'),
@@ -63,7 +62,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js',
-      minChuncks: Infinity,
+      minChuncks: 3,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
