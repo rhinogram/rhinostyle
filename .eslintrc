@@ -43,8 +43,8 @@
     }
   },
   "plugins": [
-      "react",
-      "babel"
+    "react",
+    "babel"
   ],
   "rules": {
     "no-trailing-spaces": 1,
@@ -52,7 +52,6 @@
     "arrow-body-style": 1,
     "import/prefer-default-export": 1,
     "import/extensions": 0,
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "jsx-a11y/no-static-element-interactions": 0,
     "arrow-parens": 1,
     "class-methods-use-this": 0,
@@ -60,7 +59,6 @@
     "react/no-unused-prop-types": 1,
     "react/forbid-prop-types": 0,
     "react/prefer-stateless-function": 1,
-    "react/no-unescaped-entities": 0,
     "spaced-comment": 0,
     "key-spacing": [2, { mode: minimum }],
     "no-multi-spaces": [2, { exceptions: { ImportDeclaration: true, VariableDeclarator: true } }],
@@ -69,8 +67,10 @@
     "no-underscore-dangle": 0,
     "space-before-function-paren": ["error", "never"],
     "no-use-before-define": ["error", { "functions": false }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/require-extension": ["error", { "extensions": [".jsx"] }],
     "no-confusing-arrow": ["error", {"allowParens": true}],
-    "import/no-webpack-loader-syntax": 0
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-multi-assign" : 0,
   }
 }
