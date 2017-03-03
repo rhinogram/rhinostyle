@@ -21803,7 +21803,15 @@ var Cover = function (_React$Component) {
         },
         onReverseComplete: function onReverseComplete() {
           _reactDom2.default.unmountComponentAtNode($coverContainer);
-          $body.removeChild($coverContainer);
+
+          // Remove container from DOM if it's there
+          // The aforementioned should actually remove the container already
+          // but because we're rendering outside of the app, things
+          // can get in a weird state. @TODO CLEAN THIS UP, render within app
+          // with `ReactDOM.unstable_renderSubtreeIntoContainer()`
+          if ($coverContainer) {
+            $body.removeChild($coverContainer);
+          }
 
           // Fire off prop update
           _this2.props.onReverseComplete();
@@ -22710,7 +22718,7 @@ var DropdownMultiSelect = function (_React$Component) {
             onClick: function onClick() {
               return _this.itemClick(child.props.id, false);
             },
-            active: _this.props.activeKeys.indexOf(child.props.id) > -1
+            active: _this.state.activeKeys.indexOf(child.props.id) > -1
           });
         } else {
           returnChild = child;
@@ -23999,8 +24007,15 @@ var Modal = function (_React$Component) {
         },
         onReverseComplete: function onReverseComplete() {
           _reactDom2.default.unmountComponentAtNode($modalContainer);
-          $body.removeChild($modalContainer);
 
+          // Remove container from DOM if it's there
+          // The aforementioned should actually remove the container already
+          // but because we're rendering outside of the app, things
+          // can get in a weird state. @TODO CLEAN THIS UP, render within app
+          // with `ReactDOM.unstable_renderSubtreeIntoContainer()`
+          if ($modalContainer) {
+            $body.removeChild($modalContainer);
+          }
           // Fire off prop update
           _this2.props.onReverseComplete();
         }

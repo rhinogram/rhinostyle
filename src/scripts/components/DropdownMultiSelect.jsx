@@ -42,7 +42,7 @@ class DropdownMultiSelect extends React.Component {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
           onClick: () => this.itemClick(child.props.id, false),
-          active: this.props.activeKeys.indexOf(child.props.id) > -1,
+          active: this.state.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
         returnChild = child;
