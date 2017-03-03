@@ -1,4 +1,3 @@
-
 /* eslint-disable */
 switch (location.pathname) {
   case '/avatars/':

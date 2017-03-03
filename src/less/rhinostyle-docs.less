@@ -2,6 +2,7 @@
 // Note: Documentation styles
 
 @import 'rhinostyle';
+@import (inline) '../../node_modules/codemirror/lib/codemirror.css';
 
 code {
   background: darken(@color-gray-lightest, 1%);
@@ -12,10 +13,8 @@ code {
 }
 
 pre {
-  align-items: center;
   background-color: @color-gray-lighter;
   border-radius: @border-radius;
-  display: flex;
   font-size: 1.4rem;
   padding: @whitespace-base;
 }
@@ -668,7 +667,6 @@ html.panel-is-open {
 }
 
 .cm-s-monokai.CodeMirror {
-  //background: @color-gray-lightest;
   border: 1px solid @border-color-base;
   color: @color-gray;
 }
@@ -676,109 +674,3 @@ html.panel-is-open {
 .CodeMirror-code {
   font-size: 1.4rem;
 }
-
-/*.cm-s-monokai.CodeMirror {
-  margin-bottom: @margin-half-gutter;
-}
-
-.cm-s-monokai.CodeMirror {
-  background: @color-gray-lightest;
-  color: @color-gray;
-  margin-bottom: @margin-half-gutter;
-}
-
-.cm-s-monokai div.CodeMirror-selected {
-  background: #49483e !important;
-}
-
-.cm-s-monokai.CodeMirror ::selection {
-  background: rgba(73, 72, 62, .99);
-}
-
-.cm-s-monokai.CodeMirror ::-moz-selection {
-  background: rgba(73, 72, 62, .99);
-}
-
-.cm-s-monokai .CodeMirror-gutters {
-  background: #272822;
-  border-right: 0px;
-}
-
-.cm-s-monokai .CodeMirror-guttermarker {
-  color: white;
-}
-
-.cm-s-monokai .CodeMirror-guttermarker-subtle {
-  color: #d0d0d0;
-}
-
-.cm-s-monokai .CodeMirror-linenumber {
-  color: #d0d0d0;
-}
-
-.cm-s-monokai .CodeMirror-cursor {
-  border-left: 1px solid @color-gray-dark !important;
-}
-
-.cm-s-monokai span.cm-comment {
-  color: #75715e;
-}
-
-.cm-s-monokai span.cm-atom {
-  color: #ae81ff;
-}
-
-.cm-s-monokai span.cm-number {
-  color: #ae81ff;
-}
-
-.cm-s-monokai span.cm-property,
-.cm-s-monokai span.cm-attribute {
-  color: @color-gray;
-}
-
-.cm-s-monokai span.cm-keyword {
-  color: @color-accent;
-}
-
-.cm-s-monokai span.cm-string {
-  color: @color-secondary;
-}
-
-.cm-s-monokai span.cm-variable {
-  color: @color-gray;
-}
-
-.cm-s-monokai span.cm-variable-2 {
-  color: @color-info;
-}
-
-.cm-s-monokai span.cm-def {
-  color: #fd971f;
-}
-
-.cm-s-monokai span.cm-bracket {
-  color: #f8f8f2;
-}
-
-.cm-s-monokai span.cm-tag {
-  color: @color-accent;
-}
-
-.cm-s-monokai span.cm-link {
-  color: #ae81ff;
-}
-
-.cm-s-monokai span.cm-error {
-  background: @color-accent;
-  color: #f8f8f0;
-}
-
-.cm-s-monokai .CodeMirror-activeline-background {
-  background: #373831 !important;
-}
-
-.cm-s-monokai .CodeMirror-matchingbracket {
-  color: white !important;
-  text-decoration: underline;
-}*/

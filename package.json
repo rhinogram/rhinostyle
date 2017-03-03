@@ -23,6 +23,7 @@
     "babel-preset-stage-2": "6.22.0",
     "babel-register": "6.23.0",
     "browser-sync": "2.18.8",
+    "codemirror": "5.24.2",
     "component-playground": "rhinogram/component-playground",
     "cssnano": "3.10.0",
     "del": "2.2.2",

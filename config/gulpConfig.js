@@ -30,7 +30,7 @@ export const paths = {
   },
   scripts: {
     componentsSrc: './src/scripts/components/*.jsx',
-    docSrc:        './src/scripts/docs/**/.{js,jsx,txt}',
+    docSrc:        './src/scripts/docs/**/*.{js,jsx,txt}',
     dist:          './dist/scripts/',
     build:         './build/scripts/',
   },
