@@ -65,7 +65,15 @@ class Cover extends React.Component {
       },
       onReverseComplete: () => {
         ReactDOM.unmountComponentAtNode($coverContainer);
-        $body.removeChild($coverContainer);
+
+        // Remove container from DOM if it's there
+        // The aforementioned should actually remove the container already
+        // but because we're rendering outside of the app, things
+        // can get in a weird state. @TODO CLEAN THIS UP, render within app
+        // with `ReactDOM.unstable_renderSubtreeIntoContainer()`
+        if ($coverContainer) {
+          $body.removeChild($coverContainer);
+        }
 
         // Fire off prop update
         this.props.onReverseComplete();
