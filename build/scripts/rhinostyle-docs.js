@@ -42197,77 +42197,79 @@ module.exports = __webpack_amd_options__;
 __webpack_require__(373);
 
 /* eslint-disable */
-
+var url = window.location.pathname;
+var urlSegments = url.split('/');
+var currentUrl = urlSegments[urlSegments.length - 2];
 
 /* eslint-enable */
-switch (location.pathname) {
-  case '/avatars/':
+switch (currentUrl) {
+  case 'avatars':
     __webpack_require__(363);
     break;
-  case '/buckets/':
+  case 'buckets':
     __webpack_require__(364);
     break;
-  case '/buttons/':
+  case 'buttons':
     __webpack_require__(365);
     break;
-  case '/close/':
+  case 'close':
     __webpack_require__(366);
     break;
-  case '/covers/':
+  case 'covers':
     __webpack_require__(367);
     break;
-  case '/datepicker/':
+  case 'datepicker':
     __webpack_require__(368);
     break;
-  case '/dropdowns/':
+  case 'dropdowns':
     __webpack_require__(369);
     break;
-  case '/feedback/':
+  case 'feedback':
     __webpack_require__(370);
     break;
-  case '/forms/':
+  case 'forms':
     __webpack_require__(371);
     break;
-  case '/icons/':
+  case 'icons':
     __webpack_require__(372);
     break;
-  case '/labels/':
+  case 'labels':
     __webpack_require__(374);
     break;
-  case '/lightbox/':
+  case 'lightbox':
     __webpack_require__(375);
     break;
-  case '/loaders/':
+  case 'loaders':
     __webpack_require__(376);
     break;
-  case '/messages/':
+  case 'messages':
     __webpack_require__(377);
     break;
-  case '/modals/':
+  case 'modals':
     __webpack_require__(378);
     break;
-  case '/navigation/':
+  case 'navigation':
     __webpack_require__(379);
     break;
-  case '/pills/':
+  case 'pills':
     __webpack_require__(380);
     break;
-  case '/progressbars/':
+  case 'progressbars':
     __webpack_require__(381);
     break;
-  case '/scrollbars/':
+  case 'scrollbars':
     __webpack_require__(382);
     break;
-  case '/table/':
+  case 'table':
     __webpack_require__(383);
     break;
-  case '/tabs/':
+  case 'tabs':
     __webpack_require__(384);
     break;
-  case '/tooltips/':
+  case 'tooltips':
     __webpack_require__(385);
     break;
-  case '/utility-components/':
+  case 'utility-components':
     __webpack_require__(386);
     break;
 }

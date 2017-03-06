@@ -1,72 +1,78 @@
 /* eslint-disable */
-switch (location.pathname) {
-  case '/avatars/':
+
+// Figure out current URL
+const url = window.location.pathname;
+const urlSegments = url.split('/');
+const currentUrl = urlSegments[urlSegments.length - 2];
+
+switch (currentUrl) {
+  case 'avatars':
     require('./AvatarApp');
     break;
-  case '/buckets/':
+  case 'buckets':
     require('./BucketApp');
     break;
-  case '/buttons/':
+  case 'buttons':
     require('./ButtonApp');
     break;
-  case '/close/':
+  case 'close':
     require('./CloseApp');
     break;
-  case '/covers/':
+  case 'covers':
     require('./CoverApp');
     break;
-  case '/datepicker/':
+  case 'datepicker':
     require('./DatePickerApp');
     break;
-  case '/dropdowns/':
+  case 'dropdowns':
     require('./DropdownApp');
     break;
-  case '/feedback/':
+  case 'feedback':
     require('./FeedbackApp');
     break;
-  case '/forms/':
+  case 'forms':
     require('./FormApp');
     break;
-  case '/icons/':
+  case 'icons':
     require('./IconApp');
     break;
-  case '/labels/':
+  case 'labels':
     require('./LabelApp');
     break;
-  case '/lightbox/':
+  case 'lightbox':
     require('./LightboxApp');
     break;
-  case '/loaders/':
+  case 'loaders':
     require('./LoaderApp');
     break;
-  case '/messages/':
+  case 'messages':
     require('./MessageApp');
     break;
-  case '/modals/':
+  case 'modals':
     require('./ModalApp');
     break;
-  case '/navigation/':
+  case 'navigation':
     require('./NavigationApp');
     break;
-  case '/pills/':
+  case 'pills':
     require('./PillApp');
     break;
-  case '/progressbars/':
+  case 'progressbars':
     require('./ProgressBarApp');
     break;
-  case '/scrollbars/':
+  case 'scrollbars':
     require('./ScrollBarApp');
     break;
-  case '/table/':
+  case 'table':
     require('./TableApp');
     break;
-  case '/tabs/':
+  case 'tabs':
     require('./TabsApp');
     break;
-  case '/tooltips/':
+  case 'tooltips':
     require('./TooltipsApp');
     break;
-  case '/utility-components/':
+  case 'utility-components':
     require('./UtilityComponentsApp');
     break;
 }
