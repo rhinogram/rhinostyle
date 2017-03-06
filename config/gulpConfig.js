@@ -1,4 +1,4 @@
-export const paths = {
+const paths = {
   animation_flag: {
     src:   './src/animation/flag/*.svg',
     dist:  './dist/animation/flag/',
@@ -47,3 +47,5 @@ export const paths = {
     build: './build/svg/',
   },
 };
+
+export default paths;

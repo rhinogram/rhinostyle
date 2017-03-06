@@ -43,6 +43,7 @@
     }
   },
   "plugins": [
+    "import",
     "react",
     "babel",
     "jsx-a11y",

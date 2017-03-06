@@ -10,6 +10,7 @@ const vendor = [
 ];
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     vendor,
     'rhinostyle-docs':    path.join(__dirname, '../src/scripts/docs/entry.js'),
@@ -22,9 +23,12 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
         include: [
           path.resolve(__dirname, '../src/scripts'),
+        ],
+        use: [
+          'babel-loader',
+          //'eslint-loader',
         ],
       },
     ],

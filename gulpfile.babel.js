@@ -17,7 +17,7 @@ import msRootpath from 'metalsmith-rootpath';
 import msLayouts from 'metalsmith-layouts';
 import nunjucks from 'nunjucks';
 
-import { paths } from './config/gulpConfig';
+import paths from './config/gulpConfig';
 import packagedata from './package.json';
 
 import distConfig from './config/webpack.dist.config.js';
