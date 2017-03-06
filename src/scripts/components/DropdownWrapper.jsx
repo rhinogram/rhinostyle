@@ -43,8 +43,15 @@ class DropdownWrapper extends React.Component {
         this.props.onStart();
       },
       onComplete: () => {
-        // Focus on active dropdown
-        $dropdown.focus();
+        const $input = $dropdown.querySelector('input[type="text"]');
+
+        // If dropdown contains input (for filtering), focus on that
+        if ($input) {
+          $input.focus();
+        } else {
+          // Focus on active dropdown
+          $dropdown.focus();
+        }
 
         // Fire off prop update
         this.props.onComplete();
