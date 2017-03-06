@@ -23067,8 +23067,15 @@ var DropdownWrapper = function (_React$Component) {
           _this.props.onStart();
         },
         onComplete: function onComplete() {
-          // Focus on active dropdown
-          $dropdown.focus();
+          var $input = $dropdown.querySelector('input[type="text"]');
+
+          // If dropdown contains input (for filtering), focus on that
+          if ($input) {
+            $input.focus();
+          } else {
+            // Focus on active dropdown
+            $dropdown.focus();
+          }
 
           // Fire off prop update
           _this.props.onComplete();
