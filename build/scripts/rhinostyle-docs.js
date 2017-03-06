@@ -42197,6 +42197,8 @@ module.exports = __webpack_amd_options__;
 __webpack_require__(373);
 
 /* eslint-disable */
+
+// Figure out current URL
 var url = window.location.pathname;
 var urlSegments = url.split('/');
 var currentUrl = urlSegments[urlSegments.length - 2];
