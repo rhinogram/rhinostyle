@@ -6,7 +6,7 @@ import { Pill, UtilityInlineGrid } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const pillExample = require('raw!./examples/Pill.example.txt');
+const pillExample = require('raw-loader!./examples/Pill.example.txt');
 
 const pillDocs = {
   className: '[Optional] - Include additional class name(s)',

@@ -5,7 +5,7 @@ import Playground from 'component-playground';
 import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
 
 /* eslint import/no-unresolved:0 */
-const inputExample = require('raw!./examples/Input.example.txt');
+const inputExample = require('raw-loader!./examples/Input.example.txt');
 
 const inputDocs  = {
   addon:              '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
@@ -30,7 +30,7 @@ const inputScope = {
   Input,
 };
 
-const selectExample = require('raw!./examples/Select.example.txt');
+const selectExample = require('raw-loader!./examples/Select.example.txt');
 
 const selectDocs  = {
   label:   '[Optional] - A label for the select',
@@ -55,7 +55,7 @@ const selectOpts = [
   { id: 4, value: 'Option Four' },
 ];
 
-const textareaExample = require('raw!./examples/Textarea.example.txt');
+const textareaExample = require('raw-loader!./examples/Textarea.example.txt');
 
 const textareaDocs  = {
   abbrMaxCharacters:  '[Optional] - Abbreviated max character count - only the count is displayed',
@@ -75,7 +75,7 @@ const textareaScope = {
   Textarea,
 };
 
-const messageBoxExample = require('raw!./examples/MessageBox.example.txt');
+const messageBoxExample = require('raw-loader!./examples/MessageBox.example.txt');
 
 const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
@@ -91,7 +91,7 @@ const messageBoxScope = {
   MessageBox,
 };
 
-const checkboxExample = require('raw!./examples/Checkbox.example.txt');
+const checkboxExample = require('raw-loader!./examples/Checkbox.example.txt');
 
 const checkboxDocs  = {
   inline:    '[Optional] - Inline the checkboxes',
@@ -105,7 +105,7 @@ const checkboxScope = {
   Checkbox,
 };
 
-const radioExample = require('raw!./examples/Radio.example.txt');
+const radioExample = require('raw-loader!./examples/Radio.example.txt');
 
 const radioDocs  = {
   inline:        '[Optional] - Inline the radios',
@@ -121,7 +121,7 @@ const radioScope = {
   Radio,
 };
 
-const switchExample = require('raw!./examples/RhinoSwitch.example.txt');
+const switchExample = require('raw-loader!./examples/RhinoSwitch.example.txt');
 
 const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',

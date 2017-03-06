@@ -43,8 +43,10 @@
     }
   },
   "plugins": [
+    "import",
     "react",
-    "babel"
+    "babel",
+    "jsx-a11y",
   ],
   "rules": {
     "no-trailing-spaces": 1,

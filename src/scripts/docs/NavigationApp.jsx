@@ -6,7 +6,7 @@ import { NavTabs, NavTabsItem } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const navTabsExample = require('raw!./examples/NavTabs.example.txt');
+const navTabsExample = require('raw-loader!./examples/NavTabs.example.txt');
 const navTabsDocs = {
   activeKey: '[Optional] - Include active key',
   className: '[Optional] - Include additional class name(s)',

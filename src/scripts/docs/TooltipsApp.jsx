@@ -6,7 +6,7 @@ import { Button, Icon, UtilityInlineGrid } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const tooltipsExample = require('raw!./examples/Tooltips.example.txt');
+const tooltipsExample = require('raw-loader!./examples/Tooltips.example.txt');
 const exampleScope  = {
   React,
   ReactDOM,

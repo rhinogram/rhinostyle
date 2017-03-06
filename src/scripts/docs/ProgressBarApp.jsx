@@ -6,7 +6,7 @@ import { ProgressBar } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const progressBarExample = require('raw!./examples/ProgressBar.example.txt');
+const progressBarExample = require('raw-loader!./examples/ProgressBar.example.txt');
 const progressDocs = {
   className: '[Optional] - Include additional class name(s)',
   progress:  '[Optional] - The initial \'fill\' of the ProgressBar',

@@ -2,6 +2,9 @@
     "depthLevel": {
       "enabled": false
     },
+    "universalSelector": {
+      "enabled": false
+    },
     "qualifyingElement": {
         "enabled": false,
         "allowWithId": false,
