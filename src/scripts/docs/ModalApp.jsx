@@ -6,10 +6,10 @@ import Playground from 'component-playground'; //eslint-disable-line
 
 /* eslint import/no-unresolved: 0 */
 /* eslint import/no-extraneous-dependencies: 0 */
-const modalExample = require('raw!./examples/Modal.example.txt');
-const modalHeaderExample = require('raw!./examples/ModalHeader.example.txt');
-const modalBodyExample = require('raw!./examples/ModalBody.example.txt');
-const modalFooterExample = require('raw!./examples/ModalFooter.example.txt');
+const modalExample = require('raw-loader!./examples/Modal.example.txt');
+const modalHeaderExample = require('raw-loader!./examples/ModalHeader.example.txt');
+const modalBodyExample = require('raw-loader!./examples/ModalBody.example.txt');
+const modalFooterExample = require('raw-loader!./examples/ModalFooter.example.txt');
 
 const modalDocs = {
   className: '[Optional] - Additional class to add to modal div',

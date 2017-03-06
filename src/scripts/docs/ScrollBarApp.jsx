@@ -6,7 +6,7 @@ import { Label, Scrollbars } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const scrollBarExample = require('raw!./examples/ScrollBar.example.txt');
+const scrollBarExample = require('raw-loader!./examples/ScrollBar.example.txt');
 const scrollBarDocs = {
   className: '[Optional] - Include additional class name(s)',
 };

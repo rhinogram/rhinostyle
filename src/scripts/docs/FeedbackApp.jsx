@@ -6,7 +6,7 @@ import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast 
 
 
 /* eslint import/no-unresolved: 0 */
-const alertExample = require('raw!./examples/Alert.example.txt');
+const alertExample = require('raw-loader!./examples/Alert.example.txt');
 
 const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
@@ -18,7 +18,7 @@ const alertDocs = {
 };
 
 
-const toastExample = require('raw!./examples/Toast.example.txt');
+const toastExample = require('raw-loader!./examples/Toast.example.txt');
 
 const toastDocs = {
   body: '[Required] - Toast body text',
@@ -28,7 +28,7 @@ const toastDocs = {
   type: '[Optional] - Toast type, as a string -  [danger | default | success]',
 };
 
-const systemAlertExample = require('raw!./examples/SystemAlert.example.txt');
+const systemAlertExample = require('raw-loader!./examples/SystemAlert.example.txt');
 
 const systemAlertDocs = {
   body: '[Required] - SystemAlert body text',

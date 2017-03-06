@@ -4,7 +4,7 @@ import Playground from 'component-playground';
 
 import { LoaderCircle, LoaderPulse, LoaderLine } from '../components';
 
-const loaderCircleExample  = require('raw!./examples/LoaderCircle.example.txt');
+const loaderCircleExample  = require('raw-loader!./examples/LoaderCircle.example.txt');
 const loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - LoaderCircle size -  [small | large]',
@@ -16,7 +16,7 @@ const loaderCircleScope = {
   LoaderCircle,
 };
 /* eslint import/no-unresolved: 0 */
-const loaderLineExample  = require('raw!./examples/LoaderLine.example.txt');
+const loaderLineExample  = require('raw-loader!./examples/LoaderLine.example.txt');
 const loaderLineDocs = {
   className: '[Optional] - Include additional class name(s)',
 };
@@ -25,7 +25,7 @@ const loaderLineScope = {
   ReactDOM,
   LoaderLine,
 };
-const loaderPulseExample = require('raw!./examples/LoaderPulse.example.txt');
+const loaderPulseExample = require('raw-loader!./examples/LoaderPulse.example.txt');
 const loaderPulseDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - LoaderPulse type -  [secondary | accent]',

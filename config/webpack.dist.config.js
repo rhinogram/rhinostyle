@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 import path    from 'path';
 
-export default {
-  devtool: 'cheap-module-source-map',
+module.exports = {
+  devtool: 'source-map',
   entry: {
     rhinostyle: [path.join(__dirname, '../src/scripts/components/index.js')],
   },
@@ -17,12 +17,19 @@ export default {
     library: 'rhinostyle',
   },
   module: {
-    loaders: [
-      { test: /\.jsx?$/, loader: 'babel-loader', exclude: [/node_modules/] },
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: [/node_modules/],
+        use: [
+          'babel-loader',
+          //'eslint-loader',
+        ],
+      },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -30,13 +37,8 @@ export default {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
-      compress: {
-        warnings: false,
-      },
     }),
   ],
 };

@@ -6,7 +6,7 @@ import { Bucket, BucketBody, BucketHeader, Icon, Table } from '../components';
 import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
-const bucketExample = require('raw!./examples/Bucket.example.txt');
+const bucketExample = require('raw-loader!./examples/Bucket.example.txt');
 const bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - Bucket size -  [small]',
@@ -22,7 +22,7 @@ const bucketScope  = {
   Table,
 };
 
-const bucketHeaderExample = require('raw!./examples/BucketHeader.example.txt');
+const bucketHeaderExample = require('raw-loader!./examples/BucketHeader.example.txt');
 const bucketHeaderDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',

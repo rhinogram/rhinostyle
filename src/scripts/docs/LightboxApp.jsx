@@ -3,7 +3,7 @@ import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
 import { Button, Lightbox } from '../components';
 
-const lightboxExample  = require('raw!./examples/Lightbox.example.txt');
+const lightboxExample  = require('raw-loader!./examples/Lightbox.example.txt');
 
 const lightboxDocs = {};
 const lightboxScope = {

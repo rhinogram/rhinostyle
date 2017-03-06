@@ -6,7 +6,7 @@ import { Button, Icon, UtilityInlineGrid } from '../components';
 
 
 /* eslint import/no-unresolved: 0 */
-const utilityInlineGridExample = require('raw!./examples/UtilityInlineGrid.example.txt');
+const utilityInlineGridExample = require('raw-loader!./examples/UtilityInlineGrid.example.txt');
 
 const utilityInlineGridDocs = {
   align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
