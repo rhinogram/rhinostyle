@@ -1,40 +1,34 @@
-import gulp         from 'gulp';
-import imagemin     from 'gulp-imagemin';
-import insert       from 'gulp-insert';
-import svgSprite    from 'gulp-svg-sprite';
-import duration     from 'gulp-duration';
-import less         from 'gulp-less';
-import postcss      from 'gulp-postcss';
-import ghPages      from 'gulp-gh-pages';
-import lesshint     from 'gulp-lesshint';
+import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
 
-import cssnano      from 'cssnano';
+import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
-import flexbugs     from 'postcss-flexbugs-fixes';
+import flexbugs from 'postcss-flexbugs-fixes';
 
-import webpack      from 'webpack';
+import webpack from 'webpack';
 import webpackStream from 'webpack-stream';
-import browserSync  from 'browser-sync';
-import del          from 'del';
+import browserSync from 'browser-sync';
+import del from 'del';
 
-import metalsmith   from 'metalsmith';
-import msChanged    from 'metalsmith-changed';
-import msInPlace    from 'metalsmith-in-place';
-import msRootpath   from 'metalsmith-rootpath';
-import msLayouts    from 'metalsmith-layouts';
-import nunjucks     from 'nunjucks';
+import metalsmith from 'metalsmith';
+import msChanged from 'metalsmith-changed';
+import msInPlace from 'metalsmith-in-place';
+import msRootpath from 'metalsmith-rootpath';
+import msLayouts from 'metalsmith-layouts';
+import nunjucks from 'nunjucks';
 
-import { paths }    from './config/gulpConfig';
-import packagedata  from './package.json';
+import { paths } from './config/gulpConfig';
+import packagedata from './package.json';
+
+import distConfig from './config/webpack.dist.config.js';
+import docsConfig from './config/webpack.docs.config.js';
 
 const reload = browserSync.reload;
-
 const RhinoStyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
-const distConfig = require('./config/webpack.dist.config.js');
-const docsConfig = require('./config/webpack.docs.config.js');
-
+const $ = gulpLoadPlugins();
 let forceBuild = true;
 
+// https://github.com/superwolff/metalsmith-layouts/issues/43
 nunjucks.configure('./src/templates', { watch: false });
 
 // -------------------------
@@ -56,7 +50,7 @@ gulp.task('animation:flag', () => {
   const path = paths.animation_flag;
 
   return gulp.src(path.src)
-    .pipe(svgSprite({
+    .pipe($.svgSprite({
       transform: [{
         svgo: {
           plugins: [
@@ -82,7 +76,7 @@ gulp.task('animation:flag', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Flag Animation'))
+    .pipe($.duration('Built Flag Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -90,7 +84,7 @@ gulp.task('animation:login', () => {
   const path = paths.animation_login;
 
   return gulp.src(path.src)
-    .pipe(svgSprite({
+    .pipe($.svgSprite({
       mode: {
         css: {
           dest: '',
@@ -107,7 +101,7 @@ gulp.task('animation:login', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Login Animation'))
+    .pipe($.duration('Built Login Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -115,7 +109,7 @@ gulp.task('animation:secure', () => {
   const path = paths.animation_secure;
 
   return gulp.src(path.src)
-    .pipe(svgSprite({
+    .pipe($.svgSprite({
       transform: [{
         svgo: {
           plugins: [
@@ -141,7 +135,7 @@ gulp.task('animation:secure', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Secure Animation'))
+    .pipe($.duration('Built Secure Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -149,7 +143,7 @@ gulp.task('animation:time', () => {
   const path = paths.animation_time;
 
   return gulp.src(path.src)
-    .pipe(svgSprite({
+    .pipe($.svgSprite({
       mode: {
         css: {
           dest: '',
@@ -166,7 +160,7 @@ gulp.task('animation:time', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Time Animation'))
+    .pipe($.duration('Built Time Animation'))
     .pipe(reload({ stream: true }));
 });
 
@@ -181,7 +175,7 @@ gulp.task('audio', () => {
   ])
   .pipe(gulp.dest(path.build))
   .pipe(gulp.dest(path.dist))
-  .pipe(duration('Copied Audio'))
+  .pipe($.duration('Copied Audio'))
   .pipe(reload({ stream: true }));
 });
 
@@ -231,11 +225,11 @@ gulp.task('dist:styles', () => {
 
   return gulp.src(path.src)
     // Do not compress to allow importing as 'less' in other projects.
-    .pipe(less({ compress: false }))
-    .pipe(postcss(processors))
-    .pipe(insert.prepend(RhinoStyleVersion))
+    .pipe($.less({ compress: false }))
+    .pipe($.postcss(processors))
+    .pipe($.insert.prepend(RhinoStyleVersion))
     .pipe(gulp.dest(path.dist))
-    .pipe(duration('Built Dist Styles'))
+    .pipe($.duration('Built Dist Styles'))
     .pipe(reload({ stream: true }));
 });
 
@@ -245,7 +239,7 @@ gulp.task('dist:styles', () => {
 // -------------------------
 gulp.task('docs:deploy', () =>
   gulp.src('./build/**/*')
-    .pipe(ghPages()),
+    .pipe($.ghPages()),
 );
 
 
@@ -313,11 +307,11 @@ gulp.task('docs:styles', () => {
     flexbugs(),
   ];
   return gulp.src(path.docSrc)
-    .pipe(less({ compress: false }))
-    .pipe(postcss(processors))
-    .pipe(insert.prepend(RhinoStyleVersion))
+    .pipe($.less({ compress: false }))
+    .pipe($.postcss(processors))
+    .pipe($.insert.prepend(RhinoStyleVersion))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Doc Styles'))
+    .pipe($.duration('Built Doc Styles'))
     .pipe(reload({ stream: true }));
 });
 
@@ -329,10 +323,10 @@ gulp.task('icons', () => {
   const path = paths.icons;
 
   return gulp.src(path.src)
-    .pipe(imagemin())
+    .pipe($.imagemin())
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(svgSprite({
+    .pipe($.svgSprite({
       shape: {
         id: {
           generator: 'icon-',
@@ -356,7 +350,7 @@ gulp.task('icons', () => {
     }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
-    .pipe(duration('Built Icons'))
+    .pipe($.duration('Built Icons'))
     .pipe(reload({ stream: true }));
 });
 
@@ -366,6 +360,6 @@ gulp.task('icons', () => {
 // -------------------------
 gulp.task('styles:lint', () =>
   gulp.src('./src/less/**/*.less')
-    .pipe(lesshint())
-    .pipe(lesshint.reporter()),
+    .pipe($.lesshint())
+    .pipe($.lesshint.reporter()),
 );
