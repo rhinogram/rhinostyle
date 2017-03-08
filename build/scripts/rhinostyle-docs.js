@@ -42262,7 +42262,7 @@ switch (currentUrl) {
   case 'scrollbars':
     __webpack_require__(382);
     break;
-  case 'table':
+  case 'tables':
     __webpack_require__(383);
     break;
   case 'tabs':

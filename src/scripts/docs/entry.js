@@ -63,7 +63,7 @@ switch (currentUrl) {
   case 'scrollbars':
     require('./ScrollBarApp');
     break;
-  case 'table':
+  case 'tables':
     require('./TableApp');
     break;
   case 'tabs':
