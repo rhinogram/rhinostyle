@@ -17,15 +17,6 @@ optimizedResize.add(() => {
   // nav toggling below 1200px
   if (window.matchMedia('(max-width: 1199px)').matches) {
     $html.classList.remove('navigation-is-locked');
-
-    document.querySelector('#site-header__menu').addEventListener('click', () => {
-      document.querySelector('#site-navigation').scrollTop = 0;
-      $html.classList.add('navigation-is-open');
-    });
-
-    $siteOverlay.addEventListener('click', () => {
-      $html.classList.remove('navigation-is-open');
-    });
   }
 
   // lock nav in open position at 1200px
@@ -40,6 +31,15 @@ optimizedResize.add(() => {
       $html.classList.remove('panel-is-open');
     });
   }
+});
+
+document.querySelector('.site-header__menu').addEventListener('click', () => {
+  document.querySelector('#site-navigation').scrollTop = 0;
+  $html.classList.add('navigation-is-open');
+});
+
+$siteOverlay.addEventListener('click', () => {
+  $html.classList.remove('navigation-is-open');
 });
 
 // SVG loader
