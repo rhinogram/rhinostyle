@@ -1,7 +1,6 @@
 import { TimelineMax, SteppedEase } from 'gsap';
 import CodeMirror from 'codemirror';
-import load from '../svg';
-import { optimizedResize } from '../utility';
+import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
 const $siteOverlay = document.querySelector('#site-overlay');
@@ -13,7 +12,7 @@ CodeMirror(document.body, {
 });
 
 // Navigation listener
-optimizedResize.add(() => {
+UtilitySystem.optimizedResize.add(() => {
   // nav toggling below 1200px
   if (window.matchMedia('(max-width: 1199px)').matches) {
     $html.classList.remove('navigation-is-locked');
@@ -43,7 +42,7 @@ $siteOverlay.addEventListener('click', () => {
 });
 
 // SVG loader
-load(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
+UtilitySystem.svgLoad(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
 
 //
 // Animations

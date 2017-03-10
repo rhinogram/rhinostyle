@@ -3,7 +3,7 @@ import cx                 from 'classnames';
 import React              from 'react';
 import ReactDOM           from 'react-dom';
 import { TimelineMax } from 'gsap';
-import { config } from '../config';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Modal extends React.Component {
   static displayName = 'RhinoModal';
@@ -41,7 +41,7 @@ class Modal extends React.Component {
       paused: true,
       onStart: () => {
         $body.classList.add('modal-open');
-        $modal.classList.add(config.classes.open);
+        $modal.classList.add(UtilitySystem.config.classes.open);
 
         // Fire off prop update
         this.props.onStart();
@@ -55,7 +55,7 @@ class Modal extends React.Component {
             this.props.onReverseStart();
 
             $body.classList.remove('modal-open');
-            $modal.classList.remove(config.classes.open);
+            $modal.classList.remove(UtilitySystem.config.classes.open);
           }
         }
         lastTime = newTime;
@@ -96,7 +96,7 @@ class Modal extends React.Component {
         y: 0,
         scale: 1,
       },
-      ease: config.easing,
+      ease: UtilitySystem.config.easing,
     });
   }
 

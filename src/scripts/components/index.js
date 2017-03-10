@@ -53,6 +53,9 @@ import UtilityInlineGrid    from './UtilityInlineGrid';
 import { CoverSystem } from '../CoverSystem';
 import { NotificationActions } from '../NotificationSystem';
 import { ModalSystem } from '../ModalSystem';
+
+// Utilities
+import { UtilitySystem } from '../UtilitySystem';
 /* eslint no-duplicate-imports:0 */
 /* eslint import/no-duplicates:0 */
 
@@ -111,4 +114,5 @@ export {
   Textarea,
   Toast,
   UtilityInlineGrid,
+  UtilitySystem,
 };
