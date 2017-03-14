@@ -1,9 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { ProgressBar } from '../components';
-
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const progressBarExample = require('raw-loader!./examples/ProgressBar.example.txt');
@@ -24,7 +23,7 @@ const ProgressBarApp = () =>
     <h1 className="site-headline">Progress Bars</h1>
     <section className="site-section">
       <h3 className="site-subheadline">ProgressBar Types</h3>
-      <p className="site-copy"><code>type="default | primary | secondary | temperature"</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary | secondary | temperature&quot;</code></p>
       <ProgressBar progress={20} className="u-m-b" />
       <ProgressBar progress={40} type="primary" className="u-m-b" />
       <ProgressBar progress={60} type="secondary" className="u-m-b" />

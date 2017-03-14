@@ -1,9 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { NavTabs, NavTabsItem } from '../components';
-
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const navTabsExample = require('raw-loader!./examples/NavTabs.example.txt');
@@ -19,8 +18,8 @@ const exampleScope  = {
   NavTabs,
   NavTabsItem,
 };
-class NavigationApp extends React.Component {
 
+class NavigationApp extends React.Component {
   state = {
     activeKey: 1,
     activeStackedKey: 3,
@@ -66,7 +65,7 @@ class NavigationApp extends React.Component {
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Types</h3>
           <div className="u-m-b-md">
-            <p className="site-copy"><code>type="default"</code></p>
+            <p className="site-copy"><code>type=&quot;default&quot;</code></p>
             <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>
@@ -79,7 +78,7 @@ class NavigationApp extends React.Component {
           <h3 className="site-subheadline">NavTabs Modifiers</h3>
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Justifed, Equal Width</h5>
-            <p className="site-copy"><code>justified="equal"</code></p>
+            <p className="site-copy"><code>justified=&quot;equal&quot;</code></p>
             <NavTabs activeKey={this.state.activeEqualKey} onSelect={this.updateActiveEqualKey} justified="equal">
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>
@@ -89,7 +88,7 @@ class NavigationApp extends React.Component {
 
           <div className="u-m-b-md">
             <h5 className="site-miniheadline">Justified, Auto Width</h5>
-            <p className="site-copy"><code>justified="auto"</code></p>
+            <p className="site-copy"><code>justified=&quot;auto&quot;</code></p>
             <NavTabs activeKey={this.state.activeAutoKey} onSelect={this.updateActiveAutoKey} justified="auto">
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>

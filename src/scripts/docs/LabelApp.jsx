@@ -1,9 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { Label, UtilityInlineGrid } from '../components';
-
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const labelExample = require('raw-loader!./examples/Label.example.txt');

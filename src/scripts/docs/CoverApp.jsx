@@ -1,17 +1,8 @@
 import Playground from 'component-playground';
 import React      from 'react';
 import ReactDOM   from 'react-dom';
-import {
-  CoverSystem,
-  Cover,
-  Button,
-  Input,
-  CoverHeader,
-  CoverBody,
-  CoverFooter,
-  Icon,
-  UtilityInlineGrid,
-}                  from '../components';
+
+import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
 
 /* eslint import/no-unresolved: 0 */
 const coverBodyExample   = require('raw-loader!./examples/CoverBody.example.txt');

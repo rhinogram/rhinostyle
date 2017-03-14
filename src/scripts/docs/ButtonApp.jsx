@@ -6,7 +6,6 @@ import { Button, Icon, UtilityInlineGrid } from '../components';
 
 /* eslint import/no-unresolved: 0 */
 const buttonExample = require('raw-loader!./examples/Button.example.txt');
-
 const buttonDocs = {
   active: '[Optional] - Button is active',
   blankWindow: '[Optional] - Open URL in blank browser window',
@@ -35,7 +34,7 @@ const ButtonApp = () =>
     <h1 className="site-headline">Buttons</h1>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
-      <p className="site-copy"><code>type="default | primary | secondary | outline-default | outline-primary | link | danger"</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary | secondary | outline-default | outline-primary | link | danger&quot;</code></p>
       <UtilityInlineGrid>
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
@@ -45,7 +44,7 @@ const ButtonApp = () =>
         <Button type="link">Link</Button>
         <Button type="danger">Danger</Button>
       </UtilityInlineGrid>
-      <p className="site-copy u-m-t"><code>type="outline-reversed"</code></p>
+      <p className="site-copy u-m-t"><code>type=&quot;outline-reversed&quot;</code></p>
       <div className="u-p-a u-bg-primary">
         <UtilityInlineGrid>
           <Button type="outline-reversed">Outline Reversed</Button>
@@ -57,7 +56,7 @@ const ButtonApp = () =>
       <h3 className="site-subheadline">Button Sizes</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Large Button</h5>
-        <p className="site-copy"><code>size="large"</code></p>
+        <p className="site-copy"><code>size=&quot;large&quot;</code></p>
         <UtilityInlineGrid>
           <Button size="large">Large</Button>
           <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
@@ -66,7 +65,7 @@ const ButtonApp = () =>
       </div>
       <div>
         <h5 className="site-miniheadline">Small Button</h5>
-        <p className="site-copy"><code>size="small"</code></p>
+        <p className="site-copy"><code>size=&quot;small&quot;</code></p>
         <UtilityInlineGrid>
           <Button size="small">Small</Button>
           <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>

@@ -18,7 +18,6 @@ const exampleScope  = {
   moment,
 };
 
-
 class DatePickerApp extends React.Component {
   static displayName = 'Rhinostyle Date Picker Examples';
 
@@ -37,7 +36,7 @@ class DatePickerApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">DatePicker <Label className="u-m-l-sm" type="accent" label="third party" /></h3>
-          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">react-datepicker</a> with custom styling.</p>
+          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank" rel="noopener noreferrer">react-datepicker</a> with custom styling.</p>
 
           <div className="row row--condensed">
             <div className="col-sm-2 u-m-b">

@@ -1,9 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { Icon, UtilityInlineGrid } from '../components';
-
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const iconExample = require('raw-loader!./examples/Icon.example.txt');

@@ -1,9 +1,8 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { Button, Icon, UtilityInlineGrid } from '../components';
-
-import Playground from 'component-playground';
 
 /* eslint import/no-unresolved: 0 */
 const tooltipsExample = require('raw-loader!./examples/Tooltips.example.txt');
@@ -12,8 +11,9 @@ const exampleScope  = {
   ReactDOM,
   Button,
   Icon,
-  UtilityInlineGrid
+  UtilityInlineGrid,
 };
+
 const TooltipsApp = () =>
   <div>
     <h1 className="site-headline">Tooltips</h1>

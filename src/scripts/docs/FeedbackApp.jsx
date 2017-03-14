@@ -4,10 +4,8 @@ import ReactDOM   from 'react-dom';
 
 import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
 
-
 /* eslint import/no-unresolved: 0 */
 const alertExample = require('raw-loader!./examples/Alert.example.txt');
-
 const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
   onDismiss: '[Optional] - Include dismiss function',
@@ -19,7 +17,6 @@ const alertDocs = {
 
 
 const toastExample = require('raw-loader!./examples/Toast.example.txt');
-
 const toastDocs = {
   body: '[Required] - Toast body text',
   className: '[Optional] - Include additional class name(s)',
@@ -29,7 +26,6 @@ const toastDocs = {
 };
 
 const systemAlertExample = require('raw-loader!./examples/SystemAlert.example.txt');
-
 const systemAlertDocs = {
   body: '[Required] - SystemAlert body text',
   className: '[Optional] - Include additional class name(s)',
@@ -61,7 +57,6 @@ const systemAlertScope = {
   Icon,
 };
 
-
 class FeedbackApp extends React.Component {
   static displayName = 'Rhinostyle Feedback Examples';
 
@@ -79,6 +74,7 @@ class FeedbackApp extends React.Component {
     });
   }
 
+  /* eslint-disable no-alert */
   render() {
     return (
       <div>
@@ -125,7 +121,7 @@ class FeedbackApp extends React.Component {
         </section>
         <section>
           <h3 className="site-subheadline">Toast</h3>
-          <p className="site-copy">To see a toast in action, <a href="#" onClick={this.onClick}>click here</a>.</p>
+          <p className="site-copy">To see a toast in action, <a href="javascript:void(0)" onClick={this.onClick}>click here</a>.</p>
           <div className="site-example-toasts u-m-b-lg">
             <Toast type="default" body="Default toast notification" />
             <Toast type="success" icon="checkmark" body="Success toast notification" />

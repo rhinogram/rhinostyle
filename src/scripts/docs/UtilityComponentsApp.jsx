@@ -4,7 +4,6 @@ import ReactDOM   from 'react-dom';
 
 import { Button, Icon, UtilityInlineGrid } from '../components';
 
-
 /* eslint import/no-unresolved: 0 */
 const utilityInlineGridExample = require('raw-loader!./examples/UtilityInlineGrid.example.txt');
 

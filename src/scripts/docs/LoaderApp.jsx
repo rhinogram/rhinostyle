@@ -42,13 +42,13 @@ const LoaderApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Types</h3>
-      <p className="site-copy"><code>type="default | primary"</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary&quot;</code></p>
       <LoaderCircle /> <LoaderCircle type="primary" />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
-      <p className="site-copy"><code>size="small | large"</code></p>
+      <p className="site-copy"><code>size=&quot;small | large&quot;</code></p>
       <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />
     </section>
 
@@ -59,7 +59,7 @@ const LoaderApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Types</h3>
-      <p className="site-copy"><code>type="default | secondary | accent"</code></p>
+      <p className="site-copy"><code>type=&quot;default | secondary | accent&quot;</code></p>
       <LoaderPulse /><br />
       <LoaderPulse type="accent" /><br />
       <LoaderPulse type="secondary" />
