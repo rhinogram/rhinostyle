@@ -35,7 +35,7 @@ nunjucks.configure('./src/templates', { watch: false });
 // All Tasks
 // -------------------------
 gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site']);
+gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site', 'favicon']);
 gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
 gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
@@ -315,6 +315,13 @@ gulp.task('docs:styles', () => {
     .pipe(reload({ stream: true }));
 });
 
+// -------------------------
+// Favicon
+// -------------------------
+gulp.task('favicon', () => {
+  return gulp.src('./src/favicon.png')
+    .pipe(gulp.dest('./build'));
+});
 
 // -------------------------
 // Icons
