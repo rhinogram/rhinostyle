@@ -29,8 +29,7 @@ const paths = {
     templates: './src/templates/*.html',
   },
   scripts: {
-    componentsSrc: './src/scripts/components/*.jsx',
-    docSrc:        './src/scripts/docs/**/*.{js,jsx,txt}',
+    src:           './src/scripts/**/*.{js,jsx,txt}',
     dist:          './dist/scripts/',
     build:         './build/scripts/',
   },

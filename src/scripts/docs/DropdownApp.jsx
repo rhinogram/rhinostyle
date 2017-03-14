@@ -40,6 +40,7 @@ const dropdownMultiSelectDocs = {
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   placeholder:        '[Optional] - Any placeholder text you want in the dropdown',
+  singleSelect: '[Optional] - Limit number of items selectable to one',
   validationMessage:  '[Optional] - Validation message for errors',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
 };
