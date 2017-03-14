@@ -180,11 +180,9 @@ class DropdownMultiSelect extends React.Component {
       if (this.props.singleSelect) {
         // Empty array
         currentKeys.splice(0, currentKeys.length);
-        // Push active index into "clean" array
-        currentKeys.push(index);
-      } else {
-        currentKeys.push(index);
       }
+
+      currentKeys.push(index);
 
       action = 'add';
     }
