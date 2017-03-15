@@ -14493,7 +14493,6 @@ var dropdownMultiSelectDocs = {
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   placeholder: '[Optional] - Any placeholder text you want in the dropdown',
-  singleSelect: '[Optional] - Limit number of items selectable to one',
   validationMessage: '[Optional] - Validation message for errors',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width'
 };
@@ -22731,7 +22730,7 @@ var DropdownMultiSelect = function (_React$Component) {
         if (child.type === _components.DropdownMenuItem) {
           returnChild = _react2.default.cloneElement(child, {
             onClick: function onClick() {
-              return _this.itemClick(child.props.id, _this.props.singleSelect);
+              return _this.itemClick(child.props.id, false);
             },
             active: _this.state.activeKeys.indexOf(child.props.id) > -1
           });
@@ -22756,7 +22755,7 @@ var DropdownMultiSelect = function (_React$Component) {
       var $dropdown = _reactDom2.default.findDOMNode(_this.dropdown); // eslint-disable-line react/no-find-dom-node
 
       // If we're focusing on the input
-      if (e && e.target.tagName === 'INPUT') {
+      if (e.target.tagName === 'INPUT') {
         // If the dropdown is not already open
         if (!_this.state.isOpen) {
           // Open dropdown
@@ -22833,7 +22832,7 @@ var DropdownMultiSelect = function (_React$Component) {
           if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
             items.push(_react2.default.cloneElement(child, {
               onClick: function onClick() {
-                return _this.itemClick(child.props.id, _this.props.singleSelect);
+                return _this.itemClick(child.props.id, false);
               },
               active: _this.props.activeKeys.indexOf(child.props.id) > -1,
               key: child.props.id
@@ -22856,15 +22855,7 @@ var DropdownMultiSelect = function (_React$Component) {
         currentKeys.splice(currentIndex, 1);
         action = 'remove';
       } else {
-        // If we've enabled the `singleSelect` prop
-        // only hold one active item at a time
-        if (_this.props.singleSelect) {
-          // Empty array
-          currentKeys.splice(0, currentKeys.length);
-        }
-
         currentKeys.push(index);
-
         action = 'add';
       }
 
@@ -23002,7 +22993,6 @@ DropdownMultiSelect.propTypes = {
   onSelect: _react2.default.PropTypes.func,
   placeholder: _react2.default.PropTypes.string,
   position: _react2.default.PropTypes.string,
-  singleSelect: _react2.default.PropTypes.bool,
   wide: _react2.default.PropTypes.bool,
   validationMessage: _react2.default.PropTypes.string
 };
@@ -23011,7 +23001,6 @@ DropdownMultiSelect.defaultProps = {
   block: false,
   disabled: false,
   placeholder: 'Click or type to select more ...',
-  singleSelect: false,
   wide: false
 };
 exports.default = DropdownMultiSelect;

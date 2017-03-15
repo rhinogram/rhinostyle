@@ -16,7 +16,6 @@ class DropdownMultiSelect extends React.Component {
     onSelect:           React.PropTypes.func,
     placeholder:        React.PropTypes.string,
     position:           React.PropTypes.string,
-    singleSelect: React.PropTypes.bool,
     wide:               React.PropTypes.bool,
     validationMessage:  React.PropTypes.string,
   };
@@ -26,7 +25,6 @@ class DropdownMultiSelect extends React.Component {
     block:        false,
     disabled:     false,
     placeholder:  'Click or type to select more ...',
-    singleSelect: false,
     wide:         false,
   };
 
@@ -43,7 +41,7 @@ class DropdownMultiSelect extends React.Component {
     return React.Children.map(children, (child) => {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
-          onClick: () => this.itemClick(child.props.id, this.props.singleSelect),
+          onClick: () => this.itemClick(child.props.id, false),
           active: this.state.activeKeys.indexOf(child.props.id) > -1,
         });
       } else {
@@ -71,7 +69,7 @@ class DropdownMultiSelect extends React.Component {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
 
     // If we're focusing on the input
-    if (e && e.target.tagName === 'INPUT') {
+    if (e.target.tagName === 'INPUT') {
       // If the dropdown is not already open
       if (!this.state.isOpen) {
         // Open dropdown
@@ -149,7 +147,7 @@ class DropdownMultiSelect extends React.Component {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
           items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child.props.id, this.props.singleSelect),
+            onClick: () => this.itemClick(child.props.id, false),
             active: this.props.activeKeys.indexOf(child.props.id) > -1,
             key: child.props.id,
           }));
@@ -175,15 +173,7 @@ class DropdownMultiSelect extends React.Component {
       currentKeys.splice(currentIndex, 1);
       action = 'remove';
     } else {
-      // If we've enabled the `singleSelect` prop
-      // only hold one active item at a time
-      if (this.props.singleSelect) {
-        // Empty array
-        currentKeys.splice(0, currentKeys.length);
-      }
-
       currentKeys.push(index);
-
       action = 'add';
     }
 
@@ -256,7 +246,7 @@ class DropdownMultiSelect extends React.Component {
           <input onClick={this.handleToggle} ref={ref => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
-              { items.length > 0 ? items : <DropdownMenuHeader label="No results" />}
+              { items.length > 0 ? items : <DropdownMenuHeader label="No results" /> }
             </DropdownMenuScroll>
           </div>
         </DropdownWrapper>
