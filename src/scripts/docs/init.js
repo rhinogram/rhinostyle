@@ -41,11 +41,8 @@ $siteOverlay.addEventListener('click', () => {
   $html.classList.remove('navigation-is-open');
 });
 
-// SVG loader
-UtilitySystem.svgLoad(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
-
 //
-// Animations
+// Animation examples
 //
 
 const rhinoLogin = {
@@ -96,6 +93,10 @@ rhinoTime.timeline.to('.rhino-animation__time', rhinoTime.speed, {
   y: rhinoTime.position,
   ease: rhinoTime.ease(),
 });
+
+
+// SVG loader
+UtilitySystem.svgLoad(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
 
 const hostName = document.location.hostname;
 // Handle active navigation
