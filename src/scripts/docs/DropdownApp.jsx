@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Button, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
-
-/* eslint import/no-unresolved: 0 */
-const dropdownExample = require('raw-loader!./examples/Dropdown.example.txt');
-const dropdownMultiSelectExample = require('raw-loader!./examples/DropdownMultiSelect.example.txt');
-const dropdownMenuHeaderExample = require('raw-loader!./examples/DropdownMenuHeader.example.txt');
-const dropdownMenuItemExample = require('raw-loader!./examples/DropdownMenuItem.example.txt');
-const dropdownMenuItemWildExample = require('raw-loader!./examples/DropdownMenuItemWild.example.txt');
+import dropdownExample from './examples/Dropdown.example.txt';
+import dropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
+import dropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
+import dropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
+import dropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
 
 const dropdownDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
@@ -301,7 +299,7 @@ const DropdownApp = () =>
       <h3 className="site-subheadline">Dropdown</h3>
       <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button&apos;s text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
       <p className="site-copy">Use <code>type=&quot;input&quot;</code> if you want dropdown to appear like a form input.</p>
-      <Playground docClass={Dropdown} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Dropdown} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -310,22 +308,22 @@ const DropdownApp = () =>
         This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as &quot;pills&quot; below the dropdown.
       </p>
 
-      <Playground docClass={DropdownMultiSelect} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={DropdownMultiSelect} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuHeader</h3>
-      <Playground docClass={DropdownMenuHeader} propDescriptionMap={dropdownMenuHeaderDocs} codeText={dropdownMenuHeaderExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={DropdownMenuHeader} propDescriptionMap={dropdownMenuHeaderDocs} codeText={dropdownMenuHeaderExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuItem</h3>
-      <Playground docClass={DropdownMenuItem} propDescriptionMap={dropdownMenuItemDocs} codeText={dropdownMenuItemExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={DropdownMenuItem} propDescriptionMap={dropdownMenuItemDocs} codeText={dropdownMenuItemExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuItemWild</h3>
-      <Playground docClass={DropdownMenuItemWild} propDescriptionMap={dropdownMenuItemWildDocs} codeText={dropdownMenuItemWildExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={DropdownMenuItemWild} propDescriptionMap={dropdownMenuItemWildDocs} codeText={dropdownMenuItemWildExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

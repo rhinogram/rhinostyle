@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
-
-/* eslint import/no-unresolved:0 */
-const inputExample = require('raw-loader!./examples/Input.example.txt');
+import inputExample from './examples/Input.example.txt';
+import selectExample from './examples/Select.example.txt';
+import textareaExample from './examples/Textarea.example.txt';
+import messageBoxExample from './examples/MessageBox.example.txt';
+import checkboxExample from './examples/Checkbox.example.txt';
+import radioExample from './examples/Radio.example.txt';
+import switchExample from './examples/RhinoSwitch.example.txt';
 
 const inputDocs  = {
   addon:              '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
@@ -30,8 +34,6 @@ const inputScope = {
   Input,
 };
 
-const selectExample = require('raw-loader!./examples/Select.example.txt');
-
 const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
@@ -40,13 +42,11 @@ const selectDocs  = {
   onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
   selected: '[Optional] - String that pre-selects an option',
 };
-
 const selectScope = {
   React,
   ReactDOM,
   Select,
 };
-
 const selectOpts = [
   { id: 0, value: '--' },
   { id: 1, value: 'Option One' },
@@ -54,8 +54,6 @@ const selectOpts = [
   { id: 3, value: 'Option Three' },
   { id: 4, value: 'Option Four' },
 ];
-
-const textareaExample = require('raw-loader!./examples/Textarea.example.txt');
 
 const textareaDocs  = {
   abbrMaxCharacters:  '[Optional] - Abbreviated max character count - only the count is displayed',
@@ -75,8 +73,6 @@ const textareaScope = {
   Textarea,
 };
 
-const messageBoxExample = require('raw-loader!./examples/MessageBox.example.txt');
-
 const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
   name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
@@ -91,8 +87,6 @@ const messageBoxScope = {
   MessageBox,
 };
 
-const checkboxExample = require('raw-loader!./examples/Checkbox.example.txt');
-
 const checkboxDocs  = {
   inline:    '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
@@ -104,8 +98,6 @@ const checkboxScope = {
   ReactDOM,
   Checkbox,
 };
-
-const radioExample = require('raw-loader!./examples/Radio.example.txt');
 
 const radioDocs  = {
   inline:        '[Optional] - Inline the radios',
@@ -121,15 +113,12 @@ const radioScope = {
   Radio,
 };
 
-const switchExample = require('raw-loader!./examples/RhinoSwitch.example.txt');
-
 const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',
   disabled:  '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
   name:      '[Optional] - The name, and the basis of the id for the switch',
 };
-
 const switchScope = {
   React,
   ReactDOM,
@@ -235,7 +224,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Input Playground</h3>
-      <Playground docClass={Input} propDescriptionMap={inputDocs} codeText={inputExample} scope={inputScope} noRender={false} />
+      <Playground theme="default" docClass={Input} propDescriptionMap={inputDocs} codeText={inputExample} scope={inputScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -245,7 +234,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Text Area Playground</h3>
-      <Playground docClass={Textarea} propDescriptionMap={textareaDocs} codeText={textareaExample} scope={textareaScope} noRender={false} />
+      <Playground theme="default" docClass={Textarea} propDescriptionMap={textareaDocs} codeText={textareaExample} scope={textareaScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -256,7 +245,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Box Playground</h3>
-      <Playground docClass={MessageBox} propDescriptionMap={messageBoxDocs} codeText={messageBoxExample} scope={messageBoxScope} noRender={false} />
+      <Playground theme="default" docClass={MessageBox} propDescriptionMap={messageBoxDocs} codeText={messageBoxExample} scope={messageBoxScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -279,7 +268,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox Playground</h3>
-      <Playground docClass={Checkbox} propDescriptionMap={checkboxDocs} codeText={checkboxExample} scope={checkboxScope} noRender={false} />
+      <Playground theme="default" docClass={Checkbox} propDescriptionMap={checkboxDocs} codeText={checkboxExample} scope={checkboxScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -306,7 +295,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Radio Playground</h3>
-      <Playground docClass={Radio} propDescriptionMap={radioDocs} codeText={radioExample} scope={radioScope} noRender={false} />
+      <Playground theme="default" docClass={Radio} propDescriptionMap={radioDocs} codeText={radioExample} scope={radioScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -320,7 +309,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Select Playground</h3>
-      <Playground docClass={Select} propDescriptionMap={selectDocs} codeText={selectExample} scope={selectScope} noRender={false} />
+      <Playground theme="default" docClass={Select} propDescriptionMap={selectDocs} codeText={selectExample} scope={selectScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -333,7 +322,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Switcher Playground</h3>
-      <Playground docClass={RhinoSwitch} propDescriptionMap={switchDocs} codeText={switchExample} scope={switchScope} noRender={false} />
+      <Playground theme="default" docClass={RhinoSwitch} propDescriptionMap={switchDocs} codeText={switchExample} scope={switchScope} noRender={false} />
     </section>
   </div>;
 

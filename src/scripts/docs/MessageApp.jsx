@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Message, UtilityInlineGrid } from '../components';
+import messageExample from './examples/Message.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const messageExample = require('raw-loader!./examples/Message.example.txt');
 const messageDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - Message type -  [primary | note]',
@@ -91,7 +90,7 @@ const MessageApp = () =>
     </section>
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

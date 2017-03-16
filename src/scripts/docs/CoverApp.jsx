@@ -3,12 +3,10 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 
 import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
-
-/* eslint import/no-unresolved: 0 */
-const coverBodyExample   = require('raw-loader!./examples/CoverBody.example.txt');
-const coverExample       = require('raw-loader!./examples/Cover.example.txt');
-const coverFooterExample = require('raw-loader!./examples/CoverFooter.example.txt');
-const coverHeaderExample = require('raw-loader!./examples/CoverHeader.example.txt');
+import coverBodyExample   from './examples/CoverBody.example.txt';
+import coverExample       from './examples/Cover.example.txt';
+import coverFooterExample from './examples/CoverFooter.example.txt';
+import coverHeaderExample from './examples/CoverHeader.example.txt';
 
 const coverDocs = {
   className: '[Optional] - Additional class to add to cover div',
@@ -47,22 +45,22 @@ const CoverApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
       <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>Cover</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
-      <Playground docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">CoverHeader</h3>
-      <Playground docClass={CoverHeader} propDescriptionMap={coverHeaderDocs} codeText={coverHeaderExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={CoverHeader} propDescriptionMap={coverHeaderDocs} codeText={coverHeaderExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">CoverBody</h3>
-      <Playground docClass={CoverBody} propDescriptionMap={coverBodyDocs} codeText={coverBodyExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={CoverBody} propDescriptionMap={coverBodyDocs} codeText={coverBodyExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">CoverFooter</h3>
-      <Playground docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

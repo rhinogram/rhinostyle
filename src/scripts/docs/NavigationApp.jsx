@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { NavTabs, NavTabsItem } from '../components';
+import navTabsExample from './examples/NavTabs.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const navTabsExample = require('raw-loader!./examples/NavTabs.example.txt');
 const navTabsDocs = {
   activeKey: '[Optional] - Include active key',
   className: '[Optional] - Include additional class name(s)',
@@ -111,7 +110,7 @@ class NavigationApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Playground</h3>
-          <Playground docClass={NavTabs} propDescriptionMap={navTabsDocs} codeText={navTabsExample} scope={exampleScope} noRender={false} />
+          <Playground theme="default" docClass={NavTabs} propDescriptionMap={navTabsDocs} codeText={navTabsExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
     );

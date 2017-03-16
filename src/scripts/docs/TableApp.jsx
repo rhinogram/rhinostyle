@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Button, Table } from '../components';
+import tableExample from './examples/Table.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const tableExample = require('raw-loader!./examples/Table.example.txt');
 const tableDocs = {
   bordered: '[Optional] - Create bordered table',
   className: '[Optional] - Include additional class name(s)',
@@ -348,7 +347,7 @@ const LabelApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Table} propDescriptionMap={tableDocs} codeText={tableExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Table} propDescriptionMap={tableDocs} codeText={tableExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

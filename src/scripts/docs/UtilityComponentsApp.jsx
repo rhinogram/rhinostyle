@@ -3,15 +3,12 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 
 import { Button, Icon, UtilityInlineGrid } from '../components';
-
-/* eslint import/no-unresolved: 0 */
-const utilityInlineGridExample = require('raw-loader!./examples/UtilityInlineGrid.example.txt');
+import utilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
 
 const utilityInlineGridDocs = {
   align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
   size: '[Optional] - Gutter size for list -  [small | large]',
 };
-
 const utilityInlineGridScope = {
   React,
   ReactDOM,
@@ -36,7 +33,7 @@ const UtilityComponentsApp = () =>
         <p><strong>Note:</strong> This utility adds margin to each decendant of the class, so if the component you are interacting with has margin, wrap it in another element (such as a <code>&lt;div&gt;</code>) to get around adverse spacing effects.</p>
       </div>
       <h3 className="site-subheadline">Inline Grid Playground</h3>
-      <Playground docClass={UtilityInlineGrid} propDescriptionMap={utilityInlineGridDocs} codeText={utilityInlineGridExample} scope={utilityInlineGridScope} noRender={false} />
+      <Playground theme="default" docClass={UtilityInlineGrid} propDescriptionMap={utilityInlineGridDocs} codeText={utilityInlineGridExample} scope={utilityInlineGridScope} noRender={false} />
     </section>
   </div>;
 

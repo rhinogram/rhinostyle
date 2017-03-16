@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { ProgressBar } from '../components';
+import progressBarExample from './examples/ProgressBar.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const progressBarExample = require('raw-loader!./examples/ProgressBar.example.txt');
 const progressDocs = {
   className: '[Optional] - Include additional class name(s)',
   progress:  '[Optional] - The initial \'fill\' of the ProgressBar',
@@ -38,7 +37,7 @@ const ProgressBarApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

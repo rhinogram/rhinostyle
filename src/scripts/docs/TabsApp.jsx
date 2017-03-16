@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../components';
-
-/* eslint import/no-unresolved: 0 */
-const tabsExample = require('raw-loader!./examples/Tabs.example.txt');
+import tabsExample from './examples/Tabs.example.txt';
 
 const exampleScope  = {
   React,
@@ -52,7 +50,7 @@ class TabsApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Tabs Playground</h3>
-          <Playground codeText={tabsExample} scope={exampleScope} noRender={false} />
+          <Playground theme="default" codeText={tabsExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
     );

@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Icon, UtilityInlineGrid } from '../components';
+import iconExample from './examples/Icon.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const iconExample = require('raw-loader!./examples/Icon.example.txt');
 const iconDocs = {
   bump: '[Optional] - Bump [down | up] - used to move icon up or down slightly for precise positioning',
   className: '[Optional] - Include additional class name(s)',
@@ -393,7 +392,7 @@ const IconApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

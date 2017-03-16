@@ -22,6 +22,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.txt$/,
+        use: 'raw-loader',
+      },
+      {
         test: /\.jsx?$/,
         include: [
           path.resolve(__dirname, '../src/scripts'),

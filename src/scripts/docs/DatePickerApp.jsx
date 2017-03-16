@@ -4,9 +4,8 @@ import ReactDOM   from 'react-dom';
 import moment     from 'moment';
 
 import { DatePicker, Label } from '../components';
+import datePickerExample from './examples/DatePicker.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const datePickerExample = require('raw-loader!./examples/DatePicker.example.txt');
 const datePickerDocs = {
   className: '[Optional] - Include additional class name(s)',
 };
@@ -50,7 +49,7 @@ class DatePickerApp extends React.Component {
 
         <section>
           <h3 className="site-subheadline">Playground</h3>
-          <Playground docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
+          <Playground theme="default" docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
         </section>
 
       </div>

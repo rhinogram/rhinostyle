@@ -3,9 +3,8 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 
 import { Avatar, Icon, UtilityInlineGrid } from '../components';
+import avatarExample from './examples/Avatar.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const avatarExample = require('raw-loader!./examples/Avatar.example.txt');
 const avatarDocs = {
   className: '[Optional] - Include additional class name(s)',
   image: '[Optional] - Include source to image',
@@ -71,7 +70,7 @@ const AvatarApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

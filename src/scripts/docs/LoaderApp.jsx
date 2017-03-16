@@ -3,8 +3,10 @@ import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
 
 import { LoaderCircle, LoaderPulse, LoaderLine } from '../components';
+import loaderCircleExample from './examples/LoaderCircle.example.txt';
+import loaderLineExample from './examples/LoaderLine.example.txt';
+import loaderPulseExample from './examples/LoaderPulse.example.txt';
 
-const loaderCircleExample  = require('raw-loader!./examples/LoaderCircle.example.txt');
 const loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - LoaderCircle size -  [small | large]',
@@ -15,8 +17,7 @@ const loaderCircleScope = {
   ReactDOM,
   LoaderCircle,
 };
-/* eslint import/no-unresolved: 0 */
-const loaderLineExample  = require('raw-loader!./examples/LoaderLine.example.txt');
+
 const loaderLineDocs = {
   className: '[Optional] - Include additional class name(s)',
 };
@@ -25,7 +26,7 @@ const loaderLineScope = {
   ReactDOM,
   LoaderLine,
 };
-const loaderPulseExample = require('raw-loader!./examples/LoaderPulse.example.txt');
+
 const loaderPulseDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - LoaderPulse type -  [secondary | accent]',
@@ -54,7 +55,7 @@ const LoaderApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Playground</h3>
-      <Playground docClass={LoaderCircle} propDescriptionMap={loaderCircleDocs} codeText={loaderCircleExample} scope={loaderCircleScope} noRender={false} />
+      <Playground theme="default" docClass={LoaderCircle} propDescriptionMap={loaderCircleDocs} codeText={loaderCircleExample} scope={loaderCircleScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -67,7 +68,7 @@ const LoaderApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Playground</h3>
-      <Playground docClass={LoaderPulse} propDescriptionMap={loaderPulseDocs} codeText={loaderPulseExample} scope={loaderPulseScope} noRender={false} />
+      <Playground theme="default" docClass={LoaderPulse} propDescriptionMap={loaderPulseDocs} codeText={loaderPulseExample} scope={loaderPulseScope} noRender={false} />
     </section>
 
     <section className="site-section">
@@ -77,7 +78,7 @@ const LoaderApp = () =>
 
     <section>
       <h3 className="site-subheadline">LoaderLine Playground</h3>
-      <Playground docClass={LoaderLine} propDescriptionMap={loaderLineDocs} codeText={loaderLineExample} scope={loaderLineScope} noRender={false} />
+      <Playground theme="default" docClass={LoaderLine} propDescriptionMap={loaderLineDocs} codeText={loaderLineExample} scope={loaderLineScope} noRender={false} />
     </section>
   </div>;
 

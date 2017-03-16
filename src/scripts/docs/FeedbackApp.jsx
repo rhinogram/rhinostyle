@@ -3,9 +3,10 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 
 import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
+import alertExample from './examples/Alert.example.txt';
+import toastExample from './examples/Toast.example.txt';
+import systemAlertExample from './examples/SystemAlert.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const alertExample = require('raw-loader!./examples/Alert.example.txt');
 const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
   onDismiss: '[Optional] - Include dismiss function',
@@ -14,28 +15,6 @@ const alertDocs = {
   titleIcon: '[Optional] - Alert title icon',
   type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning | outline-danger | outline-default | outline-info | outline-success | outline-warning ]',
 };
-
-
-const toastExample = require('raw-loader!./examples/Toast.example.txt');
-const toastDocs = {
-  body: '[Required] - Toast body text',
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Include icon name',
-  onDismiss: '[Required] - Include dismiss function',
-  type: '[Optional] - Toast type, as a string -  [danger | default | success]',
-};
-
-const systemAlertExample = require('raw-loader!./examples/SystemAlert.example.txt');
-const systemAlertDocs = {
-  body: '[Required] - SystemAlert body text',
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Include icon name',
-  onDismiss: '[Required] - Include dismiss function',
-  type: '[Optional] - SystemAlert type, as a string -  [danger | default | info | success]',
-  url: '[Optional] - SystemAlert url, as a string',
-  urlText: '[Optional] - SystemAlert urlText, as a string - defaults to "More Information"',
-};
-
 const alertScope = {
   React,
   ReactDOM,
@@ -44,11 +23,29 @@ const alertScope = {
   Checkbox,
   Icon,
 };
+
+const toastDocs = {
+  body: '[Required] - Toast body text',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Include icon name',
+  onDismiss: '[Required] - Include dismiss function',
+  type: '[Optional] - Toast type, as a string -  [danger | default | success]',
+};
 const toastScope = {
   React,
   ReactDOM,
   Toast,
   Icon,
+};
+
+const systemAlertDocs = {
+  body: '[Required] - SystemAlert body text',
+  className: '[Optional] - Include additional class name(s)',
+  icon: '[Optional] - Include icon name',
+  onDismiss: '[Required] - Include dismiss function',
+  type: '[Optional] - SystemAlert type, as a string -  [danger | default | info | success]',
+  url: '[Optional] - SystemAlert url, as a string',
+  urlText: '[Optional] - SystemAlert urlText, as a string - defaults to "More Information"',
 };
 const systemAlertScope = {
   React,
@@ -104,7 +101,7 @@ class FeedbackApp extends React.Component {
             </div>
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
-          <Playground docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />
+          <Playground theme="default" docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">SystemAlert</h3>
@@ -117,7 +114,7 @@ class FeedbackApp extends React.Component {
             </div>
           </div>
           <h3 className="site-subheadline">SystemAlert Playground</h3>
-          <Playground docClass={SystemAlert} propDescriptionMap={systemAlertDocs} codeText={systemAlertExample} scope={systemAlertScope} noRender={false} />
+          <Playground theme="default" docClass={SystemAlert} propDescriptionMap={systemAlertDocs} codeText={systemAlertExample} scope={systemAlertScope} noRender={false} />
         </section>
         <section>
           <h3 className="site-subheadline">Toast</h3>
@@ -128,7 +125,7 @@ class FeedbackApp extends React.Component {
             <Toast type="danger" body="Danger toast notification" />
           </div>
           <h3 className="site-subheadline">Toast Playground</h3>
-          <Playground docClass={Toast} propDescriptionMap={toastDocs} codeText={toastExample} scope={toastScope} noRender={false} />
+          <Playground theme="default" docClass={Toast} propDescriptionMap={toastDocs} codeText={toastExample} scope={toastScope} noRender={false} />
         </section>
       </div>
     );

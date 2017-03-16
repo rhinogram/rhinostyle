@@ -1,15 +1,12 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import Playground from 'component-playground';
 
 import { ModalSystem, Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
-import Playground from 'component-playground'; //eslint-disable-line
-
-/* eslint import/no-unresolved: 0 */
-/* eslint import/no-extraneous-dependencies: 0 */
-const modalExample = require('raw-loader!./examples/Modal.example.txt');
-const modalHeaderExample = require('raw-loader!./examples/ModalHeader.example.txt');
-const modalBodyExample = require('raw-loader!./examples/ModalBody.example.txt');
-const modalFooterExample = require('raw-loader!./examples/ModalFooter.example.txt');
+import modalExample from './examples/Modal.example.txt';
+import modalHeaderExample from './examples/ModalHeader.example.txt';
+import modalBodyExample from './examples/ModalBody.example.txt';
+import modalFooterExample from './examples/ModalFooter.example.txt';
 
 const modalDocs = {
   className: '[Optional] - Additional class to add to modal div',
@@ -22,7 +19,6 @@ const modalHeaderDocs = {
   onClose: '[Optional] - Callback function to execute in addition to closing the modal',
   title: '[Optional] - Modal Title -  String to represent the Modal Header',
 };
-
 
 const exampleScope  = {
   React,
@@ -45,22 +41,22 @@ const ModalApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
       <p className="site-copy">You can inject a modal by calling <code>ModalSystem.addModal(modal)</code>, where <code>modal</code> can be <code>Modal</code> containing <code>ModalHeader</code>, <code>ModalBody</code>, <code>ModalFooter</code>.</p>
-      <Playground docClass={Modal} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Modal} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalHeader</h3>
-      <Playground docClass={ModalHeader} propDescriptionMap={modalHeaderDocs} codeText={modalHeaderExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={ModalHeader} propDescriptionMap={modalHeaderDocs} codeText={modalHeaderExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalBody</h3>
-      <Playground docClass={ModalBody} codeText={modalBodyExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={ModalBody} codeText={modalBodyExample} scope={exampleScope} noRender={false} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalFooter</h3>
-      <Playground docClass={ModalFooter} codeText={modalFooterExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={ModalFooter} codeText={modalFooterExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

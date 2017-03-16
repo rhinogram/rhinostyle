@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Label, Scrollbars } from '../components';
+import scrollBarExample from './examples/ScrollBar.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const scrollBarExample = require('raw-loader!./examples/ScrollBar.example.txt');
 const scrollBarDocs = {
   className: '[Optional] - Include additional class name(s)',
 };
@@ -36,7 +35,7 @@ const ScrollBarApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Scrollbars} propDescriptionMap={scrollBarDocs} codeText={scrollBarExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Scrollbars} propDescriptionMap={scrollBarDocs} codeText={scrollBarExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

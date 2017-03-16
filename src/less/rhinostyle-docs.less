@@ -634,12 +634,6 @@ html.panel-is-open {
 // Code Mirror Playground
 // -------------------------
 
-
-.playgroundPreview {
-  padding-top: @whitespace-large;
-}
-
-
 .playground > div > ul {
   list-style: none;
   margin-bottom: 3rem;
@@ -666,9 +660,17 @@ html.panel-is-open {
   margin-bottom: @margin-half-gutter;
 }
 
-.cm-s-monokai.CodeMirror {
+.playgroundError {
+  background: @color-danger;
+  color: @color-white;
+  font-family: @font-family-monospace;
+  margin-bottom: @margin-half-gutter;
+  padding: @whitespace-small;
+  white-space: pre-wrap;
+}
+
+.CodeMirror-wrap {
   border: 1px solid @border-color-base;
-  color: @color-gray;
 }
 
 .CodeMirror-code {

@@ -3,9 +3,8 @@ import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
 
 import { Button, Icon, UtilityInlineGrid } from '../components';
+import buttonExample from './examples/Button.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const buttonExample = require('raw-loader!./examples/Button.example.txt');
 const buttonDocs = {
   active: '[Optional] - Button is active',
   blankWindow: '[Optional] - Open URL in blank browser window',
@@ -20,7 +19,6 @@ const buttonDocs = {
   type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item',
 };
-
 const exampleScope  = {
   React,
   ReactDOM,
@@ -168,7 +166,7 @@ const ButtonApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Button} propDescriptionMap={buttonDocs} codeText={buttonExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Button} propDescriptionMap={buttonDocs} codeText={buttonExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

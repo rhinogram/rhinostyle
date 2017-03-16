@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Button, Icon, UtilityInlineGrid } from '../components';
+import tooltipsExample from './examples/Tooltips.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const tooltipsExample = require('raw-loader!./examples/Tooltips.example.txt');
 const exampleScope  = {
   React,
   ReactDOM,
@@ -33,7 +32,7 @@ const TooltipsApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Tooltips Playground</h3>
-      <Playground codeText={tooltipsExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" codeText={tooltipsExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

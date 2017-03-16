@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Label, UtilityInlineGrid } from '../components';
+import labelExample from './examples/Label.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const labelExample = require('raw-loader!./examples/Label.example.txt');
 const labelDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',
@@ -55,7 +54,7 @@ const LabelApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Label} propDescriptionMap={labelDocs} codeText={labelExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Label} propDescriptionMap={labelDocs} codeText={labelExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;
