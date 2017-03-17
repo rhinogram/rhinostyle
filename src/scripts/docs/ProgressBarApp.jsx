@@ -1,12 +1,10 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-
-import { ProgressBar } from '../components';
-
 import Playground from 'component-playground';
 
-/* eslint import/no-unresolved: 0 */
-const progressBarExample = require('raw-loader!./examples/ProgressBar.example.txt');
+import { ProgressBar } from '../components';
+import progressBarExample from './examples/ProgressBar.example.txt';
+
 const progressDocs = {
   className: '[Optional] - Include additional class name(s)',
   progress:  '[Optional] - The initial \'fill\' of the ProgressBar',
@@ -24,7 +22,7 @@ const ProgressBarApp = () =>
     <h1 className="site-headline">Progress Bars</h1>
     <section className="site-section">
       <h3 className="site-subheadline">ProgressBar Types</h3>
-      <p className="site-copy"><code>type="default | primary | secondary | temperature"</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary | secondary | temperature&quot;</code></p>
       <ProgressBar progress={20} className="u-m-b" />
       <ProgressBar progress={40} type="primary" className="u-m-b" />
       <ProgressBar progress={60} type="secondary" className="u-m-b" />
@@ -39,7 +37,7 @@ const ProgressBarApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
     </section>
   </div>;
 

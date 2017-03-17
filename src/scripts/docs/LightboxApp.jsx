@@ -1,9 +1,9 @@
 import React      from 'react';
 import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
-import { Button, Lightbox } from '../components';
 
-const lightboxExample  = require('raw-loader!./examples/Lightbox.example.txt');
+import { Button, Lightbox } from '../components';
+import lightboxExample from './examples/Lightbox.example.txt';
 
 const lightboxDocs = {};
 const lightboxScope = {
@@ -21,7 +21,7 @@ const LightboxApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Lightbox Playground</h3>
-      <Playground docClass={Lightbox} propDescriptionMap={lightboxDocs} codeText={lightboxExample} scope={lightboxScope} noRender={false} />
+      <Playground theme="default" docClass={Lightbox} propDescriptionMap={lightboxDocs} codeText={lightboxExample} scope={lightboxScope} noRender={false} />
     </section>
   </div>;
 

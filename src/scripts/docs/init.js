@@ -1,16 +1,9 @@
 import { TimelineMax, SteppedEase } from 'gsap';
-import CodeMirror from 'codemirror';
 import load from '../svg';
 import { optimizedResize } from '../utility';
 
 const $html = document.documentElement;
 const $siteOverlay = document.querySelector('#site-overlay');
-
-// Init CodeMirror
-CodeMirror(document.body, {
-  mode: 'javascript',
-  lineWrapping: true,
-});
 
 // Navigation listener
 optimizedResize.add(() => {

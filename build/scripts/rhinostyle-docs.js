@@ -161,7 +161,7 @@ var _DropdownWrapper = __webpack_require__(411);
 
 var _DropdownWrapper2 = _interopRequireDefault(_DropdownWrapper);
 
-var _Icon = __webpack_require__(90);
+var _Icon = __webpack_require__(89);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -8984,8 +8984,7 @@ function _resetWarned() {
 /* 84 */,
 /* 85 */,
 /* 86 */,
-/* 87 */,
-/* 88 */
+/* 87 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9027,7 +9026,7 @@ var route = oneOfType([object, element]);
 var routes = oneOfType([route, arrayOf(route)]);
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9057,7 +9056,7 @@ var constants = {
 exports.default = constants;
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9110,6 +9109,7 @@ Icon.defaultProps = {
 exports.default = Icon;
 
 /***/ }),
+/* 90 */,
 /* 91 */,
 /* 92 */,
 /* 93 */,
@@ -9218,7 +9218,7 @@ var _dispatcher = __webpack_require__(168);
 
 var _dispatcher2 = _interopRequireDefault(_dispatcher);
 
-var _constants = __webpack_require__(89);
+var _constants = __webpack_require__(88);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -10011,7 +10011,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _flux = __webpack_require__(646);
 
-var _constants = __webpack_require__(89);
+var _constants = __webpack_require__(88);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -10179,11 +10179,15 @@ Avatar.propTypes = {
   image: _react2.default.PropTypes.string,
   name: _react2.default.PropTypes.string,
   size: _react2.default.PropTypes.oneOf(['small', 'default', 'large']),
+  src: _react2.default.PropTypes.string,
   type: _react2.default.PropTypes.oneOf(['default', 'member'])
 };
 Avatar.defaultProps = {
+  className: '',
   image: '',
+  name: '',
   size: 'default',
+  src: '',
   type: 'default'
 };
 exports.default = Avatar;
@@ -10217,7 +10221,7 @@ var _Avatar = __webpack_require__(169);
 
 var _Avatar2 = _interopRequireDefault(_Avatar);
 
-var _Icon = __webpack_require__(90);
+var _Icon = __webpack_require__(89);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -12527,7 +12531,7 @@ function isPromise(obj) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__RouteUtils__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PatternUtils__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(87);
 
 
 
@@ -13090,10 +13094,11 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _AvatarExample = __webpack_require__(661);
 
-/* eslint import/no-unresolved: 0 */
-var avatarExample = __webpack_require__(661);
+var _AvatarExample2 = _interopRequireDefault(_AvatarExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var avatarDocs = {
   className: '[Optional] - Include additional class name(s)',
@@ -13245,7 +13250,7 @@ var AvatarApp = function AvatarApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Avatar, propDescriptionMap: avatarDocs, codeText: avatarExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Avatar, propDescriptionMap: avatarDocs, codeText: _AvatarExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -13267,16 +13272,22 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _BucketExample = __webpack_require__(662);
+
+var _BucketExample2 = _interopRequireDefault(_BucketExample);
+
+var _BucketHeaderExample = __webpack_require__(663);
+
+var _BucketHeaderExample2 = _interopRequireDefault(_BucketHeaderExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var bucketExample = __webpack_require__(662);
 var bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - Bucket size -  [small]',
@@ -13292,7 +13303,6 @@ var bucketScope = {
   Table: _components.Table
 };
 
-var bucketHeaderExample = __webpack_require__(663);
 var bucketHeaderDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',
@@ -13437,7 +13447,7 @@ var BucketApp = function BucketApp() {
         { className: 'site-subheadline' },
         'Bucket Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Bucket, propDescriptionMap: bucketDocs, codeText: bucketExample, scope: bucketScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Bucket, propDescriptionMap: bucketDocs, codeText: _BucketExample2.default, scope: bucketScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -13447,7 +13457,7 @@ var BucketApp = function BucketApp() {
         { className: 'site-subheadline' },
         'Bucket Header Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.BucketHeader, propDescriptionMap: bucketHeaderDocs, codeText: bucketHeaderExample, scope: bucketHeaderScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.BucketHeader, propDescriptionMap: bucketHeaderDocs, codeText: _BucketHeaderExample2.default, scope: bucketHeaderScope, noRender: false })
     )
   );
 };
@@ -13475,10 +13485,11 @@ var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _ButtonExample = __webpack_require__(664);
 
-/* eslint import/no-unresolved: 0 */
-var buttonExample = __webpack_require__(664);
+var _ButtonExample2 = _interopRequireDefault(_ButtonExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var buttonDocs = {
   active: '[Optional] - Button is active',
@@ -13494,7 +13505,6 @@ var buttonDocs = {
   type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item'
 };
-
 var exampleScope = {
   React: _react2.default,
   ReactDOM: _reactDom2.default,
@@ -14062,7 +14072,7 @@ var ButtonApp = function ButtonApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Button, propDescriptionMap: buttonDocs, codeText: buttonExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Button, propDescriptionMap: buttonDocs, codeText: _ButtonExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -14090,23 +14100,23 @@ var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _CloseExample = __webpack_require__(666);
 
-/* eslint import/no-unresolved: 0 */
-var closeExample = __webpack_require__(666);
+var _CloseExample2 = _interopRequireDefault(_CloseExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var closeDocs = {
   className: '[Optional] - Include additional class name(s)',
   onClick: '[Required] - Include click function for Close'
 };
-
 var exampleScope = {
   React: _react2.default,
   ReactDOM: _reactDom2.default,
   Close: _components.Close
 };
 
-var PillApp = function PillApp() {
+var CloseApp = function CloseApp() {
   return _react2.default.createElement(
     'div',
     null,
@@ -14137,12 +14147,12 @@ var PillApp = function PillApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Close, propDescriptionMap: closeDocs, codeText: closeExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Close, propDescriptionMap: closeDocs, codeText: _CloseExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
 
-_reactDom2.default.render(_react2.default.createElement(PillApp, null), document.getElementById('js-app'));
+_reactDom2.default.render(_react2.default.createElement(CloseApp, null), document.getElementById('js-app'));
 
 /***/ }),
 /* 366 */
@@ -14165,13 +14175,23 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _CoverBodyExample = __webpack_require__(668);
 
-/* eslint import/no-unresolved: 0 */
-var coverBodyExample = __webpack_require__(668);
-var coverExample = __webpack_require__(667);
-var coverFooterExample = __webpack_require__(669);
-var coverHeaderExample = __webpack_require__(670);
+var _CoverBodyExample2 = _interopRequireDefault(_CoverBodyExample);
+
+var _CoverExample = __webpack_require__(667);
+
+var _CoverExample2 = _interopRequireDefault(_CoverExample);
+
+var _CoverFooterExample = __webpack_require__(669);
+
+var _CoverFooterExample2 = _interopRequireDefault(_CoverFooterExample);
+
+var _CoverHeaderExample = __webpack_require__(670);
+
+var _CoverHeaderExample2 = _interopRequireDefault(_CoverHeaderExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var coverDocs = {
   className: '[Optional] - Additional class to add to cover div'
@@ -14261,7 +14281,7 @@ var CoverApp = function CoverApp() {
         ),
         '.'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Cover, propDescriptionMap: coverDocs, codeText: coverExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Cover, propDescriptionMap: coverDocs, codeText: _CoverExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -14271,7 +14291,7 @@ var CoverApp = function CoverApp() {
         { className: 'site-subheadline' },
         'CoverHeader'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.CoverHeader, propDescriptionMap: coverHeaderDocs, codeText: coverHeaderExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.CoverHeader, propDescriptionMap: coverHeaderDocs, codeText: _CoverHeaderExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -14281,7 +14301,7 @@ var CoverApp = function CoverApp() {
         { className: 'site-subheadline' },
         'CoverBody'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.CoverBody, propDescriptionMap: coverBodyDocs, codeText: coverBodyExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.CoverBody, propDescriptionMap: coverBodyDocs, codeText: _CoverBodyExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -14291,7 +14311,7 @@ var CoverApp = function CoverApp() {
         { className: 'site-subheadline' },
         'CoverFooter'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.CoverFooter, codeText: coverFooterExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.CoverFooter, codeText: _CoverFooterExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -14325,6 +14345,10 @@ var _moment2 = _interopRequireDefault(_moment);
 
 var _components = __webpack_require__(9);
 
+var _DatePickerExample = __webpack_require__(671);
+
+var _DatePickerExample2 = _interopRequireDefault(_DatePickerExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -14333,8 +14357,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* eslint import/no-unresolved: 0 */
-var datePickerExample = __webpack_require__(671);
 var datePickerDocs = {
   className: '[Optional] - Include additional class name(s)'
 };
@@ -14393,7 +14415,7 @@ var DatePickerApp = function (_React$Component) {
             'We are using ',
             _react2.default.createElement(
               'a',
-              { href: 'https://hacker0x01.github.io/react-datepicker/', target: '_blank' },
+              { href: 'https://hacker0x01.github.io/react-datepicker/', target: '_blank', rel: 'noopener noreferrer' },
               'react-datepicker'
             ),
             ' with custom styling.'
@@ -14421,7 +14443,7 @@ var DatePickerApp = function (_React$Component) {
             { className: 'site-subheadline' },
             'Playground'
           ),
-          _react2.default.createElement(_componentPlayground2.default, { docClass: _components.DatePicker, propDescriptionMap: datePickerDocs, codeText: datePickerExample, scope: exampleScope, noRender: false })
+          _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.DatePicker, propDescriptionMap: datePickerDocs, codeText: _DatePickerExample2.default, scope: exampleScope, noRender: false })
         )
       );
     }
@@ -14450,20 +14472,33 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _components = __webpack_require__(9);
 
-/* eslint import/no-unresolved: 0 */
-var dropdownExample = __webpack_require__(672);
-var dropdownMultiSelectExample = __webpack_require__(676);
-var dropdownMenuHeaderExample = __webpack_require__(673);
-var dropdownMenuItemExample = __webpack_require__(674);
-var dropdownMenuItemWildExample = __webpack_require__(675);
+var _DropdownExample = __webpack_require__(672);
+
+var _DropdownExample2 = _interopRequireDefault(_DropdownExample);
+
+var _DropdownMultiSelectExample = __webpack_require__(676);
+
+var _DropdownMultiSelectExample2 = _interopRequireDefault(_DropdownMultiSelectExample);
+
+var _DropdownMenuHeaderExample = __webpack_require__(673);
+
+var _DropdownMenuHeaderExample2 = _interopRequireDefault(_DropdownMenuHeaderExample);
+
+var _DropdownMenuItemExample = __webpack_require__(674);
+
+var _DropdownMenuItemExample2 = _interopRequireDefault(_DropdownMenuItemExample);
+
+var _DropdownMenuItemWildExample = __webpack_require__(675);
+
+var _DropdownMenuItemWildExample2 = _interopRequireDefault(_DropdownMenuItemWildExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var dropdownDocs = {
   activeKey: '[Optional] - The id of the currently selected DropdownMenuItem',
@@ -14952,7 +14987,7 @@ var DropdownApp = function DropdownApp() {
         ),
         ' if you want dropdown to appear like a form input.'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Dropdown, propDescriptionMap: dropdownDocs, codeText: dropdownExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Dropdown, propDescriptionMap: dropdownDocs, codeText: _DropdownExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -14979,7 +15014,7 @@ var DropdownApp = function DropdownApp() {
         ),
         '. This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as "pills" below the dropdown.'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.DropdownMultiSelect, propDescriptionMap: dropdownMultiSelectDocs, codeText: dropdownMultiSelectExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.DropdownMultiSelect, propDescriptionMap: dropdownMultiSelectDocs, codeText: _DropdownMultiSelectExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -14989,7 +15024,7 @@ var DropdownApp = function DropdownApp() {
         { className: 'site-subheadline' },
         'DropdownMenuHeader'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.DropdownMenuHeader, propDescriptionMap: dropdownMenuHeaderDocs, codeText: dropdownMenuHeaderExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.DropdownMenuHeader, propDescriptionMap: dropdownMenuHeaderDocs, codeText: _DropdownMenuHeaderExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -14999,7 +15034,7 @@ var DropdownApp = function DropdownApp() {
         { className: 'site-subheadline' },
         'DropdownMenuItem'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.DropdownMenuItem, propDescriptionMap: dropdownMenuItemDocs, codeText: dropdownMenuItemExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.DropdownMenuItem, propDescriptionMap: dropdownMenuItemDocs, codeText: _DropdownMenuItemExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -15009,7 +15044,7 @@ var DropdownApp = function DropdownApp() {
         { className: 'site-subheadline' },
         'DropdownMenuItemWild'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.DropdownMenuItemWild, propDescriptionMap: dropdownMenuItemWildDocs, codeText: dropdownMenuItemWildExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.DropdownMenuItemWild, propDescriptionMap: dropdownMenuItemWildDocs, codeText: _DropdownMenuItemWildExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -15039,6 +15074,18 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _components = __webpack_require__(9);
 
+var _AlertExample = __webpack_require__(660);
+
+var _AlertExample2 = _interopRequireDefault(_AlertExample);
+
+var _ToastExample = __webpack_require__(701);
+
+var _ToastExample2 = _interopRequireDefault(_ToastExample);
+
+var _SystemAlertExample = __webpack_require__(697);
+
+var _SystemAlertExample2 = _interopRequireDefault(_SystemAlertExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15046,9 +15093,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/* eslint import/no-unresolved: 0 */
-var alertExample = __webpack_require__(660);
 
 var alertDocs = {
   className: '[Optional] - Include additional class name(s)',
@@ -15058,8 +15102,14 @@ var alertDocs = {
   titleIcon: '[Optional] - Alert title icon',
   type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning | outline-danger | outline-default | outline-info | outline-success | outline-warning ]'
 };
-
-var toastExample = __webpack_require__(701);
+var alertScope = {
+  React: _react2.default,
+  ReactDOM: _reactDom2.default,
+  Alert: _components.Alert,
+  Button: _components.Button,
+  Checkbox: _components.Checkbox,
+  Icon: _components.Icon
+};
 
 var toastDocs = {
   body: '[Required] - Toast body text',
@@ -15068,8 +15118,12 @@ var toastDocs = {
   onDismiss: '[Required] - Include dismiss function',
   type: '[Optional] - Toast type, as a string -  [danger | default | success]'
 };
-
-var systemAlertExample = __webpack_require__(697);
+var toastScope = {
+  React: _react2.default,
+  ReactDOM: _reactDom2.default,
+  Toast: _components.Toast,
+  Icon: _components.Icon
+};
 
 var systemAlertDocs = {
   body: '[Required] - SystemAlert body text',
@@ -15079,21 +15133,6 @@ var systemAlertDocs = {
   type: '[Optional] - SystemAlert type, as a string -  [danger | default | info | success]',
   url: '[Optional] - SystemAlert url, as a string',
   urlText: '[Optional] - SystemAlert urlText, as a string - defaults to "More Information"'
-};
-
-var alertScope = {
-  React: _react2.default,
-  ReactDOM: _reactDom2.default,
-  Alert: _components.Alert,
-  Button: _components.Button,
-  Checkbox: _components.Checkbox,
-  Icon: _components.Icon
-};
-var toastScope = {
-  React: _react2.default,
-  ReactDOM: _reactDom2.default,
-  Toast: _components.Toast,
-  Icon: _components.Icon
 };
 var systemAlertScope = {
   React: _react2.default,
@@ -15133,6 +15172,9 @@ var FeedbackApp = function (_React$Component) {
 
   _createClass(FeedbackApp, [{
     key: 'render',
+
+
+    /* eslint-disable no-alert */
     value: function render() {
       return _react2.default.createElement(
         'div',
@@ -15378,7 +15420,7 @@ var FeedbackApp = function (_React$Component) {
             { className: 'site-subheadline' },
             'Alert Playground'
           ),
-          _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Alert, propDescriptionMap: alertDocs, codeText: alertExample, scope: alertScope, noRender: false })
+          _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Alert, propDescriptionMap: alertDocs, codeText: _AlertExample2.default, scope: alertScope, noRender: false })
         ),
         _react2.default.createElement(
           'section',
@@ -15405,7 +15447,7 @@ var FeedbackApp = function (_React$Component) {
             { className: 'site-subheadline' },
             'SystemAlert Playground'
           ),
-          _react2.default.createElement(_componentPlayground2.default, { docClass: _components.SystemAlert, propDescriptionMap: systemAlertDocs, codeText: systemAlertExample, scope: systemAlertScope, noRender: false })
+          _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.SystemAlert, propDescriptionMap: systemAlertDocs, codeText: _SystemAlertExample2.default, scope: systemAlertScope, noRender: false })
         ),
         _react2.default.createElement(
           'section',
@@ -15421,7 +15463,7 @@ var FeedbackApp = function (_React$Component) {
             'To see a toast in action, ',
             _react2.default.createElement(
               'a',
-              { href: '#', onClick: this.onClick },
+              { href: 'javascript:void(0)', onClick: this.onClick },
               'click here'
             ),
             '.'
@@ -15438,7 +15480,7 @@ var FeedbackApp = function (_React$Component) {
             { className: 'site-subheadline' },
             'Toast Playground'
           ),
-          _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Toast, propDescriptionMap: toastDocs, codeText: toastExample, scope: toastScope, noRender: false })
+          _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Toast, propDescriptionMap: toastDocs, codeText: _ToastExample2.default, scope: toastScope, noRender: false })
         )
       );
     }
@@ -15473,10 +15515,35 @@ var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _InputExample = __webpack_require__(678);
 
-/* eslint import/no-unresolved:0 */
-var inputExample = __webpack_require__(678);
+var _InputExample2 = _interopRequireDefault(_InputExample);
+
+var _SelectExample = __webpack_require__(696);
+
+var _SelectExample2 = _interopRequireDefault(_SelectExample);
+
+var _TextareaExample = __webpack_require__(700);
+
+var _TextareaExample2 = _interopRequireDefault(_TextareaExample);
+
+var _MessageBoxExample = __webpack_require__(685);
+
+var _MessageBoxExample2 = _interopRequireDefault(_MessageBoxExample);
+
+var _CheckboxExample = __webpack_require__(665);
+
+var _CheckboxExample2 = _interopRequireDefault(_CheckboxExample);
+
+var _RadioExample = __webpack_require__(693);
+
+var _RadioExample2 = _interopRequireDefault(_RadioExample);
+
+var _RhinoSwitchExample = __webpack_require__(694);
+
+var _RhinoSwitchExample2 = _interopRequireDefault(_RhinoSwitchExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var inputDocs = {
   addon: '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
@@ -15501,8 +15568,6 @@ var inputScope = {
   Input: _components.Input
 };
 
-var selectExample = __webpack_require__(696);
-
 var selectDocs = {
   label: '[Optional] - A label for the select',
   name: '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
@@ -15511,16 +15576,12 @@ var selectDocs = {
   onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
   selected: '[Optional] - String that pre-selects an option'
 };
-
 var selectScope = {
   React: _react2.default,
   ReactDOM: _reactDom2.default,
   Select: _components.Select
 };
-
 var selectOpts = [{ id: 0, value: '--' }, { id: 1, value: 'Option One' }, { id: 2, value: 'Option Two' }, { id: 3, value: 'Option Three' }, { id: 4, value: 'Option Four' }];
-
-var textareaExample = __webpack_require__(700);
 
 var textareaDocs = {
   abbrMaxCharacters: '[Optional] - Abbreviated max character count - only the count is displayed',
@@ -15540,8 +15601,6 @@ var textareaScope = {
   Textarea: _components.Textarea
 };
 
-var messageBoxExample = __webpack_require__(685);
-
 var messageBoxDocs = {
   label: '[Optional] - A label for the textarea',
   name: '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
@@ -15556,8 +15615,6 @@ var messageBoxScope = {
   MessageBox: _components.MessageBox
 };
 
-var checkboxExample = __webpack_require__(665);
-
 var checkboxDocs = {
   inline: '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
@@ -15569,8 +15626,6 @@ var checkboxScope = {
   ReactDOM: _reactDom2.default,
   Checkbox: _components.Checkbox
 };
-
-var radioExample = __webpack_require__(693);
 
 var radioDocs = {
   inline: '[Optional] - Inline the radios',
@@ -15586,15 +15641,12 @@ var radioScope = {
   Radio: _components.Radio
 };
 
-var switchExample = __webpack_require__(694);
-
 var switchDocs = {
   className: '[Optional] - Any class name you would like to add to the switch',
   disabled: '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
   name: '[Optional] - The name, and the basis of the id for the switch'
 };
-
 var switchScope = {
   React: _react2.default,
   ReactDOM: _reactDom2.default,
@@ -15902,7 +15954,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Input Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Input, propDescriptionMap: inputDocs, codeText: inputExample, scope: inputScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Input, propDescriptionMap: inputDocs, codeText: _InputExample2.default, scope: inputScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -15922,7 +15974,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Text Area Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Textarea, propDescriptionMap: textareaDocs, codeText: textareaExample, scope: textareaScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Textarea, propDescriptionMap: textareaDocs, codeText: _TextareaExample2.default, scope: textareaScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -15938,7 +15990,7 @@ var FormApp = function FormApp() {
         'We are using a light-weight plugin, ',
         _react2.default.createElement(
           'a',
-          { href: 'http://www.jacklmoore.com/autosize/', target: '_blank' },
+          { href: 'http://www.jacklmoore.com/autosize/', target: '_blank', rel: 'noopener noreferrer' },
           'Jack Moore\'s Autosize'
         ),
         ', with custom styling for the autogrow functionality.'
@@ -15953,7 +16005,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Message Box Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.MessageBox, propDescriptionMap: messageBoxDocs, codeText: messageBoxExample, scope: messageBoxScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.MessageBox, propDescriptionMap: messageBoxDocs, codeText: _MessageBoxExample2.default, scope: messageBoxScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -16042,7 +16094,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Checkbox Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Checkbox, propDescriptionMap: checkboxDocs, codeText: checkboxExample, scope: checkboxScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Checkbox, propDescriptionMap: checkboxDocs, codeText: _CheckboxExample2.default, scope: checkboxScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -16139,7 +16191,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Radio Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Radio, propDescriptionMap: radioDocs, codeText: radioExample, scope: radioScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Radio, propDescriptionMap: radioDocs, codeText: _RadioExample2.default, scope: radioScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -16179,7 +16231,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Select Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Select, propDescriptionMap: selectDocs, codeText: selectExample, scope: selectScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Select, propDescriptionMap: selectDocs, codeText: _SelectExample2.default, scope: selectScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -16222,7 +16274,7 @@ var FormApp = function FormApp() {
         { className: 'site-subheadline' },
         'Switcher Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.RhinoSwitch, propDescriptionMap: switchDocs, codeText: switchExample, scope: switchScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.RhinoSwitch, propDescriptionMap: switchDocs, codeText: _RhinoSwitchExample2.default, scope: switchScope, noRender: false })
     )
   );
 };
@@ -16244,16 +16296,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _IconExample = __webpack_require__(677);
+
+var _IconExample2 = _interopRequireDefault(_IconExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var iconExample = __webpack_require__(677);
 var iconDocs = {
   bump: '[Optional] - Bump [down | up] - used to move icon up or down slightly for precise positioning',
   className: '[Optional] - Include additional class name(s)',
@@ -17231,7 +17285,7 @@ var IconApp = function IconApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Icon, propDescriptionMap: iconDocs, codeText: iconExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Icon, propDescriptionMap: iconDocs, codeText: _IconExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -17247,10 +17301,6 @@ _reactDom2.default.render(_react2.default.createElement(IconApp, null), document
 
 var _gsap = __webpack_require__(75);
 
-var _codemirror = __webpack_require__(80);
-
-var _codemirror2 = _interopRequireDefault(_codemirror);
-
 var _svg = __webpack_require__(435);
 
 var _svg2 = _interopRequireDefault(_svg);
@@ -17261,12 +17311,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var $html = document.documentElement;
 var $siteOverlay = document.querySelector('#site-overlay');
-
-// Init CodeMirror
-(0, _codemirror2.default)(document.body, {
-  mode: 'javascript',
-  lineWrapping: true
-});
 
 // Navigation listener
 _utility.optimizedResize.add(function () {
@@ -17388,16 +17432,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _LabelExample = __webpack_require__(679);
+
+var _LabelExample2 = _interopRequireDefault(_LabelExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var labelExample = __webpack_require__(679);
 var labelDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',
@@ -17473,7 +17519,7 @@ var LabelApp = function LabelApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Label, propDescriptionMap: labelDocs, codeText: labelExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Label, propDescriptionMap: labelDocs, codeText: _LabelExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -17501,9 +17547,11 @@ var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _LightboxExample = __webpack_require__(680);
 
-var lightboxExample = __webpack_require__(680);
+var _LightboxExample2 = _interopRequireDefault(_LightboxExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var lightboxDocs = {};
 var lightboxScope = {
@@ -17541,7 +17589,7 @@ var LightboxApp = function LightboxApp() {
         { className: 'site-subheadline' },
         'Lightbox Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Lightbox, propDescriptionMap: lightboxDocs, codeText: lightboxExample, scope: lightboxScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Lightbox, propDescriptionMap: lightboxDocs, codeText: _LightboxExample2.default, scope: lightboxScope, noRender: false })
     )
   );
 };
@@ -17569,9 +17617,20 @@ var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
 var _components = __webpack_require__(9);
 
+var _LoaderCircleExample = __webpack_require__(681);
+
+var _LoaderCircleExample2 = _interopRequireDefault(_LoaderCircleExample);
+
+var _LoaderLineExample = __webpack_require__(682);
+
+var _LoaderLineExample2 = _interopRequireDefault(_LoaderLineExample);
+
+var _LoaderPulseExample = __webpack_require__(683);
+
+var _LoaderPulseExample2 = _interopRequireDefault(_LoaderPulseExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var loaderCircleExample = __webpack_require__(681);
 var loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - LoaderCircle size -  [small | large]',
@@ -17582,8 +17641,7 @@ var loaderCircleScope = {
   ReactDOM: _reactDom2.default,
   LoaderCircle: _components.LoaderCircle
 };
-/* eslint import/no-unresolved: 0 */
-var loaderLineExample = __webpack_require__(682);
+
 var loaderLineDocs = {
   className: '[Optional] - Include additional class name(s)'
 };
@@ -17592,7 +17650,7 @@ var loaderLineScope = {
   ReactDOM: _reactDom2.default,
   LoaderLine: _components.LoaderLine
 };
-var loaderPulseExample = __webpack_require__(683);
+
 var loaderPulseDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - LoaderPulse type -  [secondary | accent]'
@@ -17664,7 +17722,7 @@ var LoaderApp = function LoaderApp() {
         { className: 'site-subheadline' },
         'LoaderCircle Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.LoaderCircle, propDescriptionMap: loaderCircleDocs, codeText: loaderCircleExample, scope: loaderCircleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.LoaderCircle, propDescriptionMap: loaderCircleDocs, codeText: _LoaderCircleExample2.default, scope: loaderCircleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -17697,7 +17755,7 @@ var LoaderApp = function LoaderApp() {
         { className: 'site-subheadline' },
         'LoaderPulse Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.LoaderPulse, propDescriptionMap: loaderPulseDocs, codeText: loaderPulseExample, scope: loaderPulseScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.LoaderPulse, propDescriptionMap: loaderPulseDocs, codeText: _LoaderPulseExample2.default, scope: loaderPulseScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -17717,7 +17775,7 @@ var LoaderApp = function LoaderApp() {
         { className: 'site-subheadline' },
         'LoaderLine Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.LoaderLine, propDescriptionMap: loaderLineDocs, codeText: loaderLineExample, scope: loaderLineScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.LoaderLine, propDescriptionMap: loaderLineDocs, codeText: _LoaderLineExample2.default, scope: loaderLineScope, noRender: false })
     )
   );
 };
@@ -17739,16 +17797,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _MessageExample = __webpack_require__(684);
+
+var _MessageExample2 = _interopRequireDefault(_MessageExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var messageExample = __webpack_require__(684);
 var messageDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - Message type -  [primary | note]',
@@ -17799,7 +17859,7 @@ var MessageApp = function MessageApp() {
             'Default Message ',
             _react2.default.createElement(
               'a',
-              { href: '#' },
+              { href: 'javascript:void(0)' },
               'www.linktosomething.com'
             )
           )
@@ -17813,7 +17873,7 @@ var MessageApp = function MessageApp() {
             'Primary Message ',
             _react2.default.createElement(
               'a',
-              { href: '#' },
+              { href: 'javascript:void(0)' },
               'www.linktosomething.com'
             )
           )
@@ -17827,7 +17887,7 @@ var MessageApp = function MessageApp() {
             'Note Message ',
             _react2.default.createElement(
               'a',
-              { href: '#' },
+              { href: 'javascript:void(0)' },
               'www.linktosomething.com'
             )
           )
@@ -17949,7 +18009,7 @@ var MessageApp = function MessageApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Message, propDescriptionMap: messageDocs, codeText: messageExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Message, propDescriptionMap: messageDocs, codeText: _MessageExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -17971,22 +18031,29 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _ModalExample = __webpack_require__(686);
+
+var _ModalExample2 = _interopRequireDefault(_ModalExample);
+
+var _ModalHeaderExample = __webpack_require__(689);
+
+var _ModalHeaderExample2 = _interopRequireDefault(_ModalHeaderExample);
+
+var _ModalBodyExample = __webpack_require__(687);
+
+var _ModalBodyExample2 = _interopRequireDefault(_ModalBodyExample);
+
+var _ModalFooterExample = __webpack_require__(688);
+
+var _ModalFooterExample2 = _interopRequireDefault(_ModalFooterExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//eslint-disable-line
-
-/* eslint import/no-unresolved: 0 */
-/* eslint import/no-extraneous-dependencies: 0 */
-var modalExample = __webpack_require__(686);
-var modalHeaderExample = __webpack_require__(689);
-var modalBodyExample = __webpack_require__(687);
-var modalFooterExample = __webpack_require__(688);
 
 var modalDocs = {
   className: '[Optional] - Additional class to add to modal div',
@@ -18072,7 +18139,7 @@ var ModalApp = function ModalApp() {
         ),
         '.'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Modal, propDescriptionMap: modalDocs, codeText: modalExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Modal, propDescriptionMap: modalDocs, codeText: _ModalExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -18082,7 +18149,7 @@ var ModalApp = function ModalApp() {
         { className: 'site-subheadline' },
         'ModalHeader'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.ModalHeader, propDescriptionMap: modalHeaderDocs, codeText: modalHeaderExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.ModalHeader, propDescriptionMap: modalHeaderDocs, codeText: _ModalHeaderExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -18092,7 +18159,7 @@ var ModalApp = function ModalApp() {
         { className: 'site-subheadline' },
         'ModalBody'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.ModalBody, codeText: modalBodyExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.ModalBody, codeText: _ModalBodyExample2.default, scope: exampleScope, noRender: false })
     ),
     _react2.default.createElement(
       'section',
@@ -18102,7 +18169,7 @@ var ModalApp = function ModalApp() {
         { className: 'site-subheadline' },
         'ModalFooter'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.ModalFooter, codeText: modalFooterExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.ModalFooter, codeText: _ModalFooterExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -18126,11 +18193,15 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
+
+var _components = __webpack_require__(9);
+
+var _NavTabsExample = __webpack_require__(690);
+
+var _NavTabsExample2 = _interopRequireDefault(_NavTabsExample);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18140,8 +18211,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/* eslint import/no-unresolved: 0 */
-var navTabsExample = __webpack_require__(690);
 var navTabsDocs = {
   activeKey: '[Optional] - Include active key',
   className: '[Optional] - Include additional class name(s)',
@@ -18399,7 +18468,7 @@ var NavigationApp = function (_React$Component) {
             { className: 'site-subheadline' },
             'NavTabs Playground'
           ),
-          _react2.default.createElement(_componentPlayground2.default, { docClass: _components.NavTabs, propDescriptionMap: navTabsDocs, codeText: navTabsExample, scope: exampleScope, noRender: false })
+          _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.NavTabs, propDescriptionMap: navTabsDocs, codeText: _NavTabsExample2.default, scope: exampleScope, noRender: false })
         )
       );
     }
@@ -18425,16 +18494,17 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _components = __webpack_require__(9);
 
-/* eslint import/no-unresolved: 0 */
-var pillExample = __webpack_require__(691);
+var _PillExample = __webpack_require__(691);
+
+var _PillExample2 = _interopRequireDefault(_PillExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var pillDocs = {
   className: '[Optional] - Include additional class name(s)',
@@ -18482,7 +18552,7 @@ var PillApp = function PillApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Pill, propDescriptionMap: pillDocs, codeText: pillExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Pill, propDescriptionMap: pillDocs, codeText: _PillExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -18504,16 +18574,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _ProgressBarExample = __webpack_require__(692);
+
+var _ProgressBarExample2 = _interopRequireDefault(_ProgressBarExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var progressBarExample = __webpack_require__(692);
 var progressDocs = {
   className: '[Optional] - Include additional class name(s)',
   progress: '[Optional] - The initial \'fill\' of the ProgressBar',
@@ -18586,7 +18658,7 @@ var ProgressBarApp = function ProgressBarApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.ProgressBar, propDescriptionMap: progressDocs, codeText: progressBarExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.ProgressBar, propDescriptionMap: progressDocs, codeText: _ProgressBarExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -18600,8 +18672,6 @@ _reactDom2.default.render(_react2.default.createElement(ProgressBarApp, null), d
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
@@ -18610,22 +18680,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _ScrollBarExample = __webpack_require__(695);
+
+var _ScrollBarExample2 = _interopRequireDefault(_ScrollBarExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/* eslint import/no-unresolved: 0 */
-var scrollBarExample = __webpack_require__(695);
 var scrollBarDocs = {
   className: '[Optional] - Include additional class name(s)'
 };
@@ -18636,99 +18702,81 @@ var exampleScope = {
   Scrollbars: _components.Scrollbars
 };
 
-var ScrollBarApp = function (_React$Component) {
-  _inherits(ScrollBarApp, _React$Component);
-
-  function ScrollBarApp() {
-    _classCallCheck(this, ScrollBarApp);
-
-    return _possibleConstructorReturn(this, (ScrollBarApp.__proto__ || Object.getPrototypeOf(ScrollBarApp)).apply(this, arguments));
-  }
-
-  _createClass(ScrollBarApp, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
+var ScrollBarApp = function ScrollBarApp() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'h1',
+      { className: 'site-headline' },
+      'Scroll Bar'
+    ),
+    _react2.default.createElement(
+      'section',
+      { className: 'site-section' },
+      _react2.default.createElement(
+        'h3',
+        { className: 'site-subheadline' },
+        'Scroll Bar ',
+        _react2.default.createElement(_components.Label, { className: 'u-m-l-sm', type: 'accent', label: 'third party' })
+      ),
+      _react2.default.createElement(
+        'p',
+        { className: 'site-copy' },
+        'We are using ',
         _react2.default.createElement(
-          'h1',
-          { className: 'site-headline' },
-          'Scroll Bar'
+          'a',
+          { href: 'http://malte-wessel.github.io/react-custom-scrollbars/', target: '_blank', rel: 'noopener noreferrer' },
+          'react-custom-scrolbars'
         ),
+        ' for scrolling within areas of the page.'
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'u-flex u-flex-direction-column u-bg-gray-lightest u-p-a-sm', style: { height: 420, maxWidth: 600 } },
         _react2.default.createElement(
-          'section',
-          { className: 'site-section' },
+          _components.Scrollbars,
+          null,
           _react2.default.createElement(
-            'h3',
-            { className: 'site-subheadline' },
-            'Scroll Bar ',
-            _react2.default.createElement(_components.Label, { className: 'u-m-l-sm', type: 'accent', label: 'third party' })
+            'p',
+            null,
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
           ),
           _react2.default.createElement(
             'p',
-            { className: 'site-copy' },
-            'We are using ',
-            _react2.default.createElement(
-              'a',
-              { href: 'http://malte-wessel.github.io/react-custom-scrollbars/', target: '_blank' },
-              'react-custom-scrolbars'
-            ),
-            ' for scrolling within areas of the page.'
+            null,
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'u-flex u-flex-direction-column u-bg-gray-lightest u-p-a-sm', style: { height: 420, maxWidth: 600 } },
-            _react2.default.createElement(
-              _components.Scrollbars,
-              null,
-              _react2.default.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
-              )
-            )
+            'p',
+            null,
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
           )
-        ),
-        _react2.default.createElement(
-          'section',
-          null,
-          _react2.default.createElement(
-            'h3',
-            { className: 'site-subheadline' },
-            'Playground'
-          ),
-          _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Scrollbars, propDescriptionMap: scrollBarDocs, codeText: scrollBarExample, scope: exampleScope, noRender: false })
         )
-      );
-    }
-  }]);
-
-  return ScrollBarApp;
-}(_react2.default.Component);
-
-ScrollBarApp.displayName = 'Rhinostyle Scroll Bar Examples';
-
+      )
+    ),
+    _react2.default.createElement(
+      'section',
+      null,
+      _react2.default.createElement(
+        'h3',
+        { className: 'site-subheadline' },
+        'Playground'
+      ),
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Scrollbars, propDescriptionMap: scrollBarDocs, codeText: _ScrollBarExample2.default, scope: exampleScope, noRender: false })
+    )
+  );
+};
 
 _reactDom2.default.render(_react2.default.createElement(ScrollBarApp, null), document.getElementById('js-app'));
 
@@ -18747,16 +18795,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _TableExample = __webpack_require__(698);
+
+var _TableExample2 = _interopRequireDefault(_TableExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var tableExample = __webpack_require__(698);
 var tableDocs = {
   bordered: '[Optional] - Create bordered table',
   className: '[Optional] - Include additional class name(s)',
@@ -19945,7 +19995,7 @@ var LabelApp = function LabelApp() {
         { className: 'site-subheadline' },
         'Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.Table, propDescriptionMap: tableDocs, codeText: tableExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.Table, propDescriptionMap: tableDocs, codeText: _TableExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -19969,11 +20019,15 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
+
+var _components = __webpack_require__(9);
+
+var _TabsExample = __webpack_require__(699);
+
+var _TabsExample2 = _interopRequireDefault(_TabsExample);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19982,9 +20036,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/* eslint import/no-unresolved: 0 */
-var tabsExample = __webpack_require__(699);
 
 var exampleScope = {
   React: _react2.default,
@@ -20061,7 +20112,7 @@ var TabsApp = function (_React$Component) {
             { className: 'site-subheadline' },
             'Tabs Playground'
           ),
-          _react2.default.createElement(_componentPlayground2.default, { codeText: tabsExample, scope: exampleScope, noRender: false })
+          _react2.default.createElement(_componentPlayground2.default, { theme: 'default', codeText: _TabsExample2.default, scope: exampleScope, noRender: false })
         )
       );
     }
@@ -20087,16 +20138,18 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
-
 var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
+var _components = __webpack_require__(9);
+
+var _TooltipsExample = __webpack_require__(702);
+
+var _TooltipsExample2 = _interopRequireDefault(_TooltipsExample);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint import/no-unresolved: 0 */
-var tooltipsExample = __webpack_require__(702);
 var exampleScope = {
   React: _react2.default,
   ReactDOM: _reactDom2.default,
@@ -20104,6 +20157,7 @@ var exampleScope = {
   Icon: _components.Icon,
   UtilityInlineGrid: _components.UtilityInlineGrid
 };
+
 var TooltipsApp = function TooltipsApp() {
   return _react2.default.createElement(
     'div',
@@ -20168,7 +20222,7 @@ var TooltipsApp = function TooltipsApp() {
         { className: 'site-subheadline' },
         'Tooltips Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { codeText: tooltipsExample, scope: exampleScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', codeText: _TooltipsExample2.default, scope: exampleScope, noRender: false })
     )
   );
 };
@@ -20196,10 +20250,11 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _components = __webpack_require__(9);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _UtilityInlineGridExample = __webpack_require__(703);
 
-/* eslint import/no-unresolved: 0 */
-var utilityInlineGridExample = __webpack_require__(703);
+var _UtilityInlineGridExample2 = _interopRequireDefault(_UtilityInlineGridExample);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var utilityInlineGridDocs = {
   align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
@@ -20281,7 +20336,7 @@ var UtilityComponentsApp = function UtilityComponentsApp() {
         { className: 'site-subheadline' },
         'Inline Grid Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { docClass: _components.UtilityInlineGrid, propDescriptionMap: utilityInlineGridDocs, codeText: utilityInlineGridExample, scope: utilityInlineGridScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.UtilityInlineGrid, propDescriptionMap: utilityInlineGridDocs, codeText: _UtilityInlineGridExample2.default, scope: utilityInlineGridScope, noRender: false })
     )
   );
 };
@@ -20620,7 +20675,7 @@ function addCover(cover) {
     'div',
     null,
     cover
-  ), $coverContainer);
+  ), $coverContainer); // eslint-disable-line
 
   $coverContainer.querySelector('.cover').timeline.play();
 }
@@ -20755,7 +20810,7 @@ var _actions = __webpack_require__(111);
 
 var NotificationActions = _interopRequireWildcard(_actions);
 
-var _constants = __webpack_require__(89);
+var _constants = __webpack_require__(88);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -21022,17 +21077,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _events = __webpack_require__(630);
+
+var _events2 = _interopRequireDefault(_events);
+
 var _dispatcher = __webpack_require__(168);
 
 var _dispatcher2 = _interopRequireDefault(_dispatcher);
 
-var _constants = __webpack_require__(89);
+var _constants = __webpack_require__(88);
 
 var _constants2 = _interopRequireDefault(_constants);
-
-var _events = __webpack_require__(630);
-
-var _events2 = _interopRequireDefault(_events);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21086,7 +21141,7 @@ var NotificationStoreClass = function (_EventEmitter) {
 var NotificationStore = new NotificationStoreClass();
 
 function _addNotification(notification) {
-  var _notification = Object.assign({}, notification, { id: _id++ });
+  var _notification = Object.assign({}, notification, { id: _id += 1 });
 
   _notifications.unshift(_notification);
 }
@@ -21225,6 +21280,7 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
+  className: '',
   dismissible: false,
   onDismiss: null,
   titleIcon: '',
@@ -21688,7 +21744,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Icon = __webpack_require__(90);
+var _Icon = __webpack_require__(89);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -23464,7 +23520,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Icon = __webpack_require__(90);
+var _Icon = __webpack_require__(89);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -40782,7 +40838,7 @@ var IndexLink = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Redirect__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(87);
 
 
 
@@ -40841,7 +40897,7 @@ var IndexRedirect = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__RouteUtils__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(87);
 
 
 
@@ -40898,7 +40954,7 @@ var IndexRoute = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__RouteUtils__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InternalPropTypes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InternalPropTypes__ = __webpack_require__(87);
 
 
 
@@ -40955,7 +41011,7 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createTransitionManager__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InternalPropTypes__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InternalPropTypes__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouterContext__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__RouteUtils__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__RouterUtils__ = __webpack_require__(353);

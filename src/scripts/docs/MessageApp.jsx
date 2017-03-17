@@ -1,12 +1,10 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-
-import { Message, UtilityInlineGrid } from '../components';
-
 import Playground from 'component-playground';
 
-/* eslint import/no-unresolved: 0 */
-const messageExample = require('raw-loader!./examples/Message.example.txt');
+import { Message, UtilityInlineGrid } from '../components';
+import messageExample from './examples/Message.example.txt';
+
 const messageDocs = {
   className: '[Optional] - Include additional class name(s)',
   type: '[Optional] - Message type -  [primary | note]',
@@ -16,7 +14,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Message,
-  UtilityInlineGrid
+  UtilityInlineGrid,
 };
 
 const MessageApp = () =>
@@ -25,21 +23,21 @@ const MessageApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
-      <p className="site-copy"><code>type="default | primary | note"</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary | note&quot;</code></p>
       <UtilityInlineGrid>
         <div>
           <Message>
-            Default Message <a href="#">www.linktosomething.com</a>
+            Default Message <a href="javascript:void(0)">www.linktosomething.com</a>
           </Message>
         </div>
         <div>
           <Message type="primary">
-            Primary Message <a href="#">www.linktosomething.com</a>
+            Primary Message <a href="javascript:void(0)">www.linktosomething.com</a>
           </Message>
         </div>
         <div>
           <Message type="note">
-            Note Message <a href="#">www.linktosomething.com</a>
+            Note Message <a href="javascript:void(0)">www.linktosomething.com</a>
           </Message>
         </div>
       </UtilityInlineGrid>
@@ -49,7 +47,7 @@ const MessageApp = () =>
       <h3 className="site-subheadline">Message Direction</h3>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Inbound Message</h5>
-        <p className="site-copy"><code>direction="inbound"</code></p>
+        <p className="site-copy"><code>direction=&quot;inbound&quot;</code></p>
         <UtilityInlineGrid>
           <div>
             <Message direction="inbound">
@@ -70,7 +68,7 @@ const MessageApp = () =>
       </div>
       <div className="u-m-b-md">
         <h5 className="site-miniheadline">Outbound Message</h5>
-        <p className="site-copy"><code>direction="outbound"</code></p>
+        <p className="site-copy"><code>direction=&quot;outbound&quot;</code></p>
         <UtilityInlineGrid>
           <div>
             <Message direction="outbound">
@@ -90,12 +88,10 @@ const MessageApp = () =>
         </UtilityInlineGrid>
       </div>
     </section>
-
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>
-
   </div>;
 
 ReactDOM.render(<MessageApp />, document.getElementById('js-app'));
