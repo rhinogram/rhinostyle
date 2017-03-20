@@ -1,12 +1,11 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-
-import { Bucket, BucketBody, BucketHeader, Icon, Table } from '../components';
-
 import Playground from 'component-playground';
 
-/* eslint import/no-unresolved: 0 */
-const bucketExample = require('raw-loader!./examples/Bucket.example.txt');
+import { Bucket, BucketBody, BucketHeader, Icon, Table } from '../components';
+import bucketExample from './examples/Bucket.example.txt';
+import bucketHeaderExample from './examples/BucketHeader.example.txt';
+
 const bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - Bucket size -  [small]',
@@ -22,7 +21,6 @@ const bucketScope  = {
   Table,
 };
 
-const bucketHeaderExample = require('raw-loader!./examples/BucketHeader.example.txt');
 const bucketHeaderDocs = {
   className: '[Optional] - Include additional class name(s)',
   icon: '[Optional] - Icon name',
@@ -47,7 +45,7 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Types</h3>
-      <p className="site-copy"><code>type="default | light | primary"</code></p>
+      <p className="site-copy"><code>type=&quot;default | light | primary&quot;</code></p>
       <div className="site-example-buckets">
         <Bucket>
           <BucketHeader title="Bucket Default" icon="pencil" />
@@ -67,7 +65,7 @@ const BucketApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Sizes</h3>
       <div>
-        <p className="site-copy"><code>size="small"</code></p>
+        <p className="site-copy"><code>size=&quot;small&quot;</code></p>
         <div className="site-example-buckets">
           <Bucket size="small">
             <BucketHeader title="Bucket Header" icon="pencil" />
@@ -79,12 +77,12 @@ const BucketApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Playground</h3>
-      <Playground docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
+      <Playground theme="default" docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
     </section>
 
     <section>
       <h3 className="site-subheadline">Bucket Header Playground</h3>
-      <Playground docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
+      <Playground theme="default" docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
     </section>
 
   </div>;

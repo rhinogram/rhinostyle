@@ -1,19 +1,11 @@
 import { TimelineMax, SteppedEase } from 'gsap';
-import CodeMirror from 'codemirror';
-import load from '../svg';
-import { forEach, optimizedResize } from '../utility';
+import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
 const $siteOverlay = document.querySelector('#site-overlay');
 
-// Init CodeMirror
-CodeMirror(document.body, {
-  mode: 'javascript',
-  lineWrapping: true,
-});
-
 // Navigation listener
-optimizedResize.add(() => {
+UtilitySystem.optimizedResize.add(() => {
   // nav toggling below 1200px
   if (window.matchMedia('(max-width: 1199px)').matches) {
     $html.classList.remove('navigation-is-locked');
@@ -41,9 +33,6 @@ document.querySelector('.site-header__menu').addEventListener('click', () => {
 $siteOverlay.addEventListener('click', () => {
   $html.classList.remove('navigation-is-open');
 });
-
-// SVG loader
-load(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
 
 //
 // Animations
@@ -98,6 +87,10 @@ rhinoTime.timeline.to('.rhino-animation__time', rhinoTime.speed, {
   ease: rhinoTime.ease(),
 });
 
+
+// SVG loader
+UtilitySystem.svgLoad(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
+
 const hostName = document.location.hostname;
 // Handle active navigation
 const split = (hostName === 'localhost') ? 1 : 2;
@@ -108,7 +101,7 @@ if (navLocation) {
   document.querySelector(`.site-navigation__nav a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('active'); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
-  forEach(document.querySelector('.site-navigation__nav a'), (index, value) => {
+  UtilitySystem.forEach(document.querySelector('.site-navigation__nav a'), (index, value) => {
     value.classList.remove('active');
   });
 }

@@ -1,12 +1,9 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-
-import { TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../components';
-
 import Playground from 'component-playground';
 
-/* eslint import/no-unresolved: 0 */
-const tabsExample = require('raw-loader!./examples/Tabs.example.txt');
+import { TabsContent, TabContentPane, NavTabs, NavTabsItem } from '../components';
+import tabsExample from './examples/Tabs.example.txt';
 
 const exampleScope  = {
   React,
@@ -16,6 +13,7 @@ const exampleScope  = {
   NavTabs,
   NavTabsItem,
 };
+
 class TabsApp extends React.Component {
   state = {
     activeKey: 1,
@@ -47,12 +45,12 @@ class TabsApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">About Tabs</h3>
-          <p className="site-text-lead">This page demonstrates how to implement a tabbed system. It is important to note that we do not have a 'tabs' component.</p>
+          <p className="site-text-lead">This page demonstrates how to implement a tabbed system. It is important to note that we do not have a &apos;tabs&apos; component.</p>
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">Tabs Playground</h3>
-          <Playground codeText={tabsExample} scope={exampleScope} noRender={false} />
+          <Playground theme="default" codeText={tabsExample} scope={exampleScope} noRender={false} />
         </section>
       </div>
     );

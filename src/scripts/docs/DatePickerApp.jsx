@@ -4,9 +4,8 @@ import ReactDOM   from 'react-dom';
 import moment     from 'moment';
 
 import { DatePicker, Label } from '../components';
+import datePickerExample from './examples/DatePicker.example.txt';
 
-/* eslint import/no-unresolved: 0 */
-const datePickerExample = require('raw-loader!./examples/DatePicker.example.txt');
 const datePickerDocs = {
   className: '[Optional] - Include additional class name(s)',
 };
@@ -17,7 +16,6 @@ const exampleScope  = {
   Label,
   moment,
 };
-
 
 class DatePickerApp extends React.Component {
   static displayName = 'Rhinostyle Date Picker Examples';
@@ -37,7 +35,7 @@ class DatePickerApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">DatePicker <Label className="u-m-l-sm" type="accent" label="third party" /></h3>
-          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank">react-datepicker</a> with custom styling.</p>
+          <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank" rel="noopener noreferrer">react-datepicker</a> with custom styling.</p>
 
           <div className="row row--condensed">
             <div className="col-sm-2 u-m-b">
@@ -51,7 +49,7 @@ class DatePickerApp extends React.Component {
 
         <section>
           <h3 className="site-subheadline">Playground</h3>
-          <Playground docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
+          <Playground theme="default" docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
         </section>
 
       </div>

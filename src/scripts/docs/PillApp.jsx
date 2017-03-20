@@ -1,12 +1,9 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
-
-import { Pill, UtilityInlineGrid } from '../components';
-
 import Playground from 'component-playground';
 
-/* eslint import/no-unresolved: 0 */
-const pillExample = require('raw-loader!./examples/Pill.example.txt');
+import { Pill, UtilityInlineGrid } from '../components';
+import pillExample from './examples/Pill.example.txt';
 
 const pillDocs = {
   className: '[Optional] - Include additional class name(s)',
@@ -34,7 +31,7 @@ const PillApp = () =>
 
     <section>
       <h3 className="site-subheadline">Playground</h3>
-      <Playground docClass={Pill} propDescriptionMap={pillDocs} codeText={pillExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Pill} propDescriptionMap={pillDocs} codeText={pillExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

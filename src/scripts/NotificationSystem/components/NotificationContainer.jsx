@@ -4,7 +4,6 @@ import { TweenMax, Expo } from 'gsap';
 
 import * as NotificationActions from '../actions';
 import NotificationConstants    from '../constants';
-
 import { Toast } from '../../components';
 
 const AUTO_DISMISS_TIME  = NotificationConstants.autodismissTime;
