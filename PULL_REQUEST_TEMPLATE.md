@@ -1,5 +1,3 @@
-**Related issue link:** (You can delete this line if the PR does not relate to an existing GitHub issue)
-
 - [ ] I've tested in all browsers (IE11, Firefox, Safari, Chrome, and iOS)
 
 ### What should this PR do?
