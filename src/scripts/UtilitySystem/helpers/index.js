@@ -1,0 +1,99 @@
+import { Expo } from 'gsap';
+
+/**
+ * Default configuration
+ * @type {Object}
+ */
+export const config = {
+  contentSpacing: 16,
+  easing: Expo.easeInOut,
+  classes: {
+    required: 'is-required',
+    valid: 'is-valid',
+    notValid: 'is-notValid',
+    open: 'is-open',
+    active: 'is-active',
+    hidden: 'is-hidden',
+    uHidden: 'u-hidden',
+  },
+};
+
+/**
+ * Load SVG files from external source
+ * @param  {string} url
+ * @return {void}
+ */
+export function svgLoad(url) {
+  const ajax = new XMLHttpRequest();
+  ajax.open('GET', url, true);
+  ajax.send();
+
+  ajax.onload = () => {
+    const div = document.createElement('div');
+    div.style.cssText = 'border: 0; clip: rect(0 0 0 0); height: 0; overflow: hidden; padding: 0; position: absolute; width: 0;';
+    div.innerHTML = ajax.responseText;
+    document.body.insertBefore(div, document.body.childNodes[0]);
+  };
+}
+
+
+/**
+ * Loop over DOM nodes
+ * @param  {array}   array
+ * @param  {function} callback
+ * @param  {scope}   scope
+ * @return {void}
+ */
+export function forEach(array, callback, scope) {
+  for (let i = 0, length = array.length; i < length; i += 1) {
+    callback.call(scope, i, array[i]); // passes back stuff we need
+  }
+}
+/**
+ * Resize listener
+ * @return {function}
+ */
+export const optimizedResize = (function() { // eslint-disable-line
+  const callbacks = [];
+  let running = false;
+
+  // fired on resize event
+  function resize() {
+    if (!running) {
+      running = true;
+
+      if (window.requestAnimationFrame) {
+        window.requestAnimationFrame(runCallbacks);
+      } else {
+        setTimeout(runCallbacks, 66);
+      }
+    }
+  }
+
+  // run the actual callbacks
+  function runCallbacks() {
+    callbacks.forEach(function(callback) { // eslint-disable-line
+      callback();
+    });
+
+    running = false;
+  }
+
+  // adds callback to loop
+  function addCallback(callback) {
+    if (callback) {
+      callbacks.push(callback);
+    }
+  }
+
+  return {
+    // public method to add additional callback
+    add(callback) {
+      if (!callbacks.length) {
+        window.addEventListener('resize', resize);
+      }
+      addCallback(callback);
+    },
+  };
+
+}()); // eslint-disable-line

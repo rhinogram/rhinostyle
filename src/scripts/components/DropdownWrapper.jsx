@@ -1,7 +1,7 @@
 import React from 'react';
 import { TimelineMax } from 'gsap';
 import onClickOutside from 'react-onclickoutside';
-import { config } from '../config';
+import { UtilitySystem } from '../UtilitySystem';
 
 class DropdownWrapper extends React.Component {
   static displayName = 'RhinoDropdownWrapper';
@@ -35,7 +35,7 @@ class DropdownWrapper extends React.Component {
     $dropdown.timeline = new TimelineMax({
       paused: true,
       onStart: () => {
-        $dropdown.classList.add(config.classes.open);
+        $dropdown.classList.add(UtilitySystem.config.classes.open);
         // Toggle aria state
         $dropdown.setAttribute('aria-expanded', true);
 
@@ -64,7 +64,7 @@ class DropdownWrapper extends React.Component {
             // Fire off prop update
             this.props.onReverseStart();
 
-            $dropdown.classList.remove(config.classes.open);
+            $dropdown.classList.remove(UtilitySystem.config.classes.open);
             // Toggle aria state
             $dropdown.setAttribute('aria-expanded', false);
           }
@@ -84,7 +84,7 @@ class DropdownWrapper extends React.Component {
         y: 0,
         opacity: 1,
       },
-      ease: config.easing,
+      ease: UtilitySystem.config.easing,
     });
   }
 
