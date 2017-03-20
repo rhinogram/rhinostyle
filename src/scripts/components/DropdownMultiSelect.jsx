@@ -246,7 +246,7 @@ class DropdownMultiSelect extends React.Component {
           <input onClick={this.handleToggle} ref={ref => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
-              {items || <DropdownMenuHeader label="No results" />}
+              { items.length > 0 ? items : <DropdownMenuHeader label="No results" /> }
             </DropdownMenuScroll>
           </div>
         </DropdownWrapper>

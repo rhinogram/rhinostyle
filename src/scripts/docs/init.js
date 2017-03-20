@@ -97,7 +97,11 @@ const split = (hostName === 'localhost') ? 1 : 2;
 const navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
+  // Add active class to current nav item
   document.querySelector(`.site-navigation__nav a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('active'); // eslint-disable-line
 } else {
-  document.querySelector('.site-navigation__nav a[href=""').classList.add('active');
+  // Remove active class from any other nav item(s)
+  UtilitySystem.forEach(document.querySelector('.site-navigation__nav a'), (index, value) => {
+    value.classList.remove('active');
+  });
 }

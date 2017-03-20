@@ -17399,9 +17399,13 @@ var split = hostName === 'localhost' ? 1 : 2;
 var navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
+  // Add active class to current nav item
   document.querySelector('.site-navigation__nav a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('active'); // eslint-disable-line
 } else {
-  document.querySelector('.site-navigation__nav a[href=""').classList.add('active');
+  // Remove active class from any other nav item(s)
+  _UtilitySystem.UtilitySystem.forEach(document.querySelector('.site-navigation__nav a'), function (index, value) {
+    value.classList.remove('active');
+  });
 }
 
 /***/ }),
@@ -23112,7 +23116,7 @@ var DropdownMultiSelect = function (_React$Component) {
             _react2.default.createElement(
               _components.DropdownMenuScroll,
               null,
-              items || _react2.default.createElement(_components.DropdownMenuHeader, { label: 'No results' })
+              items.length > 0 ? items : _react2.default.createElement(_components.DropdownMenuHeader, { label: 'No results' })
             )
           )
         ),
