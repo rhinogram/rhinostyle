@@ -1,15 +1,8 @@
 import { TimelineMax, SteppedEase } from 'gsap';
-import CodeMirror from 'codemirror';
 import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
 const $siteOverlay = document.querySelector('#site-overlay');
-
-// Init CodeMirror
-CodeMirror(document.body, {
-  mode: 'javascript',
-  lineWrapping: true,
-});
 
 // Navigation listener
 UtilitySystem.optimizedResize.add(() => {
@@ -42,7 +35,7 @@ $siteOverlay.addEventListener('click', () => {
 });
 
 //
-// Animation examples
+// Animations
 //
 
 const rhinoLogin = {

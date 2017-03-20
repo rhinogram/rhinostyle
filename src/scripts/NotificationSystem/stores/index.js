@@ -1,7 +1,7 @@
+import EventEmitter from 'events';
+
 import NotificationDispatcher from '../dispatcher';
 import NotificationConstants  from '../constants';
-
-import EventEmitter from 'events';
 
 const ActionTypes    = NotificationConstants.ActionTypes;
 const CHANGE_EVENT   = 'change';
@@ -31,7 +31,7 @@ class NotificationStoreClass extends EventEmitter {
 const NotificationStore = new NotificationStoreClass();
 
 function _addNotification(notification) {
-  const _notification = Object.assign({}, notification, { id: _id++ });
+  const _notification = Object.assign({}, notification, { id: _id += 1 });
 
   _notifications.unshift(_notification);
 }

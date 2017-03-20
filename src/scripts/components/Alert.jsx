@@ -62,6 +62,7 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
+  className: '',
   dismissible: false,
   onDismiss:   null,
   titleIcon:   '',

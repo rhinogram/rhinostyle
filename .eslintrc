@@ -74,5 +74,6 @@
     "no-confusing-arrow": ["error", {"allowParens": true}],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-multi-assign" : 0,
+    "react/require-default-props": 0,
   }
 }

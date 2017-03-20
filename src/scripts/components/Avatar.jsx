@@ -6,15 +6,19 @@ class Avatar extends React.Component {
 
   static propTypes = {
     className: React.PropTypes.string,
-    image:     React.PropTypes.string,
-    name:      React.PropTypes.string,
-    size:      React.PropTypes.oneOf(['small', 'default', 'large']),
-    type:      React.PropTypes.oneOf(['default', 'member']),
+    image: React.PropTypes.string,
+    name: React.PropTypes.string,
+    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+    src: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['default', 'member']),
   };
 
   static defaultProps = {
+    className: '',
     image: '',
+    name: '',
     size: 'default',
+    src: '',
     type: 'default',
   };
 
