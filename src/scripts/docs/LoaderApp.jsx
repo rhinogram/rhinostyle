@@ -2,9 +2,8 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
 
-import { LoaderCircle, LoaderPulse, LoaderLine } from '../components';
+import { LoaderCircle, LoaderPulse } from '../components';
 import loaderCircleExample from './examples/LoaderCircle.example.txt';
-import loaderLineExample from './examples/LoaderLine.example.txt';
 import loaderPulseExample from './examples/LoaderPulse.example.txt';
 
 const loaderCircleDocs = {
@@ -16,15 +15,6 @@ const loaderCircleScope = {
   React,
   ReactDOM,
   LoaderCircle,
-};
-
-const loaderLineDocs = {
-  className: '[Optional] - Include additional class name(s)',
-};
-const loaderLineScope = {
-  React,
-  ReactDOM,
-  LoaderLine,
 };
 
 const loaderPulseDocs = {
@@ -69,16 +59,6 @@ const LoaderApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Playground</h3>
       <Playground theme="default" docClass={LoaderPulse} propDescriptionMap={loaderPulseDocs} codeText={loaderPulseExample} scope={loaderPulseScope} noRender={false} />
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">LoaderLine</h3>
-      <LoaderLine />
-    </section>
-
-    <section>
-      <h3 className="site-subheadline">LoaderLine Playground</h3>
-      <Playground theme="default" docClass={LoaderLine} propDescriptionMap={loaderLineDocs} codeText={loaderLineExample} scope={loaderLineScope} noRender={false} />
     </section>
   </div>;
 
