@@ -26,7 +26,6 @@ import Label                from './Label';
 import Lightbox             from '../../../node_modules/react-image-lightbox/dist/umd/react-image-lightbox.js';
 import LoaderCircle         from './LoaderCircle';
 import LoaderPulse          from './LoaderPulse';
-import LoaderLine           from './LoaderLine';
 import Message              from './Message';
 import MessageBox           from './MessageBox';
 import Modal                from './Modal';
@@ -89,7 +88,6 @@ export {
   Lightbox,
   LoaderCircle,
   LoaderPulse,
-  LoaderLine,
   Message,
   MessageBox,
   Modal,
