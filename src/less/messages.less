@@ -34,11 +34,21 @@
 
 
 .msg--default {
-  background: darken(@color-gray-lightest, 2%);
+  background: @msg-default-bg;
+
+  &::before,
+  &::after {
+    background: @msg-default-bg;
+  }
 }
 
 .msg--note {
-  background: #f6f2bc;
+  background: @msg-note-bg;
+
+  &::before,
+  &::after {
+    background: @msg-note-bg;
+  }
 
   a {
     color: inherit;
@@ -46,8 +56,13 @@
 }
 
 .msg--primary {
-  background: @color-primary-rich;
+  background: @msg-primary-bg;
   color: @color-white;
+
+  &::before,
+  &::after {
+    background: @msg-primary-bg;
+  }
 
   a {
     color: inherit;
@@ -62,33 +77,55 @@
 
 .msg--inbound,
 .msg--outbound {
-  &::before {
-    background: inherit;
-    background-clip: border-box;
-    border: inherit;
-    border-bottom: 0;
-    border-right: 0;
+  &::before,
+  &::after {
+    border-radius: 50%;
+    bottom: 0;
     content: '';
-    padding: .6rem;
     position: absolute;
-    top: 1.4rem;
+  }
+
+  &::before {
+    height: @msg-bubble-size;
+    width: @msg-bubble-size;
+  }
+
+  &::after {
+    height: @msg-bubble-offset-small;
+    width: @msg-bubble-offset-small;
   }
 }
 
 .msg--inbound {
-  margin-left: @msg-margin;
+  margin-left: @whitespace-small;
+
+  &::before,
+  &::after {
+    left: 0;
+  }
 
   &::before {
-    left: -.5rem;
-    transform: rotate(45deg);
+    transform: translate((-@msg-bubble-offset), @msg-bubble-offset);
+  }
+
+  &::after {
+    transform: translate((-@msg-bubble-offset-small * .9), (@msg-bubble-offset-small * .9));
   }
 }
 
 .msg--outbound {
-  margin-right: @msg-margin;
+  margin-right: @whitespace-small;
+
+  &::before,
+  &::after {
+    right: 0;
+  }
 
   &::before {
-    right: -.5rem;
-    transform: rotate(-45deg);
+    transform: translate(@msg-bubble-offset, @msg-bubble-offset);
+  }
+
+  &::after {
+    transform: translate((@msg-bubble-offset-small * .9), (@msg-bubble-offset-small * .9));
   }
 }

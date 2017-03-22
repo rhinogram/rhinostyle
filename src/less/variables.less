@@ -385,13 +385,16 @@
 // -------------------------
 
 
-@msg-border-radius:           @border-radius;
+@msg-border-radius:           20px;
 @msg-line-height:             inherit;
 @msg-margin:                  @whitespace-base;
-@msg-padding:                 @whitespace-base - .1rem @whitespace-base @whitespace-base @whitespace-base;
-@msg-shadow-x:                0;
-@msg-shadow-y:                2px;
-@msg-shadow-blur:             2px;
+@msg-padding:                 @whitespace-base;
+@msg-bubble-size:             1.5rem;
+@msg-bubble-offset:           .1rem;
+@msg-bubble-offset-small:     .8rem;
+@msg-default-bg:              darken(@color-gray-lightest, 2%);
+@msg-primary-bg:              @color-primary-rich;
+@msg-note-bg:                 #f6f2bc;
 
 
 // -------------------------
