@@ -1,6 +1,9 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
+import fs from 'fs';
+import utilPath from 'path';
+
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 import flexbugs from 'postcss-flexbugs-fixes';
@@ -11,10 +14,12 @@ import browserSync from 'browser-sync';
 import del from 'del';
 
 import metalsmith from 'metalsmith';
-import msChanged from 'metalsmith-changed';
 import msInPlace from 'metalsmith-in-place';
+import msMoveUp from 'metalsmith-move-up';
 import msRootpath from 'metalsmith-rootpath';
+import msPermalinks from 'metalsmith-permalinks';
 import msLayouts from 'metalsmith-layouts';
+import msIgnore from 'metalsmith-ignore';
 import nunjucks from 'nunjucks';
 
 import paths from './config/gulpConfig';
@@ -26,18 +31,20 @@ import docsConfig from './config/webpack.docs.config.js';
 const reload = browserSync.reload;
 const RhinoStyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 const $ = gulpLoadPlugins();
-let forceBuild = true;
 
 // https://github.com/superwolff/metalsmith-layouts/issues/43
-nunjucks.configure('./src/templates', { watch: false });
+nunjucks.configure(['./src/templates', './dist/svg'], {
+  watch: false,
+  noCache: true,
+});
 
 // -------------------------
 // All Tasks
 // -------------------------
 gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site', 'favicon']);
+gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site']);
 gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'styles:lint']);
-gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'styles:lint', 'favicon']);
+gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'styles:lint']);
 gulp.task('server', ['docs:serve']);
 gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
 gulp.task('website', ['docs:deploy']);
@@ -255,31 +262,56 @@ gulp.task('docs:scripts', () => {
 // -------------------------
 // Docs Serve
 // -------------------------
-gulp.task('docs:serve', ['browser-sync', 'docs'], () => {
-  nunjucks.configure('./src/templates', { watch: true });
-
+gulp.task('docs:serve', ['browser-sync'], () => {
   gulp.watch(paths.icons.src, ['icons']);
   gulp.watch(paths.styles.src, ['dist:styles']);
   gulp.watch([paths.scripts.src], ['docs:scripts', reload]);
   gulp.watch(paths.styles.docAll, ['docs:styles']);
-  gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']).on('change', () => {
-    forceBuild = true;
-  });
+  gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']);
 });
 
 
 // -------------------------
 // Docs Site
 // -------------------------
-gulp.task('docs:site', () =>
-  /* const path = paths.metalsmith; */
 
-  metalsmith(__dirname)
-  .source('./src/pages')
+/**
+ * Get top-level directories
+ * @param  {array} srcPath
+ * @return array
+ */
+function getDirectories(srcPath) {
+  return fs.readdirSync(srcPath)
+    .filter(file => fs.statSync(utilPath.join(srcPath, file)).isDirectory());
+}
+
+// Get source directories
+const srcDirectories = getDirectories('./src').filter(item => item !== 'pages');
+// Will hold final, mutated directories
+const ignoreDirectories = [];
+// Loop through source directories and adjust paths based on `metalsmith-ignore` needs
+srcDirectories.forEach((item) => {
+  ignoreDirectories.push(
+    `${item}/**/*`,
+    `${item}/**/.*`,
+  );
+});
+
+// Since we inline the built icon sprite within the generated pages,
+// we make sure we've completed this task beforehand
+gulp.task('docs:site', ['icons'], () =>
+  metalsmith(process.cwd())
+  .source('./src')
   .clean(false)
-  .use(msChanged({ force: forceBuild }))
-  .use(msInPlace({ engine: 'nunjucks' }))
+  .use(msIgnore(ignoreDirectories))
+  .use(msPermalinks())
+  .use(msMoveUp({
+    pattern: 'pages/**/*',
+  }))
   .use(msRootpath())
+  .use(msInPlace({
+    engine: 'nunjucks',
+  }))
   .use(msLayouts({
     engine:    'nunjucks',
     directory: './src/templates',
@@ -316,12 +348,13 @@ gulp.task('docs:styles', () => {
 });
 
 // -------------------------
-// Favicon
+// Style Linting
 // -------------------------
-gulp.task('favicon', () => {
-  return gulp.src('./src/favicon.png')
-    .pipe(gulp.dest('./build'));
-});
+gulp.task('styles:lint', () =>
+  gulp.src('./src/less/**/*.less')
+    .pipe($.lesshint())
+    .pipe($.lesshint.reporter()),
+);
 
 // -------------------------
 // Icons
@@ -360,13 +393,3 @@ gulp.task('icons', () => {
     .pipe($.duration('Built Icons'))
     .pipe(reload({ stream: true }));
 });
-
-
-// -------------------------
-// Style Linting
-// -------------------------
-gulp.task('styles:lint', () =>
-  gulp.src('./src/less/**/*.less')
-    .pipe($.lesshint())
-    .pipe($.lesshint.reporter()),
-);

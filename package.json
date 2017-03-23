@@ -5,7 +5,8 @@
   "main": "dist/scripts/rhinostyle.min.js",
   "scripts": {
     "version": "git pull --tags && gulp && git add -A",
-    "postversion": "git push --tags && git push"
+    "postversion": "git push --tags && git push",
+    "dev": "gulp docs && gulp docs:serve"
   },
   "peerDependencies": {
     "react": ">=15.4.2",
@@ -49,10 +50,12 @@
     "metalsmith": "2.3.0",
     "metalsmith-changed": "3.1.0",
     "metalsmith-collections": "0.9.0",
+    "metalsmith-ignore": "0.1.2",
     "metalsmith-in-place": "1.4.4",
     "metalsmith-json-to-files": "1.0.0",
     "metalsmith-layouts": "1.8.0",
     "metalsmith-move-up": "1.0.0",
+    "metalsmith-permalinks": "^0.5.0",
     "metalsmith-rootpath": "1.0.4",
     "nunjucks": "3.0.0",
     "postcss-flexbugs-fixes": "2.1.0",

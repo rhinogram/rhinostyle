@@ -17385,9 +17385,6 @@ rhinoTime.timeline.to('.rhino-animation__time', rhinoTime.speed, {
   ease: rhinoTime.ease()
 });
 
-// SVG loader
-_UtilitySystem.UtilitySystem.svgLoad(rhinoDocs.rootPath + 'svg/sprite.svg'); // eslint-disable-line
-
 var hostName = document.location.hostname;
 // Handle active navigation
 var split = hostName === 'localhost' ? 1 : 2;
@@ -21147,7 +21144,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.optimizedResize = exports.config = undefined;
-exports.svgLoad = svgLoad;
 exports.forEach = forEach;
 
 var _gsap = __webpack_require__(75);
@@ -21171,24 +21167,6 @@ var config = exports.config = {
 };
 
 /**
- * Load SVG files from external source
- * @param  {string} url
- * @return {void}
- */
-function svgLoad(url) {
-  var ajax = new XMLHttpRequest();
-  ajax.open('GET', url, true);
-  ajax.send();
-
-  ajax.onload = function () {
-    var div = document.createElement('div');
-    div.style.cssText = 'border: 0; clip: rect(0 0 0 0); height: 0; overflow: hidden; padding: 0; position: absolute; width: 0;';
-    div.innerHTML = ajax.responseText;
-    document.body.insertBefore(div, document.body.childNodes[0]);
-  };
-}
-
-/**
  * Loop over DOM nodes
  * @param  {array}   array
  * @param  {function} callback
@@ -21200,6 +21178,7 @@ function forEach(array, callback, scope) {
     callback.call(scope, i, array[i]); // passes back stuff we need
   }
 }
+
 /**
  * Resize listener
  * @return {function}

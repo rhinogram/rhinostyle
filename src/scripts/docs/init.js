@@ -87,10 +87,6 @@ rhinoTime.timeline.to('.rhino-animation__time', rhinoTime.speed, {
   ease: rhinoTime.ease(),
 });
 
-
-// SVG loader
-UtilitySystem.svgLoad(`${rhinoDocs.rootPath}svg/sprite.svg`); // eslint-disable-line
-
 const hostName = document.location.hostname;
 // Handle active navigation
 const split = (hostName === 'localhost') ? 1 : 2;
