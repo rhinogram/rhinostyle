@@ -1941,7 +1941,7 @@ dateformat@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-2.0.0.tgz#2743e3abb5c3fc2462e527dca445e04e9f4dee17"
 
-debug@0.7.4:
+debug@0.7.4, debug@~0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
 
@@ -4495,6 +4495,10 @@ lodash@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-1.0.2.tgz#8f57560c83b59fc270bd3d561b690043430e2551"
 
+lodash@~2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+
 logalot@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/logalot/-/logalot-2.1.0.tgz#5f8e8c90d304edf12530951a5554abb8c5e3f552"
@@ -4627,6 +4631,12 @@ metalsmith-collections@0.9.0:
     read-metadata "^1.0.0"
     uniq "^1.0.1"
 
+metalsmith-ignore@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/metalsmith-ignore/-/metalsmith-ignore-0.1.2.tgz#6ae6c694ba62a41585e8b481a11e2928c5ac4028"
+  dependencies:
+    multimatch "^0.1.0"
+
 metalsmith-in-place@1.4.4:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/metalsmith-in-place/-/metalsmith-in-place-1.4.4.tgz#69d2961b8d597750777e0b143b7bd5e7a8f4e4f2"
@@ -4670,6 +4680,15 @@ metalsmith-move-up@1.0.0:
     async "^0.9.0"
     lodash "^3.8.0"
     multimatch "^2.0.0"
+
+metalsmith-permalinks@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/metalsmith-permalinks/-/metalsmith-permalinks-0.5.0.tgz#0fec5b1f0687828c198d33b5d479cc1cec4b1a1f"
+  dependencies:
+    debug "~0.7.4"
+    moment "^2.5.1"
+    slug-component "~1.1.0"
+    substitute "https://github.com/segmentio/substitute/archive/0.0.1.tar.gz"
 
 metalsmith-rootpath@1.0.4:
   version "1.0.4"
@@ -4767,7 +4786,7 @@ minimatch@^2.0.1:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimatch@~0.2.11:
+minimatch@~0.2.11, minimatch@~0.2.14:
   version "0.2.14"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-0.2.14.tgz#c74e780574f63c6f9a090e90efbe6ef53a6a756a"
   dependencies:
@@ -4798,7 +4817,7 @@ mkdirp@0.5.0:
   dependencies:
     minimist "0.0.8"
 
-moment@2.17.1, moment@2.x.x, moment@^2.17.1:
+moment@2.17.1, moment@2.x.x, moment@^2.17.1, moment@^2.5.1:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
@@ -4809,6 +4828,13 @@ ms@0.7.1:
 ms@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
+
+multimatch@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/multimatch/-/multimatch-0.1.0.tgz#099d9f8f8463ac36cfbfa27360bc16cee87ded64"
+  dependencies:
+    lodash "~2.4.1"
+    minimatch "~0.2.14"
 
 multimatch@^2.0.0, multimatch@^2.1.0:
   version "2.1.0"
@@ -6303,7 +6329,7 @@ slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
 
-slug-component@^1.1.0:
+slug-component@^1.1.0, slug-component@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/slug-component/-/slug-component-1.1.0.tgz#224290a04591bf9ac08b9c622d3a14f43e3a0df7"
 
@@ -6592,6 +6618,10 @@ style-loader@~0.8.0:
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.8.3.tgz#f4f92eb7db63768748f15065cd6700f5a1c85357"
   dependencies:
     loader-utils "^0.2.5"
+
+"substitute@https://github.com/segmentio/substitute/archive/0.0.1.tar.gz":
+  version "0.0.1"
+  resolved "https://github.com/segmentio/substitute/archive/0.0.1.tar.gz#432866985b03c3b0d3f71ac63d1ae1a18dfaf47d"
 
 sum-up@^1.0.1:
   version "1.0.3"

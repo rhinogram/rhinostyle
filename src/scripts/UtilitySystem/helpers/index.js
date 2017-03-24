@@ -19,25 +19,6 @@ export const config = {
 };
 
 /**
- * Load SVG files from external source
- * @param  {string} url
- * @return {void}
- */
-export function svgLoad(url) {
-  const ajax = new XMLHttpRequest();
-  ajax.open('GET', url, true);
-  ajax.send();
-
-  ajax.onload = () => {
-    const div = document.createElement('div');
-    div.style.cssText = 'border: 0; clip: rect(0 0 0 0); height: 0; overflow: hidden; padding: 0; position: absolute; width: 0;';
-    div.innerHTML = ajax.responseText;
-    document.body.insertBefore(div, document.body.childNodes[0]);
-  };
-}
-
-
-/**
  * Loop over DOM nodes
  * @param  {array}   array
  * @param  {function} callback
@@ -49,6 +30,7 @@ export function forEach(array, callback, scope) {
     callback.call(scope, i, array[i]); // passes back stuff we need
   }
 }
+
 /**
  * Resize listener
  * @return {function}
