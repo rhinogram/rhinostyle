@@ -17,6 +17,7 @@
   position: relative;
   vertical-align: middle;
   word-wrap: break-word;
+  z-index: 1;
 
   &:empty {
     display: none;
@@ -34,11 +35,19 @@
 
 
 .msg--default {
-  background: darken(@color-gray-lightest, 2%);
+  background: @msg-default-bg;
+
+  &::before {
+    border-color: @msg-default-bg;
+  }
 }
 
 .msg--note {
-  background: #f6f2bc;
+  background: @msg-note-bg;
+
+  &::before {
+    border-color: @msg-note-bg;
+  }
 
   a {
     color: inherit;
@@ -46,8 +55,12 @@
 }
 
 .msg--primary {
-  background: @color-primary-rich;
+  background: @msg-primary-bg;
   color: @color-white;
+
+  &::before {
+    border-color: @msg-primary-bg;
+  }
 
   a {
     color: inherit;
@@ -59,36 +72,38 @@
 // Message Modifiers (To/From)
 // -------------------------
 
-
+// We need to work with `em` due to some scaling issues with `rem`
 .msg--inbound,
 .msg--outbound {
   &::before {
-    background: inherit;
-    background-clip: border-box;
-    border: inherit;
-    border-bottom: 0;
-    border-right: 0;
+    bottom: 0;
     content: '';
-    padding: .6rem;
+    display: block;
+    height: 1em;
     position: absolute;
-    top: 1.4rem;
+    width: 1.5em;
+    z-index: -1;
   }
 }
 
 .msg--inbound {
-  margin-left: @msg-margin;
+  margin-left: .5em;
 
   &::before {
-    left: -.5rem;
-    transform: rotate(45deg);
+    border-bottom-right-radius: 100%;
+    border-right-style: solid;
+    border-right-width: 1em;
+    left: -.5em;
   }
 }
 
 .msg--outbound {
-  margin-right: @msg-margin;
+  margin-right: .5em;
 
   &::before {
-    right: -.5rem;
-    transform: rotate(-45deg);
+    border-bottom-left-radius: 100%;
+    border-left-style: solid;
+    border-left-width: 1em;
+    right: -.5em;
   }
 }
