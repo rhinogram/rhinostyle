@@ -36,18 +36,16 @@
 .msg--default {
   background: @msg-default-bg;
 
-  &::before,
-  &::after {
-    background: @msg-default-bg;
+  &::before {
+    border-color: @msg-default-bg;
   }
 }
 
 .msg--note {
   background: @msg-note-bg;
 
-  &::before,
-  &::after {
-    background: @msg-note-bg;
+  &::before {
+    border-color: @msg-note-bg;
   }
 
   a {
@@ -59,9 +57,8 @@
   background: @msg-primary-bg;
   color: @color-white;
 
-  &::before,
-  &::after {
-    background: @msg-primary-bg;
+  &::before {
+    border-color: @msg-primary-bg;
   }
 
   a {
@@ -74,58 +71,38 @@
 // Message Modifiers (To/From)
 // -------------------------
 
-
+// We need to work with `em` due to some scaling issues with `rem`
 .msg--inbound,
 .msg--outbound {
-  &::before,
-  &::after {
-    border-radius: 50%;
+  &::before {
     bottom: 0;
     content: '';
+    display: block;
+    height: 1em;
     position: absolute;
-  }
-
-  &::before {
-    height: @msg-bubble-size;
-    width: @msg-bubble-size;
-  }
-
-  &::after {
-    height: @msg-bubble-offset-small;
-    width: @msg-bubble-offset-small;
+    width: 1.5em;
+    z-index: -1;
   }
 }
 
 .msg--inbound {
-  margin-left: @whitespace-small;
-
-  &::before,
-  &::after {
-    left: 0;
-  }
+  margin-left: .5em;
 
   &::before {
-    transform: translate((-@msg-bubble-offset), @msg-bubble-offset);
-  }
-
-  &::after {
-    transform: translate((-@msg-bubble-offset-small * .9), (@msg-bubble-offset-small * .9));
+    border-bottom-right-radius: 100%;
+    border-right-style: solid;
+    border-right-width: 1em;
+    left: -.5em;
   }
 }
 
 .msg--outbound {
-  margin-right: @whitespace-small;
-
-  &::before,
-  &::after {
-    right: 0;
-  }
+  margin-right: .5em;
 
   &::before {
-    transform: translate(@msg-bubble-offset, @msg-bubble-offset);
-  }
-
-  &::after {
-    transform: translate((@msg-bubble-offset-small * .9), (@msg-bubble-offset-small * .9));
+    border-bottom-left-radius: 100%;
+    border-left-style: solid;
+    border-left-width: 1em;
+    right: -.5em;
   }
 }
