@@ -6,7 +6,7 @@
   "scripts": {
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
-    "dev": "gulp docs && gulp docs:serve"
+    "dev": "gulp docs && gulp server"
   },
   "peerDependencies": {
     "react": ">=15.4.2",
