@@ -17315,9 +17315,9 @@ var navLockedTimeline = new _gsap.TimelineMax({
 });
 
 navLockedTimeline.to($siteNavigation, 0.25, {
-  x: '0%'
+  x: 0
 }, 'locked').to($siteWrapper, 0.25, {
-  x: '0%',
+  x: 0,
   marginLeft: siteNavigationWidth + 'px'
 }, 'locked');
 
@@ -17329,7 +17329,7 @@ var navOpenTimeline = new _gsap.TimelineMax({
     $html.classList.add(navOpenClass);
   },
   onUpdate: function onUpdate() {
-    var newTime = navLockedTimeline.time();
+    var newTime = this.time();
     if (forward && newTime < lastTime || !forward && newTime > lastTime) {
       forward = !forward;
       if (!forward) {
@@ -17344,7 +17344,7 @@ navOpenTimeline.to($siteOverlay, 0.25, {
   display: 'block',
   opacity: 0.2
 }).to($siteNavigation, 0.25, {
-  x: '0%'
+  x: 0
 }, 'open').to($siteWrapper, 0.25, {
   x: siteNavigationWidth
 }, 'open');
@@ -17366,13 +17366,17 @@ function toggleNav() {
 
   serverLoad = load;
 
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    navLockedTimeline.progress(0);
+  // nav toggling below 767px
+  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.smMax + ')').matches) {
+    // If the nav is currently locked (desktop)
+    // then reverse it
+    if (navLockedTimeline.progress() === 1) {
+      navLockedTimeline.progress(0);
+    }
   }
 
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
+  // lock nav in open position at 768px
+  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
     navOpenTimeline.progress(0);
     navLockedTimeline.progress(1);
   } else if (serverLoad) {
@@ -21226,9 +21230,13 @@ var config = exports.config = {
   contentSpacing: 16,
   breakpoints: {
     xs: '480px',
+    xsMax: '479px',
     sm: '768px',
+    smMax: '767px',
     md: '992px',
-    lg: '1200px'
+    mdMax: '991px',
+    lg: '1200px',
+    lgMax: '1199px'
   },
   easing: _gsap.Expo.easeInOut,
   classes: {

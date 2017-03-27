@@ -26,10 +26,10 @@ const navLockedTimeline = new TimelineMax({
 
 navLockedTimeline
 .to($siteNavigation, 0.25, {
-  x: '0%',
+  x: 0,
 }, 'locked')
 .to($siteWrapper, 0.25, {
-  x: '0%',
+  x: 0,
   marginLeft: `${siteNavigationWidth}px`,
 }, 'locked');
 
@@ -41,7 +41,7 @@ const navOpenTimeline = new TimelineMax({
     $html.classList.add(navOpenClass);
   },
   onUpdate() {
-    const newTime = navLockedTimeline.time();
+    const newTime = this.time();
     if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
       forward = !forward;
       if (!forward) {
@@ -58,7 +58,7 @@ navOpenTimeline
   opacity: 0.2,
 })
 .to($siteNavigation, 0.25, {
-  x: '0%',
+  x: 0,
 }, 'open')
 .to($siteWrapper, 0.25, {
   x: siteNavigationWidth,
@@ -79,13 +79,17 @@ function navLoaded() {
 function toggleNav(load = false) {
   serverLoad = load;
 
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    navLockedTimeline.progress(0);
+  // nav toggling below 767px
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.smMax})`).matches) {
+    // If the nav is currently locked (desktop)
+    // then reverse it
+    if (navLockedTimeline.progress() === 1) {
+      navLockedTimeline.progress(0);
+    }
   }
 
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
+  // lock nav in open position at 768px
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
     navOpenTimeline.progress(0);
     navLockedTimeline.progress(1);
   } else if (serverLoad) {

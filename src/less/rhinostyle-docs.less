@@ -171,7 +171,6 @@ pre {
 
 .site-copy {
   margin-bottom: 2rem;
-  //max-width: 100rem;
 }
 
 
@@ -220,7 +219,7 @@ pre {
     max-width: 100%;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: @screen-xs-min) {
     display: block;
   }
 }
@@ -229,8 +228,7 @@ pre {
   cursor: pointer;
   margin-right: @margin-half-gutter;
 
-  // html.navigation-is-locked breakpoint so hide menu button
-  @media (min-width: @screen-lg-min) {
+  @media (min-width: @screen-sm-min) {
     display: none;
   }
 }
