@@ -19,7 +19,7 @@ const navLockedTimeline = new TimelineMax({
   onComplete() {
     // Add loaded class
     if (serverLoad) {
-      $html.classList.add('is-loaded');
+      navLoaded();
     }
   },
 });
@@ -65,6 +65,14 @@ navOpenTimeline
 }, 'open');
 
 /**
+ * Add class to HTML to denote nav is loaded (GSAP is complete)
+ * @return {void}
+ */
+function navLoaded() {
+  $html.classList.add('has-nav');
+}
+
+/**
  * Determines state of scaffolding based on window size
  * @return void
  */
@@ -80,6 +88,8 @@ function toggleNav(load = false) {
   if (window.matchMedia('(min-width: 1200px)').matches) {
     navOpenTimeline.progress(0);
     navLockedTimeline.progress(1);
+  } else if (serverLoad) {
+    navLoaded();
   }
 }
 

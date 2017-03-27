@@ -6,6 +6,12 @@ import { Expo } from 'gsap';
  */
 export const config = {
   contentSpacing: 16,
+  breakpoints: {
+    xs: '480px',
+    sm: '768px',
+    md: '992px',
+    lg: '1200px',
+  },
   easing: Expo.easeInOut,
   classes: {
     required: 'is-required',

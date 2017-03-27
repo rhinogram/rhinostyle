@@ -17309,7 +17309,7 @@ var navLockedTimeline = new _gsap.TimelineMax({
   onComplete: function onComplete() {
     // Add loaded class
     if (serverLoad) {
-      $html.classList.add('is-loaded');
+      navLoaded();
     }
   }
 });
@@ -17350,6 +17350,14 @@ navOpenTimeline.to($siteOverlay, 0.25, {
 }, 'open');
 
 /**
+ * Add class to HTML to denote nav is loaded (GSAP is complete)
+ * @return {void}
+ */
+function navLoaded() {
+  $html.classList.add('has-nav');
+}
+
+/**
  * Determines state of scaffolding based on window size
  * @return void
  */
@@ -17367,6 +17375,8 @@ function toggleNav() {
   if (window.matchMedia('(min-width: 1200px)').matches) {
     navOpenTimeline.progress(0);
     navLockedTimeline.progress(1);
+  } else if (serverLoad) {
+    navLoaded();
   }
 }
 
@@ -21214,6 +21224,12 @@ var _gsap = __webpack_require__(75);
  */
 var config = exports.config = {
   contentSpacing: 16,
+  breakpoints: {
+    xs: '480px',
+    sm: '768px',
+    md: '992px',
+    lg: '1200px'
+  },
   easing: _gsap.Expo.easeInOut,
   classes: {
     required: 'is-required',
