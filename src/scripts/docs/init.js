@@ -164,11 +164,3 @@ if (navLocation) {
     value.classList.remove('active');
   });
 }
-
-// On click of internal links, fade content
-const $links = document.querySelectorAll('[href^="/"], [href^="."]');
-UtilitySystem.forEach($links, (index, value) => {
-  value.addEventListener('click', () => {
-    $html.classList.remove('is-loaded');
-  });
-});

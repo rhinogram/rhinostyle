@@ -17460,14 +17460,6 @@ if (navLocation) {
   });
 }
 
-// On click of internal links, fade content
-var $links = document.querySelectorAll('[href^="/"], [href^="."]');
-_UtilitySystem.UtilitySystem.forEach($links, function (index, value) {
-  value.addEventListener('click', function () {
-    $html.classList.remove('is-loaded');
-  });
-});
-
 /***/ }),
 /* 373 */
 /***/ (function(module, exports, __webpack_require__) {
