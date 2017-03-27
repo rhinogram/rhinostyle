@@ -3,35 +3,98 @@ import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
 const $siteOverlay = document.querySelector('#site-overlay');
+const $siteNavigation = document.querySelector('.site-navigation');
+const siteNavigationWidth = $siteNavigation.offsetWidth;
+const navOpenClass = 'navigation-is-open';
+const $siteWrapper = document.querySelector('.site-wrapper');
 
-// Navigation listener
-UtilitySystem.optimizedResize.add(() => {
+let serverLoad = false;
+
+//
+// Navigation timelines
+//
+
+const navLockedTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    // Add loaded class
+    if (serverLoad) {
+      $html.classList.add('is-loaded');
+    }
+  },
+});
+
+navLockedTimeline
+.to($siteNavigation, 0.25, {
+  x: '0%',
+}, 'locked')
+.to($siteWrapper, 0.25, {
+  x: '0%',
+  marginLeft: `${siteNavigationWidth}px`,
+}, 'locked');
+
+let forward = true;
+let lastTime = 0;
+const navOpenTimeline = new TimelineMax({
+  paused: true,
+  onStart() {
+    $html.classList.add(navOpenClass);
+  },
+  onUpdate() {
+    const newTime = navLockedTimeline.time();
+    if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
+      forward = !forward;
+      if (!forward) {
+        $html.classList.remove(navOpenClass);
+      }
+    }
+    lastTime = newTime;
+  },
+});
+
+navOpenTimeline
+.to($siteOverlay, 0.25, {
+  display: 'block',
+  opacity: 0.2,
+})
+.to($siteNavigation, 0.25, {
+  x: '0%',
+}, 'open')
+.to($siteWrapper, 0.25, {
+  x: siteNavigationWidth,
+}, 'open');
+
+/**
+ * Determines state of scaffolding based on window size
+ * @return void
+ */
+function toggleNav(load = false) {
+  serverLoad = load;
+
   // nav toggling below 1200px
   if (window.matchMedia('(max-width: 1199px)').matches) {
-    $html.classList.remove('navigation-is-locked');
+    navLockedTimeline.progress(0);
   }
 
   // lock nav in open position at 1200px
   if (window.matchMedia('(min-width: 1200px)').matches) {
-    $html.classList.remove('navigation-is-open');
-    $html.classList.add('navigation-is-locked');
+    navOpenTimeline.progress(0);
+    navLockedTimeline.progress(1);
   }
+}
 
-  // panel toggling below 1500px
-  if (window.matchMedia('(max-width: 1499px)').matches) {
-    $siteOverlay.addEventListener('click', () => {
-      $html.classList.remove('panel-is-open');
-    });
-  }
-});
+// Navigation listener
+UtilitySystem.optimizedResize.add(toggleNav);
+// Also run onload
+toggleNav(true);
 
 document.querySelector('.site-header__menu').addEventListener('click', () => {
-  document.querySelector('#site-navigation').scrollTop = 0;
-  $html.classList.add('navigation-is-open');
+  $siteNavigation.scrollTop = 0;
+  navOpenTimeline.play();
 });
 
 $siteOverlay.addEventListener('click', () => {
-  $html.classList.remove('navigation-is-open');
+  navOpenTimeline.reverse();
 });
 
 //
@@ -101,3 +164,11 @@ if (navLocation) {
     value.classList.remove('active');
   });
 }
+
+// On click of internal links, fade content
+const $links = document.querySelectorAll('[href^="/"], [href^="."]');
+UtilitySystem.forEach($links, (index, value) => {
+  value.addEventListener('click', () => {
+    $html.classList.remove('is-loaded');
+  });
+});
