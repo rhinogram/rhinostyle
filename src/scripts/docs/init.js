@@ -40,7 +40,7 @@ function openNavigation() {
   $html.classList.add('navigation-is-open');
   $siteNavigation.scrollTop = 0;
   TweenMax.to($siteNavigation, 0.35, { x: 0 });
-  TweenMax.to($siteWrapper, 0.35, { x: 240 });
+  TweenMax.to($siteWrapper, 0.35, { x: 240, onComplete: logIt });
 }
 
 function closeNavigation() {
@@ -66,6 +66,9 @@ function unlockNavigation() {
 matchMobile();
 matchDesktop();
 
+function logIt() {
+  console.log("pie");
+}
 
 
 //
