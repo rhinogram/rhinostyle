@@ -8,16 +8,17 @@
 
 
 .toasts-container {
-  left: 1rem;
+  left: @toast-offset;
   position: fixed;
-  right: 1rem;
-  top: 1rem;
+  right: @toast-offset;
+  top: @toast-offset;
   z-index: @zindex-toast;
 
-  @media(min-width: 680px) {
+  @media (min-width: @screen-xs-min) {
     left: 50%;
-    margin-left: -32rem;
-    width: 64rem;
+    right: auto;
+    transform: translateX(-50%);
+    width: ~'calc(@{screen-xs-min} - (@{toast-offset} * 2))';
   }
 }
 
