@@ -16855,6 +16855,24 @@ var IconApp = function IconApp() {
           _react2.default.createElement(
             'div',
             { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'hipaa' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'HIPAA'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
             _react2.default.createElement(_components.Icon, { icon: 'inbox' })
           ),
           _react2.default.createElement(
@@ -16954,6 +16972,24 @@ var IconApp = function IconApp() {
               'strong',
               null,
               'Logo Twitter'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'minor' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Minor'
             )
           )
         ),

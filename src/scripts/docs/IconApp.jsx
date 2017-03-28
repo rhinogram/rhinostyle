@@ -229,6 +229,13 @@ const IconApp = () =>
 
         <div className="site-swatch">
           <div className="site-swatch__sample">
+            <Icon icon="hipaa" />
+          </div>
+          <div className="site-swatch__text"><strong>HIPAA</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
             <Icon icon="inbox" />
           </div>
           <div className="site-swatch__text"><strong>Inbox</strong></div>
@@ -267,6 +274,13 @@ const IconApp = () =>
             <Icon icon="logo-twitter" />
           </div>
           <div className="site-swatch__text"><strong>Logo Twitter</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="minor" />
+          </div>
+          <div className="site-swatch__text"><strong>Minor</strong></div>
         </div>
 
         <div className="site-swatch">
