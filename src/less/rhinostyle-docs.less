@@ -307,7 +307,7 @@ pre {
   position: fixed;
   top: 0;
   transform: translateX(-@site-navigation-width);
-  transition: transform 250ms @trans-timing-cubic;
+  //transition: transform 250ms @trans-timing-cubic;
   width: @site-navigation-width;
   z-index: @zindex-site-navigation;
 
@@ -319,9 +319,9 @@ pre {
   html.navigation-is-locked breakpoint
   keeps nav from transitioning from left on page load
   */
-  @media(min-width: @screen-lg-min) {
+  /*@media(min-width: @screen-lg-min) {
     transform: translateX(0);
-  }
+  }*/
 }
 
 
@@ -488,28 +488,28 @@ html.navigation-is-open {
 }
 
 html.navigation-is-open {
-  .site-navigation {
+  /*.site-navigation {
     transform: translateX(0);
-  }
+  }*/
 
-  .site-wrapper {
+  /*.site-wrapper {
     transform: translateX(@site-navigation-width);
-  }
+  }*/
 }
 
 html.navigation-is-locked {
-  .site-navigation {
+  /*.site-navigation {
     transform: translateX(0);
-  }
+  }*/
 
   .site-wrapper {
-    margin-left: @site-navigation-width;
-    transform: translateX(0) !important;
+    /*margin-left: @site-navigation-width;
+    transform: translateX(0) !important;*/
     //z-index: @zindex-site-navigation + 1;
   }
 }
 
-html.panel-is-open {
+/*html.panel-is-open {
   .site-panel {
     box-shadow: 0 0 10px rgba(0, 0, 0, .25);
     transform: translateX(0);
@@ -536,7 +536,7 @@ html.panel-is-open {
       margin-right: @site-panel-width;
     }
   }
-}
+}*/
 
 
 // -------------------------
@@ -616,17 +616,17 @@ html.panel-is-open {
   backface-visibility: hidden; // fix primary color change bug
   //overflow-x: hidden;
   position: relative;
-  transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
+  //transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
   z-index: @zindex-site-wrapper;
 
   /*
   html.navigation-is-locked breakpoint
   keeps wrapper from transitioning from left on page load
   */
-  @media(min-width: @screen-lg-min) {
+  /*@media(min-width: @screen-lg-min) {
     margin-left: @site-navigation-width;
     transform: translateX(0) !important;
-  }
+  }*/
 }
 
 

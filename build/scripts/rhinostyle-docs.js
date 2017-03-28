@@ -17293,36 +17293,67 @@ var _UtilitySystem = __webpack_require__(89);
 
 var $html = document.documentElement;
 var $siteOverlay = document.querySelector('#site-overlay');
+var $siteNavigation = document.querySelector('#site-navigation');
+var $siteHeaderMenu = document.querySelector('.site-header__menu');
+var $siteWrapper = document.querySelector('.site-wrapper');
 
 // Navigation listener
 _UtilitySystem.UtilitySystem.optimizedResize.add(function () {
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    $html.classList.remove('navigation-is-locked');
-  }
-
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
-    $html.classList.remove('navigation-is-open');
-    $html.classList.add('navigation-is-locked');
-  }
-
-  // panel toggling below 1500px
-  if (window.matchMedia('(max-width: 1499px)').matches) {
-    $siteOverlay.addEventListener('click', function () {
-      $html.classList.remove('panel-is-open');
-    });
-  }
+  matchMobile();
+  matchDesktop();
 });
 
-document.querySelector('.site-header__menu').addEventListener('click', function () {
-  document.querySelector('#site-navigation').scrollTop = 0;
-  $html.classList.add('navigation-is-open');
+$siteHeaderMenu.addEventListener('click', function () {
+  openNavigation();
 });
 
 $siteOverlay.addEventListener('click', function () {
-  $html.classList.remove('navigation-is-open');
+  closeNavigation();
 });
+
+// nav toggling below 1200px
+function matchMobile() {
+  if (window.matchMedia('(max-width: 1199px)').matches) {
+    unlockNavigation();
+  }
+}
+
+// lock nav in open position at 1200px
+function matchDesktop() {
+  if (window.matchMedia('(min-width: 1200px)').matches) {
+    lockNavigation();
+  }
+}
+
+function openNavigation() {
+  $html.classList.add('navigation-is-open');
+  $siteNavigation.scrollTop = 0;
+  _gsap.TweenMax.to($siteNavigation, 0.35, { x: 0 });
+  _gsap.TweenMax.to($siteWrapper, 0.35, { x: 240 });
+}
+
+function closeNavigation() {
+  $html.classList.remove('navigation-is-open');
+  _gsap.TweenMax.to($siteNavigation, 0.35, { x: -240 });
+  _gsap.TweenMax.to($siteWrapper, 0.35, { x: 0 });
+}
+
+function lockNavigation() {
+  $html.classList.remove('navigation-is-open');
+  $html.classList.add('navigation-is-locked');
+  _gsap.TweenMax.to($siteNavigation, 0.35, { x: 0 });
+  _gsap.TweenMax.to($siteWrapper, 0.35, { x: 0, marginLeft: 240 });
+}
+
+function unlockNavigation() {
+  $html.classList.remove('navigation-is-open');
+  $html.classList.remove('navigation-is-locked');
+  _gsap.TweenMax.to($siteNavigation, 0.35, { x: -240 });
+  _gsap.TweenMax.to($siteWrapper, 0.35, { x: 0, marginLeft: 0 });
+}
+
+matchMobile();
+matchDesktop();
 
 //
 // Animations
