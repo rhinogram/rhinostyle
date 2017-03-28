@@ -17313,7 +17313,7 @@ var lockNavTimeline = new _gsap.TimelineMax({
   ease: _UtilitySystem.UtilitySystem.config.easing
 }, 'lock').to($siteWrapper, navEase, {
   x: 0,
-  marginLeft: 240,
+  marginLeft: siteNavigationWidth,
   ease: _UtilitySystem.UtilitySystem.config.easing
 }, 'lock');
 
@@ -17364,7 +17364,7 @@ var toggleMobileNavTimeline = new _gsap.TimelineMax({
  * @return {void}
  */
 function matchMobile() {
-  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.smMax + ')').matches) {
+  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.lgMax + ')').matches) {
     unlockNavigation();
   }
 }
@@ -17374,7 +17374,7 @@ function matchMobile() {
  * @return {void}
  */
 function matchDesktop() {
-  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
+  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.lg + ')').matches) {
     // If mobile nav is open while resizing to "desktop-size"
     if ($html.hasAttribute('data-mobile-nav')) {
       mobileNavOpen = true;
@@ -17438,17 +17438,10 @@ function handleUI() {
 handleUI();
 
 // Fire on resize
-_UtilitySystem.UtilitySystem.optimizedResize.add(function () {
-  handleUI();
-});
+_UtilitySystem.UtilitySystem.optimizedResize.add(handleUI);
 
-$siteHeaderMenu.addEventListener('click', function () {
-  openNavigation();
-});
-
-$siteOverlay.addEventListener('click', function () {
-  closeNavigation();
-});
+$siteHeaderMenu.addEventListener('click', openNavigation);
+$siteOverlay.addEventListener('click', closeNavigation);
 
 //
 // Animations

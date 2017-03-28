@@ -25,7 +25,7 @@ const lockNavTimeline = new TimelineMax({
 }, 'lock')
 .to($siteWrapper, navEase, {
   x: 0,
-  marginLeft: 240,
+  marginLeft: siteNavigationWidth,
   ease: UtilitySystem.config.easing,
 }, 'lock');
 
@@ -82,7 +82,7 @@ const toggleMobileNavTimeline = new TimelineMax({
  * @return {void}
  */
 function matchMobile() {
-  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.smMax})`).matches) {
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.lgMax})`).matches) {
     unlockNavigation();
   }
 }
@@ -92,7 +92,7 @@ function matchMobile() {
  * @return {void}
  */
 function matchDesktop() {
-  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.lg})`).matches) {
     // If mobile nav is open while resizing to "desktop-size"
     if ($html.hasAttribute('data-mobile-nav')) {
       mobileNavOpen = true;
@@ -156,17 +156,10 @@ function handleUI() {
 handleUI();
 
 // Fire on resize
-UtilitySystem.optimizedResize.add(() => {
-  handleUI();
-});
+UtilitySystem.optimizedResize.add(handleUI);
 
-$siteHeaderMenu.addEventListener('click', () => {
-  openNavigation();
-});
-
-$siteOverlay.addEventListener('click', () => {
-  closeNavigation();
-});
+$siteHeaderMenu.addEventListener('click', openNavigation);
+$siteOverlay.addEventListener('click', closeNavigation);
 
 //
 // Animations
