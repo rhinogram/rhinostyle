@@ -17293,35 +17293,121 @@ var _UtilitySystem = __webpack_require__(89);
 
 var $html = document.documentElement;
 var $siteOverlay = document.querySelector('#site-overlay');
+var $siteNavigation = document.querySelector('.site-navigation');
+var siteNavigationWidth = $siteNavigation.offsetWidth;
+var navOpenClass = 'navigation-is-open';
+var $siteWrapper = document.querySelector('.site-wrapper');
 
-// Navigation listener
-_UtilitySystem.UtilitySystem.optimizedResize.add(function () {
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    $html.classList.remove('navigation-is-locked');
-  }
+var serverLoad = false;
+var overrideLock = false;
 
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
-    $html.classList.remove('navigation-is-open');
-    $html.classList.add('navigation-is-locked');
-  }
+//
+// Navigation timelines
+//
 
-  // panel toggling below 1500px
-  if (window.matchMedia('(max-width: 1499px)').matches) {
-    $siteOverlay.addEventListener('click', function () {
-      $html.classList.remove('panel-is-open');
-    });
+var navLockedTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    // Add loaded class
+    if (serverLoad) {
+      navLoaded();
+    }
   }
 });
 
+navLockedTimeline.to($siteNavigation, 0.25, {
+  x: 0
+}, 'locked').to($siteWrapper, 0.25, {
+  x: 0,
+  marginLeft: siteNavigationWidth + 'px'
+}, 'locked');
+
+var forward = true;
+var lastTime = 0;
+var navOpenTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onStart: function onStart() {
+    $html.classList.add(navOpenClass);
+  },
+  onUpdate: function onUpdate() {
+    var newTime = this.time();
+    if (forward && newTime < lastTime || !forward && newTime > lastTime) {
+      forward = !forward;
+      if (!forward) {
+        $html.classList.remove(navOpenClass);
+      }
+    }
+    lastTime = newTime;
+  },
+  onReverseComplete: function onReverseComplete() {
+    if (overrideLock) {
+      navLockedTimeline.progress(1);
+      overrideLock = false;
+    }
+  }
+});
+
+navOpenTimeline.to($siteOverlay, 0.25, {
+  display: 'block',
+  opacity: 0.2
+}, 'open').to($siteNavigation, 0.25, {
+  x: 0
+}, 'open').to($siteWrapper, 0.25, {
+  x: siteNavigationWidth
+}, 'open');
+
+/**
+ * Add class to HTML to denote nav is loaded (GSAP is complete)
+ * @return {void}
+ */
+function navLoaded() {
+  $html.classList.add('has-nav');
+}
+
+/**
+ * Determines state of scaffolding based on window size
+ * @return void
+ */
+function toggleNav() {
+  var load = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+  serverLoad = load;
+
+  // nav toggling below 767px
+  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.smMax + ')').matches) {
+    // If the nav is currently locked (desktop)
+    // then reverse it
+    if (navLockedTimeline.progress() === 1) {
+      navLockedTimeline.progress(0);
+    }
+  }
+
+  // lock nav in open position at 768px
+  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
+    if (navOpenTimeline.progress() === 1) {
+      overrideLock = true;
+      navOpenTimeline.reverse();
+    } else {
+      navOpenTimeline.progress(0);
+      navLockedTimeline.progress(1);
+    }
+  } else if (serverLoad) {
+    navLoaded();
+  }
+}
+
+// Navigation listener
+_UtilitySystem.UtilitySystem.optimizedResize.add(toggleNav);
+// Also run onload
+toggleNav(true);
+
 document.querySelector('.site-header__menu').addEventListener('click', function () {
-  document.querySelector('#site-navigation').scrollTop = 0;
-  $html.classList.add('navigation-is-open');
+  $siteNavigation.scrollTop = 0;
+  navOpenTimeline.play();
 });
 
 $siteOverlay.addEventListener('click', function () {
-  $html.classList.remove('navigation-is-open');
+  navOpenTimeline.reverse();
 });
 
 //
@@ -21154,6 +21240,16 @@ var _gsap = __webpack_require__(75);
  */
 var config = exports.config = {
   contentSpacing: 16,
+  breakpoints: {
+    xs: '480px',
+    xsMax: '479px',
+    sm: '768px',
+    smMax: '767px',
+    md: '992px',
+    mdMax: '991px',
+    lg: '1200px',
+    lgMax: '1199px'
+  },
   easing: _gsap.Expo.easeInOut,
   classes: {
     required: 'is-required',

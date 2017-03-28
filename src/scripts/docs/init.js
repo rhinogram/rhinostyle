@@ -3,35 +3,124 @@ import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
 const $siteOverlay = document.querySelector('#site-overlay');
+const $siteNavigation = document.querySelector('.site-navigation');
+const siteNavigationWidth = $siteNavigation.offsetWidth;
+const navOpenClass = 'navigation-is-open';
+const $siteWrapper = document.querySelector('.site-wrapper');
 
-// Navigation listener
-UtilitySystem.optimizedResize.add(() => {
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    $html.classList.remove('navigation-is-locked');
-  }
+let serverLoad = false;
+let overrideLock = false;
 
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
-    $html.classList.remove('navigation-is-open');
-    $html.classList.add('navigation-is-locked');
-  }
+//
+// Navigation timelines
+//
 
-  // panel toggling below 1500px
-  if (window.matchMedia('(max-width: 1499px)').matches) {
-    $siteOverlay.addEventListener('click', () => {
-      $html.classList.remove('panel-is-open');
-    });
-  }
+const navLockedTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    // Add loaded class
+    if (serverLoad) {
+      navLoaded();
+    }
+  },
 });
 
+navLockedTimeline
+.to($siteNavigation, 0.25, {
+  x: 0,
+}, 'locked')
+.to($siteWrapper, 0.25, {
+  x: 0,
+  marginLeft: `${siteNavigationWidth}px`,
+}, 'locked');
+
+let forward = true;
+let lastTime = 0;
+const navOpenTimeline = new TimelineMax({
+  paused: true,
+  onStart() {
+    $html.classList.add(navOpenClass);
+  },
+  onUpdate() {
+    const newTime = this.time();
+    if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
+      forward = !forward;
+      if (!forward) {
+        $html.classList.remove(navOpenClass);
+      }
+    }
+    lastTime = newTime;
+  },
+  onReverseComplete() {
+    if (overrideLock) {
+      navLockedTimeline.progress(1);
+      overrideLock = false;
+    }
+  },
+});
+
+navOpenTimeline
+.to($siteOverlay, 0.25, {
+  display: 'block',
+  opacity: 0.2,
+}, 'open')
+.to($siteNavigation, 0.25, {
+  x: 0,
+}, 'open')
+.to($siteWrapper, 0.25, {
+  x: siteNavigationWidth,
+}, 'open');
+
+/**
+ * Add class to HTML to denote nav is loaded (GSAP is complete)
+ * @return {void}
+ */
+function navLoaded() {
+  $html.classList.add('has-nav');
+}
+
+/**
+ * Determines state of scaffolding based on window size
+ * @return void
+ */
+function toggleNav(load = false) {
+  serverLoad = load;
+
+  // nav toggling below 767px
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.smMax})`).matches) {
+    // If the nav is currently locked (desktop)
+    // then reverse it
+    if (navLockedTimeline.progress() === 1) {
+      navLockedTimeline.progress(0);
+    }
+  }
+
+  // lock nav in open position at 768px
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
+    if (navOpenTimeline.progress() === 1) {
+      overrideLock = true;
+      navOpenTimeline.reverse();
+    } else {
+      navOpenTimeline.progress(0);
+      navLockedTimeline.progress(1);
+    }
+  } else if (serverLoad) {
+    navLoaded();
+  }
+}
+
+// Navigation listener
+UtilitySystem.optimizedResize.add(toggleNav);
+// Also run onload
+toggleNav(true);
+
 document.querySelector('.site-header__menu').addEventListener('click', () => {
-  document.querySelector('#site-navigation').scrollTop = 0;
-  $html.classList.add('navigation-is-open');
+  $siteNavigation.scrollTop = 0;
+  navOpenTimeline.play();
 });
 
 $siteOverlay.addEventListener('click', () => {
-  $html.classList.remove('navigation-is-open');
+  navOpenTimeline.reverse();
 });
 
 //
