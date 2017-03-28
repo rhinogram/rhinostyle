@@ -17299,6 +17299,7 @@ var navOpenClass = 'navigation-is-open';
 var $siteWrapper = document.querySelector('.site-wrapper');
 
 var serverLoad = false;
+var overrideLock = false;
 
 //
 // Navigation timelines
@@ -17337,13 +17338,19 @@ var navOpenTimeline = new _gsap.TimelineMax({
       }
     }
     lastTime = newTime;
+  },
+  onReverseComplete: function onReverseComplete() {
+    if (overrideLock) {
+      navLockedTimeline.progress(1);
+      overrideLock = false;
+    }
   }
 });
 
 navOpenTimeline.to($siteOverlay, 0.25, {
   display: 'block',
   opacity: 0.2
-}).to($siteNavigation, 0.25, {
+}, 'open').to($siteNavigation, 0.25, {
   x: 0
 }, 'open').to($siteWrapper, 0.25, {
   x: siteNavigationWidth
@@ -17377,8 +17384,13 @@ function toggleNav() {
 
   // lock nav in open position at 768px
   if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
-    navOpenTimeline.progress(0);
-    navLockedTimeline.progress(1);
+    if (navOpenTimeline.progress() === 1) {
+      overrideLock = true;
+      navOpenTimeline.reverse(0);
+    } else {
+      navOpenTimeline.progress(0);
+      navLockedTimeline.progress(1);
+    }
   } else if (serverLoad) {
     navLoaded();
   }

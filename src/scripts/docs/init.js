@@ -9,6 +9,7 @@ const navOpenClass = 'navigation-is-open';
 const $siteWrapper = document.querySelector('.site-wrapper');
 
 let serverLoad = false;
+let overrideLock = false;
 
 //
 // Navigation timelines
@@ -50,13 +51,19 @@ const navOpenTimeline = new TimelineMax({
     }
     lastTime = newTime;
   },
+  onReverseComplete() {
+    if (overrideLock) {
+      navLockedTimeline.progress(1);
+      overrideLock = false;
+    }
+  },
 });
 
 navOpenTimeline
 .to($siteOverlay, 0.25, {
   display: 'block',
   opacity: 0.2,
-})
+}, 'open')
 .to($siteNavigation, 0.25, {
   x: 0,
 }, 'open')
@@ -90,8 +97,13 @@ function toggleNav(load = false) {
 
   // lock nav in open position at 768px
   if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
-    navOpenTimeline.progress(0);
-    navLockedTimeline.progress(1);
+    if (navOpenTimeline.progress() === 1) {
+      overrideLock = true;
+      navOpenTimeline.reverse(0);
+    } else {
+      navOpenTimeline.progress(0);
+      navLockedTimeline.progress(1);
+    }
   } else if (serverLoad) {
     navLoaded();
   }
