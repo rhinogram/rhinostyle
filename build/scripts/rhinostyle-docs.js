@@ -17299,10 +17299,145 @@ var siteNavigationWidth = $siteNavigation.offsetWidth;
 var $siteHeaderMenu = document.querySelector('.site-header__menu');
 var $siteWrapper = document.querySelector('.site-wrapper');
 
-var navOpenClass = 'navigation-is-open';
 var navEase = 0.25;
+var mobileNavOpen = false;
 
-// Navigation listener
+// Timelines
+var lockNavTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
+  }
+}).to($siteNavigation, navEase, {
+  x: 0,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'lock').to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: 240,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'lock');
+
+var unlockNavTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
+  }
+}).to($siteNavigation, navEase, {
+  x: -siteNavigationWidth,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'unlock').to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: 0,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'unlock');
+
+var toggleMobileNavTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    $html.setAttribute('data-mobile-nav', true);
+  },
+  onReverseComplete: function onReverseComplete() {
+    $html.removeAttribute('data-mobile-nav');
+
+    if (mobileNavOpen) {
+      mobileNavOpen = false;
+
+      lockNavigation();
+    }
+  }
+}).set($body, {
+  height: '100%',
+  overflow: 'hidden'
+}).to($siteOverlay, navEase, {
+  display: 'block',
+  opacity: 0.2
+}, 'mobileNav').to($siteNavigation, navEase, {
+  x: 0,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'mobileNav').to($siteWrapper, navEase, {
+  x: siteNavigationWidth,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'mobileNav');
+
+/**
+ * Determine if window matches smaller size
+ * @return {void}
+ */
+function matchMobile() {
+  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.smMax + ')').matches) {
+    unlockNavigation();
+  }
+}
+
+/**
+ * Determine if window matches desktop size
+ * @return {void}
+ */
+function matchDesktop() {
+  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
+    // If mobile nav is open while resizing to "desktop-size"
+    if ($html.hasAttribute('data-mobile-nav')) {
+      mobileNavOpen = true;
+      toggleMobileNavTimeline.reverse();
+    } else {
+      lockNavigation();
+    }
+  }
+}
+
+/**
+ * Open navigation
+ * Runs on mobile-view
+ * @return {[type]} [description]
+ */
+function openNavigation() {
+  $siteNavigation.scrollTop = 0;
+
+  toggleMobileNavTimeline.play();
+}
+
+/**
+ * Close navigation
+ * Runs on mobile-view
+ * @return {void}
+ */
+function closeNavigation() {
+  toggleMobileNavTimeline.reverse();
+}
+
+/**
+ * Lock navigation
+ * Desktop-view
+ * @return {void}
+ */
+function lockNavigation() {
+  unlockNavTimeline.progress(0);
+  lockNavTimeline.progress(1);
+}
+
+/**
+ * Unlock navigation
+ * Mobile-view
+ * @return {void}
+ */
+function unlockNavigation() {
+  lockNavTimeline.progress(0);
+  unlockNavTimeline.progress(1);
+}
+
+/**
+ * Fire off GSAP-powered panel scaffolding
+ * @return {void}
+ */
+function handleUI() {
+  matchMobile();
+  matchDesktop();
+}
+
+// Fire onload
+handleUI();
+
+// Fire on resize
 _UtilitySystem.UtilitySystem.optimizedResize.add(function () {
   handleUI();
 });
@@ -17314,125 +17449,6 @@ $siteHeaderMenu.addEventListener('click', function () {
 $siteOverlay.addEventListener('click', function () {
   closeNavigation();
 });
-
-/**
- * Determine if window matches smaller size
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function matchMobile() {
-  var load = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.smMax + ')').matches) {
-    unlockNavigation(load);
-  }
-}
-
-/**
- * Determine if window matches desktop size
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function matchDesktop() {
-  var load = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
-    lockNavigation(load);
-  }
-}
-
-/**
- * Open navigation
- * Runs on mobile-view
- * @return {[type]} [description]
- */
-function openNavigation() {
-  $html.classList.add(navOpenClass);
-  $siteNavigation.scrollTop = 0;
-  _gsap.TweenMax.to($siteNavigation, navEase, { x: 0, ease: _UtilitySystem.UtilitySystem.config.easing });
-  _gsap.TweenMax.to($siteWrapper, navEase, { x: siteNavigationWidth, ease: _UtilitySystem.UtilitySystem.config.easing });
-}
-
-/**
- * Close navigation
- * Runs on mobile-view
- * @return {void}
- */
-function closeNavigation() {
-  $html.classList.remove(navOpenClass);
-  _gsap.TweenMax.to($siteNavigation, navEase, { x: -siteNavigationWidth, ease: _UtilitySystem.UtilitySystem.config.easing });
-  _gsap.TweenMax.to($siteWrapper, navEase, { x: 0, ease: _UtilitySystem.UtilitySystem.config.easing });
-}
-
-/**
- * Lock navigation
- * Desktop-view
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function lockNavigation() {
-  var load = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-  $html.classList.remove(navOpenClass);
-  _gsap.TweenMax.to($siteNavigation, navEase, { x: 0, ease: _UtilitySystem.UtilitySystem.config.easing });
-  _gsap.TweenMax.to($siteWrapper, navEase, {
-    x: 0,
-    marginLeft: 240,
-    ease: _UtilitySystem.UtilitySystem.config.easing,
-    onComplete: function onComplete() {
-      if (load) {
-        showContent();
-      }
-    }
-  });
-}
-
-/**
- * Unlock navigation
- * Mobile-view
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function unlockNavigation() {
-  var load = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-  $html.classList.remove(navOpenClass);
-  _gsap.TweenMax.to($siteNavigation, navEase, { x: -siteNavigationWidth, ease: _UtilitySystem.UtilitySystem.config.easing });
-  _gsap.TweenMax.to($siteWrapper, navEase, {
-    x: 0,
-    marginLeft: 0,
-    ease: _UtilitySystem.UtilitySystem.config.easing,
-    onComplete: function onComplete() {
-      if (load) {
-        showContent();
-      }
-    }
-  });
-}
-
-/**
- * Fire off GSAP-powered panel scaffolding
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function handleUI() {
-  var load = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-  matchMobile(load);
-  matchDesktop(load);
-}
-
-/**
- * Once GSAP has figured out the project scaffolding
- * Show body content
- * @return {void}
- */
-function showContent() {
-  $body.style.opacity = 1;
-}
-
-// Fire onload
-handleUI(true);
 
 //
 // Animations

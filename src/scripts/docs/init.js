@@ -1,4 +1,4 @@
-import { TweenMax, TimelineMax, SteppedEase } from 'gsap';
+import { TimelineMax, SteppedEase } from 'gsap';
 import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
@@ -9,10 +9,153 @@ const siteNavigationWidth = $siteNavigation.offsetWidth;
 const $siteHeaderMenu = document.querySelector('.site-header__menu');
 const $siteWrapper = document.querySelector('.site-wrapper');
 
-const navOpenClass = 'navigation-is-open';
 const navEase = 0.25;
+let mobileNavOpen = false;
 
-// Navigation listener
+// Timelines
+const lockNavTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
+  },
+})
+.to($siteNavigation, navEase, {
+  x: 0,
+  ease: UtilitySystem.config.easing,
+}, 'lock')
+.to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: 240,
+  ease: UtilitySystem.config.easing,
+}, 'lock');
+
+const unlockNavTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
+  },
+})
+.to($siteNavigation, navEase, {
+  x: (-siteNavigationWidth),
+  ease: UtilitySystem.config.easing,
+}, 'unlock')
+.to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: 0,
+  ease: UtilitySystem.config.easing,
+}, 'unlock');
+
+const toggleMobileNavTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    $html.setAttribute('data-mobile-nav', true);
+  },
+  onReverseComplete() {
+    $html.removeAttribute('data-mobile-nav');
+
+    if (mobileNavOpen) {
+      mobileNavOpen = false;
+
+      lockNavigation();
+    }
+  },
+})
+.set($body, {
+  height: '100%',
+  overflow: 'hidden',
+})
+.to($siteOverlay, navEase, {
+  display: 'block',
+  opacity: 0.2,
+}, 'mobileNav')
+.to($siteNavigation, navEase, {
+  x: 0,
+  ease: UtilitySystem.config.easing,
+}, 'mobileNav')
+.to($siteWrapper, navEase, {
+  x: siteNavigationWidth,
+  ease: UtilitySystem.config.easing,
+}, 'mobileNav');
+
+/**
+ * Determine if window matches smaller size
+ * @return {void}
+ */
+function matchMobile() {
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.smMax})`).matches) {
+    unlockNavigation();
+  }
+}
+
+/**
+ * Determine if window matches desktop size
+ * @return {void}
+ */
+function matchDesktop() {
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
+    // If mobile nav is open while resizing to "desktop-size"
+    if ($html.hasAttribute('data-mobile-nav')) {
+      mobileNavOpen = true;
+      toggleMobileNavTimeline.reverse();
+    } else {
+      lockNavigation();
+    }
+  }
+}
+
+/**
+ * Open navigation
+ * Runs on mobile-view
+ * @return {[type]} [description]
+ */
+function openNavigation() {
+  $siteNavigation.scrollTop = 0;
+
+  toggleMobileNavTimeline.play();
+}
+
+/**
+ * Close navigation
+ * Runs on mobile-view
+ * @return {void}
+ */
+function closeNavigation() {
+  toggleMobileNavTimeline.reverse();
+}
+
+/**
+ * Lock navigation
+ * Desktop-view
+ * @return {void}
+ */
+function lockNavigation() {
+  unlockNavTimeline.progress(0);
+  lockNavTimeline.progress(1);
+}
+
+/**
+ * Unlock navigation
+ * Mobile-view
+ * @return {void}
+ */
+function unlockNavigation() {
+  lockNavTimeline.progress(0);
+  unlockNavTimeline.progress(1);
+}
+
+/**
+ * Fire off GSAP-powered panel scaffolding
+ * @return {void}
+ */
+function handleUI() {
+  matchMobile();
+  matchDesktop();
+}
+
+// Fire onload
+handleUI();
+
+// Fire on resize
 UtilitySystem.optimizedResize.add(() => {
   handleUI();
 });
@@ -24,115 +167,6 @@ $siteHeaderMenu.addEventListener('click', () => {
 $siteOverlay.addEventListener('click', () => {
   closeNavigation();
 });
-
-/**
- * Determine if window matches smaller size
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function matchMobile(load = false) {
-  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.smMax})`).matches) {
-    unlockNavigation(load);
-  }
-}
-
-/**
- * Determine if window matches desktop size
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function matchDesktop(load = false) {
-  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
-    lockNavigation(load);
-  }
-}
-
-/**
- * Open navigation
- * Runs on mobile-view
- * @return {[type]} [description]
- */
-function openNavigation() {
-  $html.classList.add(navOpenClass);
-  $siteNavigation.scrollTop = 0;
-  TweenMax.to($siteNavigation, navEase, { x: 0, ease: UtilitySystem.config.easing });
-  TweenMax.to($siteWrapper, navEase, { x: siteNavigationWidth, ease: UtilitySystem.config.easing });
-}
-
-/**
- * Close navigation
- * Runs on mobile-view
- * @return {void}
- */
-function closeNavigation() {
-  $html.classList.remove(navOpenClass);
-  TweenMax.to($siteNavigation, navEase, { x: (-siteNavigationWidth), ease: UtilitySystem.config.easing });
-  TweenMax.to($siteWrapper, navEase, { x: 0, ease: UtilitySystem.config.easing });
-}
-
-/**
- * Lock navigation
- * Desktop-view
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function lockNavigation(load = false) {
-  $html.classList.remove(navOpenClass);
-  TweenMax.to($siteNavigation, navEase, { x: 0, ease: UtilitySystem.config.easing });
-  TweenMax.to($siteWrapper, navEase, {
-    x: 0,
-    marginLeft: 240,
-    ease: UtilitySystem.config.easing,
-    onComplete() {
-      if (load) {
-        showContent();
-      }
-    },
-  });
-}
-
-/**
- * Unlock navigation
- * Mobile-view
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function unlockNavigation(load = false) {
-  $html.classList.remove(navOpenClass);
-  TweenMax.to($siteNavigation, navEase, { x: (-siteNavigationWidth), ease: UtilitySystem.config.easing });
-  TweenMax.to($siteWrapper, navEase, {
-    x: 0,
-    marginLeft: 0,
-    ease: UtilitySystem.config.easing,
-    onComplete() {
-      if (load) {
-        showContent();
-      }
-    },
-  });
-}
-
-/**
- * Fire off GSAP-powered panel scaffolding
- * @param  {Boolean} [load=false] Is this a server-side load?
- * @return {void}
- */
-function handleUI(load = false) {
-  matchMobile(load);
-  matchDesktop(load);
-}
-
-/**
- * Once GSAP has figured out the project scaffolding
- * Show body content
- * @return {void}
- */
-function showContent() {
-  $body.style.opacity = 1;
-}
-
-// Fire onload
-handleUI(true);
 
 //
 // Animations

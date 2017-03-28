@@ -231,7 +231,6 @@ pre {
   cursor: pointer;
   margin-right: @margin-half-gutter;
 
-  // html.navigation-is-locked breakpoint so hide menu button
   @media (min-width: @screen-sm-min) {
     display: none;
   }
@@ -389,23 +388,15 @@ pre {
 // Site Scaffolding
 // -------------------------
 
-
-html.navigation-is-open {
-  body {
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    position: fixed;
-    right: 0;
-    top: 0;
-  }
-}
-
 // Hide by default
 // GSAP does it's thing to handle showing body when animation is complete
 
-body {
+html {
   opacity: 0;
+
+  &[data-nav-loaded] {
+    opacity: 1;
+  }
 }
 
 // -------------------------
