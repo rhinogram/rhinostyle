@@ -17386,7 +17386,7 @@ function toggleNav() {
   if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.sm + ')').matches) {
     if (navOpenTimeline.progress() === 1) {
       overrideLock = true;
-      navOpenTimeline.reverse(0);
+      navOpenTimeline.reverse();
     } else {
       navOpenTimeline.progress(0);
       navLockedTimeline.progress(1);
