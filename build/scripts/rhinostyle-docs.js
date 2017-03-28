@@ -17292,37 +17292,156 @@ var _gsap = __webpack_require__(75);
 var _UtilitySystem = __webpack_require__(89);
 
 var $html = document.documentElement;
+var $body = document.body;
 var $siteOverlay = document.querySelector('#site-overlay');
+var $siteNavigation = document.querySelector('#site-navigation');
+var siteNavigationWidth = $siteNavigation.offsetWidth;
+var $siteHeaderMenu = document.querySelector('.site-header__menu');
+var $siteWrapper = document.querySelector('.site-wrapper');
 
-// Navigation listener
-_UtilitySystem.UtilitySystem.optimizedResize.add(function () {
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    $html.classList.remove('navigation-is-locked');
+var navEase = 0.25;
+var mobileNavOpen = false;
+
+// Timelines
+var lockNavTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
   }
+}).to($siteNavigation, navEase, {
+  x: 0,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'lock').to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: siteNavigationWidth,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'lock');
 
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
-    $html.classList.remove('navigation-is-open');
-    $html.classList.add('navigation-is-locked');
+var unlockNavTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
   }
+}).to($siteNavigation, navEase, {
+  x: -siteNavigationWidth,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'unlock').to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: 0,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'unlock');
 
-  // panel toggling below 1500px
-  if (window.matchMedia('(max-width: 1499px)').matches) {
-    $siteOverlay.addEventListener('click', function () {
-      $html.classList.remove('panel-is-open');
-    });
+var toggleMobileNavTimeline = new _gsap.TimelineMax({
+  paused: true,
+  onComplete: function onComplete() {
+    $html.setAttribute('data-mobile-nav', true);
+  },
+  onReverseComplete: function onReverseComplete() {
+    $html.removeAttribute('data-mobile-nav');
+
+    if (mobileNavOpen) {
+      mobileNavOpen = false;
+
+      lockNavigation();
+    }
   }
-});
+}).set($body, {
+  height: '100%',
+  overflow: 'hidden'
+}).to($siteOverlay, navEase, {
+  display: 'block',
+  opacity: 0.2
+}, 'mobileNav').to($siteNavigation, navEase, {
+  x: 0,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'mobileNav').to($siteWrapper, navEase, {
+  x: siteNavigationWidth,
+  ease: _UtilitySystem.UtilitySystem.config.easing
+}, 'mobileNav');
 
-document.querySelector('.site-header__menu').addEventListener('click', function () {
-  document.querySelector('#site-navigation').scrollTop = 0;
-  $html.classList.add('navigation-is-open');
-});
+/**
+ * Determine if window matches smaller size
+ * @return {void}
+ */
+function matchMobile() {
+  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.lgMax + ')').matches) {
+    unlockNavigation();
+  }
+}
 
-$siteOverlay.addEventListener('click', function () {
-  $html.classList.remove('navigation-is-open');
-});
+/**
+ * Determine if window matches desktop size
+ * @return {void}
+ */
+function matchDesktop() {
+  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.lg + ')').matches) {
+    // If mobile nav is open while resizing to "desktop-size"
+    if ($html.hasAttribute('data-mobile-nav')) {
+      mobileNavOpen = true;
+      toggleMobileNavTimeline.reverse();
+    } else {
+      lockNavigation();
+    }
+  }
+}
+
+/**
+ * Open navigation
+ * Runs on mobile-view
+ * @return {[type]} [description]
+ */
+function openNavigation() {
+  $siteNavigation.scrollTop = 0;
+
+  toggleMobileNavTimeline.play();
+}
+
+/**
+ * Close navigation
+ * Runs on mobile-view
+ * @return {void}
+ */
+function closeNavigation() {
+  toggleMobileNavTimeline.reverse();
+}
+
+/**
+ * Lock navigation
+ * Desktop-view
+ * @return {void}
+ */
+function lockNavigation() {
+  unlockNavTimeline.progress(0);
+  lockNavTimeline.progress(1);
+}
+
+/**
+ * Unlock navigation
+ * Mobile-view
+ * @return {void}
+ */
+function unlockNavigation() {
+  lockNavTimeline.progress(0);
+  unlockNavTimeline.progress(1);
+}
+
+/**
+ * Fire off GSAP-powered panel scaffolding
+ * @return {void}
+ */
+function handleUI() {
+  matchMobile();
+  matchDesktop();
+}
+
+// Fire onload
+handleUI();
+
+// Fire on resize
+_UtilitySystem.UtilitySystem.optimizedResize.add(handleUI);
+
+$siteHeaderMenu.addEventListener('click', openNavigation);
+$siteOverlay.addEventListener('click', closeNavigation);
 
 //
 // Animations
@@ -17392,10 +17511,10 @@ var navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  document.querySelector('.site-navigation__nav a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('active'); // eslint-disable-line
+  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('active'); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
-  _UtilitySystem.UtilitySystem.forEach(document.querySelector('.site-navigation__nav a'), function (index, value) {
+  _UtilitySystem.UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), function (index, value) {
     value.classList.remove('active');
   });
 }
@@ -21155,6 +21274,16 @@ var _gsap = __webpack_require__(75);
 var config = exports.config = {
   contentSpacing: 16,
   easing: _gsap.Expo.easeInOut,
+  breakpoints: {
+    xs: '480px',
+    xsMax: '479px',
+    sm: '768px',
+    smMax: '767px',
+    md: '992px',
+    mdMax: '991px',
+    lg: '1200px',
+    lgMax: '1199px'
+  },
   classes: {
     required: 'is-required',
     valid: 'is-valid',

@@ -2,37 +2,164 @@ import { TimelineMax, SteppedEase } from 'gsap';
 import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
+const $body = document.body;
 const $siteOverlay = document.querySelector('#site-overlay');
+const $siteNavigation = document.querySelector('#site-navigation');
+const siteNavigationWidth = $siteNavigation.offsetWidth;
+const $siteHeaderMenu = document.querySelector('.site-header__menu');
+const $siteWrapper = document.querySelector('.site-wrapper');
 
-// Navigation listener
-UtilitySystem.optimizedResize.add(() => {
-  // nav toggling below 1200px
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    $html.classList.remove('navigation-is-locked');
+const navEase = 0.25;
+let mobileNavOpen = false;
+
+// Timelines
+const lockNavTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
+  },
+})
+.to($siteNavigation, navEase, {
+  x: 0,
+  ease: UtilitySystem.config.easing,
+}, 'lock')
+.to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: siteNavigationWidth,
+  ease: UtilitySystem.config.easing,
+}, 'lock');
+
+const unlockNavTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    $html.setAttribute('data-nav-loaded', true);
+  },
+})
+.to($siteNavigation, navEase, {
+  x: (-siteNavigationWidth),
+  ease: UtilitySystem.config.easing,
+}, 'unlock')
+.to($siteWrapper, navEase, {
+  x: 0,
+  marginLeft: 0,
+  ease: UtilitySystem.config.easing,
+}, 'unlock');
+
+const toggleMobileNavTimeline = new TimelineMax({
+  paused: true,
+  onComplete() {
+    $html.setAttribute('data-mobile-nav', true);
+  },
+  onReverseComplete() {
+    $html.removeAttribute('data-mobile-nav');
+
+    if (mobileNavOpen) {
+      mobileNavOpen = false;
+
+      lockNavigation();
+    }
+  },
+})
+.set($body, {
+  height: '100%',
+  overflow: 'hidden',
+})
+.to($siteOverlay, navEase, {
+  display: 'block',
+  opacity: 0.2,
+}, 'mobileNav')
+.to($siteNavigation, navEase, {
+  x: 0,
+  ease: UtilitySystem.config.easing,
+}, 'mobileNav')
+.to($siteWrapper, navEase, {
+  x: siteNavigationWidth,
+  ease: UtilitySystem.config.easing,
+}, 'mobileNav');
+
+/**
+ * Determine if window matches smaller size
+ * @return {void}
+ */
+function matchMobile() {
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.lgMax})`).matches) {
+    unlockNavigation();
   }
+}
 
-  // lock nav in open position at 1200px
-  if (window.matchMedia('(min-width: 1200px)').matches) {
-    $html.classList.remove('navigation-is-open');
-    $html.classList.add('navigation-is-locked');
+/**
+ * Determine if window matches desktop size
+ * @return {void}
+ */
+function matchDesktop() {
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.lg})`).matches) {
+    // If mobile nav is open while resizing to "desktop-size"
+    if ($html.hasAttribute('data-mobile-nav')) {
+      mobileNavOpen = true;
+      toggleMobileNavTimeline.reverse();
+    } else {
+      lockNavigation();
+    }
   }
+}
 
-  // panel toggling below 1500px
-  if (window.matchMedia('(max-width: 1499px)').matches) {
-    $siteOverlay.addEventListener('click', () => {
-      $html.classList.remove('panel-is-open');
-    });
-  }
-});
+/**
+ * Open navigation
+ * Runs on mobile-view
+ * @return {[type]} [description]
+ */
+function openNavigation() {
+  $siteNavigation.scrollTop = 0;
 
-document.querySelector('.site-header__menu').addEventListener('click', () => {
-  document.querySelector('#site-navigation').scrollTop = 0;
-  $html.classList.add('navigation-is-open');
-});
+  toggleMobileNavTimeline.play();
+}
 
-$siteOverlay.addEventListener('click', () => {
-  $html.classList.remove('navigation-is-open');
-});
+/**
+ * Close navigation
+ * Runs on mobile-view
+ * @return {void}
+ */
+function closeNavigation() {
+  toggleMobileNavTimeline.reverse();
+}
+
+/**
+ * Lock navigation
+ * Desktop-view
+ * @return {void}
+ */
+function lockNavigation() {
+  unlockNavTimeline.progress(0);
+  lockNavTimeline.progress(1);
+}
+
+/**
+ * Unlock navigation
+ * Mobile-view
+ * @return {void}
+ */
+function unlockNavigation() {
+  lockNavTimeline.progress(0);
+  unlockNavTimeline.progress(1);
+}
+
+/**
+ * Fire off GSAP-powered panel scaffolding
+ * @return {void}
+ */
+function handleUI() {
+  matchMobile();
+  matchDesktop();
+}
+
+// Fire onload
+handleUI();
+
+// Fire on resize
+UtilitySystem.optimizedResize.add(handleUI);
+
+$siteHeaderMenu.addEventListener('click', openNavigation);
+$siteOverlay.addEventListener('click', closeNavigation);
 
 //
 // Animations
@@ -94,10 +221,10 @@ const navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  document.querySelector(`.site-navigation__nav a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('active'); // eslint-disable-line
+  $siteNavigation.querySelector(`a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('active'); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
-  UtilitySystem.forEach(document.querySelector('.site-navigation__nav a'), (index, value) => {
+  UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), (index, value) => {
     value.classList.remove('active');
   });
 }
