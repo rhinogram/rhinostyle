@@ -26,7 +26,6 @@ pre {
 @zindex-site-wrapper:       1;
 @site-navigation-bg:        @color-primary;
 @site-navigation-width:     24rem;
-@site-overlay-opacity:      .2;
 @site-panel-width:          42rem;
 
 @global-header-height: 6rem;
@@ -223,7 +222,7 @@ pre {
     max-width: 100%;
   }
 
-  @media(min-width: 500px) {
+  @media (min-width: @screen-xs-min) {
     display: block;
   }
 }
@@ -233,7 +232,7 @@ pre {
   margin-right: @margin-half-gutter;
 
   // html.navigation-is-locked breakpoint so hide menu button
-  @media(min-width: @screen-lg-min) {
+  @media (min-width: @screen-sm-min) {
     display: none;
   }
 }
@@ -258,7 +257,7 @@ pre {
   position: relative;
   text-shadow: 1px 1px 1px @color-white;
 
-  @media(min-width: @screen-sm-min) {
+  @media (min-width: @screen-sm-min) {
     font-size: 2.8rem;
   }
 }
@@ -274,9 +273,7 @@ pre {
 
 
 .site-headline {
-  //color: @color-accent;
   display: none;
-  //margin-bottom: 4rem;
 }
 
 
@@ -287,7 +284,6 @@ pre {
 
 .site-miniheadline {
   color: @color-accent;
-  //font-size: 1.8rem;
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -307,21 +303,12 @@ pre {
   position: fixed;
   top: 0;
   transform: translateX(-@site-navigation-width);
-  //transition: transform 250ms @trans-timing-cubic;
   width: @site-navigation-width;
   z-index: @zindex-site-navigation;
 
   .no-touch & {
     overflow-y: auto;
   }
-
-  /*
-  html.navigation-is-locked breakpoint
-  keeps nav from transitioning from left on page load
-  */
-  /*@media(min-width: @screen-lg-min) {
-    transform: translateX(0);
-  }*/
 }
 
 
@@ -388,81 +375,13 @@ pre {
 .site-overlay {
   background-color: black;
   bottom: 0;
+  display: none;
   left: 0;
   opacity: 0;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: -1;
-}
-
-
-// -------------------------
-// Site Panel
-// -------------------------
-
-
-.site-panel {
-  background: @color-gray-lightest;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  max-width: @site-panel-width;
-  position: fixed;
-  right: 0;
-  top: 0;
-  transform: translateX(100%);
-  transition: transform 250ms @trans-timing-cubic;
-  width: 100%;
-  z-index: @zindex-site-panel;
-
-  /*@media (min-width: 420px) {
-    max-width: @site-panel-width;
-  }*/
-}
-
-
-.site-panel__header {
-  align-items: center;
-  border-bottom: 1px solid @color-gray-lighter;
-  display: flex;
-  flex: none;
-  height: @global-header-height;
-  margin-bottom: @whitespace-xlarge;
-  padding: 0 @padding-half-gutter;
-}
-
-.site-panel__header__close {
-  font-size: 2rem;
-  margin-left: auto;
-}
-
-.site-panel__header__title {
-  .u-text-overflow;
-  align-items: center;
-  display: flex;
-  font-size: 2rem;
-  line-height: 1;
-  margin: 0;
-}
-
-.site-panel__body {
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 0 @padding-half-gutter;
-
-  .no-touch & {
-    overflow-y: auto;
-  }
-}
-
-.site-panel__footer {
-  border-top: 1px solid @color-gray-lighter;
-  flex: none;
-  margin-top: @whitespace-xlarge;
-  padding: @padding-half-gutter;
+  z-index: @zindex-site-overlay;
 }
 
 
@@ -480,64 +399,14 @@ html.navigation-is-open {
     right: 0;
     top: 0;
   }
-
-  .site-overlay {
-    opacity: @site-overlay-opacity;
-    z-index: @zindex-site-overlay;
-  }
 }
 
-html.navigation-is-open {
-  /*.site-navigation {
-    transform: translateX(0);
-  }*/
+// Hide by default
+// GSAP does it's thing to handle showing body when animation is complete
 
-  /*.site-wrapper {
-    transform: translateX(@site-navigation-width);
-  }*/
+body {
+  opacity: 0;
 }
-
-html.navigation-is-locked {
-  /*.site-navigation {
-    transform: translateX(0);
-  }*/
-
-  .site-wrapper {
-    /*margin-left: @site-navigation-width;
-    transform: translateX(0) !important;*/
-    //z-index: @zindex-site-navigation + 1;
-  }
-}
-
-/*html.panel-is-open {
-  .site-panel {
-    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
-    transform: translateX(0);
-  }
-
-  @media (max-width: 1499px) {
-    body {
-      bottom: 0;
-      left: 0;
-      overflow: hidden;
-      position: fixed;
-      right: 0;
-      top: 0;
-    }
-
-    .site-overlay {
-      opacity: @site-overlay-opacity;
-      z-index: @zindex-site-overlay;
-    }
-  }
-
-  @media (min-width: 1500px) {
-    .site-wrapper {
-      margin-right: @site-panel-width;
-    }
-  }
-}*/
-
 
 // -------------------------
 // Site Section
@@ -614,19 +483,8 @@ html.navigation-is-locked {
 
 .site-wrapper {
   backface-visibility: hidden; // fix primary color change bug
-  //overflow-x: hidden;
   position: relative;
-  //transition: transform 250ms @trans-timing-cubic, margin 250ms @trans-timing-cubic;
   z-index: @zindex-site-wrapper;
-
-  /*
-  html.navigation-is-locked breakpoint
-  keeps wrapper from transitioning from left on page load
-  */
-  /*@media(min-width: @screen-lg-min) {
-    margin-left: @site-navigation-width;
-    transform: translateX(0) !important;
-  }*/
 }
 
 

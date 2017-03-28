@@ -2,15 +2,19 @@ import { TweenMax, TimelineMax, SteppedEase } from 'gsap';
 import { UtilitySystem } from '../UtilitySystem';
 
 const $html = document.documentElement;
+const $body = document.body;
 const $siteOverlay = document.querySelector('#site-overlay');
 const $siteNavigation = document.querySelector('#site-navigation');
+const siteNavigationWidth = $siteNavigation.offsetWidth;
 const $siteHeaderMenu = document.querySelector('.site-header__menu');
 const $siteWrapper = document.querySelector('.site-wrapper');
 
+const navOpenClass = 'navigation-is-open';
+const navEase = 0.25;
+
 // Navigation listener
 UtilitySystem.optimizedResize.add(() => {
-  matchMobile();
-  matchDesktop();
+  handleUI();
 });
 
 $siteHeaderMenu.addEventListener('click', () => {
@@ -21,55 +25,114 @@ $siteOverlay.addEventListener('click', () => {
   closeNavigation();
 });
 
-
-// nav toggling below 1200px
-function matchMobile() {
-  if (window.matchMedia('(max-width: 1199px)').matches) {
-    unlockNavigation();
+/**
+ * Determine if window matches smaller size
+ * @param  {Boolean} [load=false] Is this a server-side load?
+ * @return {void}
+ */
+function matchMobile(load = false) {
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.smMax})`).matches) {
+    unlockNavigation(load);
   }
 }
 
-// lock nav in open position at 1200px
-function matchDesktop() {
-  if (window.matchMedia('(min-width: 1200px)').matches) {
-    lockNavigation();
+/**
+ * Determine if window matches desktop size
+ * @param  {Boolean} [load=false] Is this a server-side load?
+ * @return {void}
+ */
+function matchDesktop(load = false) {
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.sm})`).matches) {
+    lockNavigation(load);
   }
 }
 
+/**
+ * Open navigation
+ * Runs on mobile-view
+ * @return {[type]} [description]
+ */
 function openNavigation() {
-  $html.classList.add('navigation-is-open');
+  $html.classList.add(navOpenClass);
   $siteNavigation.scrollTop = 0;
-  TweenMax.to($siteNavigation, 0.35, { x: 0 });
-  TweenMax.to($siteWrapper, 0.35, { x: 240, onComplete: logIt });
+  TweenMax.to($siteNavigation, navEase, { x: 0, ease: UtilitySystem.config.easing });
+  TweenMax.to($siteWrapper, navEase, { x: siteNavigationWidth, ease: UtilitySystem.config.easing });
 }
 
+/**
+ * Close navigation
+ * Runs on mobile-view
+ * @return {void}
+ */
 function closeNavigation() {
-  $html.classList.remove('navigation-is-open');
-  TweenMax.to($siteNavigation, 0.35, { x: -240 });
-  TweenMax.to($siteWrapper, 0.35, { x: 0 });
+  $html.classList.remove(navOpenClass);
+  TweenMax.to($siteNavigation, navEase, { x: (-siteNavigationWidth), ease: UtilitySystem.config.easing });
+  TweenMax.to($siteWrapper, navEase, { x: 0, ease: UtilitySystem.config.easing });
 }
 
-function lockNavigation() {
-  $html.classList.remove('navigation-is-open');
-  $html.classList.add('navigation-is-locked');
-  TweenMax.to($siteNavigation, 0.35, { x: 0 });
-  TweenMax.to($siteWrapper, 0.35, { x: 0, marginLeft: 240 });
+/**
+ * Lock navigation
+ * Desktop-view
+ * @param  {Boolean} [load=false] Is this a server-side load?
+ * @return {void}
+ */
+function lockNavigation(load = false) {
+  $html.classList.remove(navOpenClass);
+  TweenMax.to($siteNavigation, navEase, { x: 0, ease: UtilitySystem.config.easing });
+  TweenMax.to($siteWrapper, navEase, {
+    x: 0,
+    marginLeft: 240,
+    ease: UtilitySystem.config.easing,
+    onComplete() {
+      if (load) {
+        showContent();
+      }
+    },
+  });
 }
 
-function unlockNavigation() {
-  $html.classList.remove('navigation-is-open');
-  $html.classList.remove('navigation-is-locked');
-  TweenMax.to($siteNavigation, 0.35, { x: -240 });
-  TweenMax.to($siteWrapper, 0.35, { x: 0, marginLeft: 0 });
+/**
+ * Unlock navigation
+ * Mobile-view
+ * @param  {Boolean} [load=false] Is this a server-side load?
+ * @return {void}
+ */
+function unlockNavigation(load = false) {
+  $html.classList.remove(navOpenClass);
+  TweenMax.to($siteNavigation, navEase, { x: (-siteNavigationWidth), ease: UtilitySystem.config.easing });
+  TweenMax.to($siteWrapper, navEase, {
+    x: 0,
+    marginLeft: 0,
+    ease: UtilitySystem.config.easing,
+    onComplete() {
+      if (load) {
+        showContent();
+      }
+    },
+  });
 }
 
-matchMobile();
-matchDesktop();
-
-function logIt() {
-  console.log("pie");
+/**
+ * Fire off GSAP-powered panel scaffolding
+ * @param  {Boolean} [load=false] Is this a server-side load?
+ * @return {void}
+ */
+function handleUI(load = false) {
+  matchMobile(load);
+  matchDesktop(load);
 }
 
+/**
+ * Once GSAP has figured out the project scaffolding
+ * Show body content
+ * @return {void}
+ */
+function showContent() {
+  $body.style.opacity = 1;
+}
+
+// Fire onload
+handleUI(true);
 
 //
 // Animations
@@ -131,10 +194,10 @@ const navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  document.querySelector(`.site-navigation__nav a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('active'); // eslint-disable-line
+  $siteNavigation.querySelector(`a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('active'); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
-  UtilitySystem.forEach(document.querySelector('.site-navigation__nav a'), (index, value) => {
+  UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), (index, value) => {
     value.classList.remove('active');
   });
 }
