@@ -3,6 +3,7 @@ import gulp from 'gulp';
 //
 // Import tasks
 //
+
 import { animationFlag, animationLogin, animationSecure, animationTime } from './config/animations';
 import audio from './config/audio';
 import icons from './config/icons';
@@ -18,6 +19,7 @@ import watch from './config/watch';
 //
 // Instantiate tasks
 //
+
 gulp.task('animation:flag', animationFlag);
 gulp.task('animation:login', animationLogin);
 gulp.task('animation:secure', animationSecure);
