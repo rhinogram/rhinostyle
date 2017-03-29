@@ -12,6 +12,9 @@ import docsConfig from './webpack.docs.config.js';
  */
 export function distScripts() {
   return webpackStream(distConfig, webpack)
+  .on('error', function handleError() {
+    this.emit('end'); // Recover from errors
+  })
   .pipe(gulp.dest(paths.scripts.dist));
 }
 
@@ -21,5 +24,8 @@ export function distScripts() {
  */
 export function docsScripts() {
   return webpackStream(docsConfig, webpack)
+  .on('error', function handleError() {
+    this.emit('end'); // Recover from errors
+  })
   .pipe(gulp.dest(paths.scripts.build));
 }

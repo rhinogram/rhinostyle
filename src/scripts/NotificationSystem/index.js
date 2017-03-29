@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const notificationsContainer = document.getElementById('js-toasts-container');
 
   if (notificationsContainer) {
-    ReactDOM.render(<NotificationsContainer />, notificationsContainer);
+    ReactDOM.render(<NotificationsContainer />, notificationsContainer); // eslint-disable-line react/jsx-filename-extension
   }
 }, false);
 
