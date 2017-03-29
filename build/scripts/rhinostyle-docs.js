@@ -20850,7 +20850,7 @@ function addModal(modal) {
     'div',
     null,
     modal
-  ), $modalContainer);
+  ), $modalContainer); // eslint-disable-line react/jsx-filename-extension
 
   $modalContainer.querySelector('.modal').timeline.play();
 }
