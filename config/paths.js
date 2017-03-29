@@ -29,9 +29,9 @@ const paths = {
     templates: './src/templates/*.html',
   },
   scripts: {
-    src:           './src/scripts/**/*.{js,jsx,txt}',
-    dist:          './dist/scripts/',
-    build:         './build/scripts/',
+    src: './src/scripts/**/*.{js,jsx,txt}',
+    dist: './dist/scripts/',
+    build: './build/scripts/',
   },
   styles: {
     src:    './src/less/rhinostyle.less',
