@@ -31,9 +31,9 @@ gulp.task('docs:scripts', docsScripts);
 gulp.task('docs:site', ['icons'], pages);
 gulp.task('docs:styles', docsStyles);
 gulp.task('icons', icons);
-gulp.task('server', server);
+gulp.task('server', ['watch'], server);
 gulp.task('styles:lint', linter);
-gulp.task('watch', ['server'], watch);
+gulp.task('watch', watch);
 
 //
 // Bundled tasks
