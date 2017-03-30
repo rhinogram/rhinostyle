@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 
-import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+import { Close, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
 class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
@@ -29,6 +29,9 @@ class Dropdown extends React.Component {
     onReverseComplete: React.PropTypes.func,
     onReverseStart: React.PropTypes.func,
     onStart: React.PropTypes.func,
+    manualClose: React.PropTypes.bool,
+    handleClose: React.PropTypes.func,
+    defaultOpen: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -43,6 +46,9 @@ class Dropdown extends React.Component {
     onReverseComplete: () => {},
     onReverseStart: () => {},
     onStart: () => {},
+    manualClose: false,
+    defaultOpen: false,
+    handleClose: () => {},
   };
 
   state = {
@@ -58,6 +64,13 @@ class Dropdown extends React.Component {
         this.setState({ hasFilter: true });
       }
     });
+  }
+
+  componentDidMount() {
+    // If `this.props.defaulOpen` is set, open dropdown when it's rendered
+    if (this.props.defaultOpen) {
+      this.handleToggle();
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -139,6 +152,10 @@ class Dropdown extends React.Component {
   };
 
   handleClickOutside = () => {
+    if (this.props.handleClose && typeof (this.props.handleClose === 'function')) {
+      this.props.handleClose();
+    }
+
     const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
 
     // Close dropdown
@@ -161,11 +178,16 @@ class Dropdown extends React.Component {
     });
   }
 
+  /**
+   * Render close button for dropdown
+   * @return {jsx}
+   */
+  renderClose = () => <Close onClick={this.handleClickOutside} className="dropdown__close" />;
+
   render() {
     const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete } = this.props;
     const activeKey = this.state.activeKey;
     const hasFilter = this.state.hasFilter;
-    const isOpen = this.state.isOpen;
 
     const dropdownClasses = cx('dropdown', {
       'dropdown--block': block,
@@ -188,9 +210,12 @@ class Dropdown extends React.Component {
 
     const dropdownMenuClasses = cx('dropdown__menu', {
       'dropdown__menu--right': position === 'right',
+      'dropdown__menu--center': position === 'center',
       'dropdown__menu--top': position === 'top',
       'dropdown__menu--top dropdown__menu--right': position === 'top-right',
+      'dropdown__menu--top dropdown__menu--center': position === 'top-center',
       'dropdown__menu--wide': wide,
+      'dropdown__menu--has-close': this.props.manualClose,
     });
 
     let selectedLabel = null;
@@ -217,13 +242,16 @@ class Dropdown extends React.Component {
       });
     }
 
+    const enableClickOutside = this.props.manualClose ? false : this.state.isOpen;
+
     return (
-      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
+      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
         <div onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
           {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
         </div>
         <div className={dropdownMenuClasses}>
+          {this.props.manualClose ? this.renderClose() : null}
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
         </div>
       </DropdownWrapper>

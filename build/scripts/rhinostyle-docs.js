@@ -14501,7 +14501,10 @@ var dropdownDocs = {
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
-  wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width'
+  wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
+  manualClose: '[Optional] - Disables the default action of closing on an outside click',
+  handleClose: '[Optional] - Function to run during close of dropdown',
+  defaultOpen: '[Optional] - Open dropdown when rendered onto page'
 };
 
 var dropdownMultiSelectDocs = {
@@ -14842,6 +14845,36 @@ var DropdownApp = function DropdownApp() {
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
+          'Dropdown Center'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'site-copy' },
+          'Add ',
+          _react2.default.createElement(
+            'code',
+            null,
+            'position="center"'
+          ),
+          ' property.'
+        ),
+        _react2.default.createElement(
+          _components.Dropdown,
+          { label: 'Dropdown Center', type: 'default', position: 'center' },
+          _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'A third item' }),
+          _react2.default.createElement(_components.DropdownMenuDivider, null),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Separated Item' })
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'u-m-b-md' },
+        _react2.default.createElement(
+          'h5',
+          { className: 'site-miniheadline' },
           'Dropdown Top'
         ),
         _react2.default.createElement(
@@ -14888,6 +14921,36 @@ var DropdownApp = function DropdownApp() {
         _react2.default.createElement(
           _components.Dropdown,
           { label: 'Dropdown Top Right', type: 'default', position: 'top-right' },
+          _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'A third item' }),
+          _react2.default.createElement(_components.DropdownMenuDivider, null),
+          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Separated Item' })
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'u-m-b-md' },
+        _react2.default.createElement(
+          'h5',
+          { className: 'site-miniheadline' },
+          'Dropdown Top & Center'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'site-copy' },
+          'Add ',
+          _react2.default.createElement(
+            'code',
+            null,
+            'position="top-center"'
+          ),
+          ' property.'
+        ),
+        _react2.default.createElement(
+          _components.Dropdown,
+          { label: 'Dropdown Top Center', type: 'default', position: 'top-center' },
           _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
@@ -21162,7 +21225,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var notificationsContainer = document.getElementById('js-toasts-container');
 
   if (notificationsContainer) {
-    _reactDom2.default.render(_react2.default.createElement(_NotificationsContainer2.default, null), notificationsContainer);
+    _reactDom2.default.render(_react2.default.createElement(_NotificationsContainer2.default, null), notificationsContainer); // eslint-disable-line react/jsx-filename-extension
   }
 }, false);
 
@@ -22478,6 +22541,10 @@ var Dropdown = function (_React$Component) {
         _this.props.onClick();
       }
     }, _this.handleClickOutside = function () {
+      if (_this.props.handleClose && _typeof(_this.props.handleClose === 'function')) {
+        _this.props.handleClose();
+      }
+
       var $dropdown = _reactDom2.default.findDOMNode(_this.dropdown); // eslint-disable-line react/no-find-dom-node
 
       // Close dropdown
@@ -22496,6 +22563,8 @@ var Dropdown = function (_React$Component) {
       _this.setState({
         activeKey: index
       });
+    }, _this.renderClose = function () {
+      return _react2.default.createElement(_components.Close, { onClick: _this.handleClickOutside, className: 'dropdown__close' });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -22512,6 +22581,14 @@ var Dropdown = function (_React$Component) {
       });
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // If `this.props.defaulOpen` is set, open dropdown when it's rendered
+      if (this.props.defaultOpen) {
+        this.handleToggle();
+      }
+    }
+  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
       if (newProps.activeKey !== this.props.activeKey) {
@@ -22520,6 +22597,12 @@ var Dropdown = function (_React$Component) {
         });
       }
     }
+
+    /**
+     * Render close button for dropdown
+     * @return {jsx}
+     */
+
   }, {
     key: 'render',
     value: function render() {
@@ -22545,7 +22628,6 @@ var Dropdown = function (_React$Component) {
 
       var activeKey = this.state.activeKey;
       var hasFilter = this.state.hasFilter;
-      var isOpen = this.state.isOpen;
 
       var dropdownClasses = (0, _classnames2.default)('dropdown', {
         'dropdown--block': block
@@ -22567,9 +22649,12 @@ var Dropdown = function (_React$Component) {
 
       var dropdownMenuClasses = (0, _classnames2.default)('dropdown__menu', {
         'dropdown__menu--right': position === 'right',
+        'dropdown__menu--center': position === 'center',
         'dropdown__menu--top': position === 'top',
         'dropdown__menu--top dropdown__menu--right': position === 'top-right',
-        'dropdown__menu--wide': wide
+        'dropdown__menu--top dropdown__menu--center': position === 'top-center',
+        'dropdown__menu--wide': wide,
+        'dropdown__menu--has-close': this.props.manualClose
       });
 
       var selectedLabel = null;
@@ -22596,9 +22681,11 @@ var Dropdown = function (_React$Component) {
         });
       }
 
+      var enableClickOutside = this.props.manualClose ? false : this.state.isOpen;
+
       return _react2.default.createElement(
         _components.DropdownWrapper,
-        { className: dropdownClasses, handleClick: this.handleClickOutside, disableOnClickOutside: !isOpen, enableOnClickOutside: isOpen, onStart: onStart, onComplete: onComplete, onReverseComplete: onReverseComplete, onReverseStart: onReverseStart, ref: function ref(_ref2) {
+        { className: dropdownClasses, handleClick: this.handleClickOutside, disableOnClickOutside: !enableClickOutside, enableOnClickOutside: enableClickOutside, onStart: onStart, onComplete: onComplete, onReverseComplete: onReverseComplete, onReverseStart: onReverseStart, ref: function ref(_ref2) {
             return _this3.dropdown = _ref2;
           } },
         _react2.default.createElement(
@@ -22619,6 +22706,7 @@ var Dropdown = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: dropdownMenuClasses },
+          this.props.manualClose ? this.renderClose() : null,
           hasFilter || disableScroll ? this.getChildren() : _react2.default.createElement(
             _components.DropdownMenuScroll,
             null,
@@ -22654,7 +22742,10 @@ Dropdown.propTypes = {
   onComplete: _react2.default.PropTypes.func,
   onReverseComplete: _react2.default.PropTypes.func,
   onReverseStart: _react2.default.PropTypes.func,
-  onStart: _react2.default.PropTypes.func
+  onStart: _react2.default.PropTypes.func,
+  manualClose: _react2.default.PropTypes.bool,
+  handleClose: _react2.default.PropTypes.func,
+  defaultOpen: _react2.default.PropTypes.bool
 };
 Dropdown.defaultProps = {
   block: false,
@@ -22667,7 +22758,10 @@ Dropdown.defaultProps = {
   onComplete: function onComplete() {},
   onReverseComplete: function onReverseComplete() {},
   onReverseStart: function onReverseStart() {},
-  onStart: function onStart() {}
+  onStart: function onStart() {},
+  manualClose: false,
+  defaultOpen: false,
+  handleClose: function handleClose() {}
 };
 exports.default = Dropdown;
 
