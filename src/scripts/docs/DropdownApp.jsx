@@ -23,6 +23,9 @@ const dropdownDocs = {
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
+  manualClose: '[Optional] - Disables the default action of closing on an outside click',
+  handleClose: '[Optional] - Function to run during close of dropdown',
+  defaultOpen: '[Optional] - Open dropdown when rendered onto page',
 };
 
 const dropdownMultiSelectDocs = {
@@ -255,6 +258,19 @@ const DropdownApp = () =>
       </div>
 
       <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Dropdown Center</h5>
+        <p className="site-copy">Add <code>position=&quot;center&quot;</code> property.</p>
+        <Dropdown label="Dropdown Center" type="default" position="center">
+          <DropdownMenuHeader label="Menu Header" />
+          <DropdownMenuItem label="Item" />
+          <DropdownMenuItem label="Another Item" />
+          <DropdownMenuItem label="A third item" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </Dropdown>
+      </div>
+
+      <div className="u-m-b-md">
         <h5 className="site-miniheadline">Dropdown Top</h5>
         <p className="site-copy">Add <code>position=&quot;top&quot;</code> property.</p>
         <Dropdown label="Dropdown Top" type="default" position="top">
@@ -271,6 +287,19 @@ const DropdownApp = () =>
         <h5 className="site-miniheadline">Dropdown Top &amp; Right</h5>
         <p className="site-copy">Add <code>position=&quot;top-right&quot;</code> property.</p>
         <Dropdown label="Dropdown Top Right" type="default" position="top-right">
+          <DropdownMenuHeader label="Menu Header" />
+          <DropdownMenuItem label="Item" />
+          <DropdownMenuItem label="Another Item" />
+          <DropdownMenuItem label="A third item" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+        </Dropdown>
+      </div>
+
+      <div className="u-m-b-md">
+        <h5 className="site-miniheadline">Dropdown Top &amp; Center</h5>
+        <p className="site-copy">Add <code>position=&quot;top-center&quot;</code> property.</p>
+        <Dropdown label="Dropdown Top Center" type="default" position="top-center">
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
