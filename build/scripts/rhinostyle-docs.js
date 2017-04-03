@@ -17447,8 +17447,9 @@ var toggleMobileNavTimeline = new _gsap.TimelineMax({
 }).set($body, {
   height: '100%',
   overflow: 'hidden'
+}).set($siteOverlay, {
+  display: 'block'
 }).to($siteOverlay, navEase, {
-  display: 'block',
   opacity: 0.2
 }, 'mobileNav').to($siteNavigation, navEase, {
   x: 0,
@@ -17510,8 +17511,8 @@ function closeNavigation() {
  * @return {void}
  */
 function lockNavigation() {
-  unlockNavTimeline.progress(0);
-  lockNavTimeline.progress(1);
+  unlockNavTimeline.reverse();
+  lockNavTimeline.play();
 }
 
 /**
@@ -17520,8 +17521,8 @@ function lockNavigation() {
  * @return {void}
  */
 function unlockNavigation() {
-  lockNavTimeline.progress(0);
-  unlockNavTimeline.progress(1);
+  lockNavTimeline.reverse();
+  unlockNavTimeline.play();
 }
 
 /**
@@ -23410,6 +23411,7 @@ var DropdownWrapper = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownWrapper.__proto__ || Object.getPrototypeOf(DropdownWrapper)).call.apply(_ref, [this].concat(args))), _this), _this.componentDidMount = function () {
       var $dropdown = _this.dropdown;
+      var $dropdownMenu = $dropdown.querySelector('.dropdown__menu');
 
       var forward = true;
       var lastTime = 0;
@@ -23460,9 +23462,10 @@ var DropdownWrapper = function (_React$Component) {
         }
       });
 
-      $dropdown.timeline.to($dropdown.querySelector('.dropdown__menu'), 0.25, {
+      $dropdown.timeline.set($dropdownMenu, {
+        display: 'block'
+      }).to($dropdownMenu, 0.25, {
         css: {
-          display: 'block',
           y: 0,
           opacity: 1
         },
@@ -24364,10 +24367,11 @@ var Modal = function (_React$Component) {
         }
       });
 
-      $modal.timeline.to($modal, 0.25, {
+      $modal.timeline.set($modal, {
+        display: 'block'
+      }).to($modal, 0.25, {
         css: {
-          opacity: 1,
-          display: 'block'
+          opacity: 1
         }
       }).to($modal.querySelector('.modal__dialog'), 0.5, {
         css: {

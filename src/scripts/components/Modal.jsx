@@ -84,10 +84,12 @@ class Modal extends React.Component {
     });
 
     $modal.timeline
+    .set($modal, {
+      display: 'block',
+    })
     .to($modal, 0.25, {
       css: {
         opacity: 1,
-        display: 'block',
       },
     })
     .to($modal.querySelector('.modal__dialog'), 0.5, {

@@ -27,6 +27,7 @@ class DropdownWrapper extends React.Component {
 
   componentDidMount = () => {
     const $dropdown = this.dropdown;
+    const $dropdownMenu = $dropdown.querySelector('.dropdown__menu');
 
     let forward = true;
     let lastTime = 0;
@@ -78,9 +79,11 @@ class DropdownWrapper extends React.Component {
     });
 
     $dropdown.timeline
-    .to($dropdown.querySelector('.dropdown__menu'), 0.25, {
+    .set($dropdownMenu, {
+      display: 'block',
+    })
+    .to($dropdownMenu, 0.25, {
       css: {
-        display: 'block',
         y: 0,
         opacity: 1,
       },
@@ -94,7 +97,7 @@ class DropdownWrapper extends React.Component {
 
   render() {
     return (
-      <div ref={ref => this.dropdown = ref} className={this.props.className}>{this.props.children}</div>
+      <div ref={ref => (this.dropdown = ref)} className={this.props.className}>{this.props.children}</div>
     );
   }
 }

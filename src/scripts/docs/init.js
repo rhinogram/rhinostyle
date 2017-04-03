@@ -64,8 +64,10 @@ const toggleMobileNavTimeline = new TimelineMax({
   height: '100%',
   overflow: 'hidden',
 })
-.to($siteOverlay, navEase, {
+.set($siteOverlay, {
   display: 'block',
+})
+.to($siteOverlay, navEase, {
   opacity: 0.2,
 }, 'mobileNav')
 .to($siteNavigation, navEase, {
@@ -129,8 +131,8 @@ function closeNavigation() {
  * @return {void}
  */
 function lockNavigation() {
-  unlockNavTimeline.progress(0);
-  lockNavTimeline.progress(1);
+  unlockNavTimeline.reverse();
+  lockNavTimeline.play();
 }
 
 /**
@@ -139,8 +141,8 @@ function lockNavigation() {
  * @return {void}
  */
 function unlockNavigation() {
-  lockNavTimeline.progress(0);
-  unlockNavTimeline.progress(1);
+  lockNavTimeline.reverse();
+  unlockNavTimeline.play();
 }
 
 /**
