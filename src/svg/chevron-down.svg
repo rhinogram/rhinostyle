@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<g>
-	<path d="M12,18c-0.3,0-0.6-0.1-0.8-0.4l-11-10c-0.4-0.4-0.3-1.1,0.1-1.4c0.4-0.4,1.1-0.3,1.4,0.1L12,15.5l10.2-9.1
-		c0.4-0.4,1-0.5,1.4-0.1c0.4,0.4,0.5,1,0.1,1.4l-11,10C12.6,17.9,12.3,18,12,18z"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="chevron-down">
+            <path d="M12.6247584,7.3332045 L21.7878822,15.663317 C22.1210867,15.9965215 22.0377856,16.5796294 21.7045811,16.8295328 C21.3713766,17.1627373 20.7882687,17.0794361 20.5383653,16.7462316 L11.9583494,9.08252813 L3.46163468,16.6629305 C3.12843018,16.996135 2.62862343,17.0794361 2.29541893,16.7462316 C1.96221443,16.4130271 1.8789133,15.9132204 2.2121178,15.5800159 L11.3752416,7.24990338 C11.4585427,7.08330113 11.7084461,7 11.9583494,7 C12.2082528,7 12.4581562,7.08330113 12.6247584,7.3332045 L12.6247584,7.3332045 Z" transform="translate(12.000000, 12.020825) scale(1, -1) translate(-12.000000, -12.020825) "></path>
+        </g>
+    </g>
 </svg>

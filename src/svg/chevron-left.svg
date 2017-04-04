@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<g>
-	<path d="M17.2,22c-0.2,0-0.4-0.1-0.5-0.2L5.8,12.6c-0.2-0.2-0.3-0.4-0.3-0.6c0-0.2,0.1-0.5,0.3-0.6l10.8-9.2
-    c0.4-0.3,0.9-0.3,1.2,0.1c0.3,0.4,0.3,0.9-0.1,1.2L7.6,12l10.1,8.5c0.4,0.3,0.4,0.8,0.1,1.2C17.6,21.9,17.4,22,17.2,22z"/>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="chevron-left">
+            <path d="M17.6665957,22 C17.4765968,22 17.2849313,21.9350004 17.1282656,21.8033345 L6.29499821,12.6367236 C6.10749935,12.4775579 6,12.2450593 6,12.0000608 C6,11.7550623 6.10749935,11.5225637 6.29499821,11.363398 L17.1282656,2.19678714 C17.4799302,1.90095561 18.0057603,1.94262202 18.3024252,2.29511988 C18.5999233,2.64595108 18.5557569,3.17178121 18.2049257,3.4692794 L8.12332042,12.0000608 L18.2049257,20.5300089 C18.5557569,20.8275071 18.5999233,21.3533373 18.3024252,21.7041685 C18.1374262,21.9000006 17.9032609,22 17.6665957,22 L17.6665957,22 Z"></path>
+        </g>
+    </g>
 </svg>

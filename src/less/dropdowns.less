@@ -57,10 +57,12 @@
       color: @dropdown-link-color;
 
       &::after {
+        background-image: url('@{svg-sprite}#icon-checkmark-circle');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 2rem 2rem;
         content: '';
+        fill: @color-primary;
         height: 2rem;
         pointer-events: none;
         position: absolute;
@@ -68,7 +70,6 @@
         top: 50%;
         transform: translateY(-50%);
         width: 2rem;
-        .mixin-svg-bg-add-fill('@{svg-path}checkmark-circle.svg', @color-primary);
       }
     }
 

@@ -159,6 +159,27 @@ const IconApp = () =>
 
         <div className="site-swatch">
           <div className="site-swatch__sample">
+            <Icon icon="copy" />
+          </div>
+          <div className="site-swatch__text"><strong>Copy</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="dots-horizontal" />
+          </div>
+          <div className="site-swatch__text"><strong>Dots Horizontal</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="dots-vertical" />
+          </div>
+          <div className="site-swatch__text"><strong>Dots Vertical</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
             <Icon icon="download" />
           </div>
           <div className="site-swatch__text"><strong>Download</strong></div>
@@ -344,6 +365,13 @@ const IconApp = () =>
             <Icon icon="sms" />
           </div>
           <div className="site-swatch__text"><strong>SMS</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="sms-check" />
+          </div>
+          <div className="site-swatch__text"><strong>SMS Check</strong></div>
         </div>
 
         <div className="site-swatch">

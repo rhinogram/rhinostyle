@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <title>pencil</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Icons" stroke="none" stroke-width="1" >
-        <g id="pencil" >
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="pencil">
             <path d="M21.7440093,6.18445545 L21.5281336,6.4003312 L17.591495,2.46163006 L17.8066832,2.24644182 C17.8066832,2.24644182 18.749249,1 20.0898786,1 C20.6804432,1 21.349383,1.24268834 22.0485729,1.94187826 C24.3544559,4.24776125 21.7440093,6.18445545 21.7440093,6.18445545 L21.7440093,6.18445545 Z M20.2356291,7.69352318 L6.83002019,21.1039446 L1,22.9993887 L2.89475656,17.165931 L2.89475656,17.1638685 L2.89613157,17.1638685 L16.299678,3.75413454 L16.4729286,3.92807264 L20.2356291,7.69352318 Z M2.89750657,21.1011946 L5.81045416,20.2631292 L3.82082227,18.1442469 L2.89750657,21.1011946 L2.89750657,21.1011946 Z" id="Shape"></path>
         </g>
     </g>

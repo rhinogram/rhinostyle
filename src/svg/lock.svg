@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<g>
-   <path d="M13,24 L20.0029699,24 C20.5536144,24 21,23.5510798 21,22.992516 L21,10.007484 C21,9.45106594 20.5573397,9 20.0010434,9 L18,9 L18,6 C18,2.691 15.308,0 12,0 C8.691,0 6,2.691 6,6 L6,9 L3.99895656,9 C3.44724809,9 3,9.44892021 3,10.007484 L3,22.992516 C3,23.5489341 3.4556644,24 3.99539757,24 L13,24 Z M8,6.33749956 C8,3.89066209 9.79360003,1.89999962 12.0000001,1.89999962 C14.2056001,1.89999962 16.0000001,3.89066209 16.0000001,6.33749956 L16.0000001,8.99999952 L8,8.99999952 L8,6.33749956 L8,6.33749956 L8,6.33749956 Z"></path>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>lock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1">
+        <g id="lock">
+            <path d="M13,24 L19.4952612,24 C20.3263055,24 21,23.3361142 21,22.5069036 L21,10.4930964 C21,9.66848201 20.3342028,9 19.5,9 L18,9 L18,6 C18,2.691 15.308,0 12,0 C8.691,0 6,2.691 6,6 L6,9 L4.5,9 C3.67157288,9 3,9.66388585 3,10.4930964 L3,22.5069036 C3,23.331518 3.67165598,24 4.49710104,24 L13,24 Z M8,6.33749956 C8,3.89066209 9.79360003,1.89999962 12.0000001,1.89999962 C14.2056001,1.89999962 16.0000001,3.89066209 16.0000001,6.33749956 L16.0000001,8.99999952 L8,8.99999952 L8,6.33749956 L8,6.33749956 L8,6.33749956 Z"></path>
+        </g>
+    </g>
 </svg>

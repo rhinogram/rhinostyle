@@ -9,10 +9,12 @@
 
 .mixin-chevron-down() {
   &::after {
+    background-image: url('@{svg-sprite}#icon-chevron-down');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: @dropdown-chevron-size @dropdown-chevron-size;
     content: '';
+    fill: @text-color;
     height: @dropdown-chevron-size;
     pointer-events: none;
     position: absolute;
@@ -20,7 +22,5 @@
     top: 50%;
     transform: translateY(-50%);
     width: @dropdown-chevron-size;
-
-    .mixin-svg-bg-add-fill('@{svg-path}chevron-down.svg', @text-color);
   }
 }
