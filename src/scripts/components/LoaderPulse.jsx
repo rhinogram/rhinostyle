@@ -1,30 +1,67 @@
 import React from 'react';
 import cx    from 'classnames';
+import { Linear, TimelineMax, TweenMax } from 'gsap';
 
-const LoaderPulse = (props) => {
-  const { className, type } = props;
-  const classes = cx('loader-pulse', className, {
-    'loader-pulse--default':   type === 'default',
-    'loader-pulse--secondary': type === 'secondary',
-    'loader-pulse--accent':    type === 'accent',
-  });
+import { UtilitySystem } from '../UtilitySystem';
 
-  return (
-    <div className={classes}>
-      <span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" />
-    </div>
-  );
-};
+class LoaderPulse extends React.Component {
+  static displayName = 'RhinoLoaderPulse';
 
-LoaderPulse.displayName = 'RhinoLoaderPulse';
+  static propTypes = {
+    className: React.PropTypes.string,
+    pause: React.PropTypes.bool,
+    type: React.PropTypes.string,
+  };
 
-LoaderPulse.propTypes = {
-  className: React.PropTypes.string,
-  type: React.PropTypes.string,
-};
+  static defaultProps = {
+    pause: false,
+    type: 'default',
+  };
 
-LoaderPulse.defaultProps = {
-  type: 'default',
-};
+  componentDidMount() {
+    const $loader = this.loader;
+    const $loaderPulses = $loader.querySelectorAll('.loader-pulse__pulse');
+
+    $loader.timeline = new TimelineMax({
+      paused: this.props.pause,
+    });
+
+    UtilitySystem.forEach($loaderPulses, (index, value) => {
+      TweenMax.to(value, 0.5, {
+        delay: (0.125 * index),
+        opacity: 1,
+        repeat: -1,
+        yoyo: true,
+        scale: 1.25,
+        ease: Linear.easeNone,
+      });
+    });
+  }
+
+  componentDidUpdate() {
+    const $loader = this.loader;
+
+    if (this.props.pause) {
+      $loader.timeline.pause();
+    } else if ($loader.timeline.paused() && !this.props.pause) {
+      $loader.timeline.play();
+    }
+  }
+
+  render() {
+    const { className, type } = this.props;
+    const classes = cx('loader-pulse', className, {
+      'loader-pulse--default':   type === 'default',
+      'loader-pulse--secondary': type === 'secondary',
+      'loader-pulse--accent':    type === 'accent',
+    });
+
+    return (
+      <div className={classes} ref={ref => (this.loader = ref)}>
+        <span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" />
+      </div>
+    );
+  }
+}
 
 export default LoaderPulse;

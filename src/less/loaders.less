@@ -14,11 +14,10 @@
   display: inline-block;
   height: @loader-circle-size;
   position: relative;
+  transform-origin: center center;
   width: @loader-circle-size;
 
   &::after {
-    animation: loadercircle 625ms infinite linear;
-    animation-fill-mode: both;
     border: @loader-circle-border-size solid transparent;
     border-radius: 50%;
     content: '';
@@ -81,22 +80,6 @@
 
 
 // -------------------------
-// Loader Circle Animations
-// -------------------------
-
-
-@keyframes loadercircle {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-// -------------------------
 // Loader Pulse
 // -------------------------
 
@@ -136,8 +119,6 @@
 
 
 .loader-pulse__pulse {
-  animation: loaderpulse 1s infinite;
-  animation-fill-mode: both;
   border-radius: 50%;
   display: inline-block;
   height: .8rem;
@@ -145,32 +126,7 @@
   transform: scale(.75);
   width: .8rem;
 
-  &:first-child {
-    animation-delay: -.25s;
-  }
-
   &:nth-child(2) {
-    animation-delay: -.125s;
     margin: 0 @whitespace-small;
-  }
-}
-
-
-// -------------------------
-// Loader Pulse Animations
-// -------------------------
-
-
-@keyframes loaderpulse {
-  0%,
-  80%,
-  100% {
-    opacity: .5;
-    transform: scale(.75);
-  }
-
-  40% {
-    opacity: 1;
-    transform: scale(1.25);
   }
 }
