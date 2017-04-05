@@ -24,6 +24,11 @@ const paths = {
     dist:  './dist/audio/',
     build: './build/audio/',
   },
+  media: {
+    src: './src/media/*',
+    dist: './dist/media/',
+    build: './build/media/',
+  },
   metalsmith: {
     pages:     './src/pages/**/*.html',
     templates: './src/templates/*.html',

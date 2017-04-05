@@ -13,11 +13,6 @@ const Alert = (props) => {
     'alert--success':           type === 'success',
     'alert--warning':           type === 'warning',
     'alert--dismissible':       onDismiss,
-    'alert--outline-danger':    type === 'outline-danger',
-    'alert--outline-default':   type === 'outline-default',
-    'alert--outline-info':      type === 'outline-info',
-    'alert--outline-success':   type === 'outline-success',
-    'alert--outline-warning':   type === 'outline-warning',
   });
 
   const renderClose = () => {
@@ -58,7 +53,7 @@ Alert.propTypes = {
   title:        React.PropTypes.string,
   titleIcon:    React.PropTypes.string,
   children:     React.PropTypes.node,
-  type:         React.PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning', 'outline-danger', 'outline-default', 'outline-info', 'outline-success', 'outline-warning']),
+  type:         React.PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
 };
 
 Alert.defaultProps = {

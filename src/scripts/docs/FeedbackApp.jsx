@@ -13,7 +13,7 @@ const alertDocs = {
   size: '[Optional] - Alert size -  [small]',
   title: '[Required] - Alert title text',
   titleIcon: '[Optional] - Alert title icon',
-  type: '[Optional] - Alert type, as a string -  [danger | default | info | success | warning | outline-danger | outline-default | outline-info | outline-success | outline-warning ]',
+  type: '[Optional] - Alert type, as a string -  [danger | default | info | success ]',
 };
 const alertScope = {
   React,
@@ -90,13 +90,6 @@ class FeedbackApp extends React.Component {
               <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a warning alert!" titleIcon="star" type="warning" onDismiss={() => alert('dismissed!')}>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a outline danger alert!" titleIcon="star" type="outline-danger" onDismiss={() => alert('dismissed!')}>This is a danger alert for dangerous stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a outline defualt  alert!" titleIcon="star" type="outline-default" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a outline info alert!" titleIcon="star" type="outline-info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a outline success alert!" titleIcon="star" type="outline-success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a outline warning alert!" titleIcon="star" type="outline-warning" onDismiss={() => alert('dismissed!')}>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a small outline warning alert!" titleIcon="star" type="outline-warning" size="small" onDismiss={() => alert('dismissed!')}>This is a warning alert for warning stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
               <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
             </div>
           </div>

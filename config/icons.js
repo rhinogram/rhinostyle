@@ -15,9 +15,6 @@ export default function icons() {
   const path = paths.icons;
 
   return gulp.src(path.src)
-    .pipe($.imagemin())
-    .pipe(gulp.dest(path.dist))
-    .pipe(gulp.dest(path.build))
     .pipe($.svgSprite({
       shape: {
         id: {

@@ -4,6 +4,7 @@ import browserSync from 'browser-sync';
 import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 import flexbugs from 'postcss-flexbugs-fixes';
+import svgFragments from 'postcss-svg-fragments';
 
 import paths from './paths';
 import packagedata from '../package.json';
@@ -15,6 +16,7 @@ const processors = [
   autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', '>2%'], cascade: false }),
   cssnano({ zindex: false }),
   flexbugs(),
+  svgFragments(),
 ];
 
 /**

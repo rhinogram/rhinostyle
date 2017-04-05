@@ -124,23 +124,25 @@
 }
 
 .react-datepicker__navigation--previous {
+  background-image: url('@{svg-sprite}#icon-chevron-left');
+  fill: @color-gray;
   left: 1rem;
-
-  .mixin-svg-bg-add-fill('@{svg-path}chevron-left.svg', @color-gray);
 }
 
 .react-datepicker__navigation--previous:hover {
-  .mixin-svg-bg-add-fill('@{svg-path}chevron-left.svg', @text-color);
+  background-image: url('@{svg-sprite}#icon-chevron-left');
+  fill: @text-color;
 }
 
 .react-datepicker__navigation--next {
+  background-image: url('@{svg-sprite}#icon-chevron-right');
+  fill: @color-gray;
   right: 1rem;
-
-  .mixin-svg-bg-add-fill('@{svg-path}chevron-right.svg', @color-gray);
 }
 
 .react-datepicker__navigation--next:hover {
-  .mixin-svg-bg-add-fill('@{svg-path}chevron-right.svg', @text-color);
+  background-image: url('@{svg-sprite}#icon-chevron-right');
+  fill: @text-color;
 }
 
 .react-datepicker__navigation--years {
@@ -153,7 +155,8 @@
 }
 
 .react-datepicker__navigation--years-previous {
-  .mixin-svg-bg-add-fill('@{svg-path}chevron-down.svg', @color-gray);
+  background-image: url('@{svg-sprite}#icon-chevron-down');
+  fill: @color-gray;
 }
 
 /*.react-datepicker__navigation--years-previous:hover {
@@ -161,7 +164,8 @@
 }*/
 
 .react-datepicker__navigation--years-upcoming {
-  .mixin-svg-bg-add-fill('@{svg-path}chevron-up.svg', @color-gray);
+  background-image: url('@{svg-sprite}#icon-chevron-up');
+  fill: @color-gray;
 }
 
 /*.react-datepicker__navigation--years-upcoming:hover {
@@ -316,17 +320,17 @@
 }
 
 .react-datepicker__close-icon {
+  background-image: url('@{svg-sprite}#icon-close');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
+  fill: @text-color;
   height: 1.2rem;
   margin-top: -.6rem;
   position: absolute;
   right: 1rem;
   top: 50%;
   width: 1.2rem;
-
-  .mixin-svg-bg-add-fill('@{svg-path}close.svg', @text-color);
 }
 
 

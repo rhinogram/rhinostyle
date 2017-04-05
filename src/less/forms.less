@@ -512,8 +512,7 @@ input[type='checkbox'] {
   position: relative;
 
   input {
-    clip: rect(0, 0, 0, 0);
-    position: absolute;
+    .mixin-sr-only();
   }
 
   label {
@@ -543,11 +542,12 @@ input[type='checkbox'] {
   input {
     &:checked+label::before {
       background-color: @form-element-color;
-      .mixin-svg-bg-add-fill('@{svg-path}checkmark.svg', @color-white);
+      background-image: url('@{svg-sprite}#icon-checkmark');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 1.6rem 1.6rem;
       border-color: @form-element-color;
+      fill: @color-white;
     }
   }
 
@@ -632,25 +632,6 @@ input[type='checkbox'] {
 
   .mixin-chevron-down();  // add chevron
 }
-
-
-// -------------------------
-// Rhinoselect Modifiers
-// -------------------------
-
-
-/*.rhinoselect--default {
-  &::after {
-    .mixin-svg-bg-add-fill('@{svg-path}chevron-down.svg', red);
-  }
-}*/
-
-/*.rhinoselect--sm {
-  &::after {
-    background-size: 1.2rem 1.2rem;
-    right: @whitespace-base;
-  }
-}*/
 
 
 // -------------------------
