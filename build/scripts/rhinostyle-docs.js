@@ -23562,7 +23562,7 @@ var LoaderCircle = function (_React$Component) {
         repeat: -1,
         paused: this.props.pause
       }).to($loader, 0.75, {
-        rotation: '-360deg',
+        rotation: '360deg',
         ease: _gsap.Linear.easeNone
       });
     }
@@ -23665,9 +23665,10 @@ var LoaderPulse = function (_React$Component) {
 
       $loader.timeline = new _gsap.TimelineMax({
         paused: this.props.pause
-      }).staggerTo($loaderPulses, 0.5, {
+      }).staggerTo($loaderPulses, 0.25, {
         opacity: 1,
         repeat: -1,
+        repeatDelay: 0.25,
         yoyo: true,
         scale: 1.25,
         ease: _gsap.Linear.easeNone

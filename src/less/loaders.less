@@ -11,7 +11,7 @@
   border-radius: 50%;
   border-style: solid;
   border-width: @loader-circle-border-size;
-  display: inline-block;
+  display: inline-flex;
   height: @loader-circle-size;
   position: relative;
   transform-origin: center center;
@@ -85,7 +85,9 @@
 
 
 .loader-pulse {
-  display: inline-block;
+  align-items: center;
+  display: inline-flex;
+  transform-origin: center center;
 }
 
 
@@ -120,13 +122,12 @@
 
 .loader-pulse__pulse {
   border-radius: 50%;
-  display: inline-block;
   height: .8rem;
   opacity: .5;
   transform: scale(.75);
   width: .8rem;
 
-  &:nth-child(2) {
-    margin: 0 @whitespace-small;
+  + * {
+    margin-left: @whitespace-small;
   }
 }

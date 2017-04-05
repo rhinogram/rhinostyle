@@ -25,7 +25,7 @@ class LoaderCircle extends React.Component {
       paused: this.props.pause,
     })
     .to($loader, 0.75, {
-      rotation: '-360deg',
+      rotation: '360deg',
       ease: Linear.easeNone,
     });
   }
