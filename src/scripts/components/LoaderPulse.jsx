@@ -1,8 +1,6 @@
 import React from 'react';
 import cx    from 'classnames';
-import { Linear, TimelineMax, TweenMax } from 'gsap';
-
-import { UtilitySystem } from '../UtilitySystem';
+import { Linear, TimelineMax } from 'gsap';
 
 class LoaderPulse extends React.Component {
   static displayName = 'RhinoLoaderPulse';
@@ -24,18 +22,14 @@ class LoaderPulse extends React.Component {
 
     $loader.timeline = new TimelineMax({
       paused: this.props.pause,
-    });
-
-    UtilitySystem.forEach($loaderPulses, (index, value) => {
-      TweenMax.to(value, 0.5, {
-        delay: (0.125 * index),
-        opacity: 1,
-        repeat: -1,
-        yoyo: true,
-        scale: 1.25,
-        ease: Linear.easeNone,
-      });
-    });
+    })
+    .staggerTo($loaderPulses, 0.5, {
+      opacity: 1,
+      repeat: -1,
+      yoyo: true,
+      scale: 1.25,
+      ease: Linear.easeNone,
+    }, 0.125, 'loader');
   }
 
   componentDidUpdate() {
