@@ -88,6 +88,12 @@ class ComponentExample extends React.Component {
           <Button block type="outline-primary" size="small" onClick={() => alert('clicked!')}>Button Up In Here</Button>
         </DropdownMenuItemWild>
       </Dropdown>
+      <Dropdown manualClose label="Dropdown with manual close" wide>
+        <DropdownMenuItemWild>
+          <Close />
+          <p>Here's some wild content!</p>
+        </DropdownMenuItemWild>
+      </Dropdown>
     </UtilityInlineGrid>
     );
   }

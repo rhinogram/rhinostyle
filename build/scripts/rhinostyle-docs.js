@@ -61,8 +61,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */,
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73,7 +72,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.UtilitySystem = exports.UtilityInlineGrid = exports.Toast = exports.Textarea = exports.TabsContent = exports.Table = exports.TabContentPane = exports.SystemAlert = exports.Select = exports.Scrollbars = exports.RhinoSwitch = exports.RadioGroup = exports.Radio = exports.ProgressBar = exports.Pill = exports.NotificationActions = exports.NavTabsItem = exports.NavTabs = exports.ModalHeader = exports.ModalFooter = exports.ModalBody = exports.ModalSystem = exports.Modal = exports.MessageBox = exports.Message = exports.LoaderPulse = exports.LoaderCircle = exports.Lightbox = exports.Label = exports.Input = exports.Icon = exports.DropdownWrapper = exports.DropdownMenuScroll = exports.DropdownMultiSelect = exports.DropdownMenuItemWild = exports.DropdownMenuItem = exports.DropdownMenuHeader = exports.DropdownMenuDivider = exports.DropdownFilter = exports.Dropdown = exports.DatePicker = exports.CoverHeader = exports.CoverFooter = exports.CoverBody = exports.CoverSystem = exports.Cover = exports.Close = exports.Checkbox = exports.Button = exports.BucketHeader = exports.BucketBody = exports.Bucket = exports.Avatar = exports.Alert = undefined;
 
-var _Alert = __webpack_require__(395);
+var _Alert = __webpack_require__(396);
 
 var _Alert2 = _interopRequireDefault(_Alert);
 
@@ -81,63 +80,63 @@ var _Avatar = __webpack_require__(170);
 
 var _Avatar2 = _interopRequireDefault(_Avatar);
 
-var _Bucket = __webpack_require__(396);
+var _Bucket = __webpack_require__(397);
 
 var _Bucket2 = _interopRequireDefault(_Bucket);
 
-var _BucketBody = __webpack_require__(397);
+var _BucketBody = __webpack_require__(398);
 
 var _BucketBody2 = _interopRequireDefault(_BucketBody);
 
-var _BucketHeader = __webpack_require__(398);
+var _BucketHeader = __webpack_require__(399);
 
 var _BucketHeader2 = _interopRequireDefault(_BucketHeader);
 
-var _Button = __webpack_require__(399);
+var _Button = __webpack_require__(400);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Checkbox = __webpack_require__(400);
+var _Checkbox = __webpack_require__(401);
 
 var _Checkbox2 = _interopRequireDefault(_Checkbox);
 
-var _Close = __webpack_require__(401);
+var _Close = __webpack_require__(402);
 
 var _Close2 = _interopRequireDefault(_Close);
 
-var _Cover = __webpack_require__(402);
+var _Cover = __webpack_require__(403);
 
 var _Cover2 = _interopRequireDefault(_Cover);
 
-var _CoverBody = __webpack_require__(403);
+var _CoverBody = __webpack_require__(404);
 
 var _CoverBody2 = _interopRequireDefault(_CoverBody);
 
-var _CoverFooter = __webpack_require__(404);
+var _CoverFooter = __webpack_require__(405);
 
 var _CoverFooter2 = _interopRequireDefault(_CoverFooter);
 
-var _CoverHeader = __webpack_require__(405);
+var _CoverHeader = __webpack_require__(406);
 
 var _CoverHeader2 = _interopRequireDefault(_CoverHeader);
 
-var _reactDatepicker = __webpack_require__(702);
+var _reactDatepicker = __webpack_require__(703);
 
 var _reactDatepicker2 = _interopRequireDefault(_reactDatepicker);
 
-var _Dropdown = __webpack_require__(406);
+var _Dropdown = __webpack_require__(407);
 
 var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
-var _DropdownFilter = __webpack_require__(407);
+var _DropdownFilter = __webpack_require__(408);
 
 var _DropdownFilter2 = _interopRequireDefault(_DropdownFilter);
 
-var _DropdownMenuDivider = __webpack_require__(408);
+var _DropdownMenuDivider = __webpack_require__(409);
 
 var _DropdownMenuDivider2 = _interopRequireDefault(_DropdownMenuDivider);
 
-var _DropdownMenuHeader = __webpack_require__(409);
+var _DropdownMenuHeader = __webpack_require__(410);
 
 var _DropdownMenuHeader2 = _interopRequireDefault(_DropdownMenuHeader);
 
@@ -149,7 +148,7 @@ var _DropdownMenuItemWild = __webpack_require__(172);
 
 var _DropdownMenuItemWild2 = _interopRequireDefault(_DropdownMenuItemWild);
 
-var _DropdownMultiSelect = __webpack_require__(410);
+var _DropdownMultiSelect = __webpack_require__(411);
 
 var _DropdownMultiSelect2 = _interopRequireDefault(_DropdownMultiSelect);
 
@@ -157,7 +156,7 @@ var _DropdownMenuScroll = __webpack_require__(173);
 
 var _DropdownMenuScroll2 = _interopRequireDefault(_DropdownMenuScroll);
 
-var _DropdownWrapper = __webpack_require__(411);
+var _DropdownWrapper = __webpack_require__(412);
 
 var _DropdownWrapper2 = _interopRequireDefault(_DropdownWrapper);
 
@@ -165,11 +164,11 @@ var _Icon = __webpack_require__(90);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _Input = __webpack_require__(412);
+var _Input = __webpack_require__(413);
 
 var _Input2 = _interopRequireDefault(_Input);
 
-var _Label = __webpack_require__(413);
+var _Label = __webpack_require__(414);
 
 var _Label2 = _interopRequireDefault(_Label);
 
@@ -177,39 +176,39 @@ var _reactImageLightbox = __webpack_require__(778);
 
 var _reactImageLightbox2 = _interopRequireDefault(_reactImageLightbox);
 
-var _LoaderCircle = __webpack_require__(414);
+var _LoaderCircle = __webpack_require__(415);
 
 var _LoaderCircle2 = _interopRequireDefault(_LoaderCircle);
 
-var _LoaderPulse = __webpack_require__(415);
+var _LoaderPulse = __webpack_require__(416);
 
 var _LoaderPulse2 = _interopRequireDefault(_LoaderPulse);
 
-var _Message = __webpack_require__(416);
+var _Message = __webpack_require__(417);
 
 var _Message2 = _interopRequireDefault(_Message);
 
-var _MessageBox = __webpack_require__(417);
+var _MessageBox = __webpack_require__(418);
 
 var _MessageBox2 = _interopRequireDefault(_MessageBox);
 
-var _Modal = __webpack_require__(418);
+var _Modal = __webpack_require__(419);
 
 var _Modal2 = _interopRequireDefault(_Modal);
 
-var _ModalBody = __webpack_require__(419);
+var _ModalBody = __webpack_require__(420);
 
 var _ModalBody2 = _interopRequireDefault(_ModalBody);
 
-var _ModalFooter = __webpack_require__(420);
+var _ModalFooter = __webpack_require__(421);
 
 var _ModalFooter2 = _interopRequireDefault(_ModalFooter);
 
-var _ModalHeader = __webpack_require__(421);
+var _ModalHeader = __webpack_require__(422);
 
 var _ModalHeader2 = _interopRequireDefault(_ModalHeader);
 
-var _NavTabs = __webpack_require__(422);
+var _NavTabs = __webpack_require__(423);
 
 var _NavTabs2 = _interopRequireDefault(_NavTabs);
 
@@ -217,11 +216,11 @@ var _NavTabsItem = __webpack_require__(174);
 
 var _NavTabsItem2 = _interopRequireDefault(_NavTabsItem);
 
-var _Pill = __webpack_require__(423);
+var _Pill = __webpack_require__(424);
 
 var _Pill2 = _interopRequireDefault(_Pill);
 
-var _ProgressBar = __webpack_require__(424);
+var _ProgressBar = __webpack_require__(425);
 
 var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 
@@ -229,23 +228,23 @@ var _Radio = __webpack_require__(175);
 
 var _Radio2 = _interopRequireDefault(_Radio);
 
-var _RadioGroup = __webpack_require__(425);
+var _RadioGroup = __webpack_require__(426);
 
 var _RadioGroup2 = _interopRequireDefault(_RadioGroup);
 
-var _RhinoSwitch = __webpack_require__(426);
+var _RhinoSwitch = __webpack_require__(427);
 
 var _RhinoSwitch2 = _interopRequireDefault(_RhinoSwitch);
 
-var _Select = __webpack_require__(427);
+var _Select = __webpack_require__(428);
 
 var _Select2 = _interopRequireDefault(_Select);
 
-var _reactCustomScrollbars = __webpack_require__(701);
+var _reactCustomScrollbars = __webpack_require__(702);
 
 var _reactCustomScrollbars2 = _interopRequireDefault(_reactCustomScrollbars);
 
-var _SystemAlert = __webpack_require__(428);
+var _SystemAlert = __webpack_require__(429);
 
 var _SystemAlert2 = _interopRequireDefault(_SystemAlert);
 
@@ -253,31 +252,31 @@ var _TabContentPane = __webpack_require__(176);
 
 var _TabContentPane2 = _interopRequireDefault(_TabContentPane);
 
-var _Table = __webpack_require__(429);
+var _Table = __webpack_require__(430);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _TabsContent = __webpack_require__(430);
+var _TabsContent = __webpack_require__(431);
 
 var _TabsContent2 = _interopRequireDefault(_TabsContent);
 
-var _Textarea = __webpack_require__(431);
+var _Textarea = __webpack_require__(432);
 
 var _Textarea2 = _interopRequireDefault(_Textarea);
 
-var _Toast = __webpack_require__(432);
+var _Toast = __webpack_require__(433);
 
 var _Toast2 = _interopRequireDefault(_Toast);
 
-var _UtilityInlineGrid = __webpack_require__(433);
+var _UtilityInlineGrid = __webpack_require__(434);
 
 var _UtilityInlineGrid2 = _interopRequireDefault(_UtilityInlineGrid);
 
-var _CoverSystem = __webpack_require__(387);
+var _CoverSystem = __webpack_require__(388);
 
-var _NotificationSystem = __webpack_require__(392);
+var _NotificationSystem = __webpack_require__(393);
 
-var _ModalSystem = __webpack_require__(389);
+var _ModalSystem = __webpack_require__(390);
 
 var _UtilitySystem = __webpack_require__(89);
 
@@ -344,6 +343,7 @@ exports.UtilitySystem = _UtilitySystem.UtilitySystem;
 // Utilities
 
 /***/ }),
+/* 9 */,
 /* 10 */,
 /* 11 */,
 /* 12 */,
@@ -6489,7 +6489,7 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 						if (global) {
 							_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 							hasModule = (typeof(module) !== "undefined" && module.exports);
-							if (!hasModule && "function" === "function" && __webpack_require__(815)){ //AMD
+							if (!hasModule && "function" === "function" && __webpack_require__(814)){ //AMD
 								!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 							} else if (hasModule){ //node
@@ -9036,7 +9036,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _keymirror = __webpack_require__(655);
+var _keymirror = __webpack_require__(656);
 
 var _keymirror2 = _interopRequireDefault(_keymirror);
 
@@ -9067,7 +9067,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.UtilitySystem = undefined;
 
-var _helpers = __webpack_require__(394);
+var _helpers = __webpack_require__(395);
 
 var UtilitySystem = _interopRequireWildcard(_helpers);
 
@@ -9410,7 +9410,7 @@ var canUseDOM = exports.canUseDOM = !!(typeof window !== 'undefined' && window.d
 
 exports.__esModule = true;
 
-var _AsyncUtils = __webpack_require__(646);
+var _AsyncUtils = __webpack_require__(647);
 
 var _PathUtils = __webpack_require__(52);
 
@@ -9889,7 +9889,7 @@ var locationShape = shape({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__getRouteParams__ = __webpack_require__(796);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__getRouteParams__ = __webpack_require__(795);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ContextUtils__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouteUtils__ = __webpack_require__(54);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -10029,7 +10029,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _flux = __webpack_require__(644);
+var _flux = __webpack_require__(645);
 
 var _constants = __webpack_require__(88);
 
@@ -10235,7 +10235,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _reactRouter = __webpack_require__(356);
+var _reactRouter = __webpack_require__(357);
 
 var _Avatar = __webpack_require__(170);
 
@@ -10416,6 +10416,8 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _components = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10438,26 +10440,58 @@ var DropdownMenuItemWild = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownMenuItemWild.__proto__ || Object.getPrototypeOf(DropdownMenuItemWild)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownMenuItemWild.__proto__ || Object.getPrototypeOf(DropdownMenuItemWild)).call.apply(_ref, [this].concat(args))), _this), _this.getChildren = function () {
+      var returnChild = null;
+      var children = _this.props.children;
+
+      return _react2.default.Children.map(children, function (child) {
+        if (!child) return false;
+
+        if (!child.type) {
+          returnChild = child;
+        } else if (child.type === _components.Close) {
+          returnChild = _react2.default.cloneElement(child, {
+            onClick: _this.handleCloseClick,
+            className: (0, _classnames2.default)(child.props.className, 'dropdown__menu__close')
+          });
+        } else {
+          returnChild = child;
+        }
+
+        return returnChild;
+      });
+    }, _this.handleCloseClick = function () {
+      _this.props.handleToggle();
+    }, _this.handleClick = function () {
       if (_this.props.toggleDropdown) {
         _this.props.handleToggle();
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
+  /**
+   * Close dropdown with `<Close />` click
+   * @return {void}
+   */
+
+
+  /**
+   * Enable closing dropdown with click on wild content if `toggleDropdown` prop is passed
+   * @return {void}
+   */
+
+
   _createClass(DropdownMenuItemWild, [{
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          children = _props.children,
-          className = _props.className;
+      var className = this.props.className;
 
       var classes = (0, _classnames2.default)('dropdown__menu__container', className);
 
       return _react2.default.createElement(
         'div',
         { className: classes, onClick: this.handleClick },
-        children
+        this.getChildren()
       );
     }
   }]);
@@ -10938,7 +10972,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _queryString = __webpack_require__(657);
+var _queryString = __webpack_require__(658);
 
 var _runTransitionHook = __webpack_require__(143);
 
@@ -12035,6 +12069,320 @@ module.exports = findTabbableDescendants;
 
 /***/ }),
 /* 349 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * A higher-order-component for handling onClickOutside for React components.
+ */
+(function(root) {
+
+  // administrative
+  var registeredComponents = [];
+  var handlers = [];
+  var IGNORE_CLASS = 'ignore-react-onclickoutside';
+  var DEFAULT_EVENTS = ['mousedown', 'touchstart'];
+
+  /**
+   * Check whether some DOM node is our Component's node.
+   */
+  var isNodeFound = function(current, componentNode, ignoreClass) {
+    if (current === componentNode) {
+      return true;
+    }
+    // SVG <use/> elements do not technically reside in the rendered DOM, so
+    // they do not have classList directly, but they offer a link to their
+    // corresponding element, which can have classList. This extra check is for
+    // that case.
+    // See: http://www.w3.org/TR/SVG11/struct.html#InterfaceSVGUseElement
+    // Discussion: https://github.com/Pomax/react-onclickoutside/pull/17
+    if (current.correspondingElement) {
+      return current.correspondingElement.classList.contains(ignoreClass);
+    }
+    return current.classList.contains(ignoreClass);
+  };
+
+  /**
+   * Try to find our node in a hierarchy of nodes, returning the document
+   * node as highest noode if our node is not found in the path up.
+   */
+  var findHighest = function(current, componentNode, ignoreClass) {
+    if (current === componentNode) {
+      return true;
+    }
+
+    // If source=local then this event came from 'somewhere'
+    // inside and should be ignored. We could handle this with
+    // a layered approach, too, but that requires going back to
+    // thinking in terms of Dom node nesting, running counter
+    // to React's 'you shouldn't care about the DOM' philosophy.
+    while(current.parentNode) {
+      if (isNodeFound(current, componentNode, ignoreClass)) {
+        return true;
+      }
+      current = current.parentNode;
+    }
+    return current;
+  };
+
+  /**
+   * Check if the browser scrollbar was clicked
+   */
+  var clickedScrollbar = function(evt) {
+    return document.documentElement.clientWidth <= evt.clientX || document.documentElement.clientHeight <= evt.clientY;
+  };
+
+  /**
+   * Generate the event handler that checks whether a clicked DOM node
+   * is inside of, or lives outside of, our Component's node tree.
+   */
+  var generateOutsideCheck = function(componentNode, componentInstance, eventHandler, ignoreClass, excludeScrollbar, preventDefault, stopPropagation) {
+    return function(evt) {
+      if (preventDefault) {
+        evt.preventDefault();
+      }
+      if (stopPropagation) {
+        evt.stopPropagation();
+      }
+      var current = evt.target;
+      if((excludeScrollbar && clickedScrollbar(evt)) || (findHighest(current, componentNode, ignoreClass) !== document)) {
+        return;
+      }
+      eventHandler(evt);
+    };
+  };
+
+  /**
+   * This function generates the HOC function that you'll use
+   * in order to impart onOutsideClick listening to an
+   * arbitrary component. It gets called at the end of the
+   * bootstrapping code to yield an instance of the
+   * onClickOutsideHOC function defined inside setupHOC().
+   */
+  function setupHOC(root, React, ReactDOM) {
+
+    // The actual Component-wrapping HOC:
+    return function onClickOutsideHOC(Component, config) {
+      var wrapComponentWithOnClickOutsideHandling = React.createClass({
+        statics: {
+          /**
+           * Access the wrapped Component's class.
+           */
+          getClass: function() {
+            if (Component.getClass) {
+              return Component.getClass();
+            }
+            return Component;
+          }
+        },
+
+        /**
+         * Access the wrapped Component's instance.
+         */
+        getInstance: function() {
+          return Component.prototype.isReactComponent ? this.refs.instance : this;
+        },
+
+        // this is given meaning in componentDidMount
+        __outsideClickHandler: function() {},
+
+        getDefaultProps: function() {
+          return {
+            excludeScrollbar: config && config.excludeScrollbar
+          };
+        },
+
+        /**
+         * Add click listeners to the current document,
+         * linked to this component's state.
+         */
+        componentDidMount: function() {
+          // If we are in an environment without a DOM such
+          // as shallow rendering or snapshots then we exit
+          // early to prevent any unhandled errors being thrown.
+          if (typeof document === 'undefined' || !document.createElement){
+            return;
+          }
+
+          var instance = this.getInstance();
+          var clickOutsideHandler;
+
+          if(config && typeof config.handleClickOutside === 'function') {
+            clickOutsideHandler = config.handleClickOutside(instance);
+            if(typeof clickOutsideHandler !== 'function') {
+              throw new Error('Component lacks a function for processing outside click events specified by the handleClickOutside config option.');
+            }
+          } else if(typeof instance.handleClickOutside === 'function') {
+            if (React.Component.prototype.isPrototypeOf(instance)) {
+              clickOutsideHandler = instance.handleClickOutside.bind(instance);
+            } else {
+              clickOutsideHandler = instance.handleClickOutside;
+            }
+          } else if(typeof instance.props.handleClickOutside === 'function') {
+            clickOutsideHandler = instance.props.handleClickOutside;
+          } else {
+            throw new Error('Component lacks a handleClickOutside(event) function for processing outside click events.');
+          }
+
+          var componentNode = ReactDOM.findDOMNode(instance);
+          if (componentNode === null) {
+            console.warn('Antipattern warning: there was no DOM node associated with the component that is being wrapped by outsideClick.');
+            console.warn([
+              'This is typically caused by having a component that starts life with a render function that',
+              'returns `null` (due to a state or props value), so that the component \'exist\' in the React',
+              'chain of components, but not in the DOM.\n\nInstead, you need to refactor your code so that the',
+              'decision of whether or not to show your component is handled by the parent, in their render()',
+              'function.\n\nIn code, rather than:\n\n  A{render(){return check? <.../> : null;}\n  B{render(){<A check=... />}\n\nmake sure that you',
+              'use:\n\n  A{render(){return <.../>}\n  B{render(){return <...>{ check ? <A/> : null }<...>}}\n\nThat is:',
+              'the parent is always responsible for deciding whether or not to render any of its children.',
+              'It is not the child\'s responsibility to decide whether a render instruction from above should',
+              'get ignored or not by returning `null`.\n\nWhen any component gets its render() function called,',
+              'that is the signal that it should be rendering its part of the UI. It may in turn decide not to',
+              'render all of *its* children, but it should never return `null` for itself. It is not responsible',
+              'for that decision.'
+            ].join(' '));
+          }
+
+          var fn = this.__outsideClickHandler = generateOutsideCheck(
+            componentNode,
+            instance,
+            clickOutsideHandler,
+            this.props.outsideClickIgnoreClass || IGNORE_CLASS,
+            this.props.excludeScrollbar, // fallback not needed, prop always exists because of getDefaultProps
+            this.props.preventDefault || false,
+            this.props.stopPropagation || false
+          );
+
+          var pos = registeredComponents.length;
+          registeredComponents.push(this);
+          handlers[pos] = fn;
+
+          // If there is a truthy disableOnClickOutside property for this
+          // component, don't immediately start listening for outside events.
+          if (!this.props.disableOnClickOutside) {
+            this.enableOnClickOutside();
+          }
+        },
+
+        /**
+        * Track for disableOnClickOutside props changes and enable/disable click outside
+        */
+        componentWillReceiveProps: function(nextProps) {
+          if (this.props.disableOnClickOutside && !nextProps.disableOnClickOutside) {
+            this.enableOnClickOutside();
+          } else if (!this.props.disableOnClickOutside && nextProps.disableOnClickOutside) {
+            this.disableOnClickOutside();
+          }
+        },
+
+        /**
+         * Remove the document's event listeners
+         */
+        componentWillUnmount: function() {
+          this.disableOnClickOutside();
+          this.__outsideClickHandler = false;
+          var pos = registeredComponents.indexOf(this);
+          if( pos>-1) {
+            // clean up so we don't leak memory
+            if (handlers[pos]) { handlers.splice(pos, 1); }
+            registeredComponents.splice(pos, 1);
+          }
+        },
+
+        /**
+         * Can be called to explicitly enable event listening
+         * for clicks and touches outside of this element.
+         */
+        enableOnClickOutside: function() {
+          var fn = this.__outsideClickHandler;
+          if (typeof document !== 'undefined') {
+            var events = this.props.eventTypes || DEFAULT_EVENTS;
+            if (!events.forEach) {
+              events = [events];
+            }
+            events.forEach(function (eventName) {
+              document.addEventListener(eventName, fn);
+            });
+          }
+        },
+
+        /**
+         * Can be called to explicitly disable event listening
+         * for clicks and touches outside of this element.
+         */
+        disableOnClickOutside: function() {
+          var fn = this.__outsideClickHandler;
+          if (typeof document !== 'undefined') {
+            var events = this.props.eventTypes || DEFAULT_EVENTS;
+            if (!events.forEach) {
+              events = [events];
+            }
+            events.forEach(function (eventName) {
+              document.removeEventListener(eventName, fn);
+            });
+          }
+        },
+
+        /**
+         * Pass-through render
+         */
+        render: function() {
+          var passedProps = this.props;
+          var props = {};
+          Object.keys(this.props).forEach(function(key) {
+            if (key !== 'excludeScrollbar') {
+              props[key] = passedProps[key];
+            }
+          });
+          if (Component.prototype.isReactComponent) {
+            props.ref = 'instance';
+          }
+          props.disableOnClickOutside = this.disableOnClickOutside;
+          props.enableOnClickOutside = this.enableOnClickOutside;
+          return React.createElement(Component, props);
+        }
+      });
+
+      // Add display name for React devtools
+      (function bindWrappedComponentName(c, wrapper) {
+        var componentName = c.displayName || c.name || 'Component';
+        wrapper.displayName = 'OnClickOutside(' + componentName + ')';
+      }(Component, wrapComponentWithOnClickOutsideHandling));
+
+      return wrapComponentWithOnClickOutsideHandling;
+    };
+  }
+
+  /**
+   * This function sets up the library in ways that
+   * work with the various modulde loading solutions
+   * used in JavaScript land today.
+   */
+  function setupBinding(root, factory) {
+    if (true) {
+      // AMD. Register as an anonymous module.
+      !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3),__webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = function(React, ReactDom) {
+        return factory(root, React, ReactDom);
+      }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports === 'object') {
+      // Node. Note that this does not work with strict
+      // CommonJS, but only CommonJS-like environments
+      // that support module.exports
+      module.exports = factory(root, require('react'), require('react-dom'));
+    } else {
+      // Browser globals (root is window)
+      root.onClickOutside = factory(root, React, ReactDOM);
+    }
+  }
+
+  // Make it all happen
+  setupBinding(root, setupHOC);
+
+}(this));
+
+
+/***/ }),
+/* 350 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12191,7 +12539,7 @@ var Link = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 350 */
+/* 351 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12201,7 +12549,7 @@ function isPromise(obj) {
 }
 
 /***/ }),
-/* 351 */
+/* 352 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12303,7 +12651,7 @@ var Redirect = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 352 */
+/* 353 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12333,7 +12681,7 @@ function assignRouterState(router, _ref) {
 }
 
 /***/ }),
-/* 353 */
+/* 354 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12341,7 +12689,7 @@ function assignRouterState(router, _ref) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_useQueries__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_history_lib_useBasename__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory__ = __webpack_require__(651);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory__ = __webpack_require__(652);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_history_lib_createMemoryHistory__);
 /* harmony export (immutable) */ __webpack_exports__["a"] = createMemoryHistory;
 
@@ -12361,11 +12709,11 @@ function createMemoryHistory(options) {
 }
 
 /***/ }),
-/* 354 */
+/* 355 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__useRouterHistory__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__useRouterHistory__ = __webpack_require__(358);
 
 
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
@@ -12377,16 +12725,16 @@ var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.do
 });
 
 /***/ }),
-/* 355 */
+/* 356 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routerWarning__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__computeChangedRoutes__ = __webpack_require__(794);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__TransitionUtils__ = __webpack_require__(791);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__isActive__ = __webpack_require__(798);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getComponents__ = __webpack_require__(795);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__matchRoutes__ = __webpack_require__(800);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__computeChangedRoutes__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__TransitionUtils__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__isActive__ = __webpack_require__(797);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__getComponents__ = __webpack_require__(794);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__matchRoutes__ = __webpack_require__(799);
 /* harmony export (immutable) */ __webpack_exports__["a"] = createTransitionManager;
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -12642,26 +12990,26 @@ function createTransitionManager(history, routes) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 356 */
+/* 357 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(789);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(350);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_1__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(785);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexLink", function() { return __WEBPACK_IMPORTED_MODULE_2__IndexLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__withRouter__ = __webpack_require__(801);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__withRouter__ = __webpack_require__(800);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__withRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__ = __webpack_require__(786);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRedirect", function() { return __WEBPACK_IMPORTED_MODULE_4__IndexRedirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__IndexRoute__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__IndexRoute__ = __webpack_require__(787);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRoute", function() { return __WEBPACK_IMPORTED_MODULE_5__IndexRoute__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(352);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(788);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouteUtils__ = __webpack_require__(54);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createRoutes", function() { return __WEBPACK_IMPORTED_MODULE_8__RouteUtils__["a"]; });
@@ -12670,19 +13018,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__PropTypes__ = __webpack_require__(162);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "locationShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "routerShape", function() { return __WEBPACK_IMPORTED_MODULE_10__PropTypes__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__match__ = __webpack_require__(799);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__match__ = __webpack_require__(798);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "match", function() { return __WEBPACK_IMPORTED_MODULE_11__match__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__ = __webpack_require__(358);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "useRouterHistory", function() { return __WEBPACK_IMPORTED_MODULE_12__useRouterHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__PatternUtils__ = __webpack_require__(78);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "formatPattern", function() { return __WEBPACK_IMPORTED_MODULE_13__PatternUtils__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__ = __webpack_require__(792);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__ = __webpack_require__(791);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyRouterMiddleware", function() { return __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__browserHistory__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__browserHistory__ = __webpack_require__(792);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "browserHistory", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(797);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(796);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "hashHistory", function() { return __WEBPACK_IMPORTED_MODULE_16__hashHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(354);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__["a"]; });
 /* components */
 
@@ -12731,7 +13079,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 357 */
+/* 358 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12751,10 +13099,10 @@ function useRouterHistory(createHistory) {
 }
 
 /***/ }),
-/* 358 */,
 /* 359 */,
 /* 360 */,
-/* 361 */
+/* 361 */,
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12772,9 +13120,9 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _AvatarExample = __webpack_require__(659);
+var _AvatarExample = __webpack_require__(660);
 
 var _AvatarExample2 = _interopRequireDefault(_AvatarExample);
 
@@ -12938,7 +13286,7 @@ var AvatarApp = function AvatarApp() {
 _reactDom2.default.render(_react2.default.createElement(AvatarApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 362 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12956,13 +13304,13 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _BucketExample = __webpack_require__(660);
+var _BucketExample = __webpack_require__(661);
 
 var _BucketExample2 = _interopRequireDefault(_BucketExample);
 
-var _BucketHeaderExample = __webpack_require__(661);
+var _BucketHeaderExample = __webpack_require__(662);
 
 var _BucketHeaderExample2 = _interopRequireDefault(_BucketHeaderExample);
 
@@ -13145,7 +13493,7 @@ var BucketApp = function BucketApp() {
 _reactDom2.default.render(_react2.default.createElement(BucketApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 363 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13163,9 +13511,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _ButtonExample = __webpack_require__(662);
+var _ButtonExample = __webpack_require__(663);
 
 var _ButtonExample2 = _interopRequireDefault(_ButtonExample);
 
@@ -13760,7 +14108,7 @@ var ButtonApp = function ButtonApp() {
 _reactDom2.default.render(_react2.default.createElement(ButtonApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 364 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13778,9 +14126,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _CloseExample = __webpack_require__(664);
+var _CloseExample = __webpack_require__(665);
 
 var _CloseExample2 = _interopRequireDefault(_CloseExample);
 
@@ -13835,7 +14183,7 @@ var CloseApp = function CloseApp() {
 _reactDom2.default.render(_react2.default.createElement(CloseApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 365 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13853,21 +14201,21 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _CoverBodyExample = __webpack_require__(666);
+var _CoverBodyExample = __webpack_require__(667);
 
 var _CoverBodyExample2 = _interopRequireDefault(_CoverBodyExample);
 
-var _CoverExample = __webpack_require__(665);
+var _CoverExample = __webpack_require__(666);
 
 var _CoverExample2 = _interopRequireDefault(_CoverExample);
 
-var _CoverFooterExample = __webpack_require__(667);
+var _CoverFooterExample = __webpack_require__(668);
 
 var _CoverFooterExample2 = _interopRequireDefault(_CoverFooterExample);
 
-var _CoverHeaderExample = __webpack_require__(668);
+var _CoverHeaderExample = __webpack_require__(669);
 
 var _CoverHeaderExample2 = _interopRequireDefault(_CoverHeaderExample);
 
@@ -13999,7 +14347,7 @@ var CoverApp = function CoverApp() {
 _reactDom2.default.render(_react2.default.createElement(CoverApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 366 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14023,9 +14371,9 @@ var _moment = __webpack_require__(1);
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _DatePickerExample = __webpack_require__(669);
+var _DatePickerExample = __webpack_require__(670);
 
 var _DatePickerExample2 = _interopRequireDefault(_DatePickerExample);
 
@@ -14138,7 +14486,7 @@ DatePickerApp.displayName = 'Rhinostyle Date Picker Examples';
 _reactDom2.default.render(_react2.default.createElement(DatePickerApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 367 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14156,25 +14504,25 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _DropdownExample = __webpack_require__(670);
+var _DropdownExample = __webpack_require__(671);
 
 var _DropdownExample2 = _interopRequireDefault(_DropdownExample);
 
-var _DropdownMultiSelectExample = __webpack_require__(674);
+var _DropdownMultiSelectExample = __webpack_require__(675);
 
 var _DropdownMultiSelectExample2 = _interopRequireDefault(_DropdownMultiSelectExample);
 
-var _DropdownMenuHeaderExample = __webpack_require__(671);
+var _DropdownMenuHeaderExample = __webpack_require__(672);
 
 var _DropdownMenuHeaderExample2 = _interopRequireDefault(_DropdownMenuHeaderExample);
 
-var _DropdownMenuItemExample = __webpack_require__(672);
+var _DropdownMenuItemExample = __webpack_require__(673);
 
 var _DropdownMenuItemExample2 = _interopRequireDefault(_DropdownMenuItemExample);
 
-var _DropdownMenuItemWildExample = __webpack_require__(673);
+var _DropdownMenuItemWildExample = __webpack_require__(674);
 
 var _DropdownMenuItemWildExample2 = _interopRequireDefault(_DropdownMenuItemWildExample);
 
@@ -14194,8 +14542,7 @@ var dropdownDocs = {
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
-  manualClose: '[Optional] - Disables the default action of closing on an outside click',
-  handleClose: '[Optional] - Function to run during close of dropdown',
+  manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
   defaultOpen: '[Optional] - Open dropdown when rendered onto page'
 };
 
@@ -14243,6 +14590,7 @@ var exampleScope = {
   React: _react2.default,
   ReactDOM: _reactDom2.default,
   Button: _components.Button,
+  Close: _components.Close,
   Dropdown: _components.Dropdown,
   DropdownFilter: _components.DropdownFilter,
   DropdownMenuDivider: _components.DropdownMenuDivider,
@@ -14795,7 +15143,7 @@ var DropdownApp = function DropdownApp() {
 _reactDom2.default.render(_react2.default.createElement(DropdownApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 368 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14815,17 +15163,17 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _AlertExample = __webpack_require__(658);
+var _AlertExample = __webpack_require__(659);
 
 var _AlertExample2 = _interopRequireDefault(_AlertExample);
 
-var _ToastExample = __webpack_require__(698);
+var _ToastExample = __webpack_require__(699);
 
 var _ToastExample2 = _interopRequireDefault(_ToastExample);
 
-var _SystemAlertExample = __webpack_require__(694);
+var _SystemAlertExample = __webpack_require__(695);
 
 var _SystemAlertExample2 = _interopRequireDefault(_SystemAlertExample);
 
@@ -15112,7 +15460,7 @@ FeedbackApp.displayName = 'Rhinostyle Feedback Examples';
 _reactDom2.default.render(_react2.default.createElement(FeedbackApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 369 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15130,33 +15478,33 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _InputExample = __webpack_require__(676);
+var _InputExample = __webpack_require__(677);
 
 var _InputExample2 = _interopRequireDefault(_InputExample);
 
-var _SelectExample = __webpack_require__(693);
+var _SelectExample = __webpack_require__(694);
 
 var _SelectExample2 = _interopRequireDefault(_SelectExample);
 
-var _TextareaExample = __webpack_require__(697);
+var _TextareaExample = __webpack_require__(698);
 
 var _TextareaExample2 = _interopRequireDefault(_TextareaExample);
 
-var _MessageBoxExample = __webpack_require__(682);
+var _MessageBoxExample = __webpack_require__(683);
 
 var _MessageBoxExample2 = _interopRequireDefault(_MessageBoxExample);
 
-var _CheckboxExample = __webpack_require__(663);
+var _CheckboxExample = __webpack_require__(664);
 
 var _CheckboxExample2 = _interopRequireDefault(_CheckboxExample);
 
-var _RadioExample = __webpack_require__(690);
+var _RadioExample = __webpack_require__(691);
 
 var _RadioExample2 = _interopRequireDefault(_RadioExample);
 
-var _RhinoSwitchExample = __webpack_require__(691);
+var _RhinoSwitchExample = __webpack_require__(692);
 
 var _RhinoSwitchExample2 = _interopRequireDefault(_RhinoSwitchExample);
 
@@ -15899,7 +16247,7 @@ var FormApp = function FormApp() {
 _reactDom2.default.render(_react2.default.createElement(FormApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 370 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15917,9 +16265,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _IconExample = __webpack_require__(675);
+var _IconExample = __webpack_require__(676);
 
 var _IconExample2 = _interopRequireDefault(_IconExample);
 
@@ -17018,7 +17366,7 @@ var IconApp = function IconApp() {
 _reactDom2.default.render(_react2.default.createElement(IconApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 371 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17258,7 +17606,7 @@ if (navLocation) {
 }
 
 /***/ }),
-/* 372 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17276,9 +17624,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _LabelExample = __webpack_require__(677);
+var _LabelExample = __webpack_require__(678);
 
 var _LabelExample2 = _interopRequireDefault(_LabelExample);
 
@@ -17367,7 +17715,7 @@ var LabelApp = function LabelApp() {
 _reactDom2.default.render(_react2.default.createElement(LabelApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 373 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17385,9 +17733,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _LightboxExample = __webpack_require__(678);
+var _LightboxExample = __webpack_require__(679);
 
 var _LightboxExample2 = _interopRequireDefault(_LightboxExample);
 
@@ -17437,7 +17785,7 @@ var LightboxApp = function LightboxApp() {
 _reactDom2.default.render(_react2.default.createElement(LightboxApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 374 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17455,13 +17803,13 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _LoaderCircleExample = __webpack_require__(679);
+var _LoaderCircleExample = __webpack_require__(680);
 
 var _LoaderCircleExample2 = _interopRequireDefault(_LoaderCircleExample);
 
-var _LoaderPulseExample = __webpack_require__(680);
+var _LoaderPulseExample = __webpack_require__(681);
 
 var _LoaderPulseExample2 = _interopRequireDefault(_LoaderPulseExample);
 
@@ -17592,7 +17940,7 @@ var LoaderApp = function LoaderApp() {
 _reactDom2.default.render(_react2.default.createElement(LoaderApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 375 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17610,9 +17958,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _MessageExample = __webpack_require__(681);
+var _MessageExample = __webpack_require__(682);
 
 var _MessageExample2 = _interopRequireDefault(_MessageExample);
 
@@ -17826,7 +18174,7 @@ var MessageApp = function MessageApp() {
 _reactDom2.default.render(_react2.default.createElement(MessageApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17844,21 +18192,21 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _ModalExample = __webpack_require__(683);
+var _ModalExample = __webpack_require__(684);
 
 var _ModalExample2 = _interopRequireDefault(_ModalExample);
 
-var _ModalHeaderExample = __webpack_require__(686);
+var _ModalHeaderExample = __webpack_require__(687);
 
 var _ModalHeaderExample2 = _interopRequireDefault(_ModalHeaderExample);
 
-var _ModalBodyExample = __webpack_require__(684);
+var _ModalBodyExample = __webpack_require__(685);
 
 var _ModalBodyExample2 = _interopRequireDefault(_ModalBodyExample);
 
-var _ModalFooterExample = __webpack_require__(685);
+var _ModalFooterExample = __webpack_require__(686);
 
 var _ModalFooterExample2 = _interopRequireDefault(_ModalFooterExample);
 
@@ -17986,7 +18334,7 @@ var ModalApp = function ModalApp() {
 _reactDom2.default.render(_react2.default.createElement(ModalApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 377 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18006,9 +18354,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _NavTabsExample = __webpack_require__(687);
+var _NavTabsExample = __webpack_require__(688);
 
 var _NavTabsExample2 = _interopRequireDefault(_NavTabsExample);
 
@@ -18289,7 +18637,7 @@ var NavigationApp = function (_React$Component) {
 _reactDom2.default.render(_react2.default.createElement(NavigationApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 378 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18307,9 +18655,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _PillExample = __webpack_require__(688);
+var _PillExample = __webpack_require__(689);
 
 var _PillExample2 = _interopRequireDefault(_PillExample);
 
@@ -18369,7 +18717,7 @@ var PillApp = function PillApp() {
 _reactDom2.default.render(_react2.default.createElement(PillApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 379 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18387,9 +18735,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _ProgressBarExample = __webpack_require__(689);
+var _ProgressBarExample = __webpack_require__(690);
 
 var _ProgressBarExample2 = _interopRequireDefault(_ProgressBarExample);
 
@@ -18475,7 +18823,7 @@ var ProgressBarApp = function ProgressBarApp() {
 _reactDom2.default.render(_react2.default.createElement(ProgressBarApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 380 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18493,9 +18841,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _ScrollBarExample = __webpack_require__(692);
+var _ScrollBarExample = __webpack_require__(693);
 
 var _ScrollBarExample2 = _interopRequireDefault(_ScrollBarExample);
 
@@ -18590,7 +18938,7 @@ var ScrollBarApp = function ScrollBarApp() {
 _reactDom2.default.render(_react2.default.createElement(ScrollBarApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 381 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18608,9 +18956,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _TableExample = __webpack_require__(695);
+var _TableExample = __webpack_require__(696);
 
 var _TableExample2 = _interopRequireDefault(_TableExample);
 
@@ -19812,7 +20160,7 @@ var LabelApp = function LabelApp() {
 _reactDom2.default.render(_react2.default.createElement(LabelApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 382 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19832,9 +20180,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _TabsExample = __webpack_require__(696);
+var _TabsExample = __webpack_require__(697);
 
 var _TabsExample2 = _interopRequireDefault(_TabsExample);
 
@@ -19933,7 +20281,7 @@ var TabsApp = function (_React$Component) {
 _reactDom2.default.render(_react2.default.createElement(TabsApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 383 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19951,9 +20299,9 @@ var _componentPlayground = __webpack_require__(14);
 
 var _componentPlayground2 = _interopRequireDefault(_componentPlayground);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _TooltipsExample = __webpack_require__(699);
+var _TooltipsExample = __webpack_require__(700);
 
 var _TooltipsExample2 = _interopRequireDefault(_TooltipsExample);
 
@@ -20039,7 +20387,7 @@ var TooltipsApp = function TooltipsApp() {
 _reactDom2.default.render(_react2.default.createElement(TooltipsApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 384 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20057,9 +20405,9 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
-var _UtilityInlineGridExample = __webpack_require__(700);
+var _UtilityInlineGridExample = __webpack_require__(701);
 
 var _UtilityInlineGridExample2 = _interopRequireDefault(_UtilityInlineGridExample);
 
@@ -20152,7 +20500,7 @@ var UtilityComponentsApp = function UtilityComponentsApp() {
 _reactDom2.default.render(_react2.default.createElement(UtilityComponentsApp, null), document.getElementById('js-app'));
 
 /***/ }),
-/* 385 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -20450,7 +20798,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 386 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20501,7 +20849,7 @@ function removeCover() {
 }
 
 /***/ }),
-/* 387 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20512,7 +20860,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CoverSystem = undefined;
 
-var _helpers = __webpack_require__(386);
+var _helpers = __webpack_require__(387);
 
 var CoverSystem = _interopRequireWildcard(_helpers);
 
@@ -20521,7 +20869,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 exports.CoverSystem = CoverSystem;
 
 /***/ }),
-/* 388 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20572,7 +20920,7 @@ function removeModal() {
 }
 
 /***/ }),
-/* 389 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20583,7 +20931,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ModalSystem = undefined;
 
-var _helpers = __webpack_require__(388);
+var _helpers = __webpack_require__(389);
 
 var ModalSystem = _interopRequireWildcard(_helpers);
 
@@ -20592,7 +20940,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 exports.ModalSystem = ModalSystem;
 
 /***/ }),
-/* 390 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20622,7 +20970,7 @@ var _constants = __webpack_require__(88);
 
 var _constants2 = _interopRequireDefault(_constants);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -20728,7 +21076,7 @@ NotificationContainer.propTypes = {
 exports.default = (0, _reactGsapEnhancer2.default)()(NotificationContainer);
 
 /***/ }),
-/* 391 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20744,7 +21092,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _NotificationContainer = __webpack_require__(390);
+var _NotificationContainer = __webpack_require__(391);
 
 var _NotificationContainer2 = _interopRequireDefault(_NotificationContainer);
 
@@ -20752,7 +21100,7 @@ var _actions = __webpack_require__(112);
 
 var NotificationActions = _interopRequireWildcard(_actions);
 
-var _stores = __webpack_require__(393);
+var _stores = __webpack_require__(394);
 
 var _stores2 = _interopRequireDefault(_stores);
 
@@ -20831,7 +21179,7 @@ var NotificationsContainer = function (_React$Component) {
 exports.default = NotificationsContainer;
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20850,7 +21198,7 @@ var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _NotificationsContainer = __webpack_require__(391);
+var _NotificationsContainer = __webpack_require__(392);
 
 var _NotificationsContainer2 = _interopRequireDefault(_NotificationsContainer);
 
@@ -20873,7 +21221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 exports.NotificationActions = NotificationActions;
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20885,7 +21233,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _events = __webpack_require__(628);
+var _events = __webpack_require__(629);
 
 var _events2 = _interopRequireDefault(_events);
 
@@ -20993,7 +21341,7 @@ NotificationStore.dispatchToken = _dispatcher2.default.register(function (payloa
 exports.default = NotificationStore;
 
 /***/ }),
-/* 394 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21099,7 +21447,7 @@ var optimizedResize = exports.optimizedResize = function () {
 }(); // eslint-disable-line
 
 /***/ }),
-/* 395 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21117,7 +21465,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21199,7 +21547,7 @@ Alert.defaultProps = {
 exports.default = Alert;
 
 /***/ }),
-/* 396 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21254,7 +21602,7 @@ Bucket.defaultProps = {
 exports.default = Bucket;
 
 /***/ }),
-/* 397 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21296,7 +21644,7 @@ BucketBody.propTypes = {
 exports.default = BucketBody;
 
 /***/ }),
-/* 398 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21314,7 +21662,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ = __webpack_require__(9);
+var _ = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21364,7 +21712,7 @@ BucketHeader.propTypes = {
 exports.default = BucketHeader;
 
 /***/ }),
-/* 399 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21388,7 +21736,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _reactRouter = __webpack_require__(356);
+var _reactRouter = __webpack_require__(357);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21515,7 +21863,7 @@ Button.defaultProps = {
 exports.default = Button;
 
 /***/ }),
-/* 400 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21633,7 +21981,7 @@ Checkbox.defaultProps = {
 exports.default = Checkbox;
 
 /***/ }),
-/* 401 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21690,7 +22038,7 @@ Close.defaultProps = {
 exports.default = Close;
 
 /***/ }),
-/* 402 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21849,7 +22197,7 @@ Cover.defaultProps = {
 exports.default = Cover;
 
 /***/ }),
-/* 403 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21916,7 +22264,7 @@ CoverBody.propTypes = {
 exports.default = CoverBody;
 
 /***/ }),
-/* 404 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21956,7 +22304,7 @@ CoverFooter.propTypes = {
 exports.default = CoverFooter;
 
 /***/ }),
-/* 405 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21978,7 +22326,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22057,7 +22405,7 @@ CoverHeader.propTypes = {
 exports.default = CoverHeader;
 
 /***/ }),
-/* 406 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22083,7 +22431,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22177,10 +22525,6 @@ var Dropdown = function (_React$Component) {
         _this.props.onClick();
       }
     }, _this.handleClickOutside = function () {
-      if (_this.props.handleClose && _typeof(_this.props.handleClose === 'function')) {
-        _this.props.handleClose();
-      }
-
       var $dropdown = _reactDom2.default.findDOMNode(_this.dropdown); // eslint-disable-line react/no-find-dom-node
 
       // Close dropdown
@@ -22199,8 +22543,6 @@ var Dropdown = function (_React$Component) {
       _this.setState({
         activeKey: index
       });
-    }, _this.renderClose = function () {
-      return _react2.default.createElement(_components.Close, { onClick: _this.handleClickOutside, className: 'dropdown__close' });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -22233,12 +22575,6 @@ var Dropdown = function (_React$Component) {
         });
       }
     }
-
-    /**
-     * Render close button for dropdown
-     * @return {jsx}
-     */
-
   }, {
     key: 'render',
     value: function render() {
@@ -22289,8 +22625,7 @@ var Dropdown = function (_React$Component) {
         'dropdown__menu--top': position === 'top',
         'dropdown__menu--top dropdown__menu--right': position === 'top-right',
         'dropdown__menu--top dropdown__menu--center': position === 'top-center',
-        'dropdown__menu--wide': wide,
-        'dropdown__menu--has-close': this.props.manualClose
+        'dropdown__menu--wide': wide
       });
 
       var selectedLabel = null;
@@ -22342,7 +22677,6 @@ var Dropdown = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: dropdownMenuClasses },
-          this.props.manualClose ? this.renderClose() : null,
           hasFilter || disableScroll ? this.getChildren() : _react2.default.createElement(
             _components.DropdownMenuScroll,
             null,
@@ -22380,7 +22714,6 @@ Dropdown.propTypes = {
   onReverseStart: _react2.default.PropTypes.func,
   onStart: _react2.default.PropTypes.func,
   manualClose: _react2.default.PropTypes.bool,
-  handleClose: _react2.default.PropTypes.func,
   defaultOpen: _react2.default.PropTypes.bool
 };
 Dropdown.defaultProps = {
@@ -22396,13 +22729,12 @@ Dropdown.defaultProps = {
   onReverseStart: function onReverseStart() {},
   onStart: function onStart() {},
   manualClose: false,
-  defaultOpen: false,
-  handleClose: function handleClose() {}
+  defaultOpen: false
 };
 exports.default = Dropdown;
 
 /***/ }),
-/* 407 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22583,7 +22915,7 @@ DropdownFilter.defaultProps = {
 exports.default = DropdownFilter;
 
 /***/ }),
-/* 408 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22616,7 +22948,7 @@ DropdownMenuDivider.propTypes = {
 exports.default = DropdownMenuDivider;
 
 /***/ }),
-/* 409 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22658,7 +22990,7 @@ DropdownMenuHeader.propTypes = {
 exports.default = DropdownMenuHeader;
 
 /***/ }),
-/* 410 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22684,7 +23016,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22998,7 +23330,7 @@ DropdownMultiSelect.defaultProps = {
 exports.default = DropdownMultiSelect;
 
 /***/ }),
-/* 411 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23016,7 +23348,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _gsap = __webpack_require__(51);
 
-var _reactOnclickoutside = __webpack_require__(785);
+var _reactOnclickoutside = __webpack_require__(349);
 
 var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
 
@@ -23150,7 +23482,7 @@ DropdownWrapper.defaultProps = {
 exports.default = (0, _reactOnclickoutside2.default)(DropdownWrapper);
 
 /***/ }),
-/* 412 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23172,7 +23504,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23444,7 +23776,7 @@ Input.defaultProps = {
 exports.default = Input;
 
 /***/ }),
-/* 413 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23514,7 +23846,7 @@ Label.defaultProps = {
 exports.default = Label;
 
 /***/ }),
-/* 414 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23618,7 +23950,7 @@ LoaderCircle.defaultProps = {
 exports.default = LoaderCircle;
 
 /***/ }),
-/* 415 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23728,7 +24060,7 @@ LoaderPulse.defaultProps = {
 exports.default = LoaderPulse;
 
 /***/ }),
-/* 416 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23784,7 +24116,7 @@ Message.defaultProps = {
 exports.default = Message;
 
 /***/ }),
-/* 417 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23806,7 +24138,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _autosize = __webpack_require__(385);
+var _autosize = __webpack_require__(386);
 
 var _autosize2 = _interopRequireDefault(_autosize);
 
@@ -24008,7 +24340,7 @@ MessageBox.defaultProps = {
 exports.default = MessageBox;
 
 /***/ }),
-/* 418 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24186,7 +24518,7 @@ Modal.defaultProps = {
 exports.default = Modal;
 
 /***/ }),
-/* 419 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24223,7 +24555,7 @@ ModalBody.propTypes = {
 exports.default = ModalBody;
 
 /***/ }),
-/* 420 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24260,7 +24592,7 @@ ModalFooter.propTypes = {
 exports.default = ModalFooter;
 
 /***/ }),
-/* 421 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24282,7 +24614,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24373,7 +24705,7 @@ ModalHeader.defaultProps = {
 exports.default = ModalHeader;
 
 /***/ }),
-/* 422 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24476,7 +24808,7 @@ NavTabs.defaultProps = {
 exports.default = NavTabs;
 
 /***/ }),
-/* 423 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24494,7 +24826,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24548,7 +24880,7 @@ Pill.defaultProps = {
 exports.default = Pill;
 
 /***/ }),
-/* 424 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24637,7 +24969,7 @@ ProgressBar.defaultProps = {
 exports.default = ProgressBar;
 
 /***/ }),
-/* 425 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24794,7 +25126,7 @@ RadioGroup.defaultProps = {
 exports.default = RadioGroup;
 
 /***/ }),
-/* 426 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24908,7 +25240,7 @@ RhinoSwitch.defaultProps = {
 exports.default = RhinoSwitch;
 
 /***/ }),
-/* 427 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25089,7 +25421,7 @@ Select.defaultProps = {
 exports.default = Select;
 
 /***/ }),
-/* 428 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25107,7 +25439,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25204,7 +25536,7 @@ SystemAlert.defaultProps = {
 exports.default = SystemAlert;
 
 /***/ }),
-/* 429 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25270,7 +25602,7 @@ Table.defaultProps = {
 exports.default = Table;
 
 /***/ }),
-/* 430 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25359,7 +25691,7 @@ TabsContent.propTypes = {
 exports.default = TabsContent;
 
 /***/ }),
-/* 431 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25578,7 +25910,7 @@ Textarea.defaultProps = {
 exports.default = Textarea;
 
 /***/ }),
-/* 432 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25598,7 +25930,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _components = __webpack_require__(9);
+var _components = __webpack_require__(8);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25670,7 +26002,7 @@ Toast.defaultProps = {
 exports.default = Toast;
 
 /***/ }),
-/* 433 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25725,13 +26057,13 @@ UtilityInlineGrid.defaultProps = {
 exports.default = UtilityInlineGrid;
 
 /***/ }),
-/* 434 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(371);
+__webpack_require__(372);
 
 /* eslint-disable */
 
@@ -25743,78 +26075,77 @@ var currentUrl = urlSegments[urlSegments.length - 2];
 /* eslint-enable */
 switch (currentUrl) {
   case 'avatars':
-    __webpack_require__(361);
-    break;
-  case 'buckets':
     __webpack_require__(362);
     break;
-  case 'buttons':
+  case 'buckets':
     __webpack_require__(363);
     break;
-  case 'close':
+  case 'buttons':
     __webpack_require__(364);
     break;
-  case 'covers':
+  case 'close':
     __webpack_require__(365);
     break;
-  case 'datepicker':
+  case 'covers':
     __webpack_require__(366);
     break;
-  case 'dropdowns':
+  case 'datepicker':
     __webpack_require__(367);
     break;
-  case 'feedback':
+  case 'dropdowns':
     __webpack_require__(368);
     break;
-  case 'forms':
+  case 'feedback':
     __webpack_require__(369);
     break;
-  case 'icons':
+  case 'forms':
     __webpack_require__(370);
     break;
-  case 'labels':
-    __webpack_require__(372);
+  case 'icons':
+    __webpack_require__(371);
     break;
-  case 'lightbox':
+  case 'labels':
     __webpack_require__(373);
     break;
-  case 'loaders':
+  case 'lightbox':
     __webpack_require__(374);
     break;
-  case 'messages':
+  case 'loaders':
     __webpack_require__(375);
     break;
-  case 'modals':
+  case 'messages':
     __webpack_require__(376);
     break;
-  case 'navigation':
+  case 'modals':
     __webpack_require__(377);
     break;
-  case 'pills':
+  case 'navigation':
     __webpack_require__(378);
     break;
-  case 'progressbars':
+  case 'pills':
     __webpack_require__(379);
     break;
-  case 'scrollbars':
+  case 'progressbars':
     __webpack_require__(380);
     break;
-  case 'tables':
+  case 'scrollbars':
     __webpack_require__(381);
     break;
-  case 'tabs':
+  case 'tables':
     __webpack_require__(382);
     break;
-  case 'tooltips':
+  case 'tabs':
     __webpack_require__(383);
     break;
-  case 'utility-components':
+  case 'tooltips':
     __webpack_require__(384);
+    break;
+  case 'utility-components':
+    __webpack_require__(385);
     break;
 }
 
 /***/ }),
-/* 435 */,
 /* 436 */,
 /* 437 */,
 /* 438 */,
@@ -26006,7 +26337,8 @@ switch (currentUrl) {
 /* 624 */,
 /* 625 */,
 /* 626 */,
-/* 627 */
+/* 627 */,
+/* 628 */
 /***/ (function(module, exports) {
 
 module.exports = function(opts) {
@@ -26071,7 +26403,7 @@ ElementClass.prototype.toggle = function(className) {
 
 
 /***/ }),
-/* 628 */
+/* 629 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -26379,7 +26711,7 @@ function isUndefined(arg) {
 
 
 /***/ }),
-/* 629 */
+/* 630 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26425,7 +26757,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 630 */,
 /* 631 */,
 /* 632 */,
 /* 633 */,
@@ -26439,7 +26770,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /* 641 */,
 /* 642 */,
 /* 643 */,
-/* 644 */
+/* 644 */,
+/* 645 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -26451,11 +26783,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-module.exports.Dispatcher = __webpack_require__(645);
+module.exports.Dispatcher = __webpack_require__(646);
 
 
 /***/ }),
-/* 645 */
+/* 646 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26693,7 +27025,7 @@ module.exports = Dispatcher;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 646 */
+/* 647 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26755,7 +27087,7 @@ var loopAsync = exports.loopAsync = function loopAsync(turns, work, callback) {
 };
 
 /***/ }),
-/* 647 */
+/* 648 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26898,7 +27230,7 @@ var replaceLocation = exports.replaceLocation = function replaceLocation(locatio
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 648 */
+/* 649 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26941,7 +27273,7 @@ var replaceLocation = exports.replaceLocation = function replaceLocation(locatio
 };
 
 /***/ }),
-/* 649 */
+/* 650 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26961,7 +27293,7 @@ var _BrowserProtocol = __webpack_require__(140);
 
 var BrowserProtocol = _interopRequireWildcard(_BrowserProtocol);
 
-var _RefreshProtocol = __webpack_require__(648);
+var _RefreshProtocol = __webpack_require__(649);
 
 var RefreshProtocol = _interopRequireWildcard(_RefreshProtocol);
 
@@ -27041,7 +27373,7 @@ exports.default = createBrowserHistory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 650 */
+/* 651 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27063,7 +27395,7 @@ var _ExecutionEnvironment = __webpack_require__(141);
 
 var _DOMUtils = __webpack_require__(104);
 
-var _HashProtocol = __webpack_require__(647);
+var _HashProtocol = __webpack_require__(648);
 
 var HashProtocol = _interopRequireWildcard(_HashProtocol);
 
@@ -27195,7 +27527,7 @@ exports.default = createHashHistory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 651 */
+/* 652 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27342,7 +27674,7 @@ exports.default = createMemoryHistory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 652 */
+/* 653 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27399,9 +27731,9 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 
 /***/ }),
-/* 653 */,
 /* 654 */,
-/* 655 */
+/* 655 */,
+/* 656 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27461,13 +27793,13 @@ module.exports = keyMirror;
 
 
 /***/ }),
-/* 656 */,
-/* 657 */
+/* 657 */,
+/* 658 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var strictUriEncode = __webpack_require__(814);
+var strictUriEncode = __webpack_require__(813);
 var objectAssign = __webpack_require__(16);
 
 function encoderForArrayFormat(opts) {
@@ -27672,265 +28004,265 @@ exports.stringify = function (obj, opts) {
 
 
 /***/ }),
-/* 658 */
+/* 659 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <div className=\"site-example-alerts\">\n          <Alert title=\"This is a default alert!\">This is a default alert for random stuff. <a href=\"\">text link</a> | <a href=\"\">text link</a></Alert>\n\n          <Alert title=\"This is a default alert with a title icon!\" titleIcon=\"star\">Donec eu erat sit amet arcu consectetur tincidunt nec eu quam. Mauris eros tortor, venenatis in lorem vel, fringilla suscipit erat. Integer velit arcu, pulvinar eu bibendum et, eleifend eu neque</Alert>\n\n          <Alert title=\"This is a default alert with a title icon and it's dismissible!\" titleIcon=\"lock\" onDismiss={() => alert('dismissed!')}>This is a default alert for random stuff.</Alert>\n\n          <Alert title=\"This is a default alert with a title icon, it's dismissible, and it has no children!\" titleIcon=\"lock\" onDismiss={() => alert('dismissed!')} />\n\n          <Alert onDismiss={() => alert('dismissed!')}>This is a default alert without a title and is dismissible.</Alert>\n\n          <Alert onDismiss={() => alert('dismissed!')}><Icon icon=\"cog\" bump=\"up\"/> This is a default alert without a title and is dismissible.</Alert>\n\n          <Alert title=\"Danger\" titleIcon=\"warning\" type=\"danger\">\n            Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href=\"javascript:void(0)\">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className=\"u-text-normal\"><Checkbox inline name=\"exampleCheckbox666\" className=\"u-m-b-0\">Checkbox</Checkbox></span>\n          </Alert>\n\n          <Alert title=\"Default\" titleIcon=\"checkmark\" size=\"small\">\n            Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href=\"javascript:void(0)\">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className=\"u-text-normal\"><Checkbox inline name=\"exampleCheckbox66666\" className=\"u-m-b-0\">Checkbox</Checkbox></span>\n          </Alert>\n\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 659 */
+/* 660 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Avatar image=\"//source.unsplash.com/category/people/200x200\" name=\"Ben Bruning\" size=\"large\" type=\"member\" />\n          <Avatar image=\"//brokenimage.jpg\" name=\"Ben Bruning\" size=\"large\" type=\"member\" />\n          <Avatar name=\"Ben Bruning\" size=\"large\" type=\"member\" />\n          <Avatar size=\"large\" type=\"member\" />\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Avatar image=\"//bit.ly/1UfJ6KF\" name=\"Craig Anthony\" />\n            <Avatar image=\"//badimage.jpg\" name=\"Craig Anthony\" />\n            <Avatar name=\"Craig Anthony\" />\n            <Avatar />\n          </UtilityInlineGrid>\n        </div>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Avatar image=\"//source.unsplash.com/category/people/200x200\" name=\"Ian Greulich\" size=\"small\" type=\"member\" />\n            <Avatar image=\"//badimage.jpg\" name=\"Ian Greulich\" size=\"small\" type=\"member\" />\n            <Avatar name=\"Ian Greulich\" size=\"small\" type=\"member\" />\n            <Avatar size=\"small\" type=\"member\" />\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 660 */
+/* 661 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-buckets\">\n\n        <Bucket>\n          <BucketHeader avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}} title=\"Bucket Header\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader title=\"Bucket Header\" icon=\"pencil\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader title=\"Bucket Header With Background\" icon=\"pencil\" className=\"u-bg-gray-lightest\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader className=\"u-flex-justify-between\" title=\"Bucket Header With Extra Content\" icon=\"pencil\">\n            <div>\n              <a href=\"\" className=\"u-text-underline\">Edit</a> | <a href=\"\" className=\"u-text-underline\">Delete</a>\n            </div>\n          </BucketHeader>\n          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader className=\"u-bg-gray-lightest\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}}>Bucket Header Without Title Property</BucketHeader>\n          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>\n        </Bucket>\n        \n        <Bucket>\n          <BucketBody>Bucket body in a default bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket type=\"light\">\n          <BucketBody>Bucket body in a light bucket.</BucketBody>\n        </Bucket>\n\n\n        <Bucket type=\"primary\">\n          <BucketBody>Bucket body in a primary bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket size=\"small\">\n          <BucketBody>Bucket body in a small bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketBody className=\"u-bg-gray-lightest\">Bucket body with background.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <Table>\n          <thead>\n            <tr>\n              <th>#</th>\n              <th>First Name</th>\n              <th>Last Name</th>\n              <th>Username</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>1</td>\n              <td>Ben</td>\n              <td>Bruning</td>\n              <td>@bruning</td>\n            </tr>\n            <tr>\n              <td>2</td>\n              <td>Blake</td>\n              <td>Guilloud</td>\n              <td>@guilloud</td>\n            </tr>\n            <tr>\n              <td>3</td>\n              <td>Keaton</td>\n              <td>Foster</td>\n              <td>@foster</td>\n            </tr>\n          </tbody>\n        </Table>\n        </Bucket>\n        \n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 661 */
+/* 662 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-bucketheaders\">\n\n        <BucketHeader title=\"Bucket Header\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}} />\n\n        <BucketHeader title=\"Bucket Header\" avatar={{image: \"//badimage.jpg\", name: \"Robert Plant\", type: \"member\"}} />\n\n        <BucketHeader title=\"Bucket Header\" avatar={{name: \"Robert Plant\", type: \"member\"}} />\n\n        <BucketHeader title=\"Bucket Header\" avatar={{type: \"member\"}} />\n        \n        <BucketHeader title=\"Bucket Header\" icon=\"pencil\" />\n\n        <BucketHeader title=\"Bucket Header With Color\" icon=\"pencil\" className=\"u-text-danger\" />\n\n        <BucketHeader title=\"Bucket Header With Colored Icon\" icon=\"pencil\" iconClassName=\"u-text-success\" />\n\n        <BucketHeader title=\"Bucket Header Without Icon\" />\n\n        <BucketHeader className=\"u-flex-justify-between\" title=\"Bucket Header With Extra Content\" icon=\"sms\">\n          <div>\n            <a href=\"\" className=\"u-text-underline\">Edit</a> | <a href=\"\" className=\"u-text-underline\">Delete</a>\n          </div>\n        </BucketHeader>\n\n        <BucketHeader>\n          <Icon icon=\"sms\" className=\"u-m-r-sm\" /> Bucket Header Without Title or Icon Props\n        </BucketHeader>\n\n        <BucketHeader>\n          Bucket Header Without Title or Icon Props\n        </BucketHeader>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 662 */
+/* 663 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" blankWindow title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"outline-default\" route=\"/home\">Outline Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"btn__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 663 */
+/* 664 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-checkbox\">\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Checkboxes</label>\n          <Checkbox name=\"exampleCheckbox31\">Checkbox One</Checkbox>\n          <Checkbox name=\"exampleCheckbox32\">Checkbox Two</Checkbox>\n          <Checkbox name=\"exampleCheckbox33\">Checkbox Three</Checkbox>\n        </div>\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Checkboxes Inline</label>\n          <Checkbox inline name=\"exampleCheckbox311\">Checkbox One</Checkbox>\n          <Checkbox inline name=\"exampleCheckbox321\">Checkbox Two</Checkbox>\n          <Checkbox inline name=\"exampleCheckbox331\">Checkbox Three</Checkbox>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 664 */
+/* 665 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Close />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 665 */
+/* 666 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  state = {\n    firstName: '',\n    lastName: '',\n  }\n\n  onClick = () => {\n    CoverSystem.addCover(this.renderContent());\n  };\n\n  closeCover = () => {\n    CoverSystem.removeCover();\n  }\n\n  handleChange = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n    this.setState(newState);\n  }\n\n  saveChanges = () => {\n    const errors = {};\n\n    if (!this.state.firstName) {\n      errors.firstName = 'FirstName is required!';\n    }\n\n    if (!this.state.lastName) {\n      errors.lastName = 'LastName is required!';\n    }\n\n    const errorCount  = Object.keys(errors).length\n\n    if (errorCount > 0) {\n      CoverSystem.refreshCover(this.renderContent(errors));\n    } else {\n      alert('Changes were saved!');\n      this.closeCover();\n    }\n  }\n\n  renderContent = (errors) => {\n    const errorList = errors || {};\n\n    return (\n      <Cover>\n        <CoverHeader icon=\"pencil\" title=\"This is a sample Cover\" />\n        <CoverBody>\n          <div className=\"form\">\n            <div className=\"form__group\">\n              <Input label=\"First Name\" name=\"firstName\" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />\n            </div>\n            <div>\n              <Input label=\"Last Name\" name=\"lastName\" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />\n            </div>\n          </div>\n        </CoverBody>\n        <CoverFooter>\n          <UtilityInlineGrid size=\"small\" align=\"right\">\n            <Button type=\"default\" onClick={this.closeCover}>Close</Button>&nbsp;\n            <Button type=\"secondary\" onClick={this.saveChanges}>Save Changes</Button>\n          </UtilityInlineGrid>\n        </CoverFooter>\n      </Cover>\n    );\n  }\n\n  render() {\n    return (\n      <div>\n        <Button type=\"primary\" onClick={this.onClick}>Launch Cover</Button>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 666 */
+/* 667 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <CoverBody>\n        <div className=\"form\">\n          <div className=\"form__group\">\n            <Input label=\"First Name\" name=\"firstName\" initialValue=\"First Name\" validationMessage=\"\" required />\n          </div>\n          <div>\n            <Input label=\"Last Name\" name=\"lastName\" initialValue=\"\" validationMessage=\"LastName is required!\" required />\n          </div>\n        </div>\n      </CoverBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 667 */
+/* 668 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <CoverFooter>\n        <UtilityInlineGrid size=\"small\" align=\"right\">\n          <Button type=\"default\" onClick={this.closeCover}>Close</Button><Button type=\"secondary\" onClick={this.saveChanges}>Save Changes</Button>\n        </UtilityInlineGrid>\n      </CoverFooter>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 668 */
+/* 669 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <CoverHeader icon=\"cog\" title=\"This is a sample CoverHeader\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
-/* 669 */
+/* 670 */
 /***/ (function(module, exports) {
 
 module.exports = "class ComponentExample extends React.Component {\n  state = {\n    startDate: null,\n  };\n  _handleChange = (date) => {\n    this.setState({ startDate: date });\n  };\n  render() {\n    return (\n      <div className=\"row row--condensed\">\n        <div className=\"col-sm-3\">\n          <DatePicker className=\"form__control\" readOnly selected={this.state.startDate} onChange={this._handleChange} placeholderText=\"Click to select a date\" />\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);"
 
 /***/ }),
-/* 670 */
-/***/ (function(module, exports) {
-
-module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (index) => {\n    console.log('Run optional callback function', index);\n  };\n\n  render() {\n    return (\n    <UtilityInlineGrid>\n      <Dropdown label=\"Dropdown\" wide>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem label=\"Custom Click Item\" labelDesc=\"Click me and I will fire an alert.\" onClick={() => alert('clicked!')} />\n        <DropdownMenuItem label=\"Url Blank Window Item\" labelDesc=\"Click me and I will take you to a site that opens in a new browser window.\" url=\"http://www.rhinogram.com\" blankWindow />\n        <DropdownMenuItem label=\"Url Item\" labelDesc=\"Click me and I will take you to a new site in the same browser window.\" url=\"http://www.rhinogram.com\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem label=\"Separated Item\" />\n        <DropdownMenuDivider />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown label=\"Dropdown Select\" type=\"outline-primary\" onSelect={this.optionalCallbackFunction}>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem id={1} label=\"Item\" />\n        <DropdownMenuItem id={2} label=\"Another item\" />\n        <DropdownMenuItem id={3} label=\"A third item\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem id={4} label=\"A fourth item\" />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Contact\">\n          <DropdownMenuItem id={1} label=\"Item\" />\n          <DropdownMenuItem id={2} label=\"Another item\" />\n          <DropdownMenuItem id={3} label=\"A third item\" />\n          <DropdownMenuItem id={4} label=\"A fourth item\" />\n          <DropdownMenuItem id={5} label=\"A fifth item\" />\n          <DropdownMenuItem id={6} label=\"A sixth item\" />\n          <DropdownMenuItem id={7} label=\"A seventh item\" />\n          <DropdownMenuItem id={8} label=\"An eighth item\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Avatar\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Member\">\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Icon\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Icon\">\n          <DropdownMenuItem id={1} label=\"Item One\" icon=\"cog\" />\n          <DropdownMenuItem id={2} label=\"Item Two\" icon=\"warning\" />\n          <DropdownMenuItem id={3} label=\"Item Three\" icon=\"pencil\" />\n          <DropdownMenuItem id={4} label=\"Item Four\" icon=\"search\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Search to add a contact\" block type=\"link\" className=\"u-p-l-0\" hideCaret icon=\"add\">\n        <DropdownFilter placeholder=\"Search contacts\">\n          <DropdownMenuItemWild toggleDropdown>\n            <Button type=\"link\" className=\"u-flex u-p-l-0\"><Icon icon=\"add\" />&nbsp;Create new contact</Button>\n          </DropdownMenuItemWild>\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Dropdown with Wild Content\" wide>\n        <DropdownMenuItemWild>\n          <p>DropdownMenuItemWild with a paragraph and image.</p>\n          <img className=\"u-img-fluid\" src=\"//source.unsplash.com/category/people/200x200\"/>\n        </DropdownMenuItemWild>\n        <DropdownMenuItemWild toggleDropdown>\n          <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>\n          <Button block type=\"outline-primary\" size=\"small\" onClick={() => alert('clicked!')}>Button Up In Here</Button>\n        </DropdownMenuItemWild>\n      </Dropdown>\n    </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
-
-/***/ }),
 /* 671 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <DropdownMenuHeader label=\"Dropdown Menu Header\" />\n      <DropdownMenuHeader label=\"Dropdown Menu Header\" className=\"u-text-primary\" />\n      <DropdownMenuHeader label=\"Dropdown Menu Header\" className=\"u-text-danger\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (index) => {\n    console.log('Run optional callback function', index);\n  };\n\n  render() {\n    return (\n    <UtilityInlineGrid>\n      <Dropdown label=\"Dropdown\" wide>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem label=\"Custom Click Item\" labelDesc=\"Click me and I will fire an alert.\" onClick={() => alert('clicked!')} />\n        <DropdownMenuItem label=\"Url Blank Window Item\" labelDesc=\"Click me and I will take you to a site that opens in a new browser window.\" url=\"http://www.rhinogram.com\" blankWindow />\n        <DropdownMenuItem label=\"Url Item\" labelDesc=\"Click me and I will take you to a new site in the same browser window.\" url=\"http://www.rhinogram.com\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem label=\"Separated Item\" />\n        <DropdownMenuDivider />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown label=\"Dropdown Select\" type=\"outline-primary\" onSelect={this.optionalCallbackFunction}>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem id={1} label=\"Item\" />\n        <DropdownMenuItem id={2} label=\"Another item\" />\n        <DropdownMenuItem id={3} label=\"A third item\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem id={4} label=\"A fourth item\" />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Contact\">\n          <DropdownMenuItem id={1} label=\"Item\" />\n          <DropdownMenuItem id={2} label=\"Another item\" />\n          <DropdownMenuItem id={3} label=\"A third item\" />\n          <DropdownMenuItem id={4} label=\"A fourth item\" />\n          <DropdownMenuItem id={5} label=\"A fifth item\" />\n          <DropdownMenuItem id={6} label=\"A sixth item\" />\n          <DropdownMenuItem id={7} label=\"A seventh item\" />\n          <DropdownMenuItem id={8} label=\"An eighth item\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Avatar\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Member\">\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Icon\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Icon\">\n          <DropdownMenuItem id={1} label=\"Item One\" icon=\"cog\" />\n          <DropdownMenuItem id={2} label=\"Item Two\" icon=\"warning\" />\n          <DropdownMenuItem id={3} label=\"Item Three\" icon=\"pencil\" />\n          <DropdownMenuItem id={4} label=\"Item Four\" icon=\"search\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Search to add a contact\" block type=\"link\" className=\"u-p-l-0\" hideCaret icon=\"add\">\n        <DropdownFilter placeholder=\"Search contacts\">\n          <DropdownMenuItemWild toggleDropdown>\n            <Button type=\"link\" className=\"u-flex u-p-l-0\"><Icon icon=\"add\" />&nbsp;Create new contact</Button>\n          </DropdownMenuItemWild>\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Dropdown with Wild Content\" wide>\n        <DropdownMenuItemWild>\n          <p>DropdownMenuItemWild with a paragraph and image.</p>\n          <img className=\"u-img-fluid\" src=\"//source.unsplash.com/category/people/200x200\"/>\n        </DropdownMenuItemWild>\n        <DropdownMenuItemWild toggleDropdown>\n          <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>\n          <Button block type=\"outline-primary\" size=\"small\" onClick={() => alert('clicked!')}>Button Up In Here</Button>\n        </DropdownMenuItemWild>\n      </Dropdown>\n      <Dropdown manualClose label=\"Dropdown with manual close\" wide>\n        <DropdownMenuItemWild>\n          <Close />\n          <p>Here's some wild content!</p>\n        </DropdownMenuItemWild>\n      </Dropdown>\n    </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 672 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <DropdownMenuItem label=\"Custom click Item\" onClick={() => alert('clicked!')} />\n      <DropdownMenuItem label=\"Url Blank Window Item\" url=\"http://www.rhinogram.com\" blankWindow />\n      <DropdownMenuItem label=\"Route Item\" route=\"/someroute/\"  />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Active Item\" active />\n      <DropdownMenuItem label=\"Disabled Item\" disabled />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Ian Avatar\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} route=\"/someroute/\" />\n      <DropdownMenuItem label=\"Paul Avatar\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n      <DropdownMenuItem label=\"Rob Avatar\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Ian Avatar\" labelDesc=\"Programming Master\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} route=\"/someroute/\" />\n      <DropdownMenuItem label=\"Paul Avatar\" labelDesc=\"Designer Extraordinaire\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n      <DropdownMenuItem label=\"Ben Avatar\" labelDesc=\"The Grinder, Ball Dropper, OB Hitter, Putt Misser\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n      <DropdownMenuItem label=\"Ben Avatar\" labelDesc=\"The Grinder, Ball Dropper, OB Hitter, Putt Misser\" icon=\"cog\" />\n      <DropdownMenuDivider />\n      <DropdownMenuItem icon=\"sms\" label=\"Icon Item With a Really Long Name\" route=\"/someroute/\" />\n      <DropdownMenuItem icon=\"email\" label=\"Icon Item\" />\n      <DropdownMenuItem icon=\"lock\" label=\"Icon Item\" />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Dropdown Menu Item One\" labelDesc=\"Label description for dropdown menu item.\" route=\"/someroute/\"  />\n      <DropdownMenuItem label=\"Dropdown Menu Item Two\" labelDesc=\"Label description for dropdown menu item.\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Three\" labelDesc=\"Label description for dropdown menu item.\" active />\n      <DropdownMenuItem label=\"Dropdown Menu Item Four\" labelDesc=\"Label description for dropdown menu item.\" />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Dropdown Menu Item One\" labelDesc=\"Label description for dropdown menu item.\" icon=\"sms\" route=\"/someroute/\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Two\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-twitter\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Three\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-circle-facebook\" active />\n      <DropdownMenuDivider />\n      <DropdownMenuItem icon=\"sms\" label=\"Icon Item\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item One\" labelDesc=\"Label description for dropdown menu item.\" icon=\"lock\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Two\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-twitter\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Three\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-circle-facebook\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <DropdownMenuHeader label=\"Dropdown Menu Header\" />\n      <DropdownMenuHeader label=\"Dropdown Menu Header\" className=\"u-text-primary\" />\n      <DropdownMenuHeader label=\"Dropdown Menu Header\" className=\"u-text-danger\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 673 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <p>This component allows you to add anything you want to a dropdown. Use the <code>toggleDropdown</code> property if you want the dropdown to close after DropdownMenuItemWild is clicked.</p>\n      <DropdownMenuItemWild>Put whatever you want in here!</DropdownMenuItemWild>\n      <DropdownMenuItemWild><img className=\"u-img-fluid\" src=\"//source.unsplash.com/category/people/200x200\"/></DropdownMenuItemWild>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <DropdownMenuItem label=\"Custom click Item\" onClick={() => alert('clicked!')} />\n      <DropdownMenuItem label=\"Url Blank Window Item\" url=\"http://www.rhinogram.com\" blankWindow />\n      <DropdownMenuItem label=\"Route Item\" route=\"/someroute/\"  />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Active Item\" active />\n      <DropdownMenuItem label=\"Disabled Item\" disabled />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Ian Avatar\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} route=\"/someroute/\" />\n      <DropdownMenuItem label=\"Paul Avatar\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n      <DropdownMenuItem label=\"Rob Avatar\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Ian Avatar\" labelDesc=\"Programming Master\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} route=\"/someroute/\" />\n      <DropdownMenuItem label=\"Paul Avatar\" labelDesc=\"Designer Extraordinaire\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n      <DropdownMenuItem label=\"Ben Avatar\" labelDesc=\"The Grinder, Ball Dropper, OB Hitter, Putt Misser\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n      <DropdownMenuItem label=\"Ben Avatar\" labelDesc=\"The Grinder, Ball Dropper, OB Hitter, Putt Misser\" icon=\"cog\" />\n      <DropdownMenuDivider />\n      <DropdownMenuItem icon=\"sms\" label=\"Icon Item With a Really Long Name\" route=\"/someroute/\" />\n      <DropdownMenuItem icon=\"email\" label=\"Icon Item\" />\n      <DropdownMenuItem icon=\"lock\" label=\"Icon Item\" />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Dropdown Menu Item One\" labelDesc=\"Label description for dropdown menu item.\" route=\"/someroute/\"  />\n      <DropdownMenuItem label=\"Dropdown Menu Item Two\" labelDesc=\"Label description for dropdown menu item.\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Three\" labelDesc=\"Label description for dropdown menu item.\" active />\n      <DropdownMenuItem label=\"Dropdown Menu Item Four\" labelDesc=\"Label description for dropdown menu item.\" />\n      <DropdownMenuDivider />\n      <DropdownMenuItem label=\"Dropdown Menu Item One\" labelDesc=\"Label description for dropdown menu item.\" icon=\"sms\" route=\"/someroute/\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Two\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-twitter\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Three\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-circle-facebook\" active />\n      <DropdownMenuDivider />\n      <DropdownMenuItem icon=\"sms\" label=\"Icon Item\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item One\" labelDesc=\"Label description for dropdown menu item.\" icon=\"lock\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Two\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-twitter\" />\n      <DropdownMenuItem label=\"Dropdown Menu Item Three\" labelDesc=\"Label description for dropdown menu item.\" icon=\"logo-circle-facebook\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 674 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (action, index, keys) => {\n    console.log('Run optional callback function', action, index, keys);\n  };\n\n  render() {\n    return (\n    <div>\n      <DropdownMultiSelect block placeholder=\"Select these people...\" type=\"primary\" onSelect={this.optionalCallbackFunction}>\n        <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n        <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n        <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n        <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n        <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n        <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n        <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n        <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n        <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n        <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n        <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        <DropdownMenuItem id={12} icon=\"sms\" label=\"Icon Item\" />\n        <DropdownMenuItem id={13} icon=\"email\" label=\"Icon Item\" />\n        <DropdownMenuItem id={14} icon=\"lock\" label=\"Icon Item\" />\n      </DropdownMultiSelect>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <p>This component allows you to add anything you want to a dropdown. Use the <code>toggleDropdown</code> property if you want the dropdown to close after DropdownMenuItemWild is clicked.</p>\n      <DropdownMenuItemWild>Put whatever you want in here!</DropdownMenuItemWild>\n      <DropdownMenuItemWild><img className=\"u-img-fluid\" src=\"//source.unsplash.com/category/people/200x200\"/></DropdownMenuItemWild>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 675 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div style={{fontSize:'4rem'}}>\n        <Icon icon=\"cog\" />\n        <Icon icon=\"chevron-right\" />\n        <Icon icon=\"warning\" />\n        <Icon icon=\"email\" bump=\"down\" />\n        <Icon icon=\"arrow-right\" bump=\"up\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (action, index, keys) => {\n    console.log('Run optional callback function', action, index, keys);\n  };\n\n  render() {\n    return (\n    <div>\n      <DropdownMultiSelect block placeholder=\"Select these people...\" type=\"primary\" onSelect={this.optionalCallbackFunction}>\n        <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n        <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n        <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n        <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n        <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n        <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n        <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n        <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n        <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n        <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n        <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        <DropdownMenuItem id={12} icon=\"sms\" label=\"Icon Item\" />\n        <DropdownMenuItem id={13} icon=\"email\" label=\"Icon Item\" />\n        <DropdownMenuItem id={14} icon=\"lock\" label=\"Icon Item\" />\n      </DropdownMultiSelect>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 676 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-inputs\">\n        <Input name=\"exampleInputFirstName31\" label=\"First Name\" placeholder=\"First Name\" type=\"text\" required />\n        <Input name=\"exampleInputLastName31\" label=\"Last Name\" placeholder=\"Last Name\" type=\"text\" required />\n        <Input name=\"exampleInputPassword31\" placeholder=\"Password\" type=\"password\" />\n        <Input addon=\"both\" type=\"text\" placeholder=\"Lorem ipsum dolor sit\">\n          <span>Amount $</span>\n          <span>.00</span>\n        </Input>\n        <Input name=\"exampleInputText0202\" label=\"Clear Input\" type=\"text\" clear />\n        <Input name=\"exampleInputText022\" label=\"Autocomplete off\" autoComplete=\"off\" type=\"text\" />\n        <Input name=\"exampleInputText022\" label=\"Autocapitalize off\" autoCapitalize=\"none\" type=\"text\" />\n        <Input name=\"exampleInputText002\" placeholder=\"Naked Input\" type=\"text\" naked />\n        <Input name=\"exampleInputValidation\" label=\"Validation Message\" initialValue=\"bademail.com\" type=\"email\" validationMessage=\"This is not a valid email address.\" />\n        <Input name=\"exampleInputExplanation\" label=\"Explanation Message\" initialValue=\"Lorem ipsum dolor\" type=\"text\" explanationMessage=\"This is an explanation message to help user.\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div style={{fontSize:'4rem'}}>\n        <Icon icon=\"cog\" />\n        <Icon icon=\"chevron-right\" />\n        <Icon icon=\"warning\" />\n        <Icon icon=\"email\" bump=\"down\" />\n        <Icon icon=\"arrow-right\" bump=\"up\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 677 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <Label label=\"ben bruning\" />\n        <Label type=\"secondary\" label=\"craig anthony\" />\n      </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-inputs\">\n        <Input name=\"exampleInputFirstName31\" label=\"First Name\" placeholder=\"First Name\" type=\"text\" required />\n        <Input name=\"exampleInputLastName31\" label=\"Last Name\" placeholder=\"Last Name\" type=\"text\" required />\n        <Input name=\"exampleInputPassword31\" placeholder=\"Password\" type=\"password\" />\n        <Input addon=\"both\" type=\"text\" placeholder=\"Lorem ipsum dolor sit\">\n          <span>Amount $</span>\n          <span>.00</span>\n        </Input>\n        <Input name=\"exampleInputText0202\" label=\"Clear Input\" type=\"text\" clear />\n        <Input name=\"exampleInputText022\" label=\"Autocomplete off\" autoComplete=\"off\" type=\"text\" />\n        <Input name=\"exampleInputText022\" label=\"Autocapitalize off\" autoCapitalize=\"none\" type=\"text\" />\n        <Input name=\"exampleInputText002\" placeholder=\"Naked Input\" type=\"text\" naked />\n        <Input name=\"exampleInputValidation\" label=\"Validation Message\" initialValue=\"bademail.com\" type=\"email\" validationMessage=\"This is not a valid email address.\" />\n        <Input name=\"exampleInputExplanation\" label=\"Explanation Message\" initialValue=\"Lorem ipsum dolor\" type=\"text\" explanationMessage=\"This is an explanation message to help user.\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 678 */
 /***/ (function(module, exports) {
 
-module.exports = "const images = [\n  '//placekitten.com/1500/500',\n  '//placekitten.com/4000/3000',\n  '//placekitten.com/800/1200',\n  '//placekitten.com/1500/1500',\n];\n\nclass ComponentExample extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      photoIndex: 0,\n      isOpen: false,\n    };\n  }\n\n  render() {\n    const {\n      photoIndex,\n      isOpen,\n    } = this.state;\n\n    return (\n      <div>\n        <Button onClick={() => this.setState({ isOpen: true })}>Open Lightbox</Button> {isOpen && <Lightbox\n          mainSrc={images[photoIndex]}\n          nextSrc={images[(photoIndex + 1) % images.length]}\n          prevSrc={images[(photoIndex + (images.length - 1)) % images.length]}\n          onCloseRequest={() => this.setState({ isOpen: false })}\n          onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + (images.length - 1)) % images.length })}\n          onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}\n        />\n        }\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <Label label=\"ben bruning\" />\n        <Label type=\"secondary\" label=\"craig anthony\" />\n      </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 679 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <LoaderCircle size=\"small\" />\n        <LoaderCircle />\n        <LoaderCircle size=\"large\" />\n        <LoaderCircle size=\"small\" type=\"primary\" />\n        <LoaderCircle type=\"primary\" />\n        <LoaderCircle size=\"large\" type=\"primary\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "const images = [\n  '//placekitten.com/1500/500',\n  '//placekitten.com/4000/3000',\n  '//placekitten.com/800/1200',\n  '//placekitten.com/1500/1500',\n];\n\nclass ComponentExample extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {\n      photoIndex: 0,\n      isOpen: false,\n    };\n  }\n\n  render() {\n    const {\n      photoIndex,\n      isOpen,\n    } = this.state;\n\n    return (\n      <div>\n        <Button onClick={() => this.setState({ isOpen: true })}>Open Lightbox</Button> {isOpen && <Lightbox\n          mainSrc={images[photoIndex]}\n          nextSrc={images[(photoIndex + 1) % images.length]}\n          prevSrc={images[(photoIndex + (images.length - 1)) % images.length]}\n          onCloseRequest={() => this.setState({ isOpen: false })}\n          onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + (images.length - 1)) % images.length })}\n          onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}\n        />\n        }\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 680 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <LoaderPulse type=\"secondary\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <LoaderCircle size=\"small\" />\n        <LoaderCircle />\n        <LoaderCircle size=\"large\" />\n        <LoaderCircle size=\"small\" type=\"primary\" />\n        <LoaderCircle type=\"primary\" />\n        <LoaderCircle size=\"large\" type=\"primary\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 681 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <div>\n          <Message direction=\"outbound\" type=\"note\">\n            This is a note.\n          </Message>\n        </div>\n        <div>\n          <Message direction=\"inbound\">\n            This is a default message.\n          </Message>\n        </div>\n      </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <LoaderPulse type=\"secondary\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 682 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-messageBox\">\n        <MessageBox label=\"Bio\" name=\"biography\" rows={1} placeholder=\"I like messages!\" />\n      </div>\n    )\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <div>\n          <Message direction=\"outbound\" type=\"note\">\n            This is a note.\n          </Message>\n        </div>\n        <div>\n          <Message direction=\"inbound\">\n            This is a default message.\n          </Message>\n        </div>\n      </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 683 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  state = {\n    firstName: '',\n    lastName: '',\n  }\n\n  onClick = () => {\n    ModalSystem.addModal(this.renderContent());\n  };\n\n  closeModal = () => {\n    ModalSystem.removeModal();\n  }\n\n  handleChange = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n    this.setState(newState);\n  }\n\n  saveChanges = () => {\n    const errors = {};\n\n    if (!this.state.firstName) {\n      errors.firstName = 'FirstName is required!';\n    }\n\n    if (!this.state.lastName) {\n      errors.lastName = 'LastName is required!';\n    }\n\n    const errorCount  = Object.keys(errors).length\n\n    if (errorCount > 0) {\n      ModalSystem.refreshModal(this.renderContent(errors));\n    } else {\n      alert('Changes were saved!');\n      this.closeModal();\n    }\n  }\n\n  renderContent = (errors) => {\n    const errorList = errors || {};\n\n    return (\n      <Modal>\n        <ModalHeader icon=\"pencil\" title=\"Sample Modal\" />\n        <ModalBody>\n          <div className=\"form\">\n              <Input label=\"First Name\" name=\"firstName\" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />\n              <Input className=\"u-m-b-0\" label=\"Last Name\" name=\"lastName\" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />\n          </div>\n        </ModalBody>\n        <ModalFooter>\n          <UtilityInlineGrid size=\"small\" align=\"right\">\n            <Button type=\"default\" onClick={this.closeModal}>Close</Button>&nbsp;\n            <Button type=\"primary\" onClick={this.saveChanges}>Save Changes</Button>\n          </UtilityInlineGrid>\n        </ModalFooter>\n      </Modal>\n    );\n  }\n\n  render() {\n    return (\n      <div>\n        <Button type=\"primary\" onClick={this.onClick}>Launch Modal</Button>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-messageBox\">\n        <MessageBox label=\"Bio\" name=\"biography\" rows={1} placeholder=\"I like messages!\" />\n      </div>\n    )\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 684 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalBody>\n        <div className=\"form\">\n          <div className=\"form__group\">\n            <Input label=\"First Name\" name=\"firstName\" validationMessage=\"FirstName is required!\" required />\n          </div>\n          <div>\n            <Input label=\"Last Name\" name=\"lastName\" />\n          </div>\n        </div>\n      </ModalBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  state = {\n    firstName: '',\n    lastName: '',\n  }\n\n  onClick = () => {\n    ModalSystem.addModal(this.renderContent());\n  };\n\n  closeModal = () => {\n    ModalSystem.removeModal();\n  }\n\n  handleChange = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n    this.setState(newState);\n  }\n\n  saveChanges = () => {\n    const errors = {};\n\n    if (!this.state.firstName) {\n      errors.firstName = 'FirstName is required!';\n    }\n\n    if (!this.state.lastName) {\n      errors.lastName = 'LastName is required!';\n    }\n\n    const errorCount  = Object.keys(errors).length\n\n    if (errorCount > 0) {\n      ModalSystem.refreshModal(this.renderContent(errors));\n    } else {\n      alert('Changes were saved!');\n      this.closeModal();\n    }\n  }\n\n  renderContent = (errors) => {\n    const errorList = errors || {};\n\n    return (\n      <Modal>\n        <ModalHeader icon=\"pencil\" title=\"Sample Modal\" />\n        <ModalBody>\n          <div className=\"form\">\n              <Input label=\"First Name\" name=\"firstName\" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />\n              <Input className=\"u-m-b-0\" label=\"Last Name\" name=\"lastName\" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />\n          </div>\n        </ModalBody>\n        <ModalFooter>\n          <UtilityInlineGrid size=\"small\" align=\"right\">\n            <Button type=\"default\" onClick={this.closeModal}>Close</Button>&nbsp;\n            <Button type=\"primary\" onClick={this.saveChanges}>Save Changes</Button>\n          </UtilityInlineGrid>\n        </ModalFooter>\n      </Modal>\n    );\n  }\n\n  render() {\n    return (\n      <div>\n        <Button type=\"primary\" onClick={this.onClick}>Launch Modal</Button>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 685 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalFooter>\n        <UtilityInlineGrid size=\"small\" align=\"right\">\n          <Button type=\"default\">Close</Button>&nbsp;\n          <Button type=\"secondary\">Save Changes</Button>\n        </UtilityInlineGrid>\n      </ModalFooter>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalBody>\n        <div className=\"form\">\n          <div className=\"form__group\">\n            <Input label=\"First Name\" name=\"firstName\" validationMessage=\"FirstName is required!\" required />\n          </div>\n          <div>\n            <Input label=\"Last Name\" name=\"lastName\" />\n          </div>\n        </div>\n      </ModalBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 686 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalHeader icon=\"pencil\" title=\"This is a sample ModalHeader\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalFooter>\n        <UtilityInlineGrid size=\"small\" align=\"right\">\n          <Button type=\"default\">Close</Button>&nbsp;\n          <Button type=\"secondary\">Save Changes</Button>\n        </UtilityInlineGrid>\n      </ModalFooter>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 687 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n\n  state = {\n    activeKey: 1,\n  };\n\n  updateActiveKey = (index) => {\n    this.setState({\n      activeKey: index,\n    });\n  };\n\n  render() {\n    return (\n    <div>\n      <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>\n        <NavTabsItem id={1}>Tab One</NavTabsItem>\n        <NavTabsItem id={2}>Tab Two</NavTabsItem>\n        <NavTabsItem id={3}>Tab Three</NavTabsItem>\n      </NavTabs>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalHeader icon=\"pencil\" title=\"This is a sample ModalHeader\" />\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 688 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <Pill label=\"Default Pill\" icon=\"cog\" />\n        <Pill label=\"Default Pill\" />\n        <Pill label=\"Default Pill Disabled\" disabled />\n        <Pill label=\"Neutral Pill\" type=\"neutral\" icon=\"cog\" />\n        <Pill label=\"Neutral Pill\" type=\"neutral\" />\n        <Pill label=\"Neutral Pill Disabled\" type=\"neutral\" disabled />\n        <br />\n        <Pill label=\"Click Me\" onClick={() => alert('clicked!')} />\n      </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n\n  state = {\n    activeKey: 1,\n  };\n\n  updateActiveKey = (index) => {\n    this.setState({\n      activeKey: index,\n    });\n  };\n\n  render() {\n    return (\n    <div>\n      <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>\n        <NavTabsItem id={1}>Tab One</NavTabsItem>\n        <NavTabsItem id={2}>Tab Two</NavTabsItem>\n        <NavTabsItem id={3}>Tab Three</NavTabsItem>\n      </NavTabs>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 689 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} className=\"u-m-b\" />\n        <ProgressBar progress={60} showLabel type=\"primary\" className=\"u-m-b\" />\n        <ProgressBar progress={90} showLabel type=\"temperature\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <Pill label=\"Default Pill\" icon=\"cog\" />\n        <Pill label=\"Default Pill\" />\n        <Pill label=\"Default Pill Disabled\" disabled />\n        <Pill label=\"Neutral Pill\" type=\"neutral\" icon=\"cog\" />\n        <Pill label=\"Neutral Pill\" type=\"neutral\" />\n        <Pill label=\"Neutral Pill Disabled\" type=\"neutral\" disabled />\n        <br />\n        <Pill label=\"Click Me\" onClick={() => alert('clicked!')} />\n      </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 690 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (value) => {\n     console.log('Run optional callback function', value);\n   };\n\n  render() {\n    return (\n      <div className=\"site-example-radio\">\n        <RadioGroup name=\"exampleRadio4\" label=\"Radios\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n        <RadioGroup inline name=\"exampleRadio44\" label=\"Radios Inline\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n      \t<ProgressBar progress={30} className=\"u-m-b\" />\n        <ProgressBar progress={60} showLabel type=\"primary\" className=\"u-m-b\" />\n        <ProgressBar progress={90} showLabel type=\"temperature\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 691 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-switch\">\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Switcher</label>\n          <RhinoSwitch name=\"exampleSwitch4\" />\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (value) => {\n     console.log('Run optional callback function', value);\n   };\n\n  render() {\n    return (\n      <div className=\"site-example-radio\">\n        <RadioGroup name=\"exampleRadio4\" label=\"Radios\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n        <RadioGroup inline name=\"exampleRadio44\" label=\"Radios Inline\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 692 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Scrollbars style={{ height: 200, maxWidth: 600 }} className=\"u-bg-gray-lightest\">\n              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n            </Scrollbars>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-switch\">\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Switcher</label>\n          <RhinoSwitch name=\"exampleSwitch4\" />\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 693 */
 /***/ (function(module, exports) {
 
-module.exports = "var selectOpts = [\n  { id: 1, value: 'Option One' },\n  { id: 2, value: 'Option Two' },\n  { id: 3, value: 'Option Three' },\n  { id: 4, value: 'Option Four' },\n];\n\nclass ComponentExample extends React.Component {\n  handleSelect = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n\n    console.log(newState);\n  }\n\n  render() {\n    return (\n      <div className=\"site-example-selects\">\n        <Select onSelect={this.handleSelect} selected={1} name=\"mySelect\" label=\"Choose One\" options={selectOpts} />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Scrollbars style={{ height: 200, maxWidth: 600 }} className=\"u-bg-gray-lightest\">\n              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n            </Scrollbars>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);"
 
 /***/ }),
 /* 694 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <div className=\"site-example-systemalerts\">\n          <SystemAlert type=\"danger\" icon=\"warning\" body=\"Scheduled Maintenance Notification: Sunday August 15, 8:00 AM–10:00 EST.\" url=\"http://www.google.com\" urlText=\"Learn more\" />\n          <SystemAlert body=\"Your are currently in offline mode.\" />\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "var selectOpts = [\n  { id: 1, value: 'Option One' },\n  { id: 2, value: 'Option Two' },\n  { id: 3, value: 'Option Three' },\n  { id: 4, value: 'Option Four' },\n];\n\nclass ComponentExample extends React.Component {\n  handleSelect = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n\n    console.log(newState);\n  }\n\n  render() {\n    return (\n      <div className=\"site-example-selects\">\n        <Select onSelect={this.handleSelect} selected={1} name=\"mySelect\" label=\"Choose One\" options={selectOpts} />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 695 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-tables\">\n        <Table bordered>\n          <thead>\n            <tr>\n              <th>#</th>\n              <th>First Name</th>\n              <th>Last Name</th>\n              <th>Username</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>1</td>\n              <td>Ben</td>\n              <td>Bruning</td>\n              <td>@bruning</td>\n            </tr>\n            <tr>\n              <td>2</td>\n              <td>Blake</td>\n              <td>Guilloud</td>\n              <td>@guilloud</td>\n            </tr>\n            <tr>\n              <td>3</td>\n              <td>Keaton</td>\n              <td>Foster</td>\n              <td>@foster</td>\n            </tr>\n          </tbody>\n        </Table>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <div className=\"site-example-systemalerts\">\n          <SystemAlert type=\"danger\" icon=\"warning\" body=\"Scheduled Maintenance Notification: Sunday August 15, 8:00 AM–10:00 EST.\" url=\"http://www.google.com\" urlText=\"Learn more\" />\n          <SystemAlert body=\"Your are currently in offline mode.\" />\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 696 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  state = {\n    activeKey: 1,\n  };\n\n  updateActiveKey = (index) => {\n    this.setState({\n      activeKey: index,\n    });\n  };\n\n  render() {\n    return (\n    <div>\n      <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>\n        <NavTabsItem id={1}>Tab One</NavTabsItem>\n        <NavTabsItem id={2}>Tab Two</NavTabsItem>\n        <NavTabsItem id={3}>Tab Three</NavTabsItem>\n      </NavTabs>\n      <TabsContent activeKey={this.state.activeKey} >\n        <TabContentPane id={1}>\n          <h5>Tab One Content Pane</h5>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>\n          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>\n        </TabContentPane>\n        <TabContentPane id={2}>\n          <h5>Tab Two Content Pane</h5>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>\n          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>\n        </TabContentPane>\n        <TabContentPane id={3}>\n          <h5>Tab Three Content Pane</h5>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>\n          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>\n        </TabContentPane>\n      </TabsContent>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-tables\">\n        <Table bordered>\n          <thead>\n            <tr>\n              <th>#</th>\n              <th>First Name</th>\n              <th>Last Name</th>\n              <th>Username</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>1</td>\n              <td>Ben</td>\n              <td>Bruning</td>\n              <td>@bruning</td>\n            </tr>\n            <tr>\n              <td>2</td>\n              <td>Blake</td>\n              <td>Guilloud</td>\n              <td>@guilloud</td>\n            </tr>\n            <tr>\n              <td>3</td>\n              <td>Keaton</td>\n              <td>Foster</td>\n              <td>@foster</td>\n            </tr>\n          </tbody>\n        </Table>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 697 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-textareas\">\n        <Textarea label=\"Text Area\" name=\"exampleTextArea\" rows={3} placeholder=\"I like pizza!\" />\n        <Textarea label=\"Text Area with Explanation Message\" name=\"exampleExplanationTextArea\" rows={3} placeholder=\"Text area with explanation message\" explanationMessage=\"This is an explanation message to help the user.\" />\n        <Textarea label=\"Text Area with Validation Message\" name=\"exampleValidationTextArea\" rows={3} placeholder=\"Text area with validation message\" validationMessage=\"This is a validation message to help the user.\" />\n        <Textarea label=\"Text Area with Character Count\" name=\"exampleCharacterCount\" rows={3} placeholder=\"Text area with character count\" maxCharacters={130} />\n        <Textarea label=\"Text Area with Character Count and Explanation\" name=\"exampleExplanationPlusCharacterCount\" rows={3} initialValue=\"Nulla ipsum metus, pellentesque eget pulvinar ac, cursus et enim. Nam laoreet mattis odio, vel efficitur nisi laoreet pellen..\" placeholder=\"Text area with character count and explanation message\" maxCharacters={130} explanationMessage=\"This is an explanation message to help the user.\" />\n      </div>\n    )\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  state = {\n    activeKey: 1,\n  };\n\n  updateActiveKey = (index) => {\n    this.setState({\n      activeKey: index,\n    });\n  };\n\n  render() {\n    return (\n    <div>\n      <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>\n        <NavTabsItem id={1}>Tab One</NavTabsItem>\n        <NavTabsItem id={2}>Tab Two</NavTabsItem>\n        <NavTabsItem id={3}>Tab Three</NavTabsItem>\n      </NavTabs>\n      <TabsContent activeKey={this.state.activeKey} >\n        <TabContentPane id={1}>\n          <h5>Tab One Content Pane</h5>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>\n          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>\n        </TabContentPane>\n        <TabContentPane id={2}>\n          <h5>Tab Two Content Pane</h5>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>\n          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>\n        </TabContentPane>\n        <TabContentPane id={3}>\n          <h5>Tab Three Content Pane</h5>\n          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>\n          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>\n        </TabContentPane>\n      </TabsContent>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 698 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Toast type=\"success\" icon=\"checkmark\" body=\"Success toast notification\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-textareas\">\n        <Textarea label=\"Text Area\" name=\"exampleTextArea\" rows={3} placeholder=\"I like pizza!\" />\n        <Textarea label=\"Text Area with Explanation Message\" name=\"exampleExplanationTextArea\" rows={3} placeholder=\"Text area with explanation message\" explanationMessage=\"This is an explanation message to help the user.\" />\n        <Textarea label=\"Text Area with Validation Message\" name=\"exampleValidationTextArea\" rows={3} placeholder=\"Text area with validation message\" validationMessage=\"This is a validation message to help the user.\" />\n        <Textarea label=\"Text Area with Character Count\" name=\"exampleCharacterCount\" rows={3} placeholder=\"Text area with character count\" maxCharacters={130} />\n        <Textarea label=\"Text Area with Character Count and Explanation\" name=\"exampleExplanationPlusCharacterCount\" rows={3} initialValue=\"Nulla ipsum metus, pellentesque eget pulvinar ac, cursus et enim. Nam laoreet mattis odio, vel efficitur nisi laoreet pellen..\" placeholder=\"Text area with character count and explanation message\" maxCharacters={130} explanationMessage=\"This is an explanation message to help the user.\" />\n      </div>\n    )\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 699 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <span data-tooltip-top=\"Well hello there!\">tooltip top</span> <span data-tooltip-bottom=\"Well hello there!\">tooltip bottom</span>\n        <span data-tooltip-left=\"Well hello there!\">tooltip left</span>\n        <span data-tooltip-right=\"Well hello there!\">tooltip right</span>\n        <a href=\"#\" data-tooltip-top=\"Well hello there!\">link with tooltip</a>\n        <Button data-tooltip-top=\"Well hello there!\">Button with Tooltip</Button>\n      </UtilityInlineGrid>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Toast type=\"success\" icon=\"checkmark\" body=\"Success toast notification\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 700 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button size=\"large\">Large</Button>\n          <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n          <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n          <Button>Default</Button>\n          <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"btn__badge\">12</span></Button>\n          <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n          <Button iconOnly><Icon icon=\"cog\" /></Button>\n          <Button size=\"small\">Small</Button>\n          <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n          <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid size=\"large\">\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"btn__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <UtilityInlineGrid>\n        <span data-tooltip-top=\"Well hello there!\">tooltip top</span> <span data-tooltip-bottom=\"Well hello there!\">tooltip bottom</span>\n        <span data-tooltip-left=\"Well hello there!\">tooltip left</span>\n        <span data-tooltip-right=\"Well hello there!\">tooltip right</span>\n        <a href=\"#\" data-tooltip-top=\"Well hello there!\">link with tooltip</a>\n        <Button data-tooltip-top=\"Well hello there!\">Button with Tooltip</Button>\n      </UtilityInlineGrid>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 701 */
+/***/ (function(module, exports) {
+
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button size=\"large\">Large</Button>\n          <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n          <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n          <Button>Default</Button>\n          <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"btn__badge\">12</span></Button>\n          <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n          <Button iconOnly><Icon icon=\"cog\" /></Button>\n          <Button size=\"small\">Small</Button>\n          <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n          <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid size=\"large\">\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"btn__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
+
+/***/ }),
+/* 702 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -29523,12 +29855,12 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 702 */
+/* 703 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(1), __webpack_require__(3), __webpack_require__(703), __webpack_require__(7));
+		module.exports = factory(__webpack_require__(1), __webpack_require__(3), __webpack_require__(349), __webpack_require__(7));
 	else if(typeof define === 'function' && define.amd)
 		define(["moment", "react", "react-onclickoutside", "react-dom"], factory);
 	else if(typeof exports === 'object')
@@ -33619,314 +33951,6 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 703 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * A higher-order-component for handling onClickOutside for React components.
- */
-(function(root) {
-
-  // administrative
-  var registeredComponents = [];
-  var handlers = [];
-  var IGNORE_CLASS = 'ignore-react-onclickoutside';
-  var DEFAULT_EVENTS = ['mousedown', 'touchstart'];
-
-  /**
-   * Check whether some DOM node is our Component's node.
-   */
-  var isNodeFound = function(current, componentNode, ignoreClass) {
-    if (current === componentNode) {
-      return true;
-    }
-    // SVG <use/> elements do not technically reside in the rendered DOM, so
-    // they do not have classList directly, but they offer a link to their
-    // corresponding element, which can have classList. This extra check is for
-    // that case.
-    // See: http://www.w3.org/TR/SVG11/struct.html#InterfaceSVGUseElement
-    // Discussion: https://github.com/Pomax/react-onclickoutside/pull/17
-    if (current.correspondingElement) {
-      return current.correspondingElement.classList.contains(ignoreClass);
-    }
-    return current.classList.contains(ignoreClass);
-  };
-
-  /**
-   * Try to find our node in a hierarchy of nodes, returning the document
-   * node as highest noode if our node is not found in the path up.
-   */
-  var findHighest = function(current, componentNode, ignoreClass) {
-    if (current === componentNode) {
-      return true;
-    }
-
-    // If source=local then this event came from 'somewhere'
-    // inside and should be ignored. We could handle this with
-    // a layered approach, too, but that requires going back to
-    // thinking in terms of Dom node nesting, running counter
-    // to React's 'you shouldn't care about the DOM' philosophy.
-    while(current.parentNode) {
-      if (isNodeFound(current, componentNode, ignoreClass)) {
-        return true;
-      }
-      current = current.parentNode;
-    }
-    return current;
-  };
-
-  /**
-   * Check if the browser scrollbar was clicked
-   */
-  var clickedScrollbar = function(evt) {
-    return document.documentElement.clientWidth <= evt.clientX;
-  };
-
-  /**
-   * Generate the event handler that checks whether a clicked DOM node
-   * is inside of, or lives outside of, our Component's node tree.
-   */
-  var generateOutsideCheck = function(componentNode, componentInstance, eventHandler, ignoreClass, excludeScrollbar, preventDefault, stopPropagation) {
-    return function(evt) {
-      if (preventDefault) {
-        evt.preventDefault();
-      }
-      if (stopPropagation) {
-        evt.stopPropagation();
-      }
-      var current = evt.target;
-      if((excludeScrollbar && clickedScrollbar(evt)) || (findHighest(current, componentNode, ignoreClass) !== document)) {
-        return;
-      }
-      eventHandler(evt);
-    };
-  };
-
-  /**
-   * This function generates the HOC function that you'll use
-   * in order to impart onOutsideClick listening to an
-   * arbitrary component. It gets called at the end of the
-   * bootstrapping code to yield an instance of the
-   * onClickOutsideHOC function defined inside setupHOC().
-   */
-  function setupHOC(root, React, ReactDOM) {
-
-    // The actual Component-wrapping HOC:
-    return function onClickOutsideHOC(Component, config) {
-      var wrapComponentWithOnClickOutsideHandling = React.createClass({
-        statics: {
-          /**
-           * Access the wrapped Component's class.
-           */
-          getClass: function() {
-            if (Component.getClass) {
-              return Component.getClass();
-            }
-            return Component;
-          }
-        },
-
-        /**
-         * Access the wrapped Component's instance.
-         */
-        getInstance: function() {
-          return Component.prototype.isReactComponent ? this.refs.instance : this;
-        },
-
-        // this is given meaning in componentDidMount
-        __outsideClickHandler: function() {},
-
-        /**
-         * Add click listeners to the current document,
-         * linked to this component's state.
-         */
-        componentDidMount: function() {
-          // If we are in an environment without a DOM such
-          // as shallow rendering or snapshots then we exit
-          // early to prevent any unhandled errors being thrown.
-          if (typeof document === 'undefined' || !document.createElement){
-            return;
-          }
-
-          var instance = this.getInstance();
-          var clickOutsideHandler;
-
-          if(config && typeof config.handleClickOutside === 'function') {
-            clickOutsideHandler = config.handleClickOutside(instance);
-            if(typeof clickOutsideHandler !== 'function') {
-              throw new Error('Component lacks a function for processing outside click events specified by the handleClickOutside config option.');
-            }
-          } else if(typeof instance.handleClickOutside === 'function') {
-            if (React.Component.prototype.isPrototypeOf(instance)) {
-              clickOutsideHandler = instance.handleClickOutside.bind(instance);
-            } else {
-              clickOutsideHandler = instance.handleClickOutside;
-            }
-          } else if(typeof instance.props.handleClickOutside === 'function') {
-            clickOutsideHandler = instance.props.handleClickOutside;
-          } else {
-            throw new Error('Component lacks a handleClickOutside(event) function for processing outside click events.');
-          }
-
-          var componentNode = ReactDOM.findDOMNode(instance);
-          if (componentNode === null) {
-            console.warn('Antipattern warning: there was no DOM node associated with the component that is being wrapped by outsideClick.');
-            console.warn([
-              'This is typically caused by having a component that starts life with a render function that',
-              'returns `null` (due to a state or props value), so that the component \'exist\' in the React',
-              'chain of components, but not in the DOM.\n\nInstead, you need to refactor your code so that the',
-              'decision of whether or not to show your component is handled by the parent, in their render()',
-              'function.\n\nIn code, rather than:\n\n  A{render(){return check? <.../> : null;}\n  B{render(){<A check=... />}\n\nmake sure that you',
-              'use:\n\n  A{render(){return <.../>}\n  B{render(){return <...>{ check ? <A/> : null }<...>}}\n\nThat is:',
-              'the parent is always responsible for deciding whether or not to render any of its children.',
-              'It is not the child\'s responsibility to decide whether a render instruction from above should',
-              'get ignored or not by returning `null`.\n\nWhen any component gets its render() function called,',
-              'that is the signal that it should be rendering its part of the UI. It may in turn decide not to',
-              'render all of *its* children, but it should never return `null` for itself. It is not responsible',
-              'for that decision.'
-            ].join(' '));
-          }
-
-          var fn = this.__outsideClickHandler = generateOutsideCheck(
-            componentNode,
-            instance,
-            clickOutsideHandler,
-            this.props.outsideClickIgnoreClass || IGNORE_CLASS,
-            this.props.excludeScrollbar || false,
-            this.props.preventDefault || false,
-            this.props.stopPropagation || false
-          );
-
-          var pos = registeredComponents.length;
-          registeredComponents.push(this);
-          handlers[pos] = fn;
-
-          // If there is a truthy disableOnClickOutside property for this
-          // component, don't immediately start listening for outside events.
-          if (!this.props.disableOnClickOutside) {
-            this.enableOnClickOutside();
-          }
-        },
-
-        /**
-        * Track for disableOnClickOutside props changes and enable/disable click outside
-        */
-        componentWillReceiveProps: function(nextProps) {
-          if (this.props.disableOnClickOutside && !nextProps.disableOnClickOutside) {
-            this.enableOnClickOutside();
-          } else if (!this.props.disableOnClickOutside && nextProps.disableOnClickOutside) {
-            this.disableOnClickOutside();
-          }
-        },
-
-        /**
-         * Remove the document's event listeners
-         */
-        componentWillUnmount: function() {
-          this.disableOnClickOutside();
-          this.__outsideClickHandler = false;
-          var pos = registeredComponents.indexOf(this);
-          if( pos>-1) {
-            // clean up so we don't leak memory
-            if (handlers[pos]) { handlers.splice(pos, 1); }
-            registeredComponents.splice(pos, 1);
-          }
-        },
-
-        /**
-         * Can be called to explicitly enable event listening
-         * for clicks and touches outside of this element.
-         */
-        enableOnClickOutside: function() {
-          var fn = this.__outsideClickHandler;
-          if (typeof document !== 'undefined') {
-            var events = this.props.eventTypes || DEFAULT_EVENTS;
-            if (!events.forEach) {
-              events = [events];
-            }
-            events.forEach(function (eventName) {
-              document.addEventListener(eventName, fn);
-            });
-          }
-        },
-
-        /**
-         * Can be called to explicitly disable event listening
-         * for clicks and touches outside of this element.
-         */
-        disableOnClickOutside: function() {
-          var fn = this.__outsideClickHandler;
-          if (typeof document !== 'undefined') {
-            var events = this.props.eventTypes || DEFAULT_EVENTS;
-            if (!events.forEach) {
-              events = [events];
-            }
-            events.forEach(function (eventName) {
-              document.removeEventListener(eventName, fn);
-            });
-          }
-        },
-
-        /**
-         * Pass-through render
-         */
-        render: function() {
-          var passedProps = this.props;
-          var props = {};
-          Object.keys(this.props).forEach(function(key) {
-            if (key !== 'excludeScrollbar') {
-              props[key] = passedProps[key];
-            }
-          });
-          if (Component.prototype.isReactComponent) {
-            props.ref = 'instance';
-          }
-          props.disableOnClickOutside = this.disableOnClickOutside;
-          props.enableOnClickOutside = this.enableOnClickOutside;
-          return React.createElement(Component, props);
-        }
-      });
-
-      // Add display name for React devtools
-      (function bindWrappedComponentName(c, wrapper) {
-        var componentName = c.displayName || c.name || 'Component';
-        wrapper.displayName = 'OnClickOutside(' + componentName + ')';
-      }(Component, wrapComponentWithOnClickOutsideHandling));
-
-      return wrapComponentWithOnClickOutsideHandling;
-    };
-  }
-
-  /**
-   * This function sets up the library in ways that
-   * work with the various modulde loading solutions
-   * used in JavaScript land today.
-   */
-  function setupBinding(root, factory) {
-    if (true) {
-      // AMD. Register as an anonymous module.
-      !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3),__webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = function(React, ReactDom) {
-        return factory(root, React, ReactDom);
-      }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-    } else if (typeof exports === 'object') {
-      // Node. Note that this does not work with strict
-      // CommonJS, but only CommonJS-like environments
-      // that support module.exports
-      module.exports = factory(root, require('react'), require('react-dom'));
-    } else {
-      // Browser globals (root is window)
-      root.onClickOutside = factory(root, React, ReactDOM);
-    }
-  }
-
-  // Make it all happen
-  setupBinding(root, setupHOC);
-
-}(this));
-
-
-/***/ }),
 /* 704 */,
 /* 705 */,
 /* 706 */,
@@ -36136,10 +36160,10 @@ function saveRenderedStyles(itemTree) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var React = __webpack_require__(3);
 var ReactDOM = __webpack_require__(7);
-var ExecutionEnvironment = __webpack_require__(629);
+var ExecutionEnvironment = __webpack_require__(630);
 var ModalPortal = React.createFactory(__webpack_require__(780));
 var ariaAppHider = __webpack_require__(781);
-var elementClass = __webpack_require__(627);
+var elementClass = __webpack_require__(628);
 var renderSubtreeIntoContainer = __webpack_require__(7).unstable_renderSubtreeIntoContainer;
 var Assign = __webpack_require__(212);
 
@@ -36659,326 +36683,12 @@ module.exports = __webpack_require__(779);
 
 /***/ }),
 /* 785 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * A higher-order-component for handling onClickOutside for React components.
- */
-(function(root) {
-
-  // administrative
-  var registeredComponents = [];
-  var handlers = [];
-  var IGNORE_CLASS = 'ignore-react-onclickoutside';
-  var DEFAULT_EVENTS = ['mousedown', 'touchstart'];
-
-  /**
-   * Check whether some DOM node is our Component's node.
-   */
-  var isNodeFound = function(current, componentNode, ignoreClass) {
-    if (current === componentNode) {
-      return true;
-    }
-    // SVG <use/> elements do not technically reside in the rendered DOM, so
-    // they do not have classList directly, but they offer a link to their
-    // corresponding element, which can have classList. This extra check is for
-    // that case.
-    // See: http://www.w3.org/TR/SVG11/struct.html#InterfaceSVGUseElement
-    // Discussion: https://github.com/Pomax/react-onclickoutside/pull/17
-    if (current.correspondingElement) {
-      return current.correspondingElement.classList.contains(ignoreClass);
-    }
-    return current.classList.contains(ignoreClass);
-  };
-
-  /**
-   * Try to find our node in a hierarchy of nodes, returning the document
-   * node as highest noode if our node is not found in the path up.
-   */
-  var findHighest = function(current, componentNode, ignoreClass) {
-    if (current === componentNode) {
-      return true;
-    }
-
-    // If source=local then this event came from 'somewhere'
-    // inside and should be ignored. We could handle this with
-    // a layered approach, too, but that requires going back to
-    // thinking in terms of Dom node nesting, running counter
-    // to React's 'you shouldn't care about the DOM' philosophy.
-    while(current.parentNode) {
-      if (isNodeFound(current, componentNode, ignoreClass)) {
-        return true;
-      }
-      current = current.parentNode;
-    }
-    return current;
-  };
-
-  /**
-   * Check if the browser scrollbar was clicked
-   */
-  var clickedScrollbar = function(evt) {
-    return document.documentElement.clientWidth <= evt.clientX || document.documentElement.clientHeight <= evt.clientY;
-  };
-
-  /**
-   * Generate the event handler that checks whether a clicked DOM node
-   * is inside of, or lives outside of, our Component's node tree.
-   */
-  var generateOutsideCheck = function(componentNode, componentInstance, eventHandler, ignoreClass, excludeScrollbar, preventDefault, stopPropagation) {
-    return function(evt) {
-      if (preventDefault) {
-        evt.preventDefault();
-      }
-      if (stopPropagation) {
-        evt.stopPropagation();
-      }
-      var current = evt.target;
-      if((excludeScrollbar && clickedScrollbar(evt)) || (findHighest(current, componentNode, ignoreClass) !== document)) {
-        return;
-      }
-      eventHandler(evt);
-    };
-  };
-
-  /**
-   * This function generates the HOC function that you'll use
-   * in order to impart onOutsideClick listening to an
-   * arbitrary component. It gets called at the end of the
-   * bootstrapping code to yield an instance of the
-   * onClickOutsideHOC function defined inside setupHOC().
-   */
-  function setupHOC(root, React, ReactDOM) {
-
-    // The actual Component-wrapping HOC:
-    return function onClickOutsideHOC(Component, config) {
-      var wrapComponentWithOnClickOutsideHandling = React.createClass({
-        statics: {
-          /**
-           * Access the wrapped Component's class.
-           */
-          getClass: function() {
-            if (Component.getClass) {
-              return Component.getClass();
-            }
-            return Component;
-          }
-        },
-
-        /**
-         * Access the wrapped Component's instance.
-         */
-        getInstance: function() {
-          return Component.prototype.isReactComponent ? this.refs.instance : this;
-        },
-
-        // this is given meaning in componentDidMount
-        __outsideClickHandler: function() {},
-
-        getDefaultProps: function() {
-          return {
-            excludeScrollbar: config && config.excludeScrollbar
-          };
-        },
-
-        /**
-         * Add click listeners to the current document,
-         * linked to this component's state.
-         */
-        componentDidMount: function() {
-          // If we are in an environment without a DOM such
-          // as shallow rendering or snapshots then we exit
-          // early to prevent any unhandled errors being thrown.
-          if (typeof document === 'undefined' || !document.createElement){
-            return;
-          }
-
-          var instance = this.getInstance();
-          var clickOutsideHandler;
-
-          if(config && typeof config.handleClickOutside === 'function') {
-            clickOutsideHandler = config.handleClickOutside(instance);
-            if(typeof clickOutsideHandler !== 'function') {
-              throw new Error('Component lacks a function for processing outside click events specified by the handleClickOutside config option.');
-            }
-          } else if(typeof instance.handleClickOutside === 'function') {
-            if (React.Component.prototype.isPrototypeOf(instance)) {
-              clickOutsideHandler = instance.handleClickOutside.bind(instance);
-            } else {
-              clickOutsideHandler = instance.handleClickOutside;
-            }
-          } else if(typeof instance.props.handleClickOutside === 'function') {
-            clickOutsideHandler = instance.props.handleClickOutside;
-          } else {
-            throw new Error('Component lacks a handleClickOutside(event) function for processing outside click events.');
-          }
-
-          var componentNode = ReactDOM.findDOMNode(instance);
-          if (componentNode === null) {
-            console.warn('Antipattern warning: there was no DOM node associated with the component that is being wrapped by outsideClick.');
-            console.warn([
-              'This is typically caused by having a component that starts life with a render function that',
-              'returns `null` (due to a state or props value), so that the component \'exist\' in the React',
-              'chain of components, but not in the DOM.\n\nInstead, you need to refactor your code so that the',
-              'decision of whether or not to show your component is handled by the parent, in their render()',
-              'function.\n\nIn code, rather than:\n\n  A{render(){return check? <.../> : null;}\n  B{render(){<A check=... />}\n\nmake sure that you',
-              'use:\n\n  A{render(){return <.../>}\n  B{render(){return <...>{ check ? <A/> : null }<...>}}\n\nThat is:',
-              'the parent is always responsible for deciding whether or not to render any of its children.',
-              'It is not the child\'s responsibility to decide whether a render instruction from above should',
-              'get ignored or not by returning `null`.\n\nWhen any component gets its render() function called,',
-              'that is the signal that it should be rendering its part of the UI. It may in turn decide not to',
-              'render all of *its* children, but it should never return `null` for itself. It is not responsible',
-              'for that decision.'
-            ].join(' '));
-          }
-
-          var fn = this.__outsideClickHandler = generateOutsideCheck(
-            componentNode,
-            instance,
-            clickOutsideHandler,
-            this.props.outsideClickIgnoreClass || IGNORE_CLASS,
-            this.props.excludeScrollbar, // fallback not needed, prop always exists because of getDefaultProps
-            this.props.preventDefault || false,
-            this.props.stopPropagation || false
-          );
-
-          var pos = registeredComponents.length;
-          registeredComponents.push(this);
-          handlers[pos] = fn;
-
-          // If there is a truthy disableOnClickOutside property for this
-          // component, don't immediately start listening for outside events.
-          if (!this.props.disableOnClickOutside) {
-            this.enableOnClickOutside();
-          }
-        },
-
-        /**
-        * Track for disableOnClickOutside props changes and enable/disable click outside
-        */
-        componentWillReceiveProps: function(nextProps) {
-          if (this.props.disableOnClickOutside && !nextProps.disableOnClickOutside) {
-            this.enableOnClickOutside();
-          } else if (!this.props.disableOnClickOutside && nextProps.disableOnClickOutside) {
-            this.disableOnClickOutside();
-          }
-        },
-
-        /**
-         * Remove the document's event listeners
-         */
-        componentWillUnmount: function() {
-          this.disableOnClickOutside();
-          this.__outsideClickHandler = false;
-          var pos = registeredComponents.indexOf(this);
-          if( pos>-1) {
-            // clean up so we don't leak memory
-            if (handlers[pos]) { handlers.splice(pos, 1); }
-            registeredComponents.splice(pos, 1);
-          }
-        },
-
-        /**
-         * Can be called to explicitly enable event listening
-         * for clicks and touches outside of this element.
-         */
-        enableOnClickOutside: function() {
-          var fn = this.__outsideClickHandler;
-          if (typeof document !== 'undefined') {
-            var events = this.props.eventTypes || DEFAULT_EVENTS;
-            if (!events.forEach) {
-              events = [events];
-            }
-            events.forEach(function (eventName) {
-              document.addEventListener(eventName, fn);
-            });
-          }
-        },
-
-        /**
-         * Can be called to explicitly disable event listening
-         * for clicks and touches outside of this element.
-         */
-        disableOnClickOutside: function() {
-          var fn = this.__outsideClickHandler;
-          if (typeof document !== 'undefined') {
-            var events = this.props.eventTypes || DEFAULT_EVENTS;
-            if (!events.forEach) {
-              events = [events];
-            }
-            events.forEach(function (eventName) {
-              document.removeEventListener(eventName, fn);
-            });
-          }
-        },
-
-        /**
-         * Pass-through render
-         */
-        render: function() {
-          var passedProps = this.props;
-          var props = {};
-          Object.keys(this.props).forEach(function(key) {
-            if (key !== 'excludeScrollbar') {
-              props[key] = passedProps[key];
-            }
-          });
-          if (Component.prototype.isReactComponent) {
-            props.ref = 'instance';
-          }
-          props.disableOnClickOutside = this.disableOnClickOutside;
-          props.enableOnClickOutside = this.enableOnClickOutside;
-          return React.createElement(Component, props);
-        }
-      });
-
-      // Add display name for React devtools
-      (function bindWrappedComponentName(c, wrapper) {
-        var componentName = c.displayName || c.name || 'Component';
-        wrapper.displayName = 'OnClickOutside(' + componentName + ')';
-      }(Component, wrapComponentWithOnClickOutsideHandling));
-
-      return wrapComponentWithOnClickOutsideHandling;
-    };
-  }
-
-  /**
-   * This function sets up the library in ways that
-   * work with the various modulde loading solutions
-   * used in JavaScript land today.
-   */
-  function setupBinding(root, factory) {
-    if (true) {
-      // AMD. Register as an anonymous module.
-      !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3),__webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = function(React, ReactDom) {
-        return factory(root, React, ReactDom);
-      }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-    } else if (typeof exports === 'object') {
-      // Node. Note that this does not work with strict
-      // CommonJS, but only CommonJS-like environments
-      // that support module.exports
-      module.exports = factory(root, require('react'), require('react-dom'));
-    } else {
-      // Browser globals (root is window)
-      root.onClickOutside = factory(root, React, ReactDOM);
-    }
-  }
-
-  // Make it all happen
-  setupBinding(root, setupHOC);
-
-}(this));
-
-
-/***/ }),
-/* 786 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(350);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -36997,7 +36707,7 @@ var IndexLink = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony default export */ __webpack_exports__["a"] = (IndexLink);
 
 /***/ }),
-/* 787 */
+/* 786 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37006,7 +36716,7 @@ var IndexLink = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routerWarning__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Redirect__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Redirect__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__InternalPropTypes__ = __webpack_require__(87);
 
 
@@ -37056,7 +36766,7 @@ var IndexRedirect = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 788 */
+/* 787 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37114,7 +36824,7 @@ var IndexRoute = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 789 */
+/* 788 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37171,7 +36881,7 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 790 */
+/* 789 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37179,11 +36889,11 @@ var Route = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createTransitionManager__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createTransitionManager__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__InternalPropTypes__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouterContext__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__RouteUtils__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__RouterUtils__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__RouterUtils__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routerWarning__ = __webpack_require__(79);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -37340,7 +37050,7 @@ var Router = __WEBPACK_IMPORTED_MODULE_1_react___default.a.createClass({
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 791 */
+/* 790 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37498,7 +37208,7 @@ function runLeaveHooks(routes, prevState) {
 }
 
 /***/ }),
-/* 792 */
+/* 791 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37550,19 +37260,19 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 793 */
+/* 792 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory__ = __webpack_require__(649);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory__ = __webpack_require__(650);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(355);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__createRouterHistory__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_0_history_lib_createBrowserHistory___default.a));
 
 /***/ }),
-/* 794 */
+/* 793 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37641,12 +37351,12 @@ function computeChangedRoutes(prevState, nextState) {
 /* harmony default export */ __webpack_exports__["a"] = (computeChangedRoutes);
 
 /***/ }),
-/* 795 */
+/* 794 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AsyncUtils__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(351);
 
 
 
@@ -37683,7 +37393,7 @@ function getComponents(nextState, callback) {
 /* harmony default export */ __webpack_exports__["a"] = (getComponents);
 
 /***/ }),
-/* 796 */
+/* 795 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37711,19 +37421,19 @@ function getRouteParams(route, params) {
 /* harmony default export */ __webpack_exports__["a"] = (getRouteParams);
 
 /***/ }),
-/* 797 */
+/* 796 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory__ = __webpack_require__(650);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory__ = __webpack_require__(651);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createRouterHistory__ = __webpack_require__(355);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__createRouterHistory__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_0_history_lib_createHashHistory___default.a));
 
 /***/ }),
-/* 798 */
+/* 797 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37876,7 +37586,7 @@ function isActive(_ref, indexOnly, currentLocation, routes, params) {
 }
 
 /***/ }),
-/* 799 */
+/* 798 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37884,10 +37594,10 @@ function isActive(_ref, indexOnly, currentLocation, routes, params) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_history_lib_Actions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_history_lib_Actions__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouteUtils__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__RouterUtils__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__RouterUtils__ = __webpack_require__(353);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -37946,12 +37656,12 @@ function match(_ref, callback) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 800 */
+/* 799 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__AsyncUtils__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PromiseUtils__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PatternUtils__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routerWarning__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__RouteUtils__ = __webpack_require__(54);
@@ -38207,7 +37917,7 @@ function matchRoutes(routes, location, callback, remainingPathname) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
-/* 801 */
+/* 800 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38215,7 +37925,7 @@ function matchRoutes(routes, location, callback, remainingPathname) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(652);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(653);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ContextUtils__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PropTypes__ = __webpack_require__(162);
@@ -38280,6 +37990,7 @@ function withRouter(WrappedComponent, options) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
+/* 801 */,
 /* 802 */,
 /* 803 */,
 /* 804 */,
@@ -38291,8 +38002,7 @@ function withRouter(WrappedComponent, options) {
 /* 810 */,
 /* 811 */,
 /* 812 */,
-/* 813 */,
-/* 814 */
+/* 813 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38305,7 +38015,7 @@ module.exports = function (str) {
 
 
 /***/ }),
-/* 815 */
+/* 814 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -38314,5 +38024,5 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ })
-],[434]);
+],[435]);
 //# sourceMappingURL=rhinostyle-docs.js.map

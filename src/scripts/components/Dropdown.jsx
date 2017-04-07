@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import cx from 'classnames';
 
-import { Close, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
 class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
@@ -30,7 +30,6 @@ class Dropdown extends React.Component {
     onReverseStart: React.PropTypes.func,
     onStart: React.PropTypes.func,
     manualClose: React.PropTypes.bool,
-    handleClose: React.PropTypes.func,
     defaultOpen: React.PropTypes.bool,
   };
 
@@ -48,7 +47,6 @@ class Dropdown extends React.Component {
     onStart: () => {},
     manualClose: false,
     defaultOpen: false,
-    handleClose: () => {},
   };
 
   state = {
@@ -152,10 +150,6 @@ class Dropdown extends React.Component {
   };
 
   handleClickOutside = () => {
-    if (this.props.handleClose && typeof (this.props.handleClose === 'function')) {
-      this.props.handleClose();
-    }
-
     const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
 
     // Close dropdown
@@ -177,12 +171,6 @@ class Dropdown extends React.Component {
       activeKey: index,
     });
   }
-
-  /**
-   * Render close button for dropdown
-   * @return {jsx}
-   */
-  renderClose = () => <Close onClick={this.handleClickOutside} className="dropdown__close" />;
 
   render() {
     const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete } = this.props;
@@ -215,7 +203,6 @@ class Dropdown extends React.Component {
       'dropdown__menu--top dropdown__menu--right': position === 'top-right',
       'dropdown__menu--top dropdown__menu--center': position === 'top-center',
       'dropdown__menu--wide': wide,
-      'dropdown__menu--has-close': this.props.manualClose,
     });
 
     let selectedLabel = null;
@@ -251,7 +238,6 @@ class Dropdown extends React.Component {
           {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
         </div>
         <div className={dropdownMenuClasses}>
-          {this.props.manualClose ? this.renderClose() : null}
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
         </div>
       </DropdownWrapper>

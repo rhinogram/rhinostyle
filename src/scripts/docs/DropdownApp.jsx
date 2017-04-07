@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Button, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
+import { Button, Close, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
 import dropdownExample from './examples/Dropdown.example.txt';
 import dropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
 import dropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
@@ -23,8 +23,7 @@ const dropdownDocs = {
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
-  manualClose: '[Optional] - Disables the default action of closing on an outside click',
-  handleClose: '[Optional] - Function to run during close of dropdown',
+  manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
   defaultOpen: '[Optional] - Open dropdown when rendered onto page',
 };
 
@@ -72,6 +71,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Button,
+  Close,
   Dropdown,
   DropdownFilter,
   DropdownMenuDivider,
