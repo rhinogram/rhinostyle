@@ -14542,8 +14542,7 @@ var dropdownDocs = {
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
-  manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
-  defaultOpen: '[Optional] - Open dropdown when rendered onto page'
+  manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.'
 };
 
 var dropdownMultiSelectDocs = {
@@ -22559,14 +22558,6 @@ var Dropdown = function (_React$Component) {
       });
     }
   }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      // If `this.props.defaulOpen` is set, open dropdown when it's rendered
-      if (this.props.defaultOpen) {
-        this.handleToggle();
-      }
-    }
-  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
       if (newProps.activeKey !== this.props.activeKey) {
@@ -22713,8 +22704,7 @@ Dropdown.propTypes = {
   onReverseComplete: _react2.default.PropTypes.func,
   onReverseStart: _react2.default.PropTypes.func,
   onStart: _react2.default.PropTypes.func,
-  manualClose: _react2.default.PropTypes.bool,
-  defaultOpen: _react2.default.PropTypes.bool
+  manualClose: _react2.default.PropTypes.bool
 };
 Dropdown.defaultProps = {
   block: false,
@@ -22728,8 +22718,7 @@ Dropdown.defaultProps = {
   onReverseComplete: function onReverseComplete() {},
   onReverseStart: function onReverseStart() {},
   onStart: function onStart() {},
-  manualClose: false,
-  defaultOpen: false
+  manualClose: false
 };
 exports.default = Dropdown;
 

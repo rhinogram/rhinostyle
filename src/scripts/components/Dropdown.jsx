@@ -30,7 +30,6 @@ class Dropdown extends React.Component {
     onReverseStart: React.PropTypes.func,
     onStart: React.PropTypes.func,
     manualClose: React.PropTypes.bool,
-    defaultOpen: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -46,7 +45,6 @@ class Dropdown extends React.Component {
     onReverseStart: () => {},
     onStart: () => {},
     manualClose: false,
-    defaultOpen: false,
   };
 
   state = {
@@ -62,13 +60,6 @@ class Dropdown extends React.Component {
         this.setState({ hasFilter: true });
       }
     });
-  }
-
-  componentDidMount() {
-    // If `this.props.defaulOpen` is set, open dropdown when it's rendered
-    if (this.props.defaultOpen) {
-      this.handleToggle();
-    }
   }
 
   componentWillReceiveProps(newProps) {

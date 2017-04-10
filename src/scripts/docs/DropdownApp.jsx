@@ -24,7 +24,6 @@ const dropdownDocs = {
   type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
   manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
-  defaultOpen: '[Optional] - Open dropdown when rendered onto page',
 };
 
 const dropdownMultiSelectDocs = {
