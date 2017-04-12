@@ -101,7 +101,7 @@ class Cover extends React.Component {
     const classes = cx('cover', className);
 
     return (
-      <div className={classes} ref={ref => this.cover = ref}>
+      <div className={classes} ref={ref => (this.cover = ref)}>
         {children}
       </div>
     );

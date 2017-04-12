@@ -1,0 +1,16 @@
+// Remove from the flow and screen readers on any device
+.u-hidden,
+.is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+// It's hidden, but still impacts layouts
+.u-invisible {
+  visibility: hidden !important;
+}
+
+// It's hidden, and does not impact layout
+.u-sr-only {
+  .mixin-sr-only();
+}

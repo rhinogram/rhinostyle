@@ -1,70 +1,126 @@
-import { TweenMax, Expo } from 'gsap';
+import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import GSAP from 'react-gsap-enhancer';
+import ReactDOM from 'react-dom';
 
-import { Toast } from '../../components';
+import { Toast, UtilitySystem } from '../../components';
 import * as NotificationActions from '../actions';
 import NotificationConstants    from '../constants';
 
 const AUTO_DISMISS_TIME  = NotificationConstants.autodismissTime;
-const notifyBottomMargin = 6;
-
-function _initNotification({ target }) {
-  return TweenMax.set(target, {
-    marginTop:    -target[0].offsetHeight,
-    marginBottom: notifyBottomMargin,
-    opacity:      0.25,
-  });
-}
-
-function _showNotification({ target }) {
-  return TweenMax.to(target, 0.5, {
-    marginTop:  0,
-    opacity:    1,
-    ease:       Expo.easeOut,
-  });
-}
-
-function _hideNotification({ target }) {
-  return TweenMax.to(target, 0.5, {
-    marginTop: -target[0].offsetHeight - notifyBottomMargin,
-    opacity:   0,
-  });
-}
+const TOAST_TIMING = 0.5;
 
 class NotificationContainer extends React.Component {
   static propTypes = {
-    onDismiss: PropTypes.func,
     notification: PropTypes.object,
+    onDismiss: PropTypes.func,
+    onComplete: PropTypes.func,
+    onReverseComplete: PropTypes.func,
+    onReverseStart: PropTypes.func,
+    onStart: PropTypes.func,
+  };
+
+  static defaultProps = {
+    onComplete: () => {},
+    onReverseComplete: () => {},
+    onReverseStart: () => {},
+    onStart: () => {},
   };
 
   componentDidMount() {
-    this.addAnimation(_initNotification);
-    this.addAnimation(_showNotification);
+    const $toast = ReactDOM.findDOMNode(this.toast); // eslint-disable-line react/no-find-dom-node
 
-    this.timeoutId = setTimeout(() => {
-      this.hideNotification();
+    // Adds in bottom spacing
+    // Separating this out from timeline since we are using the `reverse()` to show the toast which adds in the alternate of the default props 💥
+    const bottomSpacing = new TimelineMax({ paused: true })
+    .to($toast, TOAST_TIMING, {
+      marginBottom: (UtilitySystem.config.contentSpacing / 2),
+      ease: UtilitySystem.config.easing,
+    });
+
+    let forward = true;
+    let lastTime = 0;
+
+    // Attach GSAP
+    $toast.timeline = new TimelineMax({
+      paused: true,
+      onStart: () => {
+        // Remove ottom spacing for stacked toast notifications
+        bottomSpacing.reverse();
+
+        $toast.setAttribute('aria-hidden', true);
+
+        // Fire off prop update
+        this.props.onStart();
+      },
+      onUpdate: () => {
+        const newTime = $toast.timeline.time();
+        if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
+          forward = !forward;
+          if (!forward) {
+            // Fire off prop update
+            this.props.onReverseStart();
+
+            // Bottom spacing for stacked toast notifications
+            bottomSpacing.play();
+
+            $toast.classList.remove(UtilitySystem.config.classes.hidden);
+            $toast.classList.remove(UtilitySystem.config.classes.uHidden);
+
+            $toast.setAttribute('aria-hidden', false);
+          }
+        }
+        lastTime = newTime;
+      },
+      onComplete: () => {
+        $toast.classList.remove(UtilitySystem.config.classes.hidden);
+
+        NotificationActions.removeNotification(this.props.notification.id);
+
+        // Fire off prop update
+        this.props.onComplete();
+      },
+      onReverseComplete: () => {
+        // Fire off prop update
+        this.props.onReverseComplete();
+      },
+    });
+
+    $toast.timeline.to($toast, TOAST_TIMING, {
+      css: {
+        marginTop: -$toast.offsetHeight,
+        transformOrigin: 'center center',
+        y: '50%',
+        opacity: 0,
+      },
+      ease: UtilitySystem.config.easing,
+    });
+
+    // Since the `componentDidMount()` is run when we'd like to render and start the animation, we progress the animation to the end; which "shows" the toast, and then play the animation after the interval
+    $toast.timeline.progress(1, true).reverse();
+
+    setTimeout(() => {
+      // Only auto init close if it's not already closed (or in the process of closing)
+      if ($toast.timeline.progress() !== 1) {
+        $toast.timeline.play();
+      }
     }, AUTO_DISMISS_TIME);
   }
 
   hideNotification = () => {
-    this.addAnimation(_hideNotification);
+    const $toast = ReactDOM.findDOMNode(this.toast); // eslint-disable-line react/no-find-dom-node
 
-    clearTimeout(this.timeoutId);
-    setTimeout(() => {
-      NotificationActions.removeNotification(this.props.notification.id);
-    }, 500);
+    $toast.timeline.play();
   };
 
   render() {
     const { body, icon, type } = this.props.notification;
 
     return (
-      <Toast type={type} icon={icon} body={body} onDismiss={this.hideNotification} />
+      <Toast ref={ref => (this.toast = ref)} type={type} icon={icon} body={body} onDismiss={this.hideNotification} />
     );
   }
 }
 
 /* eslint new-cap:0 */
-export default GSAP()(NotificationContainer);
+export default NotificationContainer;

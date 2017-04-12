@@ -18,9 +18,6 @@ export const config = {
     lgMax: '1199px',
   },
   classes: {
-    required: 'is-required',
-    valid: 'is-valid',
-    notValid: 'is-notValid',
     open: 'is-open',
     active: 'is-active',
     hidden: 'is-hidden',
