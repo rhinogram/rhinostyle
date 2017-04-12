@@ -54,9 +54,7 @@ export default function pages() {
     pattern: 'pages/**/*',
   }))
   .use(msRootpath())
-  .use(msInPlace({
-    engine: 'nunjucks',
-  }))
+  .use(msInPlace())
   .use(msLayouts({
     engine:    'nunjucks',
     directory: './src/templates',

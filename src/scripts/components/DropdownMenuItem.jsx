@@ -1,8 +1,9 @@
-import React from 'react';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router';
-import Avatar from './Avatar';
-import Icon from './Icon';
+
+import { Avatar, Icon } from '../components';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {
@@ -19,27 +20,27 @@ class DropdownMenuItem extends React.Component {
   static displayName = 'RhinoDropdownMenuItem';
 
   static propTypes = {
-    active:      React.PropTypes.bool,
-    avatar:      React.PropTypes.shape({
-      image:      React.PropTypes.string,
-      name:       React.PropTypes.string,
-      type:       React.PropTypes.oneOf(['default', 'member']),
+    active: PropTypes.bool,
+    avatar: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      type: PropTypes.oneOf(['default', 'member']),
     }),
-    blankWindow: React.PropTypes.bool,
-    onClick:     React.PropTypes.func,
-    className:   React.PropTypes.string,
-    disabled:    React.PropTypes.bool,
-    icon:        customValidator,
-    label:       React.PropTypes.string,
-    labelDesc:   React.PropTypes.string,
-    route:       React.PropTypes.string,
-    url:         React.PropTypes.string,
+    blankWindow: PropTypes.bool,
+    onClick: PropTypes.func,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    icon: customValidator,
+    label: PropTypes.string,
+    labelDesc: PropTypes.string,
+    route: PropTypes.string,
+    url: PropTypes.string,
   };
 
   static defaultProps = {
-    active:    false,
-    onClick:   () => {},
-    disabled:  false,
+    active: false,
+    onClick: () => {},
+    disabled: false,
   };
 
   handleClick = () => {

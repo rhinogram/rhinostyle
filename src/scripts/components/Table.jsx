@@ -1,13 +1,14 @@
-import React from 'react';
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Table = (props) => {
   const { className, bordered, condensed, hover, striped } = props;
   const classes = cx('table', className, {
-    'table--bordered':  bordered,
+    'table--bordered': bordered,
     'table--condensed': condensed,
-    'table--hover':     hover,
-    'table--striped':   striped,
+    'table--hover': hover,
+    'table--striped': striped,
   });
 
   return (
@@ -22,19 +23,19 @@ const Table = (props) => {
 Table.displayName = 'RhinoTable';
 
 Table.propTypes = {
-  bordered:  React.PropTypes.bool,
-  children:  React.PropTypes.node,
-  className: React.PropTypes.string,
-  condensed: React.PropTypes.bool,
-  hover:     React.PropTypes.bool,
-  striped:   React.PropTypes.bool,
+  bordered: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  condensed: PropTypes.bool,
+  hover: PropTypes.bool,
+  striped: PropTypes.bool,
 };
 
 Table.defaultProps = {
-  bordered:  false,
+  bordered: false,
   condensed: false,
-  hover:     false,
-  striped:   false,
+  hover: false,
+  striped: false,
 };
 
 export default Table;
