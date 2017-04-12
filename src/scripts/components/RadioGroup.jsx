@@ -84,7 +84,7 @@ class RadioGroup extends React.Component {
 
     const showLabel = () => {
       if (label) {
-        return <label className="u-block">{label}</label>;
+        return <label className="u-block">{label}</label>; // eslint-disable-line jsx-a11y/label-has-for
       }
 
       return false;

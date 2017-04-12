@@ -12,7 +12,7 @@ class DropdownMultiSelect extends React.Component {
     activeKeys: PropTypes.arrayOf(PropTypes.number),
     block: PropTypes.bool,
     children: PropTypes.node,
-    className: PropTypes.string,
+    className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
     disabled: PropTypes.bool,
     explanationMessage: PropTypes.string,
     onSelect: PropTypes.func,
@@ -55,7 +55,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   clearInput = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     // Close dropdown
     $dropdown.timeline.reverse();
@@ -68,7 +68,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleToggle = (e) => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     // If we're focusing on the input
     if (e.target.tagName === 'INPUT') {
@@ -130,7 +130,7 @@ class DropdownMultiSelect extends React.Component {
 
   handleFilter = (e) => {
     if (!this.state.isOpen) {
-      const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+      const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
       // Open dropdown
       $dropdown.timeline.play();

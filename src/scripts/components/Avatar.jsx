@@ -10,7 +10,7 @@ class Avatar extends React.Component {
     image: PropTypes.string,
     name: PropTypes.string,
     size: PropTypes.oneOf(['small', 'default', 'large']),
-    src: PropTypes.string,
+    src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
     type: PropTypes.oneOf(['default', 'member']),
   };
 

@@ -121,7 +121,7 @@ class Dropdown extends React.Component {
   }
 
   handleToggle = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     if (this.state.isOpen) {
       // Close dropdown
@@ -142,7 +142,7 @@ class Dropdown extends React.Component {
   };
 
   handleClickOutside = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     // Close dropdown
     $dropdown.timeline.reverse();

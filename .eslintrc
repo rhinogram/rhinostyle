@@ -75,5 +75,6 @@
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-multi-assign" : 0,
     "react/require-default-props": 0,
+    "react/no-find-dom-node": 0,
   }
 }

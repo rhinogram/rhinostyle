@@ -48,7 +48,7 @@ Alert.displayName = 'RhinoAlert';
 
 Alert.propTypes = {
   className:    PropTypes.string,
-  dismissible:  PropTypes.bool,
+  dismissible:  PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
   onDismiss:    PropTypes.func,
   size:         PropTypes.oneOf(['small']),
   title:        PropTypes.string,

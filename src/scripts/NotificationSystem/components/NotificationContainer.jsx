@@ -13,7 +13,7 @@ const TOAST_TIMING = 0.5;
 class NotificationContainer extends React.Component {
   static propTypes = {
     notification: PropTypes.object,
-    onDismiss: PropTypes.func,
+    onDismiss: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
     onComplete: PropTypes.func,
     onReverseComplete: PropTypes.func,
     onReverseStart: PropTypes.func,
@@ -28,7 +28,7 @@ class NotificationContainer extends React.Component {
   };
 
   componentDidMount() {
-    const $toast = ReactDOM.findDOMNode(this.toast); // eslint-disable-line react/no-find-dom-node
+    const $toast = ReactDOM.findDOMNode(this.toast);
 
     // Adds in bottom spacing
     // Separating this out from timeline since we are using the `reverse()` to show the toast which adds in the alternate of the default props 💥
@@ -108,7 +108,7 @@ class NotificationContainer extends React.Component {
   }
 
   hideNotification = () => {
-    const $toast = ReactDOM.findDOMNode(this.toast); // eslint-disable-line react/no-find-dom-node
+    const $toast = ReactDOM.findDOMNode(this.toast);
 
     $toast.timeline.play();
   };
