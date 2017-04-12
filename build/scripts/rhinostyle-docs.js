@@ -24261,7 +24261,14 @@ var MessageBox = function (_React$Component) {
         this.rhinoTextArea.focus();
       }
 
-      if (prevProps.initialValue && !this.props.initialValue) {
+      // Value set to empty string
+      var valueCleared = prevProps.initialValue && !this.props.initialValue;
+      // Value changed by more than one character (not using keyboard)
+      // Checking length instead of values so we can more appropriately determine if we should trigger an update to the autoresize package
+      var valueSet = Math.abs(prevProps.initialValue.length - this.props.initialValue.length) > 1;
+
+      // Resize textbox when value has been set programmatically
+      if (valueCleared || valueSet) {
         _autosize2.default.update(this.rhinoTextArea);
       }
     }
@@ -24368,6 +24375,7 @@ MessageBox.propTypes = {
 };
 MessageBox.defaultProps = {
   label: '',
+  initialValue: '',
   name: '',
   placeholder: '',
   rows: 1,
