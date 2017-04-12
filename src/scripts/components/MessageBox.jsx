@@ -69,7 +69,13 @@ class MessageBox extends React.Component {
       this.rhinoTextArea.focus();
     }
 
-    if (prevProps.initialValue && !this.props.initialValue) {
+    // Value set to empty string
+    const valueCleared = prevProps.initialValue && !this.props.initialValue;
+    // Value changed by more than one character (not using keyboard)
+    const valueSet = Math.abs(prevProps.initialValue.length - this.props.initialValue.length) > 1;
+
+    // Resize textbox when value has been set programmatically
+    if (valueCleared || valueSet) {
       autosize.update(this.rhinoTextArea);
     }
   }
