@@ -14,7 +14,7 @@ class RadioGroup extends React.Component {
     label: PropTypes.string,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
-    selectedValue: PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {

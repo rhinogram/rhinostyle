@@ -1,5 +1,6 @@
-import React  from 'react';
-import cx     from 'classnames';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const NavTabsItem = (props) => {
   const { className, active, onClick } = props;
@@ -20,10 +21,10 @@ const NavTabsItem = (props) => {
 NavTabsItem.displayName = 'RhinoNavTabsItem';
 
 NavTabsItem.propTypes = {
-  active:    React.PropTypes.bool,
-  className: React.PropTypes.string,
-  children:  React.PropTypes.node,
-  onClick:   React.PropTypes.func,
+  active: PropTypes.bool,
+  className: PropTypes.string,
+  children: PropTypes.node,
+  onClick: PropTypes.func,
 };
 
 NavTabsItem.defaultProps = {

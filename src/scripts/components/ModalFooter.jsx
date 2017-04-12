@@ -1,12 +1,13 @@
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
-import cx    from 'classnames';
 
 const ModalFooter = props => <div className={cx('modal__footer')}>{props.children}</div>;
 
 ModalFooter.displayName = 'RhinoModalFooter';
 
 ModalFooter.propTypes = {
-  children:   React.PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default ModalFooter;

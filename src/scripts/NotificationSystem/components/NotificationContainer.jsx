@@ -1,10 +1,11 @@
-import React              from 'react';
-import GSAP               from 'react-gsap-enhancer';
 import { TweenMax, Expo } from 'gsap';
+import PropTypes from 'prop-types';
+import React from 'react';
+import GSAP from 'react-gsap-enhancer';
 
+import { Toast } from '../../components';
 import * as NotificationActions from '../actions';
 import NotificationConstants    from '../constants';
-import { Toast } from '../../components';
 
 const AUTO_DISMISS_TIME  = NotificationConstants.autodismissTime;
 const notifyBottomMargin = 6;
@@ -34,8 +35,8 @@ function _hideNotification({ target }) {
 
 class NotificationContainer extends React.Component {
   static propTypes = {
-    onDismiss:    React.PropTypes.func,
-    notification: React.PropTypes.object,
+    onDismiss: PropTypes.func,
+    notification: PropTypes.object,
   };
 
   componentDidMount() {

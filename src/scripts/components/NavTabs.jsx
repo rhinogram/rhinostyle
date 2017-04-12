@@ -1,16 +1,18 @@
-import React        from 'react';
-import cx           from 'classnames';
-import NavTabsItem  from './NavTabsItem';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import { NavTabsItem }  from '../components';
 
 class NavTabs extends React.Component {
   static displayName = 'RhinoNavTabs';
 
   static propTypes = {
-    activeKey: React.PropTypes.number,
-    children:  React.PropTypes.node,
-    className: React.PropTypes.string,
-    justified: React.PropTypes.oneOf(['auto', 'equal', 'none']),
-    onSelect:  React.PropTypes.func,
+    activeKey: PropTypes.number,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    justified: PropTypes.oneOf(['auto', 'equal', 'none']),
+    onSelect: PropTypes.func,
   };
 
   static defaultProps = {

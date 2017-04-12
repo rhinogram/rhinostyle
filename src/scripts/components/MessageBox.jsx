@@ -1,35 +1,35 @@
-/* eslint no-return-assign:0 */
-import React    from 'react';
-import cx       from 'classnames';
 import autosize from 'autosize';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class MessageBox extends React.Component {
   static displayName = 'RhinoMessageBox';
 
   static propTypes = {
-    className:     React.PropTypes.string,
-    label:         React.PropTypes.string,
-    name:          React.PropTypes.string,
-    onClick:       React.PropTypes.func,
-    onChange:      React.PropTypes.func,
-    onKeyPress:    React.PropTypes.func,
-    placeholder:   React.PropTypes.string,
-    required:      React.PropTypes.bool,
-    maxHeight:     React.PropTypes.string,
-    initialValue:  React.PropTypes.string,
-    focus:         React.PropTypes.bool,
-    rows:          React.PropTypes.number,
+    className: PropTypes.string,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    onChange: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    maxHeight: PropTypes.string,
+    initialValue: PropTypes.string,
+    focus: PropTypes.bool,
+    rows: PropTypes.number,
   };
 
   static defaultProps = {
-    label:         '',
+    label: '',
     initialValue: '',
-    name:          '',
-    placeholder:   '',
-    rows:          1,
-    required:      false,
-    maxHeight:     '20rem',
-    focus:         false,
+    name: '',
+    placeholder: '',
+    rows: 1,
+    required: false,
+    maxHeight: '20rem',
+    focus: false,
   };
 
   state = {
@@ -149,7 +149,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} ref={ref => this.rhinoTextArea = ref} />
+        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );
   }

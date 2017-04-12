@@ -1,14 +1,16 @@
-import React          from 'react';
-import cx             from 'classnames';
-import TabContentPane from './TabContentPane';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import { TabContentPane } from '../components';
 
 class TabsContent extends React.Component {
   static displayName = 'TabsContent';
 
   static propTypes = {
-    activeKey: React.PropTypes.number,
-    children:  React.PropTypes.node,
-    className: React.PropTypes.string,
+    activeKey: PropTypes.number,
+    children: PropTypes.node,
+    className: PropTypes.string,
   }
 
   getChildren = () => {
