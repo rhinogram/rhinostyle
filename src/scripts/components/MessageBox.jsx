@@ -23,6 +23,7 @@ class MessageBox extends React.Component {
 
   static defaultProps = {
     label:         '',
+    initialValue: '',
     name:          '',
     placeholder:   '',
     rows:          1,
@@ -72,6 +73,7 @@ class MessageBox extends React.Component {
     // Value set to empty string
     const valueCleared = prevProps.initialValue && !this.props.initialValue;
     // Value changed by more than one character (not using keyboard)
+    // Checking length instead of values so we can more appropriately determine if we should trigger an update to the autoresize package
     const valueSet = Math.abs(prevProps.initialValue.length - this.props.initialValue.length) > 1;
 
     // Resize textbox when value has been set programmatically
