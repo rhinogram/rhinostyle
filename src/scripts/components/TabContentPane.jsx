@@ -6,7 +6,7 @@ const TabContentPane = (props) => {
   const { className, active } = props;
 
   const paneClasses = cx('tabs-content__pane', className, {
-    'active': active, //eslint-disable-line
+    active,
   });
 
   return (

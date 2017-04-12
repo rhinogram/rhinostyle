@@ -5,7 +5,7 @@ import React from 'react';
 const NavTabsItem = (props) => {
   const { className, active, onClick } = props;
   const itemClasses = cx('nav-tabs__item', className, {
-    'active': active, //eslint-disable-line
+    active,
   });
   const linkClasses = cx('nav-tabs__item__link', className);
 

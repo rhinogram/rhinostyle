@@ -16734,7 +16734,8 @@ var rhinoLogin = {
   frames: 64, // 65 total frames minus 1
   ease: function ease() {
     return new _gsap.SteppedEase(this.frames);
-  }, // eslint-disable-line
+  },
+
   position: '-98.46%', // total height of svg (29900) minus height of 1 frame (460px) / 29900 * 100
   speed: 3,
   timeline: new _gsap.TimelineMax({ repeat: -1, repeatDelay: 2 })
@@ -16743,7 +16744,8 @@ var rhinoFlag = {
   frames: 51, // 52 total frames minus 1
   ease: function ease() {
     return new _gsap.SteppedEase(this.frames);
-  }, // eslint-disable-line
+  },
+
   position: '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
   speed: 3,
   timeline: new _gsap.TimelineMax({ repeat: -1, repeatDelay: 2 })
@@ -16752,7 +16754,8 @@ var rhinoSecure = {
   frames: 51, // 52 total frames minus 1
   ease: function ease() {
     return new _gsap.SteppedEase(this.frames);
-  }, // eslint-disable-line
+  },
+
   position: '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
   speed: 3,
   timeline: new _gsap.TimelineMax({ repeat: -1, repeatDelay: 2 })
@@ -16761,7 +16764,8 @@ var rhinoTime = {
   frames: 58, // 59 total frames minus 1
   ease: function ease() {
     return new _gsap.SteppedEase(this.frames);
-  }, // eslint-disable-line
+  },
+
   position: '-98.3%', // total height of svg (51920) minus height of 1 frame (880px) / 51920 * 100
   speed: 3,
   timeline: new _gsap.TimelineMax({ repeat: -1, repeatDelay: 2 })
@@ -20651,7 +20655,7 @@ function forEach(array, callback, scope) {
  * @return {function}
  */
 var optimizedResize = exports.optimizedResize = function () {
-  // eslint-disable-line
+  // eslint-disable-line func-names
   var callbacks = [];
   var running = false;
 
@@ -20671,7 +20675,6 @@ var optimizedResize = exports.optimizedResize = function () {
   // run the actual callbacks
   function runCallbacks() {
     callbacks.forEach(function (callback) {
-      // eslint-disable-line
       callback();
     });
 
@@ -22048,7 +22051,8 @@ var Dropdown = function (_React$Component) {
         'btn--sm': size === 'small',
         'btn--lg': size === 'large',
         'btn--icon': icon && !label,
-        'disabled': disabled });
+        disabled: disabled
+      });
 
       var dropdownMenuClasses = (0, _classnames2.default)('dropdown__menu', {
         'dropdown__menu--right': position === 'right',
@@ -22989,7 +22993,7 @@ var DropdownMultiSelect = function (_React$Component) {
       });
 
       var dropdownToggleClasses = (0, _classnames2.default)('dropdown__input', 'form__control', 'form__control--chevron', {
-        'disabled': disabled, //eslint-disable-line
+        disabled: disabled,
         'form__control--error': validationMessage
       });
 
@@ -24717,7 +24721,8 @@ var NavTabsItem = function NavTabsItem(props) {
       onClick = props.onClick;
 
   var itemClasses = (0, _classnames2.default)('nav-tabs__item', className, {
-    'active': active });
+    active: active
+  });
   var linkClasses = (0, _classnames2.default)('nav-tabs__item__link', className);
 
   return _react2.default.createElement(
@@ -25602,7 +25607,8 @@ var TabContentPane = function TabContentPane(props) {
 
 
   var paneClasses = (0, _classnames2.default)('tabs-content__pane', className, {
-    'active': active });
+    active: active
+  });
 
   return _react2.default.createElement(
     'div',

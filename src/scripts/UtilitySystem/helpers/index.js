@@ -42,7 +42,7 @@ export function forEach(array, callback, scope) {
  * Resize listener
  * @return {function}
  */
-export const optimizedResize = (function() { // eslint-disable-line
+export const optimizedResize = (function() { // eslint-disable-line func-names
   const callbacks = [];
   let running = false;
 
@@ -61,7 +61,7 @@ export const optimizedResize = (function() { // eslint-disable-line
 
   // run the actual callbacks
   function runCallbacks() {
-    callbacks.forEach(function(callback) { // eslint-disable-line
+    callbacks.forEach((callback) => {
       callback();
     });
 

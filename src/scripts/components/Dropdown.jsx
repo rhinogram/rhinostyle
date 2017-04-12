@@ -185,7 +185,7 @@ class Dropdown extends React.Component {
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),
-      'disabled': disabled, //eslint-disable-line
+      disabled,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {
