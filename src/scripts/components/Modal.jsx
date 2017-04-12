@@ -1,4 +1,3 @@
-/* eslint no-return-assign:0 */
 import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
@@ -112,7 +111,7 @@ class Modal extends React.Component {
     }, className);
 
     return (
-      <div className="modal" ref={ref => this.modal = ref}>
+      <div className="modal" ref={ref => (this.modal = ref)}>
         <div className={modalClasses}>
           <div className="modal__content">
             {children}

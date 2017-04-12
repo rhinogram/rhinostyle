@@ -1,4 +1,3 @@
-/* eslint no-return-assign:0 */
 import cx from 'classnames';
 import { TimelineMax, Expo } from 'gsap';
 import PropTypes from 'prop-types';

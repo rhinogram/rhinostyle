@@ -111,8 +111,7 @@ class DropdownFilter extends React.Component {
     return (
       <div>
         <div className="dropdown__menu__container">
-          {/* eslint no-return-assign:0 */}
-          <input type="text" className="form__control" ref={ref => this.filterInput = ref} placeholder={placeholder} onChange={this.handleFilter} />
+          <input type="text" className="form__control" ref={ref => (this.filterInput = ref)} placeholder={placeholder} onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {items}
