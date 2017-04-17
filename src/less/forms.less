@@ -1,5 +1,50 @@
-// File: forms.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@cursor-disabled: not-allowed; // disabled cursor for form controls and buttons.
+
+@input-bg: @global-color-white;
+@input-bg-disabled: @global-color-gray-lightest;
+@input-border: @border-color-base;
+@input-border-focus: @border-color-focus;
+@input-border-radius: @global-border-radius;
+@input-color: @text-color;
+@input-color-placeholder: darken(@global-color-gray-light, 4%);
+@input-group-addon-bg: @global-color-gray-lighter; // bg color for textual input addons
+@input-group-addon-border-color: @input-border; // border color for textual input addons
+
+// Form control `.form-control` heights
+
+@input-height-base: @btn-height-base;
+
+@input-padding-base: @btn-padding-base;
+
+@form-addon-item-bg: @global-color-gray-lightest;
+@form-control-chevron-padding: 3rem;
+@form-control-clear-padding: 3rem;
+@form-element-color: @global-color-primary;
+@form-group-margin-bottom: @line-height-computed;
+
+@legend-color: @global-color-gray-dark;
+@legend-border-color: #e5e5e5;
+
+@rhinobox-rhinodio-margin: @global-whitespace-small;
+
+@switcher-border-radius: @global-border-radius;
+@switcher-height: 2.6rem;
+@switcher-state-line-height: @switcher-height;
+@switcher-state-padding: 2.2rem;
+@switcher-toggler-height: 2.2rem;
+@switcher-toggler-margin: .2rem;
+@switcher-toggler-width: 2.2rem;
+@switcher-width: 6rem;
+
+
+// -------------------------
+// Component
+// -------------------------
 
 
 // -------------------------
@@ -473,7 +518,7 @@ input::-webkit-input-placeholder {
 
 
 .form__section:not(:last-child) {
-  margin-bottom: (@spacer-y * 3);
+  margin-bottom: (@global-spacer * 3);
 }
 
 

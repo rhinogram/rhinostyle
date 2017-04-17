@@ -1,9 +1,18 @@
-// File: tooltips.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@tooltip-arrow-width: .6rem;
+@tooltip-arrow-color: @tooltip-bg;
+@tooltip-bg: @global-color-gray-dark;
+@tooltip-border-radius: @global-border-radius;
+@tooltip-color: @global-color-white;
+@tooltip-padding: @global-whitespace-xsmall @global-whitespace-small;
 
 
 // -------------------------
-// Tooltip
+// Component
 // -------------------------
 
 
@@ -13,13 +22,6 @@
 [data-tooltip-top] {
   cursor: pointer;
   position: relative;
-
-  // dotted underline as long as it's not and anchor or button
-  /*&:not(a)&:not(.btn) {
-    background: linear-gradient(90deg, @global-color-gray-light 50%, transparent 0) repeat-x;
-    background-position: 0 bottom;
-    background-size: .6rem 1px;
-  }*/
 
   &::before {
     background-color: @tooltip-bg;
@@ -69,7 +71,6 @@
 
 [data-tooltip-bottom],
 [data-tooltip-top] {
-
   &::before {
     left: 50%;
   }
@@ -79,6 +80,7 @@
     transform: translateX(-50%);
   }
 }
+
 
 // -------------------------
 // Tooltip - Bottom

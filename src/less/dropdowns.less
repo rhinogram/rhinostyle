@@ -22,6 +22,11 @@
 @dropdown-padding: @dropdown-padding-vertical @dropdown-padding-horizontal;
 
 
+// -------------------------
+// Component
+// -------------------------
+
+
 .dropdown {
   display: inline-flex;
   max-width: 100%;
@@ -114,7 +119,7 @@
 .dropdown__menu {
   background-color: @dropdown-bg;
   border: 1px solid @dropdown-border;
-  border-radius: @border-radius;
+  border-radius: @global-border-radius;
   box-shadow: @dropdown-menu-shadow;
   display: none; // 1
   left: 0;
@@ -131,7 +136,7 @@
   &::before {
     background: @dropdown-bg;
     border: 1px solid @dropdown-border;
-    border-bottom-left-radius: @border-radius;
+    border-bottom-left-radius: @global-border-radius;
     border-right: 0;
     border-top: 0;
     content: '';

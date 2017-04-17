@@ -2,17 +2,6 @@
 
 
 // -------------------------
-// Badges
-// -------------------------
-
-
-@badge-border-radius: @border-radius;
-@badge-horizontal-padding: @global-whitespace-xsmall;
-@badge-min-width: 1rem;
-@badge-vertical-padding: .3rem;
-
-
-// -------------------------
 // Borders
 // -------------------------
 
@@ -20,7 +9,7 @@
 @border-color-base: @global-color-gray-light;
 @border-color-light: @global-color-gray-lighter;
 @border-color-focus: #66afe9;
-@border-radius: .3rem;
+@global-border-radius: .3rem;
 @border-shadow-focus: ~'inset 0 0 1px rgba(0, 0, 0, .075), 0 0 .4rem @{border-shadow-color-focus}';
 @border-shadow-color-focus: rgba(red(@border-color-focus), green(@border-color-focus), blue(@border-color-focus), .75);
 
@@ -63,7 +52,6 @@
 @padding-half-gutter: @grid-gutter-width / 2; // 16px
 
 // fine-tune component margin
-@margin-gutter: @grid-gutter-width; // 32px
 @margin-half-gutter: @grid-gutter-width / 2; // 16px
 
 @component-active-color: @global-color-white; // global color for active items (e.g., navs or dropdowns)
@@ -71,64 +59,6 @@
 
 @caret-width-base: .5rem; // width of the `border` for generating carets that indicator dropdowns
 @caret-width-large: .6rem;
-
-
-
-// -------------------------
-// Forms
-// -------------------------
-
-
-@cursor-disabled: not-allowed; // disabled cursor for form controls and buttons.
-
-@input-bg: @global-color-white;
-@input-bg-disabled: @global-color-gray-lightest;
-@input-border: @border-color-base;
-@input-border-focus: @border-color-focus;
-@input-border-radius: @border-radius;
-@input-color: @text-color;
-@input-color-placeholder: darken(@global-color-gray-light, 4%);
-@input-group-addon-bg: @global-color-gray-lighter; // bg color for textual input addons
-@input-group-addon-border-color: @input-border; // border color for textual input addons
-
-// Form control `.form-control` heights
-
-@input-height-base: @btn-height-base;
-
-@input-padding-base: @btn-padding-base;
-
-@form-addon-item-bg: @global-color-gray-lightest;
-@form-control-chevron-padding: 3rem;
-@form-control-clear-padding: 3rem;
-@form-element-color: @global-color-primary;
-@form-group-margin-bottom: @line-height-computed;
-
-@legend-color: @global-color-gray-dark;
-@legend-border-color: #e5e5e5;
-
-@rhinobox-rhinodio-margin: @global-whitespace-small;
-
-
-// -------------------------
-// Labels
-// -------------------------
-
-
-@label-accent-bg: @global-color-accent;
-@label-danger-bg: @global-color-danger;
-@label-default-bg: @global-color-gray;
-@label-info-bg: @global-color-info;
-@label-primary-bg: @global-color-primary;
-@label-secondary-bg: @global-color-secondary;
-@label-success-bg: @global-color-success;
-@label-warning-bg: @global-color-warning;
-
-@label-color: @global-color-white;
-@label-link-hover-color: @global-color-white;
-
-@label-padding-sides: .5rem;
-
-@label-padding: 0 @label-padding-sides;
 
 
 // -------------------------
@@ -148,35 +78,6 @@
 
 
 @opacity-disabled: .6;
-
-
-// -------------------------
-// Pills
-// -------------------------
-
-
-@pill-default-bg: @global-color-white;
-@pill-default-border: @border-color-base;
-@pill-default-color: @link-color;
-
-@pill-neutral-bg: @global-color-gray-lightest;
-@pill-neutral-border: @global-color-gray-lightest;
-@pill-neutral-color: @link-color;
-
-@pill-padding-horizontal: .6rem;
-@pill-padding-vertical: .4rem;
-
-@pill-padding: @pill-padding-vertical @pill-padding-horizontal;
-
-
-// -------------------------
-// Progress bars
-// -------------------------
-
-
-@progress-bar-radius: @progress-bar-height / 2;
-@progress-bar-height: 1.4rem;
-@progress-bar-inset-shadow: inset 0 .5rem .5rem rgba(0, 0, 0, .05);
 
 
 // -------------------------
@@ -226,9 +127,7 @@
 // -------------------------
 
 
-@spacer: 1.4rem;
-@spacer-x: @spacer;
-@spacer-y: @spacer;
+@global-spacer: 1.4rem;
 
 
 // -------------------------
@@ -264,74 +163,6 @@
 // -------------------------
 
 @svg-sprite: '../../dist/svg/sprite.svg';
-
-
-// -------------------------
-// Switchers
-// -------------------------
-
-
-@switcher-border-radius: @border-radius;
-@switcher-height: 2.6rem;
-@switcher-state-line-height: @switcher-height;
-@switcher-state-padding: 2.2rem;
-@switcher-toggler-height: 2.2rem;
-@switcher-toggler-margin: .2rem;
-@switcher-toggler-width: 2.2rem;
-@switcher-width: 6rem;
-
-
-// -------------------------
-// System Alerts
-// -------------------------
-
-
-@system-alert-padding: @global-whitespace-base @global-whitespace-large;
-@system-alert-text: @global-color-white;
-
-
-// -------------------------
-// Tables
-// -------------------------
-
-
-@table-bg: transparent; // default background color used for all tables.
-@table-bg-active: @table-bg-hover;
-@table-bg-danger: @state-danger-bg;
-@table-bg-hover: darken(@global-color-gray-lightest, 2%);
-@table-bg-striped: @global-color-gray-lightest;
-@table-bg-success: @state-success-bg;
-@table-bg-warning: @state-warning-bg;
-
-@table-border-color: @border-color-base;
-
-@table-cell-padding: 1rem; // padding for `<th>`s and `<td>`s
-@table-condensed-cell-padding: .6rem; // padding for cells in `.table-condensed`
-
-
-// -------------------------
-// Toast Notifications
-// -------------------------
-
-
-@toast-border-radius: @border-radius;
-@toast-font-weight: @font-weight-light;
-@toast-offset: 1rem;
-@toast-padding: @global-whitespace-base;
-@toast-text: @global-color-white;
-
-
-// -------------------------
-// Tooltip
-// -------------------------
-
-
-@tooltip-arrow-width: .6rem;
-@tooltip-arrow-color: @tooltip-bg;
-@tooltip-bg: @global-color-gray-dark;
-@tooltip-border-radius: @border-radius;
-@tooltip-color: @global-color-white;
-@tooltip-padding: @global-whitespace-xsmall @global-whitespace-small;
 
 
 // -------------------------
