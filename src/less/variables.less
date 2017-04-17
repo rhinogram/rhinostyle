@@ -6,12 +6,9 @@
 // -------------------------
 
 
-@border-color-base: @global-color-gray-light;
-@border-color-light: @global-color-gray-lighter;
-@border-color-focus: #66afe9;
+@global-border-color-base: @global-color-gray-light;
+@global-border-color-light: @global-color-gray-lighter;
 @global-border-radius: .3rem;
-@border-shadow-focus: ~'inset 0 0 1px rgba(0, 0, 0, .075), 0 0 .4rem @{border-shadow-color-focus}';
-@border-shadow-color-focus: rgba(red(@border-color-focus), green(@border-color-focus), blue(@border-color-focus), .75);
 
 
 // -------------------------
@@ -46,30 +43,11 @@
 // Components
 // -------------------------
 
-
-// fine-tune component padding
-@padding-gutter: @grid-gutter-width; // 32px
-@padding-half-gutter: @grid-gutter-width / 2; // 16px
-
-// fine-tune component margin
-@margin-half-gutter: @grid-gutter-width / 2; // 16px
+@global-gutter: 3.2rem;
+@global-half-gutter: 1.6rem;
 
 @component-active-color: @global-color-white; // global color for active items (e.g., navs or dropdowns)
 @component-active-bg: @global-color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
-
-@caret-width-base: .5rem; // width of the `border` for generating carets that indicator dropdowns
-@caret-width-large: .6rem;
-
-
-// -------------------------
-// Navs
-// -------------------------
-
-
-@nav-link-padding: @global-whitespace-base @padding-half-gutter;
-@nav-link-padding-small: @global-whitespace-small @global-whitespace-base;
-
-@nav-tabs-active-border-width: 2px;
 
 
 // -------------------------
@@ -93,7 +71,6 @@
 
 @text-color: @global-color-gray-dark; // body text color
 @text-color-muted: @global-color-gray;
-
 
 
 // -------------------------
@@ -161,6 +138,7 @@
 // -------------------------
 // SVG
 // -------------------------
+
 
 @svg-sprite: '../../dist/svg/sprite.svg';
 

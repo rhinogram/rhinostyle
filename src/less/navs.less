@@ -1,5 +1,17 @@
-// File: navs.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@nav-link-padding: @global-whitespace-base @global-half-gutter;
+@nav-link-padding-small: @global-whitespace-small @global-whitespace-base;
+
+@nav-tabs-active-border-width: 2px;
+
+
+// -------------------------
+// Component
+// -------------------------
 
 
 // -------------------------
@@ -10,7 +22,7 @@
 .nav-tabs {
   display: flex;
   list-style: none;
-  margin-bottom: @margin-half-gutter;
+  margin-bottom: @global-half-gutter;
   padding: @nav-tabs-active-border-width 0;
 }
 
@@ -24,7 +36,7 @@
 
   .nav-tabs__item:last-child .nav-tabs__item__link {
     &::after {
-      background: @border-color-base;
+      background: @global-border-color-base;
       bottom: 0;
       content: '';
       height: 1px;
@@ -77,7 +89,7 @@
   }
 
   .nav-tabs__item__link {
-    border: 1px solid @border-color-base;
+    border: 1px solid @global-border-color-base;
     padding: @nav-link-padding-small;
 
     // hide pseudo border that runs to the run for non-justified tabs
@@ -107,7 +119,7 @@
   // left and right tab borders
   &::after,
   &::before {
-    border-color: @border-color-base;
+    border-color: @global-border-color-base;
     border-style: solid;
     bottom: 0;
     content: '';
@@ -124,7 +136,7 @@
   }
 
   &::before {
-    border-color: @border-color-base;
+    border-color: @global-border-color-base;
     border-width: 0 0 1px;
   }
 

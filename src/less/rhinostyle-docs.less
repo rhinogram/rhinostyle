@@ -110,7 +110,7 @@ pre {
 
 .site-example-utility__panel {
   background: @global-color-gray-lightest;
-  padding: @padding-gutter;
+  padding: @global-gutter;
 
   p:last-child {
     margin-bottom: 0;
@@ -192,7 +192,7 @@ pre {
 .site-grid-box-container {
   background: @global-color-gray-lightest;
   border: 1px solid @global-color-gray-light;
-  padding: @padding-half-gutter;
+  padding: @global-half-gutter;
 }
 
 
@@ -206,7 +206,7 @@ pre {
   background-color: @global-color-gray-lightest;
   display: flex;
   height: @global-header-height;
-  padding: 0 @padding-half-gutter;
+  padding: 0 @global-half-gutter;
   transition: transform 250ms @trans-timing-cubic;
 }
 
@@ -229,7 +229,7 @@ pre {
 
 .site-header__menu {
   cursor: pointer;
-  margin-right: @margin-half-gutter;
+  margin-right: @global-half-gutter;
 
   @media (min-width: @global-screen-lg-min) {
     display: none;
@@ -329,7 +329,7 @@ pre {
   color: @global-color-white;
   display: block;
   //font-weight: @font-weight-light;
-  padding: @global-whitespace-small @padding-half-gutter;
+  padding: @global-whitespace-small @global-half-gutter;
   transition: background-color 250ms @trans-timing-cubic;
 
   .no-touch & {
@@ -345,7 +345,7 @@ pre {
   }
 
   /*@media (min-height: 1100px) {
-    padding: @global-whitespace-base @padding-half-gutter;
+    padding: @global-whitespace-base @global-half-gutter;
   }*/
 }
 
@@ -506,7 +506,7 @@ html {
 }
 
 .playgroundCode { // lesshint selectorNaming: false
-  margin-bottom: @margin-half-gutter;
+  margin-bottom: @global-half-gutter;
 }
 
 .playgroundError { // lesshint selectorNaming: false
@@ -514,13 +514,13 @@ html {
   color: @global-color-white;
   font-family: @font-family-monospace;
   font-size: 1.4rem;
-  margin-bottom: @margin-half-gutter;
+  margin-bottom: @global-half-gutter;
   padding: @global-whitespace-small;
   white-space: pre-wrap;
 }
 
 .CodeMirror-wrap { // lesshint selectorNaming: false
-  border: 1px solid @border-color-base;
+  border: 1px solid @global-border-color-base;
 }
 
 .CodeMirror-code { // lesshint selectorNaming: false
