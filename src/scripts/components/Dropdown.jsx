@@ -1,6 +1,7 @@
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import cx from 'classnames';
 
 import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
@@ -8,38 +9,38 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
-    activeKey:     React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    block:         React.PropTypes.bool,
-    children:      React.PropTypes.node,
-    className:     React.PropTypes.string,
-    disabled:      React.PropTypes.bool,
-    disableScroll: React.PropTypes.bool,
-    hideCaret:     React.PropTypes.bool,
-    hideActive:    React.PropTypes.bool,
-    icon:          React.PropTypes.string,
-    label:         React.PropTypes.string,
-    lockLabel:     React.PropTypes.bool,
-    position:      React.PropTypes.string,
-    onClick:       React.PropTypes.func,
-    onSelect:      React.PropTypes.func,
-    size:          React.PropTypes.oneOf(['small', 'large']),
-    type:          React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
-    wide:          React.PropTypes.bool,
-    onComplete: React.PropTypes.func,
-    onReverseComplete: React.PropTypes.func,
-    onReverseStart: React.PropTypes.func,
-    onStart: React.PropTypes.func,
-    manualClose: React.PropTypes.bool,
+    activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    block: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    disableScroll: PropTypes.bool,
+    hideCaret: PropTypes.bool,
+    hideActive: PropTypes.bool,
+    icon: PropTypes.string,
+    label: PropTypes.string,
+    lockLabel: PropTypes.bool,
+    position: PropTypes.string,
+    onClick: PropTypes.func,
+    onSelect: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'large']),
+    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
+    wide: PropTypes.bool,
+    onComplete: PropTypes.func,
+    onReverseComplete: PropTypes.func,
+    onReverseStart: PropTypes.func,
+    onStart: PropTypes.func,
+    manualClose: PropTypes.bool,
   };
 
   static defaultProps = {
-    block:         false,
-    disabled:      false,
+    block: false,
+    disabled: false,
     disableScroll: false,
-    hideCaret:     false,
-    hideActive:    false,
-    type:          'default',
-    wide:          false,
+    hideCaret: false,
+    hideActive: false,
+    type: 'default',
+    wide: false,
     onComplete: () => {},
     onReverseComplete: () => {},
     onReverseStart: () => {},
@@ -120,7 +121,7 @@ class Dropdown extends React.Component {
   }
 
   handleToggle = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     if (this.state.isOpen) {
       // Close dropdown
@@ -141,7 +142,7 @@ class Dropdown extends React.Component {
   };
 
   handleClickOutside = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     // Close dropdown
     $dropdown.timeline.reverse();
@@ -184,7 +185,7 @@ class Dropdown extends React.Component {
       'btn--sm': size === 'small',
       'btn--lg': size === 'large',
       'btn--icon': (icon && !label),
-      'disabled': disabled, //eslint-disable-line
+      disabled,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {

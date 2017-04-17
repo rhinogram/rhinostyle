@@ -1,21 +1,22 @@
-/* eslint no-return-assign:0 */
-import cx                 from 'classnames';
-import React              from 'react';
-import ReactDOM           from 'react-dom';
+import cx from 'classnames';
 import { TimelineMax } from 'gsap';
-import { UtilitySystem } from '../UtilitySystem';
+import PropTypes from 'prop-types';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { UtilitySystem } from '../components';
 
 class Modal extends React.Component {
   static displayName = 'RhinoModal';
 
   static propTypes = {
-    children:  React.PropTypes.node,
-    className: React.PropTypes.string,
-    size:      React.PropTypes.string,
-    onComplete: React.PropTypes.func,
-    onReverseComplete: React.PropTypes.func,
-    onReverseStart: React.PropTypes.func,
-    onStart: React.PropTypes.func,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    size: PropTypes.string,
+    onComplete: PropTypes.func,
+    onReverseComplete: PropTypes.func,
+    onReverseStart: PropTypes.func,
+    onStart: PropTypes.func,
   };
 
   static defaultProps = {
@@ -110,7 +111,7 @@ class Modal extends React.Component {
     }, className);
 
     return (
-      <div className="modal" ref={ref => this.modal = ref}>
+      <div className="modal" ref={ref => (this.modal = ref)}>
         <div className={modalClasses}>
           <div className="modal__content">
             {children}

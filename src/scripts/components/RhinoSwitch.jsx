@@ -1,14 +1,15 @@
-import React from 'react';
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class RhinoSwitch extends React.Component {
   static display = 'RhinoSwitch';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    disabled:  React.PropTypes.bool,
-    isChecked: React.PropTypes.bool,
-    name:      React.PropTypes.string.isRequired,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    isChecked: PropTypes.bool,
+    name: PropTypes.string.isRequired,
   };
 
   static defaultProps = {

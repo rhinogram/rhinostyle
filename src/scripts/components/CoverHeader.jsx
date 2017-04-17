@@ -1,16 +1,17 @@
-import React                        from 'react';
-import cx                           from 'classnames';
-import { Close, Icon, CoverSystem } from '../components';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
+import { Close, Icon, CoverSystem } from '../components';
 
 class CoverHeader extends React.Component {
   static displayName = 'RhinoCoverHeader';
 
   static propTypes = {
-    icon:           React.PropTypes.string,
-    iconClassName:  React.PropTypes.string,
-    onClose:        React.PropTypes.func,
-    title:          React.PropTypes.string,
+    icon: PropTypes.string,
+    iconClassName: PropTypes.string,
+    onClose: PropTypes.func,
+    title: PropTypes.string,
   }
 
   closeCover = () => {

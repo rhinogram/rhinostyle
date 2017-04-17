@@ -1,31 +1,33 @@
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import cx from 'classnames';
+
 import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, Pill, UtilityInlineGrid } from '../components';
 
 class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
-    activeKeys:         React.PropTypes.arrayOf(React.PropTypes.number),
-    block:              React.PropTypes.bool,
-    children:           React.PropTypes.node,
-    className:          React.PropTypes.string,
-    disabled:           React.PropTypes.bool,
-    explanationMessage: React.PropTypes.string,
-    onSelect:           React.PropTypes.func,
-    placeholder:        React.PropTypes.string,
-    position:           React.PropTypes.string,
-    wide:               React.PropTypes.bool,
-    validationMessage:  React.PropTypes.string,
+    activeKeys: PropTypes.arrayOf(PropTypes.number),
+    block: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+    disabled: PropTypes.bool,
+    explanationMessage: PropTypes.string,
+    onSelect: PropTypes.func,
+    placeholder: PropTypes.string,
+    position: PropTypes.string,
+    wide: PropTypes.bool,
+    validationMessage: PropTypes.string,
   };
 
   static defaultProps = {
-    activeKeys:   [],
-    block:        false,
-    disabled:     false,
-    placeholder:  'Click or type to select more ...',
-    wide:         false,
+    activeKeys: [],
+    block: false,
+    disabled: false,
+    placeholder: 'Click or type to select more ...',
+    wide: false,
   };
 
   state = {
@@ -53,7 +55,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   clearInput = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     // Close dropdown
     $dropdown.timeline.reverse();
@@ -66,7 +68,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   handleToggle = (e) => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     // If we're focusing on the input
     if (e.target.tagName === 'INPUT') {
@@ -128,7 +130,7 @@ class DropdownMultiSelect extends React.Component {
 
   handleFilter = (e) => {
     if (!this.state.isOpen) {
-      const $dropdown = ReactDOM.findDOMNode(this.dropdown); // eslint-disable-line react/no-find-dom-node
+      const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
       // Open dropdown
       $dropdown.timeline.play();
@@ -195,8 +197,8 @@ class DropdownMultiSelect extends React.Component {
     });
 
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
-      'disabled':                  disabled, //eslint-disable-line
-      'form__control--error':      validationMessage,
+      disabled,
+      'form__control--error': validationMessage,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {
@@ -241,9 +243,8 @@ class DropdownMultiSelect extends React.Component {
 
     return (
       <span>
-        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => this.dropdown = ref}>
-          {/* eslint no-return-assign:0 */}
-          <input onClick={this.handleToggle} ref={ref => this.filterInput = ref} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
+        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => (this.dropdown = ref)}>
+          <input onClick={this.handleToggle} ref={ref => (this.filterInput = ref)} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
               { items.length > 0 ? items : <DropdownMenuHeader label="No results" /> }

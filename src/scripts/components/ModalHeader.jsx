@@ -1,17 +1,18 @@
-import React                    from 'react';
-import cx                       from 'classnames';
-import { Close, Icon, ModalSystem }    from '../components';
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
+import { Close, Icon, ModalSystem }    from '../components';
 
 class ModalHeader extends React.Component {
   static displayName = 'RhinoModalHeader';
 
   static propTypes = {
-    dismissable:    React.PropTypes.bool,
-    icon:           React.PropTypes.string,
-    iconClassName:  React.PropTypes.string,
-    onClose:        React.PropTypes.func,
-    title:          React.PropTypes.string,
+    dismissable: PropTypes.bool,
+    icon: PropTypes.string,
+    iconClassName: PropTypes.string,
+    onClose: PropTypes.func,
+    title: PropTypes.string,
   }
 
   static defaultProps = {

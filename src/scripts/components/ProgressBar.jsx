@@ -1,5 +1,6 @@
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
-import cx    from 'classnames';
 
 const ProgressBar = (props) => {
   const { className, progress, showLabel, type } = props;
@@ -45,16 +46,16 @@ const ProgressBar = (props) => {
 ProgressBar.displayName = 'RhinoProgressBar';
 
 ProgressBar.propTypes = {
-  className: React.PropTypes.string,
-  progress:  React.PropTypes.number,
-  showLabel: React.PropTypes.bool,
-  type:      React.PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
+  className: PropTypes.string,
+  progress: PropTypes.number,
+  showLabel: PropTypes.bool,
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'temperature']),
 };
 
 ProgressBar.defaultProps = {
   progress:  0,
   showLabel: false,
-  type:      'default',
+  type: 'default',
 };
 
 export default ProgressBar;

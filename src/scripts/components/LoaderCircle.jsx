@@ -1,15 +1,16 @@
-import React from 'react';
 import cx    from 'classnames';
 import { Linear, TimelineMax } from 'gsap';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class LoaderCircle extends React.Component {
   static displayName = 'RhinoLoaderCircle';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    pause: React.PropTypes.bool,
-    size: React.PropTypes.string,
-    type: React.PropTypes.string,
+    className: PropTypes.string,
+    pause: PropTypes.bool,
+    size: PropTypes.string,
+    type: PropTypes.string,
   };
 
   static defaultProps = {

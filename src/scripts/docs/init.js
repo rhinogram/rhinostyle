@@ -169,28 +169,28 @@ $siteOverlay.addEventListener('click', closeNavigation);
 
 const rhinoLogin = {
   frames: 64, // 65 total frames minus 1
-  ease: function() { return new SteppedEase(this.frames) }, // eslint-disable-line
+  ease() { return new SteppedEase(this.frames); },
   position: '-98.46%', // total height of svg (29900) minus height of 1 frame (460px) / 29900 * 100
   speed: 3,
   timeline: new TimelineMax({ repeat: -1, repeatDelay: 2 }),
 };
 const rhinoFlag = {
   frames: 51, // 52 total frames minus 1
-  ease: function() { return new SteppedEase(this.frames) }, // eslint-disable-line
+  ease() { return new SteppedEase(this.frames); },
   position: '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
   speed: 3,
   timeline: new TimelineMax({ repeat: -1, repeatDelay: 2 }),
 };
 const rhinoSecure = {
   frames: 51, // 52 total frames minus 1
-  ease: function() { return new SteppedEase(this.frames) }, // eslint-disable-line
+  ease() { return new SteppedEase(this.frames); },
   position: '-98.07%', // total height of svg (45760) minus height of 1 frame (880px) / 45760 * 100
   speed: 3,
   timeline: new TimelineMax({ repeat: -1, repeatDelay: 2 }),
 };
 const rhinoTime = {
   frames: 58, // 59 total frames minus 1
-  ease: function() { return new SteppedEase(this.frames) }, // eslint-disable-line
+  ease() { return new SteppedEase(this.frames); },
   position: '-98.3%', // total height of svg (51920) minus height of 1 frame (880px) / 51920 * 100
   speed: 3,
   timeline: new TimelineMax({ repeat: -1, repeatDelay: 2 }),

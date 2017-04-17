@@ -1,22 +1,22 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import DropdownMenuItem from './DropdownMenuItem';
-import DropdownMenuItemWild from './DropdownMenuItemWild';
-import DropdownMenuScroll from './DropdownMenuScroll';
+
+import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll } from '../components';
 
 class DropdownFilter extends React.Component {
   static displayName = 'RhinoDropdownFilter';
 
   static propTypes = {
-    activeKey:       React.PropTypes.number,
-    children:        React.PropTypes.node,
-    handleToggle:    React.PropTypes.func,
-    placeholder:     React.PropTypes.string,
-    onSelect:        React.PropTypes.func,
-    updateActiveKey: React.PropTypes.func,
+    activeKey: PropTypes.number,
+    children: PropTypes.node,
+    handleToggle: PropTypes.func,
+    placeholder: PropTypes.string,
+    onSelect: PropTypes.func,
+    updateActiveKey: PropTypes.func,
   };
 
   static defaultProps = {
-    onSelect:   () => {},
+    onSelect: () => {},
   };
 
   state = {
@@ -111,8 +111,7 @@ class DropdownFilter extends React.Component {
     return (
       <div>
         <div className="dropdown__menu__container">
-          {/* eslint no-return-assign:0 */}
-          <input type="text" className="form__control" ref={ref => this.filterInput = ref} placeholder={placeholder} onChange={this.handleFilter} />
+          <input type="text" className="form__control" ref={ref => (this.filterInput = ref)} placeholder={placeholder} onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {items}

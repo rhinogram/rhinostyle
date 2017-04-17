@@ -1,19 +1,20 @@
-import React from 'react';
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import Radio from './Radio';
+import { Radio } from '../components';
 
 class RadioGroup extends React.Component {
   static displayName = 'RhinodioGroup';
 
   static propTypes = {
-    children:      React.PropTypes.node,
-    className:     React.PropTypes.string,
-    inline:        React.PropTypes.bool,
-    label:         React.PropTypes.string,
-    name:          React.PropTypes.string.isRequired,
-    onChange:      React.PropTypes.func,
-    selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    inline: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {
@@ -83,7 +84,7 @@ class RadioGroup extends React.Component {
 
     const showLabel = () => {
       if (label) {
-        return <label className="u-block">{label}</label>;
+        return <label className="u-block">{label}</label>; // eslint-disable-line jsx-a11y/label-has-for
       }
 
       return false;

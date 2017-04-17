@@ -1,16 +1,17 @@
-import React from 'react';
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 class Avatar extends React.Component {
   static displayName = 'RhinoAvatar';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    image: React.PropTypes.string,
-    name: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
-    src: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['default', 'member']),
+    className: PropTypes.string,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'default', 'large']),
+    src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+    type: PropTypes.oneOf(['default', 'member']),
   };
 
   static defaultProps = {

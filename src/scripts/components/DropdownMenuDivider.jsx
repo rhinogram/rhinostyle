@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const DropdownMenuDivider = props => <div className="dropdown__menu__divider">{props.children}</div>;
@@ -5,7 +6,7 @@ const DropdownMenuDivider = props => <div className="dropdown__menu__divider">{p
 DropdownMenuDivider.displayName = 'RhinoDropdownMenuDivider';
 
 DropdownMenuDivider.propTypes = {
-  children:  React.PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default DropdownMenuDivider;

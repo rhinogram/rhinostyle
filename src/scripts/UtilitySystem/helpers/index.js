@@ -18,9 +18,6 @@ export const config = {
     lgMax: '1199px',
   },
   classes: {
-    required: 'is-required',
-    valid: 'is-valid',
-    notValid: 'is-notValid',
     open: 'is-open',
     active: 'is-active',
     hidden: 'is-hidden',
@@ -45,7 +42,7 @@ export function forEach(array, callback, scope) {
  * Resize listener
  * @return {function}
  */
-export const optimizedResize = (function() { // eslint-disable-line
+export const optimizedResize = (function() { // eslint-disable-line func-names
   const callbacks = [];
   let running = false;
 
@@ -64,7 +61,7 @@ export const optimizedResize = (function() { // eslint-disable-line
 
   // run the actual callbacks
   function runCallbacks() {
-    callbacks.forEach(function(callback) { // eslint-disable-line
+    callbacks.forEach((callback) => {
       callback();
     });
 

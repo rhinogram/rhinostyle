@@ -1,5 +1,6 @@
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
-import cx    from 'classnames';
 
 const UtilityInlineGrid = (props) => {
   const { align, size } = props;
@@ -20,9 +21,9 @@ const UtilityInlineGrid = (props) => {
 UtilityInlineGrid.displayName = 'RhinoUtilityInlineGrid';
 
 UtilityInlineGrid.propTypes = {
-  align: React.PropTypes.oneOf(['middle', 'right']),
-  children:  React.PropTypes.node,
-  size:      React.PropTypes.oneOf(['small', 'large']),
+  align: PropTypes.oneOf(['middle', 'right']),
+  children: PropTypes.node,
+  size: PropTypes.oneOf(['small', 'large']),
 };
 
 UtilityInlineGrid.defaultProps = {

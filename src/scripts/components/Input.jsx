@@ -1,44 +1,44 @@
-/* eslint no-return-assign:0 */
-
+import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
-import cx    from 'classnames';
+
 import { Icon } from '../components';
 
 class Input extends React.Component {
   static displayName = 'RhinoInput';
 
   static propTypes = {
-    addon:              React.PropTypes.oneOf(['', 'left', 'right', 'both']),
-    autoCapitalize:     React.PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
-    autoComplete:       React.PropTypes.oneOf(['off', 'on']),
-    className:          React.PropTypes.string,
-    clear:              React.PropTypes.bool,
-    disabled:           React.PropTypes.bool,
-    explanationMessage: React.PropTypes.string,
-    initialValue:       React.PropTypes.string,
-    label:              React.PropTypes.string,
-    naked:              React.PropTypes.bool,
-    name:               React.PropTypes.string,
-    onChange:           React.PropTypes.func,
-    onKeyPress:         React.PropTypes.func,
-    onClear:            React.PropTypes.func,
-    placeholder:        React.PropTypes.string,
-    required:           React.PropTypes.bool,
-    focus:              React.PropTypes.bool,
-    type:               React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
-    validationMessage:  React.PropTypes.string,
+    addon: PropTypes.oneOf(['', 'left', 'right', 'both']),
+    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
+    autoComplete: PropTypes.oneOf(['off', 'on']),
+    className: PropTypes.string,
+    clear: PropTypes.bool,
+    disabled: PropTypes.bool,
+    explanationMessage: PropTypes.string,
+    initialValue: PropTypes.string,
+    label: PropTypes.string,
+    naked: PropTypes.bool,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    onClear: PropTypes.func,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    focus: PropTypes.bool,
+    type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
+    validationMessage: PropTypes.string,
   };
 
   static defaultProps = {
-    addon:    '',
-    clear:    false,
+    addon: '',
+    clear: false,
     disabled: false,
-    label:    '',
-    naked:    false,
-    name:     '',
+    label: '',
+    naked: false,
+    name: '',
     required: false,
-    type:     'text',
-    focus:    false,
+    type: 'text',
+    focus: false,
   };
 
   state = {
@@ -75,7 +75,7 @@ class Input extends React.Component {
     this.setState({ value: event.target.value });
 
     if (this.props.onChange && typeof (this.props.onChange === 'function')) {
-      this.props.onChange(event.target.id,  event.target.value.trimLeft());
+      this.props.onChange(event.target.id, event.target.value.trimLeft());
     }
   }
 
@@ -135,7 +135,7 @@ class Input extends React.Component {
       if (clear) {
         inputMarkup = (
           <div className="form__clear">
-            <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+            <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
             {input ? <a href="javascript:void(0)" className="form__clear__btn" onClick={this._handleClear} ><Icon icon="close" /></a> : null}
           </div>
         );
@@ -148,14 +148,14 @@ class Input extends React.Component {
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
                 </div>
-                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
               </div>
             );
             break;
           case 'right':
             inputMarkup = (
               <div className="form__addon">
-                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children}
                 </div>
@@ -168,7 +168,7 @@ class Input extends React.Component {
                 <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {this.props.children[0]}
                 </div>
-                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />
+                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children[1]}
                 </div>
@@ -176,7 +176,7 @@ class Input extends React.Component {
             );
             break;
           default:
-            inputMarkup = <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => this.rhinoInput = ref} />;
+            inputMarkup = <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />;
         }
       }
       return inputMarkup;
