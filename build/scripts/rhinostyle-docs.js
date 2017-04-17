@@ -32299,7 +32299,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		exports["DatePicker"] = factory(require("moment"), require("react"), require("react-onclickoutside"), require("react-dom"));
 	else
 		root["DatePicker"] = factory(root["moment"], root["React"], root["onClickOutside"], root["ReactDOM"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_4__, __WEBPACK_EXTERNAL_MODULE_11__, __WEBPACK_EXTERNAL_MODULE_20__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__, __WEBPACK_EXTERNAL_MODULE_9__, __WEBPACK_EXTERNAL_MODULE_17__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -32348,51 +32348,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	var _date_input = __webpack_require__(1);
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _date_input2 = _interopRequireDefault(_date_input);
 
-	var _calendar = __webpack_require__(1);
+	var _calendar = __webpack_require__(5);
 
 	var _calendar2 = _interopRequireDefault(_calendar);
 
-	var _react = __webpack_require__(4);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _tether_component = __webpack_require__(19);
+	var _tether_component = __webpack_require__(16);
 
 	var _tether_component2 = _interopRequireDefault(_tether_component);
 
-	var _classnames2 = __webpack_require__(10);
+	var _classnames2 = __webpack_require__(8);
 
 	var _classnames3 = _interopRequireDefault(_classnames2);
 
-	var _date_utils = __webpack_require__(17);
+	var _date_utils = __webpack_require__(4);
 
 	var _moment = __webpack_require__(2);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _reactOnclickoutside = __webpack_require__(11);
+	var _reactOnclickoutside = __webpack_require__(9);
 
 	var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var outsideClickIgnoreClass = 'react-datepicker-ignore-onclickoutside';
 	var WrappedCalendar = (0, _reactOnclickoutside2.default)(_calendar2.default);
@@ -32401,450 +32389,403 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * General datepicker component.
 	 */
 
-	var DatePicker = function (_React$Component) {
-	  _inherits(DatePicker, _React$Component);
+	var DatePicker = _react2.default.createClass({
+	  displayName: 'DatePicker',
 
-	  _createClass(DatePicker, null, [{
-	    key: 'defaultProps',
-	    get: function get() {
-	      return {
-	        dateFormat: 'L',
-	        dateFormatCalendar: 'MMMM YYYY',
-	        onChange: function onChange() {},
+	  propTypes: {
+	    autoComplete: _react2.default.PropTypes.string,
+	    autoFocus: _react2.default.PropTypes.bool,
+	    calendarClassName: _react2.default.PropTypes.string,
+	    children: _react2.default.PropTypes.node,
+	    className: _react2.default.PropTypes.string,
+	    customInput: _react2.default.PropTypes.element,
+	    dateFormat: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.array]),
+	    dateFormatCalendar: _react2.default.PropTypes.string,
+	    disabled: _react2.default.PropTypes.bool,
+	    disableDateAutoCorrection: _react2.default.PropTypes.bool,
+	    disabledKeyboardNavigation: _react2.default.PropTypes.bool,
+	    dropdownMode: _react2.default.PropTypes.oneOf(['scroll', 'select']).isRequired,
+	    endDate: _react2.default.PropTypes.object,
+	    excludeDates: _react2.default.PropTypes.array,
+	    filterDate: _react2.default.PropTypes.func,
+	    fixedHeight: _react2.default.PropTypes.bool,
+	    highlightDates: _react2.default.PropTypes.array,
+	    id: _react2.default.PropTypes.string,
+	    includeDates: _react2.default.PropTypes.array,
+	    inline: _react2.default.PropTypes.bool,
+	    isClearable: _react2.default.PropTypes.bool,
+	    locale: _react2.default.PropTypes.string,
+	    maxDate: _react2.default.PropTypes.object,
+	    minDate: _react2.default.PropTypes.object,
+	    monthsShown: _react2.default.PropTypes.number,
+	    name: _react2.default.PropTypes.string,
+	    onBlur: _react2.default.PropTypes.func,
+	    onChange: _react2.default.PropTypes.func.isRequired,
+	    onSelect: _react2.default.PropTypes.func,
+	    onClickOutside: _react2.default.PropTypes.func,
+	    onChangeRaw: _react2.default.PropTypes.func,
+	    onFocus: _react2.default.PropTypes.func,
+	    onMonthChange: _react2.default.PropTypes.func,
+	    openToDate: _react2.default.PropTypes.object,
+	    peekNextMonth: _react2.default.PropTypes.bool,
+	    placeholderText: _react2.default.PropTypes.string,
+	    popoverAttachment: _react2.default.PropTypes.string,
+	    popoverTargetAttachment: _react2.default.PropTypes.string,
+	    popoverTargetOffset: _react2.default.PropTypes.string,
+	    readOnly: _react2.default.PropTypes.bool,
+	    renderCalendarTo: _react2.default.PropTypes.any,
+	    required: _react2.default.PropTypes.bool,
+	    scrollableYearDropdown: _react2.default.PropTypes.bool,
+	    selected: _react2.default.PropTypes.object,
+	    selectsEnd: _react2.default.PropTypes.bool,
+	    selectsStart: _react2.default.PropTypes.bool,
+	    showMonthDropdown: _react2.default.PropTypes.bool,
+	    showWeekNumbers: _react2.default.PropTypes.bool,
+	    showYearDropdown: _react2.default.PropTypes.bool,
+	    forceShowMonthNavigation: _react2.default.PropTypes.bool,
+	    startDate: _react2.default.PropTypes.object,
+	    tabIndex: _react2.default.PropTypes.number,
+	    tetherConstraints: _react2.default.PropTypes.array,
+	    title: _react2.default.PropTypes.string,
+	    todayButton: _react2.default.PropTypes.string,
+	    utcOffset: _react2.default.PropTypes.number,
+	    withPortal: _react2.default.PropTypes.bool
+	  },
 
-	        disabled: false,
-	        disabledKeyboardNavigation: false,
-	        dropdownMode: 'scroll',
-	        onFocus: function onFocus() {},
-	        onBlur: function onBlur() {},
-	        onSelect: function onSelect() {},
-	        onClickOutside: function onClickOutside() {},
-	        onMonthChange: function onMonthChange() {},
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      dateFormatCalendar: 'MMMM YYYY',
+	      onChange: function onChange() {},
 
-	        popoverAttachment: 'top left',
-	        popoverTargetAttachment: 'bottom left',
-	        popoverTargetOffset: '10px 0',
-	        tetherConstraints: [{
-	          to: 'window',
-	          attachment: 'together'
-	        }],
-	        utcOffset: (0, _moment2.default)().utcOffset(),
-	        monthsShown: 1,
-	        withPortal: false
-	      };
+	      disabled: false,
+	      disableDateAutoCorrection: false,
+	      disabledKeyboardNavigation: false,
+	      dropdownMode: 'scroll',
+	      onFocus: function onFocus() {},
+	      onBlur: function onBlur() {},
+	      onSelect: function onSelect() {},
+	      onClickOutside: function onClickOutside() {},
+	      onMonthChange: function onMonthChange() {},
+
+	      popoverAttachment: 'top left',
+	      popoverTargetAttachment: 'bottom left',
+	      popoverTargetOffset: '10px 0',
+	      tetherConstraints: [{
+	        to: 'window',
+	        attachment: 'together'
+	      }],
+	      utcOffset: (0, _moment2.default)().utcOffset(),
+	      monthsShown: 1,
+	      withPortal: false
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    var defaultPreSelection = this.props.openToDate ? (0, _moment2.default)(this.props.openToDate) : this.props.selectsEnd && this.props.startDate ? (0, _moment2.default)(this.props.startDate) : this.props.selectsStart && this.props.endDate ? (0, _moment2.default)(this.props.endDate) : (0, _moment2.default)();
+	    var minDate = (0, _date_utils.getEffectiveMinDate)(this.props);
+	    var maxDate = (0, _date_utils.getEffectiveMaxDate)(this.props);
+	    var boundedPreSelection = minDate && defaultPreSelection.isBefore(minDate) ? minDate : maxDate && defaultPreSelection.isAfter(maxDate) ? maxDate : defaultPreSelection;
+
+	    return {
+	      open: false,
+	      preventFocus: false,
+	      preSelection: this.props.selected ? (0, _moment2.default)(this.props.selected) : boundedPreSelection
+	    };
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    this.clearPreventFocusTimeout();
+	  },
+	  clearPreventFocusTimeout: function clearPreventFocusTimeout() {
+	    if (this.preventFocusTimeout) {
+	      clearTimeout(this.preventFocusTimeout);
 	    }
-	  }]);
+	  },
+	  setFocus: function setFocus() {
+	    this.refs.input.focus();
+	  },
+	  setOpen: function setOpen(open) {
+	    this.setState({
+	      open: open,
+	      preSelection: open && this.state.open ? this.state.preSelection : this.getInitialState().preSelection
+	    });
+	  },
+	  handleFocus: function handleFocus(event) {
+	    if (!this.state.preventFocus) {
+	      this.props.onFocus(event);
+	      this.setOpen(true);
+	    }
+	  },
+	  cancelFocusInput: function cancelFocusInput() {
+	    clearTimeout(this.inputFocusTimeout);
+	    this.inputFocusTimeout = null;
+	  },
+	  deferFocusInput: function deferFocusInput() {
+	    var _this = this;
 
-	  function DatePicker(props) {
-	    _classCallCheck(this, DatePicker);
+	    this.cancelFocusInput();
+	    this.inputFocusTimeout = window.setTimeout(function () {
+	      return _this.setFocus();
+	    }, 1);
+	  },
+	  handleDropdownFocus: function handleDropdownFocus() {
+	    this.cancelFocusInput();
+	  },
+	  handleBlur: function handleBlur(event) {
+	    if (this.state.open) {
+	      this.deferFocusInput();
+	    } else {
+	      this.props.onBlur(event);
+	    }
+	  },
+	  handleCalendarClickOutside: function handleCalendarClickOutside(event) {
+	    this.setOpen(false);
+	    this.props.onClickOutside(event);
+	    if (this.props.withPortal) {
+	      event.preventDefault();
+	    }
+	  },
+	  handleSelect: function handleSelect(date, event) {
+	    var _this2 = this;
 
-	    var _this = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
+	    // Preventing onFocus event to fix issue
+	    // https://github.com/Hacker0x01/react-datepicker/issues/628
+	    this.setState({ preventFocus: true }, function () {
+	      _this2.preventFocusTimeout = setTimeout(function () {
+	        return _this2.setState({ preventFocus: false });
+	      }, 50);
+	      return _this2.preventFocusTimeout;
+	    });
+	    this.setSelected(date, event);
+	    this.setOpen(false);
+	  },
+	  setSelected: function setSelected(date, event) {
+	    var changedDate = date;
 
-	    _this.getInitialState = function () {
-	      var defaultPreSelection = _this.props.openToDate ? (0, _moment2.default)(_this.props.openToDate) : _this.props.selectsEnd && _this.props.startDate ? (0, _moment2.default)(_this.props.startDate) : _this.props.selectsStart && _this.props.endDate ? (0, _moment2.default)(_this.props.endDate) : (0, _moment2.default)();
-	      var minDate = (0, _date_utils.getEffectiveMinDate)(_this.props);
-	      var maxDate = (0, _date_utils.getEffectiveMaxDate)(_this.props);
-	      var boundedPreSelection = minDate && defaultPreSelection.isBefore(minDate) ? minDate : maxDate && defaultPreSelection.isAfter(maxDate) ? maxDate : defaultPreSelection;
+	    if (changedDate !== null && (0, _date_utils.isDayDisabled)(changedDate, this.props)) {
+	      return;
+	    }
 
-	      return {
-	        open: false,
-	        preventFocus: false,
-	        preSelection: _this.props.selected ? (0, _moment2.default)(_this.props.selected) : boundedPreSelection
-	      };
-	    };
-
-	    _this.clearPreventFocusTimeout = function () {
-	      if (_this.preventFocusTimeout) {
-	        clearTimeout(_this.preventFocusTimeout);
-	      }
-	    };
-
-	    _this.setFocus = function () {
-	      _this.refs.input.focus();
-	    };
-
-	    _this.setOpen = function (open) {
-	      _this.setState({
-	        open: open,
-	        preSelection: open && _this.state.open ? _this.state.preSelection : _this.getInitialState().preSelection
-	      });
-	    };
-
-	    _this.handleFocus = function (event) {
-	      if (!_this.state.preventFocus) {
-	        _this.props.onFocus(event);
-	        _this.setOpen(true);
-	      }
-	    };
-
-	    _this.cancelFocusInput = function () {
-	      clearTimeout(_this.inputFocusTimeout);
-	      _this.inputFocusTimeout = null;
-	    };
-
-	    _this.deferFocusInput = function () {
-	      _this.cancelFocusInput();
-	      _this.inputFocusTimeout = window.setTimeout(function () {
-	        return _this.setFocus();
-	      }, 1);
-	    };
-
-	    _this.handleDropdownFocus = function () {
-	      _this.cancelFocusInput();
-	    };
-
-	    _this.handleBlur = function (event) {
-	      if (_this.state.open) {
-	        _this.deferFocusInput();
-	      } else {
-	        _this.props.onBlur(event);
-	      }
-	    };
-
-	    _this.handleCalendarClickOutside = function (event) {
-	      _this.setOpen(false);
-	      _this.props.onClickOutside(event);
-	      if (_this.props.withPortal) {
-	        event.preventDefault();
-	      }
-	    };
-
-	    _this.handleChange = function (event) {
-	      if (_this.props.onChangeRaw) {
-	        _this.props.onChangeRaw(event);
-	        if (event.isDefaultPrevented()) {
-	          return;
-	        }
-	      }
-	      _this.setState({ inputValue: event.target.value });
-	      var date = (0, _date_utils.parseDate)(event.target.value, _this.props);
-	      if (date || !event.target.value) {
-	        _this.setSelected(date, event, true);
-	      }
-	    };
-
-	    _this.handleSelect = function (date, event) {
-	      // Preventing onFocus event to fix issue
-	      // https://github.com/Hacker0x01/react-datepicker/issues/628
-	      _this.setState({ preventFocus: true }, function () {
-	        _this.preventFocusTimeout = setTimeout(function () {
-	          return _this.setState({ preventFocus: false });
-	        }, 50);
-	        return _this.preventFocusTimeout;
-	      });
-	      _this.setSelected(date, event);
-	      _this.setOpen(false);
-	    };
-
-	    _this.setSelected = function (date, event, keepInput) {
-	      var changedDate = date;
-
-	      if (changedDate !== null && (0, _date_utils.isDayDisabled)(changedDate, _this.props)) {
-	        return;
-	      }
-
-	      if (!(0, _date_utils.isSameDay)(_this.props.selected, changedDate)) {
-	        if (changedDate !== null) {
-	          if (_this.props.selected) {
-	            changedDate = (0, _moment2.default)(changedDate).set({
-	              hour: _this.props.selected.hour(),
-	              minute: _this.props.selected.minute(),
-	              second: _this.props.selected.second()
-	            });
-	          }
-	          _this.setState({
-	            preSelection: changedDate
+	    if (!(0, _date_utils.isSameDay)(this.props.selected, changedDate) || this.props.disableDateAutoCorrection) {
+	      if (changedDate !== null) {
+	        if (this.props.selected) {
+	          changedDate = (0, _moment2.default)(changedDate).set({
+	            hour: this.props.selected.hour(),
+	            minute: this.props.selected.minute(),
+	            second: this.props.selected.second()
 	          });
 	        }
-	        _this.props.onChange(changedDate, event);
-	      }
-
-	      _this.props.onSelect(changedDate, event);
-
-	      if (!keepInput) {
-	        _this.setState({ inputValue: null });
-	      }
-	    };
-
-	    _this.setPreSelection = function (date) {
-	      var isDateRangePresent = typeof _this.props.minDate !== 'undefined' && typeof _this.props.maxDate !== 'undefined';
-	      var isValidDateSelection = isDateRangePresent && date ? (0, _date_utils.isDayInRange)(date, _this.props.minDate, _this.props.maxDate) : true;
-	      if (isValidDateSelection) {
-	        _this.setState({
-	          preSelection: date
+	        this.setState({
+	          preSelection: changedDate
 	        });
 	      }
-	    };
 
-	    _this.onInputClick = function () {
-	      if (!_this.props.disabled) {
-	        _this.setOpen(true);
-	      }
-	    };
-
-	    _this.onInputKeyDown = function (event) {
-	      if (!_this.state.open && !_this.props.inline) {
-	        if (/^Arrow/.test(event.key)) {
-	          _this.onInputClick();
-	        }
-	        return;
-	      }
-	      var copy = (0, _moment2.default)(_this.state.preSelection);
-	      if (event.key === 'Enter') {
-	        event.preventDefault();
-	        _this.handleSelect(copy, event);
-	      } else if (event.key === 'Escape') {
-	        event.preventDefault();
-	        _this.setOpen(false);
-	      } else if (event.key === 'Tab') {
-	        _this.setOpen(false);
-	      }
-	      if (!_this.props.disabledKeyboardNavigation) {
-	        var newSelection = void 0;
-	        switch (event.key) {
-	          case 'ArrowLeft':
-	            event.preventDefault();
-	            newSelection = copy.subtract(1, 'days');
-	            break;
-	          case 'ArrowRight':
-	            event.preventDefault();
-	            newSelection = copy.add(1, 'days');
-	            break;
-	          case 'ArrowUp':
-	            event.preventDefault();
-	            newSelection = copy.subtract(1, 'weeks');
-	            break;
-	          case 'ArrowDown':
-	            event.preventDefault();
-	            newSelection = copy.add(1, 'weeks');
-	            break;
-	          case 'PageUp':
-	            event.preventDefault();
-	            newSelection = copy.subtract(1, 'months');
-	            break;
-	          case 'PageDown':
-	            event.preventDefault();
-	            newSelection = copy.add(1, 'months');
-	            break;
-	          case 'Home':
-	            event.preventDefault();
-	            newSelection = copy.subtract(1, 'years');
-	            break;
-	          case 'End':
-	            event.preventDefault();
-	            newSelection = copy.add(1, 'years');
-	            break;
-	        }
-	        _this.setPreSelection(newSelection);
-	      }
-	    };
-
-	    _this.onClearClick = function (event) {
-	      event.preventDefault();
-	      _this.props.onChange(null, event);
-	    };
-
-	    _this.renderCalendar = function () {
-	      if (!_this.props.inline && (!_this.state.open || _this.props.disabled)) {
-	        return null;
-	      }
-	      return _react2.default.createElement(
-	        WrappedCalendar,
-	        {
-	          ref: 'calendar',
-	          locale: _this.props.locale,
-	          dateFormat: _this.props.dateFormatCalendar,
-	          dropdownMode: _this.props.dropdownMode,
-	          selected: _this.props.selected,
-	          preSelection: _this.state.preSelection,
-	          onSelect: _this.handleSelect,
-	          openToDate: _this.props.openToDate,
-	          minDate: _this.props.minDate,
-	          maxDate: _this.props.maxDate,
-	          selectsStart: _this.props.selectsStart,
-	          selectsEnd: _this.props.selectsEnd,
-	          startDate: _this.props.startDate,
-	          endDate: _this.props.endDate,
-	          excludeDates: _this.props.excludeDates,
-	          filterDate: _this.props.filterDate,
-	          onClickOutside: _this.handleCalendarClickOutside,
-	          highlightDates: _this.props.highlightDates,
-	          includeDates: _this.props.includeDates,
-	          inline: _this.props.inline,
-	          peekNextMonth: _this.props.peekNextMonth,
-	          showMonthDropdown: _this.props.showMonthDropdown,
-	          showWeekNumbers: _this.props.showWeekNumbers,
-	          showYearDropdown: _this.props.showYearDropdown,
-	          forceShowMonthNavigation: _this.props.forceShowMonthNavigation,
-	          scrollableYearDropdown: _this.props.scrollableYearDropdown,
-	          todayButton: _this.props.todayButton,
-	          utcOffset: _this.props.utcOffset,
-	          outsideClickIgnoreClass: outsideClickIgnoreClass,
-	          fixedHeight: _this.props.fixedHeight,
-	          monthsShown: _this.props.monthsShown,
-	          onDropdownFocus: _this.handleDropdownFocus,
-	          onMonthChange: _this.props.onMonthChange,
-	          className: _this.props.calendarClassName },
-	        _this.props.children
-	      );
-	    };
-
-	    _this.renderDateInput = function () {
-	      var className = (0, _classnames3.default)(_this.props.className, _defineProperty({}, outsideClickIgnoreClass, _this.state.open));
-
-	      var customInput = _this.props.customInput || _react2.default.createElement('input', { type: 'text' });
-	      var inputValue = typeof _this.props.value === 'string' ? _this.props.value : typeof _this.state.inputValue === 'string' ? _this.state.inputValue : (0, _date_utils.safeDateFormat)(_this.props.selected, _this.props);
-
-	      return _react2.default.cloneElement(customInput, {
-	        ref: 'input',
-	        value: inputValue,
-	        onBlur: _this.handleBlur,
-	        onChange: _this.handleChange,
-	        onClick: _this.onInputClick,
-	        onFocus: _this.handleFocus,
-	        onKeyDown: _this.onInputKeyDown,
-	        id: _this.props.id,
-	        name: _this.props.name,
-	        autoFocus: _this.props.autoFocus,
-	        placeholder: _this.props.placeholderText,
-	        disabled: _this.props.disabled,
-	        autoComplete: _this.props.autoComplete,
-	        className: className,
-	        title: _this.props.title,
-	        readOnly: _this.props.readOnly,
-	        required: _this.props.required,
-	        tabIndex: _this.props.tabIndex
-	      });
-	    };
-
-	    _this.renderClearButton = function () {
-	      if (_this.props.isClearable && _this.props.selected != null) {
-	        return _react2.default.createElement('a', { className: 'react-datepicker__close-icon', href: '#', onClick: _this.onClearClick });
-	      } else {
-	        return null;
-	      }
-	    };
-
-	    _this.state = _this.getInitialState();
-	    return _this;
-	  }
-
-	  _createClass(DatePicker, [{
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      this.clearPreventFocusTimeout();
+	      this.props.onChange(changedDate, event);
 	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var calendar = this.renderCalendar();
 
-	      if (this.props.inline && !this.props.withPortal) {
-	        return calendar;
+	    this.props.onSelect(changedDate, event);
+	  },
+	  setPreSelection: function setPreSelection(date) {
+	    var isDateRangePresent = typeof this.props.minDate !== 'undefined' && typeof this.props.maxDate !== 'undefined';
+	    var isValidDateSelection = isDateRangePresent && date ? (0, _date_utils.isDayInRange)(date, this.props.minDate, this.props.maxDate) : true;
+	    if (isValidDateSelection) {
+	      this.setState({
+	        preSelection: date
+	      });
+	    }
+	  },
+	  onInputClick: function onInputClick() {
+	    if (!this.props.disabled) {
+	      this.setOpen(true);
+	    }
+	  },
+	  onInputKeyDown: function onInputKeyDown(event) {
+	    if (!this.state.open && !this.props.inline) {
+	      if (/^Arrow/.test(event.key)) {
+	        this.onInputClick();
 	      }
-
-	      if (this.props.withPortal) {
-	        return _react2.default.createElement(
-	          'div',
-	          null,
-	          !this.props.inline ? _react2.default.createElement(
-	            'div',
-	            { className: 'react-datepicker__input-container' },
-	            this.renderDateInput(),
-	            this.renderClearButton()
-	          ) : null,
-	          this.state.open || this.props.inline ? _react2.default.createElement(
-	            'div',
-	            { className: 'react-datepicker__portal' },
-	            calendar
-	          ) : null
-	        );
+	      return;
+	    }
+	    var copy = (0, _moment2.default)(this.state.preSelection);
+	    if (event.key === 'Enter') {
+	      event.preventDefault();
+	      this.handleSelect(copy, event);
+	    } else if (event.key === 'Escape') {
+	      event.preventDefault();
+	      this.setOpen(false);
+	    } else if (event.key === 'Tab') {
+	      this.setOpen(false);
+	    }
+	    if (!this.props.disabledKeyboardNavigation) {
+	      var newSelection = void 0;
+	      switch (event.key) {
+	        case 'ArrowLeft':
+	          event.preventDefault();
+	          newSelection = copy.subtract(1, 'days');
+	          break;
+	        case 'ArrowRight':
+	          event.preventDefault();
+	          newSelection = copy.add(1, 'days');
+	          break;
+	        case 'ArrowUp':
+	          event.preventDefault();
+	          newSelection = copy.subtract(1, 'weeks');
+	          break;
+	        case 'ArrowDown':
+	          event.preventDefault();
+	          newSelection = copy.add(1, 'weeks');
+	          break;
+	        case 'PageUp':
+	          event.preventDefault();
+	          newSelection = copy.subtract(1, 'months');
+	          break;
+	        case 'PageDown':
+	          event.preventDefault();
+	          newSelection = copy.add(1, 'months');
+	          break;
+	        case 'Home':
+	          event.preventDefault();
+	          newSelection = copy.subtract(1, 'years');
+	          break;
+	        case 'End':
+	          event.preventDefault();
+	          newSelection = copy.add(1, 'years');
+	          break;
 	      }
+	      this.setPreSelection(newSelection);
+	    }
+	  },
+	  onClearClick: function onClearClick(event) {
+	    event.preventDefault();
+	    this.props.onChange(null, event);
+	  },
+	  renderCalendar: function renderCalendar() {
+	    if (!this.props.inline && (!this.state.open || this.props.disabled)) {
+	      return null;
+	    }
+	    return _react2.default.createElement(
+	      WrappedCalendar,
+	      {
+	        ref: 'calendar',
+	        locale: this.props.locale,
+	        dateFormat: this.props.dateFormatCalendar,
+	        dropdownMode: this.props.dropdownMode,
+	        selected: this.props.selected,
+	        preSelection: this.state.preSelection,
+	        onSelect: this.handleSelect,
+	        openToDate: this.props.openToDate,
+	        minDate: this.props.minDate,
+	        maxDate: this.props.maxDate,
+	        selectsStart: this.props.selectsStart,
+	        selectsEnd: this.props.selectsEnd,
+	        startDate: this.props.startDate,
+	        endDate: this.props.endDate,
+	        excludeDates: this.props.excludeDates,
+	        filterDate: this.props.filterDate,
+	        onClickOutside: this.handleCalendarClickOutside,
+	        highlightDates: this.props.highlightDates,
+	        includeDates: this.props.includeDates,
+	        inline: this.props.inline,
+	        peekNextMonth: this.props.peekNextMonth,
+	        showMonthDropdown: this.props.showMonthDropdown,
+	        showWeekNumbers: this.props.showWeekNumbers,
+	        showYearDropdown: this.props.showYearDropdown,
+	        forceShowMonthNavigation: this.props.forceShowMonthNavigation,
+	        scrollableYearDropdown: this.props.scrollableYearDropdown,
+	        todayButton: this.props.todayButton,
+	        utcOffset: this.props.utcOffset,
+	        outsideClickIgnoreClass: outsideClickIgnoreClass,
+	        fixedHeight: this.props.fixedHeight,
+	        monthsShown: this.props.monthsShown,
+	        onDropdownFocus: this.handleDropdownFocus,
+	        onMonthChange: this.props.onMonthChange,
+	        className: this.props.calendarClassName },
+	      this.props.children
+	    );
+	  },
+	  renderDateInput: function renderDateInput() {
+	    var className = (0, _classnames3.default)(this.props.className, _defineProperty({}, outsideClickIgnoreClass, this.state.open));
+	    return _react2.default.createElement(_date_input2.default, {
+	      ref: 'input',
+	      disableDateAutoCorrection: this.props.disableDateAutoCorrection,
+	      id: this.props.id,
+	      name: this.props.name,
+	      autoFocus: this.props.autoFocus,
+	      date: this.props.selected,
+	      locale: this.props.locale,
+	      minDate: this.props.minDate,
+	      maxDate: this.props.maxDate,
+	      excludeDates: this.props.excludeDates,
+	      includeDates: this.props.includeDates,
+	      filterDate: this.props.filterDate,
+	      dateFormat: this.props.dateFormat,
+	      onFocus: this.handleFocus,
+	      onBlur: this.handleBlur,
+	      onClick: this.onInputClick,
+	      onChangeRaw: this.props.onChangeRaw,
+	      onKeyDown: this.onInputKeyDown,
+	      onChangeDate: this.setSelected,
+	      placeholder: this.props.placeholderText,
+	      disabled: this.props.disabled,
+	      autoComplete: this.props.autoComplete,
+	      className: className,
+	      title: this.props.title,
+	      readOnly: this.props.readOnly,
+	      required: this.props.required,
+	      tabIndex: this.props.tabIndex,
+	      customInput: this.props.customInput });
+	  },
+	  renderClearButton: function renderClearButton() {
+	    if (this.props.isClearable && this.props.selected != null) {
+	      return _react2.default.createElement('a', { className: 'react-datepicker__close-icon', href: '#', onClick: this.onClearClick });
+	    } else {
+	      return null;
+	    }
+	  },
+	  render: function render() {
+	    var calendar = this.renderCalendar();
 
+	    if (this.props.inline && !this.props.withPortal) {
+	      return calendar;
+	    }
+
+	    if (this.props.withPortal) {
 	      return _react2.default.createElement(
-	        _tether_component2.default,
-	        {
-	          classPrefix: 'react-datepicker__tether',
-	          attachment: this.props.popoverAttachment,
-	          targetAttachment: this.props.popoverTargetAttachment,
-	          targetOffset: this.props.popoverTargetOffset,
-	          renderElementTo: this.props.renderCalendarTo,
-	          constraints: this.props.tetherConstraints },
-	        _react2.default.createElement(
+	        'div',
+	        null,
+	        !this.props.inline ? _react2.default.createElement(
 	          'div',
 	          { className: 'react-datepicker__input-container' },
 	          this.renderDateInput(),
 	          this.renderClearButton()
-	        ),
-	        calendar
+	        ) : null,
+	        this.state.open || this.props.inline ? _react2.default.createElement(
+	          'div',
+	          { className: 'react-datepicker__portal' },
+	          calendar
+	        ) : null
 	      );
 	    }
-	  }]);
 
-	  return DatePicker;
-	}(_react2.default.Component);
+	    return _react2.default.createElement(
+	      _tether_component2.default,
+	      {
+	        classPrefix: 'react-datepicker__tether',
+	        attachment: this.props.popoverAttachment,
+	        targetAttachment: this.props.popoverTargetAttachment,
+	        targetOffset: this.props.popoverTargetOffset,
+	        renderElementTo: this.props.renderCalendarTo,
+	        constraints: this.props.tetherConstraints },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'react-datepicker__input-container' },
+	        this.renderDateInput(),
+	        this.renderClearButton()
+	      ),
+	      calendar
+	    );
+	  }
+	});
 
-	DatePicker.propTypes = {
-	  autoComplete: _propTypes2.default.string,
-	  autoFocus: _propTypes2.default.bool,
-	  calendarClassName: _propTypes2.default.string,
-	  children: _propTypes2.default.node,
-	  className: _propTypes2.default.string,
-	  customInput: _propTypes2.default.element,
-	  dateFormat: _propTypes2.default.oneOfType([// eslint-disable-line react/no-unused-prop-types
-	  _propTypes2.default.string, _propTypes2.default.array]),
-	  dateFormatCalendar: _propTypes2.default.string,
-	  disabled: _propTypes2.default.bool,
-	  disabledKeyboardNavigation: _propTypes2.default.bool,
-	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
-	  endDate: _propTypes2.default.object,
-	  excludeDates: _propTypes2.default.array,
-	  filterDate: _propTypes2.default.func,
-	  fixedHeight: _propTypes2.default.bool,
-	  highlightDates: _propTypes2.default.array,
-	  id: _propTypes2.default.string,
-	  includeDates: _propTypes2.default.array,
-	  inline: _propTypes2.default.bool,
-	  isClearable: _propTypes2.default.bool,
-	  locale: _propTypes2.default.string,
-	  maxDate: _propTypes2.default.object,
-	  minDate: _propTypes2.default.object,
-	  monthsShown: _propTypes2.default.number,
-	  name: _propTypes2.default.string,
-	  onBlur: _propTypes2.default.func,
-	  onChange: _propTypes2.default.func.isRequired,
-	  onSelect: _propTypes2.default.func,
-	  onClickOutside: _propTypes2.default.func,
-	  onChangeRaw: _propTypes2.default.func,
-	  onFocus: _propTypes2.default.func,
-	  onMonthChange: _propTypes2.default.func,
-	  openToDate: _propTypes2.default.object,
-	  peekNextMonth: _propTypes2.default.bool,
-	  placeholderText: _propTypes2.default.string,
-	  popoverAttachment: _propTypes2.default.string,
-	  popoverTargetAttachment: _propTypes2.default.string,
-	  popoverTargetOffset: _propTypes2.default.string,
-	  readOnly: _propTypes2.default.bool,
-	  renderCalendarTo: _propTypes2.default.any,
-	  required: _propTypes2.default.bool,
-	  scrollableYearDropdown: _propTypes2.default.bool,
-	  selected: _propTypes2.default.object,
-	  selectsEnd: _propTypes2.default.bool,
-	  selectsStart: _propTypes2.default.bool,
-	  showMonthDropdown: _propTypes2.default.bool,
-	  showWeekNumbers: _propTypes2.default.bool,
-	  showYearDropdown: _propTypes2.default.bool,
-	  forceShowMonthNavigation: _propTypes2.default.bool,
-	  startDate: _propTypes2.default.object,
-	  tabIndex: _propTypes2.default.number,
-	  tetherConstraints: _propTypes2.default.array,
-	  title: _propTypes2.default.string,
-	  todayButton: _propTypes2.default.string,
-	  utcOffset: _propTypes2.default.number,
-	  value: _propTypes2.default.string,
-	  withPortal: _propTypes2.default.bool
-	};
-	exports.default = DatePicker;
+	module.exports = DatePicker;
 
 /***/ },
 /* 1 */
@@ -32852,403 +32793,140 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _moment = __webpack_require__(2);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _year_dropdown = __webpack_require__(3);
-
-	var _year_dropdown2 = _interopRequireDefault(_year_dropdown);
-
-	var _month_dropdown = __webpack_require__(12);
-
-	var _month_dropdown2 = _interopRequireDefault(_month_dropdown);
-
-	var _month = __webpack_require__(14);
-
-	var _month2 = _interopRequireDefault(_month);
-
-	var _react = __webpack_require__(4);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _classnames = __webpack_require__(10);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _date_utils = __webpack_require__(17);
+	var _date_utils = __webpack_require__(4);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	var DateInput = _react2.default.createClass({
+	  displayName: 'DateInput',
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	  propTypes: {
+	    customInput: _react2.default.PropTypes.element,
+	    date: _react2.default.PropTypes.object,
+	    dateFormat: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.array]),
+	    disabled: _react2.default.PropTypes.bool,
+	    disableDateAutoCorrection: _react2.default.PropTypes.bool,
+	    excludeDates: _react2.default.PropTypes.array,
+	    filterDate: _react2.default.PropTypes.func,
+	    includeDates: _react2.default.PropTypes.array,
+	    locale: _react2.default.PropTypes.string,
+	    maxDate: _react2.default.PropTypes.object,
+	    minDate: _react2.default.PropTypes.object,
+	    onBlur: _react2.default.PropTypes.func,
+	    onChange: _react2.default.PropTypes.func,
+	    onChangeRaw: _react2.default.PropTypes.func,
+	    onChangeDate: _react2.default.PropTypes.func
+	  },
 
-	var DROPDOWN_FOCUS_CLASSNAMES = ['react-datepicker__year-select', 'react-datepicker__month-select'];
-
-	var isDropdownSelect = function isDropdownSelect() {
-	  var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-	  var classNames = (element.className || '').split(/\s+/);
-	  return DROPDOWN_FOCUS_CLASSNAMES.some(function (testClassname) {
-	    return classNames.indexOf(testClassname) >= 0;
-	  });
-	};
-
-	var Calendar = function (_React$Component) {
-	  _inherits(Calendar, _React$Component);
-
-	  _createClass(Calendar, null, [{
-	    key: 'defaultProps',
-	    get: function get() {
-	      return {
-	        onDropdownFocus: function onDropdownFocus() {},
-	        utcOffset: _moment2.default.utc().utcOffset(),
-	        monthsShown: 1,
-	        forceShowMonthNavigation: false
-	      };
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      dateFormat: 'L',
+	      disableDateAutoCorrection: false
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      value: this.safeDateFormat(this.props)
+	    };
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+	    if (!(0, _date_utils.isSameDay)(newProps.date, this.props.date) || !(0, _date_utils.isSameUtcOffset)(newProps.date, this.props.date) || newProps.locale !== this.props.locale || newProps.dateFormat !== this.props.dateFormat) {
+	      if (!this.props.disableDateAutoCorrection || newProps.date && newProps.date.isValid()) {
+	        this.setState({
+	          value: this.safeDateFormat(newProps)
+	        });
+	      }
 	    }
-	  }]);
-
-	  function Calendar(props) {
-	    _classCallCheck(this, Calendar);
-
-	    var _this = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
-
-	    _this.handleClickOutside = function (event) {
-	      _this.props.onClickOutside(event);
-	    };
-
-	    _this.handleDropdownFocus = function (event) {
-	      if (isDropdownSelect(event.target)) {
-	        _this.props.onDropdownFocus();
+	  },
+	  handleChange: function handleChange(event) {
+	    if (this.props.onChange) {
+	      this.props.onChange(event);
+	    }
+	    if (this.props.onChangeRaw) {
+	      this.props.onChangeRaw(event);
+	    }
+	    if (!event.defaultPrevented) {
+	      this.handleChangeDate(event.target.value);
+	    }
+	  },
+	  handleChangeDate: function handleChangeDate(value) {
+	    if (this.props.onChangeDate) {
+	      var date = (0, _moment2.default)(value.trim(), this.props.dateFormat, this.props.locale || _moment2.default.locale(), true);
+	      if (date.isValid() && !(0, _date_utils.isDayDisabled)(date, this.props)) {
+	        this.props.onChangeDate(date);
+	      } else if (value === '') {
+	        this.props.onChangeDate(null);
+	      } else if (this.props.disableDateAutoCorrection && !date.isValid()) {
+	        this.props.onChangeDate(null);
 	      }
-	    };
-
-	    _this.getDateInView = function () {
-	      var _this$props = _this.props,
-	          preSelection = _this$props.preSelection,
-	          selected = _this$props.selected,
-	          openToDate = _this$props.openToDate,
-	          utcOffset = _this$props.utcOffset;
-
-	      var minDate = (0, _date_utils.getEffectiveMinDate)(_this.props);
-	      var maxDate = (0, _date_utils.getEffectiveMaxDate)(_this.props);
-	      var current = _moment2.default.utc().utcOffset(utcOffset);
-	      var initialDate = preSelection || selected;
-	      if (initialDate) {
-	        return initialDate;
-	      } else if (minDate && maxDate && openToDate && openToDate.isBetween(minDate, maxDate)) {
-	        return openToDate;
-	      } else if (minDate && openToDate && openToDate.isAfter(minDate)) {
-	        return openToDate;
-	      } else if (minDate && minDate.isAfter(current)) {
-	        return minDate;
-	      } else if (maxDate && openToDate && openToDate.isBefore(maxDate)) {
-	        return openToDate;
-	      } else if (maxDate && maxDate.isBefore(current)) {
-	        return maxDate;
-	      } else if (openToDate) {
-	        return openToDate;
-	      } else {
-	        return current;
-	      }
-	    };
-
-	    _this.localizeMoment = function (date) {
-	      return date.clone().locale(_this.props.locale || _moment2.default.locale());
-	    };
-
-	    _this.increaseMonth = function () {
-	      _this.setState({
-	        date: _this.state.date.clone().add(1, 'month')
-	      }, function () {
-	        return _this.handleMonthChange(_this.state.date);
+	    }
+	    this.setState({ value: value });
+	  },
+	  safeDateFormat: function safeDateFormat(props) {
+	    return props.date && props.date.clone().locale(props.locale || _moment2.default.locale()).format(Array.isArray(props.dateFormat) ? props.dateFormat[0] : props.dateFormat) || '';
+	  },
+	  handleBlur: function handleBlur(event) {
+	    var val = this.safeDateFormat(this.props);
+	    if (!this.props.disableDateAutoCorrection || val !== '') {
+	      this.setState({
+	        value: val
 	      });
-	    };
+	    }
+	    if (this.props.onBlur) {
+	      this.props.onBlur(event);
+	    }
+	  },
+	  focus: function focus() {
+	    this.refs.input.focus();
+	  },
+	  render: function render() {
+	    var _props = this.props,
+	        customInput = _props.customInput,
+	        date = _props.date,
+	        disableDateAutoCorrection = _props.disableDateAutoCorrection,
+	        locale = _props.locale,
+	        minDate = _props.minDate,
+	        maxDate = _props.maxDate,
+	        excludeDates = _props.excludeDates,
+	        includeDates = _props.includeDates,
+	        filterDate = _props.filterDate,
+	        dateFormat = _props.dateFormat,
+	        onChangeDate = _props.onChangeDate,
+	        onChangeRaw = _props.onChangeRaw,
+	        rest = _objectWithoutProperties(_props, ['customInput', 'date', 'disableDateAutoCorrection', 'locale', 'minDate', 'maxDate', 'excludeDates', 'includeDates', 'filterDate', 'dateFormat', 'onChangeDate', 'onChangeRaw']); // eslint-disable-line no-unused-vars
 
-	    _this.decreaseMonth = function () {
-	      _this.setState({
-	        date: _this.state.date.clone().subtract(1, 'month')
-	      }, function () {
-	        return _this.handleMonthChange(_this.state.date);
-	      });
-	    };
-
-	    _this.handleDayClick = function (day, event) {
-	      return _this.props.onSelect(day, event);
-	    };
-
-	    _this.handleDayMouseEnter = function (day) {
-	      return _this.setState({ selectingDate: day });
-	    };
-
-	    _this.handleMonthMouseLeave = function () {
-	      return _this.setState({ selectingDate: null });
-	    };
-
-	    _this.handleMonthChange = function (date) {
-	      if (_this.props.onMonthChange) {
-	        _this.props.onMonthChange(date);
-	      }
-	    };
-
-	    _this.changeYear = function (year) {
-	      _this.setState({
-	        date: _this.state.date.clone().set('year', year)
-	      });
-	    };
-
-	    _this.changeMonth = function (month) {
-	      _this.setState({
-	        date: _this.state.date.clone().set('month', month)
-	      }, function () {
-	        return _this.handleMonthChange(_this.state.date);
-	      });
-	    };
-
-	    _this.header = function () {
-	      var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.state.date;
-
-	      var startOfWeek = date.clone().startOf('week');
-	      var dayNames = [];
-	      if (_this.props.showWeekNumbers) {
-	        dayNames.push(_react2.default.createElement(
-	          'div',
-	          { key: 'W', className: 'react-datepicker__day-name' },
-	          '#'
-	        ));
-	      }
-	      return dayNames.concat([0, 1, 2, 3, 4, 5, 6].map(function (offset) {
-	        var day = startOfWeek.clone().add(offset, 'days');
-	        return _react2.default.createElement(
-	          'div',
-	          { key: offset, className: 'react-datepicker__day-name' },
-	          day.localeData().weekdaysMin(day)
-	        );
+	    if (customInput) {
+	      return _react2.default.cloneElement(customInput, _extends({}, rest, {
+	        ref: 'input',
+	        value: this.state.value,
+	        onBlur: this.handleBlur,
+	        onChange: this.handleChange
 	      }));
-	    };
-
-	    _this.renderPreviousMonthButton = function () {
-	      if (!_this.props.forceShowMonthNavigation && (0, _date_utils.allDaysDisabledBefore)(_this.state.date, 'month', _this.props)) {
-	        return;
-	      }
-	      return _react2.default.createElement('a', {
-	        className: 'react-datepicker__navigation react-datepicker__navigation--previous',
-	        onClick: _this.decreaseMonth });
-	    };
-
-	    _this.renderNextMonthButton = function () {
-	      if (!_this.props.forceShowMonthNavigation && (0, _date_utils.allDaysDisabledAfter)(_this.state.date, 'month', _this.props)) {
-	        return;
-	      }
-	      return _react2.default.createElement('a', {
-	        className: 'react-datepicker__navigation react-datepicker__navigation--next',
-	        onClick: _this.increaseMonth });
-	    };
-
-	    _this.renderCurrentMonth = function () {
-	      var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.state.date;
-
-	      var classes = ['react-datepicker__current-month'];
-
-	      if (_this.props.showYearDropdown) {
-	        classes.push('react-datepicker__current-month--hasYearDropdown');
-	      }
-	      if (_this.props.showMonthDropdown) {
-	        classes.push('react-datepicker__current-month--hasMonthDropdown');
-	      }
-	      return _react2.default.createElement(
-	        'div',
-	        { className: classes.join(' ') },
-	        date.format(_this.props.dateFormat)
-	      );
-	    };
-
-	    _this.renderYearDropdown = function () {
-	      var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-	      if (!_this.props.showYearDropdown || overrideHide) {
-	        return;
-	      }
-	      return _react2.default.createElement(_year_dropdown2.default, {
-	        dropdownMode: _this.props.dropdownMode,
-	        onChange: _this.changeYear,
-	        minDate: _this.props.minDate,
-	        maxDate: _this.props.maxDate,
-	        year: _this.state.date.year(),
-	        scrollableYearDropdown: _this.props.scrollableYearDropdown });
-	    };
-
-	    _this.renderMonthDropdown = function () {
-	      var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-	      if (!_this.props.showMonthDropdown) {
-	        return;
-	      }
-	      return _react2.default.createElement(_month_dropdown2.default, {
-	        dropdownMode: _this.props.dropdownMode,
-	        locale: _this.props.locale,
-	        onChange: _this.changeMonth,
-	        month: _this.state.date.month() });
-	    };
-
-	    _this.renderTodayButton = function () {
-	      if (!_this.props.todayButton) {
-	        return;
-	      }
-	      return _react2.default.createElement(
-	        'div',
-	        {
-	          className: 'react-datepicker__today-button',
-	          onClick: function onClick(e) {
-	            return _this.props.onSelect(_moment2.default.utc().utcOffset(_this.props.utcOffset).startOf('date'), e);
-	          } },
-	        _this.props.todayButton
-	      );
-	    };
-
-	    _this.renderMonths = function () {
-	      var monthList = [];
-	      for (var i = 0; i < _this.props.monthsShown; ++i) {
-	        var monthDate = _this.state.date.clone().add(i, 'M');
-	        var monthKey = 'month-' + i;
-	        monthList.push(_react2.default.createElement(
-	          'div',
-	          { key: monthKey, className: 'react-datepicker__month-container' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'react-datepicker__header' },
-	            _this.renderCurrentMonth(monthDate),
-	            _react2.default.createElement(
-	              'div',
-	              {
-	                className: 'react-datepicker__header__dropdown react-datepicker__header__dropdown--' + _this.props.dropdownMode,
-	                onFocus: _this.handleDropdownFocus },
-	              _this.renderMonthDropdown(i !== 0),
-	              _this.renderYearDropdown(i !== 0)
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'react-datepicker__day-names' },
-	              _this.header(monthDate)
-	            )
-	          ),
-	          _react2.default.createElement(_month2.default, {
-	            day: monthDate,
-	            onDayClick: _this.handleDayClick,
-	            onDayMouseEnter: _this.handleDayMouseEnter,
-	            onMouseLeave: _this.handleMonthMouseLeave,
-	            minDate: _this.props.minDate,
-	            maxDate: _this.props.maxDate,
-	            excludeDates: _this.props.excludeDates,
-	            highlightDates: _this.props.highlightDates,
-	            selectingDate: _this.state.selectingDate,
-	            includeDates: _this.props.includeDates,
-	            inline: _this.props.inline,
-	            fixedHeight: _this.props.fixedHeight,
-	            filterDate: _this.props.filterDate,
-	            preSelection: _this.props.preSelection,
-	            selected: _this.props.selected,
-	            selectsStart: _this.props.selectsStart,
-	            selectsEnd: _this.props.selectsEnd,
-	            showWeekNumbers: _this.props.showWeekNumbers,
-	            startDate: _this.props.startDate,
-	            endDate: _this.props.endDate,
-	            peekNextMonth: _this.props.peekNextMonth,
-	            utcOffset: _this.props.utcOffset })
-	        ));
-	      }
-	      return monthList;
-	    };
-
-	    _this.state = {
-	      date: _this.localizeMoment(_this.getDateInView()),
-	      selectingDate: null
-	    };
-	    return _this;
+	    } else {
+	      return _react2.default.createElement('input', _extends({
+	        ref: 'input',
+	        type: 'text'
+	      }, rest, {
+	        value: this.state.value,
+	        onBlur: this.handleBlur,
+	        onChange: this.handleChange }));
+	    }
 	  }
+	});
 
-	  _createClass(Calendar, [{
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      if (nextProps.preSelection && !(0, _date_utils.isSameDay)(nextProps.preSelection, this.props.preSelection)) {
-	        this.setState({
-	          date: this.localizeMoment(nextProps.preSelection)
-	        });
-	      } else if (nextProps.openToDate && !(0, _date_utils.isSameDay)(nextProps.openToDate, this.props.openToDate)) {
-	        this.setState({
-	          date: this.localizeMoment(nextProps.openToDate)
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: (0, _classnames2.default)('react-datepicker', this.props.className) },
-	        _react2.default.createElement('div', { className: 'react-datepicker__triangle' }),
-	        this.renderPreviousMonthButton(),
-	        this.renderNextMonthButton(),
-	        this.renderMonths(),
-	        this.renderTodayButton(),
-	        this.props.children
-	      );
-	    }
-	  }]);
-
-	  return Calendar;
-	}(_react2.default.Component);
-
-	Calendar.propTypes = {
-	  className: _propTypes2.default.string,
-	  children: _propTypes2.default.node,
-	  dateFormat: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.array]).isRequired,
-	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
-	  endDate: _propTypes2.default.object,
-	  excludeDates: _propTypes2.default.array,
-	  filterDate: _propTypes2.default.func,
-	  fixedHeight: _propTypes2.default.bool,
-	  highlightDates: _propTypes2.default.array,
-	  includeDates: _propTypes2.default.array,
-	  inline: _propTypes2.default.bool,
-	  locale: _propTypes2.default.string,
-	  maxDate: _propTypes2.default.object,
-	  minDate: _propTypes2.default.object,
-	  monthsShown: _propTypes2.default.number,
-	  onClickOutside: _propTypes2.default.func.isRequired,
-	  onMonthChange: _propTypes2.default.func,
-	  forceShowMonthNavigation: _propTypes2.default.bool,
-	  onDropdownFocus: _propTypes2.default.func,
-	  onSelect: _propTypes2.default.func.isRequired,
-	  openToDate: _propTypes2.default.object,
-	  peekNextMonth: _propTypes2.default.bool,
-	  scrollableYearDropdown: _propTypes2.default.bool,
-	  preSelection: _propTypes2.default.object,
-	  selected: _propTypes2.default.object,
-	  selectsEnd: _propTypes2.default.bool,
-	  selectsStart: _propTypes2.default.bool,
-	  showMonthDropdown: _propTypes2.default.bool,
-	  showWeekNumbers: _propTypes2.default.bool,
-	  showYearDropdown: _propTypes2.default.bool,
-	  startDate: _propTypes2.default.object,
-	  todayButton: _propTypes2.default.string,
-	  utcOffset: _propTypes2.default.number
-	};
-	exports.default = Calendar;
+	module.exports = DateInput;
 
 /***/ },
 /* 2 */
@@ -33258,1332 +32936,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _year_dropdown_options = __webpack_require__(9);
-
-	var _year_dropdown_options2 = _interopRequireDefault(_year_dropdown_options);
-
-	var _reactOnclickoutside = __webpack_require__(11);
-
-	var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var WrappedYearDropdownOptions = (0, _reactOnclickoutside2.default)(_year_dropdown_options2.default);
-
-	var YearDropdown = function (_React$Component) {
-	  _inherits(YearDropdown, _React$Component);
-
-	  function YearDropdown() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, YearDropdown);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = YearDropdown.__proto__ || Object.getPrototypeOf(YearDropdown)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      dropdownVisible: false
-	    }, _this.renderSelectOptions = function () {
-	      var minYear = _this.props.minDate ? _this.props.minDate.year() : 1900;
-	      var maxYear = _this.props.maxDate ? _this.props.maxDate.year() : 2100;
-
-	      var options = [];
-	      for (var i = minYear; i <= maxYear; i++) {
-	        options.push(_react2.default.createElement(
-	          'option',
-	          { key: i, value: i },
-	          i
-	        ));
-	      }
-	      return options;
-	    }, _this.onSelectChange = function (e) {
-	      _this.onChange(e.target.value);
-	    }, _this.renderSelectMode = function () {
-	      return _react2.default.createElement(
-	        'select',
-	        {
-	          value: _this.props.year,
-	          className: 'react-datepicker__year-select',
-	          onChange: _this.onSelectChange },
-	        _this.renderSelectOptions()
-	      );
-	    }, _this.renderReadView = function (visible) {
-	      return _react2.default.createElement(
-	        'div',
-	        { key: 'read', style: { visibility: visible ? 'visible' : 'hidden' }, className: 'react-datepicker__year-read-view', onClick: _this.toggleDropdown },
-	        _react2.default.createElement('span', { className: 'react-datepicker__year-read-view--down-arrow' }),
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'react-datepicker__year-read-view--selected-year' },
-	          _this.props.year
-	        )
-	      );
-	    }, _this.renderDropdown = function () {
-	      return _react2.default.createElement(WrappedYearDropdownOptions, {
-	        key: 'dropdown',
-	        ref: 'options',
-	        year: _this.props.year,
-	        onChange: _this.onChange,
-	        onCancel: _this.toggleDropdown,
-	        scrollableYearDropdown: _this.props.scrollableYearDropdown });
-	    }, _this.renderScrollMode = function () {
-	      var dropdownVisible = _this.state.dropdownVisible;
-
-	      var result = [_this.renderReadView(!dropdownVisible)];
-	      if (dropdownVisible) {
-	        result.unshift(_this.renderDropdown());
-	      }
-	      return result;
-	    }, _this.onChange = function (year) {
-	      _this.toggleDropdown();
-	      if (year === _this.props.year) return;
-	      _this.props.onChange(year);
-	    }, _this.toggleDropdown = function () {
-	      _this.setState({
-	        dropdownVisible: !_this.state.dropdownVisible
-	      });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(YearDropdown, [{
-	    key: 'render',
-	    value: function render() {
-	      var renderedDropdown = void 0;
-	      switch (this.props.dropdownMode) {
-	        case 'scroll':
-	          renderedDropdown = this.renderScrollMode();
-	          break;
-	        case 'select':
-	          renderedDropdown = this.renderSelectMode();
-	          break;
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        {
-	          className: 'react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--' + this.props.dropdownMode },
-	        renderedDropdown
-	      );
-	    }
-	  }]);
-
-	  return YearDropdown;
-	}(_react2.default.Component);
-
-	YearDropdown.propTypes = {
-	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
-	  maxDate: _propTypes2.default.object,
-	  minDate: _propTypes2.default.object,
-	  onChange: _propTypes2.default.func.isRequired,
-	  scrollableYearDropdown: _propTypes2.default.bool,
-	  year: _propTypes2.default.number.isRequired
-	};
-	exports.default = YearDropdown;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 
 /***/ },
 /* 4 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_4__;
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	if (false) {
-	  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-	    Symbol.for &&
-	    Symbol.for('react.element')) ||
-	    0xeac7;
-
-	  var isValidElement = function(object) {
-	    return typeof object === 'object' &&
-	      object !== null &&
-	      object.$$typeof === REACT_ELEMENT_TYPE;
-	  };
-
-	  // By explicitly using `prop-types` you are opting into new development behavior.
-	  // http://fb.me/prop-types-in-prod
-	  var throwOnDirectAccess = true;
-	  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
-	} else {
-	  // By explicitly using `prop-types` you are opting into new production behavior.
-	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(6)();
-	}
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	var emptyFunction = __webpack_require__(7);
-	var invariant = __webpack_require__(8);
-
-	module.exports = function() {
-	  // Important!
-	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-	  function shim() {
-	    invariant(
-	      false,
-	      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-	      'Use PropTypes.checkPropTypes() to call them. ' +
-	      'Read more at http://fb.me/use-check-prop-types'
-	    );
-	  };
-	  shim.isRequired = shim;
-	  function getShim() {
-	    return shim;
-	  };
-	  var ReactPropTypes = {
-	    array: shim,
-	    bool: shim,
-	    func: shim,
-	    number: shim,
-	    object: shim,
-	    string: shim,
-	    symbol: shim,
-
-	    any: shim,
-	    arrayOf: getShim,
-	    element: shim,
-	    instanceOf: getShim,
-	    node: shim,
-	    objectOf: getShim,
-	    oneOf: getShim,
-	    oneOfType: getShim,
-	    shape: getShim
-	  };
-
-	  ReactPropTypes.checkPropTypes = emptyFunction;
-	  ReactPropTypes.PropTypes = ReactPropTypes;
-
-	  return ReactPropTypes;
-	};
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * 
-	 */
-
-	function makeEmptyFunction(arg) {
-	  return function () {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	var emptyFunction = function emptyFunction() {};
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function () {
-	  return this;
-	};
-	emptyFunction.thatReturnsArgument = function (arg) {
-	  return arg;
-	};
-
-	module.exports = emptyFunction;
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	var validateFormat = function validateFormat(format) {};
-
-	if (false) {
-	  validateFormat = function validateFormat(format) {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  };
-	}
-
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  validateFormat(format);
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	}
-
-	module.exports = invariant;
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _classnames = __webpack_require__(10);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function generateYears(year, noOfYear) {
-	  var list = [];
-	  for (var i = 0; i < 2 * noOfYear; i++) {
-	    list.push(year + noOfYear - i);
-	  }
-	  return list;
-	}
-
-	var YearDropdownOptions = function (_React$Component) {
-	  _inherits(YearDropdownOptions, _React$Component);
-
-	  function YearDropdownOptions(props) {
-	    _classCallCheck(this, YearDropdownOptions);
-
-	    var _this = _possibleConstructorReturn(this, (YearDropdownOptions.__proto__ || Object.getPrototypeOf(YearDropdownOptions)).call(this, props));
-
-	    _this.renderOptions = function () {
-	      var selectedYear = _this.props.year;
-	      var options = _this.state.yearsList.map(function (year) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'react-datepicker__year-option',
-	            key: year,
-	            ref: year,
-	            onClick: _this.onChange.bind(_this, year) },
-	          selectedYear === year ? _react2.default.createElement(
-	            'span',
-	            { className: 'react-datepicker__year-option--selected' },
-	            '\u2713'
-	          ) : '',
-	          year
-	        );
-	      });
-
-	      options.unshift(_react2.default.createElement(
-	        'div',
-	        { className: 'react-datepicker__year-option',
-	          ref: 'upcoming',
-	          key: 'upcoming',
-	          onClick: _this.incrementYears },
-	        _react2.default.createElement('a', { className: 'react-datepicker__navigation react-datepicker__navigation--years react-datepicker__navigation--years-upcoming' })
-	      ));
-	      options.push(_react2.default.createElement(
-	        'div',
-	        { className: 'react-datepicker__year-option',
-	          ref: 'previous',
-	          key: 'previous',
-	          onClick: _this.decrementYears },
-	        _react2.default.createElement('a', { className: 'react-datepicker__navigation react-datepicker__navigation--years react-datepicker__navigation--years-previous' })
-	      ));
-	      return options;
-	    };
-
-	    _this.onChange = function (year) {
-	      _this.props.onChange(year);
-	    };
-
-	    _this.handleClickOutside = function () {
-	      _this.props.onCancel();
-	    };
-
-	    _this.shiftYears = function (amount) {
-	      var years = _this.state.yearsList.map(function (year) {
-	        return year + amount;
-	      });
-
-	      _this.setState({
-	        yearsList: years
-	      });
-	    };
-
-	    _this.incrementYears = function () {
-	      return _this.shiftYears(1);
-	    };
-
-	    _this.decrementYears = function () {
-	      return _this.shiftYears(-1);
-	    };
-
-	    _this.state = {
-	      yearsList: _this.props.scrollableYearDropdown ? generateYears(_this.props.year, 10) : generateYears(_this.props.year, 5)
-	    };
-	    return _this;
-	  }
-
-	  _createClass(YearDropdownOptions, [{
-	    key: 'render',
-	    value: function render() {
-	      var dropdownClass = (0, _classnames2.default)({
-	        'react-datepicker__year-dropdown': true,
-	        'react-datepicker__year-dropdown--scrollable': this.props.scrollableYearDropdown
-	      });
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: dropdownClass },
-	        this.renderOptions()
-	      );
-	    }
-	  }]);
-
-	  return YearDropdownOptions;
-	}(_react2.default.Component);
-
-	YearDropdownOptions.propTypes = {
-	  onCancel: _propTypes2.default.func.isRequired,
-	  onChange: _propTypes2.default.func.isRequired,
-	  scrollableYearDropdown: _propTypes2.default.bool,
-	  year: _propTypes2.default.number.isRequired
-	};
-	exports.default = YearDropdownOptions;
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
-
-	(function () {
-		'use strict';
-
-		var hasOwn = {}.hasOwnProperty;
-
-		function classNames () {
-			var classes = [];
-
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-
-				var argType = typeof arg;
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if (true) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	}());
-
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_11__;
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _month_dropdown_options = __webpack_require__(13);
-
-	var _month_dropdown_options2 = _interopRequireDefault(_month_dropdown_options);
-
-	var _reactOnclickoutside = __webpack_require__(11);
-
-	var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
-
-	var _moment = __webpack_require__(2);
-
-	var _moment2 = _interopRequireDefault(_moment);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var WrappedMonthDropdownOptions = (0, _reactOnclickoutside2.default)(_month_dropdown_options2.default);
-
-	var MonthDropdown = function (_React$Component) {
-	  _inherits(MonthDropdown, _React$Component);
-
-	  function MonthDropdown() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, MonthDropdown);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MonthDropdown.__proto__ || Object.getPrototypeOf(MonthDropdown)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      dropdownVisible: false
-	    }, _this.renderSelectOptions = function (monthNames) {
-	      return monthNames.map(function (M, i) {
-	        return _react2.default.createElement(
-	          'option',
-	          { key: i, value: i },
-	          M
-	        );
-	      });
-	    }, _this.renderSelectMode = function (monthNames) {
-	      return _react2.default.createElement(
-	        'select',
-	        { value: _this.props.month, className: 'react-datepicker__month-select', onChange: function onChange(e) {
-	            return _this.onChange(e.target.value);
-	          } },
-	        _this.renderSelectOptions(monthNames)
-	      );
-	    }, _this.renderReadView = function (visible, monthNames) {
-	      return _react2.default.createElement(
-	        'div',
-	        { key: 'read', style: { visibility: visible ? 'visible' : 'hidden' }, className: 'react-datepicker__month-read-view', onClick: _this.toggleDropdown },
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'react-datepicker__month-read-view--selected-month' },
-	          monthNames[_this.props.month]
-	        ),
-	        _react2.default.createElement('span', { className: 'react-datepicker__month-read-view--down-arrow' })
-	      );
-	    }, _this.renderDropdown = function (monthNames) {
-	      return _react2.default.createElement(WrappedMonthDropdownOptions, {
-	        key: 'dropdown',
-	        ref: 'options',
-	        month: _this.props.month,
-	        monthNames: monthNames,
-	        onChange: _this.onChange,
-	        onCancel: _this.toggleDropdown });
-	    }, _this.renderScrollMode = function (monthNames) {
-	      var dropdownVisible = _this.state.dropdownVisible;
-
-	      var result = [_this.renderReadView(!dropdownVisible, monthNames)];
-	      if (dropdownVisible) {
-	        result.unshift(_this.renderDropdown(monthNames));
-	      }
-	      return result;
-	    }, _this.onChange = function (month) {
-	      _this.toggleDropdown();
-	      if (month !== _this.props.month) {
-	        _this.props.onChange(month);
-	      }
-	    }, _this.toggleDropdown = function () {
-	      return _this.setState({
-	        dropdownVisible: !_this.state.dropdownVisible
-	      });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(MonthDropdown, [{
-	    key: 'render',
-	    value: function render() {
-	      var localeData = _moment2.default.localeData(this.props.locale);
-	      var monthNames = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(function (M) {
-	        return localeData.months((0, _moment2.default)({ M: M }));
-	      });
-
-	      var renderedDropdown = void 0;
-	      switch (this.props.dropdownMode) {
-	        case 'scroll':
-	          renderedDropdown = this.renderScrollMode(monthNames);
-	          break;
-	        case 'select':
-	          renderedDropdown = this.renderSelectMode(monthNames);
-	          break;
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        {
-	          className: 'react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--' + this.props.dropdownMode },
-	        renderedDropdown
-	      );
-	    }
-	  }]);
-
-	  return MonthDropdown;
-	}(_react2.default.Component);
-
-	MonthDropdown.propTypes = {
-	  dropdownMode: _propTypes2.default.oneOf(['scroll', 'select']).isRequired,
-	  locale: _propTypes2.default.string,
-	  month: _propTypes2.default.number.isRequired,
-	  onChange: _propTypes2.default.func.isRequired
-	};
-	exports.default = MonthDropdown;
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MonthDropdownOptions = function (_React$Component) {
-	  _inherits(MonthDropdownOptions, _React$Component);
-
-	  function MonthDropdownOptions() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, MonthDropdownOptions);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MonthDropdownOptions.__proto__ || Object.getPrototypeOf(MonthDropdownOptions)).call.apply(_ref, [this].concat(args))), _this), _this.renderOptions = function () {
-	      return _this.props.monthNames.map(function (month, i) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'react-datepicker__month-option',
-	            key: month,
-	            ref: month,
-	            onClick: _this.onChange.bind(_this, i) },
-	          _this.props.month === i ? _react2.default.createElement(
-	            'span',
-	            { className: 'react-datepicker__month-option--selected' },
-	            '\u2713'
-	          ) : '',
-	          month
-	        );
-	      });
-	    }, _this.onChange = function (month) {
-	      return _this.props.onChange(month);
-	    }, _this.handleClickOutside = function () {
-	      return _this.props.onCancel();
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(MonthDropdownOptions, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'react-datepicker__month-dropdown' },
-	        this.renderOptions()
-	      );
-	    }
-	  }]);
-
-	  return MonthDropdownOptions;
-	}(_react2.default.Component);
-
-	MonthDropdownOptions.propTypes = {
-	  onCancel: _propTypes2.default.func.isRequired,
-	  onChange: _propTypes2.default.func.isRequired,
-	  month: _propTypes2.default.number.isRequired,
-	  monthNames: _propTypes2.default.arrayOf(_propTypes2.default.string.isRequired).isRequired
-	};
-	exports.default = MonthDropdownOptions;
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _classnames = __webpack_require__(10);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _week = __webpack_require__(15);
-
-	var _week2 = _interopRequireDefault(_week);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var FIXED_HEIGHT_STANDARD_WEEK_COUNT = 6;
-
-	var Month = function (_React$Component) {
-	  _inherits(Month, _React$Component);
-
-	  function Month() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, Month);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Month.__proto__ || Object.getPrototypeOf(Month)).call.apply(_ref, [this].concat(args))), _this), _this.handleDayClick = function (day, event) {
-	      if (_this.props.onDayClick) {
-	        _this.props.onDayClick(day, event);
-	      }
-	    }, _this.handleDayMouseEnter = function (day) {
-	      if (_this.props.onDayMouseEnter) {
-	        _this.props.onDayMouseEnter(day);
-	      }
-	    }, _this.handleMouseLeave = function () {
-	      if (_this.props.onMouseLeave) {
-	        _this.props.onMouseLeave();
-	      }
-	    }, _this.isWeekInMonth = function (startOfWeek) {
-	      var day = _this.props.day;
-	      var endOfWeek = startOfWeek.clone().add(6, 'days');
-	      return startOfWeek.isSame(day, 'month') || endOfWeek.isSame(day, 'month');
-	    }, _this.renderWeeks = function () {
-	      var weeks = [];
-	      var isFixedHeight = _this.props.fixedHeight;
-	      var currentWeekStart = _this.props.day.clone().startOf('month').startOf('week');
-	      var i = 0;
-	      var breakAfterNextPush = false;
-
-	      while (true) {
-	        weeks.push(_react2.default.createElement(_week2.default, {
-	          key: i,
-	          day: currentWeekStart,
-	          month: _this.props.day.month(),
-	          onDayClick: _this.handleDayClick,
-	          onDayMouseEnter: _this.handleDayMouseEnter,
-	          minDate: _this.props.minDate,
-	          maxDate: _this.props.maxDate,
-	          excludeDates: _this.props.excludeDates,
-	          includeDates: _this.props.includeDates,
-	          inline: _this.props.inline,
-	          highlightDates: _this.props.highlightDates,
-	          selectingDate: _this.props.selectingDate,
-	          filterDate: _this.props.filterDate,
-	          preSelection: _this.props.preSelection,
-	          selected: _this.props.selected,
-	          selectsStart: _this.props.selectsStart,
-	          selectsEnd: _this.props.selectsEnd,
-	          showWeekNumber: _this.props.showWeekNumbers,
-	          startDate: _this.props.startDate,
-	          endDate: _this.props.endDate,
-	          utcOffset: _this.props.utcOffset }));
-
-	        if (breakAfterNextPush) break;
-
-	        i++;
-	        currentWeekStart = currentWeekStart.clone().add(1, 'weeks');
-
-	        // If one of these conditions is true, we will either break on this week
-	        // or break on the next week
-	        var isFixedAndFinalWeek = isFixedHeight && i >= FIXED_HEIGHT_STANDARD_WEEK_COUNT;
-	        var isNonFixedAndOutOfMonth = !isFixedHeight && !_this.isWeekInMonth(currentWeekStart);
-
-	        if (isFixedAndFinalWeek || isNonFixedAndOutOfMonth) {
-	          if (_this.props.peekNextMonth) {
-	            breakAfterNextPush = true;
-	          } else {
-	            break;
-	          }
-	        }
-	      }
-
-	      return weeks;
-	    }, _this.getClassNames = function () {
-	      var _this$props = _this.props,
-	          selectingDate = _this$props.selectingDate,
-	          selectsStart = _this$props.selectsStart,
-	          selectsEnd = _this$props.selectsEnd;
-
-	      return (0, _classnames2.default)('react-datepicker__month', {
-	        'react-datepicker__month--selecting-range': selectingDate && (selectsStart || selectsEnd)
-	      });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(Month, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: this.getClassNames(), onMouseLeave: this.handleMouseLeave, role: 'listbox' },
-	        this.renderWeeks()
-	      );
-	    }
-	  }]);
-
-	  return Month;
-	}(_react2.default.Component);
-
-	Month.propTypes = {
-	  day: _propTypes2.default.object.isRequired,
-	  endDate: _propTypes2.default.object,
-	  excludeDates: _propTypes2.default.array,
-	  filterDate: _propTypes2.default.func,
-	  fixedHeight: _propTypes2.default.bool,
-	  highlightDates: _propTypes2.default.array,
-	  includeDates: _propTypes2.default.array,
-	  inline: _propTypes2.default.bool,
-	  maxDate: _propTypes2.default.object,
-	  minDate: _propTypes2.default.object,
-	  onDayClick: _propTypes2.default.func,
-	  onDayMouseEnter: _propTypes2.default.func,
-	  onMouseLeave: _propTypes2.default.func,
-	  peekNextMonth: _propTypes2.default.bool,
-	  preSelection: _propTypes2.default.object,
-	  selected: _propTypes2.default.object,
-	  selectingDate: _propTypes2.default.object,
-	  selectsEnd: _propTypes2.default.bool,
-	  selectsStart: _propTypes2.default.bool,
-	  showWeekNumbers: _propTypes2.default.bool,
-	  startDate: _propTypes2.default.object,
-	  utcOffset: _propTypes2.default.number
-	};
-	exports.default = Month;
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _day = __webpack_require__(16);
-
-	var _day2 = _interopRequireDefault(_day);
-
-	var _week_number = __webpack_require__(18);
-
-	var _week_number2 = _interopRequireDefault(_week_number);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Week = function (_React$Component) {
-	  _inherits(Week, _React$Component);
-
-	  function Week() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, Week);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Week.__proto__ || Object.getPrototypeOf(Week)).call.apply(_ref, [this].concat(args))), _this), _this.handleDayClick = function (day, event) {
-	      if (_this.props.onDayClick) {
-	        _this.props.onDayClick(day, event);
-	      }
-	    }, _this.handleDayMouseEnter = function (day) {
-	      if (_this.props.onDayMouseEnter) {
-	        _this.props.onDayMouseEnter(day);
-	      }
-	    }, _this.renderDays = function () {
-	      var startOfWeek = _this.props.day.clone().startOf('week');
-	      var days = [];
-	      if (_this.props.showWeekNumber) {
-	        days.push(_react2.default.createElement(_week_number2.default, { key: 'W', weekNumber: parseInt(startOfWeek.format('w'), 10) }));
-	      }
-	      return days.concat([0, 1, 2, 3, 4, 5, 6].map(function (offset) {
-	        var day = startOfWeek.clone().add(offset, 'days');
-	        return _react2.default.createElement(_day2.default, {
-	          key: offset,
-	          day: day,
-	          month: _this.props.month,
-	          onClick: _this.handleDayClick.bind(_this, day),
-	          onMouseEnter: _this.handleDayMouseEnter.bind(_this, day),
-	          minDate: _this.props.minDate,
-	          maxDate: _this.props.maxDate,
-	          excludeDates: _this.props.excludeDates,
-	          includeDates: _this.props.includeDates,
-	          inline: _this.props.inline,
-	          highlightDates: _this.props.highlightDates,
-	          selectingDate: _this.props.selectingDate,
-	          filterDate: _this.props.filterDate,
-	          preSelection: _this.props.preSelection,
-	          selected: _this.props.selected,
-	          selectsStart: _this.props.selectsStart,
-	          selectsEnd: _this.props.selectsEnd,
-	          startDate: _this.props.startDate,
-	          endDate: _this.props.endDate,
-	          utcOffset: _this.props.utcOffset });
-	      }));
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(Week, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'react-datepicker__week' },
-	        this.renderDays()
-	      );
-	    }
-	  }]);
-
-	  return Week;
-	}(_react2.default.Component);
-
-	Week.propTypes = {
-	  day: _propTypes2.default.object.isRequired,
-	  endDate: _propTypes2.default.object,
-	  excludeDates: _propTypes2.default.array,
-	  filterDate: _propTypes2.default.func,
-	  highlightDates: _propTypes2.default.array,
-	  includeDates: _propTypes2.default.array,
-	  inline: _propTypes2.default.bool,
-	  maxDate: _propTypes2.default.object,
-	  minDate: _propTypes2.default.object,
-	  month: _propTypes2.default.number,
-	  onDayClick: _propTypes2.default.func,
-	  onDayMouseEnter: _propTypes2.default.func,
-	  preSelection: _propTypes2.default.object,
-	  selected: _propTypes2.default.object,
-	  selectingDate: _propTypes2.default.object,
-	  selectsEnd: _propTypes2.default.bool,
-	  selectsStart: _propTypes2.default.bool,
-	  showWeekNumber: _propTypes2.default.bool,
-	  startDate: _propTypes2.default.object,
-	  utcOffset: _propTypes2.default.number
-	};
-	exports.default = Week;
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _moment = __webpack_require__(2);
-
-	var _moment2 = _interopRequireDefault(_moment);
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _propTypes = __webpack_require__(5);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _classnames = __webpack_require__(10);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var _date_utils = __webpack_require__(17);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Day = function (_React$Component) {
-	  _inherits(Day, _React$Component);
-
-	  function Day() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, Day);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Day.__proto__ || Object.getPrototypeOf(Day)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (event) {
-	      if (!_this.isDisabled() && _this.props.onClick) {
-	        _this.props.onClick(event);
-	      }
-	    }, _this.handleMouseEnter = function (event) {
-	      if (!_this.isDisabled() && _this.props.onMouseEnter) {
-	        _this.props.onMouseEnter(event);
-	      }
-	    }, _this.isSameDay = function (other) {
-	      return (0, _date_utils.isSameDay)(_this.props.day, other);
-	    }, _this.isKeyboardSelected = function () {
-	      return !_this.props.inline && !_this.isSameDay(_this.props.selected) && _this.isSameDay(_this.props.preSelection);
-	    }, _this.isDisabled = function () {
-	      return (0, _date_utils.isDayDisabled)(_this.props.day, _this.props);
-	    }, _this.isHighlighted = function () {
-	      var _this$props = _this.props,
-	          day = _this$props.day,
-	          highlightDates = _this$props.highlightDates;
-
-	      if (!highlightDates) {
-	        return false;
-	      }
-	      return highlightDates.some(function (testDay) {
-	        return (0, _date_utils.isSameDay)(day, testDay);
-	      });
-	    }, _this.isInRange = function () {
-	      var _this$props2 = _this.props,
-	          day = _this$props2.day,
-	          startDate = _this$props2.startDate,
-	          endDate = _this$props2.endDate;
-
-	      if (!startDate || !endDate) {
-	        return false;
-	      }
-	      return (0, _date_utils.isDayInRange)(day, startDate, endDate);
-	    }, _this.isInSelectingRange = function () {
-	      var _this$props3 = _this.props,
-	          day = _this$props3.day,
-	          selectsStart = _this$props3.selectsStart,
-	          selectsEnd = _this$props3.selectsEnd,
-	          selectingDate = _this$props3.selectingDate,
-	          startDate = _this$props3.startDate,
-	          endDate = _this$props3.endDate;
-
-
-	      if (!(selectsStart || selectsEnd) || !selectingDate || _this.isDisabled()) {
-	        return false;
-	      }
-
-	      if (selectsStart && endDate && selectingDate.isSameOrBefore(endDate)) {
-	        return (0, _date_utils.isDayInRange)(day, selectingDate, endDate);
-	      }
-
-	      if (selectsEnd && startDate && selectingDate.isSameOrAfter(startDate)) {
-	        return (0, _date_utils.isDayInRange)(day, startDate, selectingDate);
-	      }
-
-	      return false;
-	    }, _this.isSelectingRangeStart = function () {
-	      if (!_this.isInSelectingRange()) {
-	        return false;
-	      }
-
-	      var _this$props4 = _this.props,
-	          day = _this$props4.day,
-	          selectingDate = _this$props4.selectingDate,
-	          startDate = _this$props4.startDate,
-	          selectsStart = _this$props4.selectsStart;
-
-
-	      if (selectsStart) {
-	        return (0, _date_utils.isSameDay)(day, selectingDate);
-	      } else {
-	        return (0, _date_utils.isSameDay)(day, startDate);
-	      }
-	    }, _this.isSelectingRangeEnd = function () {
-	      if (!_this.isInSelectingRange()) {
-	        return false;
-	      }
-
-	      var _this$props5 = _this.props,
-	          day = _this$props5.day,
-	          selectingDate = _this$props5.selectingDate,
-	          endDate = _this$props5.endDate,
-	          selectsEnd = _this$props5.selectsEnd;
-
-
-	      if (selectsEnd) {
-	        return (0, _date_utils.isSameDay)(day, selectingDate);
-	      } else {
-	        return (0, _date_utils.isSameDay)(day, endDate);
-	      }
-	    }, _this.isRangeStart = function () {
-	      var _this$props6 = _this.props,
-	          day = _this$props6.day,
-	          startDate = _this$props6.startDate,
-	          endDate = _this$props6.endDate;
-
-	      if (!startDate || !endDate) {
-	        return false;
-	      }
-	      return (0, _date_utils.isSameDay)(startDate, day);
-	    }, _this.isRangeEnd = function () {
-	      var _this$props7 = _this.props,
-	          day = _this$props7.day,
-	          startDate = _this$props7.startDate,
-	          endDate = _this$props7.endDate;
-
-	      if (!startDate || !endDate) {
-	        return false;
-	      }
-	      return (0, _date_utils.isSameDay)(endDate, day);
-	    }, _this.isWeekend = function () {
-	      var weekday = _this.props.day.day();
-	      return weekday === 0 || weekday === 6;
-	    }, _this.isOutsideMonth = function () {
-	      return _this.props.month !== undefined && _this.props.month !== _this.props.day.month();
-	    }, _this.getClassNames = function () {
-	      return (0, _classnames2.default)('react-datepicker__day', {
-	        'react-datepicker__day--disabled': _this.isDisabled(),
-	        'react-datepicker__day--selected': _this.isSameDay(_this.props.selected),
-	        'react-datepicker__day--keyboard-selected': _this.isKeyboardSelected(),
-	        'react-datepicker__day--highlighted': _this.isHighlighted(),
-	        'react-datepicker__day--range-start': _this.isRangeStart(),
-	        'react-datepicker__day--range-end': _this.isRangeEnd(),
-	        'react-datepicker__day--in-range': _this.isInRange(),
-	        'react-datepicker__day--in-selecting-range': _this.isInSelectingRange(),
-	        'react-datepicker__day--selecting-range-start': _this.isSelectingRangeStart(),
-	        'react-datepicker__day--selecting-range-end': _this.isSelectingRangeEnd(),
-	        'react-datepicker__day--today': _this.isSameDay(_moment2.default.utc().utcOffset(_this.props.utcOffset)),
-	        'react-datepicker__day--weekend': _this.isWeekend(),
-	        'react-datepicker__day--outside-month': _this.isOutsideMonth()
-	      });
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(Day, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        {
-	          className: this.getClassNames(),
-	          onClick: this.handleClick,
-	          onMouseEnter: this.handleMouseEnter,
-	          'aria-label': 'day-' + this.props.day.date(),
-	          role: 'option' },
-	        this.props.day.date()
-	      );
-	    }
-	  }]);
-
-	  return Day;
-	}(_react2.default.Component);
-
-	Day.propTypes = {
-	  day: _propTypes2.default.object.isRequired,
-	  endDate: _propTypes2.default.object,
-	  highlightDates: _propTypes2.default.array,
-	  inline: _propTypes2.default.bool,
-	  month: _propTypes2.default.number,
-	  onClick: _propTypes2.default.func,
-	  onMouseEnter: _propTypes2.default.func,
-	  preSelection: _propTypes2.default.object,
-	  selected: _propTypes2.default.object,
-	  selectingDate: _propTypes2.default.object,
-	  selectsEnd: _propTypes2.default.bool,
-	  selectsStart: _propTypes2.default.bool,
-	  startDate: _propTypes2.default.object,
-	  utcOffset: _propTypes2.default.number
-	};
-	Day.defaultProps = {
-	  utcOffset: _moment2.default.utc().utcOffset()
-	};
-	exports.default = Day;
-
-/***/ },
-/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34599,8 +32957,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.allDaysDisabledAfter = allDaysDisabledAfter;
 	exports.getEffectiveMinDate = getEffectiveMinDate;
 	exports.getEffectiveMaxDate = getEffectiveMaxDate;
-	exports.parseDate = parseDate;
-	exports.safeDateFormat = safeDateFormat;
 
 	var _moment = __webpack_require__(2);
 
@@ -34697,106 +33053,1352 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-	function parseDate(value, _ref6) {
-	  var dateFormat = _ref6.dateFormat,
-	      locale = _ref6.locale;
-
-	  var m = (0, _moment2.default)(value, dateFormat, locale || _moment2.default.locale(), true);
-	  return m.isValid() ? m : null;
-	}
-
-	function safeDateFormat(date, _ref7) {
-	  var dateFormat = _ref7.dateFormat,
-	      locale = _ref7.locale;
-
-	  return date && date.clone().locale(locale || _moment2.default.locale()).format(Array.isArray(dateFormat) ? dateFormat[0] : dateFormat) || '';
-	}
-
 /***/ },
-/* 18 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	var _moment = __webpack_require__(2);
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _moment2 = _interopRequireDefault(_moment);
 
-	var _react = __webpack_require__(4);
+	var _year_dropdown = __webpack_require__(6);
+
+	var _year_dropdown2 = _interopRequireDefault(_year_dropdown);
+
+	var _month_dropdown = __webpack_require__(10);
+
+	var _month_dropdown2 = _interopRequireDefault(_month_dropdown);
+
+	var _month = __webpack_require__(12);
+
+	var _month2 = _interopRequireDefault(_month);
+
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(5);
+	var _classnames = __webpack_require__(8);
 
-	var _propTypes2 = _interopRequireDefault(_propTypes);
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _date_utils = __webpack_require__(4);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var DROPDOWN_FOCUS_CLASSNAMES = ['react-datepicker__year-select', 'react-datepicker__month-select'];
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	var isDropdownSelect = function isDropdownSelect() {
+	  var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	  var classNames = (element.className || '').split(/\s+/);
+	  return DROPDOWN_FOCUS_CLASSNAMES.some(function (testClassname) {
+	    return classNames.indexOf(testClassname) >= 0;
+	  });
+	};
 
-	var WeekNumber = function (_React$Component) {
-	  _inherits(WeekNumber, _React$Component);
+	var Calendar = _react2.default.createClass({
+	  displayName: 'Calendar',
 
-	  function WeekNumber() {
-	    _classCallCheck(this, WeekNumber);
+	  propTypes: {
+	    className: _react2.default.PropTypes.string,
+	    children: _react2.default.PropTypes.node,
+	    dateFormat: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.array]).isRequired,
+	    dropdownMode: _react2.default.PropTypes.oneOf(['scroll', 'select']).isRequired,
+	    endDate: _react2.default.PropTypes.object,
+	    excludeDates: _react2.default.PropTypes.array,
+	    filterDate: _react2.default.PropTypes.func,
+	    fixedHeight: _react2.default.PropTypes.bool,
+	    highlightDates: _react2.default.PropTypes.array,
+	    includeDates: _react2.default.PropTypes.array,
+	    inline: _react2.default.PropTypes.bool,
+	    locale: _react2.default.PropTypes.string,
+	    maxDate: _react2.default.PropTypes.object,
+	    minDate: _react2.default.PropTypes.object,
+	    monthsShown: _react2.default.PropTypes.number,
+	    onClickOutside: _react2.default.PropTypes.func.isRequired,
+	    onMonthChange: _react2.default.PropTypes.func,
+	    forceShowMonthNavigation: _react2.default.PropTypes.bool,
+	    onDropdownFocus: _react2.default.PropTypes.func,
+	    onSelect: _react2.default.PropTypes.func.isRequired,
+	    openToDate: _react2.default.PropTypes.object,
+	    peekNextMonth: _react2.default.PropTypes.bool,
+	    scrollableYearDropdown: _react2.default.PropTypes.bool,
+	    preSelection: _react2.default.PropTypes.object,
+	    selected: _react2.default.PropTypes.object,
+	    selectsEnd: _react2.default.PropTypes.bool,
+	    selectsStart: _react2.default.PropTypes.bool,
+	    showMonthDropdown: _react2.default.PropTypes.bool,
+	    showWeekNumbers: _react2.default.PropTypes.bool,
+	    showYearDropdown: _react2.default.PropTypes.bool,
+	    startDate: _react2.default.PropTypes.object,
+	    todayButton: _react2.default.PropTypes.string,
+	    utcOffset: _react2.default.PropTypes.number
+	  },
 
-	    return _possibleConstructorReturn(this, (WeekNumber.__proto__ || Object.getPrototypeOf(WeekNumber)).apply(this, arguments));
-	  }
+	  defaultProps: {
+	    onDropdownFocus: function onDropdownFocus() {}
+	  },
 
-	  _createClass(WeekNumber, [{
-	    key: 'render',
-	    value: function render() {
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      utcOffset: _moment2.default.utc().utcOffset(),
+	      monthsShown: 1,
+	      forceShowMonthNavigation: false
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      date: this.localizeMoment(this.getDateInView()),
+	      selectingDate: null
+	    };
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (nextProps.preSelection && !(0, _date_utils.isSameDay)(nextProps.preSelection, this.props.preSelection)) {
+	      this.setState({
+	        date: this.localizeMoment(nextProps.preSelection)
+	      });
+	    } else if (nextProps.openToDate && !(0, _date_utils.isSameDay)(nextProps.openToDate, this.props.openToDate)) {
+	      this.setState({
+	        date: this.localizeMoment(nextProps.openToDate)
+	      });
+	    }
+	  },
+	  handleClickOutside: function handleClickOutside(event) {
+	    this.props.onClickOutside(event);
+	  },
+	  handleDropdownFocus: function handleDropdownFocus(event) {
+	    if (isDropdownSelect(event.target)) {
+	      this.props.onDropdownFocus();
+	    }
+	  },
+	  getDateInView: function getDateInView() {
+	    var _props = this.props,
+	        preSelection = _props.preSelection,
+	        selected = _props.selected,
+	        openToDate = _props.openToDate,
+	        utcOffset = _props.utcOffset;
+
+	    var minDate = (0, _date_utils.getEffectiveMinDate)(this.props);
+	    var maxDate = (0, _date_utils.getEffectiveMaxDate)(this.props);
+	    var current = _moment2.default.utc().utcOffset(utcOffset);
+	    var initialDate = preSelection || selected;
+	    if (initialDate) {
+	      return initialDate;
+	    } else if (minDate && maxDate && openToDate && openToDate.isBetween(minDate, maxDate)) {
+	      return openToDate;
+	    } else if (minDate && openToDate && openToDate.isAfter(minDate)) {
+	      return openToDate;
+	    } else if (minDate && minDate.isAfter(current)) {
+	      return minDate;
+	    } else if (maxDate && openToDate && openToDate.isBefore(maxDate)) {
+	      return openToDate;
+	    } else if (maxDate && maxDate.isBefore(current)) {
+	      return maxDate;
+	    } else if (openToDate) {
+	      return openToDate;
+	    } else {
+	      return current;
+	    }
+	  },
+	  localizeMoment: function localizeMoment(date) {
+	    return date.clone().locale(this.props.locale || _moment2.default.locale());
+	  },
+	  increaseMonth: function increaseMonth() {
+	    var _this = this;
+
+	    this.setState({
+	      date: this.state.date.clone().add(1, 'month')
+	    }, function () {
+	      return _this.handleMonthChange(_this.state.date);
+	    });
+	  },
+	  decreaseMonth: function decreaseMonth() {
+	    var _this2 = this;
+
+	    this.setState({
+	      date: this.state.date.clone().subtract(1, 'month')
+	    }, function () {
+	      return _this2.handleMonthChange(_this2.state.date);
+	    });
+	  },
+	  handleDayClick: function handleDayClick(day, event) {
+	    this.props.onSelect(day, event);
+	  },
+	  handleDayMouseEnter: function handleDayMouseEnter(day) {
+	    this.setState({ selectingDate: day });
+	  },
+	  handleMonthMouseLeave: function handleMonthMouseLeave() {
+	    this.setState({ selectingDate: null });
+	  },
+	  handleMonthChange: function handleMonthChange(date) {
+	    if (this.props.onMonthChange) {
+	      this.props.onMonthChange(date);
+	    }
+	  },
+	  changeYear: function changeYear(year) {
+	    this.setState({
+	      date: this.state.date.clone().set('year', year)
+	    });
+	  },
+	  changeMonth: function changeMonth(month) {
+	    var _this3 = this;
+
+	    this.setState({
+	      date: this.state.date.clone().set('month', month)
+	    }, function () {
+	      return _this3.handleMonthChange(_this3.state.date);
+	    });
+	  },
+	  header: function header() {
+	    var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state.date;
+
+	    var startOfWeek = date.clone().startOf('week');
+	    var dayNames = [];
+	    if (this.props.showWeekNumbers) {
+	      dayNames.push(_react2.default.createElement(
+	        'div',
+	        { key: 'W', className: 'react-datepicker__day-name' },
+	        '#'
+	      ));
+	    }
+	    return dayNames.concat([0, 1, 2, 3, 4, 5, 6].map(function (offset) {
+	      var day = startOfWeek.clone().add(offset, 'days');
 	      return _react2.default.createElement(
 	        'div',
-	        {
-	          className: 'react-datepicker__week-number',
-	          'aria-label': 'week-' + this.props.weekNumber },
-	        this.props.weekNumber
+	        { key: offset, className: 'react-datepicker__day-name' },
+	        day.localeData().weekdaysMin(day)
 	      );
+	    }));
+	  },
+	  renderPreviousMonthButton: function renderPreviousMonthButton() {
+	    if (!this.props.forceShowMonthNavigation && (0, _date_utils.allDaysDisabledBefore)(this.state.date, 'month', this.props)) {
+	      return;
 	    }
-	  }]);
+	    return _react2.default.createElement('a', {
+	      className: 'react-datepicker__navigation react-datepicker__navigation--previous',
+	      onClick: this.decreaseMonth });
+	  },
+	  renderNextMonthButton: function renderNextMonthButton() {
+	    if (!this.props.forceShowMonthNavigation && (0, _date_utils.allDaysDisabledAfter)(this.state.date, 'month', this.props)) {
+	      return;
+	    }
+	    return _react2.default.createElement('a', {
+	      className: 'react-datepicker__navigation react-datepicker__navigation--next',
+	      onClick: this.increaseMonth });
+	  },
+	  renderCurrentMonth: function renderCurrentMonth() {
+	    var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.state.date;
 
-	  return WeekNumber;
-	}(_react2.default.Component);
+	    var classes = ['react-datepicker__current-month'];
+	    if (this.props.showYearDropdown) {
+	      classes.push('react-datepicker__current-month--hasYearDropdown');
+	    }
+	    if (this.props.showMonthDropdown) {
+	      classes.push('react-datepicker__current-month--hasMonthDropdown');
+	    }
+	    return _react2.default.createElement(
+	      'div',
+	      { className: classes.join(' ') },
+	      date.format(this.props.dateFormat)
+	    );
+	  },
+	  renderYearDropdown: function renderYearDropdown() {
+	    var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-	WeekNumber.propTypes = {
-	  weekNumber: _propTypes2.default.number.isRequired
-	};
-	exports.default = WeekNumber;
+	    if (!this.props.showYearDropdown || overrideHide) {
+	      return;
+	    }
+	    return _react2.default.createElement(_year_dropdown2.default, {
+	      dropdownMode: this.props.dropdownMode,
+	      onChange: this.changeYear,
+	      minDate: this.props.minDate,
+	      maxDate: this.props.maxDate,
+	      year: this.state.date.year(),
+	      scrollableYearDropdown: this.props.scrollableYearDropdown });
+	  },
+	  renderMonthDropdown: function renderMonthDropdown() {
+	    var overrideHide = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+	    if (!this.props.showMonthDropdown) {
+	      return;
+	    }
+	    return _react2.default.createElement(_month_dropdown2.default, {
+	      dropdownMode: this.props.dropdownMode,
+	      locale: this.props.locale,
+	      onChange: this.changeMonth,
+	      month: this.state.date.month() });
+	  },
+	  renderTodayButton: function renderTodayButton() {
+	    var _this4 = this;
+
+	    if (!this.props.todayButton) {
+	      return;
+	    }
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__today-button', onClick: function onClick(event) {
+	          return _this4.props.onSelect(_moment2.default.utc().utcOffset(_this4.props.utcOffset).startOf('date'), event);
+	        } },
+	      this.props.todayButton
+	    );
+	  },
+	  renderMonths: function renderMonths() {
+	    var monthList = [];
+	    for (var i = 0; i < this.props.monthsShown; ++i) {
+	      var monthDate = this.state.date.clone().add(i, 'M');
+	      var monthKey = 'month-' + i;
+	      monthList.push(_react2.default.createElement(
+	        'div',
+	        { key: monthKey, className: 'react-datepicker__month-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'react-datepicker__header' },
+	          this.renderCurrentMonth(monthDate),
+	          _react2.default.createElement(
+	            'div',
+	            {
+	              className: 'react-datepicker__header__dropdown react-datepicker__header__dropdown--' + this.props.dropdownMode,
+	              onFocus: this.handleDropdownFocus },
+	            this.renderMonthDropdown(i !== 0),
+	            this.renderYearDropdown(i !== 0)
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'react-datepicker__day-names' },
+	            this.header(monthDate)
+	          )
+	        ),
+	        _react2.default.createElement(_month2.default, {
+	          day: monthDate,
+	          onDayClick: this.handleDayClick,
+	          onDayMouseEnter: this.handleDayMouseEnter,
+	          onMouseLeave: this.handleMonthMouseLeave,
+	          minDate: this.props.minDate,
+	          maxDate: this.props.maxDate,
+	          excludeDates: this.props.excludeDates,
+	          highlightDates: this.props.highlightDates,
+	          selectingDate: this.state.selectingDate,
+	          includeDates: this.props.includeDates,
+	          inline: this.props.inline,
+	          fixedHeight: this.props.fixedHeight,
+	          filterDate: this.props.filterDate,
+	          preSelection: this.props.preSelection,
+	          selected: this.props.selected,
+	          selectsStart: this.props.selectsStart,
+	          selectsEnd: this.props.selectsEnd,
+	          showWeekNumbers: this.props.showWeekNumbers,
+	          startDate: this.props.startDate,
+	          endDate: this.props.endDate,
+	          peekNextMonth: this.props.peekNextMonth,
+	          utcOffset: this.props.utcOffset })
+	      ));
+	    }
+	    return monthList;
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: (0, _classnames2.default)('react-datepicker', this.props.className) },
+	      _react2.default.createElement('div', { className: 'react-datepicker__triangle' }),
+	      this.renderPreviousMonthButton(),
+	      this.renderNextMonthButton(),
+	      this.renderMonths(),
+	      this.renderTodayButton(),
+	      this.props.children
+	    );
+	  }
+	});
+
+	module.exports = Calendar;
 
 /***/ },
-/* 19 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _propTypes = __webpack_require__(5);
+	var _year_dropdown_options = __webpack_require__(7);
 
-	var _propTypes2 = _interopRequireDefault(_propTypes);
+	var _year_dropdown_options2 = _interopRequireDefault(_year_dropdown_options);
 
-	var _reactDom = __webpack_require__(20);
+	var _reactOnclickoutside = __webpack_require__(9);
+
+	var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var WrappedYearDropdownOptions = (0, _reactOnclickoutside2.default)(_year_dropdown_options2.default);
+
+	var YearDropdown = _react2.default.createClass({
+	  displayName: 'YearDropdown',
+
+	  propTypes: {
+	    dropdownMode: _react2.default.PropTypes.oneOf(['scroll', 'select']).isRequired,
+	    maxDate: _react2.default.PropTypes.object,
+	    minDate: _react2.default.PropTypes.object,
+	    onChange: _react2.default.PropTypes.func.isRequired,
+	    scrollableYearDropdown: _react2.default.PropTypes.bool,
+	    year: _react2.default.PropTypes.number.isRequired
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      dropdownVisible: false
+	    };
+	  },
+	  renderSelectOptions: function renderSelectOptions() {
+	    var minYear = this.props.minDate ? this.props.minDate.year() : 1900;
+	    var maxYear = this.props.maxDate ? this.props.maxDate.year() : 2100;
+
+	    var options = [];
+	    for (var i = minYear; i <= maxYear; i++) {
+	      options.push(_react2.default.createElement(
+	        'option',
+	        { key: i, value: i },
+	        i
+	      ));
+	    }
+	    return options;
+	  },
+	  onSelectChange: function onSelectChange(e) {
+	    this.onChange(e.target.value);
+	  },
+	  renderSelectMode: function renderSelectMode() {
+	    return _react2.default.createElement(
+	      'select',
+	      {
+	        value: this.props.year,
+	        className: 'react-datepicker__year-select',
+	        onChange: this.onSelectChange },
+	      this.renderSelectOptions()
+	    );
+	  },
+	  renderReadView: function renderReadView(visible) {
+	    return _react2.default.createElement(
+	      'div',
+	      { key: 'read', style: { visibility: visible ? 'visible' : 'hidden' }, className: 'react-datepicker__year-read-view', onClick: this.toggleDropdown },
+	      _react2.default.createElement('span', { className: 'react-datepicker__year-read-view--down-arrow' }),
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'react-datepicker__year-read-view--selected-year' },
+	        this.props.year
+	      )
+	    );
+	  },
+	  renderDropdown: function renderDropdown() {
+	    return _react2.default.createElement(WrappedYearDropdownOptions, {
+	      key: 'dropdown',
+	      ref: 'options',
+	      year: this.props.year,
+	      onChange: this.onChange,
+	      onCancel: this.toggleDropdown,
+	      scrollableYearDropdown: this.props.scrollableYearDropdown });
+	  },
+	  renderScrollMode: function renderScrollMode() {
+	    var dropdownVisible = this.state.dropdownVisible;
+
+	    var result = [this.renderReadView(!dropdownVisible)];
+	    if (dropdownVisible) {
+	      result.unshift(this.renderDropdown());
+	    }
+	    return result;
+	  },
+	  onChange: function onChange(year) {
+	    this.toggleDropdown();
+	    if (year === this.props.year) return;
+	    this.props.onChange(year);
+	  },
+	  toggleDropdown: function toggleDropdown() {
+	    this.setState({
+	      dropdownVisible: !this.state.dropdownVisible
+	    });
+	  },
+	  render: function render() {
+	    var renderedDropdown = void 0;
+	    switch (this.props.dropdownMode) {
+	      case 'scroll':
+	        renderedDropdown = this.renderScrollMode();
+	        break;
+	      case 'select':
+	        renderedDropdown = this.renderSelectMode();
+	        break;
+	    }
+
+	    return _react2.default.createElement(
+	      'div',
+	      {
+	        className: 'react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--' + this.props.dropdownMode },
+	      renderedDropdown
+	    );
+	  }
+	});
+
+	module.exports = YearDropdown;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(8);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function generateYears(year, noOfYear) {
+	  var list = [];
+	  for (var i = 0; i < 2 * noOfYear; i++) {
+	    list.push(year + noOfYear - i);
+	  }
+	  return list;
+	}
+
+	var YearDropdownOptions = _react2.default.createClass({
+	  displayName: 'YearDropdownOptions',
+
+	  propTypes: {
+	    onCancel: _react2.default.PropTypes.func.isRequired,
+	    onChange: _react2.default.PropTypes.func.isRequired,
+	    scrollableYearDropdown: _react2.default.PropTypes.bool,
+	    year: _react2.default.PropTypes.number.isRequired
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      yearsList: this.props.scrollableYearDropdown ? generateYears(this.props.year, 10) : generateYears(this.props.year, 5)
+	    };
+	  },
+	  renderOptions: function renderOptions() {
+	    var _this = this;
+
+	    var selectedYear = this.props.year;
+	    var options = this.state.yearsList.map(function (year) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'react-datepicker__year-option',
+	          key: year,
+	          ref: year,
+	          onClick: _this.onChange.bind(_this, year) },
+	        selectedYear === year ? _react2.default.createElement(
+	          'span',
+	          { className: 'react-datepicker__year-option--selected' },
+	          '\u2713'
+	        ) : '',
+	        year
+	      );
+	    });
+
+	    options.unshift(_react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__year-option',
+	        ref: 'upcoming',
+	        key: 'upcoming',
+	        onClick: this.incrementYears },
+	      _react2.default.createElement('a', { className: 'react-datepicker__navigation react-datepicker__navigation--years react-datepicker__navigation--years-upcoming' })
+	    ));
+	    options.push(_react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__year-option',
+	        ref: 'previous',
+	        key: 'previous',
+	        onClick: this.decrementYears },
+	      _react2.default.createElement('a', { className: 'react-datepicker__navigation react-datepicker__navigation--years react-datepicker__navigation--years-previous' })
+	    ));
+	    return options;
+	  },
+	  onChange: function onChange(year) {
+	    this.props.onChange(year);
+	  },
+	  handleClickOutside: function handleClickOutside() {
+	    this.props.onCancel();
+	  },
+	  shiftYears: function shiftYears(amount) {
+	    var years = this.state.yearsList.map(function (year) {
+	      return year + amount;
+	    });
+
+	    this.setState({
+	      yearsList: years
+	    });
+	  },
+	  incrementYears: function incrementYears() {
+	    return this.shiftYears(1);
+	  },
+	  decrementYears: function decrementYears() {
+	    return this.shiftYears(-1);
+	  },
+	  render: function render() {
+	    var dropdownClass = (0, _classnames2.default)({
+	      'react-datepicker__year-dropdown': true,
+	      'react-datepicker__year-dropdown--scrollable': this.props.scrollableYearDropdown
+	    });
+
+	    return _react2.default.createElement(
+	      'div',
+	      { className: dropdownClass },
+	      this.renderOptions()
+	    );
+	  }
+	});
+
+	module.exports = YearDropdownOptions;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_9__;
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _month_dropdown_options = __webpack_require__(11);
+
+	var _month_dropdown_options2 = _interopRequireDefault(_month_dropdown_options);
+
+	var _reactOnclickoutside = __webpack_require__(9);
+
+	var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
+
+	var _moment = __webpack_require__(2);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var WrappedMonthDropdownOptions = (0, _reactOnclickoutside2.default)(_month_dropdown_options2.default);
+
+	var MonthDropdown = _react2.default.createClass({
+	  displayName: 'MonthDropdown',
+
+	  propTypes: {
+	    dropdownMode: _react2.default.PropTypes.oneOf(['scroll', 'select']).isRequired,
+	    locale: _react2.default.PropTypes.string,
+	    month: _react2.default.PropTypes.number.isRequired,
+	    onChange: _react2.default.PropTypes.func.isRequired
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      dropdownVisible: false
+	    };
+	  },
+	  renderSelectOptions: function renderSelectOptions(monthNames) {
+	    return monthNames.map(function (M, i) {
+	      return _react2.default.createElement(
+	        'option',
+	        { key: i, value: i },
+	        M
+	      );
+	    });
+	  },
+	  renderSelectMode: function renderSelectMode(monthNames) {
+	    var _this = this;
+
+	    return _react2.default.createElement(
+	      'select',
+	      { value: this.props.month, className: 'react-datepicker__month-select', onChange: function onChange(e) {
+	          return _this.onChange(e.target.value);
+	        } },
+	      this.renderSelectOptions(monthNames)
+	    );
+	  },
+	  renderReadView: function renderReadView(visible, monthNames) {
+	    return _react2.default.createElement(
+	      'div',
+	      { key: 'read', style: { visibility: visible ? 'visible' : 'hidden' }, className: 'react-datepicker__month-read-view', onClick: this.toggleDropdown },
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'react-datepicker__month-read-view--selected-month' },
+	        monthNames[this.props.month]
+	      ),
+	      _react2.default.createElement('span', { className: 'react-datepicker__month-read-view--down-arrow' })
+	    );
+	  },
+	  renderDropdown: function renderDropdown(monthNames) {
+	    return _react2.default.createElement(WrappedMonthDropdownOptions, {
+	      key: 'dropdown',
+	      ref: 'options',
+	      month: this.props.month,
+	      monthNames: monthNames,
+	      onChange: this.onChange,
+	      onCancel: this.toggleDropdown });
+	  },
+	  renderScrollMode: function renderScrollMode(monthNames) {
+	    var dropdownVisible = this.state.dropdownVisible;
+
+	    var result = [this.renderReadView(!dropdownVisible, monthNames)];
+	    if (dropdownVisible) {
+	      result.unshift(this.renderDropdown(monthNames));
+	    }
+	    return result;
+	  },
+	  onChange: function onChange(month) {
+	    this.toggleDropdown();
+	    if (month !== this.props.month) {
+	      this.props.onChange(month);
+	    }
+	  },
+	  toggleDropdown: function toggleDropdown() {
+	    this.setState({
+	      dropdownVisible: !this.state.dropdownVisible
+	    });
+	  },
+	  render: function render() {
+	    var localeData = _moment2.default.localeData(this.props.locale);
+	    var monthNames = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(function (M) {
+	      return localeData.months((0, _moment2.default)({ M: M }));
+	    });
+
+	    var renderedDropdown = void 0;
+	    switch (this.props.dropdownMode) {
+	      case 'scroll':
+	        renderedDropdown = this.renderScrollMode(monthNames);
+	        break;
+	      case 'select':
+	        renderedDropdown = this.renderSelectMode(monthNames);
+	        break;
+	    }
+
+	    return _react2.default.createElement(
+	      'div',
+	      {
+	        className: 'react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--' + this.props.dropdownMode },
+	      renderedDropdown
+	    );
+	  }
+	});
+
+	module.exports = MonthDropdown;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var MonthDropdownOptions = _react2.default.createClass({
+	  displayName: 'MonthDropdownOptions',
+
+	  propTypes: {
+	    onCancel: _react2.default.PropTypes.func.isRequired,
+	    onChange: _react2.default.PropTypes.func.isRequired,
+	    month: _react2.default.PropTypes.number.isRequired,
+	    monthNames: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string.isRequired).isRequired
+	  },
+
+	  renderOptions: function renderOptions() {
+	    var _this = this;
+
+	    var selectedMonth = this.props.month;
+	    var options = this.props.monthNames.map(function (month, i) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'react-datepicker__month-option',
+	          key: month,
+	          ref: month,
+	          onClick: _this.onChange.bind(_this, i) },
+	        selectedMonth === i ? _react2.default.createElement(
+	          'span',
+	          { className: 'react-datepicker__month-option--selected' },
+	          '\u2713'
+	        ) : '',
+	        month
+	      );
+	    });
+
+	    return options;
+	  },
+	  onChange: function onChange(month) {
+	    this.props.onChange(month);
+	  },
+	  handleClickOutside: function handleClickOutside() {
+	    this.props.onCancel();
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__month-dropdown' },
+	      this.renderOptions()
+	    );
+	  }
+	});
+
+	module.exports = MonthDropdownOptions;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(8);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _week = __webpack_require__(13);
+
+	var _week2 = _interopRequireDefault(_week);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var FIXED_HEIGHT_STANDARD_WEEK_COUNT = 6;
+
+	var Month = _react2.default.createClass({
+	  displayName: 'Month',
+
+	  propTypes: {
+	    day: _react2.default.PropTypes.object.isRequired,
+	    endDate: _react2.default.PropTypes.object,
+	    excludeDates: _react2.default.PropTypes.array,
+	    filterDate: _react2.default.PropTypes.func,
+	    fixedHeight: _react2.default.PropTypes.bool,
+	    highlightDates: _react2.default.PropTypes.array,
+	    includeDates: _react2.default.PropTypes.array,
+	    inline: _react2.default.PropTypes.bool,
+	    maxDate: _react2.default.PropTypes.object,
+	    minDate: _react2.default.PropTypes.object,
+	    onDayClick: _react2.default.PropTypes.func,
+	    onDayMouseEnter: _react2.default.PropTypes.func,
+	    onMouseLeave: _react2.default.PropTypes.func,
+	    peekNextMonth: _react2.default.PropTypes.bool,
+	    preSelection: _react2.default.PropTypes.object,
+	    selected: _react2.default.PropTypes.object,
+	    selectingDate: _react2.default.PropTypes.object,
+	    selectsEnd: _react2.default.PropTypes.bool,
+	    selectsStart: _react2.default.PropTypes.bool,
+	    showWeekNumbers: _react2.default.PropTypes.bool,
+	    startDate: _react2.default.PropTypes.object,
+	    utcOffset: _react2.default.PropTypes.number
+	  },
+
+	  handleDayClick: function handleDayClick(day, event) {
+	    if (this.props.onDayClick) {
+	      this.props.onDayClick(day, event);
+	    }
+	  },
+	  handleDayMouseEnter: function handleDayMouseEnter(day) {
+	    if (this.props.onDayMouseEnter) {
+	      this.props.onDayMouseEnter(day);
+	    }
+	  },
+	  handleMouseLeave: function handleMouseLeave() {
+	    if (this.props.onMouseLeave) {
+	      this.props.onMouseLeave();
+	    }
+	  },
+	  isWeekInMonth: function isWeekInMonth(startOfWeek) {
+	    var day = this.props.day;
+	    var endOfWeek = startOfWeek.clone().add(6, 'days');
+	    return startOfWeek.isSame(day, 'month') || endOfWeek.isSame(day, 'month');
+	  },
+	  renderWeeks: function renderWeeks() {
+	    var weeks = [];
+	    var isFixedHeight = this.props.fixedHeight;
+	    var currentWeekStart = this.props.day.clone().startOf('month').startOf('week');
+	    var i = 0;
+	    var breakAfterNextPush = false;
+
+	    while (true) {
+	      weeks.push(_react2.default.createElement(_week2.default, {
+	        key: i,
+	        day: currentWeekStart,
+	        month: this.props.day.month(),
+	        onDayClick: this.handleDayClick,
+	        onDayMouseEnter: this.handleDayMouseEnter,
+	        minDate: this.props.minDate,
+	        maxDate: this.props.maxDate,
+	        excludeDates: this.props.excludeDates,
+	        includeDates: this.props.includeDates,
+	        inline: this.props.inline,
+	        highlightDates: this.props.highlightDates,
+	        selectingDate: this.props.selectingDate,
+	        filterDate: this.props.filterDate,
+	        preSelection: this.props.preSelection,
+	        selected: this.props.selected,
+	        selectsStart: this.props.selectsStart,
+	        selectsEnd: this.props.selectsEnd,
+	        showWeekNumber: this.props.showWeekNumbers,
+	        startDate: this.props.startDate,
+	        endDate: this.props.endDate,
+	        utcOffset: this.props.utcOffset }));
+
+	      if (breakAfterNextPush) break;
+
+	      i++;
+	      currentWeekStart = currentWeekStart.clone().add(1, 'weeks');
+
+	      // If one of these conditions is true, we will either break on this week
+	      // or break on the next week
+	      var isFixedAndFinalWeek = isFixedHeight && i >= FIXED_HEIGHT_STANDARD_WEEK_COUNT;
+	      var isNonFixedAndOutOfMonth = !isFixedHeight && !this.isWeekInMonth(currentWeekStart);
+
+	      if (isFixedAndFinalWeek || isNonFixedAndOutOfMonth) {
+	        if (this.props.peekNextMonth) {
+	          breakAfterNextPush = true;
+	        } else {
+	          break;
+	        }
+	      }
+	    }
+
+	    return weeks;
+	  },
+	  getClassNames: function getClassNames() {
+	    var _props = this.props,
+	        selectingDate = _props.selectingDate,
+	        selectsStart = _props.selectsStart,
+	        selectsEnd = _props.selectsEnd;
+
+	    return (0, _classnames2.default)('react-datepicker__month', {
+	      'react-datepicker__month--selecting-range': selectingDate && (selectsStart || selectsEnd)
+	    });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: this.getClassNames(), onMouseLeave: this.handleMouseLeave, role: 'listbox' },
+	      this.renderWeeks()
+	    );
+	  }
+	});
+
+	module.exports = Month;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _day = __webpack_require__(14);
+
+	var _day2 = _interopRequireDefault(_day);
+
+	var _week_number = __webpack_require__(15);
+
+	var _week_number2 = _interopRequireDefault(_week_number);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Week = _react2.default.createClass({
+	  displayName: 'Week',
+
+	  propTypes: {
+	    day: _react2.default.PropTypes.object.isRequired,
+	    endDate: _react2.default.PropTypes.object,
+	    excludeDates: _react2.default.PropTypes.array,
+	    filterDate: _react2.default.PropTypes.func,
+	    highlightDates: _react2.default.PropTypes.array,
+	    includeDates: _react2.default.PropTypes.array,
+	    inline: _react2.default.PropTypes.bool,
+	    maxDate: _react2.default.PropTypes.object,
+	    minDate: _react2.default.PropTypes.object,
+	    month: _react2.default.PropTypes.number,
+	    onDayClick: _react2.default.PropTypes.func,
+	    onDayMouseEnter: _react2.default.PropTypes.func,
+	    preSelection: _react2.default.PropTypes.object,
+	    selected: _react2.default.PropTypes.object,
+	    selectingDate: _react2.default.PropTypes.object,
+	    selectsEnd: _react2.default.PropTypes.bool,
+	    selectsStart: _react2.default.PropTypes.bool,
+	    showWeekNumber: _react2.default.PropTypes.bool,
+	    startDate: _react2.default.PropTypes.object,
+	    utcOffset: _react2.default.PropTypes.number
+	  },
+
+	  handleDayClick: function handleDayClick(day, event) {
+	    if (this.props.onDayClick) {
+	      this.props.onDayClick(day, event);
+	    }
+	  },
+	  handleDayMouseEnter: function handleDayMouseEnter(day) {
+	    if (this.props.onDayMouseEnter) {
+	      this.props.onDayMouseEnter(day);
+	    }
+	  },
+	  renderDays: function renderDays() {
+	    var _this = this;
+
+	    var startOfWeek = this.props.day.clone().startOf('week');
+	    var days = [];
+	    if (this.props.showWeekNumber) {
+	      days.push(_react2.default.createElement(_week_number2.default, { key: 'W', weekNumber: parseInt(startOfWeek.format('w'), 10) }));
+	    }
+	    return days.concat([0, 1, 2, 3, 4, 5, 6].map(function (offset) {
+	      var day = startOfWeek.clone().add(offset, 'days');
+	      return _react2.default.createElement(_day2.default, {
+	        key: offset,
+	        day: day,
+	        month: _this.props.month,
+	        onClick: _this.handleDayClick.bind(_this, day),
+	        onMouseEnter: _this.handleDayMouseEnter.bind(_this, day),
+	        minDate: _this.props.minDate,
+	        maxDate: _this.props.maxDate,
+	        excludeDates: _this.props.excludeDates,
+	        includeDates: _this.props.includeDates,
+	        inline: _this.props.inline,
+	        highlightDates: _this.props.highlightDates,
+	        selectingDate: _this.props.selectingDate,
+	        filterDate: _this.props.filterDate,
+	        preSelection: _this.props.preSelection,
+	        selected: _this.props.selected,
+	        selectsStart: _this.props.selectsStart,
+	        selectsEnd: _this.props.selectsEnd,
+	        startDate: _this.props.startDate,
+	        endDate: _this.props.endDate,
+	        utcOffset: _this.props.utcOffset });
+	    }));
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'react-datepicker__week' },
+	      this.renderDays()
+	    );
+	  }
+	});
+
+	module.exports = Week;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _moment = __webpack_require__(2);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(8);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _date_utils = __webpack_require__(4);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Day = _react2.default.createClass({
+	  displayName: 'Day',
+
+	  propTypes: {
+	    day: _react2.default.PropTypes.object.isRequired,
+	    endDate: _react2.default.PropTypes.object,
+	    highlightDates: _react2.default.PropTypes.array,
+	    inline: _react2.default.PropTypes.bool,
+	    month: _react2.default.PropTypes.number,
+	    onClick: _react2.default.PropTypes.func,
+	    onMouseEnter: _react2.default.PropTypes.func,
+	    preSelection: _react2.default.PropTypes.object,
+	    selected: _react2.default.PropTypes.object,
+	    selectingDate: _react2.default.PropTypes.object,
+	    selectsEnd: _react2.default.PropTypes.bool,
+	    selectsStart: _react2.default.PropTypes.bool,
+	    startDate: _react2.default.PropTypes.object,
+	    utcOffset: _react2.default.PropTypes.number
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      utcOffset: _moment2.default.utc().utcOffset()
+	    };
+	  },
+	  handleClick: function handleClick(event) {
+	    if (!this.isDisabled() && this.props.onClick) {
+	      this.props.onClick(event);
+	    }
+	  },
+	  handleMouseEnter: function handleMouseEnter(event) {
+	    if (!this.isDisabled() && this.props.onMouseEnter) {
+	      this.props.onMouseEnter(event);
+	    }
+	  },
+	  isSameDay: function isSameDay(other) {
+	    return (0, _date_utils.isSameDay)(this.props.day, other);
+	  },
+	  isKeyboardSelected: function isKeyboardSelected() {
+	    return !this.props.inline && !this.isSameDay(this.props.selected) && this.isSameDay(this.props.preSelection);
+	  },
+	  isDisabled: function isDisabled() {
+	    return (0, _date_utils.isDayDisabled)(this.props.day, this.props);
+	  },
+	  isHighlighted: function isHighlighted() {
+	    var _props = this.props,
+	        day = _props.day,
+	        highlightDates = _props.highlightDates;
+
+	    if (!highlightDates) return false;
+	    return highlightDates.some(function (testDay) {
+	      return (0, _date_utils.isSameDay)(day, testDay);
+	    });
+	  },
+	  isInRange: function isInRange() {
+	    var _props2 = this.props,
+	        day = _props2.day,
+	        startDate = _props2.startDate,
+	        endDate = _props2.endDate;
+
+	    if (!startDate || !endDate) return false;
+	    return (0, _date_utils.isDayInRange)(day, startDate, endDate);
+	  },
+	  isInSelectingRange: function isInSelectingRange() {
+	    var _props3 = this.props,
+	        day = _props3.day,
+	        selectsStart = _props3.selectsStart,
+	        selectsEnd = _props3.selectsEnd,
+	        selectingDate = _props3.selectingDate,
+	        startDate = _props3.startDate,
+	        endDate = _props3.endDate;
+
+
+	    if (!(selectsStart || selectsEnd) || !selectingDate || this.isDisabled()) {
+	      return false;
+	    }
+
+	    if (selectsStart && endDate && selectingDate.isSameOrBefore(endDate)) {
+	      return (0, _date_utils.isDayInRange)(day, selectingDate, endDate);
+	    }
+
+	    if (selectsEnd && startDate && selectingDate.isSameOrAfter(startDate)) {
+	      return (0, _date_utils.isDayInRange)(day, startDate, selectingDate);
+	    }
+
+	    return false;
+	  },
+	  isSelectingRangeStart: function isSelectingRangeStart() {
+	    if (!this.isInSelectingRange()) {
+	      return false;
+	    }
+
+	    var _props4 = this.props,
+	        day = _props4.day,
+	        selectingDate = _props4.selectingDate,
+	        startDate = _props4.startDate,
+	        selectsStart = _props4.selectsStart;
+
+
+	    if (selectsStart) {
+	      return (0, _date_utils.isSameDay)(day, selectingDate);
+	    } else {
+	      return (0, _date_utils.isSameDay)(day, startDate);
+	    }
+	  },
+	  isSelectingRangeEnd: function isSelectingRangeEnd() {
+	    if (!this.isInSelectingRange()) {
+	      return false;
+	    }
+
+	    var _props5 = this.props,
+	        day = _props5.day,
+	        selectingDate = _props5.selectingDate,
+	        endDate = _props5.endDate,
+	        selectsEnd = _props5.selectsEnd;
+
+
+	    if (selectsEnd) {
+	      return (0, _date_utils.isSameDay)(day, selectingDate);
+	    } else {
+	      return (0, _date_utils.isSameDay)(day, endDate);
+	    }
+	  },
+	  isRangeStart: function isRangeStart() {
+	    var _props6 = this.props,
+	        day = _props6.day,
+	        startDate = _props6.startDate,
+	        endDate = _props6.endDate;
+
+	    if (!startDate || !endDate) return false;
+	    return (0, _date_utils.isSameDay)(startDate, day);
+	  },
+	  isRangeEnd: function isRangeEnd() {
+	    var _props7 = this.props,
+	        day = _props7.day,
+	        startDate = _props7.startDate,
+	        endDate = _props7.endDate;
+
+	    if (!startDate || !endDate) return false;
+	    return (0, _date_utils.isSameDay)(endDate, day);
+	  },
+	  isWeekend: function isWeekend() {
+	    var weekday = this.props.day.day();
+	    return weekday === 0 || weekday === 6;
+	  },
+	  isOutsideMonth: function isOutsideMonth() {
+	    return this.props.month !== undefined && this.props.month !== this.props.day.month();
+	  },
+	  getClassNames: function getClassNames() {
+	    return (0, _classnames2.default)('react-datepicker__day', {
+	      'react-datepicker__day--disabled': this.isDisabled(),
+	      'react-datepicker__day--selected': this.isSameDay(this.props.selected),
+	      'react-datepicker__day--keyboard-selected': this.isKeyboardSelected(),
+	      'react-datepicker__day--highlighted': this.isHighlighted(),
+	      'react-datepicker__day--range-start': this.isRangeStart(),
+	      'react-datepicker__day--range-end': this.isRangeEnd(),
+	      'react-datepicker__day--in-range': this.isInRange(),
+	      'react-datepicker__day--in-selecting-range': this.isInSelectingRange(),
+	      'react-datepicker__day--selecting-range-start': this.isSelectingRangeStart(),
+	      'react-datepicker__day--selecting-range-end': this.isSelectingRangeEnd(),
+	      'react-datepicker__day--today': this.isSameDay(_moment2.default.utc().utcOffset(this.props.utcOffset)),
+	      'react-datepicker__day--weekend': this.isWeekend(),
+	      'react-datepicker__day--outside-month': this.isOutsideMonth()
+	    });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      {
+	        className: this.getClassNames(),
+	        onClick: this.handleClick,
+	        onMouseEnter: this.handleMouseEnter,
+	        'aria-label': 'day-' + this.props.day.date(),
+	        role: 'option' },
+	      this.props.day.date()
+	    );
+	  }
+	});
+
+	module.exports = Day;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var WeekNumber = _react2.default.createClass({
+	  displayName: 'WeekNumber',
+
+	  propTypes: {
+	    weekNumber: _react2.default.PropTypes.number.isRequired
+	  },
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      {
+	        className: 'react-datepicker__week-number',
+	        'aria-label': 'week-' + this.props.weekNumber },
+	      this.props.weekNumber
+	    );
+	  }
+	});
+
+	module.exports = WeekNumber;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(17);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tether = __webpack_require__(21);
+	var _tether = __webpack_require__(18);
 
 	var _tether2 = _interopRequireDefault(_tether);
 
@@ -34804,16 +34406,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	function childrenPropType(_ref, propName, componentName) {
 	  var children = _ref.children;
 
-	  var childCount = _react2.default.Children.count(children);
+	  var childCount = _react.Children.count(children);
 	  if (childCount <= 0) {
 	    return new Error(componentName + ' expects at least one child to use as the target element.');
 	  } else if (childCount > 2) {
@@ -34823,163 +34419,149 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var attachmentPositions = ['top left', 'top center', 'top right', 'middle left', 'middle center', 'middle right', 'bottom left', 'bottom center', 'bottom right'];
 
-	var TetherComponent = function (_React$Component) {
-	  _inherits(TetherComponent, _React$Component);
+	var TetherComponent = _react2.default.createClass({
+	  displayName: 'TetherComponent',
 
-	  function TetherComponent() {
-	    var _ref2;
+	  propTypes: {
+	    attachment: _react.PropTypes.oneOf(attachmentPositions).isRequired,
+	    children: childrenPropType,
+	    className: _react.PropTypes.string,
+	    classPrefix: _react.PropTypes.string,
+	    classes: _react.PropTypes.object,
+	    constraints: _react.PropTypes.array,
+	    enabled: _react.PropTypes.bool,
+	    id: _react.PropTypes.string,
+	    offset: _react.PropTypes.string,
+	    optimizations: _react.PropTypes.object,
+	    renderElementTag: _react.PropTypes.string,
+	    renderElementTo: _react.PropTypes.any,
+	    style: _react.PropTypes.object,
+	    targetAttachment: _react.PropTypes.oneOf(attachmentPositions),
+	    targetModifier: _react.PropTypes.string,
+	    targetOffset: _react.PropTypes.string
+	  },
 
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, TetherComponent);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      renderElementTag: 'div',
+	      renderElementTo: null
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    this._targetNode = _reactDom2.default.findDOMNode(this);
+	    this._update();
+	  },
+	  componentDidUpdate: function componentDidUpdate() {
+	    this._update();
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    this._destroy();
+	  },
+	  disable: function disable() {
+	    this._tether.disable();
+	  },
+	  enable: function enable() {
+	    this._tether.enable();
+	  },
+	  position: function position() {
+	    this._tether.position();
+	  },
+	  _destroy: function _destroy() {
+	    if (this._elementParentNode) {
+	      _reactDom2.default.unmountComponentAtNode(this._elementParentNode);
+	      this._elementParentNode.parentNode.removeChild(this._elementParentNode);
 	    }
 
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = TetherComponent.__proto__ || Object.getPrototypeOf(TetherComponent)).call.apply(_ref2, [this].concat(args))), _this), _this.disable = function () {
-	      return _this._tether.disable();
-	    }, _this.enable = function () {
-	      return _this._tether.enable();
-	    }, _this.position = function () {
-	      return _this._tether.position();
-	    }, _this._destroy = function () {
-	      if (_this._elementParentNode) {
-	        _reactDom2.default.unmountComponentAtNode(_this._elementParentNode);
-	        _this._elementParentNode.parentNode.removeChild(_this._elementParentNode);
+	    if (this._tether) {
+	      this._tether.destroy();
+	    }
+
+	    this._elementParentNode = null;
+	    this._tether = null;
+	  },
+	  _update: function _update() {
+	    var _this = this;
+
+	    var _props = this.props,
+	        children = _props.children,
+	        renderElementTag = _props.renderElementTag,
+	        renderElementTo = _props.renderElementTo;
+
+	    var elementComponent = children[1];
+
+	    // if no element component provided, bail out
+	    if (!elementComponent) {
+	      // destroy Tether elements if they have been created
+	      if (this._tether) {
+	        this._destroy();
 	      }
+	      return;
+	    }
 
-	      if (_this._tether) {
-	        _this._tether.destroy();
+	    // create element node container if it hasn't been yet
+	    if (!this._elementParentNode) {
+	      // create a node that we can stick our content Component in
+	      this._elementParentNode = document.createElement(renderElementTag);
+
+	      // append node to the end of the body
+	      var renderTo = renderElementTo || document.body;
+	      renderTo.appendChild(this._elementParentNode);
+	    }
+
+	    // render element component into the DOM
+	    _reactDom2.default.unstable_renderSubtreeIntoContainer(this, elementComponent, this._elementParentNode, function () {
+	      // don't update Tether until the subtree has finished rendering
+	      _this._updateTether();
+	    });
+	  },
+	  _updateTether: function _updateTether() {
+	    var _props2 = this.props,
+	        renderElementTag = _props2.renderElementTag,
+	        renderElementTo = _props2.renderElementTo,
+	        options = _objectWithoutProperties(_props2, ['renderElementTag', 'renderElementTo']); // eslint-disable-line no-unused-vars
+
+
+	    var tetherOptions = _extends({
+	      target: this._targetNode,
+	      element: this._elementParentNode
+	    }, options);
+
+	    if (!this._tether) {
+	      this._tether = new _tether2.default(tetherOptions);
+	    } else {
+	      this._tether.setOptions(tetherOptions);
+	    }
+
+	    this._tether.position();
+	  },
+	  render: function render() {
+	    var children = this.props.children;
+
+	    var firstChild = null;
+
+	    // we use forEach because the second child could be null
+	    // causing children to not be an array
+	    _react.Children.forEach(children, function (child, index) {
+	      if (index === 0) {
+	        firstChild = child;
+	        return false;
 	      }
+	    });
 
-	      _this._elementParentNode = null;
-	      _this._tether = null;
-	    }, _this._update = function () {
-	      var _this$props = _this.props,
-	          children = _this$props.children,
-	          renderElementTag = _this$props.renderElementTag,
-	          renderElementTo = _this$props.renderElementTo;
-
-	      var elementComponent = children[1];
-
-	      // if no element component provided, bail out
-	      if (!elementComponent) {
-	        // destroy Tether elements if they have been created
-	        if (_this._tether) {
-	          _this._destroy();
-	        }
-	        return;
-	      }
-
-	      // create element node container if it hasn't been yet
-	      if (!_this._elementParentNode) {
-	        // create a node that we can stick our content Component in
-	        _this._elementParentNode = document.createElement(renderElementTag);
-
-	        // append node to the end of the body
-	        var renderTo = renderElementTo || document.body;
-	        renderTo.appendChild(_this._elementParentNode);
-	      }
-
-	      // render element component into the DOM
-	      _reactDom2.default.unstable_renderSubtreeIntoContainer(_this, elementComponent, _this._elementParentNode, function () {
-	        // don't update Tether until the subtree has finished rendering
-	        _this._updateTether();
-	      });
-	    }, _this._updateTether = function () {
-	      var _this$props2 = _this.props,
-	          renderElementTag = _this$props2.renderElementTag,
-	          renderElementTo = _this$props2.renderElementTo,
-	          options = _objectWithoutProperties(_this$props2, ['renderElementTag', 'renderElementTo']); // eslint-disable-line no-unused-vars
-
-
-	      var tetherOptions = _extends({
-	        target: _this._targetNode,
-	        element: _this._elementParentNode
-	      }, options);
-
-	      if (!_this._tether) {
-	        _this._tether = new _tether2.default(tetherOptions);
-	      } else {
-	        _this._tether.setOptions(tetherOptions);
-	      }
-
-	      _this._tether.position();
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	    return firstChild;
 	  }
+	});
 
-	  _createClass(TetherComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this._targetNode = _reactDom2.default.findDOMNode(this);
-	      this._update();
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      this._update();
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      this._destroy();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var children = this.props.children;
-
-	      var firstChild = null;
-
-	      // we use forEach because the second child could be null
-	      // causing children to not be an array
-	      _react2.default.Children.forEach(children, function (child, index) {
-	        if (index === 0) {
-	          firstChild = child;
-	          return false;
-	        }
-	      });
-
-	      return firstChild;
-	    }
-	  }]);
-
-	  return TetherComponent;
-	}(_react2.default.Component);
-
-	TetherComponent.propTypes = {
-	  attachment: _propTypes2.default.oneOf(attachmentPositions).isRequired,
-	  children: childrenPropType,
-	  className: _propTypes2.default.string,
-	  classPrefix: _propTypes2.default.string,
-	  classes: _propTypes2.default.object,
-	  constraints: _propTypes2.default.array,
-	  enabled: _propTypes2.default.bool,
-	  id: _propTypes2.default.string,
-	  offset: _propTypes2.default.string,
-	  optimizations: _propTypes2.default.object,
-	  renderElementTag: _propTypes2.default.string,
-	  renderElementTo: _propTypes2.default.any,
-	  style: _propTypes2.default.object,
-	  targetAttachment: _propTypes2.default.oneOf(attachmentPositions),
-	  targetModifier: _propTypes2.default.string,
-	  targetOffset: _propTypes2.default.string
-	};
-	TetherComponent.defaultProps = {
-	  renderElementTag: 'div',
-	  renderElementTo: null
-	};
-	exports.default = TetherComponent;
+	module.exports = TetherComponent;
 
 /***/ },
-/* 20 */
+/* 17 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_20__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_17__;
 
 /***/ },
-/* 21 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! tether 1.4.0 */
