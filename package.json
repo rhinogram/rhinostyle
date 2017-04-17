@@ -1,6 +1,6 @@
 {
   "name": "rhinostyle",
-  "version": "0.6.32",
+  "version": "0.6.33",
   "description": "Components, patterns, and style guide for Rhinogram.",
   "main": "dist/scripts/rhinostyle.min.js",
   "scripts": {
