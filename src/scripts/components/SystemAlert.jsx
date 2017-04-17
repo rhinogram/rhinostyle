@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Close, Icon } from '../components';
@@ -58,15 +57,15 @@ const SystemAlert = (props) => {
 SystemAlert.displayName = 'RhinoSystemAlert';
 
 SystemAlert.propTypes = {
-  body: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  closable: PropTypes.bool,
-  icon: PropTypes.string,
-  onDismiss: PropTypes.func,
-  type: PropTypes.oneOf(['danger', 'default', 'info', 'success']),
-  url: PropTypes.string,
-  urlText: PropTypes.string,
+  body: React.PropTypes.string,
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  closable: React.PropTypes.bool,
+  icon: React.PropTypes.string,
+  onDismiss: React.PropTypes.func,
+  type: React.PropTypes.oneOf(['danger', 'default', 'info', 'success']),
+  url: React.PropTypes.string,
+  urlText: React.PropTypes.string,
 };
 
 SystemAlert.defaultProps = {

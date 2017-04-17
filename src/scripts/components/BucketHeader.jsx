@@ -1,5 +1,4 @@
 import cx     from 'classnames';
-import PropTypes from 'prop-types';
 import React  from 'react';
 
 import { Avatar, Icon } from '../components';
@@ -24,16 +23,16 @@ const BucketHeader = (props) => {
 BucketHeader.displayName = 'RhinoBucketHeader';
 
 BucketHeader.propTypes = {
-  avatar: PropTypes.shape({
-    image: PropTypes.string,
-    name: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'member']),
+  avatar: React.PropTypes.shape({
+    image: React.PropTypes.string,
+    name: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['default', 'member']),
   }),
-  children: PropTypes.node,
-  className: PropTypes.string,
-  icon: PropTypes.string,
-  iconClassName: PropTypes.string,
-  title: PropTypes.string,
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  iconClassName: React.PropTypes.string,
+  title: React.PropTypes.string,
 };
 
 export default BucketHeader;

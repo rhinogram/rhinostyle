@@ -1,5 +1,4 @@
 import cx    from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Icon } from '../components';
@@ -16,8 +15,8 @@ const Close = (props) => {
 Close.displayName = 'RhinoClose';
 
 Close.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  className: React.PropTypes.string,
+  onClick: React.PropTypes.func.isRequired,
 };
 
 Close.defaultProps = {

@@ -1,5 +1,4 @@
 import cx    from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 const Table = (props) => {
@@ -23,12 +22,12 @@ const Table = (props) => {
 Table.displayName = 'RhinoTable';
 
 Table.propTypes = {
-  bordered: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  condensed: PropTypes.bool,
-  hover: PropTypes.bool,
-  striped: PropTypes.bool,
+  bordered: React.PropTypes.bool,
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  condensed: React.PropTypes.bool,
+  hover: React.PropTypes.bool,
+  striped: React.PropTypes.bool,
 };
 
 Table.defaultProps = {

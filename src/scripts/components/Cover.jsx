@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import { TimelineMax, Expo } from 'gsap';
-import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -8,12 +7,12 @@ class Cover extends React.Component {
   static displayName = 'RhinoCover';
 
   static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
+    onComplete: React.PropTypes.func,
+    onReverseComplete: React.PropTypes.func,
+    onReverseStart: React.PropTypes.func,
+    onStart: React.PropTypes.func,
   };
 
   static defaultProps = {

@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Icon }  from '../components';
@@ -21,12 +20,12 @@ const Pill = (props) => {
 Pill.displayName = 'RhinoPill';
 
 Pill.propTypes = {
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  icon: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'neutral']),
+  className: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
+  icon: React.PropTypes.string,
+  onClick: React.PropTypes.func.isRequired,
+  label: React.PropTypes.string.isRequired,
+  type: React.PropTypes.oneOf(['default', 'neutral']),
 };
 
 Pill.defaultProps = {

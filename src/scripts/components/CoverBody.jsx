@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 const CoverBody = (props) => {
@@ -30,10 +29,10 @@ CoverBody.defaultProps = {
 };
 
 CoverBody.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  contentMiddle: PropTypes.bool,
-  size: PropTypes.string,
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  contentMiddle: React.PropTypes.bool,
+  size: React.PropTypes.string,
 };
 
 export default CoverBody;

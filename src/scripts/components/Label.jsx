@@ -1,5 +1,4 @@
 import cx    from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Icon } from '../components';
@@ -21,11 +20,11 @@ const Label = (props) => {
 Label.displayName = 'RhinoLabel';
 
 Label.propTypes = {
-  className: PropTypes.string,
-  icon: PropTypes.string,
-  iconBump: PropTypes.oneOf(['down', 'up']),
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  className: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  iconBump: React.PropTypes.oneOf(['down', 'up']),
+  label: React.PropTypes.string.isRequired,
+  type: React.PropTypes.string,
 };
 
 Label.defaultProps = {

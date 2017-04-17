@@ -1,5 +1,4 @@
 import { TimelineMax } from 'gsap';
-import PropTypes from 'prop-types';
 import React from 'react';
 import onClickOutside from 'react-onclickoutside';
 
@@ -9,13 +8,13 @@ class DropdownWrapper extends React.Component {
   static displayName = 'RhinoDropdownWrapper';
 
   static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    handleClick: PropTypes.func,
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
+    handleClick: React.PropTypes.func,
+    onComplete: React.PropTypes.func,
+    onReverseComplete: React.PropTypes.func,
+    onReverseStart: React.PropTypes.func,
+    onStart: React.PropTypes.func,
   };
 
   static defaultProps = {

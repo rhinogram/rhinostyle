@@ -1,18 +1,17 @@
 import cx    from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 class Checkbox extends React.Component {
   static displayName = 'Rhinobox';
 
   static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    inline: PropTypes.bool,
-    isChecked: PropTypes.bool,
-    name: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    inline: React.PropTypes.bool,
+    isChecked: React.PropTypes.bool,
+    name: React.PropTypes.string.isRequired,
+    onClick: React.PropTypes.func,
   }
 
   static defaultProps = {

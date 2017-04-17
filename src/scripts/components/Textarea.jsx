@@ -1,23 +1,22 @@
 import cx from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 class Textarea extends React.Component {
   static displayName = 'RhinoTextarea';
 
   static propTypes = {
-    abbrMaxCharacters: PropTypes.bool,
-    className: PropTypes.string,
-    explanationMessage: PropTypes.string,
-    initialValue: PropTypes.string,
-    label: PropTypes.string,
-    maxCharacters: PropTypes.number,
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    rows: PropTypes.number,
-    validationMessage: PropTypes.string,
+    abbrMaxCharacters: React.PropTypes.bool,
+    className: React.PropTypes.string,
+    explanationMessage: React.PropTypes.string,
+    initialValue: React.PropTypes.string,
+    label: React.PropTypes.string,
+    maxCharacters: React.PropTypes.number,
+    name: React.PropTypes.string,
+    onChange: React.PropTypes.func,
+    placeholder: React.PropTypes.string,
+    required: React.PropTypes.bool,
+    rows: React.PropTypes.number,
+    validationMessage: React.PropTypes.string,
   };
 
   static defaultProps = {

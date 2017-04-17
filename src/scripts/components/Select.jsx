@@ -1,21 +1,20 @@
 import cx    from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
   static propTypes = {
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    explanationMessage: PropTypes.string,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    options: PropTypes.array.isRequired,
-    onSelect: PropTypes.func,
-    required: PropTypes.bool,
-    selected: PropTypes.number,
-    validationMessage: PropTypes.string,
+    className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
+    explanationMessage: React.PropTypes.string,
+    label: React.PropTypes.string,
+    name: React.PropTypes.string,
+    options: React.PropTypes.array.isRequired,
+    onSelect: React.PropTypes.func,
+    required: React.PropTypes.bool,
+    selected: React.PropTypes.number,
+    validationMessage: React.PropTypes.string,
   };
 
   static defaultProps = {

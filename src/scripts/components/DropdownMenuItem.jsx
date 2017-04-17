@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
 
@@ -20,21 +19,21 @@ class DropdownMenuItem extends React.Component {
   static displayName = 'RhinoDropdownMenuItem';
 
   static propTypes = {
-    active: PropTypes.bool,
-    avatar: PropTypes.shape({
-      image: PropTypes.string,
-      name: PropTypes.string,
-      type: PropTypes.oneOf(['default', 'member']),
+    active: React.PropTypes.bool,
+    avatar: React.PropTypes.shape({
+      image: React.PropTypes.string,
+      name: React.PropTypes.string,
+      type: React.PropTypes.oneOf(['default', 'member']),
     }),
-    blankWindow: PropTypes.bool,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
+    blankWindow: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
+    className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
     icon: customValidator,
-    label: PropTypes.string,
-    labelDesc: PropTypes.string,
-    route: PropTypes.string,
-    url: PropTypes.string,
+    label: React.PropTypes.string,
+    labelDesc: React.PropTypes.string,
+    route: React.PropTypes.string,
+    url: React.PropTypes.string,
   };
 
   static defaultProps = {

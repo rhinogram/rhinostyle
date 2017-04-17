@@ -81,7 +81,6 @@
     "gsap": "1.19.1",
     "keymirror": "0.1.1",
     "moment": "2.18.1",
-    "prop-types": "15.5.8",
     "react-custom-scrollbars": "4.1.0",
     "react-datepicker": "0.44.0",
     "react-image-lightbox": "3.4.2",
