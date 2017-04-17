@@ -104,12 +104,12 @@ table {
   cursor: pointer;
 
   &:hover {
-    background-color: @color-gray-lighter;
+    background-color: @global-color-gray-lighter;
   }
 }
 
 .table__sortable.is-sorting {
-  background-color: @color-gray-lightest;
+  background-color: @global-color-gray-lightest;
   font-weight: @font-weight-bold;
 
   &.ascending::after {
@@ -163,7 +163,7 @@ table {
   //border-radius: @border-radius;
   overflow-x: auto;
 
-  @media (max-width: @screen-xs-max) { // lesshint depthLevel: false
+  @media (max-width: @global-screen-xs-max) { // lesshint depthLevel: false
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
     margin-bottom: (@line-height-computed * .75);

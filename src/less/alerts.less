@@ -1,10 +1,11 @@
-// File: alerts.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
 
 
-// -------------------------
-// Alert
-// -------------------------
+@alert-border-radius: @border-radius;
+@alert-padding: @global-whitespace-xlarge;
+@alert-padding-small: @global-whitespace-base;
 
 
 .alert {
@@ -25,11 +26,11 @@
 
 
 .alert--danger {
-  .mixin-alert-variant(@color-danger);
+  .mixin-alert-variant(@global-color-danger);
 }
 
 .alert--default {
-  background: @color-gray-lighter;
+  background: @global-color-gray-lighter;
 
   .alert__title {
     color: darken(@text-color, 5%);
@@ -41,11 +42,11 @@
 }
 
 .alert--info {
-  .mixin-alert-variant(@color-info);
+  .mixin-alert-variant(@global-color-info);
 }
 
 .alert--success {
-  .mixin-alert-variant(@color-success);
+  .mixin-alert-variant(@global-color-success);
 }
 
 
@@ -100,6 +101,6 @@
 }
 
 .alert__title__icon {
-  margin-right: @whitespace-small;
+  margin-right: @global-whitespace-small;
   top: .2rem;
 }

@@ -14,11 +14,11 @@
   top: @toast-offset;
   z-index: @zindex-toast;
 
-  @media (min-width: @screen-xs-min) {
+  @media (min-width: @global-screen-xs-min) {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    width: ~'calc(@{screen-xs-min} - (@{toast-offset} * 2))';
+    width: ~'calc(@{global-screen-xs-min} - (@{toast-offset} * 2))';
   }
 }
 
@@ -46,15 +46,15 @@
 
 
 .toast--danger {
-  background: @color-danger;
+  background: @global-color-danger;
 }
 
 .toast--default {
-  background: @color-gray;
+  background: @global-color-gray;
 }
 
 .toast--success {
-  background: @color-secondary;
+  background: @global-color-secondary;
 }
 
 
@@ -76,7 +76,7 @@
 
 .toast__icon {
   font-size: @font-size-base + .2rem;
-  margin-right: @whitespace-small;
+  margin-right: @global-whitespace-small;
 }
 
 

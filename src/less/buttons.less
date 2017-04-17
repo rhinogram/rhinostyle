@@ -1,5 +1,78 @@
-// File: buttons.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@btn-font-weight: normal;
+
+@btn-link-disabled-color: @global-color-gray-light;
+
+@btn-border-radius: @border-radius;
+
+@btn-font-size-large: @font-size-large;
+@btn-font-size-small: @font-size-small;
+
+@btn-height-base: 3.6rem;
+@btn-height-large: 4rem;
+@btn-height-small: 3rem;
+
+@btn-icon-padding-base: @btn-height-base / 4;
+@btn-icon-padding-large: @btn-height-large / 4;
+@btn-icon-padding-small: @btn-height-small / 4;
+
+@btn-padding-base: @global-whitespace-base; // 1rem
+@btn-padding-large: @global-whitespace-large; // 1.2rem
+@btn-padding-small: @global-whitespace-base;
+
+@btn-accent-color: @global-color-white;
+@btn-accent-bg: @global-color-accent;
+@btn-accent-border: @global-color-accent;
+
+@btn-danger-color: @global-color-white;
+@btn-danger-bg: @global-color-danger;
+@btn-danger-border: @global-color-danger;
+
+@btn-default-color: @text-color;
+@btn-default-bg: @global-color-white;
+@btn-default-border: @border-color-base;
+
+@btn-info-color: @global-color-white;
+@btn-info-bg: @global-color-info;
+@btn-info-border: @global-color-info;
+
+@btn-outline-default-color: @text-color;
+@btn-outline-default-bg: transparent;
+@btn-outline-default-border: @btn-default-border;
+@btn-outline-default-hover-bg: darken(@global-color-gray, 10%);
+@btn-outline-default-hover-border: @btn-outline-default-hover-bg;
+
+@btn-outline-primary-color: @global-color-primary;
+@btn-outline-primary-bg: transparent;
+@btn-outline-primary-border: @btn-outline-primary-color;
+@btn-outline-primary-hover-bg: @btn-outline-primary-color;
+@btn-outline-primary-hover-border: @btn-outline-primary-color;
+
+@btn-outline-reversed-color: @global-color-white;
+@btn-outline-reversed-bg: transparent;
+@btn-outline-reversed-border: @global-color-white;
+@btn-outline-reversed-hover-bg: rgba(255, 255, 255, .1);
+@btn-outline-reversed-hover-border: @global-color-white;
+
+@btn-primary-color: @global-color-white;
+@btn-primary-bg: @global-color-primary;
+@btn-primary-border: @global-color-primary;
+
+@btn-secondary-color: @global-color-white;
+@btn-secondary-bg: @global-color-secondary;
+@btn-secondary-border: @global-color-secondary;
+
+@btn-success-color: @global-color-white;
+@btn-success-bg: @global-color-success;
+@btn-success-border: @global-color-success;
+
+@btn-warning-color: @global-color-white;
+@btn-warning-bg: @global-color-warning;
+@btn-warning-border: @global-color-warning;
 
 
 // -------------------------
@@ -98,7 +171,7 @@ button {
 }
 
 /*.btn--block + .btn--block {
-  margin-top: @whitespace-small;
+  margin-top: @global-whitespace-small;
 }*/
 
 // Specificity overrides
@@ -232,7 +305,7 @@ input[type='button'] {
 
   .btn__badge {
     background: @link-color;
-    color: @color-white;
+    color: @global-color-white;
   }
 }
 

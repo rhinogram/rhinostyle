@@ -8,14 +8,14 @@
 
 
 .rhino-animation {
-  background-color: @color-primary;
+  background-color: @global-color-primary;
   max-width: 48rem;
   overflow: hidden;
   position: relative;
 
   // extra measure used to cover white artifacts at certain sizes
   &::after {
-    background: @color-primary;
+    background: @global-color-primary;
     content: '';
     display: block;
     height: 2px;

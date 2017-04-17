@@ -23,19 +23,19 @@
 
 
 .system-alert--danger {
-  .mixin-bg-diagonal-stripes(@color-danger; 96%);
+  .mixin-bg-diagonal-stripes(@global-color-danger; 96%);
 }
 
 .system-alert--default {
-  .mixin-bg-diagonal-stripes(@color-gray; 98%);
+  .mixin-bg-diagonal-stripes(@global-color-gray; 98%);
 }
 
 .system-alert--info {
-  .mixin-bg-diagonal-stripes(@color-info; 98%);
+  .mixin-bg-diagonal-stripes(@global-color-info; 98%);
 }
 
 .system-alert--success {
-  .mixin-bg-diagonal-stripes(@color-success; 98%);
+  .mixin-bg-diagonal-stripes(@global-color-success; 98%);
 }
 
 
@@ -60,7 +60,7 @@
 
 
 .system-alert__close {
-  margin-left: @whitespace-small;
+  margin-left: @global-whitespace-small;
 }
 
 
@@ -71,7 +71,7 @@
 
 .system-alert__icon {
   font-size: @font-size-base + .2rem;
-  margin-right: @whitespace-small;
+  margin-right: @global-whitespace-small;
 }
 
 
@@ -83,7 +83,7 @@
 .system-alert__link {
   color: @system-alert-text;
   font-size: @font-size-small;
-  margin-left: @whitespace-small;
+  margin-left: @global-whitespace-small;
   text-decoration: underline;
 
   &:hover {

@@ -7,11 +7,11 @@
 // -------------------------
 
 
-.mixin-bg-variant(@color) {
-  background-color: @color !important;
+.mixin-bg-variant(@global-color) {
+  background-color: @global-color !important;
 
   a&:hover,
   a&:focus {
-    background-color: darken(@color, 10%) !important;
+    background-color: darken(@global-color, 10%) !important;
   }
 }

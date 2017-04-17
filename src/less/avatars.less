@@ -1,10 +1,14 @@
-// File: avatars.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
 
 
-// -------------------------
-// Avatar
-// -------------------------
+@avatar-bg-default: @global-color-gray-light;
+@avatar-bg-member: #7fc0d3; // one-off color that may need to become variable
+
+@avatar-size-base: 6rem;
+@avatar-size-large: 7.2rem;
+@avatar-size-small: 4rem;
 
 
 .avatar {
@@ -12,7 +16,7 @@
   background-position: center center;
   background-size: cover;
   border-radius: 50%;
-  color: @color-white;
+  color: @global-color-white;
   display: inline-flex;
   font-size: 2.2rem;
   height: @avatar-size-base;

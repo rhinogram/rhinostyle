@@ -7,22 +7,22 @@
 // -------------------------
 
 
-.mixin-button-variant(@color; @background; @border; @darken: 6%) {
+.mixin-button-variant(@global-color; @background; @border; @darken: 6%) {
   background-color: @background;
   border-color: @border;
   //box-shadow: inset 0 -.2rem 0 rgba(0, 0, 0, 0.5);
-  color: @color;
+  color: @global-color;
 
   &:focus {
     background-color: darken(@background, @darken);
     border-color: darken(@border, @darken);
-    //color: @color;
+    //color: @global-color;
   }
 
   &:hover {
     background-color: darken(@background, @darken);
     border-color: darken(@border, @darken);
-    //color: @color;
+    //color: @global-color;
   }
 
   &:active,
@@ -30,13 +30,13 @@
   .is-open > .dropdown__toggle& {
     background-color: darken(@background, @darken);
     border-color: darken(@border, @darken);
-    //color: @color;
+    //color: @global-color;
 
     &:hover,
     &:focus {
       background-color: darken(@background, @darken);
       border-color: darken(@border, @darken);
-      //color: @color;
+      //color: @global-color;
     }
   }
 
@@ -60,15 +60,15 @@
   }
 
   .btn__badge {
-    background: @color;
+    background: @global-color;
     color: @background;
   }
 }
 
-.mixin-button-outline-variant(@color; @background; @border; @hover-bg-color; @hover-border-color) {
+.mixin-button-outline-variant(@global-color; @background; @border; @hover-bg-color; @hover-border-color) {
   background-color: transparent;
   border-color: @border;
-  color: @color;
+  color: @global-color;
 
   &:hover,
   &:focus,
@@ -78,7 +78,7 @@
   .is-open > .dropdown__toggle& {
     background-color: @hover-bg-color;
     border-color: @hover-border-color;
-    color: @color-white;
+    color: @global-color-white;
   }
 
   &:active,
@@ -97,15 +97,15 @@
     &:active,
     &.active {
       background-color: transparent;
-      border-color: fade(@color, 50%);
-      color: @color;
+      border-color: fade(@global-color, 50%);
+      color: @global-color;
     }
   }
 
   .btn__badge {
-    background: @color;
+    background: @global-color;
     // http://lesscss.org/functions/#color-operations-contrast
-    color: contrast(@color, @color-white, @text-color, 30%);
+    color: contrast(@global-color, @global-color-white, @text-color, 30%);
   }
 }
 

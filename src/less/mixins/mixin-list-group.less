@@ -7,14 +7,14 @@
 // -------------------------
 
 
-.mixin-list-group-item-variant(@state; @background; @color) { // lesshint depthLevel: false
+.mixin-list-group-item-variant(@state; @background; @global-color) { // lesshint depthLevel: false
   .list-group__item--@{state} { // lesshint depthLevel: false
     background-color: @background;
-    color: @color;
+    color: @global-color;
 
     a&,
     button& {
-      color: @color;
+      color: @global-color;
 
       .list-group__item__heading {
         color: inherit;
@@ -23,15 +23,15 @@
       &:hover,
       &:focus {
         background-color: darken(@background, 5%);
-        color: @color;
+        color: @global-color;
       }
 
       &.active,
       &.active:hover,
       &.active:focus {
-        background-color: @color;
-        border-color: @color;
-        color: @color-white;
+        background-color: @global-color;
+        border-color: @global-color;
+        color: @global-color-white;
       }
     }
   }

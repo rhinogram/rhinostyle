@@ -1,7 +1,26 @@
-// File: modals.less
-// .modal-open       - body class for killing the scroll
-// .modal            - contains both the backdrop and dialog
-// .modal__dialog    - the actual modal
+// -------------------------
+// Variables
+// -------------------------
+
+
+@modal-backdrop-bg: fade(@global-color-black, 50%);
+
+@modal-content-bg: @global-color-white;
+@modal-content-border-color: @global-color-gray-lighter;
+
+@modal-easing: cubic-bezier(.465, .183, .153, .946);
+
+@modal-footer-border-color: @modal-content-border-color;
+@modal-header-border-color: @modal-content-border-color;
+@modal-inner-padding: @padding-half-gutter;
+
+@modal-lg: 90rem;
+@modal-md: 60rem;
+@modal-sm: 30rem;
+
+@modal-header-padding-hor: @padding-half-gutter;
+@modal-header-padding-vert: 2rem;
+@modal-header-line-height: @headings-line-height;
 
 
 // -------------------------
@@ -45,26 +64,26 @@
   border: 1px solid @modal-content-border-color;
   border-radius: @border-radius;
   box-shadow: @shadow-depth-3;
-  margin: @whitespace-base;
+  margin: @global-whitespace-base;
   opacity: 0; // 1
   transform: translateY(25%) scale(.5); // 1
   transform-origin: center bottom; // 1
   z-index: @zindex-modal;
 
-  @media (min-width: @screen-sm-min) {
-    margin: @whitespace-large auto;
+  @media (min-width: @global-screen-sm-min) {
+    margin: @global-whitespace-large auto;
     width: @modal-md;
   }
 }
 
 .modal__dialog--sm {
-  @media (min-width: @screen-sm-min) {
+  @media (min-width: @global-screen-sm-min) {
     width: @modal-sm;
   }
 }
 
 .modal__container--lg {
-  @media (min-width: @screen-md-min) {
+  @media (min-width: @global-screen-md-min) {
     width: @modal-lg;
   }
 }
@@ -94,7 +113,7 @@
   display: flex;
   line-height: 1.2;
   margin: 0;
-  padding-right: @whitespace-base;
+  padding-right: @global-whitespace-base;
 }
 
 .modal__header__title__icon {
