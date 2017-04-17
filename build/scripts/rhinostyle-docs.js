@@ -28915,7 +28915,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 		exports["ReactCustomScrollbars"] = factory(require("react"));
 	else
 		root["ReactCustomScrollbars"] = factory(root["React"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_6__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -28960,7 +28960,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -28969,7 +28969,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 	exports.Scrollbars = undefined;
 
-	var _Scrollbars = __webpack_require__(9);
+	var _Scrollbars = __webpack_require__(5);
 
 	var _Scrollbars2 = _interopRequireDefault(_Scrollbars);
 
@@ -28978,14 +28978,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports["default"] = _Scrollbars2["default"];
 	exports.Scrollbars = _Scrollbars2["default"];
 
-/***/ }),
+/***/ },
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
-	var prefix = __webpack_require__(17)
-	var toCamelCase = __webpack_require__(23)
+	var prefix = __webpack_require__(13)
+	var toCamelCase = __webpack_require__(16)
 	var cache = { 'float': 'cssFloat' }
-	var addPxToStyle = __webpack_require__(7)
+	var addPxToStyle = __webpack_require__(3)
 
 	function style (element, property, value) {
 	  var camel = cache[property]
@@ -29045,209 +29045,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ }),
+/***/ },
 /* 2 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
-	"use strict";
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * 
-	 */
-
-	function makeEmptyFunction(arg) {
-	  return function () {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	var emptyFunction = function emptyFunction() {};
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function () {
-	  return this;
-	};
-	emptyFunction.thatReturnsArgument = function (arg) {
-	  return arg;
-	};
-
-	module.exports = emptyFunction;
-
-/***/ }),
+/***/ },
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright (c) 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	var validateFormat = function validateFormat(format) {};
-
-	if (true) {
-	  validateFormat = function validateFormat(format) {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  };
-	}
-
-	function invariant(condition, format, a, b, c, d, e, f) {
-	  validateFormat(format);
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	}
-
-	module.exports = invariant;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2014-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-
-	'use strict';
-
-	var emptyFunction = __webpack_require__(2);
-
-	/**
-	 * Similar to invariant but only logs a warning if the condition is not met.
-	 * This can be used to log issues in development environments in critical
-	 * paths. Removing the logging code for production environments will keep the
-	 * same logic and follow the same code paths.
-	 */
-
-	var warning = emptyFunction;
-
-	if (true) {
-	  (function () {
-	    var printWarning = function printWarning(format) {
-	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	        args[_key - 1] = arguments[_key];
-	      }
-
-	      var argIndex = 0;
-	      var message = 'Warning: ' + format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      });
-	      if (typeof console !== 'undefined') {
-	        console.error(message);
-	      }
-	      try {
-	        // --- Welcome to debugging React ---
-	        // This error was thrown as a convenience so that you can use this stack
-	        // to find the callsite that caused this warning to fire.
-	        throw new Error(message);
-	      } catch (x) {}
-	    };
-
-	    warning = function warning(condition, format) {
-	      if (format === undefined) {
-	        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-	      }
-
-	      if (format.indexOf('Failed Composite propType: ') === 0) {
-	        return; // Ignore CompositeComponent proptype check.
-	      }
-
-	      if (!condition) {
-	        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	          args[_key2 - 2] = arguments[_key2];
-	        }
-
-	        printWarning.apply(undefined, [format].concat(args));
-	      }
-	    };
-	  })();
-	}
-
-	module.exports = warning;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-	module.exports = ReactPropTypesSecret;
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/* The following list is defined in React's core */
 	var IS_UNITLESS = {
@@ -29291,9 +29097,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -29309,7 +29115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.renderThumbHorizontalDefault = renderThumbHorizontalDefault;
 	exports.renderThumbVerticalDefault = renderThumbVerticalDefault;
 
-	var _react = __webpack_require__(6);
+	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -29373,9 +29179,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return _react2["default"].createElement('div', _extends({ style: finalStyle }, props));
 	}
 
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -29385,9 +29191,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _raf2 = __webpack_require__(22);
+	var _raf2 = __webpack_require__(15);
 
 	var _raf3 = _interopRequireDefault(_raf2);
 
@@ -29395,790 +29199,648 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _domCss2 = _interopRequireDefault(_domCss);
 
-	var _react = __webpack_require__(6);
+	var _react = __webpack_require__(2);
 
-	var _propTypes = __webpack_require__(21);
-
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-
-	var _isString = __webpack_require__(14);
+	var _isString = __webpack_require__(10);
 
 	var _isString2 = _interopRequireDefault(_isString);
 
-	var _getScrollbarWidth = __webpack_require__(13);
+	var _getScrollbarWidth = __webpack_require__(9);
 
 	var _getScrollbarWidth2 = _interopRequireDefault(_getScrollbarWidth);
 
-	var _returnFalse = __webpack_require__(15);
+	var _returnFalse = __webpack_require__(11);
 
 	var _returnFalse2 = _interopRequireDefault(_returnFalse);
 
-	var _getInnerWidth = __webpack_require__(12);
+	var _getInnerWidth = __webpack_require__(8);
 
 	var _getInnerWidth2 = _interopRequireDefault(_getInnerWidth);
 
-	var _getInnerHeight = __webpack_require__(11);
+	var _getInnerHeight = __webpack_require__(7);
 
 	var _getInnerHeight2 = _interopRequireDefault(_getInnerHeight);
 
-	var _styles = __webpack_require__(10);
+	var _styles = __webpack_require__(6);
 
-	var _defaultRenderElements = __webpack_require__(8);
+	var _defaultRenderElements = __webpack_require__(4);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	exports["default"] = (0, _react.createClass)({
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	    displayName: 'Scrollbars',
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	    propTypes: {
+	        onScroll: _react.PropTypes.func,
+	        onScrollFrame: _react.PropTypes.func,
+	        onScrollStart: _react.PropTypes.func,
+	        onScrollStop: _react.PropTypes.func,
+	        onUpdate: _react.PropTypes.func,
+	        renderView: _react.PropTypes.func,
+	        renderTrackHorizontal: _react.PropTypes.func,
+	        renderTrackVertical: _react.PropTypes.func,
+	        renderThumbHorizontal: _react.PropTypes.func,
+	        renderThumbVertical: _react.PropTypes.func,
+	        tagName: _react.PropTypes.string,
+	        thumbSize: _react.PropTypes.number,
+	        thumbMinSize: _react.PropTypes.number,
+	        hideTracksWhenNotNeeded: _react.PropTypes.bool,
+	        autoHide: _react.PropTypes.bool,
+	        autoHideTimeout: _react.PropTypes.number,
+	        autoHideDuration: _react.PropTypes.number,
+	        autoHeight: _react.PropTypes.bool,
+	        autoHeightMin: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]),
+	        autoHeightMax: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]),
+	        universal: _react.PropTypes.bool,
+	        style: _react.PropTypes.object,
+	        children: _react.PropTypes.node
+	    },
 
-	var Scrollbars = function (_Component) {
-	    _inherits(Scrollbars, _Component);
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            renderView: _defaultRenderElements.renderViewDefault,
+	            renderTrackHorizontal: _defaultRenderElements.renderTrackHorizontalDefault,
+	            renderTrackVertical: _defaultRenderElements.renderTrackVerticalDefault,
+	            renderThumbHorizontal: _defaultRenderElements.renderThumbHorizontalDefault,
+	            renderThumbVertical: _defaultRenderElements.renderThumbVerticalDefault,
+	            tagName: 'div',
+	            thumbMinSize: 30,
+	            hideTracksWhenNotNeeded: false,
+	            autoHide: false,
+	            autoHideTimeout: 1000,
+	            autoHideDuration: 200,
+	            autoHeight: false,
+	            autoHeightMin: 0,
+	            autoHeightMax: 200,
+	            universal: false
+	        };
+	    },
+	    getInitialState: function getInitialState() {
+	        return {
+	            didMountUniversal: false
+	        };
+	    },
+	    componentDidMount: function componentDidMount() {
+	        this.addListeners();
+	        this.update();
+	        this.componentDidMountUniversal();
+	    },
+	    componentDidMountUniversal: function componentDidMountUniversal() {
+	        // eslint-disable-line react/sort-comp
+	        var universal = this.props.universal;
 
-	    function Scrollbars(props) {
-	        var _ref;
+	        if (!universal) return;
+	        this.setState({ didMountUniversal: true });
+	    },
+	    componentDidUpdate: function componentDidUpdate() {
+	        this.update();
+	    },
+	    componentWillUnmount: function componentWillUnmount() {
+	        this.removeListeners();
+	        (0, _raf2.cancel)(this.requestFrame);
+	        clearTimeout(this.hideTracksTimeout);
+	        clearInterval(this.detectScrollingInterval);
+	    },
+	    getScrollLeft: function getScrollLeft() {
+	        var view = this.refs.view;
 
-	        _classCallCheck(this, Scrollbars);
+	        return view.scrollLeft;
+	    },
+	    getScrollTop: function getScrollTop() {
+	        var view = this.refs.view;
 
-	        for (var _len = arguments.length, rest = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	            rest[_key - 1] = arguments[_key];
-	        }
+	        return view.scrollTop;
+	    },
+	    getScrollWidth: function getScrollWidth() {
+	        var view = this.refs.view;
 
-	        var _this = _possibleConstructorReturn(this, (_ref = Scrollbars.__proto__ || Object.getPrototypeOf(Scrollbars)).call.apply(_ref, [this, props].concat(rest)));
+	        return view.scrollWidth;
+	    },
+	    getScrollHeight: function getScrollHeight() {
+	        var view = this.refs.view;
 
-	        _this.handleTrackMouseEnter = _this.handleTrackMouseEnter.bind(_this);
-	        _this.handleTrackMouseLeave = _this.handleTrackMouseLeave.bind(_this);
-	        _this.handleHorizontalTrackMouseDown = _this.handleHorizontalTrackMouseDown.bind(_this);
-	        _this.handleVerticalTrackMouseDown = _this.handleVerticalTrackMouseDown.bind(_this);
-	        _this.handleHorizontalThumbMouseDown = _this.handleHorizontalThumbMouseDown.bind(_this);
-	        _this.handleVerticalThumbMouseDown = _this.handleVerticalThumbMouseDown.bind(_this);
-	        _this.handleWindowResize = _this.handleWindowResize.bind(_this);
-	        _this.handleScroll = _this.handleScroll.bind(_this);
-	        _this.handleDrag = _this.handleDrag.bind(_this);
-	        _this.handleDragEnd = _this.handleDragEnd.bind(_this);
+	        return view.scrollHeight;
+	    },
+	    getClientWidth: function getClientWidth() {
+	        var view = this.refs.view;
 
-	        _this.state = _this.getInitialState();
-	        return _this;
-	    }
+	        return view.clientWidth;
+	    },
+	    getClientHeight: function getClientHeight() {
+	        var view = this.refs.view;
 
-	    _createClass(Scrollbars, [{
-	        key: 'getInitialState',
-	        value: function getInitialState() {
-	            return {
-	                didMountUniversal: false
-	            };
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.addListeners();
-	            this.update();
-	            this.componentDidMountUniversal();
-	        }
-	    }, {
-	        key: 'componentDidMountUniversal',
-	        value: function componentDidMountUniversal() {
-	            // eslint-disable-line react/sort-comp
-	            var universal = this.props.universal;
-
-	            if (!universal) return;
-	            this.setState({ didMountUniversal: true });
-	        }
-	    }, {
-	        key: 'componentDidUpdate',
-	        value: function componentDidUpdate() {
-	            this.update();
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            this.removeListeners();
-	            (0, _raf2.cancel)(this.requestFrame);
-	            clearTimeout(this.hideTracksTimeout);
-	            clearInterval(this.detectScrollingInterval);
-	        }
-	    }, {
-	        key: 'getScrollLeft',
-	        value: function getScrollLeft() {
-	            var view = this.refs.view;
-
-	            return view.scrollLeft;
-	        }
-	    }, {
-	        key: 'getScrollTop',
-	        value: function getScrollTop() {
-	            var view = this.refs.view;
-
-	            return view.scrollTop;
-	        }
-	    }, {
-	        key: 'getScrollWidth',
-	        value: function getScrollWidth() {
-	            var view = this.refs.view;
-
-	            return view.scrollWidth;
-	        }
-	    }, {
-	        key: 'getScrollHeight',
-	        value: function getScrollHeight() {
-	            var view = this.refs.view;
-
-	            return view.scrollHeight;
-	        }
-	    }, {
-	        key: 'getClientWidth',
-	        value: function getClientWidth() {
-	            var view = this.refs.view;
-
-	            return view.clientWidth;
-	        }
-	    }, {
-	        key: 'getClientHeight',
-	        value: function getClientHeight() {
-	            var view = this.refs.view;
-
-	            return view.clientHeight;
-	        }
-	    }, {
-	        key: 'getValues',
-	        value: function getValues() {
-	            var view = this.refs.view;
-	            var scrollLeft = view.scrollLeft,
-	                scrollTop = view.scrollTop,
-	                scrollWidth = view.scrollWidth,
-	                scrollHeight = view.scrollHeight,
-	                clientWidth = view.clientWidth,
-	                clientHeight = view.clientHeight;
+	        return view.clientHeight;
+	    },
+	    getValues: function getValues() {
+	        var view = this.refs.view;
+	        var scrollLeft = view.scrollLeft,
+	            scrollTop = view.scrollTop,
+	            scrollWidth = view.scrollWidth,
+	            scrollHeight = view.scrollHeight,
+	            clientWidth = view.clientWidth,
+	            clientHeight = view.clientHeight;
 
 
-	            return {
-	                left: scrollLeft / (scrollWidth - clientWidth) || 0,
-	                top: scrollTop / (scrollHeight - clientHeight) || 0,
-	                scrollLeft: scrollLeft,
-	                scrollTop: scrollTop,
-	                scrollWidth: scrollWidth,
-	                scrollHeight: scrollHeight,
-	                clientWidth: clientWidth,
-	                clientHeight: clientHeight
-	            };
-	        }
-	    }, {
-	        key: 'getThumbHorizontalWidth',
-	        value: function getThumbHorizontalWidth() {
-	            var _props = this.props,
-	                thumbSize = _props.thumbSize,
-	                thumbMinSize = _props.thumbMinSize;
-	            var _refs = this.refs,
-	                view = _refs.view,
-	                trackHorizontal = _refs.trackHorizontal;
-	            var scrollWidth = view.scrollWidth,
-	                clientWidth = view.clientWidth;
+	        return {
+	            left: scrollLeft / (scrollWidth - clientWidth) || 0,
+	            top: scrollTop / (scrollHeight - clientHeight) || 0,
+	            scrollLeft: scrollLeft,
+	            scrollTop: scrollTop,
+	            scrollWidth: scrollWidth,
+	            scrollHeight: scrollHeight,
+	            clientWidth: clientWidth,
+	            clientHeight: clientHeight
+	        };
+	    },
+	    getThumbHorizontalWidth: function getThumbHorizontalWidth() {
+	        var _props = this.props,
+	            thumbSize = _props.thumbSize,
+	            thumbMinSize = _props.thumbMinSize;
+	        var _refs = this.refs,
+	            view = _refs.view,
+	            trackHorizontal = _refs.trackHorizontal;
+	        var scrollWidth = view.scrollWidth,
+	            clientWidth = view.clientWidth;
 
-	            var trackWidth = (0, _getInnerWidth2["default"])(trackHorizontal);
-	            var width = Math.ceil(clientWidth / scrollWidth * trackWidth);
-	            if (trackWidth === width) return 0;
-	            if (thumbSize) return thumbSize;
-	            return Math.max(width, thumbMinSize);
-	        }
-	    }, {
-	        key: 'getThumbVerticalHeight',
-	        value: function getThumbVerticalHeight() {
-	            var _props2 = this.props,
-	                thumbSize = _props2.thumbSize,
-	                thumbMinSize = _props2.thumbMinSize;
-	            var _refs2 = this.refs,
-	                view = _refs2.view,
-	                trackVertical = _refs2.trackVertical;
-	            var scrollHeight = view.scrollHeight,
-	                clientHeight = view.clientHeight;
+	        var trackWidth = (0, _getInnerWidth2["default"])(trackHorizontal);
+	        var width = Math.ceil(clientWidth / scrollWidth * trackWidth);
+	        if (trackWidth === width) return 0;
+	        if (thumbSize) return thumbSize;
+	        return Math.max(width, thumbMinSize);
+	    },
+	    getThumbVerticalHeight: function getThumbVerticalHeight() {
+	        var _props2 = this.props,
+	            thumbSize = _props2.thumbSize,
+	            thumbMinSize = _props2.thumbMinSize;
+	        var _refs2 = this.refs,
+	            view = _refs2.view,
+	            trackVertical = _refs2.trackVertical;
+	        var scrollHeight = view.scrollHeight,
+	            clientHeight = view.clientHeight;
 
-	            var trackHeight = (0, _getInnerHeight2["default"])(trackVertical);
-	            var height = Math.ceil(clientHeight / scrollHeight * trackHeight);
-	            if (trackHeight === height) return 0;
-	            if (thumbSize) return thumbSize;
-	            return Math.max(height, thumbMinSize);
-	        }
-	    }, {
-	        key: 'getScrollLeftForOffset',
-	        value: function getScrollLeftForOffset(offset) {
-	            var _refs3 = this.refs,
-	                view = _refs3.view,
-	                trackHorizontal = _refs3.trackHorizontal;
-	            var scrollWidth = view.scrollWidth,
-	                clientWidth = view.clientWidth;
+	        var trackHeight = (0, _getInnerHeight2["default"])(trackVertical);
+	        var height = Math.ceil(clientHeight / scrollHeight * trackHeight);
+	        if (trackHeight === height) return 0;
+	        if (thumbSize) return thumbSize;
+	        return Math.max(height, thumbMinSize);
+	    },
+	    getScrollLeftForOffset: function getScrollLeftForOffset(offset) {
+	        var _refs3 = this.refs,
+	            view = _refs3.view,
+	            trackHorizontal = _refs3.trackHorizontal;
+	        var scrollWidth = view.scrollWidth,
+	            clientWidth = view.clientWidth;
 
-	            var trackWidth = (0, _getInnerWidth2["default"])(trackHorizontal);
+	        var trackWidth = (0, _getInnerWidth2["default"])(trackHorizontal);
+	        var thumbWidth = this.getThumbHorizontalWidth();
+	        return offset / (trackWidth - thumbWidth) * (scrollWidth - clientWidth);
+	    },
+	    getScrollTopForOffset: function getScrollTopForOffset(offset) {
+	        var _refs4 = this.refs,
+	            view = _refs4.view,
+	            trackVertical = _refs4.trackVertical;
+	        var scrollHeight = view.scrollHeight,
+	            clientHeight = view.clientHeight;
+
+	        var trackHeight = (0, _getInnerHeight2["default"])(trackVertical);
+	        var thumbHeight = this.getThumbVerticalHeight();
+	        return offset / (trackHeight - thumbHeight) * (scrollHeight - clientHeight);
+	    },
+	    scrollLeft: function scrollLeft() {
+	        var left = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	        var view = this.refs.view;
+
+	        view.scrollLeft = left;
+	    },
+	    scrollTop: function scrollTop() {
+	        var top = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	        var view = this.refs.view;
+
+	        view.scrollTop = top;
+	    },
+	    scrollToLeft: function scrollToLeft() {
+	        var view = this.refs.view;
+
+	        view.scrollLeft = 0;
+	    },
+	    scrollToTop: function scrollToTop() {
+	        var view = this.refs.view;
+
+	        view.scrollTop = 0;
+	    },
+	    scrollToRight: function scrollToRight() {
+	        var view = this.refs.view;
+
+	        view.scrollLeft = view.scrollWidth;
+	    },
+	    scrollToBottom: function scrollToBottom() {
+	        var view = this.refs.view;
+
+	        view.scrollTop = view.scrollHeight;
+	    },
+	    addListeners: function addListeners() {
+	        /* istanbul ignore if */
+	        if (typeof document === 'undefined') return;
+	        var _refs5 = this.refs,
+	            view = _refs5.view,
+	            trackHorizontal = _refs5.trackHorizontal,
+	            trackVertical = _refs5.trackVertical,
+	            thumbHorizontal = _refs5.thumbHorizontal,
+	            thumbVertical = _refs5.thumbVertical;
+
+	        view.addEventListener('scroll', this.handleScroll);
+	        if (!(0, _getScrollbarWidth2["default"])()) return;
+	        trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter);
+	        trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave);
+	        trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown);
+	        trackVertical.addEventListener('mouseenter', this.handleTrackMouseEnter);
+	        trackVertical.addEventListener('mouseleave', this.handleTrackMouseLeave);
+	        trackVertical.addEventListener('mousedown', this.handleVerticalTrackMouseDown);
+	        thumbHorizontal.addEventListener('mousedown', this.handleHorizontalThumbMouseDown);
+	        thumbVertical.addEventListener('mousedown', this.handleVerticalThumbMouseDown);
+	        window.addEventListener('resize', this.handleWindowResize);
+	    },
+	    removeListeners: function removeListeners() {
+	        /* istanbul ignore if */
+	        if (typeof document === 'undefined') return;
+	        var _refs6 = this.refs,
+	            view = _refs6.view,
+	            trackHorizontal = _refs6.trackHorizontal,
+	            trackVertical = _refs6.trackVertical,
+	            thumbHorizontal = _refs6.thumbHorizontal,
+	            thumbVertical = _refs6.thumbVertical;
+
+	        view.removeEventListener('scroll', this.handleScroll);
+	        if (!(0, _getScrollbarWidth2["default"])()) return;
+	        trackHorizontal.removeEventListener('mouseenter', this.handleTrackMouseEnter);
+	        trackHorizontal.removeEventListener('mouseleave', this.handleTrackMouseLeave);
+	        trackHorizontal.removeEventListener('mousedown', this.handleHorizontalTrackMouseDown);
+	        trackVertical.removeEventListener('mouseenter', this.handleTrackMouseEnter);
+	        trackVertical.removeEventListener('mouseleave', this.handleTrackMouseLeave);
+	        trackVertical.removeEventListener('mousedown', this.handleVerticalTrackMouseDown);
+	        thumbHorizontal.removeEventListener('mousedown', this.handleHorizontalThumbMouseDown);
+	        thumbVertical.removeEventListener('mousedown', this.handleVerticalThumbMouseDown);
+	        window.removeEventListener('resize', this.handleWindowResize);
+	        // Possibly setup by `handleDragStart`
+	        this.teardownDragging();
+	    },
+	    handleScroll: function handleScroll(event) {
+	        var _this = this;
+
+	        var _props3 = this.props,
+	            onScroll = _props3.onScroll,
+	            onScrollFrame = _props3.onScrollFrame;
+
+	        if (onScroll) onScroll(event);
+	        this.update(function (values) {
+	            var scrollLeft = values.scrollLeft,
+	                scrollTop = values.scrollTop;
+
+	            _this.viewScrollLeft = scrollLeft;
+	            _this.viewScrollTop = scrollTop;
+	            if (onScrollFrame) onScrollFrame(values);
+	        });
+	        this.detectScrolling();
+	    },
+	    handleScrollStart: function handleScrollStart() {
+	        var onScrollStart = this.props.onScrollStart;
+
+	        if (onScrollStart) onScrollStart();
+	        this.handleScrollStartAutoHide();
+	    },
+	    handleScrollStartAutoHide: function handleScrollStartAutoHide() {
+	        var autoHide = this.props.autoHide;
+
+	        if (!autoHide) return;
+	        this.showTracks();
+	    },
+	    handleScrollStop: function handleScrollStop() {
+	        var onScrollStop = this.props.onScrollStop;
+
+	        if (onScrollStop) onScrollStop();
+	        this.handleScrollStopAutoHide();
+	    },
+	    handleScrollStopAutoHide: function handleScrollStopAutoHide() {
+	        var autoHide = this.props.autoHide;
+
+	        if (!autoHide) return;
+	        this.hideTracks();
+	    },
+	    handleWindowResize: function handleWindowResize() {
+	        this.update();
+	    },
+	    handleHorizontalTrackMouseDown: function handleHorizontalTrackMouseDown(event) {
+	        event.preventDefault();
+	        var view = this.refs.view;
+	        var target = event.target,
+	            clientX = event.clientX;
+
+	        var _target$getBoundingCl = target.getBoundingClientRect(),
+	            targetLeft = _target$getBoundingCl.left;
+
+	        var thumbWidth = this.getThumbHorizontalWidth();
+	        var offset = Math.abs(targetLeft - clientX) - thumbWidth / 2;
+	        view.scrollLeft = this.getScrollLeftForOffset(offset);
+	    },
+	    handleVerticalTrackMouseDown: function handleVerticalTrackMouseDown(event) {
+	        event.preventDefault();
+	        var view = this.refs.view;
+	        var target = event.target,
+	            clientY = event.clientY;
+
+	        var _target$getBoundingCl2 = target.getBoundingClientRect(),
+	            targetTop = _target$getBoundingCl2.top;
+
+	        var thumbHeight = this.getThumbVerticalHeight();
+	        var offset = Math.abs(targetTop - clientY) - thumbHeight / 2;
+	        view.scrollTop = this.getScrollTopForOffset(offset);
+	    },
+	    handleHorizontalThumbMouseDown: function handleHorizontalThumbMouseDown(event) {
+	        event.preventDefault();
+	        this.handleDragStart(event);
+	        var target = event.target,
+	            clientX = event.clientX;
+	        var offsetWidth = target.offsetWidth;
+
+	        var _target$getBoundingCl3 = target.getBoundingClientRect(),
+	            left = _target$getBoundingCl3.left;
+
+	        this.prevPageX = offsetWidth - (clientX - left);
+	    },
+	    handleVerticalThumbMouseDown: function handleVerticalThumbMouseDown(event) {
+	        event.preventDefault();
+	        this.handleDragStart(event);
+	        var target = event.target,
+	            clientY = event.clientY;
+	        var offsetHeight = target.offsetHeight;
+
+	        var _target$getBoundingCl4 = target.getBoundingClientRect(),
+	            top = _target$getBoundingCl4.top;
+
+	        this.prevPageY = offsetHeight - (clientY - top);
+	    },
+	    setupDragging: function setupDragging() {
+	        (0, _domCss2["default"])(document.body, _styles.disableSelectStyle);
+	        document.addEventListener('mousemove', this.handleDrag);
+	        document.addEventListener('mouseup', this.handleDragEnd);
+	        document.onselectstart = _returnFalse2["default"];
+	    },
+	    teardownDragging: function teardownDragging() {
+	        (0, _domCss2["default"])(document.body, _styles.disableSelectStyleReset);
+	        document.removeEventListener('mousemove', this.handleDrag);
+	        document.removeEventListener('mouseup', this.handleDragEnd);
+	        document.onselectstart = undefined;
+	    },
+	    handleDragStart: function handleDragStart(event) {
+	        this.dragging = true;
+	        event.stopImmediatePropagation();
+	        this.setupDragging();
+	    },
+	    handleDrag: function handleDrag(event) {
+	        if (this.prevPageX) {
+	            var clientX = event.clientX;
+	            var _refs7 = this.refs,
+	                view = _refs7.view,
+	                trackHorizontal = _refs7.trackHorizontal;
+
+	            var _trackHorizontal$getB = trackHorizontal.getBoundingClientRect(),
+	                trackLeft = _trackHorizontal$getB.left;
+
 	            var thumbWidth = this.getThumbHorizontalWidth();
-	            return offset / (trackWidth - thumbWidth) * (scrollWidth - clientWidth);
-	        }
-	    }, {
-	        key: 'getScrollTopForOffset',
-	        value: function getScrollTopForOffset(offset) {
-	            var _refs4 = this.refs,
-	                view = _refs4.view,
-	                trackVertical = _refs4.trackVertical;
-	            var scrollHeight = view.scrollHeight,
-	                clientHeight = view.clientHeight;
-
-	            var trackHeight = (0, _getInnerHeight2["default"])(trackVertical);
-	            var thumbHeight = this.getThumbVerticalHeight();
-	            return offset / (trackHeight - thumbHeight) * (scrollHeight - clientHeight);
-	        }
-	    }, {
-	        key: 'scrollLeft',
-	        value: function scrollLeft() {
-	            var left = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-	            var view = this.refs.view;
-
-	            view.scrollLeft = left;
-	        }
-	    }, {
-	        key: 'scrollTop',
-	        value: function scrollTop() {
-	            var top = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-	            var view = this.refs.view;
-
-	            view.scrollTop = top;
-	        }
-	    }, {
-	        key: 'scrollToLeft',
-	        value: function scrollToLeft() {
-	            var view = this.refs.view;
-
-	            view.scrollLeft = 0;
-	        }
-	    }, {
-	        key: 'scrollToTop',
-	        value: function scrollToTop() {
-	            var view = this.refs.view;
-
-	            view.scrollTop = 0;
-	        }
-	    }, {
-	        key: 'scrollToRight',
-	        value: function scrollToRight() {
-	            var view = this.refs.view;
-
-	            view.scrollLeft = view.scrollWidth;
-	        }
-	    }, {
-	        key: 'scrollToBottom',
-	        value: function scrollToBottom() {
-	            var view = this.refs.view;
-
-	            view.scrollTop = view.scrollHeight;
-	        }
-	    }, {
-	        key: 'addListeners',
-	        value: function addListeners() {
-	            /* istanbul ignore if */
-	            if (typeof document === 'undefined') return;
-	            var _refs5 = this.refs,
-	                view = _refs5.view,
-	                trackHorizontal = _refs5.trackHorizontal,
-	                trackVertical = _refs5.trackVertical,
-	                thumbHorizontal = _refs5.thumbHorizontal,
-	                thumbVertical = _refs5.thumbVertical;
-
-	            view.addEventListener('scroll', this.handleScroll);
-	            if (!(0, _getScrollbarWidth2["default"])()) return;
-	            trackHorizontal.addEventListener('mouseenter', this.handleTrackMouseEnter);
-	            trackHorizontal.addEventListener('mouseleave', this.handleTrackMouseLeave);
-	            trackHorizontal.addEventListener('mousedown', this.handleHorizontalTrackMouseDown);
-	            trackVertical.addEventListener('mouseenter', this.handleTrackMouseEnter);
-	            trackVertical.addEventListener('mouseleave', this.handleTrackMouseLeave);
-	            trackVertical.addEventListener('mousedown', this.handleVerticalTrackMouseDown);
-	            thumbHorizontal.addEventListener('mousedown', this.handleHorizontalThumbMouseDown);
-	            thumbVertical.addEventListener('mousedown', this.handleVerticalThumbMouseDown);
-	            window.addEventListener('resize', this.handleWindowResize);
-	        }
-	    }, {
-	        key: 'removeListeners',
-	        value: function removeListeners() {
-	            /* istanbul ignore if */
-	            if (typeof document === 'undefined') return;
-	            var _refs6 = this.refs,
-	                view = _refs6.view,
-	                trackHorizontal = _refs6.trackHorizontal,
-	                trackVertical = _refs6.trackVertical,
-	                thumbHorizontal = _refs6.thumbHorizontal,
-	                thumbVertical = _refs6.thumbVertical;
-
-	            view.removeEventListener('scroll', this.handleScroll);
-	            if (!(0, _getScrollbarWidth2["default"])()) return;
-	            trackHorizontal.removeEventListener('mouseenter', this.handleTrackMouseEnter);
-	            trackHorizontal.removeEventListener('mouseleave', this.handleTrackMouseLeave);
-	            trackHorizontal.removeEventListener('mousedown', this.handleHorizontalTrackMouseDown);
-	            trackVertical.removeEventListener('mouseenter', this.handleTrackMouseEnter);
-	            trackVertical.removeEventListener('mouseleave', this.handleTrackMouseLeave);
-	            trackVertical.removeEventListener('mousedown', this.handleVerticalTrackMouseDown);
-	            thumbHorizontal.removeEventListener('mousedown', this.handleHorizontalThumbMouseDown);
-	            thumbVertical.removeEventListener('mousedown', this.handleVerticalThumbMouseDown);
-	            window.removeEventListener('resize', this.handleWindowResize);
-	            // Possibly setup by `handleDragStart`
-	            this.teardownDragging();
-	        }
-	    }, {
-	        key: 'handleScroll',
-	        value: function handleScroll(event) {
-	            var _this2 = this;
-
-	            var _props3 = this.props,
-	                onScroll = _props3.onScroll,
-	                onScrollFrame = _props3.onScrollFrame;
-
-	            if (onScroll) onScroll(event);
-	            this.update(function (values) {
-	                var scrollLeft = values.scrollLeft,
-	                    scrollTop = values.scrollTop;
-
-	                _this2.viewScrollLeft = scrollLeft;
-	                _this2.viewScrollTop = scrollTop;
-	                if (onScrollFrame) onScrollFrame(values);
-	            });
-	            this.detectScrolling();
-	        }
-	    }, {
-	        key: 'handleScrollStart',
-	        value: function handleScrollStart() {
-	            var onScrollStart = this.props.onScrollStart;
-
-	            if (onScrollStart) onScrollStart();
-	            this.handleScrollStartAutoHide();
-	        }
-	    }, {
-	        key: 'handleScrollStartAutoHide',
-	        value: function handleScrollStartAutoHide() {
-	            var autoHide = this.props.autoHide;
-
-	            if (!autoHide) return;
-	            this.showTracks();
-	        }
-	    }, {
-	        key: 'handleScrollStop',
-	        value: function handleScrollStop() {
-	            var onScrollStop = this.props.onScrollStop;
-
-	            if (onScrollStop) onScrollStop();
-	            this.handleScrollStopAutoHide();
-	        }
-	    }, {
-	        key: 'handleScrollStopAutoHide',
-	        value: function handleScrollStopAutoHide() {
-	            var autoHide = this.props.autoHide;
-
-	            if (!autoHide) return;
-	            this.hideTracks();
-	        }
-	    }, {
-	        key: 'handleWindowResize',
-	        value: function handleWindowResize() {
-	            this.update();
-	        }
-	    }, {
-	        key: 'handleHorizontalTrackMouseDown',
-	        value: function handleHorizontalTrackMouseDown(event) {
-	            event.preventDefault();
-	            var view = this.refs.view;
-	            var target = event.target,
-	                clientX = event.clientX;
-
-	            var _target$getBoundingCl = target.getBoundingClientRect(),
-	                targetLeft = _target$getBoundingCl.left;
-
-	            var thumbWidth = this.getThumbHorizontalWidth();
-	            var offset = Math.abs(targetLeft - clientX) - thumbWidth / 2;
+	            var clickPosition = thumbWidth - this.prevPageX;
+	            var offset = -trackLeft + clientX - clickPosition;
 	            view.scrollLeft = this.getScrollLeftForOffset(offset);
 	        }
-	    }, {
-	        key: 'handleVerticalTrackMouseDown',
-	        value: function handleVerticalTrackMouseDown(event) {
-	            event.preventDefault();
-	            var view = this.refs.view;
-	            var target = event.target,
-	                clientY = event.clientY;
+	        if (this.prevPageY) {
+	            var clientY = event.clientY;
+	            var _refs8 = this.refs,
+	                _view = _refs8.view,
+	                trackVertical = _refs8.trackVertical;
 
-	            var _target$getBoundingCl2 = target.getBoundingClientRect(),
-	                targetTop = _target$getBoundingCl2.top;
+	            var _trackVertical$getBou = trackVertical.getBoundingClientRect(),
+	                trackTop = _trackVertical$getBou.top;
 
 	            var thumbHeight = this.getThumbVerticalHeight();
-	            var offset = Math.abs(targetTop - clientY) - thumbHeight / 2;
-	            view.scrollTop = this.getScrollTopForOffset(offset);
+	            var _clickPosition = thumbHeight - this.prevPageY;
+	            var _offset = -trackTop + clientY - _clickPosition;
+	            _view.scrollTop = this.getScrollTopForOffset(_offset);
 	        }
-	    }, {
-	        key: 'handleHorizontalThumbMouseDown',
-	        value: function handleHorizontalThumbMouseDown(event) {
-	            event.preventDefault();
-	            this.handleDragStart(event);
-	            var target = event.target,
-	                clientX = event.clientX;
-	            var offsetWidth = target.offsetWidth;
+	        return false;
+	    },
+	    handleDragEnd: function handleDragEnd() {
+	        this.dragging = false;
+	        this.prevPageX = this.prevPageY = 0;
+	        this.teardownDragging();
+	        this.handleDragEndAutoHide();
+	    },
+	    handleDragEndAutoHide: function handleDragEndAutoHide() {
+	        var autoHide = this.props.autoHide;
 
-	            var _target$getBoundingCl3 = target.getBoundingClientRect(),
-	                left = _target$getBoundingCl3.left;
+	        if (!autoHide) return;
+	        this.hideTracks();
+	    },
+	    handleTrackMouseEnter: function handleTrackMouseEnter() {
+	        this.trackMouseOver = true;
+	        this.handleTrackMouseEnterAutoHide();
+	    },
+	    handleTrackMouseEnterAutoHide: function handleTrackMouseEnterAutoHide() {
+	        var autoHide = this.props.autoHide;
 
-	            this.prevPageX = offsetWidth - (clientX - left);
-	        }
-	    }, {
-	        key: 'handleVerticalThumbMouseDown',
-	        value: function handleVerticalThumbMouseDown(event) {
-	            event.preventDefault();
-	            this.handleDragStart(event);
-	            var target = event.target,
-	                clientY = event.clientY;
-	            var offsetHeight = target.offsetHeight;
+	        if (!autoHide) return;
+	        this.showTracks();
+	    },
+	    handleTrackMouseLeave: function handleTrackMouseLeave() {
+	        this.trackMouseOver = false;
+	        this.handleTrackMouseLeaveAutoHide();
+	    },
+	    handleTrackMouseLeaveAutoHide: function handleTrackMouseLeaveAutoHide() {
+	        var autoHide = this.props.autoHide;
 
-	            var _target$getBoundingCl4 = target.getBoundingClientRect(),
-	                top = _target$getBoundingCl4.top;
+	        if (!autoHide) return;
+	        this.hideTracks();
+	    },
+	    showTracks: function showTracks() {
+	        var _refs9 = this.refs,
+	            trackHorizontal = _refs9.trackHorizontal,
+	            trackVertical = _refs9.trackVertical;
 
-	            this.prevPageY = offsetHeight - (clientY - top);
-	        }
-	    }, {
-	        key: 'setupDragging',
-	        value: function setupDragging() {
-	            (0, _domCss2["default"])(document.body, _styles.disableSelectStyle);
-	            document.addEventListener('mousemove', this.handleDrag);
-	            document.addEventListener('mouseup', this.handleDragEnd);
-	            document.onselectstart = _returnFalse2["default"];
-	        }
-	    }, {
-	        key: 'teardownDragging',
-	        value: function teardownDragging() {
-	            (0, _domCss2["default"])(document.body, _styles.disableSelectStyleReset);
-	            document.removeEventListener('mousemove', this.handleDrag);
-	            document.removeEventListener('mouseup', this.handleDragEnd);
-	            document.onselectstart = undefined;
-	        }
-	    }, {
-	        key: 'handleDragStart',
-	        value: function handleDragStart(event) {
-	            this.dragging = true;
-	            event.stopImmediatePropagation();
-	            this.setupDragging();
-	        }
-	    }, {
-	        key: 'handleDrag',
-	        value: function handleDrag(event) {
-	            if (this.prevPageX) {
-	                var clientX = event.clientX;
-	                var _refs7 = this.refs,
-	                    view = _refs7.view,
-	                    trackHorizontal = _refs7.trackHorizontal;
+	        clearTimeout(this.hideTracksTimeout);
+	        (0, _domCss2["default"])(trackHorizontal, { opacity: 1 });
+	        (0, _domCss2["default"])(trackVertical, { opacity: 1 });
+	    },
+	    hideTracks: function hideTracks() {
+	        if (this.dragging) return;
+	        if (this.scrolling) return;
+	        if (this.trackMouseOver) return;
+	        var autoHideTimeout = this.props.autoHideTimeout;
+	        var _refs10 = this.refs,
+	            trackHorizontal = _refs10.trackHorizontal,
+	            trackVertical = _refs10.trackVertical;
 
-	                var _trackHorizontal$getB = trackHorizontal.getBoundingClientRect(),
-	                    trackLeft = _trackHorizontal$getB.left;
+	        clearTimeout(this.hideTracksTimeout);
+	        this.hideTracksTimeout = setTimeout(function () {
+	            (0, _domCss2["default"])(trackHorizontal, { opacity: 0 });
+	            (0, _domCss2["default"])(trackVertical, { opacity: 0 });
+	        }, autoHideTimeout);
+	    },
+	    detectScrolling: function detectScrolling() {
+	        var _this2 = this;
 
-	                var thumbWidth = this.getThumbHorizontalWidth();
-	                var clickPosition = thumbWidth - this.prevPageX;
-	                var offset = -trackLeft + clientX - clickPosition;
-	                view.scrollLeft = this.getScrollLeftForOffset(offset);
+	        if (this.scrolling) return;
+	        this.scrolling = true;
+	        this.handleScrollStart();
+	        this.detectScrollingInterval = setInterval(function () {
+	            if (_this2.lastViewScrollLeft === _this2.viewScrollLeft && _this2.lastViewScrollTop === _this2.viewScrollTop) {
+	                clearInterval(_this2.detectScrollingInterval);
+	                _this2.scrolling = false;
+	                _this2.handleScrollStop();
 	            }
-	            if (this.prevPageY) {
-	                var clientY = event.clientY;
-	                var _refs8 = this.refs,
-	                    _view = _refs8.view,
-	                    trackVertical = _refs8.trackVertical;
+	            _this2.lastViewScrollLeft = _this2.viewScrollLeft;
+	            _this2.lastViewScrollTop = _this2.viewScrollTop;
+	        }, 100);
+	    },
+	    raf: function raf(callback) {
+	        var _this3 = this;
 
-	                var _trackVertical$getBou = trackVertical.getBoundingClientRect(),
-	                    trackTop = _trackVertical$getBou.top;
+	        if (this.requestFrame) _raf3["default"].cancel(this.requestFrame);
+	        this.requestFrame = (0, _raf3["default"])(function () {
+	            _this3.requestFrame = undefined;
+	            callback();
+	        });
+	    },
+	    update: function update(callback) {
+	        var _this4 = this;
 
-	                var thumbHeight = this.getThumbVerticalHeight();
-	                var _clickPosition = thumbHeight - this.prevPageY;
-	                var _offset = -trackTop + clientY - _clickPosition;
-	                _view.scrollTop = this.getScrollTopForOffset(_offset);
-	            }
-	            return false;
-	        }
-	    }, {
-	        key: 'handleDragEnd',
-	        value: function handleDragEnd() {
-	            this.dragging = false;
-	            this.prevPageX = this.prevPageY = 0;
-	            this.teardownDragging();
-	            this.handleDragEndAutoHide();
-	        }
-	    }, {
-	        key: 'handleDragEndAutoHide',
-	        value: function handleDragEndAutoHide() {
-	            var autoHide = this.props.autoHide;
+	        this.raf(function () {
+	            return _this4._update(callback);
+	        });
+	    },
+	    _update: function _update(callback) {
+	        var _props4 = this.props,
+	            onUpdate = _props4.onUpdate,
+	            hideTracksWhenNotNeeded = _props4.hideTracksWhenNotNeeded;
 
-	            if (!autoHide) return;
-	            this.hideTracks();
-	        }
-	    }, {
-	        key: 'handleTrackMouseEnter',
-	        value: function handleTrackMouseEnter() {
-	            this.trackMouseOver = true;
-	            this.handleTrackMouseEnterAutoHide();
-	        }
-	    }, {
-	        key: 'handleTrackMouseEnterAutoHide',
-	        value: function handleTrackMouseEnterAutoHide() {
-	            var autoHide = this.props.autoHide;
+	        var values = this.getValues();
+	        if ((0, _getScrollbarWidth2["default"])()) {
+	            var _refs11 = this.refs,
+	                thumbHorizontal = _refs11.thumbHorizontal,
+	                thumbVertical = _refs11.thumbVertical,
+	                trackHorizontal = _refs11.trackHorizontal,
+	                trackVertical = _refs11.trackVertical;
+	            var scrollLeft = values.scrollLeft,
+	                clientWidth = values.clientWidth,
+	                scrollWidth = values.scrollWidth;
 
-	            if (!autoHide) return;
-	            this.showTracks();
-	        }
-	    }, {
-	        key: 'handleTrackMouseLeave',
-	        value: function handleTrackMouseLeave() {
-	            this.trackMouseOver = false;
-	            this.handleTrackMouseLeaveAutoHide();
-	        }
-	    }, {
-	        key: 'handleTrackMouseLeaveAutoHide',
-	        value: function handleTrackMouseLeaveAutoHide() {
-	            var autoHide = this.props.autoHide;
-
-	            if (!autoHide) return;
-	            this.hideTracks();
-	        }
-	    }, {
-	        key: 'showTracks',
-	        value: function showTracks() {
-	            var _refs9 = this.refs,
-	                trackHorizontal = _refs9.trackHorizontal,
-	                trackVertical = _refs9.trackVertical;
-
-	            clearTimeout(this.hideTracksTimeout);
-	            (0, _domCss2["default"])(trackHorizontal, { opacity: 1 });
-	            (0, _domCss2["default"])(trackVertical, { opacity: 1 });
-	        }
-	    }, {
-	        key: 'hideTracks',
-	        value: function hideTracks() {
-	            if (this.dragging) return;
-	            if (this.scrolling) return;
-	            if (this.trackMouseOver) return;
-	            var autoHideTimeout = this.props.autoHideTimeout;
-	            var _refs10 = this.refs,
-	                trackHorizontal = _refs10.trackHorizontal,
-	                trackVertical = _refs10.trackVertical;
-
-	            clearTimeout(this.hideTracksTimeout);
-	            this.hideTracksTimeout = setTimeout(function () {
-	                (0, _domCss2["default"])(trackHorizontal, { opacity: 0 });
-	                (0, _domCss2["default"])(trackVertical, { opacity: 0 });
-	            }, autoHideTimeout);
-	        }
-	    }, {
-	        key: 'detectScrolling',
-	        value: function detectScrolling() {
-	            var _this3 = this;
-
-	            if (this.scrolling) return;
-	            this.scrolling = true;
-	            this.handleScrollStart();
-	            this.detectScrollingInterval = setInterval(function () {
-	                if (_this3.lastViewScrollLeft === _this3.viewScrollLeft && _this3.lastViewScrollTop === _this3.viewScrollTop) {
-	                    clearInterval(_this3.detectScrollingInterval);
-	                    _this3.scrolling = false;
-	                    _this3.handleScrollStop();
-	                }
-	                _this3.lastViewScrollLeft = _this3.viewScrollLeft;
-	                _this3.lastViewScrollTop = _this3.viewScrollTop;
-	            }, 100);
-	        }
-	    }, {
-	        key: 'raf',
-	        value: function raf(callback) {
-	            var _this4 = this;
-
-	            if (this.requestFrame) _raf3["default"].cancel(this.requestFrame);
-	            this.requestFrame = (0, _raf3["default"])(function () {
-	                _this4.requestFrame = undefined;
-	                callback();
-	            });
-	        }
-	    }, {
-	        key: 'update',
-	        value: function update(callback) {
-	            var _this5 = this;
-
-	            this.raf(function () {
-	                return _this5._update(callback);
-	            });
-	        }
-	    }, {
-	        key: '_update',
-	        value: function _update(callback) {
-	            var _props4 = this.props,
-	                onUpdate = _props4.onUpdate,
-	                hideTracksWhenNotNeeded = _props4.hideTracksWhenNotNeeded;
-
-	            var values = this.getValues();
-	            if ((0, _getScrollbarWidth2["default"])()) {
-	                var _refs11 = this.refs,
-	                    thumbHorizontal = _refs11.thumbHorizontal,
-	                    thumbVertical = _refs11.thumbVertical,
-	                    trackHorizontal = _refs11.trackHorizontal,
-	                    trackVertical = _refs11.trackVertical;
-	                var scrollLeft = values.scrollLeft,
-	                    clientWidth = values.clientWidth,
-	                    scrollWidth = values.scrollWidth;
-
-	                var trackHorizontalWidth = (0, _getInnerWidth2["default"])(trackHorizontal);
-	                var thumbHorizontalWidth = this.getThumbHorizontalWidth();
-	                var thumbHorizontalX = scrollLeft / (scrollWidth - clientWidth) * (trackHorizontalWidth - thumbHorizontalWidth);
-	                var thumbHorizontalStyle = {
-	                    width: thumbHorizontalWidth,
-	                    transform: 'translateX(' + thumbHorizontalX + 'px)'
-	                };
-	                var scrollTop = values.scrollTop,
-	                    clientHeight = values.clientHeight,
-	                    scrollHeight = values.scrollHeight;
-
-	                var trackVerticalHeight = (0, _getInnerHeight2["default"])(trackVertical);
-	                var thumbVerticalHeight = this.getThumbVerticalHeight();
-	                var thumbVerticalY = scrollTop / (scrollHeight - clientHeight) * (trackVerticalHeight - thumbVerticalHeight);
-	                var thumbVerticalStyle = {
-	                    height: thumbVerticalHeight,
-	                    transform: 'translateY(' + thumbVerticalY + 'px)'
-	                };
-	                if (hideTracksWhenNotNeeded) {
-	                    var trackHorizontalStyle = {
-	                        visibility: scrollWidth > clientWidth ? 'visible' : 'hidden'
-	                    };
-	                    var trackVerticalStyle = {
-	                        visibility: scrollHeight > clientHeight ? 'visible' : 'hidden'
-	                    };
-	                    (0, _domCss2["default"])(trackHorizontal, trackHorizontalStyle);
-	                    (0, _domCss2["default"])(trackVertical, trackVerticalStyle);
-	                }
-	                (0, _domCss2["default"])(thumbHorizontal, thumbHorizontalStyle);
-	                (0, _domCss2["default"])(thumbVertical, thumbVerticalStyle);
-	            }
-	            if (onUpdate) onUpdate(values);
-	            if (typeof callback !== 'function') return;
-	            callback(values);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var scrollbarWidth = (0, _getScrollbarWidth2["default"])();
-	            /* eslint-disable no-unused-vars */
-
-	            var _props5 = this.props,
-	                onScroll = _props5.onScroll,
-	                onScrollFrame = _props5.onScrollFrame,
-	                onScrollStart = _props5.onScrollStart,
-	                onScrollStop = _props5.onScrollStop,
-	                onUpdate = _props5.onUpdate,
-	                renderView = _props5.renderView,
-	                renderTrackHorizontal = _props5.renderTrackHorizontal,
-	                renderTrackVertical = _props5.renderTrackVertical,
-	                renderThumbHorizontal = _props5.renderThumbHorizontal,
-	                renderThumbVertical = _props5.renderThumbVertical,
-	                tagName = _props5.tagName,
-	                hideTracksWhenNotNeeded = _props5.hideTracksWhenNotNeeded,
-	                autoHide = _props5.autoHide,
-	                autoHideTimeout = _props5.autoHideTimeout,
-	                autoHideDuration = _props5.autoHideDuration,
-	                thumbSize = _props5.thumbSize,
-	                thumbMinSize = _props5.thumbMinSize,
-	                universal = _props5.universal,
-	                autoHeight = _props5.autoHeight,
-	                autoHeightMin = _props5.autoHeightMin,
-	                autoHeightMax = _props5.autoHeightMax,
-	                style = _props5.style,
-	                children = _props5.children,
-	                props = _objectWithoutProperties(_props5, ['onScroll', 'onScrollFrame', 'onScrollStart', 'onScrollStop', 'onUpdate', 'renderView', 'renderTrackHorizontal', 'renderTrackVertical', 'renderThumbHorizontal', 'renderThumbVertical', 'tagName', 'hideTracksWhenNotNeeded', 'autoHide', 'autoHideTimeout', 'autoHideDuration', 'thumbSize', 'thumbMinSize', 'universal', 'autoHeight', 'autoHeightMin', 'autoHeightMax', 'style', 'children']);
-	            /* eslint-enable no-unused-vars */
-
-	            var didMountUniversal = this.state.didMountUniversal;
-
-
-	            var containerStyle = _extends({}, _styles.containerStyleDefault, autoHeight && _extends({}, _styles.containerStyleAutoHeight, {
-	                minHeight: autoHeightMin,
-	                maxHeight: autoHeightMax
-	            }), style);
-
-	            var viewStyle = _extends({}, _styles.viewStyleDefault, {
-	                // Hide scrollbars by setting a negative margin
-	                marginRight: scrollbarWidth ? -scrollbarWidth : 0,
-	                marginBottom: scrollbarWidth ? -scrollbarWidth : 0
-	            }, autoHeight && _extends({}, _styles.viewStyleAutoHeight, {
-	                // Add scrollbarWidth to autoHeight in order to compensate negative margins
-	                minHeight: (0, _isString2["default"])(autoHeightMin) ? 'calc(' + autoHeightMin + ' + ' + scrollbarWidth + 'px)' : autoHeightMin + scrollbarWidth,
-	                maxHeight: (0, _isString2["default"])(autoHeightMax) ? 'calc(' + autoHeightMax + ' + ' + scrollbarWidth + 'px)' : autoHeightMax + scrollbarWidth
-	            }), autoHeight && universal && !didMountUniversal && {
-	                minHeight: autoHeightMin,
-	                maxHeight: autoHeightMax
-	            }, universal && !didMountUniversal && _styles.viewStyleUniversalInitial);
-
-	            var trackAutoHeightStyle = {
-	                transition: 'opacity ' + autoHideDuration + 'ms',
-	                opacity: 0
+	            var trackHorizontalWidth = (0, _getInnerWidth2["default"])(trackHorizontal);
+	            var thumbHorizontalWidth = this.getThumbHorizontalWidth();
+	            var thumbHorizontalX = scrollLeft / (scrollWidth - clientWidth) * (trackHorizontalWidth - thumbHorizontalWidth);
+	            var thumbHorizontalStyle = {
+	                width: thumbHorizontalWidth,
+	                transform: 'translateX(' + thumbHorizontalX + 'px)'
 	            };
+	            var scrollTop = values.scrollTop,
+	                clientHeight = values.clientHeight,
+	                scrollHeight = values.scrollHeight;
 
-	            var trackHorizontalStyle = _extends({}, _styles.trackHorizontalStyleDefault, autoHide && trackAutoHeightStyle, (!scrollbarWidth || universal && !didMountUniversal) && {
-	                display: 'none'
-	            });
-
-	            var trackVerticalStyle = _extends({}, _styles.trackVerticalStyleDefault, autoHide && trackAutoHeightStyle, (!scrollbarWidth || universal && !didMountUniversal) && {
-	                display: 'none'
-	            });
-
-	            return (0, _react.createElement)(tagName, _extends({}, props, { style: containerStyle, ref: 'container' }), [(0, _react.cloneElement)(renderView({ style: viewStyle }), { key: 'view', ref: 'view' }, children), (0, _react.cloneElement)(renderTrackHorizontal({ style: trackHorizontalStyle }), { key: 'trackHorizontal', ref: 'trackHorizontal' }, (0, _react.cloneElement)(renderThumbHorizontal({ style: _styles.thumbHorizontalStyleDefault }), { ref: 'thumbHorizontal' })), (0, _react.cloneElement)(renderTrackVertical({ style: trackVerticalStyle }), { key: 'trackVertical', ref: 'trackVertical' }, (0, _react.cloneElement)(renderThumbVertical({ style: _styles.thumbVerticalStyleDefault }), { ref: 'thumbVertical' }))]);
+	            var trackVerticalHeight = (0, _getInnerHeight2["default"])(trackVertical);
+	            var thumbVerticalHeight = this.getThumbVerticalHeight();
+	            var thumbVerticalY = scrollTop / (scrollHeight - clientHeight) * (trackVerticalHeight - thumbVerticalHeight);
+	            var thumbVerticalStyle = {
+	                height: thumbVerticalHeight,
+	                transform: 'translateY(' + thumbVerticalY + 'px)'
+	            };
+	            if (hideTracksWhenNotNeeded) {
+	                var trackHorizontalStyle = {
+	                    visibility: scrollWidth > clientWidth ? 'visible' : 'hidden'
+	                };
+	                var trackVerticalStyle = {
+	                    visibility: scrollHeight > clientHeight ? 'visible' : 'hidden'
+	                };
+	                (0, _domCss2["default"])(trackHorizontal, trackHorizontalStyle);
+	                (0, _domCss2["default"])(trackVertical, trackVerticalStyle);
+	            }
+	            (0, _domCss2["default"])(thumbHorizontal, thumbHorizontalStyle);
+	            (0, _domCss2["default"])(thumbVertical, thumbVerticalStyle);
 	        }
-	    }]);
+	        if (onUpdate) onUpdate(values);
+	        if (typeof callback !== 'function') return;
+	        callback(values);
+	    },
+	    render: function render() {
+	        var scrollbarWidth = (0, _getScrollbarWidth2["default"])();
+	        /* eslint-disable no-unused-vars */
 
-	    return Scrollbars;
-	}(_react.Component);
+	        var _props5 = this.props,
+	            onScroll = _props5.onScroll,
+	            onScrollFrame = _props5.onScrollFrame,
+	            onScrollStart = _props5.onScrollStart,
+	            onScrollStop = _props5.onScrollStop,
+	            onUpdate = _props5.onUpdate,
+	            renderView = _props5.renderView,
+	            renderTrackHorizontal = _props5.renderTrackHorizontal,
+	            renderTrackVertical = _props5.renderTrackVertical,
+	            renderThumbHorizontal = _props5.renderThumbHorizontal,
+	            renderThumbVertical = _props5.renderThumbVertical,
+	            tagName = _props5.tagName,
+	            hideTracksWhenNotNeeded = _props5.hideTracksWhenNotNeeded,
+	            autoHide = _props5.autoHide,
+	            autoHideTimeout = _props5.autoHideTimeout,
+	            autoHideDuration = _props5.autoHideDuration,
+	            thumbSize = _props5.thumbSize,
+	            thumbMinSize = _props5.thumbMinSize,
+	            universal = _props5.universal,
+	            autoHeight = _props5.autoHeight,
+	            autoHeightMin = _props5.autoHeightMin,
+	            autoHeightMax = _props5.autoHeightMax,
+	            style = _props5.style,
+	            children = _props5.children,
+	            props = _objectWithoutProperties(_props5, ['onScroll', 'onScrollFrame', 'onScrollStart', 'onScrollStop', 'onUpdate', 'renderView', 'renderTrackHorizontal', 'renderTrackVertical', 'renderThumbHorizontal', 'renderThumbVertical', 'tagName', 'hideTracksWhenNotNeeded', 'autoHide', 'autoHideTimeout', 'autoHideDuration', 'thumbSize', 'thumbMinSize', 'universal', 'autoHeight', 'autoHeightMin', 'autoHeightMax', 'style', 'children']);
+	        /* eslint-enable no-unused-vars */
 
-	exports["default"] = Scrollbars;
+	        var didMountUniversal = this.state.didMountUniversal;
 
 
-	Scrollbars.propTypes = {
-	    onScroll: _propTypes2["default"].func,
-	    onScrollFrame: _propTypes2["default"].func,
-	    onScrollStart: _propTypes2["default"].func,
-	    onScrollStop: _propTypes2["default"].func,
-	    onUpdate: _propTypes2["default"].func,
-	    renderView: _propTypes2["default"].func,
-	    renderTrackHorizontal: _propTypes2["default"].func,
-	    renderTrackVertical: _propTypes2["default"].func,
-	    renderThumbHorizontal: _propTypes2["default"].func,
-	    renderThumbVertical: _propTypes2["default"].func,
-	    tagName: _propTypes2["default"].string,
-	    thumbSize: _propTypes2["default"].number,
-	    thumbMinSize: _propTypes2["default"].number,
-	    hideTracksWhenNotNeeded: _propTypes2["default"].bool,
-	    autoHide: _propTypes2["default"].bool,
-	    autoHideTimeout: _propTypes2["default"].number,
-	    autoHideDuration: _propTypes2["default"].number,
-	    autoHeight: _propTypes2["default"].bool,
-	    autoHeightMin: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
-	    autoHeightMax: _propTypes2["default"].oneOfType([_propTypes2["default"].number, _propTypes2["default"].string]),
-	    universal: _propTypes2["default"].bool,
-	    style: _propTypes2["default"].object,
-	    children: _propTypes2["default"].node
-	};
+	        var containerStyle = _extends({}, _styles.containerStyleDefault, autoHeight && _extends({}, _styles.containerStyleAutoHeight, {
+	            minHeight: autoHeightMin,
+	            maxHeight: autoHeightMax
+	        }), style);
 
-	Scrollbars.defaultProps = {
-	    renderView: _defaultRenderElements.renderViewDefault,
-	    renderTrackHorizontal: _defaultRenderElements.renderTrackHorizontalDefault,
-	    renderTrackVertical: _defaultRenderElements.renderTrackVerticalDefault,
-	    renderThumbHorizontal: _defaultRenderElements.renderThumbHorizontalDefault,
-	    renderThumbVertical: _defaultRenderElements.renderThumbVerticalDefault,
-	    tagName: 'div',
-	    thumbMinSize: 30,
-	    hideTracksWhenNotNeeded: false,
-	    autoHide: false,
-	    autoHideTimeout: 1000,
-	    autoHideDuration: 200,
-	    autoHeight: false,
-	    autoHeightMin: 0,
-	    autoHeightMax: 200,
-	    universal: false
-	};
+	        var viewStyle = _extends({}, _styles.viewStyleDefault, {
+	            // Hide scrollbars by setting a negative margin
+	            marginRight: scrollbarWidth ? -scrollbarWidth : 0,
+	            marginBottom: scrollbarWidth ? -scrollbarWidth : 0
+	        }, autoHeight && _extends({}, _styles.viewStyleAutoHeight, {
+	            // Add scrollbarWidth to autoHeight in order to compensate negative margins
+	            minHeight: (0, _isString2["default"])(autoHeightMin) ? 'calc(' + autoHeightMin + ' + ' + scrollbarWidth + 'px)' : autoHeightMin + scrollbarWidth,
+	            maxHeight: (0, _isString2["default"])(autoHeightMax) ? 'calc(' + autoHeightMax + ' + ' + scrollbarWidth + 'px)' : autoHeightMax + scrollbarWidth
+	        }), autoHeight && universal && !didMountUniversal && {
+	            minHeight: autoHeightMin,
+	            maxHeight: autoHeightMax
+	        }, universal && !didMountUniversal && _styles.viewStyleUniversalInitial);
 
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
+	        var trackAutoHeightStyle = {
+	            transition: 'opacity ' + autoHideDuration + 'ms',
+	            opacity: 0
+	        };
+
+	        var trackHorizontalStyle = _extends({}, _styles.trackHorizontalStyleDefault, autoHide && trackAutoHeightStyle, (!scrollbarWidth || universal && !didMountUniversal) && {
+	            display: 'none'
+	        });
+
+	        var trackVerticalStyle = _extends({}, _styles.trackVerticalStyleDefault, autoHide && trackAutoHeightStyle, (!scrollbarWidth || universal && !didMountUniversal) && {
+	            display: 'none'
+	        });
+
+	        return (0, _react.createElement)(tagName, _extends({}, props, { style: containerStyle, ref: 'container' }), [(0, _react.cloneElement)(renderView({ style: viewStyle }), { key: 'view', ref: 'view' }, children), (0, _react.cloneElement)(renderTrackHorizontal({ style: trackHorizontalStyle }), { key: 'trackHorizontal', ref: 'trackHorizontal' }, (0, _react.cloneElement)(renderThumbHorizontal({ style: _styles.thumbHorizontalStyleDefault }), { ref: 'thumbHorizontal' })), (0, _react.cloneElement)(renderTrackVertical({ style: trackVerticalStyle }), { key: 'trackVertical', ref: 'trackVertical' }, (0, _react.cloneElement)(renderThumbVertical({ style: _styles.thumbVerticalStyleDefault }), { ref: 'thumbVertical' }))]);
+	    }
+	});
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
 
 	'use strict';
 
@@ -30252,9 +29914,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    userSelect: ''
 	};
 
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
 
 	"use strict";
 
@@ -30272,9 +29934,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return clientHeight - parseFloat(paddingTop) - parseFloat(paddingBottom);
 	}
 
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
 
 	"use strict";
 
@@ -30292,9 +29954,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return clientWidth - parseFloat(paddingLeft) - parseFloat(paddingRight);
 	}
 
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -30333,9 +29995,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return scrollbarWidth || 0;
 	}
 
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
 
 	'use strict';
 
@@ -30347,9 +30009,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return typeof maybe === 'string';
 	}
 
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
 
 	"use strict";
 
@@ -30361,9 +30023,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return false;
 	}
 
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
 	(function() {
@@ -30398,11 +30060,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	}).call(this);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(18)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
 
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
 
 	var div = null
 	var prefixes = [ 'Webkit', 'Moz', 'O', 'ms' ]
@@ -30436,9 +30098,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
 
 	// shim for using process in browser
 	var process = module.exports = {};
@@ -30622,598 +30284,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	process.umask = function() { return 0; };
 
 
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	if (true) {
-	  var invariant = __webpack_require__(3);
-	  var warning = __webpack_require__(4);
-	  var ReactPropTypesSecret = __webpack_require__(5);
-	  var loggedTypeFailures = {};
-	}
-
-	/**
-	 * Assert that the values match with the type specs.
-	 * Error messages are memorized and will only be shown once.
-	 *
-	 * @param {object} typeSpecs Map of name to a ReactPropType
-	 * @param {object} values Runtime values that need to be type-checked
-	 * @param {string} location e.g. "prop", "context", "child context"
-	 * @param {string} componentName Name of the component for error messages.
-	 * @param {?Function} getStack Returns the component stack.
-	 * @private
-	 */
-	function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-	  if (true) {
-	    for (var typeSpecName in typeSpecs) {
-	      if (typeSpecs.hasOwnProperty(typeSpecName)) {
-	        var error;
-	        // Prop type validation may throw. In case they do, we don't want to
-	        // fail the render phase where it didn't fail before. So we log it.
-	        // After these have been cleaned up, we'll let them throw.
-	        try {
-	          // This is intentionally an invariant that gets caught. It's the same
-	          // behavior as without this statement except with a better message.
-	          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
-	          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-	        } catch (ex) {
-	          error = ex;
-	        }
-	        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
-	        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-	          // Only monitor this failure once because there tends to be a lot of the
-	          // same error.
-	          loggedTypeFailures[error.message] = true;
-
-	          var stack = getStack ? getStack() : '';
-
-	          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
-	        }
-	      }
-	    }
-	  }
-	}
-
-	module.exports = checkPropTypes;
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	var emptyFunction = __webpack_require__(2);
-	var invariant = __webpack_require__(3);
-	var warning = __webpack_require__(4);
-
-	var ReactPropTypesSecret = __webpack_require__(5);
-	var checkPropTypes = __webpack_require__(19);
-
-	module.exports = function(isValidElement, throwOnDirectAccess) {
-	  /* global Symbol */
-	  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-	  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-	  /**
-	   * Returns the iterator method function contained on the iterable object.
-	   *
-	   * Be sure to invoke the function with the iterable as context:
-	   *
-	   *     var iteratorFn = getIteratorFn(myIterable);
-	   *     if (iteratorFn) {
-	   *       var iterator = iteratorFn.call(myIterable);
-	   *       ...
-	   *     }
-	   *
-	   * @param {?object} maybeIterable
-	   * @return {?function}
-	   */
-	  function getIteratorFn(maybeIterable) {
-	    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-	    if (typeof iteratorFn === 'function') {
-	      return iteratorFn;
-	    }
-	  }
-
-	  /**
-	   * Collection of methods that allow declaration and validation of props that are
-	   * supplied to React components. Example usage:
-	   *
-	   *   var Props = require('ReactPropTypes');
-	   *   var MyArticle = React.createClass({
-	   *     propTypes: {
-	   *       // An optional string prop named "description".
-	   *       description: Props.string,
-	   *
-	   *       // A required enum prop named "category".
-	   *       category: Props.oneOf(['News','Photos']).isRequired,
-	   *
-	   *       // A prop named "dialog" that requires an instance of Dialog.
-	   *       dialog: Props.instanceOf(Dialog).isRequired
-	   *     },
-	   *     render: function() { ... }
-	   *   });
-	   *
-	   * A more formal specification of how these methods are used:
-	   *
-	   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-	   *   decl := ReactPropTypes.{type}(.isRequired)?
-	   *
-	   * Each and every declaration produces a function with the same signature. This
-	   * allows the creation of custom validation functions. For example:
-	   *
-	   *  var MyLink = React.createClass({
-	   *    propTypes: {
-	   *      // An optional string or URI prop named "href".
-	   *      href: function(props, propName, componentName) {
-	   *        var propValue = props[propName];
-	   *        if (propValue != null && typeof propValue !== 'string' &&
-	   *            !(propValue instanceof URI)) {
-	   *          return new Error(
-	   *            'Expected a string or an URI for ' + propName + ' in ' +
-	   *            componentName
-	   *          );
-	   *        }
-	   *      }
-	   *    },
-	   *    render: function() {...}
-	   *  });
-	   *
-	   * @internal
-	   */
-
-	  var ANONYMOUS = '<<anonymous>>';
-
-	  // Important!
-	  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-	  var ReactPropTypes = {
-	    array: createPrimitiveTypeChecker('array'),
-	    bool: createPrimitiveTypeChecker('boolean'),
-	    func: createPrimitiveTypeChecker('function'),
-	    number: createPrimitiveTypeChecker('number'),
-	    object: createPrimitiveTypeChecker('object'),
-	    string: createPrimitiveTypeChecker('string'),
-	    symbol: createPrimitiveTypeChecker('symbol'),
-
-	    any: createAnyTypeChecker(),
-	    arrayOf: createArrayOfTypeChecker,
-	    element: createElementTypeChecker(),
-	    instanceOf: createInstanceTypeChecker,
-	    node: createNodeChecker(),
-	    objectOf: createObjectOfTypeChecker,
-	    oneOf: createEnumTypeChecker,
-	    oneOfType: createUnionTypeChecker,
-	    shape: createShapeTypeChecker
-	  };
-
-	  /**
-	   * inlined Object.is polyfill to avoid requiring consumers ship their own
-	   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-	   */
-	  /*eslint-disable no-self-compare*/
-	  function is(x, y) {
-	    // SameValue algorithm
-	    if (x === y) {
-	      // Steps 1-5, 7-10
-	      // Steps 6.b-6.e: +0 != -0
-	      return x !== 0 || 1 / x === 1 / y;
-	    } else {
-	      // Step 6.a: NaN == NaN
-	      return x !== x && y !== y;
-	    }
-	  }
-	  /*eslint-enable no-self-compare*/
-
-	  /**
-	   * We use an Error-like object for backward compatibility as people may call
-	   * PropTypes directly and inspect their output. However, we don't use real
-	   * Errors anymore. We don't inspect their stack anyway, and creating them
-	   * is prohibitively expensive if they are created too often, such as what
-	   * happens in oneOfType() for any type before the one that matched.
-	   */
-	  function PropTypeError(message) {
-	    this.message = message;
-	    this.stack = '';
-	  }
-	  // Make `instanceof Error` still work for returned errors.
-	  PropTypeError.prototype = Error.prototype;
-
-	  function createChainableTypeChecker(validate) {
-	    if (true) {
-	      var manualPropTypeCallCache = {};
-	      var manualPropTypeWarningCount = 0;
-	    }
-	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-	      componentName = componentName || ANONYMOUS;
-	      propFullName = propFullName || propName;
-
-	      if (secret !== ReactPropTypesSecret) {
-	        if (throwOnDirectAccess) {
-	          // New behavior only for users of `prop-types` package
-	          invariant(
-	            false,
-	            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-	            'Use `PropTypes.checkPropTypes()` to call them. ' +
-	            'Read more at http://fb.me/use-check-prop-types'
-	          );
-	        } else if (("development") !== 'production' && typeof console !== 'undefined') {
-	          // Old behavior for people using React.PropTypes
-	          var cacheKey = componentName + ':' + propName;
-	          if (
-	            !manualPropTypeCallCache[cacheKey] &&
-	            // Avoid spamming the console because they are often not actionable except for lib authors
-	            manualPropTypeWarningCount < 3
-	          ) {
-	            warning(
-	              false,
-	              'You are manually calling a React.PropTypes validation ' +
-	              'function for the `%s` prop on `%s`. This is deprecated ' +
-	              'and will throw in the standalone `prop-types` package. ' +
-	              'You may be seeing this warning due to a third-party PropTypes ' +
-	              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
-	              propFullName,
-	              componentName
-	            );
-	            manualPropTypeCallCache[cacheKey] = true;
-	            manualPropTypeWarningCount++;
-	          }
-	        }
-	      }
-	      if (props[propName] == null) {
-	        if (isRequired) {
-	          if (props[propName] === null) {
-	            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-	          }
-	          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-	        }
-	        return null;
-	      } else {
-	        return validate(props, propName, componentName, location, propFullName);
-	      }
-	    }
-
-	    var chainedCheckType = checkType.bind(null, false);
-	    chainedCheckType.isRequired = checkType.bind(null, true);
-
-	    return chainedCheckType;
-	  }
-
-	  function createPrimitiveTypeChecker(expectedType) {
-	    function validate(props, propName, componentName, location, propFullName, secret) {
-	      var propValue = props[propName];
-	      var propType = getPropType(propValue);
-	      if (propType !== expectedType) {
-	        // `propValue` being instance of, say, date/regexp, pass the 'object'
-	        // check, but we can offer a more precise error message here rather than
-	        // 'of type `object`'.
-	        var preciseType = getPreciseType(propValue);
-
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createAnyTypeChecker() {
-	    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
-	  }
-
-	  function createArrayOfTypeChecker(typeChecker) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (typeof typeChecker !== 'function') {
-	        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
-	      }
-	      var propValue = props[propName];
-	      if (!Array.isArray(propValue)) {
-	        var propType = getPropType(propValue);
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-	      }
-	      for (var i = 0; i < propValue.length; i++) {
-	        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
-	        if (error instanceof Error) {
-	          return error;
-	        }
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createElementTypeChecker() {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      var propValue = props[propName];
-	      if (!isValidElement(propValue)) {
-	        var propType = getPropType(propValue);
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createInstanceTypeChecker(expectedClass) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (!(props[propName] instanceof expectedClass)) {
-	        var expectedClassName = expectedClass.name || ANONYMOUS;
-	        var actualClassName = getClassName(props[propName]);
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createEnumTypeChecker(expectedValues) {
-	    if (!Array.isArray(expectedValues)) {
-	       true ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
-	      return emptyFunction.thatReturnsNull;
-	    }
-
-	    function validate(props, propName, componentName, location, propFullName) {
-	      var propValue = props[propName];
-	      for (var i = 0; i < expectedValues.length; i++) {
-	        if (is(propValue, expectedValues[i])) {
-	          return null;
-	        }
-	      }
-
-	      var valuesString = JSON.stringify(expectedValues);
-	      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createObjectOfTypeChecker(typeChecker) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (typeof typeChecker !== 'function') {
-	        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
-	      }
-	      var propValue = props[propName];
-	      var propType = getPropType(propValue);
-	      if (propType !== 'object') {
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-	      }
-	      for (var key in propValue) {
-	        if (propValue.hasOwnProperty(key)) {
-	          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-	          if (error instanceof Error) {
-	            return error;
-	          }
-	        }
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createUnionTypeChecker(arrayOfTypeCheckers) {
-	    if (!Array.isArray(arrayOfTypeCheckers)) {
-	       true ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
-	      return emptyFunction.thatReturnsNull;
-	    }
-
-	    function validate(props, propName, componentName, location, propFullName) {
-	      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-	        var checker = arrayOfTypeCheckers[i];
-	        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
-	          return null;
-	        }
-	      }
-
-	      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createNodeChecker() {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (!isNode(props[propName])) {
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function createShapeTypeChecker(shapeTypes) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      var propValue = props[propName];
-	      var propType = getPropType(propValue);
-	      if (propType !== 'object') {
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-	      }
-	      for (var key in shapeTypes) {
-	        var checker = shapeTypes[key];
-	        if (!checker) {
-	          continue;
-	        }
-	        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-	        if (error) {
-	          return error;
-	        }
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-
-	  function isNode(propValue) {
-	    switch (typeof propValue) {
-	      case 'number':
-	      case 'string':
-	      case 'undefined':
-	        return true;
-	      case 'boolean':
-	        return !propValue;
-	      case 'object':
-	        if (Array.isArray(propValue)) {
-	          return propValue.every(isNode);
-	        }
-	        if (propValue === null || isValidElement(propValue)) {
-	          return true;
-	        }
-
-	        var iteratorFn = getIteratorFn(propValue);
-	        if (iteratorFn) {
-	          var iterator = iteratorFn.call(propValue);
-	          var step;
-	          if (iteratorFn !== propValue.entries) {
-	            while (!(step = iterator.next()).done) {
-	              if (!isNode(step.value)) {
-	                return false;
-	              }
-	            }
-	          } else {
-	            // Iterator will provide entry [k,v] tuples rather than values.
-	            while (!(step = iterator.next()).done) {
-	              var entry = step.value;
-	              if (entry) {
-	                if (!isNode(entry[1])) {
-	                  return false;
-	                }
-	              }
-	            }
-	          }
-	        } else {
-	          return false;
-	        }
-
-	        return true;
-	      default:
-	        return false;
-	    }
-	  }
-
-	  function isSymbol(propType, propValue) {
-	    // Native Symbol.
-	    if (propType === 'symbol') {
-	      return true;
-	    }
-
-	    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-	    if (propValue['@@toStringTag'] === 'Symbol') {
-	      return true;
-	    }
-
-	    // Fallback for non-spec compliant Symbols which are polyfilled.
-	    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-	      return true;
-	    }
-
-	    return false;
-	  }
-
-	  // Equivalent of `typeof` but with special handling for array and regexp.
-	  function getPropType(propValue) {
-	    var propType = typeof propValue;
-	    if (Array.isArray(propValue)) {
-	      return 'array';
-	    }
-	    if (propValue instanceof RegExp) {
-	      // Old webkits (at least until Android 4.0) return 'function' rather than
-	      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-	      // passes PropTypes.object.
-	      return 'object';
-	    }
-	    if (isSymbol(propType, propValue)) {
-	      return 'symbol';
-	    }
-	    return propType;
-	  }
-
-	  // This handles more types than `getPropType`. Only used for error messages.
-	  // See `createPrimitiveTypeChecker`.
-	  function getPreciseType(propValue) {
-	    var propType = getPropType(propValue);
-	    if (propType === 'object') {
-	      if (propValue instanceof Date) {
-	        return 'date';
-	      } else if (propValue instanceof RegExp) {
-	        return 'regexp';
-	      }
-	    }
-	    return propType;
-	  }
-
-	  // Returns class name of the object, if any.
-	  function getClassName(propValue) {
-	    if (!propValue.constructor || !propValue.constructor.name) {
-	      return ANONYMOUS;
-	    }
-	    return propValue.constructor.name;
-	  }
-
-	  ReactPropTypes.checkPropTypes = checkPropTypes;
-	  ReactPropTypes.PropTypes = ReactPropTypes;
-
-	  return ReactPropTypes;
-	};
-
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	if (true) {
-	  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-	    Symbol["for"] &&
-	    Symbol["for"]('react.element')) ||
-	    0xeac7;
-
-	  var isValidElement = function(object) {
-	    return typeof object === 'object' &&
-	      object !== null &&
-	      object.$$typeof === REACT_ELEMENT_TYPE;
-	  };
-
-	  // By explicitly using `prop-types` you are opting into new development behavior.
-	  // http://fb.me/prop-types-in-prod
-	  var throwOnDirectAccess = true;
-	  module.exports = __webpack_require__(20)(isValidElement, throwOnDirectAccess);
-	} else {
-	  // By explicitly using `prop-types` you are opting into new production behavior.
-	  // http://fb.me/prop-types-in-prod
-	  module.exports = require('./factoryWithThrowingShims')();
-	}
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(16)
+	/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(12)
 	  , root = typeof window === 'undefined' ? global : window
 	  , vendors = ['moz', 'webkit']
 	  , suffix = 'AnimationFrame'
@@ -31288,12 +30363,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
 
 	
-	var space = __webpack_require__(25)
+	var space = __webpack_require__(18)
 
 	/**
 	 * Export.
@@ -31315,9 +30390,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
 
 	
 	/**
@@ -31388,12 +30463,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
 
 	
-	var clean = __webpack_require__(24)
+	var clean = __webpack_require__(17)
 
 	/**
 	 * Export.
@@ -31415,7 +30490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ })
+/***/ }
 /******/ ])
 });
 ;
