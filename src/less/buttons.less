@@ -80,6 +80,11 @@
 
 
 // -------------------------
+// Component
+// -------------------------
+
+
+// -------------------------
 // Anchor Elements
 // -------------------------
 
@@ -127,7 +132,7 @@ button {
   max-width: 100%;
   text-align: left;
   touch-action: manipulation;
-  transition: color 250ms @trans-timing-cubic, background 250ms @trans-timing-cubic;
+  transition: color 250ms @global-trans-timing-cubic, background 250ms @global-trans-timing-cubic;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -157,10 +162,6 @@ button {
   &:focus {
     .mixin-tab-focus();
   }
-
-  /*.icon {
-    font-size: @font-size-base + .2rem;
-  }*/
 }
 
 
@@ -173,10 +174,6 @@ button {
   justify-content: center;
   width: 100%;
 }
-
-/*.btn--block + .btn--block {
-  margin-top: @global-whitespace-small;
-}*/
 
 // Specificity overrides
 input[type='submit'],

@@ -22,13 +22,20 @@
 @modal-header-padding-vert: 2rem;
 @modal-header-line-height: @headings-line-height;
 
+@modal-zindex: 1020;
+
+
+// -------------------------
+// Component
+// -------------------------
+
 
 // -------------------------
 // Modal Open State
 // -------------------------
 
 
-// class added to body
+// Class added to body
 .modal-open {
   overflow: hidden;
 }
@@ -49,7 +56,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: @zindex-modal;
+  z-index: @modal-zindex;
 }
 
 
@@ -63,12 +70,12 @@
   background-color: @modal-content-bg;
   border: 1px solid @modal-content-border-color;
   border-radius: @global-border-radius;
-  box-shadow: @shadow-depth-3;
+  box-shadow: @global-shadow-depth-3;
   margin: @global-whitespace-base;
   opacity: 0; // 1
   transform: translateY(25%) scale(.5); // 1
   transform-origin: center bottom; // 1
-  z-index: @zindex-modal;
+  z-index: @modal-zindex;
 
   @media (min-width: @global-screen-sm-min) {
     margin: @global-whitespace-large auto;

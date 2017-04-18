@@ -46,8 +46,8 @@
 @global-gutter: 3.2rem;
 @global-half-gutter: 1.6rem;
 
-@component-active-color: @global-color-white; // global color for active items (e.g., navs or dropdowns)
-@component-active-bg: @global-color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
+@global-component-active-color: @global-color-white; // global color for active items (e.g., navs or dropdowns)
+@global-component-active-bg: @global-color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
 
 
 // -------------------------
@@ -55,22 +55,7 @@
 // -------------------------
 
 
-@opacity-disabled: .6;
-
-
-// -------------------------
-// Scaffolding
-// -------------------------
-
-
-@body-bg: @global-color-white; // body bg color
-
-@link-color: @global-color-primary; // global textual link color
-@link-hover-color: darken(@link-color, 10%);
-@link-hover-decoration: underline;
-
-@text-color: @global-color-gray-dark; // body text color
-@text-color-muted: @global-color-gray;
+@global-opacity-disabled: .6;
 
 
 // -------------------------
@@ -94,9 +79,9 @@
 // -------------------------
 
 
-@shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .2);
-@shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .2);
-@shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, .2);
+@global-shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .2);
+@global-shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .2);
+@global-shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, .2);
 
 
 // -------------------------
@@ -112,27 +97,27 @@
 // -------------------------
 
 
-@state-accent-text: darken(@global-color-accent, 5%);
+@global-state-accent-text: darken(@global-color-accent, 5%);
 
-@state-danger-text: @global-color-danger;
-@state-danger-bg: tint(@global-color-danger, 80%);
-@state-danger-border: lighten(@global-color-danger, 45%);
+@global-state-danger-text: @global-color-danger;
+@global-state-danger-bg: tint(@global-color-danger, 80%);
+@global-state-danger-border: lighten(@global-color-danger, 45%);
 
-@state-info-text: @global-color-info;
-@state-info-bg: tint(@global-color-info, 80%);
-@state-info-border: lighten(@global-color-info, 27%);
+@global-state-info-text: @global-color-info;
+@global-state-info-bg: tint(@global-color-info, 80%);
+@global-state-info-border: lighten(@global-color-info, 27%);
 
-@state-primary-text: @global-color-primary;
+@global-state-primary-text: @global-color-primary;
 
-@state-secondary-text: darken(@global-color-secondary, 4%);
+@global-state-secondary-text: darken(@global-color-secondary, 4%);
 
-@state-success-text: darken(@global-color-success, 4%);
-@state-success-bg: tint(@global-color-success, 80%);
-@state-success-border: lighten(@global-color-success, 40%);
+@global-state-success-text: darken(@global-color-success, 4%);
+@global-state-success-bg: tint(@global-color-success, 80%);
+@global-state-success-border: lighten(@global-color-success, 40%);
 
-@state-warning-text: darken(@global-color-warning, 12%);
-@state-warning-bg: tint(@global-color-warning, 80%);
-@state-warning-border: lighten(@global-color-warning, 28%);
+@global-state-warning-text: darken(@global-color-warning, 12%);
+@global-state-warning-bg: tint(@global-color-warning, 80%);
+@global-state-warning-border: lighten(@global-color-warning, 28%);
 
 
 // -------------------------
@@ -148,59 +133,8 @@
 // -------------------------
 
 
-@trans-timing-cubic: cubic-bezier(.43, .41, .22, .91);
-@trans-timing-elastic: cubic-bezier(1, .6, 0, 1.22);
-
-
-// -------------------------
-// Type
-// -------------------------
-
-
-@component-offset-horizontal: 18rem; // horizontal offset for forms and lists
-@dl-horizontal-offset: @component-offset-horizontal; // width of horizontal description list titles
-@headings-small-color: @global-color-gray-light;
-@hr-border: @global-color-gray-lighter;
-
-
-// -------------------------
-// Typography
-// -------------------------
-
-
-@font-family-base: @font-family-sans-serif;
-@font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
-@font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-@font-family-serif: Georgia, 'Times New Roman', Times, serif;
-
-@font-size-root: 10px;
-
-@font-size-base: 1.6rem;
-@font-size-large: 2rem;
-@font-size-medium: 1.8rem;
-@font-size-small: 1.4rem;
-
-@font-size-h1: 3rem;
-@font-size-h2: 2.6rem;
-@font-size-h3: 2.2rem;
-@font-size-h4: 1.8rem;
-@font-size-h5: 1.6rem;
-@font-size-h6: 1.4rem;
-
-@font-weight-bold: 900;
-@font-weight-light: 300;
-@font-weight-normal: 400;
-@font-weight-semibold: 700;
-
-@headings-font-family: inherit;
-@headings-font-weight: @font-weight-bold;
-@headings-line-height: @line-height-small;
-@headings-color: inherit;
-
-@line-height-base: 1.42857143;
-@line-height-computed: @font-size-base * @line-height-base; // ~22px
-@line-height-large: 1.3333333; // extra decimals for Win 8.1 Chrome
-@line-height-small: 1.2;
+@global-trans-timing-cubic: cubic-bezier(.43, .41, .22, .91);
+@global-trans-timing-elastic: cubic-bezier(1, .6, 0, 1.22);
 
 
 // -------------------------
@@ -213,16 +147,3 @@
 @global-whitespace-base: 1rem;
 @global-whitespace-small: .6rem;
 @global-whitespace-xsmall: .4rem;
-
-
-// -------------------------
-// Z-index
-// -------------------------
-
-
-@zindex-cover: 1010;
-@zindex-modal: 1020;
-@zindex-dropdown: 1030;
-@zindex-popover: 1040;
-@zindex-tooltip: 1050;
-@zindex-toast: 2000;

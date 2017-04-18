@@ -10,6 +10,8 @@
 @tooltip-color: @global-color-white;
 @tooltip-padding: @global-whitespace-xsmall @global-whitespace-small;
 
+@tooltip-zindex: 1050;
+
 
 // -------------------------
 // Component
@@ -33,7 +35,7 @@
     padding: @tooltip-padding;
     position: absolute;
     text-align: center;
-    transition: opacity 250ms @trans-timing-cubic;
+    transition: opacity 250ms @global-trans-timing-cubic;
     visibility: hidden;
     white-space: nowrap;
   }
@@ -47,13 +49,13 @@
     height: 0;
     opacity: 0;
     position: absolute;
-    transition: opacity 250ms @trans-timing-cubic;
+    transition: opacity 250ms @global-trans-timing-cubic;
     visibility: hidden;
     width: 0;
   }
 
   &:hover {
-    z-index: @zindex-tooltip;
+    z-index: @tooltip-zindex;
 
     &::before,
     &::after {

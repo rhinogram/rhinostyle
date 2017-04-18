@@ -8,6 +8,8 @@
 @toast-padding: @global-whitespace-base;
 @toast-text: @global-color-white;
 
+@toast-zindex: 2000;
+
 
 // -------------------------
 // Component
@@ -24,7 +26,7 @@
   position: fixed;
   right: @toast-offset;
   top: @toast-offset;
-  z-index: @zindex-toast;
+  z-index: @toast-zindex;
 
   @media (min-width: @global-screen-xs-min) {
     left: 50%;

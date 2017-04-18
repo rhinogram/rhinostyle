@@ -12,14 +12,16 @@
 @dropdown-link-color: @text-color;
 @dropdown-link-hover-color: darken(@text-color, 5%);
 @dropdown-link-hover-bg: @global-color-gray-lightest;
-@dropdown-link-active-color: @component-active-color;
-@dropdown-link-active-bg: @component-active-bg;
+@dropdown-link-active-color: @global-component-active-color;
+@dropdown-link-active-bg: @global-component-active-bg;
 @dropdown-link-disabled-color: @global-color-gray-light;
 @dropdown-menu-offset: .8rem;
-@dropdown-menu-shadow: @shadow-depth-1;
+@dropdown-menu-shadow: @global-shadow-depth-1;
 @dropdown-padding-horizontal: @global-whitespace-xlarge;
 @dropdown-padding-vertical: @global-whitespace-small;
 @dropdown-padding: @dropdown-padding-vertical @dropdown-padding-horizontal;
+
+@dropdown-zindex: 1030;
 
 
 // -------------------------
@@ -131,7 +133,7 @@
   top: ~'calc(100% + @{dropdown-menu-offset})';
   transform: translateY(-@dropdown-menu-offset);
   transform-origin: left top;
-  z-index: @zindex-dropdown;
+  z-index: @dropdown-zindex;
 
   &::before {
     background: @dropdown-bg;

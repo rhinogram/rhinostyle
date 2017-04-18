@@ -261,7 +261,7 @@ input[type='checkbox']:focus {
 
   &.disabled,
   &[disabled] {
-    opacity: @opacity-disabled;
+    opacity: @global-opacity-disabled;
   }
 }
 
@@ -368,7 +368,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  transition: border-color .15s @trans-timing-cubic, box-shadow .15s @trans-timing-cubic;
+  transition: border-color .15s @global-trans-timing-cubic, box-shadow .15s @global-trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -393,7 +393,7 @@ input[type='checkbox']:focus {
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
     cursor: @cursor-disabled;
-    opacity: @opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    opacity: @global-opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
  /* &.disabled,
@@ -546,7 +546,7 @@ input[type='checkbox'] {
   &.disabled,
   fieldset[disabled] & {
     cursor: @cursor-disabled;
-    opacity: @opacity-disabled;
+    opacity: @global-opacity-disabled;
   }
 }
 
@@ -576,7 +576,7 @@ input[type='checkbox'] {
 .rhinodio--disabled {
   label {
     cursor: @cursor-disabled;
-    opacity: @opacity-disabled;
+    opacity: @global-opacity-disabled;
   }
 }
 
@@ -609,7 +609,7 @@ input[type='checkbox'] {
       position: absolute;
       speak: none;
       top: .1rem;
-      transition: background-color 250ms @trans-timing-cubic;
+      transition: background-color 250ms @global-trans-timing-cubic;
       width: 2rem;
     }
   }
@@ -738,7 +738,7 @@ input[type='checkbox'] {
   font-size: 0;
   height: @switcher-height;
   transform: translateX(-50%);
-  transition: transform 250ms @trans-timing-cubic;
+  transition: transform 250ms @global-trans-timing-cubic;
   width: 200%;
 }
 
@@ -833,7 +833,7 @@ input[type='checkbox'] {
   text-align: center;
   top: 0;
   transform: translateX(0);
-  transition: transform 250ms @trans-timing-cubic;
+  transition: transform 250ms @global-trans-timing-cubic;
   width: @switcher-toggler-width;
   z-index: 10;
 }
