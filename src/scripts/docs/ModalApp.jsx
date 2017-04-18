@@ -36,8 +36,6 @@ const exampleScope  = {
 
 const ModalApp = () =>
   <div>
-    <h1 className="site-headline">Modals</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
       <p className="site-copy">You can inject a modal by calling <code>ModalSystem.addModal(modal)</code>, where <code>modal</code> can be <code>Modal</code> containing <code>ModalHeader</code>, <code>ModalBody</code>, <code>ModalFooter</code>.</p>

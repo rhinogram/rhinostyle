@@ -53,8 +53,6 @@ class NavigationApp extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="site-headline">Navigation</h1>
-
         <section className="site-section">
           <h3 className="site-subheadline">Navigation</h3>
           <p className="site-text-lead">Below you will find our set of navigation components. This page exists to demonstrate the UI of each - appearance, layout, animation, and active states.

@@ -19,8 +19,6 @@ const exampleScope  = {
 
 const MessageApp = () =>
   <div>
-    <h1 className="site-headline">Messages</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | note&quot;</code></p>

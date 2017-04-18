@@ -22,7 +22,7 @@ const exampleScope  = {
 
 const AvatarApp = () =>
   <div>
-    <h1 className="site-headline">Avatars</h1>
+
 
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>

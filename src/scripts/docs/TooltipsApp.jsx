@@ -15,8 +15,6 @@ const exampleScope  = {
 
 const TooltipsApp = () =>
   <div>
-    <h1 className="site-headline">Tooltips</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
       <p className="site-text-lead">Our tooltips are handled purely by CSS via data attributes. These <strong>are not</strong> ReactJS components.</p>

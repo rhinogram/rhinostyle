@@ -18,8 +18,6 @@ const exampleScope  = {
 
 const IconApp = () =>
   <div>
-    <h1 className="site-headline">Icons</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">SVG Icons</h3>
 
