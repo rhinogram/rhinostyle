@@ -18,7 +18,7 @@ const exampleScope  = {
 };
 
 class DatePickerApp extends React.Component {
-  static displayName = 'Rhinostyle Date Picker Examples';
+  static displayName = 'Rhinostyle DatePicker Examples';
 
   state = {
     startDate: moment(),
@@ -31,8 +31,6 @@ class DatePickerApp extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="site-headline">Date Picker</h1>
-
         <section className="site-section">
           <h3 className="site-subheadline">DatePicker <Label className="u-m-l-sm" type="accent" label="third party" /></h3>
           <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank" rel="noopener noreferrer">react-datepicker</a> with custom styling.</p>
@@ -51,7 +49,6 @@ class DatePickerApp extends React.Component {
           <h3 className="site-subheadline">Playground</h3>
           <Playground theme="default" docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
         </section>
-
       </div>
     );
   }

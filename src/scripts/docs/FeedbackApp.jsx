@@ -75,8 +75,6 @@ class FeedbackApp extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="site-headline">Feedback</h1>
-
         <section className="site-section">
           <h3 className="site-subheadline">Feedback</h3>
           <p className="site-text-lead">Numberous components make up our feedback system: Alert, SystemAlert, and Toast.</p>

@@ -1,5 +1,21 @@
-// File: scaffolding.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@body-bg: @global-color-white; // body bg color
+
+@link-color: @global-color-primary; // global textual link color
+@link-hover-color: darken(@link-color, 10%);
+@link-hover-decoration: underline;
+
+@text-color: @global-color-gray-dark; // body text color
+@text-color-muted: @global-color-gray;
+
+
+// -------------------------
+// Component
+// -------------------------
 
 
 // -------------------------
@@ -11,11 +27,6 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   box-sizing: border-box;
   font-size: @font-size-root;
-
-  /*@media (min-width: 1200px) {
-    font-size: 12px;
-  }*/
-
 }
 
 *,

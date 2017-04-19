@@ -1,5 +1,50 @@
-// File: forms.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@cursor-disabled: not-allowed; // disabled cursor for form controls and buttons.
+
+@input-bg: @global-color-white;
+@input-bg-disabled: @global-color-gray-lightest;
+@input-border: @global-border-color-base;
+@input-border-focus: #66afe9;
+@input-border-radius: @global-border-radius;
+@input-color: @text-color;
+@input-color-placeholder: darken(@global-color-gray-light, 4%);
+@input-group-addon-bg: @global-color-gray-lighter; // bg color for textual input addons
+@input-group-addon-border-color: @input-border; // border color for textual input addons
+
+// Form control `.form-control` heights
+
+@input-height-base: @btn-height-base;
+
+@input-padding-base: @btn-padding-base;
+
+@form-addon-item-bg: @global-color-gray-lightest;
+@form-control-chevron-padding: 3rem;
+@form-control-clear-padding: 3rem;
+@form-element-color: @global-color-primary;
+@form-group-margin-bottom: @line-height-computed;
+
+@legend-color: @global-color-gray-dark;
+@legend-border-color: #e5e5e5;
+
+@rhinobox-rhinodio-margin: @global-whitespace-small;
+
+@switcher-border-radius: @global-border-radius;
+@switcher-height: 2.6rem;
+@switcher-state-line-height: @switcher-height;
+@switcher-state-padding: 2.2rem;
+@switcher-toggler-height: 2.2rem;
+@switcher-toggler-margin: .2rem;
+@switcher-toggler-width: 2.2rem;
+@switcher-width: 6rem;
+
+
+// -------------------------
+// Component
+// -------------------------
 
 
 // -------------------------
@@ -26,10 +71,10 @@ textarea {
 }
 
 label {
-  color: @color-gray;
+  color: @global-color-gray;
   display: inline-block;
   font-weight: @font-weight-semibold;
-  margin-bottom: @whitespace-small;
+  margin-bottom: @global-whitespace-small;
 }
 
 legend {
@@ -74,7 +119,7 @@ input[type='search'] {
 input[type='radio'],
 input[type='checkbox'] {
   line-height: normal;
-  //margin: @whitespace-xsmall 0 0;
+  //margin: @global-whitespace-xsmall 0 0;
   margin: 0;
 }
 
@@ -118,7 +163,7 @@ input[type='checkbox']:focus {
 
 
 .form__asterisk {
-  color: @color-danger;
+  color: @global-color-danger;
 }
 
 
@@ -130,18 +175,18 @@ input[type='checkbox']:focus {
 .form__inline {
 
   // Kick in the inline
-  @media (min-width: @screen-sm-min) {
+  @media (min-width: @global-screen-sm-min) {
     // Inline-flex all the things for 'inline'
     .form__group {
       align-items: center;
       display: inline-flex;
       margin-bottom: 0;
-      margin-right: @whitespace-small;
+      margin-right: @global-whitespace-small;
       vertical-align: middle;
 
       > label {
         margin-bottom: 0;
-        margin-right: @whitespace-small;
+        margin-right: @global-whitespace-small;
       }
     }
 
@@ -212,11 +257,11 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .mixin-addon-size(@input-height-base; @whitespace-base; @font-size-base);
+  .mixin-addon-size(@input-height-base; @global-whitespace-base; @font-size-base);
 
   &.disabled,
   &[disabled] {
-    opacity: @opacity-disabled;
+    opacity: @global-opacity-disabled;
   }
 }
 
@@ -244,11 +289,11 @@ input[type='checkbox']:focus {
   font-size: 1.4rem;
   line-height: @line-height-small;
   margin-left: auto;
-  padding: @whitespace-small 0 0 @whitespace-small;
+  padding: @global-whitespace-small 0 0 @global-whitespace-small;
 }
 
 .form__character-count--danger {
-  color: @color-danger;
+  color: @global-color-danger;
 }
 
 
@@ -265,9 +310,9 @@ input[type='checkbox']:focus {
 
 .form__clear__btn {
   align-items: center;
-  background: @color-gray-light;
+  background: @global-color-gray-light;
   border-radius: 50%;
-  color: @color-white;
+  color: @global-color-white;
   display: inline-flex;
   font-size: 1.2rem;
   height: 1.8rem;
@@ -323,7 +368,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  transition: border-color .15s @trans-timing-cubic, box-shadow .15s @trans-timing-cubic;
+  transition: border-color .15s @global-trans-timing-cubic, box-shadow .15s @global-trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -348,7 +393,7 @@ input[type='checkbox']:focus {
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
     cursor: @cursor-disabled;
-    opacity: @opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    opacity: @global-opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
  /* &.disabled,
@@ -360,13 +405,13 @@ input[type='checkbox']:focus {
   textarea& {
     height: auto;
     min-height: @input-height-base;
-    padding-bottom: @whitespace-small;
-    padding-top: @whitespace-small;
+    padding-bottom: @global-whitespace-small;
+    padding-top: @global-whitespace-small;
   }
 }
 
 .form__control--error {
-  border-color: @color-danger;
+  border-color: @global-color-danger;
 }
 
 
@@ -418,7 +463,7 @@ input[type='checkbox']:focus {
   font-size: 1.4rem;
   font-style: italic;
   line-height: @line-height-small;
-  padding-top: @whitespace-small;
+  padding-top: @global-whitespace-small;
 }
 
 
@@ -473,7 +518,7 @@ input::-webkit-input-placeholder {
 
 
 .form__section:not(:last-child) {
-  margin-bottom: (@spacer-y * 3);
+  margin-bottom: (@global-spacer * 3);
 }
 
 
@@ -483,10 +528,10 @@ input::-webkit-input-placeholder {
 
 
 .form__validation-message {
-  color: @color-danger;
+  color: @global-color-danger;
   font-size: 1.4rem;
   line-height: @line-height-small;
-  padding-top: @whitespace-small;
+  padding-top: @global-whitespace-small;
 }
 
 
@@ -501,7 +546,7 @@ input[type='checkbox'] {
   &.disabled,
   fieldset[disabled] & {
     cursor: @cursor-disabled;
-    opacity: @opacity-disabled;
+    opacity: @global-opacity-disabled;
   }
 }
 
@@ -531,7 +576,7 @@ input[type='checkbox'] {
 .rhinodio--disabled {
   label {
     cursor: @cursor-disabled;
-    opacity: @opacity-disabled;
+    opacity: @global-opacity-disabled;
   }
 }
 
@@ -547,14 +592,14 @@ input[type='checkbox'] {
       background-repeat: no-repeat;
       background-size: 1.6rem 1.6rem;
       border-color: @form-element-color;
-      fill: @color-white;
+      fill: @global-color-white;
     }
   }
 
   label {
     &::before {
-      background-color: @color-white;
-      border: 1px solid @border-color-base;
+      background-color: @global-color-white;
+      border: 1px solid @global-border-color-base;
       content: '';
       display: inline-block;
       height: 2rem;
@@ -564,7 +609,7 @@ input[type='checkbox'] {
       position: absolute;
       speak: none;
       top: .1rem;
-      transition: background-color 250ms @trans-timing-cubic;
+      transition: background-color 250ms @global-trans-timing-cubic;
       width: 2rem;
     }
   }
@@ -594,8 +639,8 @@ input[type='checkbox'] {
     }
 
     &::before {
-      background-color: @color-white;
-      border: 1px solid @border-color-base;
+      background-color: @global-color-white;
+      border: 1px solid @global-border-color-base;
       border-radius: 50%;
       content: '';
       display: inline-block;
@@ -612,8 +657,8 @@ input[type='checkbox'] {
 .rhinobox--inline,
 .rhinodio--inline {
   display: inline-block;
-  margin: (@rhinobox-rhinodio-margin / 2) @margin-half-gutter (@rhinobox-rhinodio-margin / 2) 0;
-  //margin: .6rem @margin-half-gutter .6rem 0; (Zach)
+  margin: (@rhinobox-rhinodio-margin / 2) @global-half-gutter (@rhinobox-rhinodio-margin / 2) 0;
+  //margin: .6rem @global-half-gutter .6rem 0; (Zach)
 }
 
 
@@ -654,8 +699,8 @@ input[type='checkbox'] {
 .rhinoswitcher {
   display: inline-block;
   height: @switcher-height;
-  margin-bottom: @whitespace-small;
-  margin-top: @whitespace-small;
+  margin-bottom: @global-whitespace-small;
+  margin-top: @global-whitespace-small;
   user-select: none;
   width: @switcher-width;
 }
@@ -693,7 +738,7 @@ input[type='checkbox'] {
   font-size: 0;
   height: @switcher-height;
   transform: translateX(-50%);
-  transition: transform 250ms @trans-timing-cubic;
+  transition: transform 250ms @global-trans-timing-cubic;
   width: 200%;
 }
 
@@ -745,7 +790,7 @@ input[type='checkbox'] {
 .rhinoswitcher__off,
 .rhinoswitcher__on {
   align-items: center;
-  color: @color-white;
+  color: @global-color-white;
   display: inline-flex;
   font-size: 1.4rem;
   height: 100%;
@@ -757,7 +802,7 @@ input[type='checkbox'] {
 }
 
 .rhinoswitcher__off {
-  background-color: @color-gray-light;
+  background-color: @global-color-gray-light;
   padding-left: @switcher-state-padding;
   z-index: 2;
 
@@ -779,7 +824,7 @@ input[type='checkbox'] {
 
 
 .rhinoswitcher__toggler {
-  background-color: @color-white;
+  background-color: @global-color-white;
   border-radius: .2rem;
   height: @switcher-toggler-height;
   left: 0;
@@ -788,7 +833,7 @@ input[type='checkbox'] {
   text-align: center;
   top: 0;
   transform: translateX(0);
-  transition: transform 250ms @trans-timing-cubic;
+  transition: transform 250ms @global-trans-timing-cubic;
   width: @switcher-toggler-width;
   z-index: 10;
 }

@@ -1,13 +1,22 @@
-// File: flexbox-grid.less
 // Note: Taken from http://flexboxgrid.com/ but rolling our own!
 
+// -------------------------
+// Variables
+// -------------------------
+
+
+@grid-columns: 12;
+
+@grid-gutter-width: 3.2rem;
+@grid-gutter-width-condensed: 1.2rem;
+
 
 // -------------------------
-// Flexbox Grid
+// Component
 // -------------------------
+
 
 // Set to 100% by default
-
 [class^='col-'],
 [class*='col-'] {
   flex-basis: 100%;
@@ -159,17 +168,14 @@
 
 .start-xs {
   justify-content: flex-start;
-  //text-align: start;
 }
 
 .center-xs {
   justify-content: center;
-  //text-align: center;
 }
 
 .end-xs {
   justify-content: flex-end;
-  //text-align: end;
 }
 
 .top-xs {
@@ -200,8 +206,7 @@
   order: 1;
 }
 
-@media (min-width: @screen-sm-min) {
-
+@media (min-width: @global-screen-sm-min) {
   .col-sm {
     flex-basis: 0;
     flex-grow: 1;
@@ -314,17 +319,14 @@
 
   .start-sm {
     justify-content: flex-start;
-    //text-align: start;
   }
 
   .center-sm {
     justify-content: center;
-    //text-align: center;
   }
 
   .end-sm {
     justify-content: flex-end;
-    //text-align: end;
   }
 
   .top-sm {
@@ -356,8 +358,7 @@
   }
 }
 
-@media (min-width: @screen-md-min) {
-
+@media (min-width: @global-screen-md-min) {
   .col-md {
     flex-basis: 0;
     flex-grow: 1;
@@ -470,17 +471,14 @@
 
   .start-md {
     justify-content: flex-start;
-    //text-align: start;
   }
 
   .center-md {
     justify-content: center;
-    //text-align: center;
   }
 
   .end-md {
     justify-content: flex-end;
-    //text-align: end;
   }
 
   .top-md {
@@ -512,8 +510,7 @@
   }
 }
 
-@media (min-width: @screen-lg-min) {
-
+@media (min-width: @global-screen-lg-min) {
   .col-lg {
     flex-basis: 0;
     flex-grow: 1;
@@ -626,17 +623,14 @@
 
   .start-lg {
     justify-content: flex-start;
-    //text-align: start;
   }
 
   .center-lg {
     justify-content: center;
-    //text-align: center;
   }
 
   .end-lg {
     justify-content: flex-end;
-    //text-align: end;
   }
 
   .top-lg {

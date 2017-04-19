@@ -1,9 +1,20 @@
-// File: buckets.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@bucket-bg: @global-color-white;
+@bucket-border-radius: @global-border-radius;
+@bucket-padding: @global-whitespace-xlarge;
+@bucket-padding-small: @global-whitespace-base;
+
+@bucket-default-border: @global-border-color-base;
+@bucket-light-border: @global-color-gray-lighter;
+@bucket-primary-border: @global-color-primary;
 
 
 // -------------------------
-// Bucket
+// Component
 // -------------------------
 
 
@@ -86,14 +97,14 @@
 .bucket__header__title {
   align-items: center;
   display: flex;
-  font-size: 1.8rem;
+  font-size: @font-size-medium;
   line-height: 1.2;
 }
 
 .bucket__header__title__avatar {
-  margin-right: @whitespace-base;
+  margin-right: @global-whitespace-base;
 }
 
 .bucket__header__title__icon {
-  margin-right: @whitespace-base;
+  margin-right: @global-whitespace-base;
 }

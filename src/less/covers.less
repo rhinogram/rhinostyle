@@ -1,6 +1,14 @@
-// File: covers.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
 
+
+@cover-zindex: 1010;
+
+
+// -------------------------
+// Componeent
+// -------------------------
 
 
 // -------------------------
@@ -20,7 +28,7 @@
 
 // 1. JS styles
 .cover {
-  background: @color-white;
+  background: @global-color-white;
   bottom: 0;
   display: none; // 1
   flex-direction: column;
@@ -31,7 +39,7 @@
   top: 0;
   transform: scale(.8); // 1
   transform-origin: center center;
-  z-index: @zindex-cover;
+  z-index: @cover-zindex;
 }
 
 
@@ -41,8 +49,8 @@
 
 
 .cover__header {
-  background: @color-white;
-  border-bottom: 2px solid @border-color-light;
+  background: @global-color-white;
+  border-bottom: 2px solid @global-border-color-light;
   display: flex;
   flex: none;
 }
@@ -55,7 +63,7 @@
 
 .cover__header__container,
 .cover__footer__container {
-  padding: @padding-half-gutter;
+  padding: @global-half-gutter;
 }
 
 .cover__header__close-btn {
@@ -84,7 +92,7 @@
 
 .cover__body {
   -webkit-overflow-scrolling: touch;
-  background: @color-gray-lightest;
+  background: @global-color-gray-lightest;
   flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -106,19 +114,19 @@
 
 .cover__body__container {
   margin: 0 auto;
-  padding: @padding-gutter @padding-half-gutter;
+  padding: @global-gutter @global-half-gutter;
 }
 
 .cover__body__container--sm {
-  max-width: @screen-sm-min;
+  max-width: @global-screen-sm-min;
 }
 
 .cover__body__container--md {
-  max-width: @screen-md-min;
+  max-width: @global-screen-md-min;
 }
 
 .cover__body__container--lg {
-  max-width: @screen-lg-min;
+  max-width: @global-screen-lg-min;
 }
 
 
@@ -128,7 +136,7 @@
 
 
 .cover__footer {
-  background: @color-white;
-  border-top: 1px solid @border-color-light;
+  background: @global-color-white;
+  border-top: 1px solid @global-border-color-light;
   flex: none;
 }

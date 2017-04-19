@@ -1,9 +1,24 @@
-// File: tables.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@table-bg: transparent; // default background color used for all tables.
+@table-bg-active: @table-bg-hover;
+@table-bg-danger: @global-state-danger-bg;
+@table-bg-hover: darken(@global-color-gray-lightest, 2%);
+@table-bg-striped: @global-color-gray-lightest;
+@table-bg-success: @global-state-success-bg;
+@table-bg-warning: @global-state-warning-bg;
+
+@table-border-color: @global-border-color-base;
+
+@table-cell-padding: 1rem; // padding for `<th>`s and `<td>`s
+@table-condensed-cell-padding: .6rem; // padding for cells in `.table-condensed`
 
 
 // -------------------------
-// Table
+// Component
 // -------------------------
 
 
@@ -35,30 +50,6 @@
     vertical-align: bottom;
   }
 }
-
-
-// -------------------------
-// Table Cell Sizing
-// -------------------------
-// Reset default table behavior
-
-
-/*table col[class*='col-'] {
-  display: table-column;
-  float: none;
-  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
-}
-
-table {
-  td,
-  th {
-    &[class*='col-'] {
-      display: table-cell;
-      float: none;
-      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
-    }
-  }
-}*/
 
 
 // -------------------------
@@ -96,35 +87,6 @@ table {
 
 
 // -------------------------
-// Table Sortable
-// -------------------------
-
-
-/*.table__sortable {
-  cursor: pointer;
-
-  &:hover {
-    background-color: @color-gray-lighter;
-  }
-}
-
-.table__sortable.is-sorting {
-  background-color: @color-gray-lightest;
-  font-weight: @font-weight-bold;
-
-  &.ascending::after {
-    .caret-down;
-    content: '';
-  }
-
-  &.descending::after {
-    .caret-up;
-    content: '';
-  }
-}*/
-
-
-// -------------------------
 // Table Backgrounds
 // -------------------------
 // Exact selectors below required to override `.table-striped` and prevent
@@ -159,11 +121,9 @@ table {
 
 .responsive-table {
   -webkit-overflow-scrolling: touch;
-  //border: 1px solid @table-border-color;
-  //border-radius: @border-radius;
   overflow-x: auto;
 
-  @media (max-width: @screen-xs-max) { // lesshint depthLevel: false
+  @media (max-width: @global-screen-xs-max) { // lesshint depthLevel: false
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
     margin-bottom: (@line-height-computed * .75);

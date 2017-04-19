@@ -22,8 +22,6 @@ const exampleScope  = {
 
 const PillApp = () =>
   <div>
-    <h1 className="site-headline">Pills</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Pills</h3>
       <p className="site-text-lead">The Pill component is used to display current filters or selections.</p>

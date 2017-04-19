@@ -40,8 +40,6 @@ const exampleScope  = {
 
 const CoverApp = () =>
   <div>
-    <h1 className="site-headline">Covers</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
       <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>Cover</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>

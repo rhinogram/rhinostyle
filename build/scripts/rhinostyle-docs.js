@@ -26640,11 +26640,6 @@ var AvatarApp = function AvatarApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Avatars'
-    ),
-    _react2.default.createElement(
       'section',
       { className: 'site-section' },
       _react2.default.createElement(
@@ -26841,11 +26836,6 @@ var BucketApp = function BucketApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Buckets'
-    ),
-    _react2.default.createElement(
       'section',
       { className: 'site-section' },
       _react2.default.createElement(
@@ -27037,11 +27027,6 @@ var ButtonApp = function ButtonApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Buttons'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -27641,11 +27626,6 @@ var CloseApp = function CloseApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Close'
-    ),
-    _react2.default.createElement(
       'section',
       { className: 'site-section' },
       _react2.default.createElement(
@@ -27747,11 +27727,6 @@ var CoverApp = function CoverApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Covers'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -27916,11 +27891,6 @@ var DatePickerApp = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
-          'h1',
-          { className: 'site-headline' },
-          'Date Picker'
-        ),
-        _react2.default.createElement(
           'section',
           { className: 'site-section' },
           _react2.default.createElement(
@@ -27972,7 +27942,7 @@ var DatePickerApp = function (_React$Component) {
   return DatePickerApp;
 }(_react2.default.Component);
 
-DatePickerApp.displayName = 'Rhinostyle Date Picker Examples';
+DatePickerApp.displayName = 'Rhinostyle DatePicker Examples';
 
 
 _reactDom2.default.render(_react2.default.createElement(DatePickerApp, null), document.getElementById('js-app'));
@@ -28098,11 +28068,6 @@ var DropdownApp = function DropdownApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Dropdowns'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -28762,11 +28727,6 @@ var FeedbackApp = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
-          'h1',
-          { className: 'site-headline' },
-          'Feedback'
-        ),
-        _react2.default.createElement(
           'section',
           { className: 'site-section' },
           _react2.default.createElement(
@@ -29113,11 +29073,6 @@ var FormApp = function FormApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Forms'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -29779,11 +29734,6 @@ var IconApp = function IconApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Icons'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -31146,11 +31096,6 @@ var LabelApp = function LabelApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Labels'
-    ),
-    _react2.default.createElement(
       'section',
       { className: 'site-section' },
       _react2.default.createElement(
@@ -31249,20 +31194,25 @@ var LightboxApp = function LightboxApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Lightbox'
-    ),
-    _react2.default.createElement(
-      'p',
-      { className: 'site-copy' },
-      'We are using ',
+      'section',
+      { className: 'site-section' },
       _react2.default.createElement(
-        'a',
-        { href: 'https://github.com/fritz-c/react-image-lightbox', target: '_blank', rel: 'noopener noreferrer' },
-        'react-image-lightbox'
+        'h3',
+        { className: 'site-subheadline' },
+        'Lightbox ',
+        _react2.default.createElement(_components.Label, { className: 'u-m-l-sm', type: 'accent', label: 'third party' })
       ),
-      ' for lightbox images/galleries.'
+      _react2.default.createElement(
+        'p',
+        { className: 'site-copy' },
+        'We are using ',
+        _react2.default.createElement(
+          'a',
+          { href: 'https://github.com/fritz-c/react-image-lightbox', target: '_blank', rel: 'noopener noreferrer' },
+          'react-image-lightbox'
+        ),
+        ' for lightbox images/galleries.'
+      )
     ),
     _react2.default.createElement(
       'section',
@@ -31337,11 +31287,6 @@ var LoaderApp = function LoaderApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Loaders'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -31477,11 +31422,6 @@ var MessageApp = function MessageApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Messages'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -31738,11 +31678,6 @@ var ModalApp = function ModalApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Modals'
-    ),
-    _react2.default.createElement(
       'section',
       { className: 'site-section' },
       _react2.default.createElement(
@@ -31920,11 +31855,6 @@ var NavigationApp = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'h1',
-          { className: 'site-headline' },
-          'Navigation'
-        ),
         _react2.default.createElement(
           'section',
           { className: 'site-section' },
@@ -32178,11 +32108,6 @@ var PillApp = function PillApp() {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Pills'
-    ),
-    _react2.default.createElement(
       'section',
       { className: 'site-section' },
       _react2.default.createElement(
@@ -32254,11 +32179,6 @@ var ProgressBarApp = function ProgressBarApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Progress Bars'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -32358,11 +32278,6 @@ var ScrollBarApp = function ScrollBarApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Scroll Bar'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -32477,11 +32392,6 @@ var LabelApp = function LabelApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Tables'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -33738,11 +33648,6 @@ var TabsApp = function (_React$Component) {
         'div',
         null,
         _react2.default.createElement(
-          'h1',
-          { className: 'site-headline' },
-          'Tabs'
-        ),
-        _react2.default.createElement(
           'section',
           { className: 'site-section' },
           _react2.default.createElement(
@@ -33814,11 +33719,6 @@ var TooltipsApp = function TooltipsApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Tooltips'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },
@@ -33924,11 +33824,6 @@ var UtilityComponentsApp = function UtilityComponentsApp() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(
-      'h1',
-      { className: 'site-headline' },
-      'Utility Components'
-    ),
     _react2.default.createElement(
       'section',
       { className: 'site-section' },

@@ -17,8 +17,6 @@ const exampleScope  = {
 
 const CloseApp = () =>
   <div>
-    <h1 className="site-headline">Close</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Close</h3>
       <p className="site-text-lead">The Close component is used within numerous components - particularly in our feedback system.</p>

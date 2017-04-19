@@ -19,8 +19,6 @@ const utilityInlineGridScope = {
 
 const UtilityComponentsApp = () =>
   <div>
-    <h1 className="site-headline">Utility Components</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Utility Components</h3>
       <p className="site-text-lead">Helpers that can be used in conjunction with our components.</p>

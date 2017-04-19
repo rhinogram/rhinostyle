@@ -21,8 +21,6 @@ const exampleScope  = {
 
 const LabelApp = () =>
   <div>
-    <h1 className="site-headline">Tables</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Table Types</h3>
       <div className="site-example-tables">

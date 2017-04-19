@@ -1,17 +1,32 @@
-// File: pills.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@pill-default-bg: @global-color-white;
+@pill-default-border: @global-border-color-base;
+@pill-default-color: @link-color;
+
+@pill-neutral-bg: @global-color-gray-lightest;
+@pill-neutral-border: @global-color-gray-lightest;
+@pill-neutral-color: @link-color;
+
+@pill-padding-horizontal: @global-whitespace-small;
+@pill-padding-vertical: @global-whitespace-xsmall;
+
+@pill-padding: @pill-padding-vertical @pill-padding-horizontal;
 
 
 // -------------------------
-// Pills
+// Component
 // -------------------------
 
 
 .pill {
   align-items: center;
-  border-radius: @border-radius;
+  border-radius: @global-border-radius;
   display: inline-flex;
-  font-size: 1.4rem;
+  font-size: @font-size-small;
   line-height: 1;
   padding: @pill-padding;
   vertical-align: middle;
@@ -34,7 +49,7 @@
 
 .pill--disabled {
   cursor: @cursor-disabled;
-  opacity: @opacity-disabled;
+  opacity: @global-opacity-disabled;
   pointer-events: none;
 
   .pill__close {
@@ -54,7 +69,7 @@
 
 .pill__close {
   color: @text-color;
-  margin-left: @whitespace-xsmall;
+  margin-left: @global-whitespace-xsmall;
 }
 
 
@@ -64,5 +79,5 @@
 
 
 .pill__icon {
-  margin-right: .2rem;
+  margin-right: @global-whitespace-xsmall;
 }

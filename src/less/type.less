@@ -1,5 +1,51 @@
-// File: type.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@font-family-base: @font-family-sans-serif;
+@font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+@font-family-sans-serif: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family-serif: Georgia, 'Times New Roman', Times, serif;
+
+@font-size-root: 10px;
+
+@font-size-base: 1.6rem;
+@font-size-large: 2rem;
+@font-size-medium: 1.8rem;
+@font-size-small: 1.4rem;
+
+@font-size-h1: 3rem;
+@font-size-h2: 2.6rem;
+@font-size-h3: 2.2rem;
+@font-size-h4: 1.8rem;
+@font-size-h5: 1.6rem;
+@font-size-h6: 1.4rem;
+
+@font-weight-bold: 900;
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-semibold: 700;
+
+@headings-font-family: inherit;
+@headings-font-weight: @font-weight-bold;
+@headings-line-height: @line-height-small;
+@headings-color: inherit;
+
+@line-height-base: 1.42857143;
+@line-height-computed: @font-size-base * @line-height-base; // ~22px
+@line-height-large: 1.3333333; // extra decimals for Win 8.1 Chrome
+@line-height-small: 1.2;
+
+@component-offset-horizontal: 18rem; // horizontal offset for forms and lists
+@dl-horizontal-offset: @component-offset-horizontal; // width of horizontal description list titles
+@headings-small-color: @global-color-gray-light;
+@hr-border: @global-color-gray-lighter;
+
+
+// -------------------------
+// Component
+// -------------------------
 
 
 // -------------------------
@@ -96,13 +142,13 @@ ol {
 // (ul)
 .list-inline {
   list-style: none;
-  margin-left: -@whitespace-small;
+  margin-left: -@global-whitespace-small;
   padding-left: 0;
 
   > li {
     display: inline-block;
-    padding-left: @whitespace-small;
-    padding-right: @whitespace-small;
+    padding-left: @global-whitespace-small;
+    padding-right: @global-whitespace-small;
   }
 }
 

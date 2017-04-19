@@ -1,5 +1,19 @@
-// File: loaders.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@loader-circle-color: @global-color-gray-lighter;
+@loader-circle-color-default: @global-color-gray-lighter;
+@loader-circle-size: 3.2rem;
+@loader-circle-size-sm: 2.6rem;
+@loader-circle-size-lg: 3.8rem;
+@loader-circle-border-size: 3px;
+
+
+// -------------------------
+// Component
+// -------------------------
 
 
 // -------------------------
@@ -37,18 +51,18 @@
 
 
 .loader-circle--default {
-  border-color: @color-gray-light;
+  border-color: @global-color-gray-light;
 
   &::after {
-    border-top-color: @color-gray;
+    border-top-color: @global-color-gray;
   }
 }
 
 .loader-circle--primary {
-  border-color: @color-primary-rich;
+  border-color: @global-color-primary-rich;
 
   &::after {
-    border-top-color: @color-info;
+    border-top-color: @global-color-info;
   }
 }
 
@@ -98,19 +112,19 @@
 
 .loader-pulse--accent {
   .loader-pulse__pulse {
-    background: @color-accent;
+    background: @global-color-accent;
   }
 }
 
 .loader-pulse--default {
   .loader-pulse__pulse {
-    background: @color-gray;
+    background: @global-color-gray;
   }
 }
 
 .loader-pulse--secondary {
   .loader-pulse__pulse {
-    background: @color-secondary;
+    background: @global-color-secondary;
   }
 }
 
@@ -128,6 +142,6 @@
   width: .8rem;
 
   + * {
-    margin-left: @whitespace-small;
+    margin-left: @global-whitespace-small;
   }
 }

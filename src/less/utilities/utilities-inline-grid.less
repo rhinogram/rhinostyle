@@ -1,38 +1,42 @@
-// File: utilities-inline.less
+// Note: Used for side-by-side variable content for proper wrapping
 
-// Used for side-by-side variable content for proper wrapping
+
+// -------------------------
+// Component
+// -------------------------
+
 
 .u-inline-grid {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: (-@whitespace-base) 0 0 (-@whitespace-base);
+  margin: (-@global-whitespace-base) 0 0 (-@global-whitespace-base);
   padding: 0;
 
   > * {
-    margin-left: @whitespace-base;
-    margin-top: @whitespace-base;
+    margin-left: @global-whitespace-base;
+    margin-top: @global-whitespace-base;
   }
 }
 
 .u-inline-grid--small {
-  margin-left: (-@whitespace-small);
-  margin-top: (-@whitespace-small);
+  margin-left: (-@global-whitespace-small);
+  margin-top: (-@global-whitespace-small);
 
   > * {
-    margin-left: @whitespace-small;
-    margin-top: @whitespace-small;
+    margin-left: @global-whitespace-small;
+    margin-top: @global-whitespace-small;
   }
 }
 
 .u-inline-grid--large {
-  margin-left: (-@whitespace-large);
-  margin-top: (-@whitespace-large);
+  margin-left: (-@global-whitespace-large);
+  margin-top: (-@global-whitespace-large);
 
   > * {
-    margin-left: @whitespace-large;
-    margin-top: @whitespace-large;
+    margin-left: @global-whitespace-large;
+    margin-top: @global-whitespace-large;
   }
 }
 

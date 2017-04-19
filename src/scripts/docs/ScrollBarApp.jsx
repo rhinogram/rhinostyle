@@ -17,8 +17,6 @@ const exampleScope  = {
 
 const ScrollBarApp = () =>
   <div>
-    <h1 className="site-headline">Scroll Bar</h1>
-
     <section className="site-section">
       <h3 className="site-subheadline">Scroll Bar <Label className="u-m-l-sm" type="accent" label="third party" /></h3>
       <p className="site-copy">We are using <a href="http://malte-wessel.github.io/react-custom-scrollbars/" target="_blank" rel="noopener noreferrer">react-custom-scrolbars</a> for scrolling within areas of the page.</p>

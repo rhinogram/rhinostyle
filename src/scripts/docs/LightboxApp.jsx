@@ -2,7 +2,7 @@ import React      from 'react';
 import ReactDOM   from 'react-dom';
 import Playground from 'component-playground';
 
-import { Button, Lightbox } from '../components';
+import { Button, Label, Lightbox } from '../components';
 import lightboxExample from './examples/Lightbox.example.txt';
 
 const lightboxDocs = {};
@@ -15,9 +15,10 @@ const lightboxScope = {
 
 const LightboxApp = () =>
   <div>
-    <h1 className="site-headline">Lightbox</h1>
-
-    <p className="site-copy">We are using <a href="https://github.com/fritz-c/react-image-lightbox" target="_blank" rel="noopener noreferrer">react-image-lightbox</a> for lightbox images/galleries.</p>
+    <section className="site-section">
+      <h3 className="site-subheadline">Lightbox <Label className="u-m-l-sm" type="accent" label="third party" /></h3>
+      <p className="site-copy">We are using <a href="https://github.com/fritz-c/react-image-lightbox" target="_blank" rel="noopener noreferrer">react-image-lightbox</a> for lightbox images/galleries.</p>
+    </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Lightbox Playground</h3>

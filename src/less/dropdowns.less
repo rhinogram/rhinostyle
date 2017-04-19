@@ -1,9 +1,31 @@
-// File: dropdowns.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@dropdown-arrow-size: 1rem;
+@dropdown-bg: @global-color-white;
+@dropdown-border: @global-border-color-base;
+@dropdown-chevron-size: .7em;
+@dropdown-divider-bg: @global-color-gray-lighter;
+@dropdown-header-color: @global-color-gray;
+@dropdown-link-color: @text-color;
+@dropdown-link-hover-color: darken(@text-color, 5%);
+@dropdown-link-hover-bg: @global-color-gray-lightest;
+@dropdown-link-active-color: @global-component-active-color;
+@dropdown-link-active-bg: @global-component-active-bg;
+@dropdown-link-disabled-color: @global-color-gray-light;
+@dropdown-menu-offset: .8rem;
+@dropdown-menu-shadow: @global-shadow-depth-1;
+@dropdown-padding-horizontal: @global-whitespace-xlarge;
+@dropdown-padding-vertical: @global-whitespace-small;
+@dropdown-padding: @dropdown-padding-vertical @dropdown-padding-horizontal;
+
+@dropdown-zindex: 1030;
 
 
 // -------------------------
-// Dropdown
+// Component
 // -------------------------
 
 
@@ -62,11 +84,11 @@
         background-repeat: no-repeat;
         background-size: 2rem 2rem;
         content: '';
-        fill: @color-primary;
+        fill: @global-color-primary;
         height: 2rem;
         pointer-events: none;
         position: absolute;
-        right: @whitespace-large;
+        right: @global-whitespace-large;
         top: 50%;
         transform: translateY(-50%);
         width: 2rem;
@@ -99,24 +121,24 @@
 .dropdown__menu {
   background-color: @dropdown-bg;
   border: 1px solid @dropdown-border;
-  border-radius: @border-radius;
+  border-radius: @global-border-radius;
   box-shadow: @dropdown-menu-shadow;
   display: none; // 1
   left: 0;
   max-width: 28rem;
   opacity: 0; // 1
-  padding: @whitespace-xsmall 0;
+  padding: @global-whitespace-xsmall 0;
   position: absolute;
   text-align: left;
   top: ~'calc(100% + @{dropdown-menu-offset})';
   transform: translateY(-@dropdown-menu-offset);
   transform-origin: left top;
-  z-index: @zindex-dropdown;
+  z-index: @dropdown-zindex;
 
   &::before {
     background: @dropdown-bg;
     border: 1px solid @dropdown-border;
-    border-bottom-left-radius: @border-radius;
+    border-bottom-left-radius: @global-border-radius;
     border-right: 0;
     border-top: 0;
     content: '';
@@ -136,7 +158,7 @@
     margin-bottom: -.1rem;
   }
 
-  @media (min-width: @screen-xs-min) {
+  @media (min-width: @global-screen-xs-min) {
     max-width: 44rem;
   }
 }
@@ -332,9 +354,9 @@
 
 
 .dropdown__menu__divider {
-  background-color: @color-gray-lighter;
+  background-color: @global-color-gray-lighter;
   height: .1rem;
-  margin: @whitespace-xsmall 0;
+  margin: @global-whitespace-xsmall 0;
   overflow: hidden;
 }
 
@@ -386,7 +408,7 @@
   fill: currentColor;
   height: @dropdown-chevron-size;
   line-height: 1;
-  margin-left: @whitespace-small;
+  margin-left: @global-whitespace-small;
   min-width: @dropdown-chevron-size;
   position: relative;
   vertical-align: middle;
@@ -407,7 +429,7 @@
 // only give right margin to toggle icon unless it's a child of btn--icon
 .dropdown__toggle:not(.btn--icon) {
   .dropdown__toggle__icon {
-    margin-right: @whitespace-xsmall;
+    margin-right: @global-whitespace-xsmall;
   }
 }
 
@@ -420,6 +442,6 @@
 .dropdown__close {
   position: absolute;
   right: @dropdown-padding-horizontal;
-  top: (@dropdown-padding-vertical + @whitespace-xsmall); // 1
+  top: (@dropdown-padding-vertical + @global-whitespace-xsmall); // 1
   z-index: 1;
 }

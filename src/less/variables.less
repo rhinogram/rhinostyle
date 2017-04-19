@@ -1,48 +1,4 @@
-// File: variables.less
-// Note:
-
-// lesshint spaceAfterPropertyColon: false
-// lesshint spaceAfterPropertyColon: { enabled: false }
-
-// -------------------------
-// Alerts
-// -------------------------
-
-
-@alert-border-radius:         @border-radius;
-@alert-padding:               @whitespace-xlarge;
-@alert-padding-small:         @whitespace-base;
-
-
-// -------------------------
-// Avatars
-// -------------------------
-
-
-@avatar-bg-default:           @color-gray-light;
-@avatar-bg-member:            #7fc0d3; // one-off color that may need to become variable
-
-@avatar-size-base:            6rem;
-@avatar-size-large:           7.2rem;
-@avatar-size-small:           4rem;
-
-
-// -------------------------
-// Badges
-// -------------------------
-
-
-//@badge-active-color:          @link-color;
-//@badge-active-bg:             @color-white;
-//@badge-bg:                    @color-gray-light;
-@badge-border-radius:         @border-radius;
-//@badge-color:                 @color-white;
-//@badge-font-weight:           normal;
-@badge-horizontal-padding:    @whitespace-xsmall;
-//@badge-line-height:           1;
-//@badge-link-hover-color:      @color-white;
-@badge-min-width:             1rem;
-@badge-vertical-padding:      .3rem;
+// Note: Global variables re-used throughout components
 
 
 // -------------------------
@@ -50,114 +6,9 @@
 // -------------------------
 
 
-@border-color-base:             @color-gray-light;
-@border-color-light:            @color-gray-lighter;
-@border-color-focus:            #66afe9;
-@border-radius:           .3rem;
-@border-shadow-focus:           ~'inset 0 0 1px rgba(0, 0, 0, .075), 0 0 .4rem @{border-shadow-color-focus}';
-@border-shadow-color-focus:     rgba(red(@border-color-focus), green(@border-color-focus), blue(@border-color-focus), .75);
-
-
-// -------------------------
-// Buckets
-// -------------------------
-
-
-@bucket-bg:                      @color-white;
-@bucket-border-radius:           @border-radius;
-@bucket-padding:                 @whitespace-xlarge;
-@bucket-padding-small:           @whitespace-base;
-
-@bucket-default-border:          @border-color-base;
-@bucket-light-border:            @color-gray-lighter;
-@bucket-primary-border:          @color-primary;
-
-
-// -------------------------
-// Buttons
-// -------------------------
-
-
-@btn-font-weight:                   normal;
-
-@btn-link-disabled-color:           @color-gray-light;
-
-@btn-border-radius:                 @border-radius;
-
-@btn-font-size-large:               @font-size-large;
-@btn-font-size-small:               @font-size-small;
-
-@btn-height-base:                   3.6rem;
-@btn-height-large:                  4rem;
-@btn-height-small:                  3rem;
-
-@btn-icon-padding-base:             @btn-height-base / 4;
-@btn-icon-padding-large:            @btn-height-large / 4;
-@btn-icon-padding-small:            @btn-height-small / 4;
-
-@btn-padding-base:                  @whitespace-base; // 1rem
-@btn-padding-large:                 @whitespace-large; // 1.2rem
-@btn-padding-small:                 @whitespace-base;
-
-@btn-accent-color:                  @color-white;
-@btn-accent-bg:                     @color-accent;
-@btn-accent-border:                 @color-accent;
-
-@btn-danger-color:                  @color-white;
-@btn-danger-bg:                     @color-danger;
-@btn-danger-border:                 @color-danger;
-
-@btn-default-color:                 @text-color;
-@btn-default-bg:                    @color-white;
-@btn-default-border:                @border-color-base;
-
-@btn-info-color:                    @color-white;
-@btn-info-bg:                       @color-info;
-@btn-info-border:                   @color-info;
-
-@btn-outline-default-color:         @text-color;
-@btn-outline-default-bg:            transparent;
-@btn-outline-default-border:        @btn-default-border;
-@btn-outline-default-hover-bg:      darken(@color-gray, 10%);
-@btn-outline-default-hover-border:  @btn-outline-default-hover-bg;
-
-@btn-outline-primary-color:         @color-primary;
-@btn-outline-primary-bg:            transparent;
-@btn-outline-primary-border:        @btn-outline-primary-color;
-@btn-outline-primary-hover-bg:      @btn-outline-primary-color;
-@btn-outline-primary-hover-border:  @btn-outline-primary-color;
-
-@btn-outline-reversed-color:        @color-white;
-@btn-outline-reversed-bg:           transparent;
-@btn-outline-reversed-border:       @color-white;
-@btn-outline-reversed-hover-bg:     rgba(255, 255, 255, .1);
-@btn-outline-reversed-hover-border: @color-white;
-
-@btn-primary-color:                 @color-white;
-@btn-primary-bg:                    @color-primary;
-@btn-primary-border:                @color-primary;
-
-@btn-secondary-color:               @color-white;
-@btn-secondary-bg:                  @color-secondary;
-@btn-secondary-border:              @color-secondary;
-
-@btn-success-color:                 @color-white;
-@btn-success-bg:                    @color-success;
-@btn-success-border:                @color-success;
-
-@btn-warning-color:                 @color-white;
-@btn-warning-bg:                    @color-warning;
-@btn-warning-border:                @color-warning;
-
-
-// -------------------------
-// Close
-// -------------------------
-
-
-@close-font-weight:           @font-weight-normal;
-@close-color:                 @color-black;
-@close-text-shadow:           0 1px 0 @color-white;
+@global-border-color-base: @global-color-gray-light;
+@global-border-color-light: @global-color-gray-lighter;
+@global-border-radius: .3rem;
 
 
 // -------------------------
@@ -166,550 +17,37 @@
 
 
 // Brand Colors
-@color-accent:              #ff9359;
-@color-primary:             #0081c6;
-@color-primary-rich:        #00a2f9;
-@color-secondary:           #83c400;
+@global-color-accent: #ff9359;
+@global-color-primary: #0081c6;
+@global-color-primary-rich: #00a2f9;
+@global-color-secondary: #83c400;
 
 // Utility Colors
-@color-danger:              #f25041;
-@color-info:                #005480;
-@color-success:             #72aa00;
-@color-warning:             #f2c746;
+@global-color-danger: #f25041;
+@global-color-info: #005480;
+@global-color-success: #72aa00;
+@global-color-warning: #f2c746;
 
 // Other Colors
-@color-black:               #080808;
-@color-gray-darker:         #404040;
-@color-gray-dark:           #6c6c6c;
-@color-gray:                #9f9f9f;
-@color-gray-light:          #c5c5c5;
-@color-gray-lighter:        #ececec;
-@color-gray-lightest:       #f9f9f9;
-@color-white:               #fff;
+@global-color-black: #080808;
+@global-color-gray-darker: #404040;
+@global-color-gray-dark: #6c6c6c;
+@global-color-gray: #9f9f9f;
+@global-color-gray-light: #c5c5c5;
+@global-color-gray-lighter: #ececec;
+@global-color-gray-lightest: #f9f9f9;
+@global-color-white: #fff;
 
 
 // -------------------------
 // Components
 // -------------------------
 
-
-// fine-tune component padding
-@padding-gutter:            @grid-gutter-width; // 32px
-@padding-half-gutter:       @grid-gutter-width / 2; // 16px
-
-// The following variable group is deprecated and will be removed in a future release
-// Note the `@whitespace-X` component variables they map to
-@padding-xlarge:            @whitespace-xlarge;
-@padding-large:             @whitespace-large;
-@padding-base:              @whitespace-base;
-@padding-small:             @whitespace-small;
-@padding-xsmall:            @whitespace-xsmall;
-
-// fine-tune component margin
-@margin-gutter:             @grid-gutter-width; // 32px
-@margin-half-gutter:        @grid-gutter-width / 2; // 16px
-
-// The following variable group is deprecated and will be removed in a future release
-// Note the `@whitespace-X` component variables they map to
-@margin-xlarge:             @whitespace-xlarge;
-@margin-large:              @whitespace-large;
-@margin-base:               @whitespace-base;
-@margin-small:              @whitespace-small;
-@margin-xsmall:             @whitespace-xsmall;
-
-@component-active-color:    @color-white; // global color for active items (e.g., navs or dropdowns)
-@component-active-bg:       @color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
-
-@caret-width-base:          .5rem; // width of the `border` for generating carets that indicator dropdowns
-@caret-width-large:         .6rem;
-
-
-// -------------------------
-// Containers
-// -------------------------
-
-
-/*@container-sm:                 (720px + @grid-gutter-width); // for `@screen-sm-min` and up
-@container-md:                 (940px + @grid-gutter-width); // for `@screen-md-min` and up
-@container-lg:                 (1140px + @grid-gutter-width); // for `@screen-lg-min` and up*/
-
-
-// -------------------------
-// Date Picker
-// -------------------------
-
-
-@datepicker-border-color:        @border-color-base;
-@datepicker-border-radius:       @border-radius;
-@datepicker-border-radius-day:   50%;
-@datepicker-day-size:            3.2rem;
-@datepicker-nav-color:           @color-gray;
-@datepicker-nav-hover-color:     @color-gray-dark;
-@datepicker-nav-size:            2rem;
-@datepicker-shadow:              @shadow-depth-1;
-
-
-// -------------------------
-// Dropdowns
-// -------------------------
-
-
-@dropdown-arrow-size:            1rem;
-@dropdown-bg:                    @color-white;
-@dropdown-border:                @border-color-base;
-@dropdown-chevron-size:          .7em;
-@dropdown-divider-bg:            @color-gray-lighter;
-@dropdown-header-color:          @color-gray;
-@dropdown-link-color:            @text-color;
-@dropdown-link-hover-color:      darken(@text-color, 5%);
-@dropdown-link-hover-bg:         @color-gray-lightest;
-@dropdown-link-active-color:     @component-active-color;
-@dropdown-link-active-bg:        @component-active-bg;
-@dropdown-link-disabled-color:   @color-gray-light;
-@dropdown-menu-offset:           .8rem;
-@dropdown-menu-shadow:           @shadow-depth-1;
-@dropdown-padding-horizontal: @whitespace-xlarge;
-@dropdown-padding-vertical: @whitespace-small;
-@dropdown-padding:               @dropdown-padding-vertical @dropdown-padding-horizontal;
-
-
-// -------------------------
-// Grid
-// -------------------------
-
-
-@grid-columns:                  12;
-
-@grid-gutter-width:             3.2rem;
-@grid-gutter-width-condensed:   1.2rem;
-
-
-// -------------------------
-// Forms
-// -------------------------
-
-
-@cursor-disabled:                not-allowed; // disabled cursor for form controls and buttons.
-
-@input-bg:                       @color-white;
-@input-bg-disabled:              @color-gray-lightest;
-@input-border:                   @border-color-base;
-@input-border-focus:             @border-color-focus;
-@input-border-radius:            @border-radius;
-@input-color:                    @text-color;
-@input-color-placeholder:        darken(@color-gray-light, 4%);
-@input-group-addon-bg:           @color-gray-lighter; // bg color for textual input addons
-@input-group-addon-border-color: @input-border; // border color for textual input addons
-
-// Form control `.form-control` heights
-
-@input-height-base:              @btn-height-base;
-//@input-height-large:             @btn-height-large;
-//@input-height-small:             @btn-height-small;
-
-@input-padding-base:             @btn-padding-base;
-
-@form-addon-item-bg:             @color-gray-lightest;
-@form-control-chevron-padding:   3rem;
-@form-control-clear-padding:     3rem;
-@form-element-color:             @color-primary;
-@form-group-margin-bottom:       @line-height-computed;
-
-
-
-@legend-color:                   @color-gray-dark;
-@legend-border-color:            #e5e5e5;
-
-
-@rhinobox-rhinodio-margin:       @whitespace-small;
-
-
-// -------------------------
-// Labels
-// -------------------------
-
-
-@label-accent-bg:           @color-accent;
-@label-danger-bg:           @color-danger;
-@label-default-bg:          @color-gray;
-@label-info-bg:             @color-info;
-@label-primary-bg:          @color-primary;
-@label-secondary-bg:        @color-secondary;
-@label-success-bg:          @color-success;
-@label-warning-bg:          @color-warning;
-
-@label-color:               @color-white;
-@label-link-hover-color:    @color-white;
-
-
-@label-padding-sides:       .5rem;
-
-@label-padding:             0 @label-padding-sides;
-
-
-// -------------------------
-// List Group
-// -------------------------
-
-
-/*@list-group-bg:                  @color-white; // bg color on `.list-group-item`
-@list-group-border:              @border-color-base; // `.list-group-item` border color
-@list-group-border-radius:       @border-radius;
-@list-group-active-color:        @component-active-color; // text color of active list items
-@list-group-active-bg:           @component-active-bg;
-@list-group-active-border:       @list-group-border;
-@list-group-active-text-color:   lighten(@list-group-active-bg, 40%); // text color for content within active list items
-@list-group-disabled-color:      @color-gray-light;
-@list-group-disabled-bg:         @color-gray-lighter;
-@list-group-disabled-text-color: @list-group-disabled-color;
-@list-group-hover-bg:            @color-gray-lightest;
-@list-group-link-color:          @text-color;
-@list-group-link-hover-color:    @list-group-link-color;
-@list-group-link-heading-color:  @text-color;*/
-
-
-// -------------------------
-// Loaders
-// -------------------------
-
-
-@loader-circle-color:            @color-gray-lighter;
-@loader-circle-color-default:    @color-gray-lighter;
-@loader-circle-size:             3.2rem;
-@loader-circle-size-sm:          2.6rem;
-@loader-circle-size-lg:          3.8rem;
-@loader-circle-border-size:      3px;
-
-
-
-// -------------------------
-// Messages
-// -------------------------
-
-
-@msg-border-radius:           1.125em; // 18px
-@msg-line-height:             inherit;
-@msg-margin:                  @whitespace-base;
-@msg-padding:                 (@whitespace-base * .85) @whitespace-xlarge;
-@msg-default-bg:              darken(@color-gray-lightest, 2%);
-@msg-primary-bg:              @color-primary-rich;
-@msg-note-bg:                 #fff3b8;
-
-
-// -------------------------
-// Modals
-// -------------------------
-
-
-@modal-backdrop-bg:           fade(@color-black, 50%);
-
-@modal-content-bg:            @color-white;
-@modal-content-border-color:  @color-gray-lighter;
-
-@modal-easing:                cubic-bezier(.465, .183, .153, .946);
-
-@modal-footer-border-color:   @modal-content-border-color;
-@modal-header-border-color:   @modal-content-border-color;
-@modal-inner-padding:         @padding-half-gutter;
-
-@modal-lg:                    90rem;
-@modal-md:                    60rem;
-@modal-sm:                    30rem;
-
-@modal-header-padding-hor:    @padding-half-gutter;
-@modal-header-padding-vert:   2rem;
-@modal-header-line-height:    @headings-line-height;
-
-
-// -------------------------
-// Navs
-// -------------------------
-
-
-@nav-link-padding:             @whitespace-base @padding-half-gutter;
-@nav-link-padding-small:       @whitespace-small @whitespace-base;
-
-@nav-tabs-active-border-width: 2px;
-
-
-// -------------------------
-// Opacity
-// -------------------------
-
-
-@opacity-disabled:          .6;
-
-
-// -------------------------
-// Pagination
-// -------------------------
-
-
-/*@pagination-color:                     @link-color;
-@pagination-bg:                        @color-white;
-@pagination-border:                    @border-color-base;
-
-@pagination-hover-color:               @link-hover-color;
-@pagination-hover-bg:                  @color-gray-lighter;
-@pagination-hover-border:              @border-color-base;
-
-@pagination-active-color:              @color-white;
-@pagination-active-bg:                 @color-primary;
-@pagination-active-border:             @color-primary;
-
-@pagination-disabled-color:            @color-gray-light;
-@pagination-disabled-bg:               @color-white;
-@pagination-disabled-border:           @color-gray-light;*/
-
-
-// -------------------------
-// Pills
-// -------------------------
-
-
-@pill-default-bg:          @color-white;
-@pill-default-border:      @border-color-base;
-@pill-default-color:       @link-color;
-
-@pill-neutral-bg:          @color-gray-lightest;
-@pill-neutral-border:      @color-gray-lightest;
-@pill-neutral-color:       @link-color;
-
-@pill-padding-horizontal:  .6rem;
-@pill-padding-vertical:    .4rem;
-
-@pill-padding:             @pill-padding-vertical @pill-padding-horizontal;
-
-
-// -------------------------
-// Progress bars
-// -------------------------
-
-
-@progress-bar-radius:       @progress-bar-height / 2;
-@progress-bar-height:       1.4rem;
-@progress-bar-inset-shadow: inset 0 .5rem .5rem rgba(0, 0, 0, .05);
-
-
-// -------------------------
-// Scaffolding
-// -------------------------
-
-
-@body-bg:                   @color-white; // body bg color
-
-@link-color:                @color-primary; // global textual link color
-@link-hover-color:          darken(@link-color, 10%);
-@link-hover-decoration:     underline;
-
-@text-color:                @color-gray-dark; // body text color
-@text-color-muted:          @color-gray;
-
-
-
-// -------------------------
-// Screen Breakpoints
-// -------------------------
-
-
-@screen-xs-min:              480px;
-@screen-sm-min:              768px;
-@screen-md-min:              992px;
-@screen-lg-min:              1200px;
-
-@screen-xs-max:              (@screen-xs-min - 1);
-@screen-sm-max:              (@screen-sm-min - 1);
-@screen-md-max:              (@screen-md-min - 1);
-@screen-lg-max:              (@screen-lg-min - 1);
-
-
-// -------------------------
-// Shadows
-// -------------------------
-
-
-@shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .2);
-@shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .2);
-@shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, .2);
-
-
-// -------------------------
-// Spacing (see utilities-spacing.less)
-// -------------------------
-
-
-@spacer:                     1.4rem;
-@spacer-x:                   @spacer;
-@spacer-y:                   @spacer;
-
-
-// -------------------------
-// States
-// -------------------------
-
-
-@state-accent-text:              darken(@color-accent, 5%);
-
-@state-danger-text:              @color-danger;
-@state-danger-bg:                tint(@color-danger, 80%);
-@state-danger-border:            lighten(@color-danger, 45%);
-
-@state-info-text:                @color-info;
-@state-info-bg:                  tint(@color-info, 80%);
-@state-info-border:              lighten(@color-info, 27%);
-
-@state-primary-text:             @color-primary;
-
-@state-secondary-text:           darken(@color-secondary, 4%);
-
-@state-success-text:             darken(@color-success, 4%);
-@state-success-bg:               tint(@color-success, 80%);
-@state-success-border:           lighten(@color-success, 40%);
-
-@state-warning-text:             darken(@color-warning, 12%);
-@state-warning-bg:               tint(@color-warning, 80%);
-@state-warning-border:           lighten(@color-warning, 28%);
-
-
-// -------------------------
-// SVG
-// -------------------------
-
-@svg-sprite:                       '../../dist/svg/sprite.svg';
-
-
-// -------------------------
-// Switchers
-// -------------------------
-
-
-@switcher-border-radius:         @border-radius;
-@switcher-height:                2.6rem;
-@switcher-state-line-height:     @switcher-height;
-@switcher-state-padding:         2.2rem;
-@switcher-toggler-height:        2.2rem;
-@switcher-toggler-margin:        .2rem;
-@switcher-toggler-width:         2.2rem;
-@switcher-width:                 6rem;
-
-
-// -------------------------
-// System Alerts
-// -------------------------
-
-
-@system-alert-padding:              @whitespace-base @whitespace-large;
-@system-alert-text:                 @color-white;
-
-
-// -------------------------
-// Tables
-// -------------------------
-
-
-@table-bg:                      transparent; // default background color used for all tables.
-@table-bg-active:               @table-bg-hover;
-@table-bg-danger:               @state-danger-bg;
-@table-bg-hover:                darken(@color-gray-lightest, 2%);
-@table-bg-striped:              @color-gray-lightest;
-@table-bg-success:              @state-success-bg;
-@table-bg-warning:              @state-warning-bg;
-
-@table-border-color:            @border-color-base;
-
-@table-cell-padding:            1rem; // padding for `<th>`s and `<td>`s
-@table-condensed-cell-padding:  .6rem; // padding for cells in `.table-condensed`
-
-
-// -------------------------
-// Toast Notifications
-// -------------------------
-
-
-@toast-border-radius:        @border-radius;
-@toast-font-weight:          @font-weight-light;
-@toast-offset:               1rem;
-@toast-padding:              @whitespace-base;
-@toast-text:                 @color-white;
-
-
-// -------------------------
-// Tooltip
-// -------------------------
-
-
-@tooltip-arrow-width:         .6rem;
-@tooltip-arrow-color:         @tooltip-bg;
-@tooltip-bg:                  @color-gray-dark;
-@tooltip-border-radius:       @border-radius;
-@tooltip-color:               @color-white;
-@tooltip-padding:             @whitespace-xsmall @whitespace-small;
-//@tooltip-opacity:             .9;
-//@tooltip-max-width:           200px;
-
-
-// -------------------------
-// Transition Timing Funcs
-// -------------------------
-
-
-@trans-timing-cubic:          cubic-bezier(.43, .41, .22, .91);
-@trans-timing-elastic:        cubic-bezier(1, .6, 0, 1.22);
-
-
-// -------------------------
-// Type
-// -------------------------
-
-
-
-
-@component-offset-horizontal: 18rem; // horizontal offset for forms and lists
-@dl-horizontal-offset:        @component-offset-horizontal; // width of horizontal description list titles
-@headings-small-color:        @color-gray-light;
-@hr-border:                   @color-gray-lighter;
-
-
-
-// -------------------------
-// Typography
-// -------------------------
-
-
-@font-family-base:        @font-family-sans-serif;
-@font-family-monospace:   Menlo, Monaco, Consolas, 'Courier New', monospace;
-@font-family-sans-serif:  'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, 'Times New Roman', Times, serif;
-
-@font-size-root:          10px;
-
-@font-size-base:          1.6rem;
-@font-size-large:         2rem;
-@font-size-medium:        1.8rem;
-@font-size-small:         1.4rem;
-
-
-@font-size-h1:            3rem;
-@font-size-h2:            2.6rem;
-@font-size-h3:            2.2rem;
-@font-size-h4:            1.8rem;
-@font-size-h5:            1.6rem;
-@font-size-h6:            1.4rem;
-
-@font-weight-bold:        900;
-@font-weight-light:       300;
-@font-weight-normal:      400;
-@font-weight-semibold:    700;
-
-@headings-font-family:    inherit;
-@headings-font-weight:    @font-weight-bold;
-@headings-line-height:    @line-height-small;
-@headings-color:          inherit;
-
-@line-height-base:        1.42857143;
-@line-height-computed:    @font-size-base * @line-height-base; // ~22px
-@line-height-large:       1.3333333; // extra decimals for Win 8.1 Chrome
-@line-height-small:       1.2;
+@global-gutter: 3.2rem;
+@global-half-gutter: 1.6rem;
+
+@global-component-active-color: @global-color-white; // global color for active items (e.g., navs or dropdowns)
+@global-component-active-bg: @global-color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
 
 
 // -------------------------
@@ -717,21 +55,104 @@
 // -------------------------
 
 
-@whitespace-xlarge:             1.4rem;
-@whitespace-large:              1.2rem;
-@whitespace-base:               1rem;
-@whitespace-small:              .6rem;
-@whitespace-xsmall:             .4rem;
-
+@global-height: 3.6rem;
+@global-height-large: 4rem;
+@global-height-small: 3rem;
 
 // -------------------------
-// Z-index
+// Opacity
 // -------------------------
 
 
-@zindex-cover:             1010;
-@zindex-modal:             1020;
-@zindex-dropdown:          1030;
-@zindex-popover:           1040;
-@zindex-tooltip:           1050;
-@zindex-toast:             2000;
+@global-opacity-disabled: .6;
+
+
+// -------------------------
+// Screen Breakpoints
+// -------------------------
+
+
+@global-screen-xs-min: 480px;
+@global-screen-sm-min: 768px;
+@global-screen-md-min: 992px;
+@global-screen-lg-min: 1200px;
+
+@global-screen-xs-max: (@global-screen-xs-min - 1);
+@global-screen-sm-max: (@global-screen-sm-min - 1);
+@global-screen-md-max: (@global-screen-md-min - 1);
+@global-screen-lg-max: (@global-screen-lg-min - 1);
+
+
+// -------------------------
+// Shadows
+// -------------------------
+
+
+@global-shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .2);
+@global-shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .2);
+@global-shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, .2);
+
+
+// -------------------------
+// Spacing (see utilities-spacing.less)
+// -------------------------
+
+
+@global-spacer: 1.4rem;
+
+
+// -------------------------
+// States
+// -------------------------
+
+
+@global-state-accent-text: darken(@global-color-accent, 5%);
+
+@global-state-danger-text: @global-color-danger;
+@global-state-danger-bg: tint(@global-color-danger, 80%);
+@global-state-danger-border: lighten(@global-color-danger, 45%);
+
+@global-state-info-text: @global-color-info;
+@global-state-info-bg: tint(@global-color-info, 80%);
+@global-state-info-border: lighten(@global-color-info, 27%);
+
+@global-state-primary-text: @global-color-primary;
+
+@global-state-secondary-text: darken(@global-color-secondary, 4%);
+
+@global-state-success-text: darken(@global-color-success, 4%);
+@global-state-success-bg: tint(@global-color-success, 80%);
+@global-state-success-border: lighten(@global-color-success, 40%);
+
+@global-state-warning-text: darken(@global-color-warning, 12%);
+@global-state-warning-bg: tint(@global-color-warning, 80%);
+@global-state-warning-border: lighten(@global-color-warning, 28%);
+
+
+// -------------------------
+// SVG
+// -------------------------
+
+
+@svg-sprite: '../../dist/svg/sprite.svg';
+
+
+// -------------------------
+// Transition Timing Funcs
+// -------------------------
+
+
+@global-trans-timing-cubic: cubic-bezier(.43, .41, .22, .91);
+@global-trans-timing-elastic: cubic-bezier(1, .6, 0, 1.22);
+
+
+// -------------------------
+// Whitespace
+// -------------------------
+
+
+@global-whitespace-xlarge: 1.4rem;
+@global-whitespace-large: 1.2rem;
+@global-whitespace-base: 1rem;
+@global-whitespace-small: .6rem;
+@global-whitespace-xsmall: .4rem;

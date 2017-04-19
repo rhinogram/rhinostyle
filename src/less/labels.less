@@ -1,15 +1,32 @@
-// File: labels.less
-// Note:
+// -------------------------
+// Variables
+// -------------------------
+
+
+@label-accent-bg: @global-color-accent;
+@label-danger-bg: @global-color-danger;
+@label-default-bg: @global-color-gray;
+@label-info-bg: @global-color-info;
+@label-primary-bg: @global-color-primary;
+@label-secondary-bg: @global-color-secondary;
+@label-success-bg: @global-color-success;
+@label-warning-bg: @global-color-warning;
+
+@label-color: @global-color-white;
+@label-link-hover-color: @global-color-white;
+
+@label-padding-sides: @global-whitespace-xsmall;
+@label-padding: 0 @label-padding-sides;
 
 
 // -------------------------
-// Labels
+// Component
 // -------------------------
 
 
 .label {
   align-items: center;
-  border-radius: @border-radius;
+  border-radius: @global-border-radius;
   color: @label-color;
   display: inline-flex;
   font-size: 75%;
@@ -73,5 +90,5 @@ h3 {
 
 
 .label__icon {
-  margin-right: .2rem;
+  margin-right: @global-whitespace-xsmall;
 }
