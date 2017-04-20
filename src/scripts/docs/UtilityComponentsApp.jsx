@@ -7,7 +7,7 @@ import utilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
 
 const utilityInlineGridDocs = {
   align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
-  size: '[Optional] - Gutter size for list -  [small | large]',
+  size: '[Optional] - Gutter size for list (small by default) -  [small | regular | large]',
 };
 const utilityInlineGridScope = {
   React,

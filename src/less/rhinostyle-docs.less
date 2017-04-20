@@ -23,17 +23,18 @@
 .site-content {
   margin: 0 auto;
   max-width: @global-screen-lg-min;
-  padding: @grid-gutter-width / 2;
+  overflow: hidden;
+  padding: @global-whitespace-base;
   position: relative;
 
   @media (min-width: @global-screen-lg-min) {
-    padding: @grid-gutter-width;
+    padding: @global-whitespace-large;
   }
 }
 
 .site-example-alerts {
-  .alert:not(:last-child) {
-    margin-bottom: @global-whitespace-large;
+  > * + * {
+    margin-top: @global-whitespace-medium;
   }
 }
 
@@ -50,8 +51,8 @@
 }
 
 .site-example-systemalerts {
-  .system-alert:not(:last-child) {
-    margin-bottom: @global-whitespace-large;
+  > * + * {
+    margin-top: @global-whitespace-medium;
   }
 }
 
@@ -70,8 +71,8 @@
 }
 
 .site-example-toasts {
-  .toast:not(:last-child) {
-    margin-bottom: @global-whitespace-large;
+  > * + * {
+    margin-top: @global-whitespace-medium;
   }
 }
 

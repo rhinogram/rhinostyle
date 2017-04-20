@@ -15,7 +15,7 @@
 @dropdown-link-active-color: @global-component-active-color;
 @dropdown-link-active-bg: @global-component-active-bg;
 @dropdown-link-disabled-color: @global-color-gray-light;
-@dropdown-menu-offset: 0.8rem;
+@dropdown-menu-offset: @global-whitespace-small;
 @dropdown-menu-shadow: @global-shadow-depth-1;
 @dropdown-padding-horizontal: @global-whitespace-xlarge;
 @dropdown-padding-vertical: @global-whitespace-small;
@@ -67,7 +67,6 @@
 
 
 .dropdown--multiselect {
-
   .mixin-chevron-down(); // add chevron
 
   .dropdown__menu__item.active > .dropdown__menu__item__link {
@@ -101,16 +100,6 @@
     }
   }
 }
-
-
-//
-// Dropdown Input
-//
-
-
-/*.dropdown__input {
-  cursor: pointer;
-}*/
 
 
 //
