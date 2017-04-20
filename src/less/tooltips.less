@@ -1,9 +1,9 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
-@tooltip-arrow-width: .6rem;
+@tooltip-arrow-width: 0.6rem;
 @tooltip-arrow-color: @tooltip-bg;
 @tooltip-bg: @global-color-gray-dark;
 @tooltip-border-radius: @global-border-radius;
@@ -13,9 +13,9 @@
 @tooltip-zindex: 1050;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 [data-tooltip-bottom],
@@ -29,7 +29,7 @@
     background-color: @tooltip-bg;
     border-radius: @tooltip-border-radius;
     color: white;
-    font-size: @font-size-small;
+    font-size: @global-font-size-small;
     line-height: 1;
     opacity: 0;
     padding: @tooltip-padding;
@@ -44,7 +44,7 @@
     border-bottom: @tooltip-arrow-width solid transparent;
     border-left: @tooltip-arrow-width solid transparent;
     border-right: @tooltip-arrow-width solid transparent;
-    border-top: .6rem solid @tooltip-arrow-color;
+    border-top: 0.6rem solid @tooltip-arrow-color;
     content: '';
     height: 0;
     opacity: 0;
@@ -66,9 +66,9 @@
 }
 
 
-// -------------------------
+//
 // Tooltip - Bottom & Top
-// -------------------------
+//
 
 
 [data-tooltip-bottom],
@@ -84,46 +84,46 @@
 }
 
 
-// -------------------------
+//
 // Tooltip - Bottom
-// -------------------------
+//
 
 
 [data-tooltip-bottom] {
   &::before {
     content: attr(data-tooltip-bottom);
     top: 100%;
-    transform: translate(-50%, .6rem);
+    transform: translate(-50%, 0.6rem);
   }
 
   &::after {
-    bottom: -.6rem;
+    bottom: -0.6rem;
     transform: translateX(-50%) rotate(180deg);
   }
 }
 
 
-// -------------------------
+//
 // Tooltip - Top
-// -------------------------
+//
 
 
 [data-tooltip-top] {
   &::before {
     bottom: 100%;
     content: attr(data-tooltip-top);
-    transform: translate(-50%, -.6rem);
+    transform: translate(-50%, -0.6rem);
   }
 
   &::after {
-    top: -.6rem;
+    top: -0.6rem;
   }
 }
 
 
-// -------------------------
+//
 // Tooltip - Left
-// -------------------------
+//
 
 
 [data-tooltip-left] {
@@ -131,20 +131,20 @@
     content: attr(data-tooltip-left);
     right: 100%;
     top: 50%;
-    transform: translate(-.8rem, -50%);
+    transform: translate(-0.8rem, -50%);
   }
 
   &::after {
-    left: -.8rem;
+    left: -0.8rem;
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
   }
 }
 
 
-// -------------------------
+//
 // Tooltip - Right
-// -------------------------
+//
 
 
 [data-tooltip-right] {
@@ -152,11 +152,11 @@
     content: attr(data-tooltip-right);
     left: 100%;
     top: 50%;
-    transform: translate(.8rem, -50%);
+    transform: translate(0.8rem, -50%);
   }
 
   &::after {
-    right: -.8rem;
+    right: -0.8rem;
     top: 50%;
     transform: translateY(-50%) rotate(90deg);
   }

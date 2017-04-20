@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @alert-border-radius: @global-border-radius;
@@ -8,9 +8,9 @@
 @alert-padding-small: @global-whitespace-base;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .alert {
@@ -20,14 +20,14 @@
 }
 
 .alert--sm {
-  font-size: @font-size-small;
+  font-size: @global-font-size-small;
   padding: @alert-padding-small;
 }
 
 
-// -------------------------
+//
 // Alert Modifiers
-// -------------------------
+//
 
 
 .alert--danger {
@@ -38,7 +38,7 @@
   background: @global-color-gray-lighter;
 
   .alert__title {
-    color: darken(@text-color, 5%);
+    color: darken(@global-font-color, 5%);
   }
 }
 
@@ -55,9 +55,9 @@
 }
 
 
-// -------------------------
+//
 // Alert Body
-// -------------------------
+//
 
 
 .alert__body {
@@ -79,9 +79,9 @@
 }
 
 
-// -------------------------
+//
 // Alert Close
-// -------------------------
+//
 
 
 .alert__close {
@@ -95,17 +95,17 @@
 }
 
 
-// -------------------------
+//
 // Alert Title
-// -------------------------
+//
 
 
 .alert__title {
   display: flex;
-  font-weight: @font-weight-semibold;
+  font-weight: @global-font-weight-semibold;
 }
 
 .alert__title__icon {
   margin-right: @global-whitespace-small;
-  top: .2rem;
+  top: 0.2rem;
 }

@@ -1,20 +1,20 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @msg-border-radius: 1.125em; // 18px
 @msg-line-height: inherit;
 @msg-margin: @global-whitespace-base;
-@msg-padding: (@global-whitespace-base * .85) @global-whitespace-xlarge;
+@msg-padding: (@global-whitespace-base * 0.85) @global-whitespace-xlarge;
 @msg-default-bg: darken(@global-color-gray-lightest, 2%);
 @msg-primary-bg: @global-color-primary-rich;
 @msg-note-bg: #fff3b8;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .msg {
@@ -39,9 +39,9 @@
 }
 
 
-// -------------------------
+//
 // Message Modifiers (Color)
-// -------------------------
+//
 
 
 .msg--default {
@@ -78,9 +78,9 @@
 }
 
 
-// -------------------------
+//
 // Message Modifiers (To/From)
-// -------------------------
+//
 
 // We need to work with `em` due to some scaling issues with `rem`
 .msg--inbound,
@@ -97,23 +97,23 @@
 }
 
 .msg--inbound {
-  margin-left: .5em;
+  margin-left: 0.5em;
 
   &::before {
     border-bottom-right-radius: 100%;
     border-right-style: solid;
     border-right-width: 1em;
-    left: -.5em;
+    left: -0.5em;
   }
 }
 
 .msg--outbound {
-  margin-right: .5em;
+  margin-right: 0.5em;
 
   &::before {
     border-bottom-left-radius: 100%;
     border-left-style: solid;
     border-left-width: 1em;
-    right: -.5em;
+    right: -0.5em;
   }
 }

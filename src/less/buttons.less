@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @btn-font-weight: normal;
@@ -9,8 +9,8 @@
 
 @btn-border-radius: @global-border-radius;
 
-@btn-font-size-large: @font-size-large;
-@btn-font-size-small: @font-size-small;
+@btn-font-size-large: @global-font-size-large;
+@btn-font-size-small: @global-font-size-small;
 
 @btn-height-base: @global-height;
 @btn-height-large: @global-height-large;
@@ -32,7 +32,7 @@
 @btn-danger-bg: @global-color-danger;
 @btn-danger-border: @global-color-danger;
 
-@btn-default-color: @text-color;
+@btn-default-color: @global-font-color;
 @btn-default-bg: @global-color-white;
 @btn-default-border: @global-border-color-base;
 
@@ -40,7 +40,7 @@
 @btn-info-bg: @global-color-info;
 @btn-info-border: @global-color-info;
 
-@btn-outline-default-color: @text-color;
+@btn-outline-default-color: @global-font-color;
 @btn-outline-default-bg: transparent;
 @btn-outline-default-border: @btn-default-border;
 @btn-outline-default-hover-bg: darken(@global-color-gray, 10%);
@@ -55,7 +55,7 @@
 @btn-outline-reversed-color: @global-color-white;
 @btn-outline-reversed-bg: transparent;
 @btn-outline-reversed-border: @global-color-white;
-@btn-outline-reversed-hover-bg: rgba(255, 255, 255, .1);
+@btn-outline-reversed-hover-bg: rgba(255, 255, 255, 0.1);
 @btn-outline-reversed-hover-border: @global-color-white;
 
 @btn-primary-color: @global-color-white;
@@ -76,35 +76,34 @@
 
 @badge-border-radius: @global-border-radius;
 @badge-horizontal-padding: @global-whitespace-xsmall;
-@badge-vertical-padding: .3rem;
+@badge-vertical-padding: 0.3rem;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Anchor Elements
-// -------------------------
+//
 
 
 a {
-  color: @link-color;
+  color: @base-link-color;
   text-decoration: none;
 
   &.disabled,
   &[disabled] {
     box-shadow: none;
     cursor: @cursor-disabled;
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
-
-// -------------------------
+//
 // Button Elements
-// -------------------------
+//
 // We are not using <button> elements b/c they don't respect Flexbox
 
 
@@ -115,9 +114,9 @@ button {
 }
 
 
-// -------------------------
+//
 // Buttons
-// -------------------------
+//
 
 
 .btn {
@@ -136,7 +135,7 @@ button {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  .mixin-button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius);
+  .mixin-button-size(@btn-height-base; @btn-padding-base; @global-font-size-base; @btn-border-radius);
 
   &:hover,
   &:focus {
@@ -146,7 +145,7 @@ button {
 
   &.active {
     background-image: none;
-    box-shadow: inset 0 .25rem .5rem rgba(0, 0, 0, .15);
+    box-shadow: inset 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
     outline: 0;
   }
 
@@ -155,7 +154,7 @@ button {
   fieldset[disabled] & {
     box-shadow: none;
     cursor: @cursor-disabled;
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none;
   }
 
@@ -165,9 +164,9 @@ button {
 }
 
 
-// -------------------------
+//
 // Button Modifiers (Block)
-// -------------------------
+//
 
 
 .btn--block {
@@ -185,9 +184,9 @@ input[type='button'] {
 }
 
 
-// -------------------------
+//
 // Button Modifiers (Color)
-// -------------------------
+//
 
 
 .btn--danger {
@@ -235,9 +234,9 @@ input[type='button'] {
 }
 
 
-// -------------------------
+//
 // Button Modifiers (Icons)
-// -------------------------
+//
 // Buttons that only have an icon and no text.
 
 
@@ -257,15 +256,15 @@ input[type='button'] {
 }
 
 
-// -------------------------
+//
 // Button Modifiers (Link)
-// -------------------------
+//
 // Button padding and sizing but looks like an anchor
 
 
 .btn--link {
   border-radius: 0;
-  color: @link-color;
+  color: @base-link-color;
   font-weight: normal;
 
   &,
@@ -287,7 +286,7 @@ input[type='button'] {
   &:hover,
   &:focus {
     background-color: transparent;
-    color: @link-hover-color;
+    color: @base-link-hover-color;
     text-decoration: none;
   }
 
@@ -305,15 +304,15 @@ input[type='button'] {
   }
 
   .btn__badge {
-    background: @link-color;
+    background: @base-link-color;
     color: @global-color-white;
   }
 }
 
 
-// -------------------------
+//
 // Button Modifiers (Sizes)
-// -------------------------
+//
 
 
 .btn--lg {
@@ -321,16 +320,16 @@ input[type='button'] {
 }
 
 .btn--sm {
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
 
   .mixin-button-size(@btn-height-small; @btn-padding-small; @btn-font-size-small; @btn-border-radius);
 }
 
 
 
-// -------------------------
+//
 // Button Badges
-// -------------------------
+//
 
 
 .btn__badge {

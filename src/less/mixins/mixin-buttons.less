@@ -1,12 +1,12 @@
-// -------------------------
+//
 // Buttons Mixin
-// -------------------------
+//
 
 
 .mixin-button-variant(@global-color; @background; @border; @darken: 6%) {
   background-color: @background;
   border-color: @border;
-  //box-shadow: inset 0 -.2rem 0 rgba(0, 0, 0, 0.5);
+  //box-shadow: inset 0 -0.2rem 0 rgba(0, 0, 0, 0.5);
   color: @global-color;
 
   &:focus {
@@ -96,14 +96,14 @@
   .btn__badge {
     background: @global-color;
     // http://lesscss.org/functions/#color-operations-contrast
-    color: contrast(@global-color, @global-color-white, @text-color, 30%);
+    color: contrast(@global-color, @global-color-white, @global-font-color, 30%);
   }
 }
 
 
-// -------------------------
+//
 // Button Size
-// -------------------------
+//
 
 
 .mixin-button-size(@height; @padding-horizontal; @font-size; @global-border-radius) {
@@ -113,6 +113,6 @@
   padding: 0 @padding-horizontal;
 
   .btn__badge {
-    font-size: @font-size - .2rem;
+    font-size: @font-size - 0.2rem;
   }
 }

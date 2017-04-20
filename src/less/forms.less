@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @cursor-disabled: not-allowed; // disabled cursor for form controls and buttons.
@@ -10,7 +10,7 @@
 @input-border: @global-border-color-base;
 @input-border-focus: #66afe9;
 @input-border-radius: @global-border-radius;
-@input-color: @text-color;
+@input-color: @global-font-color;
 @input-color-placeholder: darken(@global-color-gray-light, 4%);
 @input-group-addon-bg: @global-color-gray-lighter; // bg color for textual input addons
 @input-group-addon-border-color: @input-border; // border color for textual input addons
@@ -25,7 +25,7 @@
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
 @form-element-color: @global-color-primary;
-@form-group-margin-bottom: @line-height-computed;
+@form-group-margin-bottom: @global-line-height-computed;
 
 @legend-color: @global-color-gray-dark;
 @legend-border-color: #e5e5e5;
@@ -37,19 +37,19 @@
 @switcher-state-line-height: @switcher-height;
 @switcher-state-padding: 2.2rem;
 @switcher-toggler-height: 2.2rem;
-@switcher-toggler-margin: .2rem;
+@switcher-toggler-margin: 0.2rem;
 @switcher-toggler-width: 2.2rem;
 @switcher-width: 6rem;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Form Core
-// -------------------------
+//
 
 
 fieldset {
@@ -73,7 +73,7 @@ textarea {
 label {
   color: @global-color-gray;
   display: inline-block;
-  font-weight: @font-weight-semibold;
+  font-weight: @global-font-weight-semibold;
   margin-bottom: @global-whitespace-small;
 }
 
@@ -82,9 +82,9 @@ legend {
   border-bottom: 1px solid @legend-border-color;
   color: @legend-color;
   display: block;
-  font-size: (@font-size-base * 1.5);
+  font-size: (@global-font-size-base * 1.5);
   line-height: inherit;
-  margin-bottom: @line-height-computed;
+  margin-bottom: @global-line-height-computed;
   padding: 0;
   width: 100%;
 }
@@ -100,9 +100,9 @@ textarea {
 }
 
 
-// -------------------------
+//
 // Form Normalization
-// -------------------------
+//
 
 
 input[type='search'] {
@@ -147,9 +147,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form
-// -------------------------
+//
 
 
 .form {
@@ -157,9 +157,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Asterisk (for required fields)
-// -------------------------
+//
 
 
 .form__asterisk {
@@ -167,9 +167,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Inline
-// -------------------------
+//
 
 
 .form__inline {
@@ -223,9 +223,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Add-On
-// -------------------------
+//
 
 
 .form__addon {
@@ -257,7 +257,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .mixin-addon-size(@input-height-base; @global-whitespace-base; @font-size-base);
+  .mixin-addon-size(@input-height-base; @global-whitespace-base; @global-font-size-base);
 
   &.disabled,
   &[disabled] {
@@ -278,16 +278,16 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Character Count
-// -------------------------
+//
 
 
 .form__character-count {
-  color: @text-color-muted;
+  color: @global-font-color-muted;
   flex-shrink: 0;
   font-size: 1.4rem;
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
   margin-left: auto;
   padding: @global-whitespace-small 0 0 @global-whitespace-small;
 }
@@ -297,9 +297,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Clear
-// -------------------------
+//
 
 
 .form__clear {
@@ -317,7 +317,7 @@ input[type='checkbox']:focus {
   font-size: 1.2rem;
   height: 1.8rem;
   justify-content: center;
-  opacity: .85;
+  opacity: 0.85;
   position: absolute;
   right: 1rem;
   text-decoration: none;
@@ -333,9 +333,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Control
-// -------------------------
+//
 
 
 // Shared size and type resets for form controls. Apply `.form-control` to any
@@ -368,7 +368,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   color: @input-color;
   display: flex;
-  transition: border-color .15s @global-trans-timing-cubic, box-shadow .15s @global-trans-timing-cubic;
+  transition: border-color 0.15s @global-trans-timing-cubic, box-shadow 0.15s @global-trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -381,7 +381,7 @@ input[type='checkbox']:focus {
     display: none;
   }
 
-  .mixin-input-size(@input-height-base; @input-padding-base; @font-size-base; @input-border-radius);
+  .mixin-input-size(@input-height-base; @input-padding-base; @global-font-size-base; @input-border-radius);
 
   &:focus {
     .mixin-tab-focus();
@@ -415,9 +415,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Control Modifiers
-// -------------------------
+//
 
 
 // form controls that need right padding to account for chevron-down
@@ -439,9 +439,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Control Footer
-// -------------------------
+//
 
 
 .form__control-footer {
@@ -453,23 +453,23 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Explanation Message
-// -------------------------
+//
 
 
 .form__explanation-message {
-  color: @text-color-muted;
+  color: @global-font-color-muted;
   font-size: 1.4rem;
   font-style: italic;
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
   padding-top: @global-whitespace-small;
 }
 
 
-// -------------------------
+//
 // Form Group
-// -------------------------
+//
 // Designed to help with the organization and spacing of vertical forms.
 
 
@@ -478,9 +478,9 @@ input[type='checkbox']:focus {
 }
 
 
-// -------------------------
+//
 // Form Placeholder
-// -------------------------
+//
 // Do not chain these styles as it will break.
 // https://css-tricks.com/almanac/selectors/p/placeholder/
 
@@ -511,33 +511,33 @@ input::-webkit-input-placeholder {
 }
 
 
-// -------------------------
+//
 // Form Section
-// -------------------------
+//
 // Designed to help with vertical spacing of form sections.
 
 
 .form__section:not(:last-child) {
-  margin-bottom: (@global-spacer * 3);
+  margin-bottom: (@global-whitespace-base * 3);
 }
 
 
-// -------------------------
+//
 // Form Validation Message
-// -------------------------
+//
 
 
 .form__validation-message {
   color: @global-color-danger;
   font-size: 1.4rem;
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
   padding-top: @global-whitespace-small;
 }
 
 
-// -------------------------
+//
 // Rhinobox & Rhinodio
-// -------------------------
+//
 
 
 input[type='radio'],
@@ -565,7 +565,7 @@ input[type='checkbox'] {
     cursor: pointer;
     font-weight: normal;
     margin-bottom: 0;
-    min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+    min-height: @global-line-height-computed; // Ensure the input doesn't jump when there is no text
     padding-left: 2.6rem;
     position: relative;
     user-select: none;
@@ -608,7 +608,7 @@ input[type='checkbox'] {
       padding: 0;
       position: absolute;
       speak: none;
-      top: .1rem;
+      top: 0.1rem;
       transition: background-color 250ms @global-trans-timing-cubic;
       width: 2rem;
     }
@@ -630,9 +630,9 @@ input[type='checkbox'] {
       border-radius: 50%;
       content: '';
       height: 1.4rem;
-      left: .3rem;
+      left: 0.3rem;
       position: absolute;
-      top: .4rem;
+      top: 0.4rem;
       transform: scale(0);
       transition: transform 250ms;
       width: 1.4rem;
@@ -648,7 +648,7 @@ input[type='checkbox'] {
       left: 0;
       position: absolute;
       speak: none;
-      top: .1rem;
+      top: 0.1rem;
       width: 2rem;
     }
   }
@@ -658,13 +658,13 @@ input[type='checkbox'] {
 .rhinodio--inline {
   display: inline-block;
   margin: (@rhinobox-rhinodio-margin / 2) @global-half-gutter (@rhinobox-rhinodio-margin / 2) 0;
-  //margin: .6rem @global-half-gutter .6rem 0; (Zach)
+  //margin: 0.6rem @global-half-gutter 0.6rem 0; (Zach)
 }
 
 
-// -------------------------
+//
 // Rhinoselect
-// -------------------------
+//
 
 
 // Must wrap select element with 'rhinoselect' container in order to use ::after
@@ -679,9 +679,9 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoselect Select
-// -------------------------
+//
 
 .rhinoselect__select {
   cursor: pointer;
@@ -691,9 +691,9 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher
-// -------------------------
+//
 
 
 .rhinoswitcher {
@@ -706,32 +706,32 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher Modifiers
-// -------------------------
+//
 
 
 .rhinoswitcher--disabled {
   cursor: not-allowed;
-  opacity: .5;
+  opacity: 0.5;
   pointer-events: none;
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher Icon
-// -------------------------
+//
 
 
 .rhinoswitcher__icon {
-  font-size: @font-size-base + .2rem;
+  font-size: @global-font-size-base + 0.2rem;
   top: 0;
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher Inner
-// -------------------------
+//
 
 
 .rhinoswitcher__inner {
@@ -743,9 +743,9 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher Input
-// -------------------------
+//
 
 
 .rhinoswitcher__input {
@@ -763,9 +763,9 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher Label
-// -------------------------
+//
 
 
 .rhinoswitcher__label {
@@ -782,9 +782,9 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher On/Off
-// -------------------------
+//
 
 
 .rhinoswitcher__off,
@@ -818,14 +818,14 @@ input[type='checkbox'] {
 }
 
 
-// -------------------------
+//
 // Rhinoswitcher Toggler
-// -------------------------
+//
 
 
 .rhinoswitcher__toggler {
   background-color: @global-color-white;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: @switcher-toggler-height;
   left: 0;
   margin: @switcher-toggler-margin;

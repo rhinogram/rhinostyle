@@ -1,19 +1,19 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @cover-zindex: 1010;
 
 
-// -------------------------
+//
 // Componeent
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Cover Open State
-// -------------------------
+//
 
 
 // class added to body
@@ -22,9 +22,9 @@
 }
 
 
-// -------------------------
+//
 // Cover
-// -------------------------
+//
 
 // 1. JS styles
 .cover {
@@ -37,15 +37,15 @@
   position: fixed;
   right: 0;
   top: 0;
-  transform: scale(.8); // 1
+  transform: scale(0.8); // 1
   transform-origin: center center;
   z-index: @cover-zindex;
 }
 
 
-// -------------------------
+//
 // Cover Header
-// -------------------------
+//
 
 
 .cover__header {
@@ -67,7 +67,7 @@
 }
 
 .cover__header__close-btn {
-  font-size: @font-size-large;
+  font-size: @global-font-size-large;
   margin-left: auto;
 }
 
@@ -76,7 +76,7 @@
   align-items: center;
   display: flex;
   font-size: 2rem;
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
   margin: 0;
 }
 
@@ -85,9 +85,9 @@
 }
 
 
-// -------------------------
+//
 // Cover Body
-// -------------------------
+//
 
 
 .cover__body {
@@ -130,9 +130,9 @@
 }
 
 
-// -------------------------
+//
 // Cover Footer
-// -------------------------
+//
 
 
 .cover__footer {

@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @avatar-bg-default: @global-color-gray-light;
@@ -11,9 +11,9 @@
 @avatar-size-small: 4rem;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .avatar {
@@ -23,10 +23,10 @@
   border-radius: 50%;
   color: @global-color-white;
   display: inline-flex;
-  font-size: @font-size-h3;
+  font-size: @base-h3-font-size;
   height: @avatar-size-base;
   justify-content: center;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   overflow: hidden;
   pointer-events: none;
   text-transform: uppercase;
@@ -35,9 +35,9 @@
 }
 
 
-// -------------------------
+//
 // Avatar Modifiers (Type)
-// -------------------------
+//
 
 
 .avatar--default {
@@ -49,19 +49,19 @@
 }
 
 
-// -------------------------
+//
 // Avatar Modifiers (Sizes)
-// -------------------------
+//
 
 
 .avatar--lg {
-  font-size: @font-size-h2;
+  font-size: @base-h2-font-size;
   height: @avatar-size-large;
   width: @avatar-size-large;
 }
 
 .avatar--sm {
-  font-size: @font-size-h6;
+  font-size: @base-h6-font-size;
   height: @avatar-size-small;
   // use min-width to prevent flex shrinking since we know the width
   // otherwise we would use flex-shrink: 0;
@@ -70,15 +70,15 @@
 }
 
 
-// -------------------------
+//
 // Avatar Icon
-// -------------------------
+//
 
 
 .avatar__icon {
   fill: currentColor;
   height: 86%;
-  opacity: .4;
+  opacity: 0.4;
   position: relative;
   top: 12%;
   width: 86%;

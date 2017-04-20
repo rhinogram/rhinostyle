@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @modal-backdrop-bg: fade(@global-color-black, 50%);
@@ -18,19 +18,19 @@
 
 @modal-header-padding-hor: @global-half-gutter;
 @modal-header-padding-vert: 2rem;
-@modal-header-line-height: @headings-line-height;
+@modal-header-line-height: @base-heading-line-height;
 
 @modal-zindex: 1020;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Modal Open State
-// -------------------------
+//
 
 
 // Class added to body
@@ -39,9 +39,9 @@
 }
 
 
-// -------------------------
+//
 // Modal
-// -------------------------
+//
 
 // 1. JS styles
 .modal {
@@ -58,9 +58,9 @@
 }
 
 
-// -------------------------
+//
 // Modal Content
-// -------------------------
+//
 
 // 1. JS styles
 .modal__dialog {
@@ -71,7 +71,7 @@
   box-shadow: @global-shadow-depth-3;
   margin: @global-whitespace-base;
   opacity: 0; // 1
-  transform: translateY(25%) scale(.5); // 1
+  transform: translateY(25%) scale(0.5); // 1
   transform-origin: center bottom; // 1
   z-index: @modal-zindex;
 
@@ -94,16 +94,16 @@
 }
 
 
-// -------------------------
+//
 // Modal Header
-// -------------------------
+//
 
 
 .modal__header {
   border-bottom: 2px solid @modal-header-border-color;
   display: flex;
   min-height: (@modal-header-padding-vert + @modal-header-line-height);
-  padding: @modal-header-padding-vert @modal-header-padding-hor @modal-header-padding-vert - .2rem;
+  padding: @modal-header-padding-vert @modal-header-padding-hor @modal-header-padding-vert - 0.2rem;
 }
 
 .modal__header__close {
@@ -126,9 +126,9 @@
 }
 
 
-// -------------------------
+//
 // Modal Body
-// -------------------------
+//
 
 
 .modal__body {
@@ -137,9 +137,9 @@
 }
 
 
-// -------------------------
+//
 // Modal Footer
-// -------------------------
+//
 
 
 .modal__footer {

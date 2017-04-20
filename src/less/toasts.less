@@ -1,9 +1,9 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 @toast-border-radius: @global-border-radius;
-@toast-font-weight: @font-weight-light;
+@toast-font-weight: @global-font-weight-light;
 @toast-offset: 1rem;
 @toast-padding: @global-whitespace-base;
 @toast-text: @global-color-white;
@@ -11,14 +11,14 @@
 @toast-zindex: 2000;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Toasts Container
-// -------------------------
+//
 
 
 .toasts-container {
@@ -37,9 +37,9 @@
 }
 
 
-// -------------------------
+//
 // Toast
-// -------------------------
+//
 
 
 .toast {
@@ -47,16 +47,16 @@
   border-radius: @toast-border-radius;
   color: @toast-text;
   display: flex;
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
   max-width: 80rem;
   padding: @toast-padding;
   position: relative;
 }
 
 
-// -------------------------
+//
 // Toast Modifiers
-// -------------------------
+//
 
 
 .toast--danger {
@@ -73,9 +73,9 @@
 
 
 
-// -------------------------
+//
 // Toast Close
-// -------------------------
+//
 
 
 .toast__close {
@@ -83,20 +83,20 @@
 }
 
 
-// -------------------------
+//
 // Toast Icon
-// -------------------------
+//
 
 
 .toast__icon {
-  font-size: @font-size-base + .2rem;
+  font-size: @global-font-size-base + 0.2rem;
   margin-right: @global-whitespace-small;
 }
 
 
-// -------------------------
+//
 // Toast Link
-// -------------------------
+//
 
 
 .toast__link {

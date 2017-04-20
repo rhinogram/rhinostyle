@@ -8,7 +8,7 @@ code {
   border-radius: @global-border-radius;
   color: @global-color-gray;
   font-size: 1.4rem;
-  padding: .2rem .4rem;
+  padding: 0.2rem 0.4rem;
 }
 
 pre {
@@ -30,9 +30,9 @@ pre {
 @global-header-height: 6rem;
 
 
-// -------------------------
+//
 // Site Content
-// -------------------------
+//
 
 
 .site-content {
@@ -103,7 +103,7 @@ pre {
 .site-example-utility__flex-item {
   border: 1px dotted @global-color-gray-light;
   color: @global-color-gray;
-  font-weight: @font-weight-light;
+  font-weight: @global-font-weight-light;
   padding: 0 @global-whitespace-base;
 }
 
@@ -133,7 +133,7 @@ pre {
 
 .site-example-utility__margin__default-item,
 .site-example-utility__margin__item {
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
   display: inline-block;
   padding: @global-whitespace-small;
 }
@@ -155,7 +155,7 @@ pre {
 .site-example-utility__padding__default-item,
 .site-example-utility__padding__item {
   background-clip: content-box;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
   display: inline-block;
 }
 
@@ -164,9 +164,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Copy
-// -------------------------
+//
 
 
 .site-copy {
@@ -175,9 +175,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Grid
-// -------------------------
+//
 
 
 .site-grid-box {
@@ -195,9 +195,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Header
-// -------------------------
+//
 
 
 .site-header {
@@ -212,7 +212,7 @@ pre {
 .site-header__logo {
   display: none;
   position: relative;
-  top: -.2rem;
+  top: -0.2rem;
   width: 7.2rem;
 
   > img {
@@ -237,11 +237,11 @@ pre {
 
 .site-header__menu__bar {
   background-color: @global-color-gray-dark;
-  height: .3rem;
+  height: 0.3rem;
   width: 2.2rem;
 
   & + & {
-    margin-top: .3rem;
+    margin-top: 0.3rem;
   }
 }
 
@@ -250,7 +250,7 @@ pre {
   display: flex;
   flex: 1;
   font-size: 2.2rem;
-  font-weight: @font-weight-light;
+  font-weight: @global-font-weight-light;
   min-width: 0;
   position: relative;
   text-shadow: 1px 1px 1px @global-color-white;
@@ -261,13 +261,13 @@ pre {
 }
 
 .site-header__title__treatment {
-  font-weight: @font-weight-semibold;
+  font-weight: @global-font-weight-semibold;
 }
 
 
-// -------------------------
+//
 // Site Miniheadline
-// -------------------------
+//
 
 
 .site-miniheadline {
@@ -277,9 +277,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Navigation
-// -------------------------
+//
 
 
 .site-navigation {
@@ -308,7 +308,7 @@ pre {
     padding: 0 @grid-gutter-width / 2;
 
     &:not(:first-child) {
-      margin-top: .6rem;
+      margin-top: 0.6rem;
     }
   }
 }
@@ -317,7 +317,7 @@ pre {
   border-radius: @global-border-radius;
   color: @global-color-white;
   display: block;
-  //font-weight: @font-weight-light;
+  //font-weight: @global-font-weight-light;
   padding: @global-whitespace-small @global-half-gutter;
   transition: background-color 250ms @global-trans-timing-cubic;
 
@@ -339,9 +339,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Modal
-// -------------------------
+//
 
 
 .site-modal .modal {
@@ -355,9 +355,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Overlay
-// -------------------------
+//
 
 
 .site-overlay {
@@ -373,9 +373,9 @@ pre {
 }
 
 
-// -------------------------
+//
 // Site Scaffolding
-// -------------------------
+//
 
 // Hide by default
 // GSAP does it's thing to handle showing body when animation is complete
@@ -388,9 +388,9 @@ html {
   }
 }
 
-// -------------------------
+//
 // Site Section
-// -------------------------
+//
 
 
 .site-section {
@@ -398,9 +398,9 @@ html {
 }
 
 
-// -------------------------
+//
 // Site Subheadline
-// -------------------------
+//
 
 
 .site-subheadline {
@@ -408,16 +408,16 @@ html {
   border-bottom: 1px solid @global-color-gray-lighter;
   display: flex;
   font-size: 2.6rem;
-  font-weight: @font-weight-semibold;
+  font-weight: @global-font-weight-semibold;
   margin-bottom: 3rem;
   padding-bottom: @global-whitespace-large;
   //text-decoration: underline;
 }
 
 
-// -------------------------
+//
 // Site Swatches
-// -------------------------
+//
 
 
 .site-swatch {
@@ -445,20 +445,20 @@ html {
 }
 
 
-// -------------------------
+//
 // Site Text Lead
-// -------------------------
+//
 
 
 .site-text-lead {
-  font-size: @font-size-large;
-  font-weight: @font-weight-light;
+  font-size: @global-font-size-large;
+  font-weight: @global-font-weight-light;
 }
 
 
-// -------------------------
+//
 // Site Wrapper
-// -------------------------
+//
 
 
 .site-wrapper {
@@ -468,9 +468,9 @@ html {
 }
 
 
-// -------------------------
+//
 // Code Mirror Playground
-// -------------------------
+//
 
 .playground > div > ul {
   list-style: none;
@@ -483,13 +483,13 @@ html {
 
     b:first-of-type {
       color: @global-state-info-text;
-      font-weight: @font-weight-semibold;
+      font-weight: @global-font-weight-semibold;
     }
 
     b:last-of-type {
       color: @global-state-danger-text;
       font-size: 1.4rem;
-      font-weight: @font-weight-semibold;
+      font-weight: @global-font-weight-semibold;
     }
   }
 }
@@ -501,7 +501,7 @@ html {
 .playgroundError { // lesshint selectorNaming: false
   background: @global-color-danger;
   color: @global-color-white;
-  font-family: @font-family-monospace;
+  font-family: @base-code-font-family;
   font-size: 1.4rem;
   margin-bottom: @global-half-gutter;
   padding: @global-whitespace-small;

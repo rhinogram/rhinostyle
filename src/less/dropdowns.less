@@ -1,21 +1,21 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @dropdown-arrow-size: 1rem;
 @dropdown-bg: @global-color-white;
 @dropdown-border: @global-border-color-base;
-@dropdown-chevron-size: .7em;
+@dropdown-chevron-size: 0.7em;
 @dropdown-divider-bg: @global-color-gray-lighter;
 @dropdown-header-color: @global-color-gray;
-@dropdown-link-color: @text-color;
-@dropdown-link-hover-color: darken(@text-color, 5%);
+@dropdown-link-color: @global-font-color;
+@dropdown-link-hover-color: darken(@global-font-color, 5%);
 @dropdown-link-hover-bg: @global-color-gray-lightest;
 @dropdown-link-active-color: @global-component-active-color;
 @dropdown-link-active-bg: @global-component-active-bg;
 @dropdown-link-disabled-color: @global-color-gray-light;
-@dropdown-menu-offset: .8rem;
+@dropdown-menu-offset: 0.8rem;
 @dropdown-menu-shadow: @global-shadow-depth-1;
 @dropdown-padding-horizontal: @global-whitespace-xlarge;
 @dropdown-padding-vertical: @global-whitespace-small;
@@ -24,9 +24,9 @@
 @dropdown-zindex: 1030;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .dropdown {
@@ -37,9 +37,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Modifier (Block)
-// -------------------------
+//
 
 
 .dropdown--block {
@@ -61,12 +61,12 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Modifier (Multiselect)
-// -------------------------
+//
 
 
-.dropdown--multiselect { // lesshint depthLevel: false
+.dropdown--multiselect {
 
   .mixin-chevron-down(); // add chevron
 
@@ -103,9 +103,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Input
-// -------------------------
+//
 
 
 /*.dropdown__input {
@@ -113,9 +113,9 @@
 }*/
 
 
-// -------------------------
+//
 // Dropdown Menu
-// -------------------------
+//
 
 // 1. JS styles
 .dropdown__menu {
@@ -151,11 +151,11 @@
   }
 
   &:not(.dropdown__menu--top)::before {
-    margin-top: -.1rem;
+    margin-top: -0.1rem;
   }
 
   &.dropdown__menu--top::before {
-    margin-bottom: -.1rem;
+    margin-bottom: -0.1rem;
   }
 
   @media (min-width: @global-screen-xs-min) {
@@ -164,9 +164,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Modifiers
-// -------------------------
+//
 
 
 .dropdown__menu--right {
@@ -218,9 +218,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Item
-// -------------------------
+//
 
 
 .dropdown__menu__item {
@@ -251,9 +251,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Item Link
-// -------------------------
+//
 
 
 .dropdown__menu__item__link {
@@ -261,7 +261,7 @@
   cursor: pointer;
   display: block;
   font-weight: normal;
-  line-height: @line-height-base;
+  line-height: @global-line-height-base;
   padding: @dropdown-padding;
 
   &:hover,
@@ -274,9 +274,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Item Content
-// -------------------------
+//
 
 
 .dropdown__menu__item__content {
@@ -286,9 +286,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Item Content Container
-// -------------------------
+//
 // Isolates label and desc from avatar for alignment
 // Also allows for text overflow of label but not description
 
@@ -299,21 +299,21 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Item Content Description
-// -------------------------
+//
 
 
 .dropdown__menu__item__content__desc {
   font-size: 1.4rem;
   //min-width: 20rem;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Item Content Label
-// -------------------------
+//
 
 
 .dropdown__menu__item__content__label {
@@ -322,9 +322,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Container
-// -------------------------
+//
 // Simply gives same padding as links.
 
 
@@ -333,37 +333,37 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Header
-// -------------------------
+//
 
 
 .dropdown__menu__header {
   color: @dropdown-header-color;
   display: block;
-  font-size: @font-size-small;
-  line-height: @line-height-base;
+  font-size: @global-font-size-small;
+  line-height: @global-line-height-base;
   padding: @dropdown-padding;
   white-space: nowrap;
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Divider
-// -------------------------
+//
 
 
 .dropdown__menu__divider {
   background-color: @global-color-gray-lighter;
-  height: .1rem;
+  height: 0.1rem;
   margin: @global-whitespace-xsmall 0;
   overflow: hidden;
 }
 
 
-// -------------------------
+//
 // Dropdown Menu Scroll
-// -------------------------
+//
 // Scrollable menu content
 
 
@@ -376,9 +376,9 @@
 
 
 
-// -------------------------
+//
 // Dropdown Toggle
-// -------------------------
+//
 
 
 /*.dropdown__toggle {
@@ -389,9 +389,9 @@
 }*/
 
 
-// -------------------------
+//
 // Dropdown Toggle Text
-// -------------------------
+//
 
 
 .dropdown__toggle__text {
@@ -399,9 +399,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Toggle Caret
-// -------------------------
+//
 
 
 .dropdown__toggle__caret {
@@ -416,14 +416,14 @@
 
   // When used within a button, adjust top position
   .btn & {
-    top: .1rem;
+    top: 0.1rem;
   }
 }
 
 
-// -------------------------
+//
 // Dropdown Toggle Icon
-// -------------------------
+//
 
 
 // only give right margin to toggle icon unless it's a child of btn--icon
@@ -434,9 +434,9 @@
 }
 
 
-// -------------------------
+//
 // Dropdown Close
-// -------------------------
+//
 
 // 1. `.dropdown__menu` top padding + drodpown horizontal padding
 .dropdown__close {
