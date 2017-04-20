@@ -20,9 +20,9 @@
 @btn-icon-padding-large: @btn-height-large / 4;
 @btn-icon-padding-small: @btn-height-small / 4;
 
-@btn-padding-base: @global-whitespace-base; // 1rem
-@btn-padding-large: @global-whitespace-large; // 1.2rem
-@btn-padding-small: @global-whitespace-base;
+@btn-padding-base: (@global-whitespace-small + (@global-whitespace-xsmall / 2));
+@btn-padding-large: (@global-whitespace-small + @global-whitespace-xsmall);
+@btn-padding-small: @global-whitespace-small;
 
 @btn-accent-color: @global-color-white;
 @btn-accent-bg: @global-color-accent;

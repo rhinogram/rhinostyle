@@ -20,6 +20,10 @@
 
 .bucket {
   border-radius: @bucket-border-radius;
+
+  & + & {
+    margin-top: @global-whitespace-medium;
+  }
 }
 
 
@@ -102,7 +106,6 @@
 }
 
 .bucket__header__title__avatar {
-  margin-bottom: 0;
   margin-right: @global-whitespace-small;
 }
 

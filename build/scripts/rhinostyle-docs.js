@@ -12544,37 +12544,33 @@ var BucketApp = function BucketApp() {
         )
       ),
       _react2.default.createElement(
-        'div',
-        { className: 'site-example-buckets' },
+        _components.Bucket,
+        null,
+        _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Default', icon: 'pencil' }),
         _react2.default.createElement(
-          _components.Bucket,
+          _components.BucketBody,
           null,
-          _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Default', icon: 'pencil' }),
-          _react2.default.createElement(
-            _components.BucketBody,
-            null,
-            'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
-          )
-        ),
+          'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
+        )
+      ),
+      _react2.default.createElement(
+        _components.Bucket,
+        { type: 'light' },
+        _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Light', icon: 'cog' }),
         _react2.default.createElement(
-          _components.Bucket,
-          { type: 'light' },
-          _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Light', icon: 'cog' }),
-          _react2.default.createElement(
-            _components.BucketBody,
-            null,
-            'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
-          )
-        ),
+          _components.BucketBody,
+          null,
+          'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
+        )
+      ),
+      _react2.default.createElement(
+        _components.Bucket,
+        { type: 'primary' },
+        _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Primary', icon: 'sms' }),
         _react2.default.createElement(
-          _components.Bucket,
-          { type: 'primary' },
-          _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Primary', icon: 'sms' }),
-          _react2.default.createElement(
-            _components.BucketBody,
-            null,
-            'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
-          )
+          _components.BucketBody,
+          null,
+          'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
         )
       )
     ),
@@ -12599,17 +12595,13 @@ var BucketApp = function BucketApp() {
           )
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'site-example-buckets' },
+          _components.Bucket,
+          { size: 'small' },
+          _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Header', icon: 'pencil' }),
           _react2.default.createElement(
-            _components.Bucket,
-            { size: 'small' },
-            _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Header', icon: 'pencil' }),
-            _react2.default.createElement(
-              _components.BucketBody,
-              null,
-              'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
-            )
+            _components.BucketBody,
+            null,
+            'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
           )
         )
       )
@@ -14417,84 +14409,80 @@ var FeedbackApp = function (_React$Component) {
             'div',
             { className: 'u-m-b-lg' },
             _react2.default.createElement(
-              'div',
-              { className: 'site-example-alerts' },
-              _react2.default.createElement(
-                _components.Alert,
-                { title: 'This is a danger alert!', titleIcon: 'star', type: 'danger', onDismiss: function onDismiss() {
-                    return alert('dismissed!');
-                  } },
-                'This is a danger alert for dangerous stuff. ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                ),
-                ' | ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                )
-              ),
-              _react2.default.createElement(
-                _components.Alert,
-                { title: 'This is a defualt  alert!', titleIcon: 'star', onDismiss: function onDismiss() {
-                    return alert('dismissed!');
-                  } },
-                'This is a default alert for defualt stuff. ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                ),
-                ' | ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                )
-              ),
-              _react2.default.createElement(
-                _components.Alert,
-                { title: 'This is a info alert!', titleIcon: 'star', type: 'info', onDismiss: function onDismiss() {
-                    return alert('dismissed!');
-                  } },
-                'This is a info alert for info stuff. ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                ),
-                ' | ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                )
-              ),
-              _react2.default.createElement(
-                _components.Alert,
-                { title: 'This is a success alert!', titleIcon: 'star', type: 'success', onDismiss: function onDismiss() {
-                    return alert('dismissed!');
-                  } },
-                'This is a success alert for success stuff. ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                ),
-                ' | ',
-                _react2.default.createElement(
-                  'a',
-                  { href: '' },
-                  'text link'
-                )
-              ),
-              _react2.default.createElement(_components.Alert, { title: 'This is a small info alert!', titleIcon: 'star', type: 'info', size: 'small', onDismiss: function onDismiss() {
+              _components.Alert,
+              { title: 'This is a danger alert!', titleIcon: 'star', type: 'danger', onDismiss: function onDismiss() {
                   return alert('dismissed!');
-                } })
-            )
+                } },
+              'This is a danger alert for dangerous stuff. ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              ),
+              ' | ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              )
+            ),
+            _react2.default.createElement(
+              _components.Alert,
+              { title: 'This is a defualt  alert!', titleIcon: 'star', onDismiss: function onDismiss() {
+                  return alert('dismissed!');
+                } },
+              'This is a default alert for defualt stuff. ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              ),
+              ' | ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              )
+            ),
+            _react2.default.createElement(
+              _components.Alert,
+              { title: 'This is a info alert!', titleIcon: 'star', type: 'info', onDismiss: function onDismiss() {
+                  return alert('dismissed!');
+                } },
+              'This is a info alert for info stuff. ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              ),
+              ' | ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              )
+            ),
+            _react2.default.createElement(
+              _components.Alert,
+              { title: 'This is a success alert!', titleIcon: 'star', type: 'success', onDismiss: function onDismiss() {
+                  return alert('dismissed!');
+                } },
+              'This is a success alert for success stuff. ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              ),
+              ' | ',
+              _react2.default.createElement(
+                'a',
+                { href: '' },
+                'text link'
+              )
+            ),
+            _react2.default.createElement(_components.Alert, { title: 'This is a small info alert!', titleIcon: 'star', type: 'info', size: 'small', onDismiss: function onDismiss() {
+                return alert('dismissed!');
+              } })
           ),
           _react2.default.createElement(
             'h3',
@@ -19475,7 +19463,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var utilityInlineGridDocs = {
   align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
-  size: '[Optional] - Gutter size for list -  [small | regular | large]'
+  size: '[Optional] - Gutter size for list (small by default) -  [small | regular | large]'
 };
 var utilityInlineGridScope = {
   React: _react2.default,
@@ -27780,7 +27768,7 @@ exports.stringify = function (obj, opts) {
 /* 661 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <div className=\"site-example-alerts\">\n          <Alert title=\"This is a default alert!\">This is a default alert for random stuff. <a href=\"\">text link</a> | <a href=\"\">text link</a></Alert>\n\n          <Alert title=\"This is a default alert with a title icon!\" titleIcon=\"star\">Donec eu erat sit amet arcu consectetur tincidunt nec eu quam. Mauris eros tortor, venenatis in lorem vel, fringilla suscipit erat. Integer velit arcu, pulvinar eu bibendum et, eleifend eu neque</Alert>\n\n          <Alert title=\"This is a default alert with a title icon and it's dismissible!\" titleIcon=\"lock\" onDismiss={() => alert('dismissed!')}>This is a default alert for random stuff.</Alert>\n\n          <Alert title=\"This is a default alert with a title icon, it's dismissible, and it has no children!\" titleIcon=\"lock\" onDismiss={() => alert('dismissed!')} />\n\n          <Alert onDismiss={() => alert('dismissed!')}>This is a default alert without a title and is dismissible.</Alert>\n\n          <Alert onDismiss={() => alert('dismissed!')}><Icon icon=\"cog\" bump=\"up\"/> This is a default alert without a title and is dismissible.</Alert>\n\n          <Alert title=\"Danger\" titleIcon=\"warning\" type=\"danger\">\n            Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href=\"javascript:void(0)\">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className=\"u-text-normal\"><Checkbox inline name=\"exampleCheckbox666\" className=\"u-m-b-0\">Checkbox</Checkbox></span>\n          </Alert>\n\n          <Alert title=\"Default\" titleIcon=\"checkmark\" size=\"small\">\n            Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href=\"javascript:void(0)\">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className=\"u-text-normal\"><Checkbox inline name=\"exampleCheckbox66666\" className=\"u-m-b-0\">Checkbox</Checkbox></span>\n          </Alert>\n\n        </div>\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Alert title=\"This is a default alert!\">This is a default alert for random stuff. <a href=\"\">text link</a> | <a href=\"\">text link</a></Alert>\n\n        <Alert title=\"This is a default alert with a title icon!\" titleIcon=\"star\">Donec eu erat sit amet arcu consectetur tincidunt nec eu quam. Mauris eros tortor, venenatis in lorem vel, fringilla suscipit erat. Integer velit arcu, pulvinar eu bibendum et, eleifend eu neque</Alert>\n\n        <Alert title=\"This is a default alert with a title icon and it's dismissible!\" titleIcon=\"lock\" onDismiss={() => alert('dismissed!')}>This is a default alert for random stuff.</Alert>\n\n        <Alert title=\"This is a default alert with a title icon, it's dismissible, and it has no children!\" titleIcon=\"lock\" onDismiss={() => alert('dismissed!')} />\n\n        <Alert onDismiss={() => alert('dismissed!')}>This is a default alert without a title and is dismissible.</Alert>\n\n        <Alert onDismiss={() => alert('dismissed!')}><Icon icon=\"cog\" bump=\"up\"/> This is a default alert without a title and is dismissible.</Alert>\n\n        <Alert title=\"Danger\" titleIcon=\"warning\" type=\"danger\">\n          Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href=\"javascript:void(0)\">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className=\"u-text-normal\"><Checkbox inline name=\"exampleCheckbox666\" className=\"u-m-b-0\">Checkbox</Checkbox></span>\n        </Alert>\n\n        <Alert title=\"Default\" titleIcon=\"checkmark\" size=\"small\">\n          Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href=\"javascript:void(0)\">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className=\"u-text-normal\"><Checkbox inline name=\"exampleCheckbox66666\" className=\"u-m-b-0\">Checkbox</Checkbox></span>\n        </Alert>\n\n      </div>\n    );\n  }\n}\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 662 */
@@ -27792,7 +27780,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 663 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-buckets\">\n\n        <Bucket>\n          <BucketHeader avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}} title=\"Bucket Header\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader title=\"Bucket Header\" icon=\"pencil\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader title=\"Bucket Header With Background\" icon=\"pencil\" className=\"u-bg-gray-lightest\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader className=\"u-flex-justify-between\" title=\"Bucket Header With Extra Content\" icon=\"pencil\">\n            <div>\n              <a href=\"\" className=\"u-text-underline\">Edit</a> | <a href=\"\" className=\"u-text-underline\">Delete</a>\n            </div>\n          </BucketHeader>\n          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader className=\"u-bg-gray-lightest\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}}>Bucket Header Without Title Property</BucketHeader>\n          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>\n        </Bucket>\n        \n        <Bucket>\n          <BucketBody>Bucket body in a default bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket type=\"light\">\n          <BucketBody>Bucket body in a light bucket.</BucketBody>\n        </Bucket>\n\n\n        <Bucket type=\"primary\">\n          <BucketBody>Bucket body in a primary bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket size=\"small\">\n          <BucketBody>Bucket body in a small bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketBody className=\"u-bg-gray-lightest\">Bucket body with background.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <Table>\n          <thead>\n            <tr>\n              <th>#</th>\n              <th>First Name</th>\n              <th>Last Name</th>\n              <th>Username</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>1</td>\n              <td>Ben</td>\n              <td>Bruning</td>\n              <td>@bruning</td>\n            </tr>\n            <tr>\n              <td>2</td>\n              <td>Blake</td>\n              <td>Guilloud</td>\n              <td>@guilloud</td>\n            </tr>\n            <tr>\n              <td>3</td>\n              <td>Keaton</td>\n              <td>Foster</td>\n              <td>@foster</td>\n            </tr>\n          </tbody>\n        </Table>\n        </Bucket>\n        \n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <Bucket>\n          <BucketHeader avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}} title=\"Bucket Header\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader title=\"Bucket Header\" icon=\"pencil\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader title=\"Bucket Header With Background\" icon=\"pencil\" className=\"u-bg-gray-lightest\" />\n          <BucketBody>Bucket body.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader className=\"u-flex-justify-between\" title=\"Bucket Header With Extra Content\" icon=\"pencil\">\n            <div>\n              <a href=\"\" className=\"u-text-underline\">Edit</a> | <a href=\"\" className=\"u-text-underline\">Delete</a>\n            </div>\n          </BucketHeader>\n          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketHeader className=\"u-bg-gray-lightest\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Robert Plant\", type: \"member\"}}>Bucket Header Without Title Property</BucketHeader>\n          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketBody>Bucket body in a default bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket type=\"light\">\n          <BucketBody>Bucket body in a light bucket.</BucketBody>\n        </Bucket>\n\n\n        <Bucket type=\"primary\">\n          <BucketBody>Bucket body in a primary bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket size=\"small\">\n          <BucketBody>Bucket body in a small bucket.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <BucketBody className=\"u-bg-gray-lightest\">Bucket body with background.</BucketBody>\n        </Bucket>\n\n        <Bucket>\n          <Table>\n            <thead>\n              <tr>\n                <th>#</th>\n                <th>First Name</th>\n                <th>Last Name</th>\n                <th>Username</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td>1</td>\n                <td>Ben</td>\n                <td>Bruning</td>\n                <td>@bruning</td>\n              </tr>\n              <tr>\n                <td>2</td>\n                <td>Blake</td>\n                <td>Guilloud</td>\n                <td>@guilloud</td>\n              </tr>\n              <tr>\n                <td>3</td>\n                <td>Keaton</td>\n                <td>Foster</td>\n                <td>@foster</td>\n              </tr>\n            </tbody>\n          </Table>\n        </Bucket>\n\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 664 */
@@ -27930,7 +27918,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 686 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  state = {\n    firstName: '',\n    lastName: '',\n  }\n\n  onClick = () => {\n    ModalSystem.addModal(this.renderContent());\n  };\n\n  closeModal = () => {\n    ModalSystem.removeModal();\n  }\n\n  handleChange = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n    this.setState(newState);\n  }\n\n  saveChanges = () => {\n    const errors = {};\n\n    if (!this.state.firstName) {\n      errors.firstName = 'FirstName is required!';\n    }\n\n    if (!this.state.lastName) {\n      errors.lastName = 'LastName is required!';\n    }\n\n    const errorCount  = Object.keys(errors).length\n\n    if (errorCount > 0) {\n      ModalSystem.refreshModal(this.renderContent(errors));\n    } else {\n      alert('Changes were saved!');\n      this.closeModal();\n    }\n  }\n\n  renderContent = (errors) => {\n    const errorList = errors || {};\n\n    return (\n      <Modal>\n        <ModalHeader icon=\"pencil\" title=\"Sample Modal\" />\n        <ModalBody>\n          <div className=\"form\">\n              <Input label=\"First Name\" name=\"firstName\" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />\n              <Input className=\"u-m-b-0\" label=\"Last Name\" name=\"lastName\" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />\n          </div>\n        </ModalBody>\n        <ModalFooter>\n          <UtilityInlineGrid align=\"right\">\n            <Button type=\"default\" onClick={this.closeModal}>Close</Button>&nbsp;\n            <Button type=\"primary\" onClick={this.saveChanges}>Save Changes</Button>\n          </UtilityInlineGrid>\n        </ModalFooter>\n      </Modal>\n    );\n  }\n\n  render() {\n    return (\n      <div>\n        <Button type=\"primary\" onClick={this.onClick}>Launch Modal</Button>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  state = {\n    firstName: '',\n    lastName: '',\n  }\n\n  onClick = () => {\n    ModalSystem.addModal(this.renderContent());\n  };\n\n  closeModal = () => {\n    ModalSystem.removeModal();\n  }\n\n  handleChange = (name, value) => {\n    const newState = {};\n\n    newState[name] = value;\n    this.setState(newState);\n  }\n\n  saveChanges = () => {\n    const errors = {};\n\n    if (!this.state.firstName) {\n      errors.firstName = 'FirstName is required!';\n    }\n\n    if (!this.state.lastName) {\n      errors.lastName = 'LastName is required!';\n    }\n\n    const errorCount  = Object.keys(errors).length\n\n    if (errorCount > 0) {\n      ModalSystem.refreshModal(this.renderContent(errors));\n    } else {\n      alert('Changes were saved!');\n      this.closeModal();\n    }\n  }\n\n  renderContent = (errors) => {\n    const errorList = errors || {};\n\n    return (\n      <Modal>\n        <ModalHeader icon=\"pencil\" title=\"Sample Modal\" />\n        <ModalBody>\n          <div className=\"form\">\n              <Input label=\"First Name\" name=\"firstName\" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />\n              <Input label=\"Last Name\" name=\"lastName\" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />\n          </div>\n        </ModalBody>\n        <ModalFooter>\n          <UtilityInlineGrid align=\"right\">\n            <Button type=\"default\" onClick={this.closeModal}>Close</Button>&nbsp;\n            <Button type=\"primary\" onClick={this.saveChanges}>Save Changes</Button>\n          </UtilityInlineGrid>\n        </ModalFooter>\n      </Modal>\n    );\n  }\n\n  render() {\n    return (\n      <div>\n        <Button type=\"primary\" onClick={this.onClick}>Launch Modal</Button>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 687 */

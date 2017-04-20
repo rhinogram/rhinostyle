@@ -49,7 +49,7 @@ class ComponentExample extends React.Component {
         <ModalBody>
           <div className="form">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-              <Input className="u-m-b-0" label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
           </div>
         </ModalBody>
         <ModalFooter>

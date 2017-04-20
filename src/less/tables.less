@@ -21,17 +21,25 @@
 // Component
 //
 
-
+// 1. Remove spacing between table cells.
+// 2. Block element behavior
+// 3. Style
 .table {
-  background-color: @table-bg;
+  // 1
+  border-collapse: collapse;
+  border-spacing: 0;
+  // 2
   max-width: 100%;
   width: 100%;
+  // 3
+  background-color: @table-bg;
+  caption-side: bottom;
+  margin-bottom: @global-whitespace-base;
 
   // Cells
   td,
   th {
     border-top: 1px solid @table-border-color;
-    line-height: @global-line-height-base;
     padding: @table-cell-padding;
     vertical-align: top;
   }

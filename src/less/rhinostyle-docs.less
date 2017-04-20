@@ -32,27 +32,15 @@
   }
 }
 
-.site-example-alerts {
-  > * + * {
-    margin-top: @global-whitespace-medium;
-  }
-}
-
-.site-example-buckets {
-  > * + * {
-    margin-top: @global-whitespace-medium;
-  }
-}
-
 .site-example-bucketheaders {
   > * + * {
-    margin-top: @global-whitespace-medium;
+    margin-top: @global-whitespace-base;
   }
 }
 
 .site-example-systemalerts {
   > * + * {
-    margin-top: @global-whitespace-medium;
+    margin-top: @global-whitespace-base;
   }
 }
 
@@ -77,12 +65,12 @@
 }
 
 .site-example-utility {
-  &:not(:last-child) {
-    margin-bottom: 4rem;
+  + * {
+    margin-top: @global-whitespace-medium;
   }
 
   h4 {
-    margin-bottom: @global-whitespace-xsmall;
+    margin-bottom: 0;
   }
 }
 

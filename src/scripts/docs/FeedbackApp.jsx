@@ -83,13 +83,11 @@ class FeedbackApp extends React.Component {
         <section className="site-section">
           <h3 className="site-subheadline">Alert</h3>
           <div className="u-m-b-lg">
-            <div className="site-example-alerts">
-              <Alert title="This is a danger alert!" titleIcon="star" type="danger" onDismiss={() => alert('dismissed!')}>This is a danger alert for dangerous stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
-            </div>
+            <Alert title="This is a danger alert!" titleIcon="star" type="danger" onDismiss={() => alert('dismissed!')}>This is a danger alert for dangerous stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
           <Playground theme="default" docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />

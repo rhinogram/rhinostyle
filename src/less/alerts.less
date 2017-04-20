@@ -17,6 +17,10 @@
   border-radius: @alert-border-radius;
   padding: @alert-padding;
   position: relative;
+
+  & + & {
+    margin-top: @global-whitespace-medium;
+  }
 }
 
 .alert--sm {

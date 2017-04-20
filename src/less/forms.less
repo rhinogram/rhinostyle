@@ -25,7 +25,7 @@
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
 @form-element-color: @global-color-primary;
-@form-group-margin-bottom: @global-line-height-computed;
+@form-group-spacing: @global-whitespace-base;
 
 @legend-color: @global-color-gray-dark;
 @legend-border-color: #e5e5e5;
@@ -173,16 +173,18 @@ input[type='checkbox']:focus {
 
 
 .form__inline {
-
   // Kick in the inline
   @media (min-width: @global-screen-sm-min) {
     // Inline-flex all the things for 'inline'
     .form__group {
       align-items: center;
       display: inline-flex;
-      margin-bottom: 0;
       margin-right: @global-whitespace-small;
       vertical-align: middle;
+
+      + .form__group {
+        margin-top: 0;
+      }
 
       > label {
         margin-bottom: 0;
@@ -233,7 +235,6 @@ input[type='checkbox']:focus {
 
   .form__control {
     flex: 1;
-    //width: auto;
   }
 
   .form__control:first-child {
@@ -257,7 +258,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .mixin-addon-size(@input-height-base; @global-whitespace-base; @global-font-size-base);
+  .mixin-addon-size(@input-height-base; (@global-whitespace-small + (@global-whitespace-xsmall / 2)); @global-font-size-base);
 
   &.disabled,
   &[disabled] {
@@ -286,7 +287,7 @@ input[type='checkbox']:focus {
 .form__character-count {
   color: @global-font-color-muted;
   flex-shrink: 0;
-  font-size: 1.4rem;
+  font-size: @global-font-size-small;
   line-height: @global-line-height-small;
   margin-left: auto;
   padding: @global-whitespace-small 0 0 @global-whitespace-small;
@@ -460,7 +461,7 @@ input[type='checkbox']:focus {
 
 .form__explanation-message {
   color: @global-font-color-muted;
-  font-size: 1.4rem;
+  font-size: @global-font-size-small;
   font-style: italic;
   line-height: @global-line-height-small;
   padding-top: @global-whitespace-small;
@@ -474,7 +475,10 @@ input[type='checkbox']:focus {
 
 
 .form__group {
-  margin-bottom: @form-group-margin-bottom;
+
+  & + & {
+    margin-top: @form-group-spacing;
+  }
 }
 
 
@@ -529,7 +533,7 @@ input::-webkit-input-placeholder {
 
 .form__validation-message {
   color: @global-color-danger;
-  font-size: 1.4rem;
+  font-size: @global-font-size-small;
   line-height: @global-line-height-small;
   padding-top: @global-whitespace-small;
 }
@@ -792,7 +796,7 @@ input[type='checkbox'] {
   align-items: center;
   color: @global-color-white;
   display: inline-flex;
-  font-size: 1.4rem;
+  font-size: @global-font-size-small;
   height: 100%;
   justify-content: center;
   line-height: @switcher-state-line-height;
