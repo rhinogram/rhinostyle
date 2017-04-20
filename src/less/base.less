@@ -345,7 +345,9 @@ figure {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   margin: 0 0 @base-margin-vertical;
   font-family: @base-heading-font-family;
   color: @base-heading-color;
@@ -356,7 +358,9 @@ h4 {
 * + h1,
 * + h2,
 * + h3,
-* + h4 {
+* + h4,
+* + h5,
+* + h6 {
   margin-top: @base-heading-margin-top;
 }
 
@@ -471,7 +475,7 @@ blockquote {
 pre {
   padding: @base-pre-padding;
   background: @base-pre-background;
-  font: @base-pre-font-size unquote('/') @base-pre-line-height @base-pre-font-family;
+  font: @base-pre-font-size / @base-pre-line-height @base-pre-font-family;
   color: @base-pre-color;
   tab-size: 4;
   border: 1px solid @base-pre-border;

@@ -68,7 +68,7 @@ const AvatarApp = () =>
       </div>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
     </section>

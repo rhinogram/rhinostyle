@@ -3,21 +3,6 @@
 @import 'rhinostyle';
 @import (inline) '../../node_modules/codemirror/lib/codemirror.css';
 
-code {
-  background: darken(@global-color-gray-lightest, 1%);
-  border-radius: @global-border-radius;
-  color: @global-color-gray;
-  font-size: 1.4rem;
-  padding: 0.2rem 0.4rem;
-}
-
-pre {
-  background-color: @global-color-gray-lighter;
-  border-radius: @global-border-radius;
-  font-size: 1.4rem;
-  padding: @global-whitespace-base;
-}
-
 
 @zindex-site-navigation: 20;
 @zindex-site-overlay: 15;
@@ -53,14 +38,14 @@ pre {
 }
 
 .site-example-buckets {
-  .bucket:not(:last-child) {
-    margin-bottom: 4rem;
+  > * + * {
+    margin-top: @global-whitespace-medium;
   }
 }
 
 .site-example-bucketheaders {
-  .bucket__header:not(:last-child) {
-    margin-bottom: @global-whitespace-large;
+  > * + * {
+    margin-top: @global-whitespace-medium;
   }
 }
 
@@ -109,7 +94,7 @@ pre {
 
 .site-example-utility__panel {
   background: @global-color-gray-lightest;
-  padding: @global-gutter;
+  padding: @global-whitespace-base;
 
   p:last-child {
     margin-bottom: 0;
@@ -191,7 +176,7 @@ pre {
 .site-grid-box-container {
   background: @global-color-gray-lightest;
   border: 1px solid @global-color-gray-light;
-  padding: @global-half-gutter;
+  padding: @global-whitespace-base;
 }
 
 
@@ -205,7 +190,7 @@ pre {
   background-color: @global-color-gray-lightest;
   display: flex;
   height: @global-header-height;
-  padding: 0 @global-half-gutter;
+  padding: 0 @global-whitespace-base;
   transition: transform 250ms @global-trans-timing-cubic;
 }
 
@@ -228,7 +213,7 @@ pre {
 
 .site-header__menu {
   cursor: pointer;
-  margin-right: @global-half-gutter;
+  margin-right: @global-whitespace-base;
 
   @media (min-width: @global-screen-lg-min) {
     display: none;
@@ -307,8 +292,8 @@ pre {
   > li {
     padding: 0 @grid-gutter-width / 2;
 
-    &:not(:first-child) {
-      margin-top: 0.6rem;
+    & + & {
+      margin-top: @global-whitespace-small;
     }
   }
 }
@@ -317,8 +302,7 @@ pre {
   border-radius: @global-border-radius;
   color: @global-color-white;
   display: block;
-  //font-weight: @global-font-weight-light;
-  padding: @global-whitespace-small @global-half-gutter;
+  padding: @global-whitespace-small @global-whitespace-base;
   transition: background-color 250ms @global-trans-timing-cubic;
 
   .no-touch & {
@@ -333,9 +317,10 @@ pre {
     background-color: lighten(@site-navigation-bg, 6%) !important;
   }
 
-  /*@media (min-height: 1100px) {
-    padding: @global-whitespace-base @global-half-gutter;
-  }*/
+  &:hover,
+  &:focus {
+    color: @global-color-white;
+  }
 }
 
 
@@ -394,7 +379,9 @@ html {
 
 
 .site-section {
-  margin-bottom: 8rem;
+  & + & {
+    margin-top: (@global-whitespace-large * 2);
+  }
 }
 
 
@@ -407,11 +394,10 @@ html {
   align-items: center;
   border-bottom: 1px solid @global-color-gray-lighter;
   display: flex;
-  font-size: 2.6rem;
+  font-size: @base-h2-font-size;
   font-weight: @global-font-weight-semibold;
-  margin-bottom: 3rem;
-  padding-bottom: @global-whitespace-large;
-  //text-decoration: underline;
+  margin-bottom: @global-whitespace-large;
+  padding-bottom: @global-whitespace-base;
 }
 
 
@@ -440,7 +426,7 @@ html {
 }
 
 .site-swatch__text {
-  padding: @global-whitespace-large 0 @global-whitespace-small 0;
+  margin-top: @global-whitespace-small;
   text-align: center;
 }
 
@@ -474,11 +460,10 @@ html {
 
 .playground > div > ul {
   list-style: none;
-  margin-bottom: 3rem;
+  margin-bottom: @global-whitespace-medium;
   padding-left: 0;
 
   li {
-    //color: @global-color-gray-dark;
     margin-bottom: @global-whitespace-xsmall;
 
     b:first-of-type {
@@ -495,15 +480,15 @@ html {
 }
 
 .playgroundCode { // lesshint selectorNaming: false
-  margin-bottom: @global-half-gutter;
+  margin-bottom: @global-whitespace-medium;
 }
 
 .playgroundError { // lesshint selectorNaming: false
   background: @global-color-danger;
   color: @global-color-white;
   font-family: @base-code-font-family;
-  font-size: 1.4rem;
-  margin-bottom: @global-half-gutter;
+  font-size: @global-font-size-small;
+  margin-bottom: @global-whitespace-base;
   padding: @global-whitespace-small;
   white-space: pre-wrap;
 }

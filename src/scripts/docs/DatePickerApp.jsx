@@ -45,7 +45,7 @@ class DatePickerApp extends React.Component {
           </div>
         </section>
 
-        <section>
+        <section className="site-section">
           <h3 className="site-subheadline">Playground</h3>
           <Playground theme="default" docClass={DatePicker} propDescriptionMap={datePickerDocs} codeText={datePickerExample} scope={exampleScope} noRender={false} />
         </section>

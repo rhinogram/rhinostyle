@@ -1,7 +1,4 @@
 {
-  "depthLevel": {
-    "enabled": false
-  },
   "hexLength": {
     "enabled": true,
     "style": "short"

@@ -31,7 +31,7 @@ const ScrollBarApp = () =>
       </div>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Scrollbars} propDescriptionMap={scrollBarDocs} codeText={scrollBarExample} scope={exampleScope} noRender={false} />
     </section>

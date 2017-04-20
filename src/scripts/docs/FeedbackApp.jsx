@@ -107,7 +107,7 @@ class FeedbackApp extends React.Component {
           <h3 className="site-subheadline">SystemAlert Playground</h3>
           <Playground theme="default" docClass={SystemAlert} propDescriptionMap={systemAlertDocs} codeText={systemAlertExample} scope={systemAlertScope} noRender={false} />
         </section>
-        <section>
+        <section className="site-section">
           <h3 className="site-subheadline">Toast</h3>
           <p className="site-copy">To see a toast in action, <a href="javascript:void(0)" onClick={this.onClick}>click here</a>.</p>
           <div className="site-example-toasts u-m-b-lg">

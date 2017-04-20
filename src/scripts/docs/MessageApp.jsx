@@ -86,7 +86,7 @@ const MessageApp = () =>
         </UtilityInlineGrid>
       </div>
     </section>
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>

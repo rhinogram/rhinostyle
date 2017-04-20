@@ -22,7 +22,7 @@ const CloseApp = () =>
       <p className="site-text-lead">The Close component is used within numerous components - particularly in our feedback system.</p>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Close} propDescriptionMap={closeDocs} codeText={closeExample} scope={exampleScope} noRender={false} />
     </section>

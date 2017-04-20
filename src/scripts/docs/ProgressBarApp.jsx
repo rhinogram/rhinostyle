@@ -34,7 +34,7 @@ const ProgressBarApp = () =>
       <ProgressBar progress={60} showLabel type="primary" />
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
     </section>

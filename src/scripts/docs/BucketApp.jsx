@@ -78,7 +78,7 @@ const BucketApp = () =>
       <Playground theme="default" docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Bucket Header Playground</h3>
       <Playground theme="default" docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
     </section>

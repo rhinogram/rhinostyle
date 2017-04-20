@@ -27,7 +27,7 @@ const PillApp = () =>
       <p className="site-text-lead">The Pill component is used to display current filters or selections.</p>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Pill} propDescriptionMap={pillDocs} codeText={pillExample} scope={exampleScope} noRender={false} />
     </section>
