@@ -32,10 +32,10 @@ const Alert = (props) => {
   return (
     <div className={classes}>
       {renderClose()}
-      <div className="alert__title">
+      {title ? <div className="alert__title">
         {renderTitleIcon()}
         <div className="alert__title__text">{title}</div>
-      </div>
+      </div> : null }
       <div className="alert__body">
         {props.children}
       </div>

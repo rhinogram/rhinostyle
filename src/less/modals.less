@@ -16,8 +16,6 @@
 @modal-md: 60rem;
 @modal-sm: 30rem;
 
-@modal-header-padding-hor: @global-whitespace-base;
-@modal-header-padding-vert: 2rem;
 @modal-header-line-height: @base-heading-line-height;
 
 @modal-zindex: 1020;
@@ -102,8 +100,7 @@
 .modal__header {
   border-bottom: 2px solid @modal-header-border-color;
   display: flex;
-  min-height: (@modal-header-padding-vert + @modal-header-line-height);
-  padding: @modal-header-padding-vert @modal-header-padding-hor @modal-header-padding-vert - 0.2rem;
+  padding: @modal-inner-padding;
 }
 
 .modal__header__close {

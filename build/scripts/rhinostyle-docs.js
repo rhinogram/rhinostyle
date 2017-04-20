@@ -20596,7 +20596,7 @@ var Alert = function Alert(props) {
     'div',
     { className: classes },
     renderClose(),
-    _react2.default.createElement(
+    title ? _react2.default.createElement(
       'div',
       { className: 'alert__title' },
       renderTitleIcon(),
@@ -20605,7 +20605,7 @@ var Alert = function Alert(props) {
         { className: 'alert__title__text' },
         title
       )
-    ),
+    ) : null,
     _react2.default.createElement(
       'div',
       { className: 'alert__body' },
