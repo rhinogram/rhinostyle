@@ -21605,7 +21605,7 @@ var CoverHeader = function (_React$Component) {
           'div',
           { className: 'cover__header__container' },
           _react2.default.createElement(
-            'div',
+            'h4',
             { className: 'cover__header__title' },
             icon ? _react2.default.createElement(_components.Icon, { icon: icon, className: iconClasses }) : null,
             _react2.default.createElement(
