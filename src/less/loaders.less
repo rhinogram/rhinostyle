@@ -10,6 +10,8 @@
 @loader-circle-size-lg: 3.8rem;
 @loader-circle-border-size: 3px;
 
+@loader-pulse-size: 0.8rem;
+
 
 //
 // Component
@@ -136,10 +138,10 @@
 
 .loader-pulse__pulse {
   border-radius: 50%;
-  height: 0.8rem;
-  opacity: 0.5;
+  height: @loader-pulse-size;
+  opacity: @global-opacity-disabled;
   transform: scale(0.75);
-  width: 0.8rem;
+  width: @loader-pulse-size;
 
   + * {
     margin-left: @global-whitespace-small;

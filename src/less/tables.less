@@ -13,8 +13,8 @@
 
 @table-border-color: @global-border-color-base;
 
-@table-cell-padding: 1rem; // padding for `<th>`s and `<td>`s
-@table-condensed-cell-padding: 0.6rem; // padding for cells in `.table-condensed`
+@table-cell-padding: (@global-whitespace-small + @global-whitespace-xsmall); // padding for `<th>`s and `<td>`s
+@table-condensed-cell-padding: @global-whitespace-small; // padding for cells in `.table-condensed`
 
 
 //

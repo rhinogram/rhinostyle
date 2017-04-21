@@ -44,7 +44,7 @@
     border-bottom: @tooltip-arrow-width solid transparent;
     border-left: @tooltip-arrow-width solid transparent;
     border-right: @tooltip-arrow-width solid transparent;
-    border-top: 0.6rem solid @tooltip-arrow-color;
+    border-top: @tooltip-arrow-width solid @tooltip-arrow-color;
     content: '';
     height: 0;
     opacity: 0;
@@ -93,7 +93,7 @@
   &::before {
     content: attr(data-tooltip-bottom);
     top: 100%;
-    transform: translate(-50%, 0.6rem);
+    transform: translate(-50%, @tooltip-arrow-width);
   }
 
   &::after {
@@ -112,11 +112,11 @@
   &::before {
     bottom: 100%;
     content: attr(data-tooltip-top);
-    transform: translate(-50%, -0.6rem);
+    transform: translate(-50%, -@tooltip-arrow-width);
   }
 
   &::after {
-    top: -0.6rem;
+    top: -@tooltip-arrow-width;
   }
 }
 

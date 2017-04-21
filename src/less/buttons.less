@@ -85,23 +85,6 @@
 
 
 //
-// Anchor Elements
-//
-
-
-a {
-  color: @base-link-color;
-  text-decoration: none;
-
-  &.disabled,
-  &[disabled] {
-    box-shadow: none;
-    cursor: @cursor-disabled;
-    opacity: 0.5;
-  }
-}
-
-//
 // Button Elements
 //
 // We are not using <button> elements b/c they don't respect Flexbox
@@ -139,7 +122,6 @@ button {
 
   &:hover,
   &:focus {
-    //color: @btn-default-color;
     text-decoration: none;
   }
 
@@ -154,7 +136,7 @@ button {
   fieldset[disabled] & {
     box-shadow: none;
     cursor: @cursor-disabled;
-    opacity: 0.5;
+    opacity: @global-opacity-disabled;
     pointer-events: none;
   }
 
