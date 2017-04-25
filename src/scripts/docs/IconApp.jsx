@@ -73,6 +73,13 @@ const IconApp = () =>
 
         <div className="site-swatch">
           <div className="site-swatch__sample">
+            <Icon icon="birthday" />
+          </div>
+          <div className="site-swatch__text"><strong>Birthday</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
             <Icon icon="calendar" />
           </div>
           <div className="site-swatch__text"><strong>Calendar</strong></div>
