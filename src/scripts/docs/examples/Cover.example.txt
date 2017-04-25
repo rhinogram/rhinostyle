@@ -48,12 +48,8 @@ class ComponentExample extends React.Component {
         <CoverHeader icon="pencil" title="This is a sample Cover" />
         <CoverBody>
           <div className="form">
-            <div className="form__group">
-              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-            </div>
-            <div>
-              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-            </div>
+            <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+            <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
           </div>
         </CoverBody>
         <CoverFooter>
