@@ -15530,6 +15530,24 @@ var IconApp = function IconApp() {
           _react2.default.createElement(
             'div',
             { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'birthday' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Birthday'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
             _react2.default.createElement(_components.Icon, { icon: 'calendar' })
           ),
           _react2.default.createElement(
