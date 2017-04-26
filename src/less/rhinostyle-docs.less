@@ -60,17 +60,13 @@
 
 .site-example-toasts {
   > * + * {
-    margin-top: @global-whitespace-medium;
+    margin-top: @global-whitespace-base;
   }
 }
 
 .site-example-utility {
   + * {
-    margin-top: @global-whitespace-medium;
-  }
-
-  h4 {
-    margin-bottom: 0;
+    margin-top: @global-whitespace-base;
   }
 }
 
@@ -113,7 +109,7 @@
 }
 
 .site-example-utility__margin__default-item {
-  margin: @global-whitespace-xlarge;
+  margin: @global-whitespace-base;
 }
 
 
@@ -248,6 +244,7 @@
   color: @global-color-accent;
   font-weight: normal;
   text-transform: uppercase;
+  margin-top: @global-whitespace-large;
 }
 
 
@@ -276,7 +273,7 @@
 
 .site-navigation__nav {
   &:extend(.list-unstyled);
-  padding-top: @global-whitespace-medium;
+  padding-top: @global-whitespace-base;
 
   > li {
     padding: 0 @global-whitespace-base;
@@ -413,6 +410,7 @@ html {
 .site-text-lead {
   font-size: @global-font-size-large;
   font-weight: @global-font-weight-light;
+  margin-bottom: @global-whitespace-large;
 }
 
 
@@ -434,7 +432,7 @@ html {
 
 .playground > div > ul {
   list-style: none;
-  margin-bottom: @global-whitespace-medium;
+  margin-bottom: @global-whitespace-large;
   padding-left: 0;
 
   li {
@@ -454,7 +452,7 @@ html {
 }
 
 .playgroundCode { // lesshint selectorNaming: false
-  margin-bottom: @global-whitespace-medium;
+  margin-bottom: @global-whitespace-large;
 }
 
 .playgroundError { // lesshint selectorNaming: false

@@ -61,7 +61,7 @@ class NavigationApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Types</h3>
-          <div className="u-m-b-md">
+          <div className="u-m-b-lg">
             <p className="site-copy"><code>type=&quot;default&quot;</code></p>
             <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
               <NavTabsItem id={1}>Code</NavTabsItem>
@@ -73,7 +73,7 @@ class NavigationApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Modifiers</h3>
-          <div className="u-m-b-md">
+          <div className="u-m-b-lg">
             <h5 className="site-miniheadline">Justifed, Equal Width</h5>
             <p className="site-copy"><code>justified=&quot;equal&quot;</code></p>
             <NavTabs activeKey={this.state.activeEqualKey} onSelect={this.updateActiveEqualKey} justified="equal">
@@ -83,7 +83,7 @@ class NavigationApp extends React.Component {
             </NavTabs>
           </div>
 
-          <div className="u-m-b-md">
+          <div className="u-m-b-lg">
             <h5 className="site-miniheadline">Justified, Auto Width</h5>
             <p className="site-copy"><code>justified=&quot;auto&quot;</code></p>
             <NavTabs activeKey={this.state.activeAutoKey} onSelect={this.updateActiveAutoKey} justified="auto">

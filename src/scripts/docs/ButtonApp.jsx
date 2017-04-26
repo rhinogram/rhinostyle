@@ -51,7 +51,7 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Sizes</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Large Button</h5>
         <p className="site-copy"><code>size=&quot;large&quot;</code></p>
         <UtilityInlineGrid>
@@ -73,7 +73,7 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Modifiers</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Block Buttons</h5>
         <p className="site-copy">Include <code>block</code> property to create a block level button.</p>
         <Button block>Block Button</Button>
@@ -134,7 +134,7 @@ const ButtonApp = () =>
       <h3 className="site-subheadline">Button Badges</h3>
       <h5 className="site-miniheadline">Badges Inside of Buttons</h5>
       <p>Include a span with <code>btn__badge</code> class.</p>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <UtilityInlineGrid>
           <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
           <Button type="primary">Primary &nbsp;<span className="btn__badge">12</span></Button>

@@ -26,7 +26,7 @@ const AvatarApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Default Avatar</h5>
         <p className="site-copy"><code>type=&quot;default&quot;</code></p>
         <UtilityInlineGrid>
@@ -35,7 +35,7 @@ const AvatarApp = () =>
           <Avatar />
         </UtilityInlineGrid>
       </div>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Member Avatar</h5>
         <p className="site-copy"><code>type=&quot;member&quot;</code></p>
         <UtilityInlineGrid>
@@ -48,7 +48,7 @@ const AvatarApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Sizes</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Large Avatar</h5>
         <p className="site-copy"><code>size=&quot;large&quot;</code></p>
         <UtilityInlineGrid>

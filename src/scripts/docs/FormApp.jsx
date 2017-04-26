@@ -163,7 +163,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Form Utilities</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Inline Form</h5>
         <p className="site-copy">Wrap elements you want inlined with <code>form__inline</code> class.</p>
         <form className="form">
@@ -178,13 +178,13 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Input</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Common Input</h5>
         <Input name="exampleInputEmail31" label="Email Address" type="email" required />
         <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="text" initialValue="Ian" />
         <Input name="exampleInputPassword31" label="Password" placeholder="Password" type="password" />
       </div>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Input Add-On</h5>
         <div className="site-copy">
           <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
@@ -204,14 +204,14 @@ const FormApp = () =>
           <span>.00</span>
         </Input>
       </div>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Clear Input</h5>
         <div className="site-copy">
           <p>Use the <code>clear</code> property on Inputs to include a clear value button.</p>
         </div>
         <Input name="exampleInputText111" label="Clear Input" type="text" clear />
       </div>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Naked Input</h5>
         <div className="site-copy">
           <p>Use the <code>naked</code> property on Inputs to strip it of background, border, height, and padding.</p>
@@ -248,7 +248,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Rhinobox</h5>
         <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
         <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
@@ -271,7 +271,7 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Radio</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Rhinodio</h5>
         <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
         <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
@@ -280,7 +280,7 @@ const FormApp = () =>
           <Radio value="3">Radio Three</Radio>
         </RadioGroup>
       </div>
-      <div className="u-m-b-md">
+      <div className="u-m-b-lg">
         <h5 className="site-miniheadline">Inline Rhinodio</h5>
         <p className="site-copy">Add the <code>inline</code> property to create inline radios.</p>
         <RadioGroup inline name="exampleRadio3" label="Radios" selectedValue="2">

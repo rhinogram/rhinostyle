@@ -12314,7 +12314,7 @@ var AvatarApp = function AvatarApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -12339,7 +12339,7 @@ var AvatarApp = function AvatarApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -12373,7 +12373,7 @@ var AvatarApp = function AvatarApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -12773,7 +12773,7 @@ var ButtonApp = function ButtonApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -12858,7 +12858,7 @@ var ButtonApp = function ButtonApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -13081,7 +13081,7 @@ var ButtonApp = function ButtonApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           _components.UtilityInlineGrid,
           null,
@@ -13934,7 +13934,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -13964,7 +13964,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -13994,7 +13994,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14024,7 +14024,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14054,7 +14054,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14084,7 +14084,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14114,7 +14114,7 @@ var DropdownApp = function DropdownApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14848,7 +14848,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14892,7 +14892,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14904,7 +14904,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14961,7 +14961,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -14986,7 +14986,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -15081,7 +15081,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -15170,7 +15170,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -15209,7 +15209,7 @@ var FormApp = function FormApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -17167,7 +17167,7 @@ var MessageApp = function MessageApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -17216,7 +17216,7 @@ var MessageApp = function MessageApp() {
       ),
       _react2.default.createElement(
         'div',
-        { className: 'u-m-b-md' },
+        { className: 'u-m-b-lg' },
         _react2.default.createElement(
           'h5',
           { className: 'site-miniheadline' },
@@ -17556,7 +17556,7 @@ var NavigationApp = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'u-m-b-md' },
+            { className: 'u-m-b-lg' },
             _react2.default.createElement(
               'p',
               { className: 'site-copy' },
@@ -17597,7 +17597,7 @@ var NavigationApp = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'u-m-b-md' },
+            { className: 'u-m-b-lg' },
             _react2.default.createElement(
               'h5',
               { className: 'site-miniheadline' },
@@ -17634,7 +17634,7 @@ var NavigationApp = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'u-m-b-md' },
+            { className: 'u-m-b-lg' },
             _react2.default.createElement(
               'h5',
               { className: 'site-miniheadline' },
@@ -18076,7 +18076,7 @@ var LabelApp = function LabelApp() {
         { className: 'site-example-tables' },
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'p',
             { className: 'site-copy' },
@@ -18206,7 +18206,7 @@ var LabelApp = function LabelApp() {
         { className: 'site-example-tables' },
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'h5',
             { className: 'site-miniheadline' },
@@ -18334,7 +18334,7 @@ var LabelApp = function LabelApp() {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'h5',
             { className: 'site-miniheadline' },
@@ -18462,7 +18462,7 @@ var LabelApp = function LabelApp() {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'h5',
             { className: 'site-miniheadline' },
@@ -18590,7 +18590,7 @@ var LabelApp = function LabelApp() {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'h5',
             { className: 'site-miniheadline' },
@@ -18731,7 +18731,7 @@ var LabelApp = function LabelApp() {
         { className: 'site-example-tables' },
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'h5',
             { className: 'site-miniheadline' },
@@ -18933,7 +18933,7 @@ var LabelApp = function LabelApp() {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'h5',
             { className: 'site-miniheadline' },
@@ -19135,7 +19135,7 @@ var LabelApp = function LabelApp() {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'u-m-b-md' },
+          { className: 'u-m-b-lg' },
           _react2.default.createElement(
             'p',
             { className: 'site-copy' },
