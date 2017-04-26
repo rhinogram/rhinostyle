@@ -1,3 +1,4 @@
+import 'what-input';
 import { TimelineMax, SteppedEase } from 'gsap';
 import { UtilitySystem } from '../UtilitySystem';
 
