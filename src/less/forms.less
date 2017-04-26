@@ -17,9 +17,9 @@
 
 // Form control `.form-control` heights
 
-@input-height-base: @btn-height-base;
+@input-height-base: @button-height-base;
 
-@input-padding-base: @btn-padding-base;
+@input-padding-base: @button-padding-base;
 
 @form-addon-item-bg: @global-color-gray-lightest;
 @form-control-chevron-padding: 3rem;
@@ -309,7 +309,7 @@ input[type='checkbox']:focus {
   position: relative;
 }
 
-.form__clear__btn {
+.form__clear__button {
   align-items: center;
   background: @global-color-gray-light;
   border-radius: 50%;
@@ -406,8 +406,8 @@ input[type='checkbox']:focus {
   textarea& {
     height: auto;
     min-height: @input-height-base;
-    padding-bottom: @global-whitespace-small;
-    padding-top: @global-whitespace-small;
+    padding-bottom: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
+    padding-top: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
   }
 }
 
@@ -613,7 +613,7 @@ input[type='checkbox'] {
       position: absolute;
       speak: none;
       top: 0.1rem;
-      transition: background-color 250ms @global-trans-timing-cubic;
+      transition: background-color 0.25s @global-trans-timing-cubic;
       width: 2rem;
     }
   }
@@ -638,7 +638,7 @@ input[type='checkbox'] {
       position: absolute;
       top: 0.4rem;
       transform: scale(0);
-      transition: transform 250ms;
+      transition: transform 0.25s;
       width: 1.4rem;
     }
 
@@ -742,7 +742,7 @@ input[type='checkbox'] {
   font-size: 0;
   height: @switcher-height;
   transform: translateX(-50%);
-  transition: transform 250ms @global-trans-timing-cubic;
+  transition: transform 0.25s @global-trans-timing-cubic;
   width: 200%;
 }
 
@@ -837,7 +837,7 @@ input[type='checkbox'] {
   text-align: center;
   top: 0;
   transform: translateX(0);
-  transition: transform 250ms @global-trans-timing-cubic;
+  transition: transform 0.25s @global-trans-timing-cubic;
   width: @switcher-toggler-width;
   z-index: 10;
 }

@@ -133,21 +133,21 @@ const ButtonApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Button Badges</h3>
       <h5 className="site-miniheadline">Badges Inside of Buttons</h5>
-      <p>Include a span with <code>btn__badge</code> class.</p>
+      <p>Include a span with <code>button__badge</code> class.</p>
       <div className="u-m-b-lg">
         <UtilityInlineGrid>
-          <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="primary">Primary &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="secondary">Secondary &nbsp;<span className="btn__badge">2</span></Button>
-          <Button type="outline-default">Outline Default &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="outline-primary">Outline Primary &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="link">Link &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="danger">Danger &nbsp;<span className="btn__badge">12</span></Button>
+          <Button>Default &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="primary">Primary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="secondary">Secondary &nbsp;<span className="button__badge">2</span></Button>
+          <Button type="outline-default">Outline Default &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="outline-primary">Outline Primary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="link">Link &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="danger">Danger &nbsp;<span className="button__badge">12</span></Button>
         </UtilityInlineGrid>
       </div>
       <div className="u-p-a u-bg-primary">
         <UtilityInlineGrid>
-          <Button type="outline-reversed">Outline Reversed &nbsp;<span className="btn__badge">12</span></Button>
+          <Button type="outline-reversed">Outline Reversed &nbsp;<span className="button__badge">12</span></Button>
         </UtilityInlineGrid>
       </div>
     </section>

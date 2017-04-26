@@ -33,7 +33,7 @@ class CoverHeader extends React.Component {
             {icon ? (<Icon icon={icon} className={iconClasses} />) : null}
             <span className="u-text-overflow">{title}</span>
           </h4>
-          <Close className="cover__header__close-btn" onClick={this.closeCover} />
+          <Close className="cover__header__close-button" onClick={this.closeCover} />
         </div>
       </div>
     );

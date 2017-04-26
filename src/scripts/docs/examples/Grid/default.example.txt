@@ -1,0 +1,16 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+    <div class="row">
+      <div class="column-6">
+        <div class="site-grid-box"></div>
+      </div>
+      <div class="column-6">
+        <div class="site-grid-box"></div>
+      </div>
+    </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);
