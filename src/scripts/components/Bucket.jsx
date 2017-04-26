@@ -7,7 +7,7 @@ const Bucket = (props) => {
     'bucket--default': type === 'default',
     'bucket--light':   type === 'light',
     'bucket--primary': type === 'primary',
-    'bucket--sm':      size === 'small',
+    'bucket--small':      size === 'small',
   });
 
   return (

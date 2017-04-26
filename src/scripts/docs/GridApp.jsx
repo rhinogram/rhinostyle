@@ -2,7 +2,8 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import gridExample from './examples/Grid/default.example.txt';
+import sizesExample from './examples/Grid/sizes.example.txt';
+import collapsedExample from './examples/Grid/collapsed.example.txt';
 
 const exampleScope  = {
   React,
@@ -21,12 +22,17 @@ const LabelApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Column-size Playground</h3>
-      <div className="site-text-lead">
-        <p>Columns are constructed with the following naming pattern: <code>.column-[1-12]</code>. If you&apos;d like to present different block widths on certain breakpoints, you can use the following: <code>.column-[1-12]@[xs,sm,md,lg]</code>.</p>
-        <p>You can chain these classes together for unique widths based on our global breakpoints: <code>.column-12 column-8@sm column-6@md column-4@lg</code>.</p>
-      </div>
+      <p>Columns are constructed with the following naming pattern: <code>.column-[1-12]</code>. If you&apos;d like to present different block widths on certain breakpoints, you can use the following: <code>.column-[1-12]@[xsmall,small,medium]</code>.</p>
+      <p>You can chain these classes together for unique widths based on our global breakpoints: <code>.column-10 column-8@xsmall column-6@small column-4@medium</code>.</p>
 
-      <Playground theme="default" codeText={gridExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" codeText={sizesExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Collapsed Playground</h3>
+      <p>test</p>
+
+      <Playground theme="default" codeText={collapsedExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;

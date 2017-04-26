@@ -22,12 +22,12 @@
 
 .site-content {
   margin: 0 auto;
-  max-width: @global-screen-lg-min;
+  max-width: @global-screen-large-min;
   overflow: hidden;
   padding: @global-whitespace-base;
   position: relative;
 
-  @media (min-width: @global-screen-lg-min) {
+  @media (min-width: @global-screen-large-min) {
     padding: @global-whitespace-large;
   }
 }
@@ -191,7 +191,7 @@
     max-width: 100%;
   }
 
-  @media (min-width: @global-screen-lg-min) {
+  @media (min-width: @global-screen-large-min) {
     display: block;
   }
 }
@@ -200,7 +200,7 @@
   cursor: pointer;
   margin-right: @global-whitespace-base;
 
-  @media (min-width: @global-screen-lg-min) {
+  @media (min-width: @global-screen-large-min) {
     display: none;
   }
 }
@@ -225,7 +225,7 @@
   position: relative;
   text-shadow: 1px 1px 1px @global-color-white;
 
-  @media (min-width: @global-screen-sm-min) {
+  @media (min-width: @global-screen-small-min) {
     font-size: 2.8rem;
   }
 }
@@ -432,7 +432,7 @@ html {
 
 .playground > div > ul {
   list-style: none;
-  margin-bottom: @global-whitespace-large;
+  margin: 0;
   padding-left: 0;
 
   li {
@@ -453,6 +453,7 @@ html {
 
 .playgroundCode { // lesshint selectorNaming: false
   margin-bottom: @global-whitespace-large;
+  margin-top: @global-whitespace-large;
 }
 
 .playgroundError { // lesshint selectorNaming: false

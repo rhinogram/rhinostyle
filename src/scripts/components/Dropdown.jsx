@@ -181,8 +181,8 @@ class Dropdown extends React.Component {
       'button--outline-default':   type === 'outline-default',
       'button--outline-primary':   type === 'outline-primary',
       'button--outline-reversed':  type === 'outline-reversed',
-      'button--sm': size === 'small',
-      'button--lg': size === 'large',
+      'button--small': size === 'small',
+      'button--large': size === 'large',
       'button--icon': (icon && !label),
       disabled,
     });

@@ -84,7 +84,7 @@ const toggleMobileNavTimeline = new TimelineMax({
  * @return {void}
  */
 function matchMobile() {
-  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.lgMax})`).matches) {
+  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.largeMax})`).matches) {
     unlockNavigation();
   }
 }
@@ -94,7 +94,7 @@ function matchMobile() {
  * @return {void}
  */
 function matchDesktop() {
-  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.lg})`).matches) {
+  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.large})`).matches) {
     // If mobile nav is open while resizing to "desktop-size"
     if ($html.hasAttribute('data-mobile-nav')) {
       mobileNavOpen = true;

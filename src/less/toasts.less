@@ -28,11 +28,11 @@
   top: @toast-offset;
   z-index: @toast-zindex;
 
-  @media (min-width: @global-screen-xs-min) {
+  @media (min-width: @global-screen-xsmall-min) {
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-    width: ~'calc(@{global-screen-xs-min} - (@{toast-offset} * 2))';
+    width: ~'calc(@{global-screen-xsmall-min} - (@{toast-offset} * 2))';
   }
 }
 

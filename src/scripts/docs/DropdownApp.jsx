@@ -226,7 +226,7 @@ const DropdownApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Modifiers</h3>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Block</h5>
         <p className="site-copy">
           Add <code>block</code> property to create 100% width, block level dropdown.
@@ -241,7 +241,7 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Right</h5>
         <p className="site-copy">Add <code>position=&quot;right&quot;</code> property.</p>
         <Dropdown label="Dropdown Right" type="default" position="right">
@@ -254,7 +254,7 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Center</h5>
         <p className="site-copy">Add <code>position=&quot;center&quot;</code> property.</p>
         <Dropdown label="Dropdown Center" type="default" position="center">
@@ -267,7 +267,7 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Top</h5>
         <p className="site-copy">Add <code>position=&quot;top&quot;</code> property.</p>
         <Dropdown label="Dropdown Top" type="default" position="top">
@@ -280,7 +280,7 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Top &amp; Right</h5>
         <p className="site-copy">Add <code>position=&quot;top-right&quot;</code> property.</p>
         <Dropdown label="Dropdown Top Right" type="default" position="top-right">
@@ -293,7 +293,7 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Top &amp; Center</h5>
         <p className="site-copy">Add <code>position=&quot;top-center&quot;</code> property.</p>
         <Dropdown label="Dropdown Top Center" type="default" position="top-center">
@@ -306,7 +306,7 @@ const DropdownApp = () =>
         </Dropdown>
       </div>
 
-      <div className="u-m-b-lg">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Wide</h5>
         <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.</p>
         <Dropdown label="Dropdown Wide" type="default" wide>
