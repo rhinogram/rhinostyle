@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import sizesExample from './examples/Grid/sizes.example.txt';
-import collapsedExample from './examples/Grid/collapsed.example.txt';
+import collapseExample from './examples/Grid/collapse.example.txt';
+import sourceOrderExample from './examples/Grid/sourceOrder.example.txt';
+import offsetExample from './examples/Grid/offset.example.txt';
 
 const exampleScope  = {
   React,
@@ -30,9 +32,23 @@ const LabelApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Collapsed Playground</h3>
-      <p>test</p>
+      <p>By applying the <code>.row--collapsed</code> modifier you can remove the automatic spacing provided by our grid system.</p>
 
-      <Playground theme="default" codeText={collapsedExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" codeText={collapseExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Source-order Playground</h3>
+      <p>Depending on the screen-size, you may need to adjust the order of illustrations and/or text. You may use the <code>.column--first</code> or <code>.column--last</code> modifier attached directly to a specific <code>column</code>. If you&apos;d like to have this behavior available at different breakpoints, you may use the following: <code>.column--first@[xsmall,small,medium]</code> or <code>.column--last@[xsmall,small,medium]</code>.</p>
+
+      <Playground theme="default" codeText={sourceOrderExample} scope={exampleScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Offset Playground</h3>
+      <p>Offsets allow you to space out your columns more selectively across each axis. You may use the <code>.column-offset-[1-12]</code> modifier attached directly to a specific <code>column</code>. If you&apos;d like to have this behavior available at different breakpoints, you may use the following: <code>.column-offset-[1-12]@[xsmall,small,medium]</code>.</p>
+
+      <Playground theme="default" codeText={offsetExample} scope={exampleScope} noRender={false} />
     </section>
 
   </div>;
