@@ -25,7 +25,7 @@
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
 @form-element-color: @global-color-primary;
-@form-group-spacing: @global-whitespace-base;
+@form-group-spacing: (@global-whitespace-base + @global-whitespace-small);
 
 @legend-color: @global-color-gray-dark;
 @legend-border-color: #e5e5e5;
@@ -479,6 +479,15 @@ input[type='checkbox']:focus {
   & + & {
     margin-top: @form-group-spacing;
   }
+}
+
+// Used when we need to apply `.form__group` spacing to adjacent items that do not fall within usual structure
+.u-form__group-t {
+  margin-top: @form-group-spacing;
+}
+
+.u-form__group-b {
+  margin-bottom: @form-group-spacing;
 }
 
 
