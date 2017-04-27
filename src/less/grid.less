@@ -2,6 +2,13 @@
 
 
 //
+// Variables
+//
+
+@grid-gutter: (@global-whitespace-base + @global-whitespace-xsmall);
+
+
+//
 // Component
 //
 
@@ -13,9 +20,9 @@
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: -@global-whitespace-base;
+  margin-left: -@grid-gutter;
   // 1
-  margin-top: -@global-whitespace-base;
+  margin-top: -@grid-gutter;
   // 2
   padding: 0;
   list-style: none;
@@ -24,8 +31,8 @@
   // 2. Default child elements of row to 100% width until size modifiers kick-in
   > * {
     // 1
-    padding-left: @global-whitespace-base;
-    padding-top: @global-whitespace-base;
+    padding-left: @grid-gutter;
+    padding-top: @grid-gutter;
     // 2
     flex: 0 0 100%;
     max-width: 100%;
