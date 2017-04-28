@@ -1,24 +1,26 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @loader-circle-color: @global-color-gray-lighter;
 @loader-circle-color-default: @global-color-gray-lighter;
 @loader-circle-size: 3.2rem;
-@loader-circle-size-sm: 2.6rem;
-@loader-circle-size-lg: 3.8rem;
+@loader-circle-size-small: 2.6rem;
+@loader-circle-size-large: 3.8rem;
 @loader-circle-border-size: 3px;
 
+@loader-pulse-size: 0.8rem;
 
-// -------------------------
+
+//
 // Component
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Loader Circle
-// -------------------------
+//
 
 
 .loader-circle {
@@ -45,9 +47,9 @@
 }
 
 
-// -------------------------
+//
 // Loader Circle Color Modifiers
-// -------------------------
+//
 
 
 .loader-circle--default {
@@ -67,35 +69,35 @@
 }
 
 
-// -------------------------
+//
 // Loader Circle Size Modifiers
-// -------------------------
+//
 
 
-.loader-circle--lg {
-  height: @loader-circle-size-lg;
-  width: @loader-circle-size-lg;
+.loader-circle--large {
+  height: @loader-circle-size-large;
+  width: @loader-circle-size-large;
 
   &::after {
-    height: @loader-circle-size-lg;
-    width: @loader-circle-size-lg;
+    height: @loader-circle-size-large;
+    width: @loader-circle-size-large;
   }
 }
 
-.loader-circle--sm {
-  height: @loader-circle-size-sm;
-  width: @loader-circle-size-sm;
+.loader-circle--small {
+  height: @loader-circle-size-small;
+  width: @loader-circle-size-small;
 
   &::after {
-    height: @loader-circle-size-sm;
-    width: @loader-circle-size-sm;
+    height: @loader-circle-size-small;
+    width: @loader-circle-size-small;
   }
 }
 
 
-// -------------------------
+//
 // Loader Pulse
-// -------------------------
+//
 
 
 .loader-pulse {
@@ -105,9 +107,9 @@
 }
 
 
-// -------------------------
+//
 // Loader Pulse Modifiers
-// -------------------------
+//
 
 
 .loader-pulse--accent {
@@ -129,17 +131,17 @@
 }
 
 
-// -------------------------
+//
 // Loader Pulse Pulses
-// -------------------------
+//
 
 
 .loader-pulse__pulse {
   border-radius: 50%;
-  height: .8rem;
-  opacity: .5;
-  transform: scale(.75);
-  width: .8rem;
+  height: @loader-pulse-size;
+  opacity: @global-opacity-disabled;
+  transform: scale(0.75);
+  width: @loader-pulse-size;
 
   + * {
     margin-left: @global-whitespace-small;

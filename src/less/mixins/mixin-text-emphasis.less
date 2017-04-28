@@ -1,18 +1,18 @@
-// -------------------------
+//
 // Text Emphasis Mixin
-// -------------------------
+//
 
 
 .mixin-text-emphasis-variant(@global-color) {
   color: @global-color !important;
 
   a&,
-  .btn--link& {
+  .button--link& {
     color: @global-color !important;
   }
 
   a&:hover,
-  .btn--link&:hover {
+  .button--link&:hover {
     color: darken(@global-color, 10%) !important;
   }
 }

@@ -51,7 +51,7 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Sizes</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Large Button</h5>
         <p className="site-copy"><code>size=&quot;large&quot;</code></p>
         <UtilityInlineGrid>
@@ -73,7 +73,7 @@ const ButtonApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Button Modifiers</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Block Buttons</h5>
         <p className="site-copy">Include <code>block</code> property to create a block level button.</p>
         <Button block>Block Button</Button>
@@ -133,21 +133,21 @@ const ButtonApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Button Badges</h3>
       <h5 className="site-miniheadline">Badges Inside of Buttons</h5>
-      <p>Include a span with <code>btn__badge</code> class.</p>
-      <div className="u-m-b-md">
+      <p>Include a span with <code>button__badge</code> class.</p>
+      <div className="u-m-b-large">
         <UtilityInlineGrid>
-          <Button>Default &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="primary">Primary &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="secondary">Secondary &nbsp;<span className="btn__badge">2</span></Button>
-          <Button type="outline-default">Outline Default &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="outline-primary">Outline Primary &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="link">Link &nbsp;<span className="btn__badge">12</span></Button>
-          <Button type="danger">Danger &nbsp;<span className="btn__badge">12</span></Button>
+          <Button>Default &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="primary">Primary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="secondary">Secondary &nbsp;<span className="button__badge">2</span></Button>
+          <Button type="outline-default">Outline Default &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="outline-primary">Outline Primary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="link">Link &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="danger">Danger &nbsp;<span className="button__badge">12</span></Button>
         </UtilityInlineGrid>
       </div>
       <div className="u-p-a u-bg-primary">
         <UtilityInlineGrid>
-          <Button type="outline-reversed">Outline Reversed &nbsp;<span className="btn__badge">12</span></Button>
+          <Button type="outline-reversed">Outline Reversed &nbsp;<span className="button__badge">12</span></Button>
         </UtilityInlineGrid>
       </div>
     </section>
@@ -157,13 +157,13 @@ const ButtonApp = () =>
       <h5 className="site-miniheadline">Long Text Inside of Buttons</h5>
       <p>Wrap long button text in <code>u-text-overflow</code> utility class in order to allow ellipsis.</p>
       <div className="u-m-b">
-        <Button className="u-m-b-sm"><span className="u-text-overflow">Button With Really Long Name</span></Button>
+        <Button className="u-m-b-small"><span className="u-text-overflow">Button With Really Long Name</span></Button>
         <br />
         <Button><Icon icon="lock" />&nbsp;<span className="u-text-overflow">Button With Really Long Name and Icon</span></Button>
       </div>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Button} propDescriptionMap={buttonDocs} codeText={buttonExample} scope={exampleScope} noRender={false} />
     </section>

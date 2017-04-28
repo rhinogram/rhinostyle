@@ -46,8 +46,8 @@ class LoaderCircle extends React.Component {
     const classes = cx('loader-circle', className, {
       'loader-circle--default':   type === 'default',
       'loader-circle--primary':   type === 'primary',
-      'loader-circle--lg':        size === 'large',
-      'loader-circle--sm':        size === 'small',
+      'loader-circle--large':        size === 'large',
+      'loader-circle--small':        size === 'small',
     });
 
     return (

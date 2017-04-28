@@ -29,11 +29,11 @@ class CoverHeader extends React.Component {
     return (
       <div className="cover__header">
         <div className="cover__header__container">
-          <div className="cover__header__title">
+          <h4 className="cover__header__title">
             {icon ? (<Icon icon={icon} className={iconClasses} />) : null}
             <span className="u-text-overflow">{title}</span>
-          </div>
-          <Close className="cover__header__close-btn" onClick={this.closeCover} />
+          </h4>
+          <Close className="cover__header__close-button" onClick={this.closeCover} />
         </div>
       </div>
     );

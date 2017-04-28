@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @table-bg: transparent; // default background color used for all tables.
@@ -13,48 +13,54 @@
 
 @table-border-color: @global-border-color-base;
 
-@table-cell-padding: 1rem; // padding for `<th>`s and `<td>`s
-@table-condensed-cell-padding: .6rem; // padding for cells in `.table-condensed`
+@table-cell-padding: (@global-whitespace-small + @global-whitespace-xsmall); // padding for `<th>`s and `<td>`s
+@table-condensed-cell-padding: @global-whitespace-small; // padding for cells in `.table-condensed`
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
-
+// 1. Remove spacing between table cells.
+// 2. Block element behavior
+// 3. Style
 .table {
-  background-color: @table-bg;
+  // 1
+  border-collapse: collapse;
+  border-spacing: 0;
+  // 2
   max-width: 100%;
   width: 100%;
+  // 3
+  background-color: @table-bg;
+  caption-side: bottom;
 
   // Cells
   td,
   th {
     border-top: 1px solid @table-border-color;
-    line-height: @line-height-base;
     padding: @table-cell-padding;
     vertical-align: top;
   }
 
   th {
     font-size: 1.2rem;
-    font-weight: @font-weight-semibold;
+    font-weight: @global-font-weight-bold;
     text-align: left;
     text-transform: uppercase;
   }
 
   // Bottom align for column headings
   thead th {
-    border-bottom: 1px solid @table-border-color;
     border-top: 0;
     vertical-align: bottom;
   }
 }
 
 
-// -------------------------
+//
 // Table Modifiers
-// -------------------------
+//
 
 
 .table--bordered {
@@ -86,9 +92,9 @@
 }
 
 
-// -------------------------
+//
 // Table Backgrounds
-// -------------------------
+//
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
@@ -99,9 +105,9 @@
 .mixin-table-background-variant(warning; @table-bg-warning);
 
 
-// -------------------------
+//
 // Table Vertical Alignment
-// -------------------------
+//
 
 
 .table__row--valign-middle {
@@ -111,9 +117,9 @@
 }
 
 
-// -------------------------
+//
 // Responsive Tables
-// -------------------------
+//
 // Wrap your tables in `.table-responsive` and we'll make them mobile friendly
 // by enabling horizontal scrolling. Only applies <768px. Everything above that
 // will display normally.
@@ -123,10 +129,10 @@
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
 
-  @media (max-width: @global-screen-xs-max) { // lesshint depthLevel: false
+  @media (max-width: @global-screen-xsmall-max) {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid @table-border-color;
-    margin-bottom: (@line-height-computed * .75);
+    margin-bottom: (@global-line-height-computed * 0.75);
     overflow-y: hidden;
     width: 100%;
 

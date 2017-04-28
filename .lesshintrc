@@ -1,45 +1,35 @@
 {
-    "depthLevel": {
-      "enabled": false
-    },
-    "universalSelector": {
-      "enabled": false
-    },
-    "qualifyingElement": {
-        "enabled": false,
-        "allowWithId": false,
-        "allowWithClass": false,
-        "allowWithAttribute": false
-    },
-    "selectorNaming": {
-        "enabled": true,
-        "disallowUppercase": true,
-        "disallowUnderscore": false
-    },
-    "idSelector": {
-        "enabled": false,
-        "exclude": []
-    },
-    "zeroUnit": {
-        "enabled": false,
-        "style": "keep_unit"
-    },
-    "hexLength": {
-        "enabled": true,
-        "style": "short"
-    },
-    "decimalZero": {
-        "enabled": true,
-        "style": "none"
-    },
-    "importantRule": {
-        "enabled": false
-    },
-    "maxCharPerLine": {
-        "enabled": false
-    },
-    "spaceAfterPropertyColon": {
-        "enabled": false
-    },
-    "excludedFiles": ["rhinostyle-docs.less","utilities-spacing.less"]
+  "hexLength": {
+    "enabled": true,
+    "style": "short"
+  },
+  "importantRule": {
+    "enabled": false
+  },
+  "maxCharPerLine": {
+    "enabled": false
+  },
+  "newlineAfterBlock": {
+    "enabled": false
+  },
+  "propertyOrdering": {
+    "enabled": false
+  },
+  "qualifyingElement": {
+    "allowWithId": false,
+    "allowWithClass": true,
+    "allowWithAttribute": true
+  },
+  "selectorNaming": {
+    "enabled": true,
+    "disallowUppercase": true,
+    "disallowUnderscore": false
+  },
+  "universalSelector": {
+    "enabled": false
+  },
+  "zeroUnit": {
+    "style": "no_unit"
+  },
+  "excludedFiles": ["utilities-spacing.less", "rhinostyle-docs.less"]
 }

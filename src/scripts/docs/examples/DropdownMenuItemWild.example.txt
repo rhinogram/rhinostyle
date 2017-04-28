@@ -4,7 +4,7 @@ class ComponentExample extends React.Component {
     <div>
       <p>This component allows you to add anything you want to a dropdown. Use the <code>toggleDropdown</code> property if you want the dropdown to close after DropdownMenuItemWild is clicked.</p>
       <DropdownMenuItemWild>Put whatever you want in here!</DropdownMenuItemWild>
-      <DropdownMenuItemWild><img className="u-img-fluid" src="//source.unsplash.com/category/people/200x200"/></DropdownMenuItemWild>
+      <DropdownMenuItemWild><img src="//source.unsplash.com/category/people/200x200"/></DropdownMenuItemWild>
     </div>
     );
   }

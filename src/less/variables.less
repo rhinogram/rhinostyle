@@ -1,24 +1,25 @@
 // Note: Global variables re-used throughout components
 
 
-// -------------------------
+//
 // Borders
-// -------------------------
+//
 
 
 @global-border-color-base: @global-color-gray-light;
 @global-border-color-light: @global-color-gray-lighter;
-@global-border-radius: .3rem;
+@global-border-radius: 0.3rem;
 
 
-// -------------------------
+//
 // Colors
-// -------------------------
+//
 
 
 // Brand Colors
 @global-color-accent: #ff9359;
 @global-color-primary: #0081c6;
+@global-color-primary-hover: darken(@global-color-primary, 10);
 @global-color-primary-rich: #00a2f9;
 @global-color-secondary: #83c400;
 
@@ -38,72 +39,65 @@
 @global-color-gray-lightest: #f9f9f9;
 @global-color-white: #fff;
 
+@global-background: #fff;
+@global-color-panel: @global-color-gray-lightest;
 
-// -------------------------
+
+//
 // Components
-// -------------------------
+//
 
-@global-gutter: 3.2rem;
-@global-half-gutter: 1.6rem;
 
 @global-component-active-color: @global-color-white; // global color for active items (e.g., navs or dropdowns)
 @global-component-active-bg: @global-color-primary; // global bgcolor for active items (e.g., navs or dropdowns)
 
 
-// -------------------------
+//
 // Whitespace
-// -------------------------
+//
 
 
 @global-height: 3.6rem;
 @global-height-large: 4rem;
 @global-height-small: 3rem;
 
-// -------------------------
+//
 // Opacity
-// -------------------------
+//
 
 
-@global-opacity-disabled: .6;
+@global-opacity-disabled: 0.6;
 
 
-// -------------------------
+//
 // Screen Breakpoints
-// -------------------------
+//
 
 
-@global-screen-xs-min: 480px;
-@global-screen-sm-min: 768px;
-@global-screen-md-min: 992px;
-@global-screen-lg-min: 1200px;
+@global-screen-xsmall-min: 480px;
+@global-screen-small-min: 768px;
+@global-screen-medium-min: 992px;
+@global-screen-large-min: 1200px;
 
-@global-screen-xs-max: (@global-screen-xs-min - 1);
-@global-screen-sm-max: (@global-screen-sm-min - 1);
-@global-screen-md-max: (@global-screen-md-min - 1);
-@global-screen-lg-max: (@global-screen-lg-min - 1);
+@global-screen-xsmall-max: (@global-screen-xsmall-min - 1);
+@global-screen-small-max: (@global-screen-small-min - 1);
+@global-screen-medium-max: (@global-screen-medium-min - 1);
+@global-screen-large-max: (@global-screen-large-min - 1);
 
 
-// -------------------------
+//
 // Shadows
-// -------------------------
+//
 
 
-@global-shadow-depth-1: 0 .2rem  .5rem  rgba(0, 0, 0, .2);
-@global-shadow-depth-2: 0 .5rem  1.5rem  rgba(0, 0, 0, .2);
-@global-shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, .2);
+@global-shadow-depth-1: 0 0.2rem  0.5rem  rgba(0, 0, 0, 0.2);
+@global-shadow-depth-2: 0 0.5rem  1.5rem  rgba(0, 0, 0, 0.2);
+@global-shadow-depth-3: 0 1rem  2.5rem  rgba(0, 0, 0, 0.2);
 
 
-// -------------------------
-// Spacing (see utilities-spacing.less)
-// -------------------------
-
-
-@global-spacer: 1.4rem;
-
-
-// -------------------------
+//
 // States
-// -------------------------
+//
 
 
 @global-state-accent-text: darken(@global-color-accent, 5%);
@@ -129,30 +123,50 @@
 @global-state-warning-border: lighten(@global-color-warning, 28%);
 
 
-// -------------------------
+//
 // SVG
-// -------------------------
+//
 
 
 @svg-sprite: '../../dist/svg/sprite.svg';
 
 
-// -------------------------
+//
 // Transition Timing Funcs
-// -------------------------
+//
 
 
-@global-trans-timing-cubic: cubic-bezier(.43, .41, .22, .91);
-@global-trans-timing-elastic: cubic-bezier(1, .6, 0, 1.22);
+@global-trans-timing-cubic: cubic-bezier(0.43, 0.41, 0.22, 0.91);
+@global-trans-timing-elastic: cubic-bezier(1, 0.6, 0, 1.22);
 
 
-// -------------------------
+//
+// Type
+//
+
+
+@global-font-color: @global-color-gray-dark;
+@global-font-color-muted: @global-color-gray;
+@global-font-heading-color: inherit;
+@global-line-height-base: 1.42857143;
+@global-line-height-small: 1.2;
+@global-line-height-computed: @global-font-size-base * @global-line-height-base;
+@global-font-size-base: 1.6rem;
+@global-font-size-large: 2rem;
+@global-font-size-medium: 1.8rem;
+@global-font-size-small: 1.4rem;
+@global-font-weight-light: 300;
+@global-font-weight-normal: 400;
+@global-font-weight-bold: 700;
+
+
+//
 // Whitespace
-// -------------------------
+//
 
 
-@global-whitespace-xlarge: 1.4rem;
-@global-whitespace-large: 1.2rem;
-@global-whitespace-base: 1rem;
-@global-whitespace-small: .6rem;
-@global-whitespace-xsmall: .4rem;
+@global-whitespace-xlarge: 4.2rem;
+@global-whitespace-large: 2.8rem;
+@global-whitespace-base: 1.4rem;
+@global-whitespace-small: 0.8rem;
+@global-whitespace-xsmall: 0.4rem;

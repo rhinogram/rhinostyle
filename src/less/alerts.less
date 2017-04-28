@@ -1,33 +1,37 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @alert-border-radius: @global-border-radius;
-@alert-padding: @global-whitespace-xlarge;
-@alert-padding-small: @global-whitespace-base;
+@alert-padding: @global-whitespace-base;
+@alert-padding-small: @global-whitespace-small;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .alert {
   border-radius: @alert-border-radius;
   padding: @alert-padding;
   position: relative;
+
+  & + & {
+    margin-top: @global-whitespace-base;
+  }
 }
 
-.alert--sm {
-  font-size: @font-size-small;
+.alert--small {
+  font-size: @global-font-size-small;
   padding: @alert-padding-small;
 }
 
 
-// -------------------------
+//
 // Alert Modifiers
-// -------------------------
+//
 
 
 .alert--danger {
@@ -38,7 +42,7 @@
   background: @global-color-gray-lighter;
 
   .alert__title {
-    color: darken(@text-color, 5%);
+    color: darken(@global-font-color, 5%);
   }
 }
 
@@ -55,9 +59,9 @@
 }
 
 
-// -------------------------
+//
 // Alert Body
-// -------------------------
+//
 
 
 .alert__body {
@@ -68,20 +72,18 @@
   }
 
   a {
-    //font-style: normal;
     text-decoration: underline;
   }
 
   p:last-child {
     margin-bottom: 0;
   }
-
 }
 
 
-// -------------------------
+//
 // Alert Close
-// -------------------------
+//
 
 
 .alert__close {
@@ -89,23 +91,23 @@
   right: 1rem;
   top: 1.5rem;
 
-  .alert--sm & {
-    top: 1.25rem;
+  .alert--small & {
+    top: 1.15rem;
   }
 }
 
 
-// -------------------------
+//
 // Alert Title
-// -------------------------
+//
 
 
 .alert__title {
   display: flex;
-  font-weight: @font-weight-semibold;
+  font-weight: @global-font-weight-bold;
 }
 
 .alert__title__icon {
   margin-right: @global-whitespace-small;
-  top: .2rem;
+  top: 0.2rem;
 }

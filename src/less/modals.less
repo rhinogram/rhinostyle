@@ -1,6 +1,6 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @modal-backdrop-bg: fade(@global-color-black, 50%);
@@ -10,27 +10,25 @@
 
 @modal-footer-border-color: @modal-content-border-color;
 @modal-header-border-color: @modal-content-border-color;
-@modal-inner-padding: @global-half-gutter;
+@modal-inner-padding: @global-whitespace-base;
 
-@modal-lg: 90rem;
-@modal-md: 60rem;
-@modal-sm: 30rem;
+@modal-large: 90rem;
+@modal-medium: 60rem;
+@modal-small: 30rem;
 
-@modal-header-padding-hor: @global-half-gutter;
-@modal-header-padding-vert: 2rem;
-@modal-header-line-height: @headings-line-height;
+@modal-header-line-height: @base-heading-line-height;
 
 @modal-zindex: 1020;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Modal Open State
-// -------------------------
+//
 
 
 // Class added to body
@@ -39,9 +37,9 @@
 }
 
 
-// -------------------------
+//
 // Modal
-// -------------------------
+//
 
 // 1. JS styles
 .modal {
@@ -58,9 +56,9 @@
 }
 
 
-// -------------------------
+//
 // Modal Content
-// -------------------------
+//
 
 // 1. JS styles
 .modal__dialog {
@@ -71,39 +69,38 @@
   box-shadow: @global-shadow-depth-3;
   margin: @global-whitespace-base;
   opacity: 0; // 1
-  transform: translateY(25%) scale(.5); // 1
+  transform: translateY(25%) scale(0.75); // 1
   transform-origin: center bottom; // 1
   z-index: @modal-zindex;
 
-  @media (min-width: @global-screen-sm-min) {
+  @media (min-width: @global-screen-small-min) {
     margin: @global-whitespace-large auto;
-    width: @modal-md;
+    width: @modal-medium;
   }
 }
 
-.modal__dialog--sm {
-  @media (min-width: @global-screen-sm-min) {
-    width: @modal-sm;
+.modal__dialog--small {
+  @media (min-width: @global-screen-small-min) {
+    width: @modal-small;
   }
 }
 
-.modal__container--lg {
-  @media (min-width: @global-screen-md-min) {
-    width: @modal-lg;
+.modal__container--large {
+  @media (min-width: @global-screen-medium-min) {
+    width: @modal-large;
   }
 }
 
 
-// -------------------------
+//
 // Modal Header
-// -------------------------
+//
 
 
 .modal__header {
   border-bottom: 2px solid @modal-header-border-color;
   display: flex;
-  min-height: (@modal-header-padding-vert + @modal-header-line-height);
-  padding: @modal-header-padding-vert @modal-header-padding-hor @modal-header-padding-vert - .2rem;
+  padding: @modal-inner-padding;
 }
 
 .modal__header__close {
@@ -116,19 +113,19 @@
   .u-text-overflow;
   align-items: center;
   display: flex;
-  line-height: 1.2;
+  line-height: @global-line-height-small;
   margin: 0;
   padding-right: @global-whitespace-base;
 }
 
 .modal__header__title__icon {
-  margin-right: 1rem;
+  margin-right: @global-whitespace-small;
 }
 
 
-// -------------------------
+//
 // Modal Body
-// -------------------------
+//
 
 
 .modal__body {
@@ -137,9 +134,9 @@
 }
 
 
-// -------------------------
+//
 // Modal Footer
-// -------------------------
+//
 
 
 .modal__footer {

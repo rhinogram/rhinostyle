@@ -105,8 +105,8 @@ class Modal extends React.Component {
   render() {
     const { children, className, size } = this.props;
     const modalClasses     = cx('modal__dialog', {
-      'modal__dialog--sm': size === 'sm',
-      'modal__dialog--lg': size === 'lg',
+      'modal__dialog--small': size === 'small',
+      'modal__dialog--large': size === 'large',
     }, className);
 
     return (

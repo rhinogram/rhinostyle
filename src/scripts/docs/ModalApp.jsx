@@ -10,7 +10,7 @@ import modalFooterExample from './examples/ModalFooter.example.txt';
 
 const modalDocs = {
   className: '[Optional] - Additional class to add to modal div',
-  size: '[Optional] - Modal size -  [ sm | lg ] - defaults to a normal sized modal',
+  size: '[Optional] - Modal size -  [ small | large ] - defaults to a normal sized modal',
 };
 
 const modalHeaderDocs = {

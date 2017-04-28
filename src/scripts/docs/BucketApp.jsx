@@ -44,32 +44,28 @@ const BucketApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Types</h3>
       <p className="site-copy"><code>type=&quot;default | light | primary&quot;</code></p>
-      <div className="site-example-buckets">
-        <Bucket>
-          <BucketHeader title="Bucket Default" icon="pencil" />
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-        <Bucket type="light">
-          <BucketHeader title="Bucket Light" icon="cog" />
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-        <Bucket type="primary">
-          <BucketHeader title="Bucket Primary" icon="sms" />
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-      </div>
+      <Bucket>
+        <BucketHeader title="Bucket Default" icon="pencil" />
+        <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+      </Bucket>
+      <Bucket type="light">
+        <BucketHeader title="Bucket Light" icon="cog" />
+        <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+      </Bucket>
+      <Bucket type="primary">
+        <BucketHeader title="Bucket Primary" icon="sms" />
+        <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+      </Bucket>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Sizes</h3>
       <div>
         <p className="site-copy"><code>size=&quot;small&quot;</code></p>
-        <div className="site-example-buckets">
-          <Bucket size="small">
-            <BucketHeader title="Bucket Header" icon="pencil" />
-            <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-          </Bucket>
-        </div>
+        <Bucket size="small">
+          <BucketHeader title="Bucket Header" icon="pencil" />
+          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        </Bucket>
       </div>
     </section>
 
@@ -78,7 +74,7 @@ const BucketApp = () =>
       <Playground theme="default" docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Bucket Header Playground</h3>
       <Playground theme="default" docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
     </section>

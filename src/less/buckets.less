@@ -1,31 +1,35 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @bucket-bg: @global-color-white;
 @bucket-border-radius: @global-border-radius;
-@bucket-padding: @global-whitespace-xlarge;
-@bucket-padding-small: @global-whitespace-base;
+@bucket-padding: @global-whitespace-base;
+@bucket-padding-small: @global-whitespace-small;
 
 @bucket-default-border: @global-border-color-base;
 @bucket-light-border: @global-color-gray-lighter;
 @bucket-primary-border: @global-color-primary;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .bucket {
   border-radius: @bucket-border-radius;
+
+  & + & {
+    margin-top: @global-whitespace-large;
+  }
 }
 
 
-// -------------------------
+//
 // Bucket Modifiers (Color)
-// -------------------------
+//
 
 
 .bucket--default {
@@ -49,12 +53,12 @@
 }
 
 
-// -------------------------
+//
 // Bucket Modifiers (Size)
-// -------------------------
+//
 
 
-.bucket--sm {
+.bucket--small {
   .bucket__body,
   .bucket__header,
   .bucket__footer {
@@ -63,9 +67,9 @@
 }
 
 
-// -------------------------
+//
 // Bucket Body
-// -------------------------
+//
 
 
 .bucket__body {
@@ -80,9 +84,9 @@
 }
 
 
-// -------------------------
+//
 // Bucket Header
-// -------------------------
+//
 
 
 .bucket__header {
@@ -97,14 +101,14 @@
 .bucket__header__title {
   align-items: center;
   display: flex;
-  font-size: @font-size-medium;
-  line-height: 1.2;
+  font-size: @global-font-size-medium;
+  line-height: @global-line-height-small;
 }
 
 .bucket__header__title__avatar {
-  margin-right: @global-whitespace-base;
+  margin-right: @global-whitespace-small;
 }
 
 .bucket__header__title__icon {
-  margin-right: @global-whitespace-base;
+  margin-right: @global-whitespace-small;
 }

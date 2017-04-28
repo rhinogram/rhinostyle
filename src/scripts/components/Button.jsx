@@ -46,19 +46,19 @@ class Button extends React.Component {
 
   render() {
     const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
-    const classes = cx('btn', className, {
-      'btn--default':          type === 'default',
-      'btn--primary':          type === 'primary',
-      'btn--secondary':        type === 'secondary',
-      'btn--link':             type === 'link',
-      'btn--outline-default':  type === 'outline-default',
-      'btn--outline-primary':  type === 'outline-primary',
-      'btn--outline-reversed': type === 'outline-reversed',
-      'btn--danger':           type === 'danger',
-      'btn--sm':               size === 'small',
-      'btn--lg':               size === 'large',
-      'btn--block':            block,
-      'btn--icon':             iconOnly,
+    const classes = cx('button', className, {
+      'button--default':          type === 'default',
+      'button--primary':          type === 'primary',
+      'button--secondary':        type === 'secondary',
+      'button--link':             type === 'link',
+      'button--outline-default':  type === 'outline-default',
+      'button--outline-primary':  type === 'outline-primary',
+      'button--outline-reversed': type === 'outline-reversed',
+      'button--danger':           type === 'danger',
+      'button--small':               size === 'small',
+      'button--large':               size === 'large',
+      'button--block':            block,
+      'button--icon':             iconOnly,
       active,
       disabled,
     });

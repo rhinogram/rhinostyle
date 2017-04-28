@@ -172,18 +172,18 @@ class Dropdown extends React.Component {
       'dropdown--block': block,
     });
 
-    const dropdownToggleClasses = cx('btn', 'dropdown__toggle', className, {
-      'btn--default':   type === 'default',
-      'btn--input':     type === 'input',
-      'btn--primary':   type === 'primary',
-      'btn--secondary': type === 'secondary',
-      'btn--link':      type === 'link',
-      'btn--outline-default':   type === 'outline-default',
-      'btn--outline-primary':   type === 'outline-primary',
-      'btn--outline-reversed':  type === 'outline-reversed',
-      'btn--sm': size === 'small',
-      'btn--lg': size === 'large',
-      'btn--icon': (icon && !label),
+    const dropdownToggleClasses = cx('button', 'dropdown__toggle', className, {
+      'button--default':   type === 'default',
+      'button--input':     type === 'input',
+      'button--primary':   type === 'primary',
+      'button--secondary': type === 'secondary',
+      'button--link':      type === 'link',
+      'button--outline-default':   type === 'outline-default',
+      'button--outline-primary':   type === 'outline-primary',
+      'button--outline-reversed':  type === 'outline-reversed',
+      'button--small': size === 'small',
+      'button--large': size === 'large',
+      'button--icon': (icon && !label),
       disabled,
     });
 

@@ -33,6 +33,9 @@ switch (currentUrl) {
   case 'forms':
     require('./FormApp');
     break;
+  case 'grid':
+    require('./GridApp');
+    break;
   case 'icons':
     require('./IconApp');
     break;

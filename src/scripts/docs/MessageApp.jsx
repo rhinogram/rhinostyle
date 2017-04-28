@@ -43,7 +43,7 @@ const MessageApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Direction</h3>
-      <div className="u-m-b-md">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Inbound Message</h5>
         <p className="site-copy"><code>direction=&quot;inbound&quot;</code></p>
         <UtilityInlineGrid>
@@ -64,7 +64,7 @@ const MessageApp = () =>
           </div>
         </UtilityInlineGrid>
       </div>
-      <div className="u-m-b-md">
+      <div className="u-m-b-large">
         <h5 className="site-miniheadline">Outbound Message</h5>
         <p className="site-copy"><code>direction=&quot;outbound&quot;</code></p>
         <UtilityInlineGrid>
@@ -86,7 +86,7 @@ const MessageApp = () =>
         </UtilityInlineGrid>
       </div>
     </section>
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>

@@ -1,19 +1,19 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
 @cover-zindex: 1010;
 
 
-// -------------------------
+//
 // Componeent
-// -------------------------
+//
 
 
-// -------------------------
+//
 // Cover Open State
-// -------------------------
+//
 
 
 // class added to body
@@ -22,9 +22,9 @@
 }
 
 
-// -------------------------
+//
 // Cover
-// -------------------------
+//
 
 // 1. JS styles
 .cover {
@@ -37,15 +37,15 @@
   position: fixed;
   right: 0;
   top: 0;
-  transform: scale(.8); // 1
+  transform: scale(0.75); // 1
   transform-origin: center center;
   z-index: @cover-zindex;
 }
 
 
-// -------------------------
+//
 // Cover Header
-// -------------------------
+//
 
 
 .cover__header {
@@ -63,11 +63,11 @@
 
 .cover__header__container,
 .cover__footer__container {
-  padding: @global-half-gutter;
+  padding: @global-whitespace-base;
 }
 
-.cover__header__close-btn {
-  font-size: @font-size-large;
+.cover__header__close-button {
+  font-size: @global-font-size-large;
   margin-left: auto;
 }
 
@@ -75,19 +75,18 @@
   .u-text-overflow;
   align-items: center;
   display: flex;
-  font-size: 2rem;
-  line-height: @line-height-small;
+  line-height: @global-line-height-small;
   margin: 0;
 }
 
 .cover__header__title__icon {
-  margin-right: 1rem;
+  margin-right: @global-whitespace-small;
 }
 
 
-// -------------------------
+//
 // Cover Body
-// -------------------------
+//
 
 
 .cover__body {
@@ -114,25 +113,25 @@
 
 .cover__body__container {
   margin: 0 auto;
-  padding: @global-gutter @global-half-gutter;
+  padding: @global-whitespace-large @global-whitespace-base;
 }
 
-.cover__body__container--sm {
-  max-width: @global-screen-sm-min;
+.cover__body__container--small {
+  max-width: @global-screen-small-min;
 }
 
-.cover__body__container--md {
-  max-width: @global-screen-md-min;
+.cover__body__container--medium {
+  max-width: @global-screen-medium-min;
 }
 
-.cover__body__container--lg {
-  max-width: @global-screen-lg-min;
+.cover__body__container--large {
+  max-width: @global-screen-large-min;
 }
 
 
-// -------------------------
+//
 // Cover Footer
-// -------------------------
+//
 
 
 .cover__footer {

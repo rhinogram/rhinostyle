@@ -1,16 +1,16 @@
-// -------------------------
+//
 // Variables
-// -------------------------
+//
 
 
-@close-font-weight: @font-weight-normal;
+@close-font-weight: @global-font-weight-normal;
 @close-color: @global-color-black;
 @close-text-shadow: 0 1px 0 @global-color-white;
 
 
-// -------------------------
+//
 // Component
-// -------------------------
+//
 
 
 .close {
@@ -18,7 +18,7 @@
   color: inherit;
   display: inline-flex;
   line-height: 1;
-  opacity: .75;
+  opacity: @global-opacity-disabled;
   position: relative;
 
   &:hover,

@@ -135,7 +135,7 @@ class Input extends React.Component {
         inputMarkup = (
           <div className="form__clear">
             <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
-            {input ? <a href="javascript:void(0)" className="form__clear__btn" onClick={this._handleClear} ><Icon icon="close" /></a> : null}
+            {input ? <a href="javascript:void(0)" className="form__clear__button" onClick={this._handleClear} ><Icon icon="close" /></a> : null}
           </div>
         );
       } else {

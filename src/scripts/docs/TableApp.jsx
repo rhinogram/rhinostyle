@@ -24,7 +24,7 @@ const LabelApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Table Types</h3>
       <div className="site-example-tables">
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <p className="site-copy">
             Our basic table. Does not require any additional properties.
           </p>
@@ -65,7 +65,7 @@ const LabelApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Table Modifiers</h3>
       <div className="site-example-tables">
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <h5 className="site-miniheadline">Bordered Table</h5>
           <p className="site-copy">
             Add <code>bordered</code> property to create a bordered table.
@@ -101,7 +101,7 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <h5 className="site-miniheadline">Condensed Table</h5>
           <p className="site-copy">
             Add <code>condensed</code> property to create a table with condensed spacing.
@@ -137,7 +137,7 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <h5 className="site-miniheadline">Hover Table</h5>
           <p className="site-copy">
             Add <code>hover</code> property to create a table with hover state.
@@ -173,7 +173,7 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <h5 className="site-miniheadline">Striped Table</h5>
           <p className="site-copy">
             Add <code>striped</code> property to create a striped table.
@@ -215,7 +215,7 @@ const LabelApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Table Row &amp; Table Data Modifiers</h3>
       <div className="site-example-tables">
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <h5 className="site-miniheadline">Table Data</h5>
           <p className="site-copy">
             To change the background color, add <code>.table__data--active | .table__data--danger | .table__data--success | .table__data--warning</code> className to the <code>&lt;td&gt;</code> element.
@@ -267,7 +267,7 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <h5 className="site-miniheadline">Table Row</h5>
           <p className="site-copy">
             To change the background color, add <code>.table__row--active | .table__row--danger | .table__row--success | .table__row--warning</code> className to the <code>&lt;tr&gt;</code> element.
@@ -319,7 +319,7 @@ const LabelApp = () =>
             </tr>
           </tbody>
         </Table>
-        <div className="u-m-b-md">
+        <div className="u-m-b-large">
           <p className="site-copy">
             To change the vertical alignment add <code>.table__row--valign-middle</code> className to the <code>&lt;tr&gt;</code> element. By default, table rows and data are vertically aligned to the top.
           </p>
@@ -343,7 +343,7 @@ const LabelApp = () =>
       </div>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Table} propDescriptionMap={tableDocs} codeText={tableExample} scope={exampleScope} noRender={false} />
     </section>

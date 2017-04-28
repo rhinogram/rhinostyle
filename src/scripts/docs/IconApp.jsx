@@ -437,7 +437,7 @@ const IconApp = () =>
       </UtilityInlineGrid>
     </section>
 
-    <section>
+    <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
     </section>

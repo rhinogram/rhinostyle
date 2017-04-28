@@ -6,7 +6,7 @@ import { Close, Icon } from '../components';
 const Alert = (props) => {
   const { className, onDismiss, title, titleIcon, size, type } = props;
   const classes = cx('alert', className, {
-    'alert--sm':                size === 'small',
+    'alert--small':                size === 'small',
     'alert--danger':            type === 'danger',
     'alert--default':           type === 'default',
     'alert--info':              type === 'info',
@@ -32,10 +32,10 @@ const Alert = (props) => {
   return (
     <div className={classes}>
       {renderClose()}
-      <div className="alert__title">
+      {title ? <div className="alert__title">
         {renderTitleIcon()}
         <div className="alert__title__text">{title}</div>
-      </div>
+      </div> : null }
       <div className="alert__body">
         {props.children}
       </div>

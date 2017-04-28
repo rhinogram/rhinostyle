@@ -1,13 +1,10 @@
 // Note: Master file for styles
 
-
-@import 'normalize';
+@import 'variables';
+@import 'base';
 @import 'mixins';
-//@import 'print';
-@import 'scaffolding';
 
 @import 'utilities';
-@import 'variables';
 
 @import 'alerts';
 @import 'animations';
@@ -18,11 +15,10 @@
 @import 'covers';
 @import 'datepicker';
 @import 'dropdowns';
-@import 'flexbox-grid';
+@import 'grid';
 @import 'icons';
 @import 'forms';
 @import 'labels';
-//@import 'list-groups';
 @import 'lightbox';
 @import 'loaders';
 @import 'messages';
@@ -34,19 +30,3 @@
 @import 'tables';
 @import 'toasts';
 @import 'tooltips';
-@import 'type';
-
-
-// transform: translate3d(0, 0, 0);
-// transform-style: preserve-3d;
-// transform: scale(1);
-// backface-visibility: hidden;
-
-// we are using -webkit-font-smoothing: antialiased on the body element
-// this results in some crappy and unpredictable text rendering on retina
-// removing this style may fix many transform rendering issues.
-
-
-// IE 11 computed heights don't include borders. Input text alignement
-// should be easy using height and line-height (3.6rem). This fixes
-// webkit alignment issues but breaks them in IE 11.

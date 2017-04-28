@@ -81,7 +81,7 @@ class ComponentExample extends React.Component {
       <Dropdown label="Dropdown with Wild Content" wide>
         <DropdownMenuItemWild>
           <p>DropdownMenuItemWild with a paragraph and image.</p>
-          <img className="u-img-fluid" src="//source.unsplash.com/category/people/200x200"/>
+          <img src="//source.unsplash.com/category/people/200x200"/>
         </DropdownMenuItemWild>
         <DropdownMenuItemWild toggleDropdown>
           <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>

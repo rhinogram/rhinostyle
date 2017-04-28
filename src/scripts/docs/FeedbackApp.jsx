@@ -82,21 +82,19 @@ class FeedbackApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Alert</h3>
-          <div className="u-m-b-lg">
-            <div className="site-example-alerts">
-              <Alert title="This is a danger alert!" titleIcon="star" type="danger" onDismiss={() => alert('dismissed!')}>This is a danger alert for dangerous stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
-              <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
-            </div>
+          <div className="u-m-b-large">
+            <Alert title="This is a danger alert!" titleIcon="star" type="danger" onDismiss={() => alert('dismissed!')}>This is a danger alert for dangerous stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="">text link</a> | <a href="">text link</a></Alert>
+            <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
           <Playground theme="default" docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">SystemAlert</h3>
-          <div className="u-m-b-lg">
+          <div className="u-m-b-large">
             <div className="site-example-systemalerts">
               <SystemAlert type="danger" body="Danger System Alert" />
               <SystemAlert type="default" body="Default System Alert" />
@@ -107,10 +105,10 @@ class FeedbackApp extends React.Component {
           <h3 className="site-subheadline">SystemAlert Playground</h3>
           <Playground theme="default" docClass={SystemAlert} propDescriptionMap={systemAlertDocs} codeText={systemAlertExample} scope={systemAlertScope} noRender={false} />
         </section>
-        <section>
+        <section className="site-section">
           <h3 className="site-subheadline">Toast</h3>
           <p className="site-copy">To see a toast in action, <a href="javascript:void(0)" onClick={this.onClick}>click here</a>.</p>
-          <div className="site-example-toasts u-m-b-lg">
+          <div className="site-example-toasts u-m-b-large">
             <Toast type="default" body="Default toast notification" />
             <Toast type="success" icon="checkmark" body="Success toast notification" />
             <Toast type="danger" body="Danger toast notification" />

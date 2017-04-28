@@ -252,8 +252,8 @@ class DropdownMultiSelect extends React.Component {
         </DropdownWrapper>
         {showValidationMessage()}
         {showExplanationMessage()}
-        {activeKeys.length ? <div className="u-p-t-sm">
-          <UtilityInlineGrid size="small">
+        {activeKeys.length ? <div className="u-p-t-small">
+          <UtilityInlineGrid>
             {activeKeys.map(renderPill)}
           </UtilityInlineGrid>
         </div> : null }
