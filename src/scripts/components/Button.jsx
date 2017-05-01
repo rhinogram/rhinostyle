@@ -47,20 +47,19 @@ class Button extends React.Component {
   render() {
     const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
     const classes = cx('button', className, {
-      'button--default':          type === 'default',
-      'button--primary':          type === 'primary',
-      'button--secondary':        type === 'secondary',
-      'button--link':             type === 'link',
-      'button--outline-default':  type === 'outline-default',
-      'button--outline-primary':  type === 'outline-primary',
+      'button--default': type === 'default',
+      'button--primary': type === 'primary',
+      'button--secondary': type === 'secondary',
+      'button--link': type === 'link',
+      'button--outline-default': type === 'outline-default',
+      'button--outline-primary': type === 'outline-primary',
       'button--outline-reversed': type === 'outline-reversed',
-      'button--danger':           type === 'danger',
-      'button--small':               size === 'small',
-      'button--large':               size === 'large',
-      'button--block':            block,
-      'button--icon':             iconOnly,
-      active,
-      disabled,
+      'button--danger': type === 'danger',
+      'button--small': size === 'small',
+      'button--large': size === 'large',
+      'button--block': block,
+      'button--icon': iconOnly,
+      'is-active': active,
     });
 
     let markup = '';
@@ -71,7 +70,7 @@ class Button extends React.Component {
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} title={this.props.title} {...opts}>{this.props.children}</a>
+        <a href="javascript:void(0)" className={classes} disabled={disabled} onClick={this.handleClick} title={this.props.title} {...opts}>{this.props.children}</a>
       );
     }
 

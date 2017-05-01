@@ -27,6 +27,7 @@ class DropdownWrapper extends React.Component {
   componentDidMount = () => {
     const $dropdown = this.dropdown;
     const $dropdownMenu = $dropdown.querySelector('.dropdown__menu');
+    const $dropdownToggle = $dropdown.querySelector('.dropdown__toggle');
 
     let forward = true;
     let lastTime = 0;
@@ -35,7 +36,10 @@ class DropdownWrapper extends React.Component {
     $dropdown.timeline = new TimelineMax({
       paused: true,
       onStart: () => {
+        // Add active/open classes
         $dropdown.classList.add(UtilitySystem.config.classes.open);
+        $dropdownToggle.classList.add(UtilitySystem.config.classes.active);
+
         // Toggle aria state
         $dropdown.setAttribute('aria-expanded', true);
 
@@ -64,7 +68,10 @@ class DropdownWrapper extends React.Component {
             // Fire off prop update
             this.props.onReverseStart();
 
+            // Remove active/open classes
             $dropdown.classList.remove(UtilitySystem.config.classes.open);
+            $dropdownToggle.classList.remove(UtilitySystem.config.classes.active);
+
             // Toggle aria state
             $dropdown.setAttribute('aria-expanded', false);
           }

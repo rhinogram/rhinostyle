@@ -16943,11 +16943,11 @@ var navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('active'); // eslint-disable-line
+  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('is-active'); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
   _UtilitySystem.UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), function (index, value) {
-    value.classList.remove('active');
+    value.classList.remove('is-active');
   });
 }
 
@@ -21289,8 +21289,7 @@ var Button = function (_React$Component) {
         'button--large': size === 'large',
         'button--block': block,
         'button--icon': iconOnly,
-        active: active,
-        disabled: disabled
+        'is-active': active
       });
 
       var markup = '';
@@ -21304,7 +21303,7 @@ var Button = function (_React$Component) {
       } else {
         markup = _react2.default.createElement(
           'a',
-          _extends({ href: 'javascript:void(0)', className: classes, onClick: this.handleClick, title: this.props.title }, opts),
+          _extends({ href: 'javascript:void(0)', className: classes, disabled: disabled, onClick: this.handleClick, title: this.props.title }, opts),
           this.props.children
         );
       }
@@ -23163,6 +23162,7 @@ var DropdownWrapper = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownWrapper.__proto__ || Object.getPrototypeOf(DropdownWrapper)).call.apply(_ref, [this].concat(args))), _this), _this.componentDidMount = function () {
       var $dropdown = _this.dropdown;
       var $dropdownMenu = $dropdown.querySelector('.dropdown__menu');
+      var $dropdownToggle = $dropdown.querySelector('.dropdown__toggle');
 
       var forward = true;
       var lastTime = 0;
@@ -23171,7 +23171,10 @@ var DropdownWrapper = function (_React$Component) {
       $dropdown.timeline = new _gsap.TimelineMax({
         paused: true,
         onStart: function onStart() {
+          // Add active/open classes
           $dropdown.classList.add(_components.UtilitySystem.config.classes.open);
+          $dropdownToggle.classList.add(_components.UtilitySystem.config.classes.active);
+
           // Toggle aria state
           $dropdown.setAttribute('aria-expanded', true);
 
@@ -23200,7 +23203,10 @@ var DropdownWrapper = function (_React$Component) {
               // Fire off prop update
               _this.props.onReverseStart();
 
+              // Remove active/open classes
               $dropdown.classList.remove(_components.UtilitySystem.config.classes.open);
+              $dropdownToggle.classList.remove(_components.UtilitySystem.config.classes.active);
+
               // Toggle aria state
               $dropdown.setAttribute('aria-expanded', false);
             }
