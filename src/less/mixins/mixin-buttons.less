@@ -3,7 +3,7 @@
 //
 
 
-.mixin-button-variant(@color; @background; @background-color; @border) {
+.mixin-button-variant(@color; @background; @background-color; @border; @shadow: true) {
   background: @background;
   border-color: @border;
   color: @color;
@@ -15,9 +15,11 @@
     color: @color;
   }
 
-  &:active,
-  &.is-active {
-    box-shadow: @button-active-box-shadow;
+  & when (@shadow = true) {
+    &:active,
+    &.is-active {
+      box-shadow: @button-active-box-shadow;
+    }
   }
 
   .button__badge {

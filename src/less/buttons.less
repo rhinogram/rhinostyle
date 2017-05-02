@@ -185,6 +185,10 @@
   .mixin-button-outline-variant(@button-outline-primary-color; @button-outline-primary-border; @global-color-white; @button-outline-primary-hover-bg);
 }
 
+.button--input {
+  .mixin-button-variant(@input-color; @input-bg; @input-bg; @input-border; @shadow: false);
+}
+
 .button--link {
   .mixin-button-outline-variant(@base-link-color; transparent; @base-link-hover-color; transparent; @shadow: false);
 }
