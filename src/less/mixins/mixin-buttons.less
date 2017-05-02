@@ -3,7 +3,7 @@
 //
 
 
-.mixin-button-variant(@color; @background; @border) {
+.mixin-button-variant(@color; @background; @background-color; @border) {
   background: @background;
   border-color: @border;
   color: @color;
@@ -18,6 +18,11 @@
   &:active,
   &.is-active {
     box-shadow: @button-active-box-shadow;
+  }
+
+  .button__badge {
+    background: @color;
+    color: @background-color;
   }
 }
 
@@ -40,6 +45,20 @@
       box-shadow: @button-active-box-shadow;
     }
   }
+
+  // 1. http://lesscss.org/functions/#color-operations-contrast
+  .button__badge {
+    background: @color;
+    // 1
+    color: contrast(@color, @global-color-white, @color, 30%);
+  }
+
+  // 1. Override color on badge for reversed button
+  &.button--outline-reversed {
+    .button__badge {
+      color: @global-font-color;
+    }
+  }
 }
 
 
@@ -55,6 +74,6 @@
   padding: 0 @padding-horizontal;
 
   .button__badge {
-    font-size: @font-size - 0.2rem;
+    font-size: (@font-size - 0.2rem);
   }
 }

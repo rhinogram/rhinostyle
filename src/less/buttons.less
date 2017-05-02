@@ -29,9 +29,9 @@
 @button-padding-small: @global-whitespace-small;
 
 @button-default-color: @global-font-color;
-@button-default-bg-color: #ececec;
+@button-default-bg-color: #fff;
 @button-default-bg: linear-gradient(to bottom right, @button-default-bg-color, darken(@button-default-bg-color, 6.5));
-@button-default-border: darken(@button-default-bg-color, 6.5);
+@button-default-border: @global-border-color-base;
 
 @button-primary-color: @global-color-white;
 @button-primary-bg-color: @global-color-primary;
@@ -63,7 +63,7 @@
 
 @badge-border-radius: @global-border-radius;
 @badge-horizontal-padding: @global-whitespace-xsmall;
-@badge-vertical-padding: 0.3rem;
+@badge-vertical-padding: (@global-whitespace-xsmall / 2);
 
 
 //
@@ -134,6 +134,14 @@
   }
 }
 
+// 1. Bump icons within a button by default
+.button {
+  .icon {
+    // 1
+    .icon--bump-up;
+  }
+}
+
 
 //
 // Color variations
@@ -141,19 +149,19 @@
 
 
 .button--default {
-  .mixin-button-variant(@button-default-color; @button-default-bg; @button-default-border);
+  .mixin-button-variant(@button-default-color; @button-default-bg; @button-default-bg-color; @button-default-border);
 }
 
 .button--primary {
-  .mixin-button-variant(@button-primary-color; @button-primary-bg; @button-primary-border);
+  .mixin-button-variant(@button-primary-color; @button-primary-bg; @button-primary-bg-color; @button-primary-border);
 }
 
 .button--secondary {
-  .mixin-button-variant(@button-secondary-color; @button-secondary-bg; @button-secondary-border);
+  .mixin-button-variant(@button-secondary-color; @button-secondary-bg; @button-secondary-bg-color; @button-secondary-border);
 }
 
 .button--danger {
-  .mixin-button-variant(@button-danger-color; @button-danger-bg; @button-danger-border);
+  .mixin-button-variant(@button-danger-color; @button-danger-bg; @button-danger-bg-color; @button-danger-border);
 }
 
 .button--outline-default {
@@ -209,5 +217,24 @@
   &.button--small {
     padding-left: @button-icon-padding-small;
     padding-right: @button-icon-padding-small;
+  }
+}
+
+
+//
+// Badge
+//
+
+
+.button__badge {
+  border-radius: @badge-border-radius;
+  font-size: (@global-font-size-base - 0.2rem);
+  line-height: 1;
+  padding: @badge-vertical-padding @badge-horizontal-padding;
+  position: relative;
+  white-space: nowrap;
+
+  &:empty {
+    display: none;
   }
 }
