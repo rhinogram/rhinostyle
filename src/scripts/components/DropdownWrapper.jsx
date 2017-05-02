@@ -103,7 +103,7 @@ class DropdownWrapper extends React.Component {
 
   render() {
     return (
-      <div ref={ref => (this.dropdown = ref)} className={this.props.className}>{this.props.children}</div>
+      <div aria-haspopup="true" aria-expanded="false" ref={ref => (this.dropdown = ref)} className={this.props.className}>{this.props.children}</div>
     );
   }
 }

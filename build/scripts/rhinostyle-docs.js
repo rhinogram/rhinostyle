@@ -23240,7 +23240,7 @@ var DropdownWrapper = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { ref: function ref(_ref2) {
+        { 'aria-haspopup': 'true', 'aria-expanded': 'false', ref: function ref(_ref2) {
             return _this2.dropdown = _ref2;
           }, className: this.props.className },
         this.props.children
