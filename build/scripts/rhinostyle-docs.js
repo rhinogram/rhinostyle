@@ -14531,8 +14531,8 @@ var FeedbackApp = function (_React$Component) {
             { className: 'site-copy' },
             'To see a toast in action, ',
             _react2.default.createElement(
-              'a',
-              { href: 'javascript:void(0)', onClick: this.onClick },
+              'button',
+              { className: 'button--reset u-link', onClick: this.onClick },
               'click here'
             ),
             '.'
@@ -14939,8 +14939,8 @@ var FormApp = function FormApp() {
           _components.Input,
           { addon: 'right', type: 'text' },
           _react2.default.createElement(
-            'a',
-            { href: 'javascript:void(0)' },
+            'button',
+            { className: 'button--reset' },
             'Go For It!'
           )
         ),
@@ -21302,8 +21302,8 @@ var Button = function (_React$Component) {
         );
       } else {
         markup = _react2.default.createElement(
-          'a',
-          _extends({ href: 'javascript:void(0)', className: classes, disabled: disabled, onClick: this.handleClick, title: this.props.title }, opts),
+          'button',
+          _extends({ type: 'button', className: classes, disabled: disabled, onClick: this.handleClick, 'aria-label': this.props.title }, opts),
           this.props.children
         );
       }
@@ -21491,11 +21491,11 @@ var Close = function Close(props) {
       onClick = props.onClick,
       opts = _objectWithoutProperties(props, ['className', 'onClick']);
 
-  var classes = (0, _classnames2.default)('close', className);
+  var classes = (0, _classnames2.default)('button--reset close', className);
 
   return _react2.default.createElement(
-    'a',
-    _extends({ href: 'javascript:void(0)', className: classes, onClick: onClick }, opts, { role: 'button', title: 'Close' }),
+    'button',
+    _extends({ type: 'button', className: classes, onClick: onClick }, opts, { role: 'button', 'aria-label': 'Close' }),
     _react2.default.createElement(_components.Icon, { icon: 'close' })
   );
 };
@@ -23504,8 +23504,8 @@ var Input = function (_React$Component) {
                 return _this2.rhinoInput = _ref2;
               } }),
             input ? _react2.default.createElement(
-              'a',
-              { href: 'javascript:void(0)', className: 'form__clear__button', onClick: _this2._handleClear },
+              'button',
+              { type: 'button', className: 'button--reset form__clear__button', onClick: _this2._handleClear },
               _react2.default.createElement(_components.Icon, { icon: 'close' })
             ) : null
           );
@@ -24739,25 +24739,22 @@ var Pill = function Pill(props) {
       label = props.label,
       type = props.type;
 
-  var classes = (0, _classnames2.default)('pill', className, {
+  var classes = (0, _classnames2.default)('button--reset pill', className, {
     'pill--disabled': disabled,
     'pill--default': type === 'default',
     'pill--neutral': type === 'neutral'
   });
 
-  return (
-    /* eslint no-script-url:0 */
+  return _react2.default.createElement(
+    'button',
+    { type: 'button', className: classes, onClick: onClick },
+    icon ? _react2.default.createElement(_components.Icon, { icon: icon, className: 'pill__icon' }) : null,
+    ' ',
+    label,
     _react2.default.createElement(
-      'a',
-      { href: 'javascript:void(0)', className: classes, onClick: onClick },
-      icon ? _react2.default.createElement(_components.Icon, { icon: icon, className: 'pill__icon' }) : null,
-      ' ',
-      label,
-      _react2.default.createElement(
-        'span',
-        { className: 'pill__close' },
-        '\xD7'
-      )
+      'span',
+      { className: 'pill__close' },
+      '\xD7'
     )
   );
 };

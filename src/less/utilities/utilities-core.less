@@ -182,3 +182,24 @@
 .u-text-underline {
   text-decoration: underline !important;
 }
+
+
+//
+// Link
+//
+
+
+// 1. Make sure we override color
+.u-link {
+  // 1
+  color: @base-link-color !important;
+  text-decoration: @base-link-text-decoration;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    // 1
+    color: @base-link-hover-color !important;
+    text-decoration: @base-link-hover-text-decoration;
+  }
+}

@@ -50,7 +50,7 @@
 
 @button-outline-default-color: @global-font-color;
 @button-outline-default-border: @button-default-border;
-@button-outline-default-hover-bg: @button-default-bg-color;
+@button-outline-default-hover-bg: darken(@button-default-bg-color, 6.5);
 
 @button-outline-primary-color: @button-primary-border;
 @button-outline-primary-border: @button-primary-border;
@@ -74,7 +74,7 @@
 // 1. Correct inability to style clickable `input` types in iOS.
 // 2. Remove margins in Chrome, Safari and Opera.
 // 3. Normalizes styles for `button`.
-// 4. Address `overflow` set to `hidden` in IE 8/9/10/11.
+// 4. Standardize `overflow` set to `hidden` for overflow text.
 // 5. Correct `font` properties and `color` not being inherited for `button`.
 // 6. Address inconsistent `text-transform` inheritance which is only inherit in Firefox and IE
 // 7. Style
@@ -83,7 +83,8 @@
 // 10. Reset button group whitespace hack
 // 11. Required for `a`.
 // 12. Do not wrap buttons
-// 13. Removes inner padding and border in Firefox 4+.
+// 13. Prevent selection of text
+// 14. Removes inner padding and border in Firefox 4+.
 .button {
   // 1
   appearance: none;
@@ -92,7 +93,7 @@
   // 3
   border: 1px solid transparent;
   // 4
-  overflow: visible;
+  overflow: hidden;
   // 5
   font: inherit;
   font-weight: @button-font-weight;
@@ -118,6 +119,10 @@
   text-align: center;
   // 12
   white-space: nowrap;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  // 13
+  user-select: none;
 
   &:hover,
   &:focus,
@@ -127,10 +132,18 @@
     background-size: @button-bg-size-active !important;
   }
 
-  // 13
+  // 14
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
+  }
+
+  // Disabled
+  &.is-disabled,
+  &[disabled] {
+    opacity: @global-opacity-disabled;
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 

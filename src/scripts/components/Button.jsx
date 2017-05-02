@@ -70,7 +70,7 @@ class Button extends React.Component {
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} disabled={disabled} onClick={this.handleClick} title={this.props.title} {...opts}>{this.props.children}</a>
+        <button type="button" className={classes} disabled={disabled} onClick={this.handleClick} aria-label={this.props.title} {...opts}>{this.props.children}</button>
       );
     }
 

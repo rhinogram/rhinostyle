@@ -5,10 +5,10 @@ import { Icon } from '../components';
 
 const Close = (props) => {
   const { className, onClick, ...opts } = props;
-  const classes = cx('close', className);
+  const classes = cx('button--reset close', className);
 
   return (
-    <a href="javascript:void(0)" className={classes} onClick={onClick} {...opts} role="button" title="Close"><Icon icon="close" /></a>
+    <button type="button" className={classes} onClick={onClick} {...opts} role="button" aria-label="Close"><Icon icon="close" /></button>
   );
 };
 
