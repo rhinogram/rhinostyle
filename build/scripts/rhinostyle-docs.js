@@ -14940,7 +14940,7 @@ var FormApp = function FormApp() {
           { addon: 'right', type: 'text' },
           _react2.default.createElement(
             'button',
-            { className: 'button--reset' },
+            { className: 'button--reset u-link' },
             'Go For It!'
           )
         ),
@@ -22128,7 +22128,7 @@ var Dropdown = function (_React$Component) {
             return _this3.dropdown = _ref2;
           } },
         _react2.default.createElement(
-          'div',
+          'button',
           { onClick: this.handleToggle, className: dropdownToggleClasses, type: 'button' },
           selectedIcon || icon ? _react2.default.createElement(_components.Icon, { className: 'dropdown__toggle__icon', icon: selectedIcon || icon }) : null,
           _react2.default.createElement(

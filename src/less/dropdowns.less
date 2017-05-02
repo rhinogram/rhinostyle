@@ -43,14 +43,17 @@
 
 
 .dropdown--block {
-  display: flex;
   width: 100%;
 
   .dropdown__toggle {
+    text-align: left;
     width: 100%;
 
     .dropdown__toggle__caret {
-      margin-left: auto;
+      position: absolute;
+      right: @button-padding-base;
+      top: 50%;
+      transform: translateY(~'calc(-50% + .1rem)');
     }
   }
 
