@@ -147,12 +147,18 @@
   }
 }
 
-// 1. Bump icons within a button by default
-.button {
-  .icon {
-    // 1
-    .icon--bump-up;
-  }
+// Appears within each `<button>`
+// 1. Stop text from shifting on click in IE11
+// 2. Style
+.button__text-wrapper {
+  // 1
+  position: relative;
+  top: 0;
+  left: 0;
+  // 2
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 

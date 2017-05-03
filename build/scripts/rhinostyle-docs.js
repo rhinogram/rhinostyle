@@ -21304,7 +21304,11 @@ var Button = function (_React$Component) {
         markup = _react2.default.createElement(
           'button',
           _extends({ type: 'button', className: classes, disabled: disabled, onClick: this.handleClick, 'aria-label': this.props.title }, opts),
-          this.props.children
+          _react2.default.createElement(
+            'span',
+            { className: 'button__text-wrapper' },
+            this.props.children
+          )
         );
       }
 
@@ -22130,16 +22134,20 @@ var Dropdown = function (_React$Component) {
         _react2.default.createElement(
           'button',
           { onClick: this.handleToggle, className: dropdownToggleClasses, type: 'button' },
-          selectedIcon || icon ? _react2.default.createElement(_components.Icon, { className: 'dropdown__toggle__icon', icon: selectedIcon || icon }) : null,
           _react2.default.createElement(
             'span',
-            { className: 'dropdown__toggle__text' },
-            selectedLabel || label
-          ),
-          hideCaret ? null : _react2.default.createElement(
-            'svg',
-            { className: 'dropdown__toggle__caret' },
-            _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
+            { className: 'button__text-wrapper' },
+            selectedIcon || icon ? _react2.default.createElement(_components.Icon, { className: 'dropdown__toggle__icon', icon: selectedIcon || icon }) : null,
+            _react2.default.createElement(
+              'span',
+              { className: 'dropdown__toggle__text' },
+              selectedLabel || label
+            ),
+            hideCaret ? null : _react2.default.createElement(
+              'svg',
+              { className: 'dropdown__toggle__caret' },
+              _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
+            )
           )
         ),
         _react2.default.createElement(

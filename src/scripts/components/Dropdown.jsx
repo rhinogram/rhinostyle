@@ -225,8 +225,10 @@ class Dropdown extends React.Component {
     return (
       <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
         <button onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
-          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
-          {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
+          <span className="button__text-wrapper">
+            {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
+            {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
+          </span>
         </button>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
