@@ -72,7 +72,7 @@
 .dropdown--multiselect {
   .mixin-chevron-down(); // add chevron
 
-  .dropdown__menu__item.active > .dropdown__menu__item__link {
+  .dropdown__menu__item.is-active > .dropdown__menu__item__link {
     padding-right: 3.6rem;
 
     &,
@@ -219,7 +219,7 @@
   position: relative; // needed for active state with checkmark
 
   // Active state
-  &.active > .dropdown__menu__item__link {
+  &.is-active > .dropdown__menu__item__link {
     &,
     &:hover,
     &:focus {
@@ -359,26 +359,13 @@
 // Scrollable menu content
 
 
+// 1. Fixes scrollbar position bug that results from translateY on dropdown__menu
 .dropdown__menu__scroll {
   max-height: 34rem;
   overflow-y: auto;
-  // fixes scrollbar position bug that results from translateY on dropdown__menu
+  // 1
   transform: translate3d(0, 0, 0);
 }
-
-
-
-//
-// Dropdown Toggle
-//
-
-
-/*.dropdown__toggle {
-  &:active,
-  &:focus {
-    outline: 0;
-  }
-}*/
 
 
 //

@@ -224,10 +224,10 @@ const navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  $siteNavigation.querySelector(`a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add('is-active'); // eslint-disable-line
+  $siteNavigation.querySelector(`a[href^="${rhinoDocs.rootPath}${navLocation}"]`).classList.add(UtilitySystem.config.classes.active); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
   UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), (index, value) => {
-    value.classList.remove('is-active');
+    value.classList.remove(UtilitySystem.config.classes.active);
   });
 }

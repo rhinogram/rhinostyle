@@ -16943,11 +16943,11 @@ var navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('is-active'); // eslint-disable-line
+  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add(_UtilitySystem.UtilitySystem.config.classes.active); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
   _UtilitySystem.UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), function (index, value) {
-    value.classList.remove('is-active');
+    value.classList.remove(_UtilitySystem.UtilitySystem.config.classes.active);
   });
 }
 
@@ -22543,7 +22543,7 @@ var DropdownMenuItem = function (_React$Component) {
           route = _props.route;
 
       var classes = (0, _classnames2.default)('dropdown__menu__item', className, {
-        active: active,
+        'is-active': active,
         disabled: disabled
       });
 
