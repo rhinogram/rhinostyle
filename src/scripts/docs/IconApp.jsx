@@ -66,13 +66,6 @@ const IconApp = () =>
 
         <div className="site-swatch">
           <div className="site-swatch__sample">
-            <Icon icon="bell" />
-          </div>
-          <div className="site-swatch__text"><strong>Bell</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
             <Icon icon="birthday" />
           </div>
           <div className="site-swatch__text"><strong>Birthday</strong></div>
@@ -167,6 +160,13 @@ const IconApp = () =>
             <Icon icon="copy" />
           </div>
           <div className="site-swatch__text"><strong>Copy</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="desktop" />
+          </div>
+          <div className="site-swatch__text"><strong>Desktop</strong></div>
         </div>
 
         <div className="site-swatch">
@@ -311,9 +311,30 @@ const IconApp = () =>
 
         <div className="site-swatch">
           <div className="site-swatch__sample">
+            <Icon icon="mobile" />
+          </div>
+          <div className="site-swatch__text"><strong>Mobile</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
             <Icon icon="note" />
           </div>
           <div className="site-swatch__text"><strong>Note</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="notification" />
+          </div>
+          <div className="site-swatch__text"><strong>Notification</strong></div>
+        </div>
+
+        <div className="site-swatch">
+          <div className="site-swatch__sample">
+            <Icon icon="notification-off" />
+          </div>
+          <div className="site-swatch__text"><strong>Notification Off</strong></div>
         </div>
 
         <div className="site-swatch">
@@ -374,13 +395,6 @@ const IconApp = () =>
 
         <div className="site-swatch">
           <div className="site-swatch__sample">
-            <Icon icon="sms-check" />
-          </div>
-          <div className="site-swatch__text"><strong>SMS Check</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
             <Icon icon="sms-dots" />
           </div>
           <div className="site-swatch__text"><strong>SMS Dots</strong></div>
@@ -391,13 +405,6 @@ const IconApp = () =>
             <Icon icon="star" />
           </div>
           <div className="site-swatch__text"><strong>Star</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="subtract" />
-          </div>
-          <div className="site-swatch__text"><strong>Subtract</strong></div>
         </div>
 
         <div className="site-swatch">
