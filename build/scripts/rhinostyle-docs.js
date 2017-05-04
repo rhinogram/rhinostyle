@@ -15740,24 +15740,6 @@ var IconApp = function IconApp() {
           _react2.default.createElement(
             'div',
             { className: 'site-swatch__sample' },
-            _react2.default.createElement(_components.Icon, { icon: 'bell' })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'site-swatch__text' },
-            _react2.default.createElement(
-              'strong',
-              null,
-              'Bell'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'site-swatch' },
-          _react2.default.createElement(
-            'div',
-            { className: 'site-swatch__sample' },
             _react2.default.createElement(_components.Icon, { icon: 'birthday' })
           ),
           _react2.default.createElement(
@@ -16001,6 +15983,24 @@ var IconApp = function IconApp() {
               'strong',
               null,
               'Copy'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'desktop' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Desktop'
             )
           )
         ),
@@ -16370,6 +16370,24 @@ var IconApp = function IconApp() {
           _react2.default.createElement(
             'div',
             { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'mobile' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Mobile'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
             _react2.default.createElement(_components.Icon, { icon: 'note' })
           ),
           _react2.default.createElement(
@@ -16379,6 +16397,42 @@ var IconApp = function IconApp() {
               'strong',
               null,
               'Note'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'notification' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Notification'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'site-swatch' },
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__sample' },
+            _react2.default.createElement(_components.Icon, { icon: 'notification-off' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'site-swatch__text' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Notification Off'
             )
           )
         ),
@@ -16532,24 +16586,6 @@ var IconApp = function IconApp() {
           _react2.default.createElement(
             'div',
             { className: 'site-swatch__sample' },
-            _react2.default.createElement(_components.Icon, { icon: 'sms-check' })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'site-swatch__text' },
-            _react2.default.createElement(
-              'strong',
-              null,
-              'SMS Check'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'site-swatch' },
-          _react2.default.createElement(
-            'div',
-            { className: 'site-swatch__sample' },
             _react2.default.createElement(_components.Icon, { icon: 'sms-dots' })
           ),
           _react2.default.createElement(
@@ -16577,24 +16613,6 @@ var IconApp = function IconApp() {
               'strong',
               null,
               'Star'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'site-swatch' },
-          _react2.default.createElement(
-            'div',
-            { className: 'site-swatch__sample' },
-            _react2.default.createElement(_components.Icon, { icon: 'subtract' })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'site-swatch__text' },
-            _react2.default.createElement(
-              'strong',
-              null,
-              'Subtract'
             )
           )
         ),
