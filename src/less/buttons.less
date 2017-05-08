@@ -82,9 +82,10 @@
 // 9. `min-height` is necessary for `input` elements in Firefox and Opera because `line-height` is not working.
 // 10. Reset button group whitespace hack
 // 11. Required for `a`.
-// 12. Do not wrap buttons
-// 13. Prevent selection of text
-// 14. Removes inner padding and border in Firefox 4+.
+// 12. Align text to left to resolve ellipsis half-pixel jitterines while resizing
+// 13. Do not wrap buttons
+// 14. Prevent selection of text
+// 15. Removes inner padding and border in Firefox 4+.
 .button {
   // 1
   appearance: none;
@@ -116,12 +117,13 @@
   font-size: @global-font-size-base;
   // 11
   text-decoration: none;
-  text-align: center;
   // 12
+  text-align: left;
+  // 13
   white-space: nowrap;
   max-width: 100%;
   text-overflow: ellipsis;
-  // 13
+  // 14
   user-select: none;
 
   &:hover,
@@ -132,7 +134,7 @@
     background-size: @button-bg-size-active !important;
   }
 
-  // 14
+  // 15
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
