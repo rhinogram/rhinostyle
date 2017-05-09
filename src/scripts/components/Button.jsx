@@ -17,7 +17,7 @@ class Button extends React.Component {
     route:       React.PropTypes.string,
     size:        React.PropTypes.oneOf(['small', 'large']),
     title:       React.PropTypes.string,
-    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
     url:         React.PropTypes.string,
   };
 
@@ -51,7 +51,6 @@ class Button extends React.Component {
       'button--primary': type === 'primary',
       'button--secondary': type === 'secondary',
       'button--link': type === 'link',
-      'button--outline-default': type === 'outline-default',
       'button--outline-primary': type === 'outline-primary',
       'button--outline-reversed': type === 'outline-reversed',
       'button--danger': type === 'danger',

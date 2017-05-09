@@ -6,12 +6,12 @@
 .mixin-text-emphasis-variant(@global-color) {
   color: @global-color !important;
 
-  a&,
+  .button--reset&,
   .button--link& {
     color: @global-color !important;
   }
 
-  a&:hover,
+  .button--reset&:hover,
   .button--link&:hover {
     color: darken(@global-color, 10%) !important;
   }

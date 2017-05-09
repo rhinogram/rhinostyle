@@ -12669,7 +12669,7 @@ var buttonDocs = {
   route: '[Optional] - React-router route to use for item',
   size: '[Optional] - Button size -  [small | large]',
   title: '[Optional] - Include title attribute that represents advisory information',
-  type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item'
 };
 var exampleScope = {
@@ -12698,7 +12698,7 @@ var ButtonApp = function ButtonApp() {
         _react2.default.createElement(
           'code',
           null,
-          'type="default | primary | secondary | outline-default | outline-primary | link | danger"'
+          'type="default | primary | secondary | outline-primary | link | danger"'
         )
       ),
       _react2.default.createElement(
@@ -12718,11 +12718,6 @@ var ButtonApp = function ButtonApp() {
           _components.Button,
           { type: 'secondary' },
           'Secondary'
-        ),
-        _react2.default.createElement(
-          _components.Button,
-          { type: 'outline-default' },
-          'Outline Default'
         ),
         _react2.default.createElement(
           _components.Button,
@@ -12920,11 +12915,6 @@ var ButtonApp = function ButtonApp() {
           ),
           _react2.default.createElement(
             _components.Button,
-            { type: 'outline-default', iconOnly: true },
-            _react2.default.createElement(_components.Icon, { icon: 'clock' })
-          ),
-          _react2.default.createElement(
-            _components.Button,
             { type: 'outline-primary', iconOnly: true },
             _react2.default.createElement(_components.Icon, { icon: 'pencil' })
           )
@@ -13016,29 +13006,6 @@ var ButtonApp = function ButtonApp() {
           null,
           _react2.default.createElement(
             _components.Button,
-            { type: 'outline-default' },
-            'Outline Default'
-          ),
-          _react2.default.createElement(
-            _components.Button,
-            { type: 'outline-default', active: true },
-            'Outline Default Active'
-          ),
-          _react2.default.createElement(
-            _components.Button,
-            { type: 'outline-default', disabled: true },
-            'Outline Default Disabled'
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'u-m-b' },
-        _react2.default.createElement(
-          _components.UtilityInlineGrid,
-          null,
-          _react2.default.createElement(
-            _components.Button,
             { type: 'outline-primary' },
             'Outline Primary'
           ),
@@ -13113,16 +13080,6 @@ var ButtonApp = function ButtonApp() {
               'span',
               { className: 'button__badge' },
               '2'
-            )
-          ),
-          _react2.default.createElement(
-            _components.Button,
-            { type: 'outline-default' },
-            'Outline Default \xA0',
-            _react2.default.createElement(
-              'span',
-              { className: 'button__badge' },
-              '12'
             )
           ),
           _react2.default.createElement(
@@ -13659,7 +13616,7 @@ var dropdownDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
   manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.'
 };
@@ -13824,16 +13781,6 @@ var DropdownApp = function DropdownApp() {
         ),
         _react2.default.createElement(
           _components.Dropdown,
-          { label: 'Outline Default', type: 'outline-default' },
-          _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'A third item' }),
-          _react2.default.createElement(_components.DropdownMenuDivider, null),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Separated Item' })
-        ),
-        _react2.default.createElement(
-          _components.Dropdown,
           { label: 'Outline Primary', type: 'outline-primary' },
           _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
@@ -13885,16 +13832,6 @@ var DropdownApp = function DropdownApp() {
         _react2.default.createElement(
           _components.Dropdown,
           { type: 'secondary', icon: 'cog' },
-          _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'A third item' }),
-          _react2.default.createElement(_components.DropdownMenuDivider, null),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Separated Item' })
-        ),
-        _react2.default.createElement(
-          _components.Dropdown,
-          { type: 'outline-default', icon: 'search' },
           _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
@@ -21299,7 +21236,6 @@ var Button = function (_React$Component) {
         'button--primary': type === 'primary',
         'button--secondary': type === 'secondary',
         'button--link': type === 'link',
-        'button--outline-default': type === 'outline-default',
         'button--outline-primary': type === 'outline-primary',
         'button--outline-reversed': type === 'outline-reversed',
         'button--danger': type === 'danger',
@@ -21354,7 +21290,7 @@ Button.propTypes = {
   route: _react2.default.PropTypes.string,
   size: _react2.default.PropTypes.oneOf(['small', 'large']),
   title: _react2.default.PropTypes.string,
-  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
   url: _react2.default.PropTypes.string
 };
 Button.defaultProps = {
@@ -22104,7 +22040,6 @@ var Dropdown = function (_React$Component) {
         'button--primary': type === 'primary',
         'button--secondary': type === 'secondary',
         'button--link': type === 'link',
-        'button--outline-default': type === 'outline-default',
         'button--outline-primary': type === 'outline-primary',
         'button--outline-reversed': type === 'outline-reversed',
         'button--small': size === 'small',
@@ -22205,7 +22140,7 @@ Dropdown.propTypes = {
   onClick: _react2.default.PropTypes.func,
   onSelect: _react2.default.PropTypes.func,
   size: _react2.default.PropTypes.oneOf(['small', 'large']),
-  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
+  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'input']),
   wide: _react2.default.PropTypes.bool,
   onComplete: _react2.default.PropTypes.func,
   onReverseComplete: _react2.default.PropTypes.func,
@@ -28076,7 +28011,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 666 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" blankWindow title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"outline-default\" route=\"/home\">Outline Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"button__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" blankWindow title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"button__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 667 */
