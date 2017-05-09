@@ -4,7 +4,7 @@
 
 
 @button-font-weight: normal;
-@button-transition: color 0.25s @global-trans-timing-cubic, background 0.25s @global-trans-timing-cubic;
+@button-transition: color 0.25s @global-trans-timing-cubic, opacity 0.25s @global-trans-timing-cubic;
 
 @button-bg-size-active: 200% 200%;
 @button-active-box-shadow: inset 0 1px 4px fade(@global-color-black, 15%);
@@ -30,7 +30,7 @@
 
 @button-default-color: @global-font-color;
 @button-default-bg-color: #fff;
-@button-default-bg: linear-gradient(to bottom right, @button-default-bg-color, darken(@button-default-bg-color, 6.5));
+@button-default-bg: linear-gradient(to bottom right, @button-default-bg-color, darken(@button-default-bg-color, 8));
 @button-default-border: @global-border-color-base;
 
 @button-primary-color: @global-color-white;
@@ -50,11 +50,11 @@
 
 @button-outline-default-color: @global-font-color;
 @button-outline-default-border: @button-default-border;
-@button-outline-default-hover-bg: darken(@button-default-bg-color, 6.5);
+@button-outline-default-hover-bg: @button-default-bg;
 
 @button-outline-primary-color: @button-primary-border;
 @button-outline-primary-border: @button-primary-border;
-@button-outline-primary-hover-bg: @button-primary-bg-color;
+@button-outline-primary-hover-bg: @button-primary-bg;
 
 @button-outline-reversed-color: @global-color-white;
 @button-outline-reversed-border: @global-color-white;
@@ -109,6 +109,7 @@
   cursor: pointer;
   border-radius: @global-border-radius;
   transition: @button-transition;
+  position: relative;
   // 8
   line-height: ~'calc(@{button-height-base} - (2px))';
   // 9
@@ -126,12 +127,32 @@
   // 14
   user-select: none;
 
+  // 1. Alter `background-size` of default background
+  // 2. Style
+  &::after {
+    // 1
+    background-size: @button-bg-size-active !important;
+    // 2
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: @button-transition;
+    opacity: 0;
+    z-index: 1;
+  }
+
   &:hover,
   &:focus,
   &:active,
   &.is-active {
     color: @button-default-color;
-    background-size: @button-bg-size-active !important;
+
+    &::after {
+      opacity: 1;
+    }
   }
 
   // 15
@@ -151,13 +172,19 @@
 
 // Appears within each `<button>`
 // 1. Stop text from shifting on click in IE11
-// 2. Style
+// 2. Put text content on higher `z-index` to sit on-top of pseudo gradient
+// 3. Resolve vertical text alignment in IE11/Edge
+// 4. Style
 .button__text-wrapper {
   // 1
   position: relative;
   top: 0;
   left: 0;
   // 2
+  z-index: 2;
+  // 3
+  height: 100%;
+  // 4
   display: flex;
   align-items: center;
   justify-content: center;

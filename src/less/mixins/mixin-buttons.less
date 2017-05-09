@@ -8,6 +8,10 @@
   border-color: @border;
   color: @color;
 
+  &::after {
+    background: @background;
+  }
+
   &:hover,
   &:focus,
   &:active,
@@ -18,7 +22,9 @@
   & when (@shadow = true) {
     &:active,
     &.is-active {
-      box-shadow: @button-active-box-shadow;
+      &::after {
+        box-shadow: @button-active-box-shadow;
+      }
     }
   }
 
@@ -28,23 +34,28 @@
   }
 }
 
-.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg-color; @shadow: true) {
+.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true) {
   background: transparent;
   border-color: @border;
   color: @color;
+
+  &::after {
+    background: @hover-bg;
+  }
 
   &:hover,
   &:focus,
   &:active,
   &.is-active {
-    background: @hover-bg-color;
     color: @hover-color;
   }
 
   & when (@shadow = true) {
     &:active,
     &.is-active {
-      box-shadow: @button-active-box-shadow;
+      &::after {
+        box-shadow: @button-active-box-shadow;
+      }
     }
   }
 
