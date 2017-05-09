@@ -47,3 +47,13 @@ This does the following:
 1. Rebuilds framework and tags new version on GitHub
 1. Publishes new version to [npmjs.org](https://www.npmjs.com/)
 1. Rebuilds documentation site with latest updates
+
+## Versioning
+
+RhinoStyle is maintained by using the [Semantic Versioning Specification (SemVer)](http://semver.org).
+
+## Browser Support
+
+![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- | --- |
+Latest ✔ | Latest ✔ | Latest ✔ | 11+ ✔ | 7.1+ ✔
