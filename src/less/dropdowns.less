@@ -43,8 +43,11 @@
 
 
 .dropdown--block {
-  display: flex;
   width: 100%;
+
+  .button__text-wrapper {
+    justify-content: flex-start;
+  }
 
   .dropdown__toggle {
     width: 100%;
@@ -69,7 +72,7 @@
 .dropdown--multiselect {
   .mixin-chevron-down(); // add chevron
 
-  .dropdown__menu__item.active > .dropdown__menu__item__link {
+  .dropdown__menu__item.is-active > .dropdown__menu__item__link {
     padding-right: 3.6rem;
 
     &,
@@ -216,7 +219,7 @@
   position: relative; // needed for active state with checkmark
 
   // Active state
-  &.active > .dropdown__menu__item__link {
+  &.is-active > .dropdown__menu__item__link {
     &,
     &:hover,
     &:focus {
@@ -356,26 +359,13 @@
 // Scrollable menu content
 
 
+// 1. Fixes scrollbar position bug that results from translateY on dropdown__menu
 .dropdown__menu__scroll {
   max-height: 34rem;
   overflow-y: auto;
-  // fixes scrollbar position bug that results from translateY on dropdown__menu
+  // 1
   transform: translate3d(0, 0, 0);
 }
-
-
-
-//
-// Dropdown Toggle
-//
-
-
-/*.dropdown__toggle {
-  &:active,
-  &:focus {
-    outline: 0;
-  }
-}*/
 
 
 //
@@ -394,6 +384,8 @@
 
 
 .dropdown__toggle__caret {
+  .icon--bump-down;
+
   fill: currentColor;
   height: @dropdown-chevron-size;
   line-height: 1;
@@ -402,11 +394,6 @@
   position: relative;
   vertical-align: middle;
   width: @dropdown-chevron-size;
-
-  // When used within a button, adjust top position
-  .button & {
-    top: 0.1rem;
-  }
 }
 
 

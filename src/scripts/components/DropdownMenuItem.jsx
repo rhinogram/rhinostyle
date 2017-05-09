@@ -60,7 +60,7 @@ class DropdownMenuItem extends React.Component {
   render() {
     const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
-      active,
+      'is-active': active,
       disabled,
     });
 

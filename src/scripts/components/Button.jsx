@@ -17,7 +17,7 @@ class Button extends React.Component {
     route:       React.PropTypes.string,
     size:        React.PropTypes.oneOf(['small', 'large']),
     title:       React.PropTypes.string,
-    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
     url:         React.PropTypes.string,
   };
 
@@ -47,31 +47,33 @@ class Button extends React.Component {
   render() {
     const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
     const classes = cx('button', className, {
-      'button--default':          type === 'default',
-      'button--primary':          type === 'primary',
-      'button--secondary':        type === 'secondary',
-      'button--link':             type === 'link',
-      'button--outline-default':  type === 'outline-default',
-      'button--outline-primary':  type === 'outline-primary',
+      'button--default': type === 'default',
+      'button--primary': type === 'primary',
+      'button--secondary': type === 'secondary',
+      'button--link': type === 'link',
+      'button--outline-primary': type === 'outline-primary',
       'button--outline-reversed': type === 'outline-reversed',
-      'button--danger':           type === 'danger',
-      'button--small':               size === 'small',
-      'button--large':               size === 'large',
-      'button--block':            block,
-      'button--icon':             iconOnly,
-      active,
-      disabled,
+      'button--danger': type === 'danger',
+      'button--small': size === 'small',
+      'button--large': size === 'large',
+      'button--block': block,
+      'button--icon': iconOnly,
+      'is-active': active,
     });
 
     let markup = '';
 
     if (route) {
       markup = (
-        <Link to={route} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>{this.props.children}</Link>
+        <Link to={route} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>
+          <span className="button__text-wrapper">{this.props.children}</span>
+        </Link>
       );
     } else {
       markup = (
-        <a href="javascript:void(0)" className={classes} onClick={this.handleClick} title={this.props.title} {...opts}>{this.props.children}</a>
+        <button type="button" className={classes} disabled={disabled} onClick={this.handleClick} aria-label={this.props.title} {...opts}>
+          <span className="button__text-wrapper">{this.props.children}</span>
+        </button>
       );
     }
 

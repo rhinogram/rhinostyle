@@ -3,100 +3,77 @@
 //
 
 
-.mixin-button-variant(@global-color; @background; @border; @darken: 6%) {
-  background-color: @background;
+.mixin-button-variant(@color; @background; @background-color; @border; @shadow: true) {
+  background: @background-color;
   border-color: @border;
-  //box-shadow: inset 0 -0.2rem 0 rgba(0, 0, 0, 0.5);
-  color: @global-color;
+  color: @color;
 
-  &:focus {
-    background-color: darken(@background, @darken);
-    border-color: darken(@border, @darken);
+  &::after {
+    background: @background;
   }
-
-  &:hover {
-    background-color: darken(@background, @darken);
-    border-color: darken(@border, @darken);
-  }
-
-  &:active,
-  &.active,
-  .is-open > .dropdown__toggle& {
-    background-color: darken(@background, @darken);
-    border-color: darken(@border, @darken);
-
-    &:hover,
-    &:focus {
-      background-color: darken(@background, @darken);
-      border-color: darken(@border, @darken);
-    }
-  }
-
-  &:active,
-  &.active,
-  .is-open > .dropdown__toggle& {
-    background-image: none;
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      background-color: @background;
-    }
-  }
-
-  .button__badge {
-    background: @global-color;
-    color: @background;
-  }
-}
-
-.mixin-button-outline-variant(@global-color; @background; @border; @hover-bg-color; @hover-border-color) {
-  background-color: transparent;
-  border-color: @border;
-  color: @global-color;
 
   &:hover,
   &:focus,
-  &.focus,
   &:active,
-  &.active,
-  .is-open > .dropdown__toggle& {
-    background-color: @hover-bg-color;
-    border-color: @hover-border-color;
-    color: @global-color-white;
+  &.is-active {
+    color: @color;
   }
 
-  &:active,
-  &.active,
-  .is-open > .dropdown__toggle& {
-    background-image: none;
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &,
-    &:hover,
-    &:focus,
-    &.focus,
+  & when (@shadow = true) {
     &:active,
-    &.active {
-      background-color: transparent;
-      border-color: fade(@global-color, 50%);
-      color: @global-color;
+    &.is-active {
+      box-shadow: @button-active-box-shadow;
     }
   }
 
   .button__badge {
-    background: @global-color;
-    // http://lesscss.org/functions/#color-operations-contrast
-    color: contrast(@global-color, @global-color-white, @global-font-color, 30%);
+    background: @color;
+    color: contrast(@color, darken(@background-color, 7.5%), @color);
+  }
+}
+
+.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true) {
+  background: transparent;
+  border-color: @border;
+  color: @color;
+
+  &::after {
+    background: @hover-bg;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.is-active {
+    color: @hover-color;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  & when (@shadow = true) {
+    &:active,
+    &.is-active {
+      &::after {
+        box-shadow: @button-active-box-shadow;
+      }
+    }
+  }
+
+  // 1. http://lesscss.org/functions/#color-operations-contrast
+  .button__badge {
+    background: @color;
+    // 1
+    color: contrast(@color, @global-color-white, @color, 30%);
+  }
+
+  // 1. Override color on badge for reversed button
+  &.button--outline-reversed {
+    .button__badge {
+      color: @global-font-color;
+    }
   }
 }
 
@@ -106,13 +83,13 @@
 //
 
 
-.mixin-button-size(@height; @padding-horizontal; @font-size; @global-border-radius) {
-  border-radius: @global-border-radius;
+.mixin-button-size(@height; @padding-horizontal; @font-size) {
   font-size: @font-size;
   height: @height;
+  line-height: ~'calc(@{height} - 2px)';
   padding: 0 @padding-horizontal;
 
   .button__badge {
-    font-size: @font-size - 0.2rem;
+    font-size: (@font-size - 0.2rem);
   }
 }

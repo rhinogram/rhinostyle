@@ -63,7 +63,7 @@ class ComponentExample extends React.Component {
       <Dropdown label="Search to add a contact" block type="link" className="u-p-l-0" hideCaret icon="add">
         <DropdownFilter placeholder="Search contacts">
           <DropdownMenuItemWild toggleDropdown>
-            <Button type="link" className="u-flex u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
+            <Button type="link" className="u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
           </DropdownMenuItemWild>
           <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ben Bruning", type: "member"}} />
           <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Blake Guilloud", type: "member"}} />

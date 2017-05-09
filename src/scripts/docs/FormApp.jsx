@@ -196,8 +196,7 @@ const FormApp = () =>
           <Icon icon="search" />
         </Input>
         <Input addon="right" type="text">
-          {/* eslint no-script-url:0 */}
-          <a href="javascript:void(0)">Go For It!</a>
+          <button className="button--reset u-text-primary">Go For It!</button>
         </Input>
         <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
           <span>Amount $</span>

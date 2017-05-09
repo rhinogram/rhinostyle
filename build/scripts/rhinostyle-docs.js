@@ -12669,7 +12669,7 @@ var buttonDocs = {
   route: '[Optional] - React-router route to use for item',
   size: '[Optional] - Button size -  [small | large]',
   title: '[Optional] - Include title attribute that represents advisory information',
-  type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item'
 };
 var exampleScope = {
@@ -12698,7 +12698,7 @@ var ButtonApp = function ButtonApp() {
         _react2.default.createElement(
           'code',
           null,
-          'type="default | primary | secondary | outline-default | outline-primary | link | danger"'
+          'type="default | primary | secondary | outline-primary | link | danger"'
         )
       ),
       _react2.default.createElement(
@@ -12718,11 +12718,6 @@ var ButtonApp = function ButtonApp() {
           _components.Button,
           { type: 'secondary' },
           'Secondary'
-        ),
-        _react2.default.createElement(
-          _components.Button,
-          { type: 'outline-default' },
-          'Outline Default'
         ),
         _react2.default.createElement(
           _components.Button,
@@ -12920,11 +12915,6 @@ var ButtonApp = function ButtonApp() {
           ),
           _react2.default.createElement(
             _components.Button,
-            { type: 'outline-default', iconOnly: true },
-            _react2.default.createElement(_components.Icon, { icon: 'clock' })
-          ),
-          _react2.default.createElement(
-            _components.Button,
             { type: 'outline-primary', iconOnly: true },
             _react2.default.createElement(_components.Icon, { icon: 'pencil' })
           )
@@ -13016,29 +13006,6 @@ var ButtonApp = function ButtonApp() {
           null,
           _react2.default.createElement(
             _components.Button,
-            { type: 'outline-default' },
-            'Outline Default'
-          ),
-          _react2.default.createElement(
-            _components.Button,
-            { type: 'outline-default', active: true },
-            'Outline Default Active'
-          ),
-          _react2.default.createElement(
-            _components.Button,
-            { type: 'outline-default', disabled: true },
-            'Outline Default Disabled'
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'u-m-b' },
-        _react2.default.createElement(
-          _components.UtilityInlineGrid,
-          null,
-          _react2.default.createElement(
-            _components.Button,
             { type: 'outline-primary' },
             'Outline Primary'
           ),
@@ -13113,16 +13080,6 @@ var ButtonApp = function ButtonApp() {
               'span',
               { className: 'button__badge' },
               '2'
-            )
-          ),
-          _react2.default.createElement(
-            _components.Button,
-            { type: 'outline-default' },
-            'Outline Default \xA0',
-            _react2.default.createElement(
-              'span',
-              { className: 'button__badge' },
-              '12'
             )
           ),
           _react2.default.createElement(
@@ -13659,7 +13616,7 @@ var dropdownDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
   manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.'
 };
@@ -13824,16 +13781,6 @@ var DropdownApp = function DropdownApp() {
         ),
         _react2.default.createElement(
           _components.Dropdown,
-          { label: 'Outline Default', type: 'outline-default' },
-          _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'A third item' }),
-          _react2.default.createElement(_components.DropdownMenuDivider, null),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Separated Item' })
-        ),
-        _react2.default.createElement(
-          _components.Dropdown,
           { label: 'Outline Primary', type: 'outline-primary' },
           _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
@@ -13885,16 +13832,6 @@ var DropdownApp = function DropdownApp() {
         _react2.default.createElement(
           _components.Dropdown,
           { type: 'secondary', icon: 'cog' },
-          _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'A third item' }),
-          _react2.default.createElement(_components.DropdownMenuDivider, null),
-          _react2.default.createElement(_components.DropdownMenuItem, { label: 'Separated Item' })
-        ),
-        _react2.default.createElement(
-          _components.Dropdown,
-          { type: 'outline-default', icon: 'search' },
           _react2.default.createElement(_components.DropdownMenuHeader, { label: 'Menu Header' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Item' }),
           _react2.default.createElement(_components.DropdownMenuItem, { label: 'Another Item' }),
@@ -14531,8 +14468,8 @@ var FeedbackApp = function (_React$Component) {
             { className: 'site-copy' },
             'To see a toast in action, ',
             _react2.default.createElement(
-              'a',
-              { href: 'javascript:void(0)', onClick: this.onClick },
+              'button',
+              { className: 'button--reset u-text-primary', onClick: this.onClick },
               'click here'
             ),
             '.'
@@ -14939,8 +14876,8 @@ var FormApp = function FormApp() {
           _components.Input,
           { addon: 'right', type: 'text' },
           _react2.default.createElement(
-            'a',
-            { href: 'javascript:void(0)' },
+            'button',
+            { className: 'button--reset u-text-primary' },
             'Go For It!'
           )
         ),
@@ -16961,11 +16898,11 @@ var navLocation = location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item
-  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add('active'); // eslint-disable-line
+  $siteNavigation.querySelector('a[href^="' + rhinoDocs.rootPath + navLocation + '"]').classList.add(_UtilitySystem.UtilitySystem.config.classes.active); // eslint-disable-line
 } else {
   // Remove active class from any other nav item(s)
   _UtilitySystem.UtilitySystem.forEach($siteNavigation.querySelectorAll('a'), function (index, value) {
-    value.classList.remove('active');
+    value.classList.remove(_UtilitySystem.UtilitySystem.config.classes.active);
   });
 }
 
@@ -21299,7 +21236,6 @@ var Button = function (_React$Component) {
         'button--primary': type === 'primary',
         'button--secondary': type === 'secondary',
         'button--link': type === 'link',
-        'button--outline-default': type === 'outline-default',
         'button--outline-primary': type === 'outline-primary',
         'button--outline-reversed': type === 'outline-reversed',
         'button--danger': type === 'danger',
@@ -21307,8 +21243,7 @@ var Button = function (_React$Component) {
         'button--large': size === 'large',
         'button--block': block,
         'button--icon': iconOnly,
-        active: active,
-        disabled: disabled
+        'is-active': active
       });
 
       var markup = '';
@@ -21317,13 +21252,21 @@ var Button = function (_React$Component) {
         markup = _react2.default.createElement(
           _reactRouter.Link,
           _extends({ to: route, className: classes, onClick: this.handleClick }, opts, { title: this.props.title }),
-          this.props.children
+          _react2.default.createElement(
+            'span',
+            { className: 'button__text-wrapper' },
+            this.props.children
+          )
         );
       } else {
         markup = _react2.default.createElement(
-          'a',
-          _extends({ href: 'javascript:void(0)', className: classes, onClick: this.handleClick, title: this.props.title }, opts),
-          this.props.children
+          'button',
+          _extends({ type: 'button', className: classes, disabled: disabled, onClick: this.handleClick, 'aria-label': this.props.title }, opts),
+          _react2.default.createElement(
+            'span',
+            { className: 'button__text-wrapper' },
+            this.props.children
+          )
         );
       }
 
@@ -21347,7 +21290,7 @@ Button.propTypes = {
   route: _react2.default.PropTypes.string,
   size: _react2.default.PropTypes.oneOf(['small', 'large']),
   title: _react2.default.PropTypes.string,
-  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
   url: _react2.default.PropTypes.string
 };
 Button.defaultProps = {
@@ -21510,11 +21453,11 @@ var Close = function Close(props) {
       onClick = props.onClick,
       opts = _objectWithoutProperties(props, ['className', 'onClick']);
 
-  var classes = (0, _classnames2.default)('close', className);
+  var classes = (0, _classnames2.default)('button--reset close', className);
 
   return _react2.default.createElement(
-    'a',
-    _extends({ href: 'javascript:void(0)', className: classes, onClick: onClick }, opts, { role: 'button', title: 'Close' }),
+    'button',
+    _extends({ type: 'button', className: classes, onClick: onClick }, opts, { role: 'button', 'aria-label': 'Close' }),
     _react2.default.createElement(_components.Icon, { icon: 'close' })
   );
 };
@@ -22097,7 +22040,6 @@ var Dropdown = function (_React$Component) {
         'button--primary': type === 'primary',
         'button--secondary': type === 'secondary',
         'button--link': type === 'link',
-        'button--outline-default': type === 'outline-default',
         'button--outline-primary': type === 'outline-primary',
         'button--outline-reversed': type === 'outline-reversed',
         'button--small': size === 'small',
@@ -22147,18 +22089,22 @@ var Dropdown = function (_React$Component) {
             return _this3.dropdown = _ref2;
           } },
         _react2.default.createElement(
-          'div',
+          'button',
           { onClick: this.handleToggle, className: dropdownToggleClasses, type: 'button' },
-          selectedIcon || icon ? _react2.default.createElement(_components.Icon, { className: 'dropdown__toggle__icon', icon: selectedIcon || icon }) : null,
           _react2.default.createElement(
             'span',
-            { className: 'dropdown__toggle__text' },
-            selectedLabel || label
-          ),
-          hideCaret ? null : _react2.default.createElement(
-            'svg',
-            { className: 'dropdown__toggle__caret' },
-            _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
+            { className: 'button__text-wrapper' },
+            selectedIcon || icon ? _react2.default.createElement(_components.Icon, { className: 'dropdown__toggle__icon', icon: selectedIcon || icon }) : null,
+            _react2.default.createElement(
+              'span',
+              { className: 'dropdown__toggle__text' },
+              selectedLabel || label
+            ),
+            hideCaret ? null : _react2.default.createElement(
+              'svg',
+              { className: 'dropdown__toggle__caret' },
+              _react2.default.createElement('use', { xlinkHref: '#icon-chevron-down' })
+            )
           )
         ),
         _react2.default.createElement(
@@ -22194,7 +22140,7 @@ Dropdown.propTypes = {
   onClick: _react2.default.PropTypes.func,
   onSelect: _react2.default.PropTypes.func,
   size: _react2.default.PropTypes.oneOf(['small', 'large']),
-  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-default', 'outline-primary', 'outline-reversed', 'link', 'input']),
+  type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'input']),
   wide: _react2.default.PropTypes.bool,
   onComplete: _react2.default.PropTypes.func,
   onReverseComplete: _react2.default.PropTypes.func,
@@ -22554,7 +22500,7 @@ var DropdownMenuItem = function (_React$Component) {
           route = _props.route;
 
       var classes = (0, _classnames2.default)('dropdown__menu__item', className, {
-        active: active,
+        'is-active': active,
         disabled: disabled
       });
 
@@ -23181,6 +23127,7 @@ var DropdownWrapper = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownWrapper.__proto__ || Object.getPrototypeOf(DropdownWrapper)).call.apply(_ref, [this].concat(args))), _this), _this.componentDidMount = function () {
       var $dropdown = _this.dropdown;
       var $dropdownMenu = $dropdown.querySelector('.dropdown__menu');
+      var $dropdownToggle = $dropdown.querySelector('.dropdown__toggle');
 
       var forward = true;
       var lastTime = 0;
@@ -23189,7 +23136,10 @@ var DropdownWrapper = function (_React$Component) {
       $dropdown.timeline = new _gsap.TimelineMax({
         paused: true,
         onStart: function onStart() {
+          // Add active/open classes
           $dropdown.classList.add(_components.UtilitySystem.config.classes.open);
+          $dropdownToggle.classList.add(_components.UtilitySystem.config.classes.active);
+
           // Toggle aria state
           $dropdown.setAttribute('aria-expanded', true);
 
@@ -23218,7 +23168,10 @@ var DropdownWrapper = function (_React$Component) {
               // Fire off prop update
               _this.props.onReverseStart();
 
+              // Remove active/open classes
               $dropdown.classList.remove(_components.UtilitySystem.config.classes.open);
+              $dropdownToggle.classList.remove(_components.UtilitySystem.config.classes.active);
+
               // Toggle aria state
               $dropdown.setAttribute('aria-expanded', false);
             }
@@ -23252,7 +23205,7 @@ var DropdownWrapper = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { ref: function ref(_ref2) {
+        { 'aria-haspopup': 'true', 'aria-expanded': 'false', ref: function ref(_ref2) {
             return _this2.dropdown = _ref2;
           }, className: this.props.className },
         this.props.children
@@ -23516,8 +23469,8 @@ var Input = function (_React$Component) {
                 return _this2.rhinoInput = _ref2;
               } }),
             input ? _react2.default.createElement(
-              'a',
-              { href: 'javascript:void(0)', className: 'form__clear__button', onClick: _this2._handleClear },
+              'button',
+              { type: 'button', className: 'button--reset form__clear__button', onClick: _this2._handleClear },
               _react2.default.createElement(_components.Icon, { icon: 'close' })
             ) : null
           );
@@ -24751,25 +24704,22 @@ var Pill = function Pill(props) {
       label = props.label,
       type = props.type;
 
-  var classes = (0, _classnames2.default)('pill', className, {
+  var classes = (0, _classnames2.default)('button--reset pill', className, {
     'pill--disabled': disabled,
     'pill--default': type === 'default',
     'pill--neutral': type === 'neutral'
   });
 
-  return (
-    /* eslint no-script-url:0 */
+  return _react2.default.createElement(
+    'button',
+    { type: 'button', className: classes, onClick: onClick },
+    icon ? _react2.default.createElement(_components.Icon, { icon: icon, className: 'pill__icon' }) : null,
+    ' ',
+    label,
     _react2.default.createElement(
-      'a',
-      { href: 'javascript:void(0)', className: classes, onClick: onClick },
-      icon ? _react2.default.createElement(_components.Icon, { icon: icon, className: 'pill__icon' }) : null,
-      ' ',
-      label,
-      _react2.default.createElement(
-        'span',
-        { className: 'pill__close' },
-        '\xD7'
-      )
+      'span',
+      { className: 'pill__close' },
+      '\xD7'
     )
   );
 };
@@ -28061,7 +28011,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 666 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" blankWindow title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"outline-default\" route=\"/home\">Outline Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"button__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" blankWindow title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"button__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 667 */
@@ -28109,7 +28059,7 @@ module.exports = "class ComponentExample extends React.Component {\n  state = {\
 /* 674 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (index) => {\n    console.log('Run optional callback function', index);\n  };\n\n  render() {\n    return (\n    <UtilityInlineGrid>\n      <Dropdown label=\"Dropdown\" wide>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem label=\"Custom Click Item\" labelDesc=\"Click me and I will fire an alert.\" onClick={() => alert('clicked!')} />\n        <DropdownMenuItem label=\"Url Blank Window Item\" labelDesc=\"Click me and I will take you to a site that opens in a new browser window.\" url=\"http://www.rhinogram.com\" blankWindow />\n        <DropdownMenuItem label=\"Url Item\" labelDesc=\"Click me and I will take you to a new site in the same browser window.\" url=\"http://www.rhinogram.com\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem label=\"Separated Item\" />\n        <DropdownMenuDivider />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown label=\"Dropdown Select\" type=\"outline-primary\" onSelect={this.optionalCallbackFunction}>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem id={1} label=\"Item\" />\n        <DropdownMenuItem id={2} label=\"Another item\" />\n        <DropdownMenuItem id={3} label=\"A third item\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem id={4} label=\"A fourth item\" />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Contact\">\n          <DropdownMenuItem id={1} label=\"Item\" />\n          <DropdownMenuItem id={2} label=\"Another item\" />\n          <DropdownMenuItem id={3} label=\"A third item\" />\n          <DropdownMenuItem id={4} label=\"A fourth item\" />\n          <DropdownMenuItem id={5} label=\"A fifth item\" />\n          <DropdownMenuItem id={6} label=\"A sixth item\" />\n          <DropdownMenuItem id={7} label=\"A seventh item\" />\n          <DropdownMenuItem id={8} label=\"An eighth item\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Avatar\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Member\">\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Icon\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Icon\">\n          <DropdownMenuItem id={1} label=\"Item One\" icon=\"cog\" />\n          <DropdownMenuItem id={2} label=\"Item Two\" icon=\"warning\" />\n          <DropdownMenuItem id={3} label=\"Item Three\" icon=\"pencil\" />\n          <DropdownMenuItem id={4} label=\"Item Four\" icon=\"search\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Search to add a contact\" block type=\"link\" className=\"u-p-l-0\" hideCaret icon=\"add\">\n        <DropdownFilter placeholder=\"Search contacts\">\n          <DropdownMenuItemWild toggleDropdown>\n            <Button type=\"link\" className=\"u-flex u-p-l-0\"><Icon icon=\"add\" />&nbsp;Create new contact</Button>\n          </DropdownMenuItemWild>\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Dropdown with Wild Content\" wide>\n        <DropdownMenuItemWild>\n          <p>DropdownMenuItemWild with a paragraph and image.</p>\n          <img src=\"//source.unsplash.com/category/people/200x200\"/>\n        </DropdownMenuItemWild>\n        <DropdownMenuItemWild toggleDropdown>\n          <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>\n          <Button block type=\"outline-primary\" size=\"small\" onClick={() => alert('clicked!')}>Button Up In Here</Button>\n        </DropdownMenuItemWild>\n      </Dropdown>\n      <Dropdown manualClose label=\"Dropdown with manual close\" wide>\n        <DropdownMenuItemWild>\n          <Close />\n          <p>Here's some wild content!</p>\n        </DropdownMenuItemWild>\n      </Dropdown>\n    </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (index) => {\n    console.log('Run optional callback function', index);\n  };\n\n  render() {\n    return (\n    <UtilityInlineGrid>\n      <Dropdown label=\"Dropdown\" wide>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem label=\"Custom Click Item\" labelDesc=\"Click me and I will fire an alert.\" onClick={() => alert('clicked!')} />\n        <DropdownMenuItem label=\"Url Blank Window Item\" labelDesc=\"Click me and I will take you to a site that opens in a new browser window.\" url=\"http://www.rhinogram.com\" blankWindow />\n        <DropdownMenuItem label=\"Url Item\" labelDesc=\"Click me and I will take you to a new site in the same browser window.\" url=\"http://www.rhinogram.com\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem label=\"Separated Item\" />\n        <DropdownMenuDivider />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown label=\"Dropdown Select\" type=\"outline-primary\" onSelect={this.optionalCallbackFunction}>\n        <DropdownMenuHeader label=\"Menu Header\" />\n        <DropdownMenuItem id={1} label=\"Item\" />\n        <DropdownMenuItem id={2} label=\"Another item\" />\n        <DropdownMenuItem id={3} label=\"A third item\" />\n        <DropdownMenuDivider />\n        <DropdownMenuItem id={4} label=\"A fourth item\" />\n        <div className=\"dropdown__menu__container\"><Button block type=\"outline-primary\" size=\"small\">Button</Button></div>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Contact\">\n          <DropdownMenuItem id={1} label=\"Item\" />\n          <DropdownMenuItem id={2} label=\"Another item\" />\n          <DropdownMenuItem id={3} label=\"A third item\" />\n          <DropdownMenuItem id={4} label=\"A fourth item\" />\n          <DropdownMenuItem id={5} label=\"A fifth item\" />\n          <DropdownMenuItem id={6} label=\"A sixth item\" />\n          <DropdownMenuItem id={7} label=\"A seventh item\" />\n          <DropdownMenuItem id={8} label=\"An eighth item\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Avatar\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Member\">\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown wide label=\"Dropdown Select with Filter & Icon\" type=\"outline-primary\">\n        <DropdownFilter placeholder=\"Filter Icon\">\n          <DropdownMenuItem id={1} label=\"Item One\" icon=\"cog\" />\n          <DropdownMenuItem id={2} label=\"Item Two\" icon=\"warning\" />\n          <DropdownMenuItem id={3} label=\"Item Three\" icon=\"pencil\" />\n          <DropdownMenuItem id={4} label=\"Item Four\" icon=\"search\" />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Search to add a contact\" block type=\"link\" className=\"u-p-l-0\" hideCaret icon=\"add\">\n        <DropdownFilter placeholder=\"Search contacts\">\n          <DropdownMenuItemWild toggleDropdown>\n            <Button type=\"link\" className=\"u-p-l-0\"><Icon icon=\"add\" />&nbsp;Create new contact</Button>\n          </DropdownMenuItemWild>\n          <DropdownMenuItem id={1} label=\"Ben Bruning With Really Long Name\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ben Bruning\", type: \"member\"}} />\n          <DropdownMenuItem id={2} label=\"Blake Guilloud\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Blake Guilloud\", type: \"member\"}} />\n          <DropdownMenuItem id={3} label=\"Craig Anthony\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Craig Anthony\", type: \"member\"}} />\n          <DropdownMenuItem id={4} label=\"Ian Greulich\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Ian Greulich\", type: \"member\"}} />\n          <DropdownMenuItem id={5} label=\"Keaton Foster\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Keaton Foster\", type: \"member\"}} />\n          <DropdownMenuItem id={6} label=\"Lauren Farr\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Lauren Farr\", type: \"member\"}} />\n          <DropdownMenuItem id={7} label=\"Max Krause\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Max Krause\", type: \"member\"}} />\n          <DropdownMenuItem id={8} label=\"Paul Drake\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Drake\", type: \"member\"}} />\n          <DropdownMenuItem id={9} label=\"Paul Griffin\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Paul Griffin\", type: \"member\"}} />\n          <DropdownMenuItem id={10} label=\"Rob Whelan\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Rob Whelan\", type: \"member\"}} />\n          <DropdownMenuItem id={11} label=\"Terry Kennair\" avatar={{image: \"//source.unsplash.com/category/people/200x200\", name: \"Terry Kennair\", type: \"member\"}} />\n        </DropdownFilter>\n      </Dropdown>\n      <Dropdown label=\"Dropdown with Wild Content\" wide>\n        <DropdownMenuItemWild>\n          <p>DropdownMenuItemWild with a paragraph and image.</p>\n          <img src=\"//source.unsplash.com/category/people/200x200\"/>\n        </DropdownMenuItemWild>\n        <DropdownMenuItemWild toggleDropdown>\n          <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>\n          <Button block type=\"outline-primary\" size=\"small\" onClick={() => alert('clicked!')}>Button Up In Here</Button>\n        </DropdownMenuItemWild>\n      </Dropdown>\n      <Dropdown manualClose label=\"Dropdown with manual close\" wide>\n        <DropdownMenuItemWild>\n          <Close />\n          <p>Here's some wild content!</p>\n        </DropdownMenuItemWild>\n      </Dropdown>\n    </UtilityInlineGrid>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 675 */
