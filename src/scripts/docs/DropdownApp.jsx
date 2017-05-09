@@ -21,7 +21,7 @@ const dropdownDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-primary | outline-reversed | link]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
   manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
 };
@@ -131,15 +131,6 @@ const DropdownApp = () =>
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Outline Default" type="outline-default">
-          <DropdownMenuHeader label="Menu Header" />
-          <DropdownMenuItem label="Item" />
-          <DropdownMenuItem label="Another Item" />
-          <DropdownMenuItem label="A third item" />
-          <DropdownMenuDivider />
-          <DropdownMenuItem label="Separated Item" />
-        </Dropdown>
-
         <Dropdown label="Outline Primary" type="outline-primary">
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
@@ -186,15 +177,6 @@ const DropdownApp = () =>
         </Dropdown>
 
         <Dropdown type="secondary" icon="cog">
-          <DropdownMenuHeader label="Menu Header" />
-          <DropdownMenuItem label="Item" />
-          <DropdownMenuItem label="Another Item" />
-          <DropdownMenuItem label="A third item" />
-          <DropdownMenuDivider />
-          <DropdownMenuItem label="Separated Item" />
-        </Dropdown>
-
-        <Dropdown type="outline-default" icon="search">
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />

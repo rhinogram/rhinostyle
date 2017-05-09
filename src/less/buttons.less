@@ -29,29 +29,25 @@
 @button-padding-small: @global-whitespace-small;
 
 @button-default-color: @global-font-color;
-@button-default-bg-color: #fff;
-@button-default-hover-bg-color: darken(@button-default-bg-color, 6.5);
+@button-default-bg-color: #fbfbfb;
+@button-default-hover-bg-color: darken(@button-default-bg-color, 8.5);
 @button-default-bg: linear-gradient(to bottom right, @button-default-bg-color, @button-default-hover-bg-color);
 @button-default-border: @global-border-color-base;
 
 @button-primary-color: @global-color-white;
 @button-primary-bg-color: @global-color-primary;
-@button-primary-bg: linear-gradient(to bottom right, @button-primary-bg-color, darken(@button-primary-bg-color, 6.5));
-@button-primary-border: darken(@button-primary-bg-color, 6.5);
+@button-primary-bg: linear-gradient(to bottom right, @button-primary-bg-color, darken(@button-primary-bg-color, 8.5));
+@button-primary-border: darken(@button-primary-bg-color, 8.5);
 
 @button-secondary-color: @global-color-white;
 @button-secondary-bg-color: @global-color-secondary;
-@button-secondary-bg: linear-gradient(to bottom right, @button-secondary-bg-color, darken(@button-secondary-bg-color, 6.5));
-@button-secondary-border: darken(@button-secondary-bg-color, 6.5);
+@button-secondary-bg: linear-gradient(to bottom right, @button-secondary-bg-color, darken(@button-secondary-bg-color, 8.5));
+@button-secondary-border: darken(@button-secondary-bg-color, 8.5);
 
 @button-danger-color: @global-color-white;
 @button-danger-bg-color: @global-color-danger;
-@button-danger-bg: linear-gradient(to bottom right, @button-danger-bg-color, darken(@button-danger-bg-color, 8.5));
+@button-danger-bg: linear-gradient(to bottom right, @button-danger-bg-color, darken(@button-danger-bg-color, 10));
 @button-danger-border: darken(@button-danger-bg-color, 8.5);
-
-@button-outline-default-color: @global-font-color;
-@button-outline-default-border: @button-default-border;
-@button-outline-default-hover-bg: @button-default-bg;
 
 @button-outline-primary-color: @button-primary-border;
 @button-outline-primary-border: @button-primary-border;
@@ -108,7 +104,7 @@
   background-color: transparent;
   vertical-align: middle;
   cursor: pointer;
-  border-radius: @global-border-radius;
+  border-radius: @button-border-radius;
   transition: @button-transition;
   position: relative;
   // 8
@@ -128,12 +124,9 @@
   // 14
   user-select: none;
 
-  // 1. Alter `background-size` of default background
-  // 2. Style
+  // 1. Style
   &::after {
     // 1
-    background-size: @button-bg-size-active !important;
-    // 2
     content: '';
     top: 0;
     left: 0;
@@ -141,8 +134,7 @@
     height: 100%;
     position: absolute;
     transition: @button-transition;
-    opacity: 0;
-    z-index: 1;
+    z-index: 0;
   }
 
   &:hover,
@@ -152,7 +144,7 @@
     color: @button-default-color;
 
     &::after {
-      opacity: 1;
+      opacity: 0;
     }
   }
 
@@ -182,7 +174,7 @@
   top: 0;
   left: 0;
   // 2
-  z-index: 2;
+  z-index: 1;
   // 3
   height: 100%;
   // 4
@@ -198,7 +190,7 @@
 
 
 .button--default {
-  .mixin-button-variant(@button-default-color; @button-default-bg; @button-default-bg-color; @button-default-border; @default: true);
+  .mixin-button-variant(@button-default-color; @button-default-bg; @button-default-bg-color; @button-default-border);
 }
 
 .button--primary {
@@ -213,12 +205,8 @@
   .mixin-button-variant(@button-danger-color; @button-danger-bg; @button-danger-bg-color; @button-danger-border);
 }
 
-.button--outline-default {
-  .mixin-button-outline-variant(@button-outline-default-color; @button-outline-default-border; @button-outline-default-color; @button-outline-default-hover-bg; @default: true);
-}
-
 .button--outline-primary {
-  .mixin-button-outline-variant(@button-outline-primary-color; @button-outline-primary-border; @global-color-white; @button-outline-primary-hover-bg);
+  .mixin-button-outline-variant(@button-outline-primary-color; @button-outline-primary-border; @global-color-white; @button-primary-bg-color);
 }
 
 .button--input {

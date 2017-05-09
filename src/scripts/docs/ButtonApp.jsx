@@ -16,7 +16,7 @@ const buttonDocs = {
   route: '[Optional] - React-router route to use for item',
   size: '[Optional] - Button size -  [small | large]',
   title: '[Optional] - Include title attribute that represents advisory information',
-  type: '[Optional] - Button type -  [default | primary | secondary | outline-default | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item',
 };
 const exampleScope  = {
@@ -31,12 +31,11 @@ const ButtonApp = () =>
   <div>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
-      <p className="site-copy"><code>type=&quot;default | primary | secondary | outline-default | outline-primary | link | danger&quot;</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary | secondary | outline-primary | link | danger&quot;</code></p>
       <UtilityInlineGrid>
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
-        <Button type="outline-default">Outline Default</Button>
         <Button type="outline-primary">Outline Primary</Button>
         <Button type="link">Link</Button>
         <Button type="danger">Danger</Button>
@@ -85,7 +84,6 @@ const ButtonApp = () =>
           <Button iconOnly><Icon icon="sms" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
-          <Button type="outline-default" iconOnly><Icon icon="clock" /></Button>
           <Button type="outline-primary" iconOnly><Icon icon="pencil" /></Button>
         </UtilityInlineGrid>
       </div>
@@ -116,13 +114,6 @@ const ButtonApp = () =>
       </div>
       <div className="u-m-b">
         <UtilityInlineGrid>
-          <Button type="outline-default">Outline Default</Button>
-          <Button type="outline-default" active>Outline Default Active</Button>
-          <Button type="outline-default" disabled>Outline Default Disabled</Button>
-        </UtilityInlineGrid>
-      </div>
-      <div className="u-m-b">
-        <UtilityInlineGrid>
           <Button type="outline-primary">Outline Primary</Button>
           <Button type="outline-primary" active>Outline Primary Active</Button>
           <Button type="outline-primary" disabled>Outline Primary Disabled</Button>
@@ -139,7 +130,6 @@ const ButtonApp = () =>
           <Button>Default &nbsp;<span className="button__badge">12</span></Button>
           <Button type="primary">Primary &nbsp;<span className="button__badge">12</span></Button>
           <Button type="secondary">Secondary &nbsp;<span className="button__badge">2</span></Button>
-          <Button type="outline-default">Outline Default &nbsp;<span className="button__badge">12</span></Button>
           <Button type="outline-primary">Outline Primary &nbsp;<span className="button__badge">12</span></Button>
           <Button type="link">Link &nbsp;<span className="button__badge">12</span></Button>
           <Button type="danger">Danger &nbsp;<span className="button__badge">12</span></Button>
