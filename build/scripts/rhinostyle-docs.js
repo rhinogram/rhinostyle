@@ -14622,7 +14622,6 @@ var messageBoxScope = {
 };
 
 var checkboxDocs = {
-  inline: '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
   name: '[Required] - An id, and label for the checkbox',
   onClick: '[Optional] - A function you want to trigger when the checkbox is toggled'
@@ -14634,7 +14633,6 @@ var checkboxScope = {
 };
 
 var radioDocs = {
-  inline: '[Optional] - Inline the radios',
   name: '[Optional] - The name, and the basis of the id for the radio',
   onChange: '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
@@ -14721,23 +14719,23 @@ var FormApp = function FormApp() {
           ),
           _react2.default.createElement(
             _components.Checkbox,
-            { inline: true, name: 'exampleCheckbox1' },
+            { name: 'exampleCheckbox1' },
             'Checkbox One'
           ),
           _react2.default.createElement(
             _components.Checkbox,
-            { inline: true, name: 'exampleCheckbox2' },
+            { name: 'exampleCheckbox2' },
             'Checkbox Two'
           ),
           _react2.default.createElement(
             _components.Checkbox,
-            { inline: true, name: 'exampleCheckbox3' },
+            { name: 'exampleCheckbox3' },
             'Checkbox Three'
           )
         ),
         _react2.default.createElement(
           _components.RadioGroup,
-          { inline: true, name: 'exampleRadio1', label: 'Radios', selectedValue: '2' },
+          { name: 'exampleRadio1', label: 'Radios', selectedValue: '2' },
           _react2.default.createElement(
             _components.Radio,
             { value: '1' },
@@ -14771,50 +14769,6 @@ var FormApp = function FormApp() {
             _components.Button,
             { type: 'primary' },
             'Submit Form'
-          )
-        )
-      )
-    ),
-    _react2.default.createElement(
-      'section',
-      { className: 'site-section' },
-      _react2.default.createElement(
-        'h3',
-        { className: 'site-subheadline' },
-        'Form Utilities'
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'u-m-b-large' },
-        _react2.default.createElement(
-          'h5',
-          { className: 'site-miniheadline' },
-          'Inline Form'
-        ),
-        _react2.default.createElement(
-          'p',
-          { className: 'site-copy' },
-          'Wrap elements you want inlined with ',
-          _react2.default.createElement(
-            'code',
-            null,
-            'form__inline'
-          ),
-          ' class.'
-        ),
-        _react2.default.createElement(
-          'form',
-          { className: 'form' },
-          _react2.default.createElement(
-            'div',
-            { className: 'form__inline' },
-            _react2.default.createElement(_components.Input, { name: 'exampleEmail2', label: 'Email Address', placeholder: 'Enter email', type: 'email' }),
-            _react2.default.createElement(_components.Input, { name: 'examplePassword2', label: 'Password', placeholder: 'Password', type: 'password' }),
-            _react2.default.createElement(
-              _components.Button,
-              { type: 'primary' },
-              'Sign In'
-            )
           )
         )
       )
@@ -15017,74 +14971,35 @@ var FormApp = function FormApp() {
         'Checkbox'
       ),
       _react2.default.createElement(
-        'div',
-        { className: 'u-m-b-large' },
-        _react2.default.createElement(
-          'h5',
-          { className: 'site-miniheadline' },
-          'Rhinobox'
-        ),
-        _react2.default.createElement(
-          'p',
-          { className: 'site-copy' },
-          'Our custom checkbox element is called ',
-          _react2.default.createElement(
-            'code',
-            null,
-            'rhinobox'
-          ),
-          '. By default, these are stacked.'
-        ),
-        _react2.default.createElement(
-          _components.Checkbox,
-          { isChecked: true, name: 'exampleCheckbox11' },
-          'Checkbox One'
-        ),
-        _react2.default.createElement(
-          _components.Checkbox,
-          { name: 'exampleCheckbox12' },
-          'Checkbox Two'
-        ),
-        _react2.default.createElement(
-          _components.Checkbox,
-          { name: 'exampleCheckbox13' },
-          'Checkbox Three'
-        )
+        'h5',
+        { className: 'site-miniheadline' },
+        'Rhinobox'
       ),
       _react2.default.createElement(
-        'div',
-        null,
+        'p',
+        { className: 'site-copy' },
+        'Our custom checkbox element is called ',
         _react2.default.createElement(
-          'h5',
-          { className: 'site-miniheadline' },
-          'Inline Rhinobox'
+          'code',
+          null,
+          'rhinobox'
         ),
-        _react2.default.createElement(
-          'p',
-          { className: 'site-copy' },
-          'Add the ',
-          _react2.default.createElement(
-            'code',
-            null,
-            'inline'
-          ),
-          ' modifier to create inline checkboxes.'
-        ),
-        _react2.default.createElement(
-          _components.Checkbox,
-          { inline: true, name: 'exampleCheckbox21' },
-          'Checkbox One'
-        ),
-        _react2.default.createElement(
-          _components.Checkbox,
-          { inline: true, isChecked: true, name: 'exampleCheckbox22' },
-          'Checkbox Two'
-        ),
-        _react2.default.createElement(
-          _components.Checkbox,
-          { inline: true, isChecked: true, name: 'exampleCheckbox23' },
-          'Checkbox Three'
-        )
+        '. By default, these are stacked.'
+      ),
+      _react2.default.createElement(
+        _components.Checkbox,
+        { isChecked: true, name: 'exampleCheckbox11' },
+        'Checkbox One'
+      ),
+      _react2.default.createElement(
+        _components.Checkbox,
+        { name: 'exampleCheckbox12' },
+        'Checkbox Two'
+      ),
+      _react2.default.createElement(
+        _components.Checkbox,
+        { name: 'exampleCheckbox13' },
+        'Checkbox Three'
       )
     ),
     _react2.default.createElement(
@@ -15106,81 +15021,38 @@ var FormApp = function FormApp() {
         'Radio'
       ),
       _react2.default.createElement(
-        'div',
-        { className: 'u-m-b-large' },
-        _react2.default.createElement(
-          'h5',
-          { className: 'site-miniheadline' },
-          'Rhinodio'
-        ),
-        _react2.default.createElement(
-          'p',
-          { className: 'site-copy' },
-          'Our custom radio element is called ',
-          _react2.default.createElement(
-            'code',
-            null,
-            'rhinodio'
-          ),
-          '. By default, these are stacked.'
-        ),
-        _react2.default.createElement(
-          _components.RadioGroup,
-          { name: 'exampleRadio2', label: 'Radios', selectedValue: '2' },
-          _react2.default.createElement(
-            _components.Radio,
-            { value: '1' },
-            'Radio One'
-          ),
-          _react2.default.createElement(
-            _components.Radio,
-            { value: '2' },
-            'Radio Two'
-          ),
-          _react2.default.createElement(
-            _components.Radio,
-            { value: '3' },
-            'Radio Three'
-          )
-        )
+        'h5',
+        { className: 'site-miniheadline' },
+        'Rhinodio'
       ),
       _react2.default.createElement(
-        'div',
-        { className: 'u-m-b-large' },
+        'p',
+        { className: 'site-copy' },
+        'Our custom radio element is called ',
         _react2.default.createElement(
-          'h5',
-          { className: 'site-miniheadline' },
-          'Inline Rhinodio'
+          'code',
+          null,
+          'rhinodio'
+        ),
+        '. By default, these are stacked.'
+      ),
+      _react2.default.createElement(
+        _components.RadioGroup,
+        { name: 'exampleRadio2', label: 'Radios', selectedValue: '2' },
+        _react2.default.createElement(
+          _components.Radio,
+          { value: '1' },
+          'Radio One'
         ),
         _react2.default.createElement(
-          'p',
-          { className: 'site-copy' },
-          'Add the ',
-          _react2.default.createElement(
-            'code',
-            null,
-            'inline'
-          ),
-          ' property to create inline radios.'
+          _components.Radio,
+          { value: '2' },
+          'Radio Two'
         ),
         _react2.default.createElement(
-          _components.RadioGroup,
-          { inline: true, name: 'exampleRadio3', label: 'Radios', selectedValue: '2' },
-          _react2.default.createElement(
-            _components.Radio,
-            { value: '1' },
-            'Radio One'
-          ),
-          _react2.default.createElement(
-            _components.Radio,
-            { value: '2' },
-            'Radio Two'
-          ),
-          _react2.default.createElement(
-            _components.Radio,
-            { value: '3' },
-            'Radio Three'
-          )
+          _components.Radio,
+          { value: '3' },
+          'Radio Three'
         )
       )
     ),
@@ -21376,13 +21248,11 @@ var Checkbox = function (_React$Component) {
       var _props = this.props,
           className = _props.className,
           disabled = _props.disabled,
-          inline = _props.inline,
           name = _props.name;
       var checked = this.state.checked;
 
 
       var classes = (0, _classnames2.default)('rhinobox', className, {
-        'rhinobox--inline': inline,
         'rhinobox--disabled': disabled
       });
 
@@ -21407,13 +21277,11 @@ Checkbox.propTypes = {
   children: _react2.default.PropTypes.node,
   className: _react2.default.PropTypes.string,
   disabled: _react2.default.PropTypes.bool,
-  inline: _react2.default.PropTypes.bool,
   isChecked: _react2.default.PropTypes.bool,
   name: _react2.default.PropTypes.string.isRequired,
   onClick: _react2.default.PropTypes.func
 };
 Checkbox.defaultProps = {
-  inline: false,
   isChecked: false,
   onClick: function onClick() {
     return true;
@@ -24855,14 +24723,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Radio = function Radio(props) {
   var className = props.className,
       disabled = props.disabled,
-      inline = props.inline,
       name = props.name,
       onChange = props.onChange,
       value = props.value;
 
   var id = name + '-' + Math.floor(Math.random() * 1000000);
   var classes = (0, _classnames2.default)('rhinodio', className, {
-    'rhinodio--inline': inline,
     'rhinodio--disabled': disabled
   });
 
@@ -24884,7 +24750,6 @@ Radio.propTypes = {
   children: _react2.default.PropTypes.node,
   className: _react2.default.PropTypes.string,
   disabled: _react2.default.PropTypes.bool,
-  inline: _react2.default.PropTypes.bool,
   name: _react2.default.PropTypes.string,
   onChange: _react2.default.PropTypes.func,
   selectedValue: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
@@ -24893,7 +24758,6 @@ Radio.propTypes = {
 
 Radio.defaultProps = {
   disabled: false,
-  inline: false,
   onChange: function onChange() {
     return true;
   }
@@ -28203,7 +28067,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 698 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (value) => {\n     console.log('Run optional callback function', value);\n   };\n\n  render() {\n    return (\n      <div className=\"site-example-radio\">\n        <RadioGroup name=\"exampleRadio4\" label=\"Radios\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n        <RadioGroup inline name=\"exampleRadio44\" label=\"Radios Inline\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  optionalCallbackFunction = (value) => {\n     console.log('Run optional callback function', value);\n   };\n\n  render() {\n    return (\n      <div className=\"site-example-radio\">\n        <RadioGroup name=\"exampleRadio4\" label=\"Radios\" onChange={this.optionalCallbackFunction} selectedValue=\"3\">\n          <Radio value=\"1\">Radio One</Radio>\n          <Radio value=\"2\">Radio Two</Radio>\n          <Radio value=\"3\">Radio Three</Radio>\n        </RadioGroup>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 699 */

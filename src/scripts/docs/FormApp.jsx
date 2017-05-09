@@ -88,7 +88,6 @@ const messageBoxScope = {
 };
 
 const checkboxDocs  = {
-  inline:    '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
   name:      '[Required] - An id, and label for the checkbox',
   onClick:   '[Optional] - A function you want to trigger when the checkbox is toggled',
@@ -100,7 +99,6 @@ const checkboxScope = {
 };
 
 const radioDocs  = {
-  inline:        '[Optional] - Inline the radios',
   name:          '[Optional] - The name, and the basis of the id for the radio',
   onChange:      '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
@@ -142,11 +140,11 @@ const FormApp = () =>
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">
           <label htmlFor="checkboxes" className="u-block">Checkboxes</label>
-          <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
-          <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
-          <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
+          <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
         </div>
-        <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
+        <RadioGroup name="exampleRadio1" label="Radios" selectedValue="2">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
@@ -159,21 +157,6 @@ const FormApp = () =>
           <Button type="primary">Submit Form</Button>
         </div>
       </form>
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Form Utilities</h3>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Inline Form</h5>
-        <p className="site-copy">Wrap elements you want inlined with <code>form__inline</code> class.</p>
-        <form className="form">
-          <div className="form__inline">
-            <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
-            <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
-            <Button type="primary">Sign In</Button>
-          </div>
-        </form>
-      </div>
     </section>
 
     <section className="site-section">
@@ -247,20 +230,11 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox</h3>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Rhinobox</h5>
-        <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
-        <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
-        <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
-        <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
-      </div>
-      <div>
-        <h5 className="site-miniheadline">Inline Rhinobox</h5>
-        <p className="site-copy">Add the <code>inline</code> modifier to create inline checkboxes.</p>
-        <Checkbox inline name="exampleCheckbox21">Checkbox One</Checkbox>
-        <Checkbox inline isChecked name="exampleCheckbox22">Checkbox Two</Checkbox>
-        <Checkbox inline isChecked name="exampleCheckbox23">Checkbox Three</Checkbox>
-      </div>
+      <h5 className="site-miniheadline">Rhinobox</h5>
+      <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
+      <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
+      <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
+      <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
     </section>
 
     <section className="site-section">
@@ -270,24 +244,13 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Radio</h3>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Rhinodio</h5>
-        <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
-        <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
-        </RadioGroup>
-      </div>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Inline Rhinodio</h5>
-        <p className="site-copy">Add the <code>inline</code> property to create inline radios.</p>
-        <RadioGroup inline name="exampleRadio3" label="Radios" selectedValue="2">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
-        </RadioGroup>
-      </div>
+      <h5 className="site-miniheadline">Rhinodio</h5>
+      <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
+      <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
+        <Radio value="1">Radio One</Radio>
+        <Radio value="2">Radio Two</Radio>
+        <Radio value="3">Radio Three</Radio>
+      </RadioGroup>
     </section>
 
     <section className="site-section">

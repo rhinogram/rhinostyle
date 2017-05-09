@@ -325,64 +325,6 @@ input[type='checkbox']:focus {
 
 
 //
-// Form Inline
-//
-
-
-.form__inline {
-  // Kick in the inline
-  @media (min-width: @global-screen-small-min) {
-    // Inline-flex all the things for 'inline'
-    .form__group {
-      align-items: center;
-      display: inline-flex;
-      margin-right: @global-whitespace-small;
-      vertical-align: middle;
-
-      + .form__group {
-        margin-top: 0;
-      }
-
-      > label {
-        margin-bottom: 0;
-        margin-right: @global-whitespace-small;
-      }
-    }
-
-    .form__control {
-      display: inline-block;
-      vertical-align: middle;
-      width: auto; // Prevent labels from stacking above inputs in `.form__group`
-    }
-
-    // Make static controls behave like regular ones
-    .form__control--static {
-      display: inline-block;
-    }
-
-    // Remove default margin on radios/checkboxes that were used for stacking, and then undo the floating of radios and checkboxes to match.
-    .rhinodio,
-    .rhinobox {
-      display: inline-block;
-      margin-bottom: 0;
-      margin-top: 0;
-      vertical-align: middle;
-
-      label {
-        padding-left: 0;
-      }
-    }
-
-    .rhinodio input[type='radio'],
-    .rhinobox input[type='checkbox'] {
-      margin-left: 0;
-      position: relative;
-    }
-  }
-}
-
-
-//
 // Form Add-On
 //
 
@@ -633,7 +575,6 @@ input[type='checkbox']:focus {
 
 
 .form__group {
-
   & + & {
     margin-top: @form-group-spacing;
   }
@@ -825,13 +766,6 @@ input[type='checkbox'] {
       width: 2rem;
     }
   }
-}
-
-.rhinobox--inline,
-.rhinodio--inline {
-  display: inline-block;
-  margin: (@rhinobox-rhinodio-margin / 2) @global-whitespace-base (@rhinobox-rhinodio-margin / 2) 0;
-  //margin: 0.6rem @global-whitespace-base 0.6rem 0; (Zach)
 }
 
 
