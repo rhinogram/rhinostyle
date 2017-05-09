@@ -3,13 +3,19 @@
 //
 
 
-.mixin-button-variant(@color; @background; @background-color; @border; @shadow: true) {
+.mixin-button-variant(@color; @background; @background-color; @border; @shadow: true; @default: false) {
   background: @background;
   border-color: @border;
   color: @color;
 
   &::after {
-    background: @background;
+    & when (@default = true) {
+      background: linear-gradient(to bottom right, @button-default-hover-bg-color, @button-default-hover-bg-color);
+    }
+
+    & when (@default = false) {
+      background: @background;
+    }
   }
 
   &:hover,
@@ -34,13 +40,19 @@
   }
 }
 
-.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true) {
+.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true; @default: false) {
   background: transparent;
   border-color: @border;
   color: @color;
 
   &::after {
-    background: @hover-bg;
+    & when (@default = true) {
+      background: linear-gradient(to bottom right, @button-default-hover-bg-color, @button-default-hover-bg-color);
+    }
+
+    & when (@default = false) {
+      background: @hover-bg;
+    }
   }
 
   &:hover,
