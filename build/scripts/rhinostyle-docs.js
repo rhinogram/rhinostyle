@@ -14469,7 +14469,7 @@ var FeedbackApp = function (_React$Component) {
             'To see a toast in action, ',
             _react2.default.createElement(
               'button',
-              { className: 'button--reset u-link', onClick: this.onClick },
+              { className: 'button--reset u-text-primary', onClick: this.onClick },
               'click here'
             ),
             '.'
@@ -14877,7 +14877,7 @@ var FormApp = function FormApp() {
           { addon: 'right', type: 'text' },
           _react2.default.createElement(
             'button',
-            { className: 'button--reset u-link' },
+            { className: 'button--reset u-text-primary' },
             'Go For It!'
           )
         ),
