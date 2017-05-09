@@ -66,7 +66,9 @@ class Button extends React.Component {
 
     if (route) {
       markup = (
-        <Link to={route} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>{this.props.children}</Link>
+        <Link to={route} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>
+          <span className="button__text-wrapper">{this.props.children}</span>
+        </Link>
       );
     } else {
       markup = (
