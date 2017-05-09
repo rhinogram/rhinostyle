@@ -21316,7 +21316,11 @@ var Button = function (_React$Component) {
         markup = _react2.default.createElement(
           _reactRouter.Link,
           _extends({ to: route, className: classes, onClick: this.handleClick }, opts, { title: this.props.title }),
-          this.props.children
+          _react2.default.createElement(
+            'span',
+            { className: 'button__text-wrapper' },
+            this.props.children
+          )
         );
       } else {
         markup = _react2.default.createElement(
