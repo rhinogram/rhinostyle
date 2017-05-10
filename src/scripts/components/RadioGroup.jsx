@@ -9,7 +9,6 @@ class RadioGroup extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
-    inline: React.PropTypes.bool,
     label: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func,
@@ -45,7 +44,7 @@ class RadioGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children, inline, name } = this.props;
+    const { children, name } = this.props;
     const { selectedValue } = this.state;
 
     let returnChild = null;
@@ -66,7 +65,6 @@ class RadioGroup extends React.Component {
         returnChild = React.cloneElement(child, {
           onChange,
           selectedValue,
-          inline,
           name,
         });
       } else {

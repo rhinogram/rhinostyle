@@ -1,6 +1,8 @@
 import cx    from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 class RhinoSwitch extends React.Component {
   static display = 'RhinoSwitch';
 
@@ -29,7 +31,7 @@ class RhinoSwitch extends React.Component {
     const { className, disabled, name } = this.props;
     const { checked } = this.state;
     const classes = cx('rhinoswitcher', className, {
-      'rhinoswitcher--disabled': disabled,
+      [UtilitySystem.config.classes.disabled]: disabled,
     });
 
     return (

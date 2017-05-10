@@ -3,34 +3,27 @@
 //
 
 
-@cursor-disabled: not-allowed; // disabled cursor for form controls and buttons.
-
 @input-bg: @global-color-white;
 @input-bg-disabled: @global-color-gray-lightest;
 @input-border: @global-border-color-base;
 @input-border-focus: #66afe9;
 @input-border-radius: @global-border-radius;
 @input-color: @global-font-color;
-@input-color-placeholder: darken(@global-color-gray-light, 4%);
-@input-group-addon-bg: @global-color-gray-lighter; // bg color for textual input addons
-@input-group-addon-border-color: @input-border; // border color for textual input addons
+@input-color-placeholder: @global-color-gray;
+@input-group-addon-bg: @global-color-panel;
+@input-group-addon-border-color: @input-border;
 
-// Form control `.form-control` heights
-
-@input-height-base: @button-height-base;
-
+@input-height-base: @global-height;
 @input-padding-base: @button-padding-base;
 
-@form-addon-item-bg: @global-color-gray-lightest;
+@form-addon-item-bg: @global-color-panel;
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
 @form-element-color: @global-color-primary;
 @form-group-spacing: (@global-whitespace-base + @global-whitespace-xsmall);
 
-@legend-color: @global-color-gray-dark;
-@legend-border-color: #e5e5e5;
-
-@rhinobox-rhinodio-margin: @global-whitespace-small;
+@legend-color: @global-font-color-muted;
+@legend-border-color: @input-border;
 
 @switcher-border-radius: @global-border-radius;
 @switcher-height: 2.6rem;
@@ -359,7 +352,6 @@ input[type='checkbox']:focus {
   white-space: nowrap;
   .mixin-addon-size(@input-height-base; (@global-whitespace-small + (@global-whitespace-xsmall / 2)); @global-font-size-base);
 
-  &.disabled,
   &[disabled] {
     opacity: @global-opacity-disabled;
   }
@@ -488,20 +480,12 @@ input[type='checkbox']:focus {
     .mixin-tab-focus();
   }
 
-  &.disabled,
   &[disabled],
-  //&[readonly],
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     opacity: @global-opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
-
- /* &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-  }*/
 
   textarea& {
     height: auto;
@@ -657,9 +641,8 @@ input::-webkit-input-placeholder {
 input[type='radio'],
 input[type='checkbox'] {
   &[disabled],
-  &.disabled,
   fieldset[disabled] & {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     opacity: @global-opacity-disabled;
   }
 }
@@ -667,7 +650,6 @@ input[type='checkbox'] {
 .rhinobox,
 .rhinodio {
   display: block;
-  margin: @rhinobox-rhinodio-margin 0;
   position: relative;
 
   input {
@@ -684,15 +666,16 @@ input[type='checkbox'] {
     position: relative;
     user-select: none;
   }
-}
 
-.rhinobox--disabled,
-.rhinodio--disabled {
-  label {
-    cursor: @cursor-disabled;
-    opacity: @global-opacity-disabled;
+  &.is-disabled {
+    label {
+      cursor: not-allowed;
+      opacity: @global-opacity-disabled;
+    }
   }
 }
+
+
 
 .rhinobox {
   align-items: center;
@@ -810,18 +793,12 @@ input[type='checkbox'] {
   margin-top: @global-whitespace-small;
   user-select: none;
   width: @switcher-width;
-}
 
-
-//
-// Rhinoswitcher Modifiers
-//
-
-
-.rhinoswitcher--disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }
 
 

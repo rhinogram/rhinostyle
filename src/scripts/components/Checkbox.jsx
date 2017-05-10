@@ -1,6 +1,8 @@
 import cx    from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 class Checkbox extends React.Component {
   static displayName = 'Rhinobox';
 
@@ -47,7 +49,7 @@ class Checkbox extends React.Component {
     const { checked } = this.state;
 
     const classes = cx('rhinobox', className, {
-      'rhinobox--disabled': disabled,
+      [UtilitySystem.config.classes.disabled]: disabled,
     });
 
     return (

@@ -2,6 +2,8 @@ import cx       from 'classnames';
 import React    from 'react';
 import { Link } from 'react-router';
 
+import { UtilitySystem } from '../components';
+
 class Button extends React.Component {
   static displayName = 'RhinoButton';
 
@@ -58,7 +60,7 @@ class Button extends React.Component {
       'button--large': size === 'large',
       'button--block': block,
       'button--icon': iconOnly,
-      'is-active': active,
+      [UtilitySystem.config.classes.active]: active,
     });
 
     let markup = '';

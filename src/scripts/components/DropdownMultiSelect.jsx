@@ -196,7 +196,6 @@ class DropdownMultiSelect extends React.Component {
     });
 
     const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
-      disabled,
       'form__control--error': validationMessage,
     });
 
@@ -243,7 +242,7 @@ class DropdownMultiSelect extends React.Component {
     return (
       <span>
         <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => (this.dropdown = ref)}>
-          <input onClick={this.handleToggle} ref={ref => (this.filterInput = ref)} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} />
+          <input onClick={this.handleToggle} ref={ref => (this.filterInput = ref)} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} disabled={disabled} />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
               { items.length > 0 ? items : <DropdownMenuHeader label="No results" /> }

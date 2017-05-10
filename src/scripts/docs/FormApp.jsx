@@ -16,6 +16,7 @@ const inputDocs  = {
   autoCapitalize:     '[Optional] - Adjust the capitalization settings of an input - [none | sentences | words | characters]',
   autoComplete:       '[Optional] - Adjust the completion settings on an input - [off | on]',
   clear:              '[Optional] - Form control gets a clear value button',
+  disabled:  '[Optional] - Disable the input',
   explanationMessage: '[Optional] - Explanation message to help user',
   initialValue:       '[Optional] - Any initial value for the input',
   label:              '[Optional] - A label for the input',
@@ -38,6 +39,7 @@ const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
   options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number, value: string }',
+  disabled:  '[Optional] - Disable the select',
   required: '[Optional] - Field is required and asterisk is added to label',
   onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
   selected: '[Optional] - String that pre-selects an option',
@@ -62,6 +64,7 @@ const textareaDocs  = {
   label:              '[Optional] - A label for the textarea',
   maxCharacters:      '[Optional] - Set a maximum character limit in order to display character count',
   name:               '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  disabled:  '[Optional] - Disable the textarea',
   onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the textarea',
   required:           '[Optional] - Field is required and asterisk is added to label',
@@ -75,6 +78,7 @@ const textareaScope = {
 
 const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
+  disabled:  '[Optional] - Disable the textarea',
   name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
   placeholder:   '[Optional] - Any placeholder text you want in the textarea',
   initialValue:  '[Optional] - Any initial value for the textarea',
@@ -89,6 +93,7 @@ const messageBoxScope = {
 
 const checkboxDocs  = {
   isChecked: '[Optional] - Set initial checked state',
+  disabled:  '[Optional] - Disable the checkbox',
   name:      '[Required] - An id, and label for the checkbox',
   onClick:   '[Optional] - A function you want to trigger when the checkbox is toggled',
 };
@@ -100,6 +105,7 @@ const checkboxScope = {
 
 const radioDocs  = {
   name:          '[Optional] - The name, and the basis of the id for the radio',
+  disabled:  '[Optional] - Disable the radio button',
   onChange:      '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
   value:         '[Optional] - A value for the radio',

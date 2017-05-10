@@ -1,11 +1,13 @@
 import cx from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 const Radio = (props) => {
   const { className, disabled, name, onChange, value } = props;
   const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
   const classes = cx('rhinodio', className, {
-    'rhinodio--disabled': disabled,
+    [UtilitySystem.config.classes.disabled]: disabled,
   });
 
   return (

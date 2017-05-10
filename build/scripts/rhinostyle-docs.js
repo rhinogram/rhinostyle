@@ -14556,6 +14556,7 @@ var inputDocs = {
   autoCapitalize: '[Optional] - Adjust the capitalization settings of an input - [none | sentences | words | characters]',
   autoComplete: '[Optional] - Adjust the completion settings on an input - [off | on]',
   clear: '[Optional] - Form control gets a clear value button',
+  disabled: '[Optional] - Disable the input',
   explanationMessage: '[Optional] - Explanation message to help user',
   initialValue: '[Optional] - Any initial value for the input',
   label: '[Optional] - A label for the input',
@@ -14578,6 +14579,7 @@ var selectDocs = {
   label: '[Optional] - A label for the select',
   name: '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
   options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number, value: string }',
+  disabled: '[Optional] - Disable the select',
   required: '[Optional] - Field is required and asterisk is added to label',
   onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
   selected: '[Optional] - String that pre-selects an option'
@@ -14596,6 +14598,7 @@ var textareaDocs = {
   label: '[Optional] - A label for the textarea',
   maxCharacters: '[Optional] - Set a maximum character limit in order to display character count',
   name: '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  disabled: '[Optional] - Disable the textarea',
   onChange: '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder: '[Optional] - Any placeholder text you want in the textarea',
   required: '[Optional] - Field is required and asterisk is added to label',
@@ -14609,6 +14612,7 @@ var textareaScope = {
 
 var messageBoxDocs = {
   label: '[Optional] - A label for the textarea',
+  disabled: '[Optional] - Disable the textarea',
   name: '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
   placeholder: '[Optional] - Any placeholder text you want in the textarea',
   initialValue: '[Optional] - Any initial value for the textarea',
@@ -14623,6 +14627,7 @@ var messageBoxScope = {
 
 var checkboxDocs = {
   isChecked: '[Optional] - Set initial checked state',
+  disabled: '[Optional] - Disable the checkbox',
   name: '[Required] - An id, and label for the checkbox',
   onClick: '[Optional] - A function you want to trigger when the checkbox is toggled'
 };
@@ -14634,6 +14639,7 @@ var checkboxScope = {
 
 var radioDocs = {
   name: '[Optional] - The name, and the basis of the id for the radio',
+  disabled: '[Optional] - Disable the radio button',
   onChange: '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
   value: '[Optional] - A value for the radio'
@@ -20545,6 +20551,7 @@ var config = exports.config = {
   classes: {
     open: 'is-open',
     active: 'is-active',
+    disabled: 'is-disabled',
     hidden: 'is-hidden',
     uHidden: 'u-hidden'
   }
@@ -21045,7 +21052,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(355);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -21103,7 +21114,7 @@ var Button = function (_React$Component) {
           opts = _objectWithoutProperties(_props, ['active', 'blankWindow', 'block', 'className', 'disabled', 'iconOnly', 'onClick', 'route', 'size', 'title', 'type', 'url']); // eslint-disable-line
 
 
-      var classes = (0, _classnames2.default)('button', className, {
+      var classes = (0, _classnames2.default)('button', className, _defineProperty({
         'button--default': type === 'default',
         'button--primary': type === 'primary',
         'button--secondary': type === 'secondary',
@@ -21114,9 +21125,8 @@ var Button = function (_React$Component) {
         'button--small': size === 'small',
         'button--large': size === 'large',
         'button--block': block,
-        'button--icon': iconOnly,
-        'is-active': active
-      });
+        'button--icon': iconOnly
+      }, _components.UtilitySystem.config.classes.active, active));
 
       var markup = '';
 
@@ -21198,7 +21208,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -21252,9 +21266,7 @@ var Checkbox = function (_React$Component) {
       var checked = this.state.checked;
 
 
-      var classes = (0, _classnames2.default)('rhinobox', className, {
-        'rhinobox--disabled': disabled
-      });
+      var classes = (0, _classnames2.default)('rhinobox', className, _defineProperty({}, _components.UtilitySystem.config.classes.disabled, disabled));
 
       return _react2.default.createElement(
         'div',
@@ -21912,8 +21924,7 @@ var Dropdown = function (_React$Component) {
         'button--outline-reversed': type === 'outline-reversed',
         'button--small': size === 'small',
         'button--large': size === 'large',
-        'button--icon': icon && !label,
-        disabled: disabled
+        'button--icon': icon && !label
       });
 
       var dropdownMenuClasses = (0, _classnames2.default)('dropdown__menu', {
@@ -21958,7 +21969,7 @@ var Dropdown = function (_React$Component) {
           } },
         _react2.default.createElement(
           'button',
-          { onClick: this.handleToggle, className: dropdownToggleClasses, type: 'button' },
+          { onClick: this.handleToggle, className: dropdownToggleClasses, disabled: disabled, type: 'button' },
           _react2.default.createElement(
             'span',
             { className: 'button__text-wrapper' },
@@ -22307,6 +22318,8 @@ var _components = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -22357,6 +22370,8 @@ var DropdownMenuItem = function (_React$Component) {
   _createClass(DropdownMenuItem, [{
     key: 'render',
     value: function render() {
+      var _cx;
+
       var _props = this.props,
           active = _props.active,
           avatar = _props.avatar,
@@ -22367,10 +22382,7 @@ var DropdownMenuItem = function (_React$Component) {
           labelDesc = _props.labelDesc,
           route = _props.route;
 
-      var classes = (0, _classnames2.default)('dropdown__menu__item', className, {
-        'is-active': active,
-        disabled: disabled
-      });
+      var classes = (0, _classnames2.default)('dropdown__menu__item', className, (_cx = {}, _defineProperty(_cx, _components.UtilitySystem.config.classes.active, active), _defineProperty(_cx, _components.UtilitySystem.config.classes.disabled, disabled), _cx));
 
       var renderContent = function renderContent() {
         return _react2.default.createElement(
@@ -22831,7 +22843,6 @@ var DropdownMultiSelect = function (_React$Component) {
       });
 
       var dropdownToggleClasses = (0, _classnames2.default)('dropdown__input', 'form__control', 'form__control--chevron', {
-        disabled: disabled,
         'form__control--error': validationMessage
       });
 
@@ -22893,7 +22904,7 @@ var DropdownMultiSelect = function (_React$Component) {
             } },
           _react2.default.createElement('input', { onClick: this.handleToggle, ref: function ref(_ref2) {
               return _this2.filterInput = _ref2;
-            }, type: 'text', className: dropdownToggleClasses, placeholder: placeholder, onChange: this.handleFilter }),
+            }, type: 'text', className: dropdownToggleClasses, placeholder: placeholder, onChange: this.handleFilter, disabled: disabled }),
           _react2.default.createElement(
             'div',
             { className: dropdownMenuClasses },
@@ -23949,6 +23960,7 @@ var MessageBox = function (_React$Component) {
           required = _props.required,
           rows = _props.rows,
           className = _props.className,
+          disabled = _props.disabled,
           label = _props.label,
           name = _props.name,
           placeholder = _props.placeholder,
@@ -23981,7 +23993,7 @@ var MessageBox = function (_React$Component) {
         'div',
         { className: formGroupClasses },
         showLabel(),
-        _react2.default.createElement('textarea', { rows: rows, placeholder: placeholder, className: textAreaClasses, style: messageBoxStyle, value: this.state.value, onKeyPress: this._handleKeyPress, onChange: this._handleChange, onClick: this._handleClick, ref: function ref(_ref2) {
+        _react2.default.createElement('textarea', { rows: rows, placeholder: placeholder, className: textAreaClasses, style: messageBoxStyle, value: this.state.value, onKeyPress: this._handleKeyPress, onChange: this._handleChange, onClick: this._handleClick, disabled: disabled, ref: function ref(_ref2) {
             return _this3.rhinoTextArea = _ref2;
           } })
       );
@@ -23994,6 +24006,7 @@ var MessageBox = function (_React$Component) {
 MessageBox.displayName = 'RhinoMessageBox';
 MessageBox.propTypes = {
   className: _react2.default.PropTypes.string,
+  disabled: _react2.default.PropTypes.bool,
   label: _react2.default.PropTypes.string,
   name: _react2.default.PropTypes.string,
   onClick: _react2.default.PropTypes.func,
@@ -24502,16 +24515,18 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var NavTabsItem = function NavTabsItem(props) {
   var className = props.className,
       active = props.active,
       onClick = props.onClick;
 
-  var itemClasses = (0, _classnames2.default)('nav-tabs__item', className, {
-    active: active
-  });
+  var itemClasses = (0, _classnames2.default)('nav-tabs__item', className, _defineProperty({}, _components.UtilitySystem.config.classes.active, active));
   var linkClasses = (0, _classnames2.default)('nav-tabs__item__link', className);
 
   return _react2.default.createElement(
@@ -24573,14 +24588,13 @@ var Pill = function Pill(props) {
       type = props.type;
 
   var classes = (0, _classnames2.default)('button--reset pill', className, {
-    'pill--disabled': disabled,
     'pill--default': type === 'default',
     'pill--neutral': type === 'neutral'
   });
 
   return _react2.default.createElement(
     'button',
-    { type: 'button', className: classes, onClick: onClick },
+    { type: 'button', className: classes, onClick: onClick, disabled: disabled },
     icon ? _react2.default.createElement(_components.Icon, { icon: icon, className: 'pill__icon' }) : null,
     ' ',
     label,
@@ -24718,7 +24732,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Radio = function Radio(props) {
   var className = props.className,
@@ -24728,9 +24746,7 @@ var Radio = function Radio(props) {
       value = props.value;
 
   var id = name + '-' + Math.floor(Math.random() * 1000000);
-  var classes = (0, _classnames2.default)('rhinodio', className, {
-    'rhinodio--disabled': disabled
-  });
+  var classes = (0, _classnames2.default)('rhinodio', className, _defineProperty({}, _components.UtilitySystem.config.classes.disabled, disabled));
 
   return _react2.default.createElement(
     'div',
@@ -24821,7 +24837,6 @@ var RadioGroup = function (_React$Component) {
     }, _this.renderChildren = function () {
       var _this$props = _this.props,
           children = _this$props.children,
-          inline = _this$props.inline,
           name = _this$props.name;
       var selectedValue = _this.state.selectedValue;
 
@@ -24844,7 +24859,6 @@ var RadioGroup = function (_React$Component) {
           returnChild = _react2.default.cloneElement(child, {
             onChange: onChange,
             selectedValue: selectedValue,
-            inline: inline,
             name: name
           });
         } else {
@@ -24909,7 +24923,6 @@ RadioGroup.displayName = 'RhinodioGroup';
 RadioGroup.propTypes = {
   children: _react2.default.PropTypes.node,
   className: _react2.default.PropTypes.string,
-  inline: _react2.default.PropTypes.bool,
   label: _react2.default.PropTypes.string,
   name: _react2.default.PropTypes.string.isRequired,
   onChange: _react2.default.PropTypes.func,
@@ -24941,7 +24954,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24981,9 +24998,7 @@ var RhinoSwitch = function (_React$Component) {
           name = _props.name;
       var checked = this.state.checked;
 
-      var classes = (0, _classnames2.default)('rhinoswitcher', className, {
-        'rhinoswitcher--disabled': disabled
-      });
+      var classes = (0, _classnames2.default)('rhinoswitcher', className, _defineProperty({}, _components.UtilitySystem.config.classes.disabled, disabled));
 
       return _react2.default.createElement(
         'div',
@@ -25055,7 +25070,11 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25115,9 +25134,9 @@ var Select = function (_React$Component) {
           validationMessage = _props.validationMessage;
 
 
-      var classes = (0, _classnames2.default)('rhinoselect__select', 'form__control', 'form__control--chevron', {
+      var classes = (0, _classnames2.default)('rhinoselect__select', 'form__control', 'form__control--chevron', _defineProperty({
         'form__control--error': validationMessage
-      });
+      }, _components.UtilitySystem.config.classes.disabled, disabled));
 
       var formGroupClasses = (0, _classnames2.default)('form__group', className);
 
@@ -25349,16 +25368,18 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var TabContentPane = function TabContentPane(props) {
   var className = props.className,
       active = props.active;
 
 
-  var paneClasses = (0, _classnames2.default)('tabs-content__pane', className, {
-    active: active
-  });
+  var paneClasses = (0, _classnames2.default)('tabs-content__pane', className, _defineProperty({}, _components.UtilitySystem.config.classes.active, active));
 
   return _react2.default.createElement(
     'div',
@@ -25626,6 +25647,7 @@ var Textarea = function (_React$Component) {
       var _props = this.props,
           abbrMaxCharacters = _props.abbrMaxCharacters,
           className = _props.className,
+          disabled = _props.disabled,
           explanationMessage = _props.explanationMessage,
           label = _props.label,
           maxCharacters = _props.maxCharacters,
@@ -25707,7 +25729,7 @@ var Textarea = function (_React$Component) {
         'div',
         { className: formGroupClasses },
         showLabel(),
-        _react2.default.createElement('textarea', { id: name, className: textAreaClasses, rows: rows, placeholder: placeholder, value: this.state.value, onChange: this._handleChange }),
+        _react2.default.createElement('textarea', { id: name, className: textAreaClasses, rows: rows, placeholder: placeholder, value: this.state.value, onChange: this._handleChange, disabled: disabled }),
         _react2.default.createElement(
           'div',
           { className: 'form__control-footer' },
@@ -25730,6 +25752,7 @@ Textarea.displayName = 'RhinoTextarea';
 Textarea.propTypes = {
   abbrMaxCharacters: _react2.default.PropTypes.bool,
   className: _react2.default.PropTypes.string,
+  disabled: _react2.default.PropTypes.bool,
   explanationMessage: _react2.default.PropTypes.string,
   initialValue: _react2.default.PropTypes.string,
   label: _react2.default.PropTypes.string,
@@ -27881,7 +27904,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 667 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-checkbox\">\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Checkboxes</label>\n          <Checkbox name=\"exampleCheckbox31\">Checkbox One</Checkbox>\n          <Checkbox name=\"exampleCheckbox32\">Checkbox Two</Checkbox>\n          <Checkbox name=\"exampleCheckbox33\">Checkbox Three</Checkbox>\n        </div>\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Checkboxes Inline</label>\n          <Checkbox inline name=\"exampleCheckbox311\">Checkbox One</Checkbox>\n          <Checkbox inline name=\"exampleCheckbox321\">Checkbox Two</Checkbox>\n          <Checkbox inline name=\"exampleCheckbox331\">Checkbox Three</Checkbox>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-checkbox\">\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Checkboxes</label>\n          <Checkbox name=\"exampleCheckbox31\">Checkbox One</Checkbox>\n          <Checkbox name=\"exampleCheckbox32\">Checkbox Two</Checkbox>\n          <Checkbox name=\"exampleCheckbox33\">Checkbox Three</Checkbox>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 668 */

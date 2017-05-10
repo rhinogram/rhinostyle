@@ -1,10 +1,12 @@
 import cx from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 const NavTabsItem = (props) => {
   const { className, active, onClick } = props;
   const itemClasses = cx('nav-tabs__item', className, {
-    active,
+    [UtilitySystem.config.classes.active]: active,
   });
   const linkClasses = cx('nav-tabs__item__link', className);
 

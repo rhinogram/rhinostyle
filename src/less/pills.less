@@ -32,6 +32,16 @@
   &:empty {
     display: none;
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: @global-opacity-disabled;
+    pointer-events: none;
+
+    .pill__close {
+      display: none;
+    }
+  }
 }
 
 
@@ -42,16 +52,6 @@
 
 .pill--default {
   .mixin-pill-variant(@pill-default-bg; @pill-default-border; @pill-default-color);
-}
-
-.pill--disabled {
-  cursor: @cursor-disabled;
-  opacity: @global-opacity-disabled;
-  pointer-events: none;
-
-  .pill__close {
-    display: none;
-  }
 }
 
 .pill--neutral {

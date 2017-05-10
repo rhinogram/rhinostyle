@@ -183,7 +183,6 @@ class Dropdown extends React.Component {
       'button--small': size === 'small',
       'button--large': size === 'large',
       'button--icon': (icon && !label),
-      disabled,
     });
 
     const dropdownMenuClasses = cx('dropdown__menu', {
@@ -223,7 +222,7 @@ class Dropdown extends React.Component {
 
     return (
       <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
-        <button onClick={this.handleToggle} className={dropdownToggleClasses} type="button">
+        <button onClick={this.handleToggle} className={dropdownToggleClasses} disabled={disabled} type="button">
           <span className="button__text-wrapper">
             {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}<span className="dropdown__toggle__text">{selectedLabel || label}</span>
             {hideCaret ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
