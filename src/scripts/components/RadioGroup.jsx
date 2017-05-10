@@ -1,7 +1,7 @@
 import cx    from 'classnames';
 import React from 'react';
 
-import { Radio } from '../components';
+import { Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class RadioGroup extends React.Component {
   static displayName = 'RhinodioGroup';
@@ -9,10 +9,12 @@ class RadioGroup extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
+    inline: React.PropTypes.bool,
     label: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func,
     selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    space: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -44,7 +46,7 @@ class RadioGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children, name } = this.props;
+    const { children, name, space } = this.props;
     const { selectedValue } = this.state;
 
     let returnChild = null;
@@ -71,12 +73,12 @@ class RadioGroup extends React.Component {
         returnChild = child;
       }
 
-      return returnChild;
+      return space ? <UtilityListItem>{returnChild}</UtilityListItem> : returnChild;
     });
   };
 
   render() {
-    const { className, label } = this.props;
+    const { className, inline, label, space } = this.props;
     const classes = cx('form__group', className);
 
     const showLabel = () => {
@@ -87,10 +89,25 @@ class RadioGroup extends React.Component {
       return false;
     };
 
+    const render = () => {
+      if (inline) {
+        return (
+          <UtilityInlineGrid>{this.renderChildren()}</UtilityInlineGrid>
+        );
+      } else if (space) {
+        return (
+          <UtilityList space>{this.renderChildren()}</UtilityList>
+        );
+      }
+
+      // Default
+      return this.renderChildren();
+    };
+
     return (
       <div className={classes}>
         {showLabel()}
-        {this.renderChildren()}
+        {render()}
       </div>
     );
   }

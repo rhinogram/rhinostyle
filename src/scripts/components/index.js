@@ -48,6 +48,8 @@ import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 import UtilityInlineGrid    from './UtilityInlineGrid';
+import UtilityList    from './UtilityList';
+import UtilityListItem from './UtilityListItem';
 
 import { CoverSystem } from '../CoverSystem';
 import { NotificationActions } from '../NotificationSystem';
@@ -112,5 +114,7 @@ export {
   Textarea,
   Toast,
   UtilityInlineGrid,
+  UtilityList,
+  UtilityListItem,
   UtilitySystem,
 };

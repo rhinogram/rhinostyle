@@ -6,7 +6,19 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-radio">
-        <RadioGroup name="exampleRadio4" label="Radios" onChange={this.optionalCallbackFunction} selectedValue="3">
+        <RadioGroup name="exampleRadio5" label="Radios" onChange={this.optionalCallbackFunction} selectedValue="3">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
+
+        <RadioGroup space name="exampleRadio6" label="Radios (space)" onChange={this.optionalCallbackFunction} selectedValue="3">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
+
+        <RadioGroup inline name="exampleRadio7" label="Radios (inline)" onChange={this.optionalCallbackFunction} selectedValue="3">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>

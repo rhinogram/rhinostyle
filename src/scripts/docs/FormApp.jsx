@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
+import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 import inputExample from './examples/Input.example.txt';
 import selectExample from './examples/Select.example.txt';
 import textareaExample from './examples/Textarea.example.txt';
@@ -101,11 +101,15 @@ const checkboxScope = {
   React,
   ReactDOM,
   Checkbox,
+  UtilityInlineGrid,
+  UtilityList,
+  UtilityListItem,
 };
 
 const radioDocs  = {
   name:          '[Optional] - The name, and the basis of the id for the radio',
   disabled:  '[Optional] - Disable the radio button',
+  inline: '[Optional] - Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
   onChange:      '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
   value:         '[Optional] - A value for the radio',
@@ -115,6 +119,8 @@ const radioScope = {
   ReactDOM,
   RadioGroup,
   Radio,
+  UtilityList,
+  UtilityListItem,
 };
 
 const switchDocs  = {
@@ -146,11 +152,13 @@ const FormApp = () =>
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <div className="form__group">
           <label htmlFor="checkboxes" className="u-block">Checkboxes</label>
-          <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
-          <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
-          <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
+          <UtilityInlineGrid>
+            <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
+            <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
+            <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
+          </UtilityInlineGrid>
         </div>
-        <RadioGroup name="exampleRadio1" label="Radios" selectedValue="2">
+        <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
@@ -241,6 +249,32 @@ const FormApp = () =>
       <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
       <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
       <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Space</h5>
+        <p className="site-copy">To add space between each checkbox, you can wrap them inside of the <code>&lt;UtilityList&gt;</code> component.</p>
+        <UtilityList space>
+          <UtilityListItem>
+            <Checkbox isChecked name="exampleCheckbox14">Checkbox One</Checkbox>
+          </UtilityListItem>
+          <UtilityListItem>
+            <Checkbox name="exampleCheckbox15">Checkbox Two</Checkbox>
+          </UtilityListItem>
+          <UtilityListItem>
+            <Checkbox name="exampleCheckbox16">Checkbox Three</Checkbox>
+          </UtilityListItem>
+        </UtilityList>
+      </div>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Inline</h5>
+        <p className="site-copy">To place checkboxes inline that wrap with automagic spacing, wrap them inside of the <code>&lt;UtilityInlineGrid&gt;</code> component.</p>
+        <UtilityInlineGrid>
+          <Checkbox isChecked name="exampleCheckbox17">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox18">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox19">Checkbox Three</Checkbox>
+        </UtilityInlineGrid>
+      </div>
     </section>
 
     <section className="site-section">
@@ -252,11 +286,31 @@ const FormApp = () =>
       <h3 className="site-subheadline">Radio</h3>
       <h5 className="site-miniheadline">Rhinodio</h5>
       <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
-      <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
+      <RadioGroup name="exampleRadio2" selectedValue="2">
         <Radio value="1">Radio One</Radio>
         <Radio value="2">Radio Two</Radio>
         <Radio value="3">Radio Three</Radio>
       </RadioGroup>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Space</h5>
+        <p className="site-copy">To add space between each radio, you can add the <code>space</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
+        <RadioGroup space name="exampleRadio3" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
+      </div>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Inline</h5>
+        <p className="site-copy">To place radios inline that wrap with automagic spacing, you can add the <code>inline</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
+        <RadioGroup inline name="exampleRadio4" selectedValue="2">
+          <Radio value="1">Radio One</Radio>
+          <Radio value="2">Radio Two</Radio>
+          <Radio value="3">Radio Three</Radio>
+        </RadioGroup>
+      </div>
     </section>
 
     <section className="site-section">

@@ -1,0 +1,18 @@
+//
+// Component
+//
+
+
+// Unordered list with no bullets
+.u-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.u-list--space {
+  > * {
+    + * {
+      margin-top: @global-whitespace-small;
+    }
+  }
+}
