@@ -37,20 +37,7 @@ class RhinoSwitch extends React.Component {
     return (
       <div className={classes}>
         <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} onClick={this._toggleChange} />
-        <label className="rhinoswitcher__label" htmlFor={name}>
-          <div className="rhinoswitcher__inner">
-            <div className="rhinoswitcher__on">
-              <svg className="rhinoswitcher__icon icon icon-checkmark">
-                <use xlinkHref="#icon-checkmark" />
-              </svg>
-            </div>
-            <div className="rhinoswitcher__off">
-              <svg className="rhinoswitcher__icon icon icon-close">
-                <use xlinkHref="#icon-close" />
-              </svg>
-            </div>
-          </div>
-        </label>
+        <label className="rhinoswitcher__label" htmlFor={name} />
       </div>
     );
   }

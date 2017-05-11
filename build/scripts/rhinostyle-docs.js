@@ -25278,32 +25278,7 @@ var RhinoSwitch = function (_React$Component) {
         'div',
         { className: classes },
         _react2.default.createElement('input', { type: 'checkbox', className: 'rhinoswitcher__input', id: name, defaultChecked: checked, onClick: this._toggleChange }),
-        _react2.default.createElement(
-          'label',
-          { className: 'rhinoswitcher__label', htmlFor: name },
-          _react2.default.createElement(
-            'div',
-            { className: 'rhinoswitcher__inner' },
-            _react2.default.createElement(
-              'div',
-              { className: 'rhinoswitcher__on' },
-              _react2.default.createElement(
-                'svg',
-                { className: 'rhinoswitcher__icon icon icon-checkmark' },
-                _react2.default.createElement('use', { xlinkHref: '#icon-checkmark' })
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'rhinoswitcher__off' },
-              _react2.default.createElement(
-                'svg',
-                { className: 'rhinoswitcher__icon icon icon-close' },
-                _react2.default.createElement('use', { xlinkHref: '#icon-close' })
-              )
-            )
-          )
-        )
+        _react2.default.createElement('label', { className: 'rhinoswitcher__label', htmlFor: name })
       );
     }
   }]);

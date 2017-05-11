@@ -26,16 +26,18 @@
 @legend-border-color: @input-border;
 
 @rhinobox-rhinodio-size: 2rem;
-@rhinodio-offset: .6rem;
+@rhinodio-offset: 0.6rem;
 
+@switcher-height: 3.2rem;
+@switcher-width: 7rem;
+@switcher-transition: all 0.25s @global-trans-timing-cubic;
 @switcher-border-radius: @global-border-radius;
-@switcher-height: 2.6rem;
-@switcher-state-line-height: @switcher-height;
-@switcher-state-padding: 2.2rem;
-@switcher-toggler-height: 2.2rem;
-@switcher-toggler-margin: 0.2rem;
-@switcher-toggler-width: 2.2rem;
-@switcher-width: 6rem;
+@switcher-background: lighten(@global-font-color, 25);
+@switcher-background-active: @global-color-secondary;
+@switcher-button-size: (@switcher-height - @global-whitespace-small);
+@switcher-button-background: linear-gradient(to bottom right, @input-bg, darken(@input-bg, 7.5));
+@switcher-button-offset: @global-whitespace-xsmall;
+@switcher-text-offset: @global-whitespace-small;
 
 
 //
@@ -791,136 +793,70 @@ input[type='checkbox'] {
 
 .rhinoswitcher {
   display: inline-block;
-  height: @switcher-height;
-  margin-bottom: @global-whitespace-small;
-  margin-top: @global-whitespace-small;
-  user-select: none;
-  width: @switcher-width;
+  vertical-align: top;
 
   &.is-disabled {
-    cursor: not-allowed;
     opacity: @global-opacity-disabled;
+    cursor: not-allowed;
     pointer-events: none;
   }
-}
 
+  label {
+    position: relative;
+    display: block;
+    height: @switcher-height;
+    width: @switcher-width;
+    border-radius: (@switcher-height / 2);
+    background: @switcher-background;
+    user-select: none;
+    cursor: pointer;
+    margin: 0;
+    transition: @switcher-transition;
 
-//
-// Rhinoswitcher Icon
-//
+    &::before {
+      content: 'OFF';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: @switcher-text-offset;
+      font-size: @global-font-size-small;
+      z-index: 1;
+      transition: @switcher-transition;
+      color: @global-color-white;
+    }
 
-
-.rhinoswitcher__icon {
-  font-size: @global-font-size-base + 0.2rem;
-  top: 0;
-}
-
-
-//
-// Rhinoswitcher Inner
-//
-
-
-.rhinoswitcher__inner {
-  font-size: 0;
-  height: @switcher-height;
-  transform: translateX(-50%);
-  transition: transform 0.25s @global-trans-timing-cubic;
-  width: 200%;
-}
-
-
-//
-// Rhinoswitcher Input
-//
-
-
-.rhinoswitcher__input {
-  display: none;
-}
-
-.rhinoswitcher__input:checked ~ .rhinoswitcher__label {
-  .rhinoswitcher__inner {
-    transform: translateX(0);
+    &::after {
+      content: '';
+      position: absolute;
+      left: @switcher-button-offset;
+      background: @switcher-button-background;
+      border-radius: 50%;
+      width: @switcher-button-size;
+      height: @switcher-button-size;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      transition: @switcher-transition;
+    }
   }
 
-  .rhinoswitcher__off::after {
-    transform: translateX(-@switcher-toggler-width - (@switcher-toggler-margin * 2));
+  input {
+    .mixin-sr-only();
+
+    &:checked {
+      + label {
+        background: @switcher-background-active;
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          left: @switcher-text-offset;
+        }
+
+        &::after {
+          left: (@switcher-width - @switcher-button-size - @switcher-button-offset);
+        }
+      }
+    }
   }
-}
-
-
-//
-// Rhinoswitcher Label
-//
-
-
-.rhinoswitcher__label {
-  border-radius: @switcher-border-radius;
-  cursor: pointer;
-  display: block;
-  height: @switcher-height;
-  margin-bottom: 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  word-spacing: 0;
-  z-index: 20;
-}
-
-
-//
-// Rhinoswitcher On/Off
-//
-
-
-.rhinoswitcher__off,
-.rhinoswitcher__on {
-  align-items: center;
-  color: @global-color-white;
-  display: inline-flex;
-  font-size: @global-font-size-small;
-  height: 100%;
-  justify-content: center;
-  line-height: @switcher-state-line-height;
-  position: relative;
-  text-align: center;
-  width: 50%;
-}
-
-.rhinoswitcher__off {
-  background-color: @global-color-gray-light;
-  padding-left: @switcher-state-padding;
-  z-index: 2;
-
-  &::after {
-    content: '';
-    .rhinoswitcher__toggler;
-  }
-}
-
-.rhinoswitcher__on {
-  background-color: @form-element-color;
-  padding-right: @switcher-state-padding;
-}
-
-
-//
-// Rhinoswitcher Toggler
-//
-
-
-.rhinoswitcher__toggler {
-  background-color: @global-color-white;
-  border-radius: 0.2rem;
-  height: @switcher-toggler-height;
-  left: 0;
-  margin: @switcher-toggler-margin;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  transform: translateX(0);
-  transition: transform 0.25s @global-trans-timing-cubic;
-  width: @switcher-toggler-width;
-  z-index: 10;
 }
