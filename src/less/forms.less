@@ -25,6 +25,9 @@
 @legend-color: @global-font-color-muted;
 @legend-border-color: @input-border;
 
+@rhinobox-rhinodio-size: 2rem;
+@rhinodio-offset: .6rem;
+
 @switcher-border-radius: @global-border-radius;
 @switcher-height: 2.6rem;
 @switcher-state-line-height: @switcher-height;
@@ -453,8 +456,7 @@ input[type='checkbox']:focus {
 
 
 .form__control {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  appearance: none;
   align-items: center;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -649,8 +651,10 @@ input[type='checkbox'] {
 
 .rhinobox,
 .rhinodio {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
+  min-height: @global-line-height-computed; // Ensure the input doesn't jump when there is no text
 
   input {
     .mixin-sr-only();
@@ -661,8 +665,7 @@ input[type='checkbox'] {
     cursor: pointer;
     font-weight: normal;
     margin-bottom: 0;
-    min-height: @global-line-height-computed; // Ensure the input doesn't jump when there is no text
-    padding-left: 2.6rem;
+    padding-left: (@rhinobox-rhinodio-size + @global-whitespace-xsmall);
     position: relative;
     user-select: none;
   }
@@ -678,7 +681,6 @@ input[type='checkbox'] {
 
 
 .rhinobox {
-  align-items: center;
   padding-left: 0;
 
   input {
@@ -687,7 +689,7 @@ input[type='checkbox'] {
       background-image: url('@{svg-sprite}#icon-checkmark');
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: 1.6rem 1.6rem;
+      background-size: 80% 80%;
       border-color: @form-element-color;
       fill: @global-color-white;
     }
@@ -699,15 +701,14 @@ input[type='checkbox'] {
       border: 1px solid @global-border-color-base;
       content: '';
       display: inline-block;
-      height: 2rem;
+      height: @rhinobox-rhinodio-size;
       left: 0;
-      line-height: 1.3rem;
-      padding: 0;
       position: absolute;
       speak: none;
-      top: 0.1rem;
+      top: 50%;
+      transform: translateY(-50%);
       transition: background-color 0.25s @global-trans-timing-cubic;
-      width: 2rem;
+      width: @rhinobox-rhinodio-size;
     }
   }
 }
@@ -717,7 +718,7 @@ input[type='checkbox'] {
 
   input {
     &:checked+label::after {
-      transform: scale(1);
+      transform: translateY(-50%) scale(1);
     }
   }
 
@@ -726,13 +727,14 @@ input[type='checkbox'] {
       background-color: @form-element-color;
       border-radius: 50%;
       content: '';
-      height: 1.4rem;
-      left: 0.3rem;
+      height: (@rhinobox-rhinodio-size - @rhinodio-offset);
+      left: (@rhinodio-offset / 2);
       position: absolute;
-      top: 0.4rem;
-      transform: scale(0);
-      transition: transform 0.25s;
-      width: 1.4rem;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      transition: transform 0.25s @global-trans-timing-cubic;
+      transform-origin: center center;
+      width: (@rhinobox-rhinodio-size - @rhinodio-offset);
     }
 
     &::before {
@@ -741,12 +743,13 @@ input[type='checkbox'] {
       border-radius: 50%;
       content: '';
       display: inline-block;
-      height: 2rem;
+      height: @rhinobox-rhinodio-size;
       left: 0;
       position: absolute;
       speak: none;
-      top: 0.1rem;
-      width: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: @rhinobox-rhinodio-size;
     }
   }
 }
@@ -796,7 +799,7 @@ input[type='checkbox'] {
 
   &.is-disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: @global-opacity-disabled;
     pointer-events: none;
   }
 }
