@@ -167,7 +167,7 @@ const FormApp = () =>
           <label htmlFor="switcher" className="u-block">Switcher</label>
           <RhinoSwitch name="exampleSwitch1" />
         </div>
-        <div className="u-text-right">
+        <div className="form__group u-text-right">
           <Button type="primary">Submit Form</Button>
         </div>
       </form>

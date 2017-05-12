@@ -14790,7 +14790,7 @@ var FormApp = function FormApp() {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'u-text-right' },
+          { className: 'form__group u-text-right' },
           _react2.default.createElement(
             _components.Button,
             { type: 'primary' },
@@ -28278,7 +28278,7 @@ module.exports = "class ComponentExample extends React.Component {\n  state = {\
 /* 672 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <CoverBody>\n        <div className=\"form\">\n          <div className=\"form__group\">\n            <Input label=\"First Name\" name=\"firstName\" initialValue=\"First Name\" validationMessage=\"\" required />\n          </div>\n          <div>\n            <Input label=\"Last Name\" name=\"lastName\" initialValue=\"\" validationMessage=\"LastName is required!\" required />\n          </div>\n        </div>\n      </CoverBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <CoverBody>\n        <div className=\"form\">\n          <Input label=\"First Name\" name=\"firstName\" initialValue=\"First Name\" validationMessage=\"\" required />\n          <Input label=\"Last Name\" name=\"lastName\" initialValue=\"\" validationMessage=\"LastName is required!\" required />\n        </div>\n      </CoverBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 673 */
@@ -28410,7 +28410,7 @@ module.exports = "class ComponentExample extends React.Component {\n  state = {\
 /* 694 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalBody>\n        <div className=\"form\">\n          <div className=\"form__group\">\n            <Input label=\"First Name\" name=\"firstName\" validationMessage=\"FirstName is required!\" required />\n          </div>\n          <div>\n            <Input label=\"Last Name\" name=\"lastName\" />\n          </div>\n        </div>\n      </ModalBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n    <div>\n      <ModalBody>\n        <div className=\"form\">\n          <Input label=\"First Name\" name=\"firstName\" validationMessage=\"FirstName is required!\" required />\n          <Input label=\"Last Name\" name=\"lastName\" />\n        </div>\n      </ModalBody>\n    </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 695 */
