@@ -14,7 +14,6 @@ class RadioGroup extends React.Component {
     name: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func,
     selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    space: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -46,7 +45,7 @@ class RadioGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children, name, space } = this.props;
+    const { children, name } = this.props;
     const { selectedValue } = this.state;
 
     let returnChild = null;
@@ -73,41 +72,26 @@ class RadioGroup extends React.Component {
         returnChild = child;
       }
 
-      return space ? <UtilityListItem>{returnChild}</UtilityListItem> : returnChild;
+      return <UtilityListItem>{returnChild}</UtilityListItem>;
     });
   };
 
   render() {
-    const { className, inline, label, space } = this.props;
+    const { className, inline, label } = this.props;
     const classes = cx('form__group', className);
 
-    const showLabel = () => {
-      if (label) {
-        return <label className="u-block">{label}</label>; // eslint-disable-line jsx-a11y/label-has-for
-      }
+    // Show label or not based on prop value
+    const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
 
-      return false;
-    };
-
-    const render = () => {
-      if (inline) {
-        return (
-          <UtilityInlineGrid>{this.renderChildren()}</UtilityInlineGrid>
-        );
-      } else if (space) {
-        return (
-          <UtilityList space>{this.renderChildren()}</UtilityList>
-        );
-      }
-
-      // Default
-      return this.renderChildren();
-    };
+    // Wrap items in either `<UtilityInlineGrid>` or `<UtilityList>` based on prop
+    const render = inline ?
+      <UtilityInlineGrid>{this.renderChildren()}</UtilityInlineGrid>
+      : <UtilityList space>{this.renderChildren()}</UtilityList>;
 
     return (
       <div className={classes}>
-        {showLabel()}
-        {render()}
+        {showLabel}
+        {render}
       </div>
     );
   }

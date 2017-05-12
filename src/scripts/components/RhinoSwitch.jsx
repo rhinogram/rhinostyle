@@ -1,8 +1,6 @@
 import cx    from 'classnames';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
-
 class RhinoSwitch extends React.Component {
   static display = 'RhinoSwitch';
 
@@ -30,13 +28,11 @@ class RhinoSwitch extends React.Component {
   render() {
     const { className, disabled, name } = this.props;
     const { checked } = this.state;
-    const classes = cx('rhinoswitcher', className, {
-      [UtilitySystem.config.classes.disabled]: disabled,
-    });
+    const classes = cx('rhinoswitcher', className);
 
     return (
       <div className={classes}>
-        <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} onClick={this._toggleChange} />
+        <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} disabled={disabled} onClick={this._toggleChange} />
         <label className="rhinoswitcher__label" htmlFor={name} />
       </div>
     );

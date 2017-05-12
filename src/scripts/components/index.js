@@ -5,6 +5,7 @@ import BucketBody           from './BucketBody';
 import BucketHeader         from './BucketHeader';
 import Button               from './Button';
 import Checkbox             from './Checkbox';
+import CheckboxGroup from './CheckboxGroup';
 import Close                from './Close';
 import Cover                from './Cover';
 import CoverBody            from './CoverBody';
@@ -68,6 +69,7 @@ export {
   BucketHeader,
   Button,
   Checkbox,
+  CheckboxGroup,
   Close,
   Cover,
   CoverSystem,

@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
+import { MessageBox, Button, Checkbox, CheckboxGroup, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 import inputExample from './examples/Input.example.txt';
 import selectExample from './examples/Select.example.txt';
 import textareaExample from './examples/Textarea.example.txt';
@@ -101,6 +101,7 @@ const checkboxScope = {
   React,
   ReactDOM,
   Checkbox,
+  CheckboxGroup,
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
@@ -150,14 +151,11 @@ const FormApp = () =>
         <Select name="exampleSelect1" label="Select" options={selectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
-        <div className="form__group">
-          <label htmlFor="checkboxes" className="u-block">Checkboxes</label>
-          <UtilityInlineGrid>
-            <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
-            <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
-            <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
-          </UtilityInlineGrid>
-        </div>
+        <CheckboxGroup label="Checkboxes">
+          <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
+        </CheckboxGroup>
         <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
@@ -246,34 +244,21 @@ const FormApp = () =>
       <h3 className="site-subheadline">Checkbox</h3>
       <h5 className="site-miniheadline">Rhinobox</h5>
       <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
-      <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
-      <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
-      <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
-
-      <div className="u-m-t-large">
-        <h5 className="site-miniheadline">Space</h5>
-        <p className="site-copy">To add space between each checkbox, you can wrap them inside of the <code>&lt;UtilityList&gt;</code> component.</p>
-        <UtilityList space>
-          <UtilityListItem>
-            <Checkbox isChecked name="exampleCheckbox14">Checkbox One</Checkbox>
-          </UtilityListItem>
-          <UtilityListItem>
-            <Checkbox name="exampleCheckbox15">Checkbox Two</Checkbox>
-          </UtilityListItem>
-          <UtilityListItem>
-            <Checkbox name="exampleCheckbox16">Checkbox Three</Checkbox>
-          </UtilityListItem>
-        </UtilityList>
-      </div>
+      <p><strong>Note:</strong> Regardless of the amount, always wrap checkboxes in the <code>&lt;CheckboxGroup&gt;</code> component for proper spacing and the availability of the <code>label</code> property.</p>
+      <CheckboxGroup>
+        <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
+        <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
+        <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
+      </CheckboxGroup>
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Inline</h5>
-        <p className="site-copy">To place checkboxes inline that wrap with automagic spacing, wrap them inside of the <code>&lt;UtilityInlineGrid&gt;</code> component.</p>
-        <UtilityInlineGrid>
+        <p className="site-copy">To place checkboxes inline that wrap with automagic spacing, you can add the <code>inline</code> property to the <code>&lt;CheckboxGroup&gt;</code> component.</p>
+        <CheckboxGroup inline>
           <Checkbox isChecked name="exampleCheckbox17">Checkbox One</Checkbox>
           <Checkbox name="exampleCheckbox18">Checkbox Two</Checkbox>
           <Checkbox name="exampleCheckbox19">Checkbox Three</Checkbox>
-        </UtilityInlineGrid>
+        </CheckboxGroup>
       </div>
     </section>
 
@@ -286,21 +271,12 @@ const FormApp = () =>
       <h3 className="site-subheadline">Radio</h3>
       <h5 className="site-miniheadline">Rhinodio</h5>
       <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
+      <p><strong>Note:</strong> Regardless of the amount, always wrap radio options in the <code>&lt;RadioGroup&gt;</code> component for proper spacing, <code>name</code> attribute, and the availability of the <code>label</code> property.</p>
       <RadioGroup name="exampleRadio2" selectedValue="2">
         <Radio value="1">Radio One</Radio>
         <Radio value="2">Radio Two</Radio>
         <Radio value="3">Radio Three</Radio>
       </RadioGroup>
-
-      <div className="u-m-t-large">
-        <h5 className="site-miniheadline">Space</h5>
-        <p className="site-copy">To add space between each radio, you can add the <code>space</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
-        <RadioGroup space name="exampleRadio3" selectedValue="2">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
-        </RadioGroup>
-      </div>
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Inline</h5>

@@ -2,34 +2,16 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-checkbox">
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Checkboxes</label>
+        <CheckboxGroup label="Checkboxes">
           <Checkbox name="exampleCheckbox31">Checkbox One</Checkbox>
           <Checkbox name="exampleCheckbox32">Checkbox Two</Checkbox>
           <Checkbox name="exampleCheckbox33">Checkbox Three</Checkbox>
-        </div>
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Checkboxes (with space between each)</label>
-          <UtilityList space>
-            <UtilityListItem>
-              <Checkbox isChecked name="exampleCheckbox34">Checkbox One</Checkbox>
-            </UtilityListItem>
-            <UtilityListItem>
-              <Checkbox name="exampleCheckbox35">Checkbox Two</Checkbox>
-            </UtilityListItem>
-            <UtilityListItem>
-              <Checkbox name="exampleCheckbox36">Checkbox Three</Checkbox>
-            </UtilityListItem>
-          </UtilityList>
-        </div>
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Checkboxes (inline)</label>
-          <UtilityInlineGrid>
-            <Checkbox isChecked name="exampleCheckbox37">Checkbox One</Checkbox>
-            <Checkbox name="exampleCheckbox38">Checkbox Two</Checkbox>
-            <Checkbox name="exampleCheckbox39">Checkbox Three</Checkbox>
-          </UtilityInlineGrid>
-        </div>
+        </CheckboxGroup>
+        <CheckboxGroup label="Checkboxes (inline)" inline>
+          <Checkbox isChecked name="exampleCheckbox34">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox35">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox36">Checkbox Three</Checkbox>
+        </CheckboxGroup>
       </div>
     );
   }

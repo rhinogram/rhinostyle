@@ -660,6 +660,11 @@ input[type='checkbox'] {
 
   input {
     .mixin-sr-only();
+
+    &[disabled] + label {
+      cursor: not-allowed;
+      opacity: @global-opacity-disabled;
+    }
   }
 
   label {
@@ -670,13 +675,6 @@ input[type='checkbox'] {
     padding-left: (@rhinobox-rhinodio-size + @global-whitespace-xsmall);
     position: relative;
     user-select: none;
-  }
-
-  &.is-disabled {
-    label {
-      cursor: not-allowed;
-      opacity: @global-opacity-disabled;
-    }
   }
 }
 
@@ -795,12 +793,6 @@ input[type='checkbox'] {
   display: inline-block;
   vertical-align: top;
 
-  &.is-disabled {
-    opacity: @global-opacity-disabled;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
   label {
     position: relative;
     display: block;
@@ -842,6 +834,12 @@ input[type='checkbox'] {
 
   input {
     .mixin-sr-only();
+
+    &[disabled] + label {
+      opacity: @global-opacity-disabled;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
 
     &:checked {
       + label {
