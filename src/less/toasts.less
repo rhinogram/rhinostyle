@@ -4,7 +4,7 @@
 
 @toast-border-radius: @global-border-radius;
 @toast-offset: @global-whitespace-base;
-@toast-padding: @global-whitespace-small;
+@toast-spacing: @global-whitespace-small;
 @toast-text: @global-color-white;
 
 @toast-zindex: 2000;
@@ -43,11 +43,11 @@
 
 .toast {
   align-items: center;
+  display: flex;
   border-radius: @toast-border-radius;
   color: @toast-text;
-  display: flex;
   max-width: 80rem;
-  padding: @toast-padding;
+  padding: @toast-spacing;
   position: relative;
 }
 
@@ -70,12 +70,26 @@
 }
 
 
+//
+// Toast Text
+//
+
+
+.toast__text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: @toast-spacing;
+  min-width: 0;
+}
+
 
 //
 // Toast Close
 //
 
 
+// Stick close button to right
 .toast__close {
   margin-left: auto;
 }
@@ -87,8 +101,8 @@
 
 
 .toast__icon {
-  font-size: @global-font-size-base + 0.2rem;
-  margin-right: @global-whitespace-small;
+  font-size: @global-font-size-medium;
+  margin-right: @toast-spacing;
 }
 
 
@@ -101,7 +115,9 @@
   color: @toast-text;
   text-decoration: underline;
 
+  &:focus,
   &:hover {
+    color: currentColor;
     text-decoration: underline;
   }
 }

@@ -26150,7 +26150,11 @@ var Toast = function (_React$Component) {
         'div',
         { className: classes },
         renderIcon(),
-        body,
+        _react2.default.createElement(
+          'div',
+          { className: 'toast__text' },
+          body
+        ),
         _react2.default.createElement(_components.Close, { onClick: onDismiss, className: 'toast__close' })
       );
     }

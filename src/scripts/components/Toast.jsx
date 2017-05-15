@@ -39,7 +39,9 @@ class Toast extends React.Component {
     return (
       <div className={classes}>
         {renderIcon()}
-        {body}
+        <div className="toast__text">
+          {body}
+        </div>
         <Close onClick={onDismiss} className="toast__close" />
       </div>
     );
