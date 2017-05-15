@@ -126,8 +126,8 @@
 
   &::after {
     border-width: 0 1px;
-    transform: scale(1, 0);
-    transform-origin: 50% 100%;
+    transform: scaleY(0);
+    transform-origin: center bottom;
   }
 
   &::before {
@@ -140,7 +140,7 @@
     z-index: 1;
 
     &::after {
-      transform: scale(1, 1);
+      transform: scaleY(1);
       transition: transform 0.35s @global-trans-timing-cubic;
     }
 
