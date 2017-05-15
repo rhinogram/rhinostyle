@@ -15298,16 +15298,8 @@ var FormApp = function FormApp() {
       _react2.default.createElement(
         _components.UtilityInlineGrid,
         null,
-        _react2.default.createElement(
-          _components.UtilityListItem,
-          null,
-          _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch2', isChecked: true })
-        ),
-        _react2.default.createElement(
-          _components.UtilityListItem,
-          null,
-          _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch3', isChecked: true, disabled: true })
-        )
+        _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch2', isChecked: true }),
+        _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch3', isChecked: true, disabled: true })
       )
     ),
     _react2.default.createElement(

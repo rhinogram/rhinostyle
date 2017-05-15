@@ -311,12 +311,8 @@ const FormApp = () =>
       <h5 className="site-miniheadline">Rhinoswitcher</h5>
       <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>disabled</code> property.</p>
       <UtilityInlineGrid>
-        <UtilityListItem>
-          <RhinoSwitch name="rhinoswitch2" isChecked />
-        </UtilityListItem>
-        <UtilityListItem>
-          <RhinoSwitch name="rhinoswitch3" isChecked disabled />
-        </UtilityListItem>
+        <RhinoSwitch name="rhinoswitch2" isChecked />
+        <RhinoSwitch name="rhinoswitch3" isChecked disabled />
       </UtilityInlineGrid>
     </section>
 
