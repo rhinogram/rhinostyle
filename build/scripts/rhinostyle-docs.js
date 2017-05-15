@@ -26158,7 +26158,7 @@ var UtilityInlineGrid = function UtilityInlineGrid(props) {
   });
 
   return _react2.default.createElement(
-    'div',
+    'ul',
     { className: classes },
     props.children
   );
