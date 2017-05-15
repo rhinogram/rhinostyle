@@ -128,6 +128,7 @@ const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',
   disabled:  '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
+  label:     '[Optional] - A label for the switch',
   name:      '[Optional] - The name, and the basis of the id for the switch',
 };
 const switchScope = {
@@ -161,10 +162,7 @@ const FormApp = () =>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
         </RadioGroup>
-        <div className="form__group">
-          <label htmlFor="switcher" className="u-block">Switcher</label>
-          <RhinoSwitch name="exampleSwitch1" />
-        </div>
+        <RhinoSwitch label="Switcher" name="exampleSwitch1" />
         <div className="form__group u-text-right">
           <Button type="primary">Submit Form</Button>
         </div>
@@ -312,8 +310,14 @@ const FormApp = () =>
       <h3 className="site-subheadline">Switcher</h3>
       <h5 className="site-miniheadline">Rhinoswitcher</h5>
       <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>disabled</code> property.</p>
-      <RhinoSwitch name="rhinoswitch2" className="u-m-r-small" isChecked />
-      <RhinoSwitch name="rhinoswitch3" isChecked disabled />
+      <UtilityInlineGrid>
+        <UtilityListItem>
+          <RhinoSwitch name="rhinoswitch2" isChecked />
+        </UtilityListItem>
+        <UtilityListItem>
+          <RhinoSwitch name="rhinoswitch3" isChecked disabled />
+        </UtilityListItem>
+      </UtilityInlineGrid>
     </section>
 
     <section className="site-section">

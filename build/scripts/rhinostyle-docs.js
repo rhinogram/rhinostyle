@@ -14677,6 +14677,7 @@ var switchDocs = {
   className: '[Optional] - Any class name you would like to add to the switch',
   disabled: '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
+  label: '[Optional] - A label for the switch',
   name: '[Optional] - The name, and the basis of the id for the switch'
 };
 var switchScope = {
@@ -14775,16 +14776,7 @@ var FormApp = function FormApp() {
             'Radio Three'
           )
         ),
-        _react2.default.createElement(
-          'div',
-          { className: 'form__group' },
-          _react2.default.createElement(
-            'label',
-            { htmlFor: 'switcher', className: 'u-block' },
-            'Switcher'
-          ),
-          _react2.default.createElement(_components.RhinoSwitch, { name: 'exampleSwitch1' })
-        ),
+        _react2.default.createElement(_components.RhinoSwitch, { label: 'Switcher', name: 'exampleSwitch1' }),
         _react2.default.createElement(
           'div',
           { className: 'form__group u-text-right' },
@@ -15303,8 +15295,20 @@ var FormApp = function FormApp() {
         ),
         ' property.'
       ),
-      _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch2', className: 'u-m-r-small', isChecked: true }),
-      _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch3', isChecked: true, disabled: true })
+      _react2.default.createElement(
+        _components.UtilityInlineGrid,
+        null,
+        _react2.default.createElement(
+          _components.UtilityListItem,
+          null,
+          _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch2', isChecked: true })
+        ),
+        _react2.default.createElement(
+          _components.UtilityListItem,
+          null,
+          _react2.default.createElement(_components.RhinoSwitch, { name: 'rhinoswitch3', isChecked: true, disabled: true })
+        )
+      )
     ),
     _react2.default.createElement(
       'section',
@@ -25316,16 +25320,29 @@ var RhinoSwitch = function (_React$Component) {
       var _props = this.props,
           className = _props.className,
           disabled = _props.disabled,
-          name = _props.name;
+          name = _props.name,
+          label = _props.label;
       var checked = this.state.checked;
 
       var classes = (0, _classnames2.default)('rhinoswitcher', className);
 
+      // Show label or not based on prop value
+      var showLabel = label ? _react2.default.createElement(
+        'label',
+        { className: 'u-block' },
+        label
+      ) : null; // eslint-disable-line jsx-a11y/label-has-for
+
       return _react2.default.createElement(
         'div',
-        { className: classes },
-        _react2.default.createElement('input', { type: 'checkbox', className: 'rhinoswitcher__input', id: name, defaultChecked: checked, disabled: disabled, onClick: this._toggleChange }),
-        _react2.default.createElement('label', { className: 'rhinoswitcher__label', htmlFor: name })
+        { className: 'form__group' },
+        showLabel,
+        _react2.default.createElement(
+          'div',
+          { className: classes },
+          _react2.default.createElement('input', { type: 'checkbox', className: 'rhinoswitcher__input', id: name, defaultChecked: checked, disabled: disabled, onClick: this._toggleChange }),
+          _react2.default.createElement('label', { className: 'rhinoswitcher__label', htmlFor: name })
+        )
       );
     }
   }]);
@@ -25338,7 +25355,8 @@ RhinoSwitch.propTypes = {
   className: _react2.default.PropTypes.string,
   disabled: _react2.default.PropTypes.bool,
   isChecked: _react2.default.PropTypes.bool,
-  name: _react2.default.PropTypes.string.isRequired
+  name: _react2.default.PropTypes.string.isRequired,
+  label: _react2.default.PropTypes.string
 };
 RhinoSwitch.defaultProps = {
   name: 'rhinodioswitcher-' + Math.floor(Math.random() * 1000000)
@@ -28499,7 +28517,7 @@ module.exports = "class ComponentExample extends React.Component {\n  optionalCa
 /* 702 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-switch\">\n        <div className=\"form__group\">\n          <label htmlFor=\"\" className=\"u-block\">Switcher</label>\n          <RhinoSwitch name=\"exampleSwitch4\" />\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <RhinoSwitch label=\"Switcher\" name=\"exampleSwitch4\" />\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 703 */

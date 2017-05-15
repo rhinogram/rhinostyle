@@ -9,6 +9,7 @@ class RhinoSwitch extends React.Component {
     disabled: React.PropTypes.bool,
     isChecked: React.PropTypes.bool,
     name: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -26,14 +27,20 @@ class RhinoSwitch extends React.Component {
   }
 
   render() {
-    const { className, disabled, name } = this.props;
+    const { className, disabled, name, label } = this.props;
     const { checked } = this.state;
     const classes = cx('rhinoswitcher', className);
 
+    // Show label or not based on prop value
+    const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
+
     return (
-      <div className={classes}>
-        <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} disabled={disabled} onClick={this._toggleChange} />
-        <label className="rhinoswitcher__label" htmlFor={name} />
+      <div className="form__group">
+        {showLabel}
+        <div className={classes}>
+          <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} disabled={disabled} onClick={this._toggleChange} />
+          <label className="rhinoswitcher__label" htmlFor={name} />
+        </div>
       </div>
     );
   }
