@@ -1,7 +1,7 @@
 import cx    from 'classnames';
 import React from 'react';
 
-import { Checkbox, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
+import { UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class CheckboxGroup extends React.Component {
   static displayName = 'CheckboxGroup';
@@ -16,17 +16,7 @@ class CheckboxGroup extends React.Component {
   renderChildren = () => {
     const { children } = this.props;
 
-    let returnChild = null;
-
-    return React.Children.map(children, (child) => {
-      if (child.type === Checkbox) {
-        returnChild = React.cloneElement(child);
-      } else {
-        returnChild = child;
-      }
-
-      return <UtilityListItem>{returnChild}</UtilityListItem>;
-    });
+    return React.Children.map(children, child => <UtilityListItem>{child}</UtilityListItem>);
   };
 
   render() {

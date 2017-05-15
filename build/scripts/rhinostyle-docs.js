@@ -21555,19 +21555,11 @@ var CheckboxGroup = function (_React$Component) {
       var children = _this.props.children;
 
 
-      var returnChild = null;
-
       return _react2.default.Children.map(children, function (child) {
-        if (child.type === _components.Checkbox) {
-          returnChild = _react2.default.cloneElement(child);
-        } else {
-          returnChild = child;
-        }
-
         return _react2.default.createElement(
           _components.UtilityListItem,
           null,
-          returnChild
+          child
         );
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
