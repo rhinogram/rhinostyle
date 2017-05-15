@@ -2,7 +2,7 @@ import cx from 'classnames';
 import React from 'react';
 import { Link } from 'react-router';
 
-import { Avatar, Icon } from '../components';
+import { Avatar, Icon, UtilitySystem } from '../components';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {
@@ -60,8 +60,8 @@ class DropdownMenuItem extends React.Component {
   render() {
     const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
     const classes = cx('dropdown__menu__item', className, {
-      'is-active': active,
-      disabled,
+      [UtilitySystem.config.classes.active]: active,
+      [UtilitySystem.config.classes.disabled]: disabled,
     });
 
     const renderContent = () =>

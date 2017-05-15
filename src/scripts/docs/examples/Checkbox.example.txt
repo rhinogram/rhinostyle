@@ -2,18 +2,16 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div className="site-example-checkbox">
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Checkboxes</label>
+        <CheckboxGroup label="Checkboxes">
           <Checkbox name="exampleCheckbox31">Checkbox One</Checkbox>
           <Checkbox name="exampleCheckbox32">Checkbox Two</Checkbox>
           <Checkbox name="exampleCheckbox33">Checkbox Three</Checkbox>
-        </div>
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Checkboxes Inline</label>
-          <Checkbox inline name="exampleCheckbox311">Checkbox One</Checkbox>
-          <Checkbox inline name="exampleCheckbox321">Checkbox Two</Checkbox>
-          <Checkbox inline name="exampleCheckbox331">Checkbox Three</Checkbox>
-        </div>
+        </CheckboxGroup>
+        <CheckboxGroup label="Checkboxes (inline)" inline>
+          <Checkbox isChecked name="exampleCheckbox34">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox35">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox36">Checkbox Three</Checkbox>
+        </CheckboxGroup>
       </div>
     );
   }

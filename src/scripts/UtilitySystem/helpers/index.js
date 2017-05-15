@@ -20,6 +20,7 @@ export const config = {
   classes: {
     open: 'is-open',
     active: 'is-active',
+    disabled: 'is-disabled',
     hidden: 'is-hidden',
     uHidden: 'u-hidden',
   },

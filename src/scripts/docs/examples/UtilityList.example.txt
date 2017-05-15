@@ -1,0 +1,14 @@
+class ComponentExample extends React.Component {
+  render() {
+    return (
+      <UtilityList space>
+        <UtilityListItem>Item 1</UtilityListItem>
+        <UtilityListItem>Item 2</UtilityListItem>
+        <UtilityListItem>Item 3</UtilityListItem>
+        <UtilityListItem>Item 4</UtilityListItem>
+        <UtilityListItem>Item 5</UtilityListItem>
+      </UtilityList>
+    );
+  }
+}
+ReactDOM.render(<ComponentExample />, mountNode);

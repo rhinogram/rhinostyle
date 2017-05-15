@@ -2,8 +2,9 @@ import Playground from 'component-playground';
 import React      from 'react';
 import ReactDOM   from 'react-dom';
 
-import { Button, Icon, UtilityInlineGrid } from '../components';
+import { Button, Icon, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 import utilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
+import utilityListExample from './examples/UtilityList.example.txt';
 
 const utilityInlineGridDocs = {
   align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
@@ -15,6 +16,16 @@ const utilityInlineGridScope = {
   Button,
   Icon,
   UtilityInlineGrid,
+};
+
+const utilityListDocs = {
+  space: '[Optional] - List items have space between them',
+};
+const utilityListScope = {
+  React,
+  ReactDOM,
+  UtilityList,
+  UtilityListItem,
 };
 
 const UtilityComponentsApp = () =>
@@ -32,6 +43,15 @@ const UtilityComponentsApp = () =>
       </div>
       <h3 className="site-subheadline">Inline Grid Playground</h3>
       <Playground theme="default" docClass={UtilityInlineGrid} propDescriptionMap={utilityInlineGridDocs} codeText={utilityInlineGridExample} scope={utilityInlineGridScope} noRender={false} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">List</h3>
+      <div className="u-m-b-large">
+        <p>Create block-level lists that reset default <code>&lt;ul&gt;</code> styles.</p>
+      </div>
+      <h3 className="site-subheadline">List Playground</h3>
+      <Playground theme="default" docClass={UtilityList} propDescriptionMap={utilityListDocs} codeText={utilityListExample} scope={utilityListScope} noRender={false} />
     </section>
   </div>;
 

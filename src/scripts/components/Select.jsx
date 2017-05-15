@@ -1,6 +1,8 @@
 import cx    from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 class Select extends React.Component {
   static displayName = 'RhinoSelect';
 
@@ -54,6 +56,7 @@ class Select extends React.Component {
 
     const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron', {
       'form__control--error': validationMessage,
+      [UtilitySystem.config.classes.disabled]: disabled,
     });
 
     const formGroupClasses = cx('form__group', className);

@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { MessageBox, Button, Checkbox, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea } from '../components';
+import { MessageBox, Button, Checkbox, CheckboxGroup, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 import inputExample from './examples/Input.example.txt';
 import selectExample from './examples/Select.example.txt';
 import textareaExample from './examples/Textarea.example.txt';
@@ -16,6 +16,7 @@ const inputDocs  = {
   autoCapitalize:     '[Optional] - Adjust the capitalization settings of an input - [none | sentences | words | characters]',
   autoComplete:       '[Optional] - Adjust the completion settings on an input - [off | on]',
   clear:              '[Optional] - Form control gets a clear value button',
+  disabled:  '[Optional] - Disable the input',
   explanationMessage: '[Optional] - Explanation message to help user',
   initialValue:       '[Optional] - Any initial value for the input',
   label:              '[Optional] - A label for the input',
@@ -38,6 +39,7 @@ const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
   options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number, value: string }',
+  disabled:  '[Optional] - Disable the select',
   required: '[Optional] - Field is required and asterisk is added to label',
   onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
   selected: '[Optional] - String that pre-selects an option',
@@ -62,6 +64,7 @@ const textareaDocs  = {
   label:              '[Optional] - A label for the textarea',
   maxCharacters:      '[Optional] - Set a maximum character limit in order to display character count',
   name:               '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  disabled:  '[Optional] - Disable the textarea',
   onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the textarea',
   required:           '[Optional] - Field is required and asterisk is added to label',
@@ -75,6 +78,7 @@ const textareaScope = {
 
 const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
+  disabled:  '[Optional] - Disable the textarea',
   name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
   placeholder:   '[Optional] - Any placeholder text you want in the textarea',
   initialValue:  '[Optional] - Any initial value for the textarea',
@@ -88,8 +92,8 @@ const messageBoxScope = {
 };
 
 const checkboxDocs  = {
-  inline:    '[Optional] - Inline the checkboxes',
   isChecked: '[Optional] - Set initial checked state',
+  disabled:  '[Optional] - Disable the checkbox',
   name:      '[Required] - An id, and label for the checkbox',
   onClick:   '[Optional] - A function you want to trigger when the checkbox is toggled',
 };
@@ -97,11 +101,16 @@ const checkboxScope = {
   React,
   ReactDOM,
   Checkbox,
+  CheckboxGroup,
+  UtilityInlineGrid,
+  UtilityList,
+  UtilityListItem,
 };
 
 const radioDocs  = {
-  inline:        '[Optional] - Inline the radios',
   name:          '[Optional] - The name, and the basis of the id for the radio',
+  disabled:  '[Optional] - Disable the radio button',
+  inline: '[Optional] - Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
   onChange:      '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
   value:         '[Optional] - A value for the radio',
@@ -111,12 +120,15 @@ const radioScope = {
   ReactDOM,
   RadioGroup,
   Radio,
+  UtilityList,
+  UtilityListItem,
 };
 
 const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',
   disabled:  '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
+  label:     '[Optional] - A label for the switch',
   name:      '[Optional] - The name, and the basis of the id for the switch',
 };
 const switchScope = {
@@ -140,40 +152,21 @@ const FormApp = () =>
         <Select name="exampleSelect1" label="Select" options={selectOpts} required />
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
-        <div className="form__group">
-          <label htmlFor="checkboxes" className="u-block">Checkboxes</label>
-          <Checkbox inline name="exampleCheckbox1">Checkbox One</Checkbox>
-          <Checkbox inline name="exampleCheckbox2">Checkbox Two</Checkbox>
-          <Checkbox inline name="exampleCheckbox3">Checkbox Three</Checkbox>
-        </div>
+        <CheckboxGroup label="Checkboxes">
+          <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
+        </CheckboxGroup>
         <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
         </RadioGroup>
-        <div className="form__group">
-          <label htmlFor="switcher" className="u-block">Switcher</label>
-          <RhinoSwitch name="exampleSwitch1" />
-        </div>
-        <div className="u-text-right">
+        <RhinoSwitch label="Switcher" name="exampleSwitch1" />
+        <div className="form__group u-text-right">
           <Button type="primary">Submit Form</Button>
         </div>
       </form>
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Form Utilities</h3>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Inline Form</h5>
-        <p className="site-copy">Wrap elements you want inlined with <code>form__inline</code> class.</p>
-        <form className="form">
-          <div className="form__inline">
-            <Input name="exampleEmail2" label="Email Address" placeholder="Enter email" type="email" />
-            <Input name="examplePassword2" label="Password" placeholder="Password" type="password" />
-            <Button type="primary">Sign In</Button>
-          </div>
-        </form>
-      </div>
     </section>
 
     <section className="site-section">
@@ -247,19 +240,23 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox</h3>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Rhinobox</h5>
-        <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
+      <h5 className="site-miniheadline">Rhinobox</h5>
+      <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
+      <p><strong>Note:</strong> Regardless of the amount, always wrap checkboxes in the <code>&lt;CheckboxGroup&gt;</code> component for proper spacing and the availability of the <code>label</code> property.</p>
+      <CheckboxGroup>
         <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
         <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
         <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
-      </div>
-      <div>
-        <h5 className="site-miniheadline">Inline Rhinobox</h5>
-        <p className="site-copy">Add the <code>inline</code> modifier to create inline checkboxes.</p>
-        <Checkbox inline name="exampleCheckbox21">Checkbox One</Checkbox>
-        <Checkbox inline isChecked name="exampleCheckbox22">Checkbox Two</Checkbox>
-        <Checkbox inline isChecked name="exampleCheckbox23">Checkbox Three</Checkbox>
+      </CheckboxGroup>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Inline</h5>
+        <p className="site-copy">To place checkboxes inline that wrap with automagic spacing, you can add the <code>inline</code> property to the <code>&lt;CheckboxGroup&gt;</code> component.</p>
+        <CheckboxGroup inline>
+          <Checkbox isChecked name="exampleCheckbox17">Checkbox One</Checkbox>
+          <Checkbox name="exampleCheckbox18">Checkbox Two</Checkbox>
+          <Checkbox name="exampleCheckbox19">Checkbox Three</Checkbox>
+        </CheckboxGroup>
       </div>
     </section>
 
@@ -270,19 +267,19 @@ const FormApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Radio</h3>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Rhinodio</h5>
-        <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
-        <RadioGroup name="exampleRadio2" label="Radios" selectedValue="2">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
-        </RadioGroup>
-      </div>
-      <div className="u-m-b-large">
-        <h5 className="site-miniheadline">Inline Rhinodio</h5>
-        <p className="site-copy">Add the <code>inline</code> property to create inline radios.</p>
-        <RadioGroup inline name="exampleRadio3" label="Radios" selectedValue="2">
+      <h5 className="site-miniheadline">Rhinodio</h5>
+      <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
+      <p><strong>Note:</strong> Regardless of the amount, always wrap radio options in the <code>&lt;RadioGroup&gt;</code> component for proper spacing, <code>name</code> attribute, and the availability of the <code>label</code> property.</p>
+      <RadioGroup name="exampleRadio2" selectedValue="2">
+        <Radio value="1">Radio One</Radio>
+        <Radio value="2">Radio Two</Radio>
+        <Radio value="3">Radio Three</Radio>
+      </RadioGroup>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Inline</h5>
+        <p className="site-copy">To place radios inline that wrap with automagic spacing, you can add the <code>inline</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
+        <RadioGroup inline name="exampleRadio4" selectedValue="2">
           <Radio value="1">Radio One</Radio>
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
@@ -313,8 +310,10 @@ const FormApp = () =>
       <h3 className="site-subheadline">Switcher</h3>
       <h5 className="site-miniheadline">Rhinoswitcher</h5>
       <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the <code>disabled</code> property.</p>
-      <RhinoSwitch name="rhinoswitch2" className="u-m-r-small" isChecked />
-      <RhinoSwitch name="rhinoswitch3" isChecked disabled />
+      <UtilityInlineGrid>
+        <RhinoSwitch name="rhinoswitch2" isChecked />
+        <RhinoSwitch name="rhinoswitch3" isChecked disabled />
+      </UtilityInlineGrid>
     </section>
 
     <section className="site-section">

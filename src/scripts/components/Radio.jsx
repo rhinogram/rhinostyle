@@ -1,12 +1,13 @@
 import cx from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 const Radio = (props) => {
-  const { className, disabled, inline, name, onChange, value } = props;
+  const { className, disabled, name, onChange, value } = props;
   const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
   const classes = cx('rhinodio', className, {
-    'rhinodio--inline':   inline,
-    'rhinodio--disabled': disabled,
+    [UtilitySystem.config.classes.disabled]: disabled,
   });
 
   return (
@@ -25,7 +26,6 @@ Radio.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
   disabled: React.PropTypes.bool,
-  inline: React.PropTypes.bool,
   name: React.PropTypes.string,
   onChange: React.PropTypes.func,
   selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
@@ -34,7 +34,6 @@ Radio.propTypes = {
 
 Radio.defaultProps = {
   disabled: false,
-  inline: false,
   onChange() {
     return true;
   },

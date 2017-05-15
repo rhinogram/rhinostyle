@@ -1,7 +1,7 @@
 import cx    from 'classnames';
 import React from 'react';
 
-import { Radio } from '../components';
+import { Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class RadioGroup extends React.Component {
   static displayName = 'RhinodioGroup';
@@ -45,7 +45,7 @@ class RadioGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children, inline, name } = this.props;
+    const { children, name } = this.props;
     const { selectedValue } = this.state;
 
     let returnChild = null;
@@ -66,33 +66,32 @@ class RadioGroup extends React.Component {
         returnChild = React.cloneElement(child, {
           onChange,
           selectedValue,
-          inline,
           name,
         });
       } else {
         returnChild = child;
       }
 
-      return returnChild;
+      return <UtilityListItem>{returnChild}</UtilityListItem>;
     });
   };
 
   render() {
-    const { className, label } = this.props;
+    const { className, inline, label } = this.props;
     const classes = cx('form__group', className);
 
-    const showLabel = () => {
-      if (label) {
-        return <label className="u-block">{label}</label>; // eslint-disable-line jsx-a11y/label-has-for
-      }
+    // Show label or not based on prop value
+    const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
 
-      return false;
-    };
+    // Wrap items in either `<UtilityInlineGrid>` or `<UtilityList>` based on prop
+    const render = inline ?
+      <UtilityInlineGrid>{this.renderChildren()}</UtilityInlineGrid>
+      : <UtilityList space>{this.renderChildren()}</UtilityList>;
 
     return (
       <div className={classes}>
-        {showLabel()}
-        {this.renderChildren()}
+        {showLabel}
+        {render}
       </div>
     );
   }

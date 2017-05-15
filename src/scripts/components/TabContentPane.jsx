@@ -1,11 +1,13 @@
 import cx     from 'classnames';
 import React  from 'react';
 
+import { UtilitySystem } from '../components';
+
 const TabContentPane = (props) => {
   const { className, active } = props;
 
   const paneClasses = cx('tabs-content__pane', className, {
-    active,
+    [UtilitySystem.config.classes.active]: active,
   });
 
   return (

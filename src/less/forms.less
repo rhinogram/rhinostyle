@@ -3,43 +3,41 @@
 //
 
 
-@cursor-disabled: not-allowed; // disabled cursor for form controls and buttons.
-
 @input-bg: @global-color-white;
 @input-bg-disabled: @global-color-gray-lightest;
 @input-border: @global-border-color-base;
 @input-border-focus: #66afe9;
 @input-border-radius: @global-border-radius;
 @input-color: @global-font-color;
-@input-color-placeholder: darken(@global-color-gray-light, 4%);
-@input-group-addon-bg: @global-color-gray-lighter; // bg color for textual input addons
-@input-group-addon-border-color: @input-border; // border color for textual input addons
+@input-color-placeholder: @global-color-gray;
+@input-group-addon-bg: @global-color-panel;
+@input-group-addon-border-color: @input-border;
 
-// Form control `.form-control` heights
-
-@input-height-base: @button-height-base;
-
+@input-height-base: @global-height;
 @input-padding-base: @button-padding-base;
 
-@form-addon-item-bg: @global-color-gray-lightest;
+@form-addon-item-bg: @global-color-panel;
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
 @form-element-color: @global-color-primary;
 @form-group-spacing: (@global-whitespace-base + @global-whitespace-xsmall);
 
-@legend-color: @global-color-gray-dark;
-@legend-border-color: #e5e5e5;
+@legend-color: @global-font-color-muted;
+@legend-border-color: @input-border;
 
-@rhinobox-rhinodio-margin: @global-whitespace-small;
+@rhinobox-rhinodio-size: 2rem;
+@rhinodio-offset: 0.6rem;
 
+@switcher-height: 3.2rem;
+@switcher-width: 7rem;
+@switcher-transition: all 0.25s @global-trans-timing-cubic;
 @switcher-border-radius: @global-border-radius;
-@switcher-height: 2.6rem;
-@switcher-state-line-height: @switcher-height;
-@switcher-state-padding: 2.2rem;
-@switcher-toggler-height: 2.2rem;
-@switcher-toggler-margin: 0.2rem;
-@switcher-toggler-width: 2.2rem;
-@switcher-width: 6rem;
+@switcher-background: lighten(@global-font-color, 25);
+@switcher-background-active: @global-color-secondary;
+@switcher-button-size: (@switcher-height - @global-whitespace-small);
+@switcher-button-background: linear-gradient(to bottom right, @input-bg, darken(@input-bg, 7.5));
+@switcher-button-offset: @global-whitespace-xsmall;
+@switcher-text-offset: @global-whitespace-small;
 
 
 //
@@ -225,7 +223,7 @@ textarea {
 }
 
 label {
-  color: @global-color-gray-dark;
+  color: @global-font-color;
   display: inline-block;
   font-weight: @global-font-weight-bold;
   margin-bottom: @global-whitespace-small;
@@ -325,64 +323,6 @@ input[type='checkbox']:focus {
 
 
 //
-// Form Inline
-//
-
-
-.form__inline {
-  // Kick in the inline
-  @media (min-width: @global-screen-small-min) {
-    // Inline-flex all the things for 'inline'
-    .form__group {
-      align-items: center;
-      display: inline-flex;
-      margin-right: @global-whitespace-small;
-      vertical-align: middle;
-
-      + .form__group {
-        margin-top: 0;
-      }
-
-      > label {
-        margin-bottom: 0;
-        margin-right: @global-whitespace-small;
-      }
-    }
-
-    .form__control {
-      display: inline-block;
-      vertical-align: middle;
-      width: auto; // Prevent labels from stacking above inputs in `.form__group`
-    }
-
-    // Make static controls behave like regular ones
-    .form__control--static {
-      display: inline-block;
-    }
-
-    // Remove default margin on radios/checkboxes that were used for stacking, and then undo the floating of radios and checkboxes to match.
-    .rhinodio,
-    .rhinobox {
-      display: inline-block;
-      margin-bottom: 0;
-      margin-top: 0;
-      vertical-align: middle;
-
-      label {
-        padding-left: 0;
-      }
-    }
-
-    .rhinodio input[type='radio'],
-    .rhinobox input[type='checkbox'] {
-      margin-left: 0;
-      position: relative;
-    }
-  }
-}
-
-
-//
 // Form Add-On
 //
 
@@ -417,7 +357,6 @@ input[type='checkbox']:focus {
   white-space: nowrap;
   .mixin-addon-size(@input-height-base; (@global-whitespace-small + (@global-whitespace-xsmall / 2)); @global-font-size-base);
 
-  &.disabled,
   &[disabled] {
     opacity: @global-opacity-disabled;
   }
@@ -519,8 +458,7 @@ input[type='checkbox']:focus {
 
 
 .form__control {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  appearance: none;
   align-items: center;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -546,20 +484,12 @@ input[type='checkbox']:focus {
     .mixin-tab-focus();
   }
 
-  &.disabled,
   &[disabled],
-  //&[readonly],
   fieldset[disabled] & {
     background-color: @input-bg-disabled;
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     opacity: @global-opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
-
- /* &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-  }*/
 
   textarea& {
     height: auto;
@@ -633,7 +563,6 @@ input[type='checkbox']:focus {
 
 
 .form__group {
-
   & + & {
     margin-top: @form-group-spacing;
   }
@@ -716,21 +645,26 @@ input::-webkit-input-placeholder {
 input[type='radio'],
 input[type='checkbox'] {
   &[disabled],
-  &.disabled,
   fieldset[disabled] & {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     opacity: @global-opacity-disabled;
   }
 }
 
 .rhinobox,
 .rhinodio {
-  display: block;
-  margin: @rhinobox-rhinodio-margin 0;
+  display: flex;
+  align-items: center;
   position: relative;
+  min-height: @global-line-height-computed; // Ensure the input doesn't jump when there is no text
 
   input {
     .mixin-sr-only();
+
+    &[disabled] + label {
+      cursor: not-allowed;
+      opacity: @global-opacity-disabled;
+    }
   }
 
   label {
@@ -738,23 +672,15 @@ input[type='checkbox'] {
     cursor: pointer;
     font-weight: normal;
     margin-bottom: 0;
-    min-height: @global-line-height-computed; // Ensure the input doesn't jump when there is no text
-    padding-left: 2.6rem;
+    padding-left: (@rhinobox-rhinodio-size + @global-whitespace-xsmall);
     position: relative;
     user-select: none;
   }
 }
 
-.rhinobox--disabled,
-.rhinodio--disabled {
-  label {
-    cursor: @cursor-disabled;
-    opacity: @global-opacity-disabled;
-  }
-}
+
 
 .rhinobox {
-  align-items: center;
   padding-left: 0;
 
   input {
@@ -763,7 +689,7 @@ input[type='checkbox'] {
       background-image: url('@{svg-sprite}#icon-checkmark');
       background-position: center center;
       background-repeat: no-repeat;
-      background-size: 1.6rem 1.6rem;
+      background-size: 80% 80%;
       border-color: @form-element-color;
       fill: @global-color-white;
     }
@@ -775,15 +701,14 @@ input[type='checkbox'] {
       border: 1px solid @global-border-color-base;
       content: '';
       display: inline-block;
-      height: 2rem;
+      height: @rhinobox-rhinodio-size;
       left: 0;
-      line-height: 1.3rem;
-      padding: 0;
       position: absolute;
       speak: none;
-      top: 0.1rem;
+      top: 50%;
+      transform: translateY(-50%);
       transition: background-color 0.25s @global-trans-timing-cubic;
-      width: 2rem;
+      width: @rhinobox-rhinodio-size;
     }
   }
 }
@@ -793,7 +718,7 @@ input[type='checkbox'] {
 
   input {
     &:checked+label::after {
-      transform: scale(1);
+      transform: translateY(-50%) scale(1);
     }
   }
 
@@ -802,13 +727,14 @@ input[type='checkbox'] {
       background-color: @form-element-color;
       border-radius: 50%;
       content: '';
-      height: 1.4rem;
-      left: 0.3rem;
+      height: (@rhinobox-rhinodio-size - @rhinodio-offset);
+      left: (@rhinodio-offset / 2);
       position: absolute;
-      top: 0.4rem;
-      transform: scale(0);
-      transition: transform 0.25s;
-      width: 1.4rem;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      transition: transform 0.25s @global-trans-timing-cubic;
+      transform-origin: center center;
+      width: (@rhinobox-rhinodio-size - @rhinodio-offset);
     }
 
     &::before {
@@ -817,21 +743,15 @@ input[type='checkbox'] {
       border-radius: 50%;
       content: '';
       display: inline-block;
-      height: 2rem;
+      height: @rhinobox-rhinodio-size;
       left: 0;
       position: absolute;
       speak: none;
-      top: 0.1rem;
-      width: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: @rhinobox-rhinodio-size;
     }
   }
-}
-
-.rhinobox--inline,
-.rhinodio--inline {
-  display: inline-block;
-  margin: (@rhinobox-rhinodio-margin / 2) @global-whitespace-base (@rhinobox-rhinodio-margin / 2) 0;
-  //margin: 0.6rem @global-whitespace-base 0.6rem 0; (Zach)
 }
 
 
@@ -871,142 +791,70 @@ input[type='checkbox'] {
 
 .rhinoswitcher {
   display: inline-block;
-  height: @switcher-height;
-  margin-bottom: @global-whitespace-small;
-  margin-top: @global-whitespace-small;
-  user-select: none;
-  width: @switcher-width;
-}
+  vertical-align: top;
 
+  label {
+    position: relative;
+    display: block;
+    height: @switcher-height;
+    width: @switcher-width;
+    border-radius: (@switcher-height / 2);
+    background: @switcher-background;
+    user-select: none;
+    cursor: pointer;
+    margin: 0;
+    transition: @switcher-transition;
 
-//
-// Rhinoswitcher Modifiers
-//
+    &::before {
+      content: 'OFF';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: @switcher-text-offset;
+      font-size: @global-font-size-small;
+      z-index: 1;
+      transition: @switcher-transition;
+      color: @global-color-white;
+    }
 
-
-.rhinoswitcher--disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-
-//
-// Rhinoswitcher Icon
-//
-
-
-.rhinoswitcher__icon {
-  font-size: @global-font-size-base + 0.2rem;
-  top: 0;
-}
-
-
-//
-// Rhinoswitcher Inner
-//
-
-
-.rhinoswitcher__inner {
-  font-size: 0;
-  height: @switcher-height;
-  transform: translateX(-50%);
-  transition: transform 0.25s @global-trans-timing-cubic;
-  width: 200%;
-}
-
-
-//
-// Rhinoswitcher Input
-//
-
-
-.rhinoswitcher__input {
-  display: none;
-}
-
-.rhinoswitcher__input:checked ~ .rhinoswitcher__label {
-  .rhinoswitcher__inner {
-    transform: translateX(0);
+    &::after {
+      content: '';
+      position: absolute;
+      left: @switcher-button-offset;
+      background: @switcher-button-background;
+      border-radius: 50%;
+      width: @switcher-button-size;
+      height: @switcher-button-size;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      transition: @switcher-transition;
+    }
   }
 
-  .rhinoswitcher__off::after {
-    transform: translateX(-@switcher-toggler-width - (@switcher-toggler-margin * 2));
+  input {
+    .mixin-sr-only();
+
+    &[disabled] + label {
+      opacity: @global-opacity-disabled;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &:checked {
+      + label {
+        background: @switcher-background-active;
+
+        &::before {
+          content: 'ON';
+          right: auto;
+          left: @switcher-text-offset;
+        }
+
+        &::after {
+          left: (@switcher-width - @switcher-button-size - @switcher-button-offset);
+        }
+      }
+    }
   }
-}
-
-
-//
-// Rhinoswitcher Label
-//
-
-
-.rhinoswitcher__label {
-  border-radius: @switcher-border-radius;
-  cursor: pointer;
-  display: block;
-  height: @switcher-height;
-  margin-bottom: 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  word-spacing: 0;
-  z-index: 20;
-}
-
-
-//
-// Rhinoswitcher On/Off
-//
-
-
-.rhinoswitcher__off,
-.rhinoswitcher__on {
-  align-items: center;
-  color: @global-color-white;
-  display: inline-flex;
-  font-size: @global-font-size-small;
-  height: 100%;
-  justify-content: center;
-  line-height: @switcher-state-line-height;
-  position: relative;
-  text-align: center;
-  width: 50%;
-}
-
-.rhinoswitcher__off {
-  background-color: @global-color-gray-light;
-  padding-left: @switcher-state-padding;
-  z-index: 2;
-
-  &::after {
-    content: '';
-    .rhinoswitcher__toggler;
-  }
-}
-
-.rhinoswitcher__on {
-  background-color: @form-element-color;
-  padding-right: @switcher-state-padding;
-}
-
-
-//
-// Rhinoswitcher Toggler
-//
-
-
-.rhinoswitcher__toggler {
-  background-color: @global-color-white;
-  border-radius: 0.2rem;
-  height: @switcher-toggler-height;
-  left: 0;
-  margin: @switcher-toggler-margin;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  transform: translateX(0);
-  transition: transform 0.25s @global-trans-timing-cubic;
-  width: @switcher-toggler-width;
-  z-index: 10;
 }

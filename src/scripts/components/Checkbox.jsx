@@ -1,6 +1,8 @@
 import cx    from 'classnames';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 class Checkbox extends React.Component {
   static displayName = 'Rhinobox';
 
@@ -8,14 +10,12 @@ class Checkbox extends React.Component {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
-    inline: React.PropTypes.bool,
     isChecked: React.PropTypes.bool,
     name: React.PropTypes.string.isRequired,
     onClick: React.PropTypes.func,
   }
 
   static defaultProps = {
-    inline:    false,
     isChecked: false,
     onClick() {
       return true;
@@ -45,12 +45,11 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { className, disabled, inline, name } = this.props;
+    const { className, disabled, name } = this.props;
     const { checked } = this.state;
 
     const classes = cx('rhinobox', className, {
-      'rhinobox--inline':   inline,
-      'rhinobox--disabled': disabled,
+      [UtilitySystem.config.classes.disabled]: disabled,
     });
 
     return (

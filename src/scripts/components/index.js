@@ -5,6 +5,7 @@ import BucketBody           from './BucketBody';
 import BucketHeader         from './BucketHeader';
 import Button               from './Button';
 import Checkbox             from './Checkbox';
+import CheckboxGroup from './CheckboxGroup';
 import Close                from './Close';
 import Cover                from './Cover';
 import CoverBody            from './CoverBody';
@@ -48,6 +49,8 @@ import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
 import UtilityInlineGrid    from './UtilityInlineGrid';
+import UtilityList    from './UtilityList';
+import UtilityListItem from './UtilityListItem';
 
 import { CoverSystem } from '../CoverSystem';
 import { NotificationActions } from '../NotificationSystem';
@@ -66,6 +69,7 @@ export {
   BucketHeader,
   Button,
   Checkbox,
+  CheckboxGroup,
   Close,
   Cover,
   CoverSystem,
@@ -112,5 +116,7 @@ export {
   Textarea,
   Toast,
   UtilityInlineGrid,
+  UtilityList,
+  UtilityListItem,
   UtilitySystem,
 };

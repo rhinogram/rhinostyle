@@ -1,12 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div className="site-example-switch">
-        <div className="form__group">
-          <label htmlFor="" className="u-block">Switcher</label>
-          <RhinoSwitch name="exampleSwitch4" />
-        </div>
-      </div>
+      <RhinoSwitch label="Switcher" name="exampleSwitch4" />
     );
   }
 }

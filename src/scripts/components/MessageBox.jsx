@@ -7,6 +7,7 @@ class MessageBox extends React.Component {
 
   static propTypes = {
     className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
     label: React.PropTypes.string,
     name: React.PropTypes.string,
     onClick: React.PropTypes.func,
@@ -131,7 +132,7 @@ class MessageBox extends React.Component {
   }
 
   render() {
-    const { required, rows, className, label, name, placeholder, maxHeight } = this.props;
+    const { required, rows, className, disabled, label, name, placeholder, maxHeight } = this.props;
     const textAreaClasses = cx('form__control', 'u-overflow-y-auto');
     const formGroupClasses = cx('form__group', className);
     const messageBoxStyle = {
@@ -148,7 +149,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} ref={ref => (this.rhinoTextArea = ref)} />
+        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );
   }
