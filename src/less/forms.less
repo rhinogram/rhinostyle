@@ -29,7 +29,7 @@
 @rhinodio-offset: 0.6rem;
 
 @switcher-height: 3.2rem;
-@switcher-width: 7rem;
+@switcher-width: 5rem;
 @switcher-transition: all 0.25s @global-trans-timing-cubic;
 @switcher-border-radius: @global-border-radius;
 @switcher-background: lighten(@global-font-color, 25);
@@ -805,18 +805,6 @@ input[type='checkbox'] {
     margin: 0;
     transition: @switcher-transition;
 
-    &::before {
-      content: 'OFF';
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: @switcher-text-offset;
-      font-size: @global-font-size-small;
-      z-index: 1;
-      transition: @switcher-transition;
-      color: @global-color-white;
-    }
-
     &::after {
       content: '';
       position: absolute;
@@ -844,12 +832,6 @@ input[type='checkbox'] {
     &:checked {
       + label {
         background: @switcher-background-active;
-
-        &::before {
-          content: 'ON';
-          right: auto;
-          left: @switcher-text-offset;
-        }
 
         &::after {
           left: (@switcher-width - @switcher-button-size - @switcher-button-offset);

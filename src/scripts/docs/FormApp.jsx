@@ -174,7 +174,7 @@ const FormApp = () =>
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Common Input</h5>
         <Input name="exampleInputEmail31" label="Email Address" type="email" required />
-        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="text" initialValue="Ian" />
+        <Input name="exampleInputName31" label="First Name" placeholder="First Name" type="text" initialValue="Craig" />
         <Input name="exampleInputPassword31" label="Password" placeholder="Password" type="password" />
       </div>
       <div className="u-m-b-large">
