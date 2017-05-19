@@ -14924,13 +14924,13 @@ var FormApp = function FormApp() {
       _react2.default.createElement(
         'p',
         { className: 'site-copy' },
-        'We are using a light-weight plugin, ',
+        'We are using the ',
         _react2.default.createElement(
           'a',
-          { href: 'http://www.jacklmoore.com/autosize/', target: '_blank', rel: 'noopener noreferrer' },
-          'Jack Moore\'s Autosize'
+          { href: 'https://github.com/andreypopp/react-textarea-autosize', target: '_blank', rel: 'noopener noreferrer' },
+          'react-textarea-autosize'
         ),
-        ', with custom styling for the autogrow functionality.'
+        ' package, with custom styling for the autogrow functionality.'
       ),
       _react2.default.createElement(_components.MessageBox, { label: 'Message Box', name: 'exampleMessageBoxarea2', placeholder: 'Enter some text' })
     ),
@@ -23791,10 +23791,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _reactTextareaAutosize = __webpack_require__(814);
-
-var _reactTextareaAutosize2 = _interopRequireDefault(_reactTextareaAutosize);
-
 var _classnames = __webpack_require__(5);
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -23802,6 +23798,10 @@ var _classnames2 = _interopRequireDefault(_classnames);
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactTextareaAutosize = __webpack_require__(814);
+
+var _reactTextareaAutosize2 = _interopRequireDefault(_reactTextareaAutosize);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23875,22 +23875,6 @@ var MessageBox = function (_React$Component) {
       }
     }
   }, {
-    key: 'dispatchEvent',
-    value: function dispatchEvent(EVENT_TYPE, defer) {
-      var _this2 = this;
-
-      var event = document.createEvent('Event');
-      event.initEvent(EVENT_TYPE, true, false);
-      var dispatch = function dispatch() {
-        return _this2.rhinoTextArea.dispatchEvent(event);
-      };
-      if (defer) {
-        setTimeout(dispatch);
-      } else {
-        dispatch();
-      }
-    }
-  }, {
     key: '_getValue',
     value: function _getValue(props) {
       if (props) {
@@ -23904,7 +23888,7 @@ var MessageBox = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       var _props = this.props,
           required = _props.required,
@@ -23944,7 +23928,7 @@ var MessageBox = function (_React$Component) {
         { className: formGroupClasses },
         showLabel(),
         _react2.default.createElement(_reactTextareaAutosize2.default, { rows: rows, placeholder: placeholder, className: textAreaClasses, style: messageBoxStyle, value: this.state.value, onKeyPress: this._handleKeyPress, onChange: this._handleChange, onClick: this._handleClick, disabled: disabled, ref: function ref(_ref2) {
-            return _this3.rhinoTextArea = _ref2;
+            return _this2.rhinoTextArea = _ref2;
           } })
       );
     }
