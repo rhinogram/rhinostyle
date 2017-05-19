@@ -1,6 +1,6 @@
-import autosize from 'autosize';
 import cx from 'classnames';
 import React from 'react';
+import Textarea from 'react-textarea-autosize';
 
 class MessageBox extends React.Component {
   static displayName = 'RhinoMessageBox';
@@ -43,21 +43,12 @@ class MessageBox extends React.Component {
   }
 
   componentDidMount() {
-    autosize(this.rhinoTextArea);
-    if (this.onResize) {
-      this.rhinoTextArea.addEventListener('autosize:resized', this.onResize);
-    }
-
     if (this.props.focus && this.rhinoTextArea) {
       this.rhinoTextArea.focus();
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this._getValue(nextProps) !== this._getValue(this.props)) {
-      this.dispatchEvent('autosize:update', true);
-    }
-
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         value: nextProps.initialValue,
@@ -68,36 +59,6 @@ class MessageBox extends React.Component {
   componentDidUpdate(prevProps) {
     if ((prevProps.focus !== this.props.focus) && this.props.focus) {
       this.rhinoTextArea.focus();
-    }
-
-    // Value set to empty string
-    const valueCleared = prevProps.initialValue && !this.props.initialValue;
-    // Value changed by more than one character (not using keyboard)
-    // Checking length instead of values so we can more appropriately determine if we should trigger an update to the autoresize package
-    const valueSet = Math.abs(prevProps.initialValue.length - this.props.initialValue.length) > 1;
-
-    // Resize textbox when value has been set programmatically
-    if (valueCleared || valueSet) {
-      autosize.update(this.rhinoTextArea);
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.onResize) {
-      this.rhinoTextArea.removeEventListener('autosize:resized');
-    }
-    this.dispatchEvent('autosize:destroy');
-  }
-
-
-  dispatchEvent(EVENT_TYPE, defer) {
-    const event = document.createEvent('Event');
-    event.initEvent(EVENT_TYPE, true, false);
-    const dispatch = () => this.rhinoTextArea.dispatchEvent(event);
-    if (defer) {
-      setTimeout(dispatch);
-    } else {
-      dispatch();
     }
   }
 
@@ -149,7 +110,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
+        <Textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );
   }

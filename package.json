@@ -77,7 +77,6 @@
     "url": "https://github.com/rhinogram/rhinostyle"
   },
   "dependencies": {
-    "autosize": "3.0.20",
     "classnames": "2.2.5",
     "flux": "3.1.2",
     "gsap": "1.19.1",
@@ -87,6 +86,7 @@
     "react-datepicker": "0.44.0",
     "react-image-lightbox": "3.4.2",
     "react-onclickoutside": "5.10.0",
-    "react-router": "3.0.2"
+    "react-router": "3.0.2",
+    "react-textarea-autosize": "4.3.2"
   }
 }
