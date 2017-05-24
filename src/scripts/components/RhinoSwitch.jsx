@@ -10,17 +10,34 @@ class RhinoSwitch extends React.Component {
     isChecked: React.PropTypes.bool,
     name: React.PropTypes.string.isRequired,
     label: React.PropTypes.string,
+    onClick: React.PropTypes.func,
   };
 
   static defaultProps = {
+    isChecked: false,
     name: `rhinodioswitcher-${Math.floor(Math.random() * 1000000)}`,
+    onClick() {
+      return true;
+    },
   };
 
   state = {
     checked: this.props.isChecked,
   };
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.isChecked !== this.props.isChecked) {
+      this.setState({
+        checked: newProps.isChecked,
+      });
+    }
+  }
+
   _toggleChecked = () => {
+    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+      this.props.onClick(!this.state.checked);
+    }
+
     this.setState({
       checked: !this.state.checked,
     });
@@ -38,7 +55,7 @@ class RhinoSwitch extends React.Component {
       <div className="form__group">
         {showLabel}
         <div className={classes}>
-          <input type="checkbox" className="rhinoswitcher__input" id={name} defaultChecked={checked} disabled={disabled} onClick={this._toggleChange} />
+          <input type="checkbox" className="rhinoswitcher__input" id={name} checked={checked} disabled={disabled} onChange={this._toggleChecked} />
           <label className="rhinoswitcher__label" htmlFor={name} />
         </div>
       </div>

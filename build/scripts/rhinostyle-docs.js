@@ -24890,6 +24890,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _classnames = __webpack_require__(5);
@@ -24925,6 +24927,10 @@ var RhinoSwitch = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = RhinoSwitch.__proto__ || Object.getPrototypeOf(RhinoSwitch)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       checked: _this.props.isChecked
     }, _this._toggleChecked = function () {
+      if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
+        _this.props.onClick(!_this.state.checked);
+      }
+
       _this.setState({
         checked: !_this.state.checked
       });
@@ -24932,6 +24938,15 @@ var RhinoSwitch = function (_React$Component) {
   }
 
   _createClass(RhinoSwitch, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      if (newProps.isChecked !== this.props.isChecked) {
+        this.setState({
+          checked: newProps.isChecked
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -24957,7 +24972,7 @@ var RhinoSwitch = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: classes },
-          _react2.default.createElement('input', { type: 'checkbox', className: 'rhinoswitcher__input', id: name, defaultChecked: checked, disabled: disabled, onClick: this._toggleChange }),
+          _react2.default.createElement('input', { type: 'checkbox', className: 'rhinoswitcher__input', id: name, checked: checked, disabled: disabled, onChange: this._toggleChecked }),
           _react2.default.createElement('label', { className: 'rhinoswitcher__label', htmlFor: name })
         )
       );
@@ -24973,10 +24988,15 @@ RhinoSwitch.propTypes = {
   disabled: _react2.default.PropTypes.bool,
   isChecked: _react2.default.PropTypes.bool,
   name: _react2.default.PropTypes.string.isRequired,
-  label: _react2.default.PropTypes.string
+  label: _react2.default.PropTypes.string,
+  onClick: _react2.default.PropTypes.func
 };
 RhinoSwitch.defaultProps = {
-  name: 'rhinodioswitcher-' + Math.floor(Math.random() * 1000000)
+  isChecked: false,
+  name: 'rhinodioswitcher-' + Math.floor(Math.random() * 1000000),
+  onClick: function onClick() {
+    return true;
+  }
 };
 exports.default = RhinoSwitch;
 
