@@ -11,7 +11,7 @@ class MessageBox extends React.Component {
     label: React.PropTypes.string,
     name: React.PropTypes.string,
     onClick: React.PropTypes.func,
-    onChange: React.PropTypes.func,
+    onInput: React.PropTypes.func,
     onKeyPress: React.PropTypes.func,
     placeholder: React.PropTypes.string,
     required: React.PropTypes.bool,
@@ -59,8 +59,8 @@ class MessageBox extends React.Component {
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
 
-    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
-      this.props.onChange(event.target.id, event.target.value);
+    if (this.props.onInput && typeof (this.props.onInput === 'function')) {
+      this.props.onInput(event.target.id, event.target.value);
     }
   }
 
@@ -104,7 +104,7 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <Textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} onClick={this._handleClick} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
+        <Textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onInput={this._handleChange} onClick={this._handleClick} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );
   }

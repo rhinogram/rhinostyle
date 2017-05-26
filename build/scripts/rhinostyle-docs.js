@@ -23830,8 +23830,8 @@ var MessageBox = function (_React$Component) {
     }, _this._handleChange = function (event) {
       _this.setState({ value: event.target.value });
 
-      if (_this.props.onChange && _typeof(_this.props.onChange === 'function')) {
-        _this.props.onChange(event.target.id, event.target.value);
+      if (_this.props.onInput && _typeof(_this.props.onInput === 'function')) {
+        _this.props.onInput(event.target.id, event.target.value);
       }
     }, _this._handleClick = function (event) {
       if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
@@ -23920,7 +23920,7 @@ var MessageBox = function (_React$Component) {
         'div',
         { className: formGroupClasses },
         showLabel(),
-        _react2.default.createElement(_reactTextareaAutosize2.default, { rows: rows, placeholder: placeholder, className: textAreaClasses, style: messageBoxStyle, value: this.state.value, onKeyPress: this._handleKeyPress, onChange: this._handleChange, onClick: this._handleClick, disabled: disabled, ref: function ref(_ref2) {
+        _react2.default.createElement(_reactTextareaAutosize2.default, { rows: rows, placeholder: placeholder, className: textAreaClasses, style: messageBoxStyle, value: this.state.value, onKeyPress: this._handleKeyPress, onInput: this._handleChange, onClick: this._handleClick, disabled: disabled, ref: function ref(_ref2) {
             return _this2.rhinoTextArea = _ref2;
           } })
       );
@@ -23937,7 +23937,7 @@ MessageBox.propTypes = {
   label: _react2.default.PropTypes.string,
   name: _react2.default.PropTypes.string,
   onClick: _react2.default.PropTypes.func,
-  onChange: _react2.default.PropTypes.func,
+  onInput: _react2.default.PropTypes.func,
   onKeyPress: _react2.default.PropTypes.func,
   placeholder: _react2.default.PropTypes.string,
   required: _react2.default.PropTypes.bool,
