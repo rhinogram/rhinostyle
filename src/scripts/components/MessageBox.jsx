@@ -36,12 +36,6 @@ class MessageBox extends React.Component {
     value: '',
   };
 
-  componentWillMount() {
-    if (this.props.initialValue) {
-      this.setState({ value: this.props.initialValue.trimRight() });
-    }
-  }
-
   componentDidMount() {
     if (this.props.focus && this.rhinoTextArea) {
       this.rhinoTextArea.focus();
@@ -66,7 +60,7 @@ class MessageBox extends React.Component {
     this.setState({ value: event.target.value });
 
     if (this.props.onChange && typeof (this.props.onChange === 'function')) {
-      this.props.onChange(event.target.id, event.target.value.trimLeft());
+      this.props.onChange(event.target.id, event.target.value);
     }
   }
 

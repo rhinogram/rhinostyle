@@ -23831,7 +23831,7 @@ var MessageBox = function (_React$Component) {
       _this.setState({ value: event.target.value });
 
       if (_this.props.onChange && _typeof(_this.props.onChange === 'function')) {
-        _this.props.onChange(event.target.id, event.target.value.trimLeft());
+        _this.props.onChange(event.target.id, event.target.value);
       }
     }, _this._handleClick = function (event) {
       if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
@@ -23845,13 +23845,6 @@ var MessageBox = function (_React$Component) {
   }
 
   _createClass(MessageBox, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (this.props.initialValue) {
-        this.setState({ value: this.props.initialValue.trimRight() });
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (this.props.focus && this.rhinoTextArea) {
