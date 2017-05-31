@@ -14,7 +14,7 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const rhinostyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 const processors = [
-  autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', '>2%'], cascade: false }),
+  autoprefixer({ cascade: false }),
   cssnano({ zindex: false }),
   flexbugs(),
   sorting(),
