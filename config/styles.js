@@ -14,7 +14,7 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const rhinostyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 const processors = [
-  autoprefixer({ browsers: ['last 2 versions', 'not ie < 11', '>2%'], cascade: false }),
+  autoprefixer({ cascade: false }),
   cssnano({ zindex: false }),
   flexbugs(),
   sorting(),
@@ -40,6 +40,10 @@ export function distStyles() {
   }))
   .pipe($.postcss(processors))
   .pipe($.insert.prepend(rhinostyleVersion))
+  .pipe($.size({
+    showFiles: true,
+    title: 'Dist Styles:',
+  }))
   .pipe(gulp.dest(path.dist))
   .pipe($.duration('Built Dist Styles'))
   .pipe(reload({ stream: true }));
@@ -63,6 +67,10 @@ export function docsStyles() {
   }))
   .pipe($.postcss(processors))
   .pipe($.insert.prepend(rhinostyleVersion))
+  .pipe($.size({
+    showFiles: true,
+    title: 'Doc Styles:',
+  }))
   .pipe(gulp.dest(path.build))
   .pipe($.duration('Built Doc Styles'))
   .pipe(reload({ stream: true }));
