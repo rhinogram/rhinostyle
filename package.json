@@ -5,8 +5,7 @@
   "main": "dist/scripts/rhinostyle.min.js",
   "browserslist": [
     "last 2 versions",
-    "ie 11",
-    ">5%"
+    "ie 11"
   ],
   "scripts": {
     "version": "git pull --tags && gulp && git add -A",
@@ -18,7 +17,7 @@
     "react-dom": ">=15.4.2"
   },
   "devDependencies": {
-    "autoprefixer": "6.7.7",
+    "autoprefixer": "7.1.1",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.0.0",
@@ -85,6 +84,7 @@
     "classnames": "2.2.5",
     "flux": "3.1.2",
     "gsap": "1.19.1",
+    "gulp-size": "2.1.0",
     "keymirror": "0.1.1",
     "moment": "2.18.1",
     "react-custom-scrollbars": "4.1.2",

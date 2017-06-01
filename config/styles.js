@@ -40,6 +40,10 @@ export function distStyles() {
   }))
   .pipe($.postcss(processors))
   .pipe($.insert.prepend(rhinostyleVersion))
+  .pipe($.size({
+    showFiles: true,
+    title: 'Dist Styles:',
+  }))
   .pipe(gulp.dest(path.dist))
   .pipe($.duration('Built Dist Styles'))
   .pipe(reload({ stream: true }));
@@ -63,6 +67,10 @@ export function docsStyles() {
   }))
   .pipe($.postcss(processors))
   .pipe($.insert.prepend(rhinostyleVersion))
+  .pipe($.size({
+    showFiles: true,
+    title: 'Doc Styles:',
+  }))
   .pipe(gulp.dest(path.build))
   .pipe($.duration('Built Doc Styles'))
   .pipe(reload({ stream: true }));

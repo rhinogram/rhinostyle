@@ -37,6 +37,10 @@ export default function icons() {
         dimensionAttributes: false,
       },
     }))
+    .pipe($.size({
+      showFiles: true,
+      title: 'Icons:',
+    }))
     .pipe(gulp.dest(path.dist))
     .pipe(gulp.dest(path.build))
     .pipe($.duration('Built Icons'))
