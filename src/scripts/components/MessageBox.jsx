@@ -38,7 +38,7 @@ class MessageBox extends React.Component {
 
   componentDidMount() {
     if (this.props.focus && this.rhinoTextArea) {
-      this.rhinoTextArea.focus();
+      this.rhinoTextArea._rootDOMNode.focus();
     }
   }
 
@@ -52,7 +52,7 @@ class MessageBox extends React.Component {
 
   componentDidUpdate(prevProps) {
     if ((prevProps.focus !== this.props.focus) && this.props.focus) {
-      this.rhinoTextArea.focus();
+      this.rhinoTextArea._rootDOMNode.focus();
     }
   }
 

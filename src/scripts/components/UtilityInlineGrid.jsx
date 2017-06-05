@@ -12,9 +12,9 @@ const UtilityInlineGrid = (props) => {
   });
 
   return (
-    <ul className={classes}>
+    <div className={classes}>
       {props.children}
-    </ul>
+    </div>
   );
 };
 

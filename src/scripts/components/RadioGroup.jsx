@@ -45,7 +45,7 @@ class RadioGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children, name } = this.props;
+    const { children, name, inline } = this.props;
     const { selectedValue } = this.state;
 
     let returnChild = null;
@@ -72,7 +72,7 @@ class RadioGroup extends React.Component {
         returnChild = child;
       }
 
-      return <UtilityListItem>{returnChild}</UtilityListItem>;
+      return inline ? <div>{returnChild}</div> : <UtilityListItem>{returnChild}</UtilityListItem>;
     });
   };
 

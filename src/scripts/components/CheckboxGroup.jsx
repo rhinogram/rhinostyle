@@ -14,9 +14,11 @@ class CheckboxGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children } = this.props;
+    const { children, inline } = this.props;
 
-    return React.Children.map(children, child => <UtilityListItem>{child}</UtilityListItem>);
+    return React.Children.map(children, child =>
+      (inline ? <div>{child}</div> : <UtilityListItem>{child}</UtilityListItem>),
+    );
   };
 
   render() {
