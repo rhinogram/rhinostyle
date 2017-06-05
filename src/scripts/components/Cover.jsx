@@ -1,7 +1,9 @@
 import cx from 'classnames';
-import { TimelineMax, Expo } from 'gsap';
+import { TimelineMax } from 'gsap';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { UtilitySystem } from '../components';
 
 class Cover extends React.Component {
   static displayName = 'RhinoCover';
@@ -90,7 +92,7 @@ class Cover extends React.Component {
         opacity: 1,
         scale: 1,
       },
-      ease: Expo.easeInOut,
+      ease: UtilitySystem.config.easing,
     });
   }
 

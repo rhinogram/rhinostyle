@@ -21349,6 +21349,8 @@ var _reactDom = __webpack_require__(8);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _components = __webpack_require__(4);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21434,7 +21436,7 @@ var Cover = function (_React$Component) {
           opacity: 1,
           scale: 1
         },
-        ease: _gsap.Expo.easeInOut
+        ease: _components.UtilitySystem.config.easing
       });
     }
   }, {
