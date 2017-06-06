@@ -38,7 +38,10 @@ class DropdownWrapper extends React.Component {
       onStart: () => {
         // Add active/open classes
         $dropdown.classList.add(UtilitySystem.config.classes.open);
-        $dropdownToggle.classList.add(UtilitySystem.config.classes.active);
+
+        if ($dropdownToggle) {
+          $dropdownToggle.classList.add(UtilitySystem.config.classes.active);
+        }
 
         // Toggle aria state
         $dropdown.setAttribute('aria-expanded', true);
@@ -70,7 +73,10 @@ class DropdownWrapper extends React.Component {
 
             // Remove active/open classes
             $dropdown.classList.remove(UtilitySystem.config.classes.open);
-            $dropdownToggle.classList.remove(UtilitySystem.config.classes.active);
+
+            if ($dropdownToggle) {
+              $dropdownToggle.classList.remove(UtilitySystem.config.classes.active);
+            }
 
             // Toggle aria state
             $dropdown.setAttribute('aria-expanded', false);

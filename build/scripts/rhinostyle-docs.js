@@ -22992,7 +22992,10 @@ var DropdownWrapper = function (_React$Component) {
         onStart: function onStart() {
           // Add active/open classes
           $dropdown.classList.add(_components.UtilitySystem.config.classes.open);
-          $dropdownToggle.classList.add(_components.UtilitySystem.config.classes.active);
+
+          if ($dropdownToggle) {
+            $dropdownToggle.classList.add(_components.UtilitySystem.config.classes.active);
+          }
 
           // Toggle aria state
           $dropdown.setAttribute('aria-expanded', true);
@@ -23024,7 +23027,10 @@ var DropdownWrapper = function (_React$Component) {
 
               // Remove active/open classes
               $dropdown.classList.remove(_components.UtilitySystem.config.classes.open);
-              $dropdownToggle.classList.remove(_components.UtilitySystem.config.classes.active);
+
+              if ($dropdownToggle) {
+                $dropdownToggle.classList.remove(_components.UtilitySystem.config.classes.active);
+              }
 
               // Toggle aria state
               $dropdown.setAttribute('aria-expanded', false);
