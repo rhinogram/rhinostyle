@@ -264,6 +264,10 @@
   width: @site-navigation-width;
   z-index: @zindex-site-navigation;
 
+  @media (min-width: @global-screen-large-min) {
+    transform: none;
+  }
+
   .no-touch & {
     overflow-y: auto;
   }
@@ -316,7 +320,7 @@
 
 
 .site-overlay {
-  background-color: black;
+  background: fade(@global-color-black, 25%);
   bottom: 0;
   display: none;
   left: 0;
@@ -324,6 +328,7 @@
   position: fixed;
   right: 0;
   top: 0;
+  cursor: pointer;
   z-index: @zindex-site-overlay;
 }
 
@@ -331,17 +336,6 @@
 //
 // Site Scaffolding
 //
-
-// Hide by default
-// GSAP does it's thing to handle showing body when animation is complete
-
-html {
-  opacity: 0;
-
-  &[data-nav-loaded] {
-    opacity: 1;
-  }
-}
 
 //
 // Site Section
@@ -421,6 +415,10 @@ html {
   backface-visibility: hidden; // fix primary color change bug
   position: relative;
   z-index: @zindex-site-wrapper;
+
+  @media (min-width: @global-screen-large-min) {
+    margin-left: @site-navigation-width;
+  }
 }
 
 

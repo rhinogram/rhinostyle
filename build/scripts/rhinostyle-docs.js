@@ -16664,158 +16664,112 @@ var _gsap = __webpack_require__(51);
 
 var _UtilitySystem = __webpack_require__(170);
 
-var $html = document.documentElement;
 var $body = document.body;
 var $siteOverlay = document.querySelector('#site-overlay');
 var $siteNavigation = document.querySelector('#site-navigation');
-var siteNavigationWidth = $siteNavigation.offsetWidth;
 var $siteHeaderMenu = document.querySelector('.site-header__menu');
-var $siteWrapper = document.querySelector('.site-wrapper');
 
 var navEase = 0.25;
-var mobileNavOpen = false;
+var navSelectors = [$siteOverlay, $siteNavigation];
+var mobileNavTimeline = void 0;
 
 // Timelines
-var lockNavTimeline = new _gsap.TimelineMax({
-  paused: true,
-  onComplete: function onComplete() {
-    $html.setAttribute('data-nav-loaded', true);
-  }
-}).to($siteNavigation, navEase, {
-  x: 0,
-  ease: _UtilitySystem.UtilitySystem.config.easing
-}, 'lock').to($siteWrapper, navEase, {
-  x: 0,
-  marginLeft: siteNavigationWidth,
-  ease: _UtilitySystem.UtilitySystem.config.easing
-}, 'lock');
-
-var unlockNavTimeline = new _gsap.TimelineMax({
-  paused: true,
-  onComplete: function onComplete() {
-    $html.setAttribute('data-nav-loaded', true);
-  }
-}).to($siteNavigation, navEase, {
-  x: -siteNavigationWidth,
-  ease: _UtilitySystem.UtilitySystem.config.easing
-}, 'unlock').to($siteWrapper, navEase, {
-  x: 0,
-  marginLeft: 0,
-  ease: _UtilitySystem.UtilitySystem.config.easing
-}, 'unlock');
-
-var toggleMobileNavTimeline = new _gsap.TimelineMax({
-  paused: true,
-  onComplete: function onComplete() {
-    $html.setAttribute('data-mobile-nav', true);
-  },
-  onReverseComplete: function onReverseComplete() {
-    $html.removeAttribute('data-mobile-nav');
-
-    if (mobileNavOpen) {
-      mobileNavOpen = false;
-
-      lockNavigation();
+var mobileNavTimelineFunc = function mobileNavTimelineFunc() {
+  return new _gsap.TimelineMax({
+    paused: true,
+    onReverseComplete: function onReverseComplete() {
+      _gsap.TweenMax.set(navSelectors, { clearProps: 'all' });
     }
-  }
-}).set($body, {
-  height: '100%',
-  overflow: 'hidden'
-}).set($siteOverlay, {
-  display: 'block'
-}).to($siteOverlay, navEase, {
-  opacity: 0.2
-}, 'mobileNav').to($siteNavigation, navEase, {
-  x: 0,
-  ease: _UtilitySystem.UtilitySystem.config.easing
-}, 'mobileNav').to($siteWrapper, navEase, {
-  x: siteNavigationWidth,
-  ease: _UtilitySystem.UtilitySystem.config.easing
-}, 'mobileNav');
+  }).set($body, {
+    height: '100%',
+    overflow: 'hidden'
+  }).set($siteOverlay, {
+    display: 'block'
+  }).to($siteOverlay, navEase, {
+    opacity: 1
+  }, 'mobileNav').to($siteNavigation, navEase, {
+    x: 0,
+    ease: _UtilitySystem.UtilitySystem.config.easing
+  }, 'mobileNav');
+};
 
 /**
- * Determine if window matches smaller size
+ * Build timelines attached to nav
  * @return {void}
  */
-function matchMobile() {
-  if (window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.largeMax + ')').matches) {
-    unlockNavigation();
+function buildNavTimeline() {
+  mobileNavTimeline = mobileNavTimelineFunc();
+}
+
+/**
+ * Update nav UI based on "desktop-to-mobile" UI update
+ * @return {void}
+ */
+function navDesktopToMobileCheck() {
+  // Reset navigation timeline based on screen-width
+  // If the mobile nav was open previously
+  if (mobileNavTimeline.progress() === 1) {
+    // Reset mobile timeline
+    mobileNavTimeline.seek(0).kill();
+
+    // Make sure we clear props for all nav selectors to avoid conflicts
+    _gsap.TweenMax.set(navSelectors, { clearProps: 'all' });
+
+    // Reset for use later
+    buildNavTimeline();
   }
 }
 
 /**
- * Determine if window matches desktop size
+ * Builds scaffolding based on current window width
+ * Runs onload and onresize
  * @return {void}
  */
-function matchDesktop() {
-  if (window.matchMedia('(min-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.large + ')').matches) {
-    // If mobile nav is open while resizing to "desktop-size"
-    if ($html.hasAttribute('data-mobile-nav')) {
-      mobileNavOpen = true;
-      toggleMobileNavTimeline.reverse();
-    } else {
-      lockNavigation();
-    }
+function buildNavUI() {
+  //
+  // From desktop to mobile
+  //
+
+  if (!window.matchMedia('(max-width: ' + _UtilitySystem.UtilitySystem.config.breakpoints.largeMax + ')').matches) {
+    //
+    // From mobile to desktop
+    //
+
+    navDesktopToMobileCheck();
   }
 }
 
 /**
- * Open navigation
- * Runs on mobile-view
+ * Kick off navigation
+ * @return {void}}
+ */
+function navInit() {
+  buildNavTimeline();
+
+  // We can just run this without any init checks since it's only done once
+  _UtilitySystem.UtilitySystem.optimizedResize.add(function () {
+    buildNavUI();
+  });
+}
+
+navInit();
+
+/**
+ * Toggle navigation based on screen-width
  * @return {[type]} [description]
  */
-function openNavigation() {
+function toggleNav() {
   $siteNavigation.scrollTop = 0;
 
-  toggleMobileNavTimeline.play();
+  if (mobileNavTimeline.progress() === 0) {
+    mobileNavTimeline.play();
+  } else {
+    mobileNavTimeline.reverse();
+  }
 }
 
-/**
- * Close navigation
- * Runs on mobile-view
- * @return {void}
- */
-function closeNavigation() {
-  toggleMobileNavTimeline.reverse();
-}
-
-/**
- * Lock navigation
- * Desktop-view
- * @return {void}
- */
-function lockNavigation() {
-  unlockNavTimeline.reverse();
-  lockNavTimeline.play();
-}
-
-/**
- * Unlock navigation
- * Mobile-view
- * @return {void}
- */
-function unlockNavigation() {
-  lockNavTimeline.reverse();
-  unlockNavTimeline.play();
-}
-
-/**
- * Fire off GSAP-powered panel scaffolding
- * @return {void}
- */
-function handleUI() {
-  matchMobile();
-  matchDesktop();
-}
-
-// Fire onload
-handleUI();
-
-// Fire on resize
-_UtilitySystem.UtilitySystem.optimizedResize.add(handleUI);
-
-$siteHeaderMenu.addEventListener('click', openNavigation);
-$siteOverlay.addEventListener('click', closeNavigation);
+$siteHeaderMenu.addEventListener('click', toggleNav);
+$siteOverlay.addEventListener('click', toggleNav);
 
 //
 // Animations

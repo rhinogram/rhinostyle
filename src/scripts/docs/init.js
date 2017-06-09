@@ -1,64 +1,21 @@
 import 'what-input';
-import { TimelineMax, SteppedEase } from 'gsap';
+import { TimelineMax, TweenMax, SteppedEase } from 'gsap';
 import { UtilitySystem } from '../UtilitySystem';
 
-const $html = document.documentElement;
 const $body = document.body;
 const $siteOverlay = document.querySelector('#site-overlay');
 const $siteNavigation = document.querySelector('#site-navigation');
-const siteNavigationWidth = $siteNavigation.offsetWidth;
 const $siteHeaderMenu = document.querySelector('.site-header__menu');
-const $siteWrapper = document.querySelector('.site-wrapper');
 
 const navEase = 0.25;
-let mobileNavOpen = false;
+const navSelectors = [$siteOverlay, $siteNavigation];
+let mobileNavTimeline;
 
 // Timelines
-const lockNavTimeline = new TimelineMax({
+const mobileNavTimelineFunc = () => new TimelineMax({
   paused: true,
-  onComplete() {
-    $html.setAttribute('data-nav-loaded', true);
-  },
-})
-.to($siteNavigation, navEase, {
-  x: 0,
-  ease: UtilitySystem.config.easing,
-}, 'lock')
-.to($siteWrapper, navEase, {
-  x: 0,
-  marginLeft: siteNavigationWidth,
-  ease: UtilitySystem.config.easing,
-}, 'lock');
-
-const unlockNavTimeline = new TimelineMax({
-  paused: true,
-  onComplete() {
-    $html.setAttribute('data-nav-loaded', true);
-  },
-})
-.to($siteNavigation, navEase, {
-  x: (-siteNavigationWidth),
-  ease: UtilitySystem.config.easing,
-}, 'unlock')
-.to($siteWrapper, navEase, {
-  x: 0,
-  marginLeft: 0,
-  ease: UtilitySystem.config.easing,
-}, 'unlock');
-
-const toggleMobileNavTimeline = new TimelineMax({
-  paused: true,
-  onComplete() {
-    $html.setAttribute('data-mobile-nav', true);
-  },
   onReverseComplete() {
-    $html.removeAttribute('data-mobile-nav');
-
-    if (mobileNavOpen) {
-      mobileNavOpen = false;
-
-      lockNavigation();
-    }
+    TweenMax.set(navSelectors, { clearProps: 'all' });
   },
 })
 .set($body, {
@@ -69,100 +26,91 @@ const toggleMobileNavTimeline = new TimelineMax({
   display: 'block',
 })
 .to($siteOverlay, navEase, {
-  opacity: 0.2,
+  opacity: 1,
 }, 'mobileNav')
 .to($siteNavigation, navEase, {
   x: 0,
   ease: UtilitySystem.config.easing,
-}, 'mobileNav')
-.to($siteWrapper, navEase, {
-  x: siteNavigationWidth,
-  ease: UtilitySystem.config.easing,
 }, 'mobileNav');
 
 /**
- * Determine if window matches smaller size
+ * Build timelines attached to nav
  * @return {void}
  */
-function matchMobile() {
-  if (window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.largeMax})`).matches) {
-    unlockNavigation();
+function buildNavTimeline() {
+  mobileNavTimeline = mobileNavTimelineFunc();
+}
+
+
+/**
+ * Update nav UI based on "desktop-to-mobile" UI update
+ * @return {void}
+ */
+function navDesktopToMobileCheck() {
+  // Reset navigation timeline based on screen-width
+  // If the mobile nav was open previously
+  if (mobileNavTimeline.progress() === 1) {
+    // Reset mobile timeline
+    mobileNavTimeline.seek(0).kill();
+
+    // Make sure we clear props for all nav selectors to avoid conflicts
+    TweenMax.set(navSelectors, { clearProps: 'all' });
+
+    // Reset for use later
+    buildNavTimeline();
   }
 }
 
 /**
- * Determine if window matches desktop size
+ * Builds scaffolding based on current window width
+ * Runs onload and onresize
  * @return {void}
  */
-function matchDesktop() {
-  if (window.matchMedia(`(min-width: ${UtilitySystem.config.breakpoints.large})`).matches) {
-    // If mobile nav is open while resizing to "desktop-size"
-    if ($html.hasAttribute('data-mobile-nav')) {
-      mobileNavOpen = true;
-      toggleMobileNavTimeline.reverse();
-    } else {
-      lockNavigation();
-    }
+function buildNavUI() {
+  //
+  // From desktop to mobile
+  //
+
+  if (!window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.largeMax})`).matches) {
+    //
+    // From mobile to desktop
+    //
+
+    navDesktopToMobileCheck();
   }
 }
 
 /**
- * Open navigation
- * Runs on mobile-view
+ * Kick off navigation
+ * @return {void}}
+ */
+function navInit() {
+  buildNavTimeline();
+
+  // We can just run this without any init checks since it's only done once
+  UtilitySystem.optimizedResize.add(() => {
+    buildNavUI();
+  });
+}
+
+navInit();
+
+/**
+ * Toggle navigation based on screen-width
  * @return {[type]} [description]
  */
-function openNavigation() {
+function toggleNav() {
   $siteNavigation.scrollTop = 0;
 
-  toggleMobileNavTimeline.play();
+  if (mobileNavTimeline.progress() === 0) {
+    mobileNavTimeline.play();
+  } else {
+    mobileNavTimeline.reverse();
+  }
 }
 
-/**
- * Close navigation
- * Runs on mobile-view
- * @return {void}
- */
-function closeNavigation() {
-  toggleMobileNavTimeline.reverse();
-}
-
-/**
- * Lock navigation
- * Desktop-view
- * @return {void}
- */
-function lockNavigation() {
-  unlockNavTimeline.reverse();
-  lockNavTimeline.play();
-}
-
-/**
- * Unlock navigation
- * Mobile-view
- * @return {void}
- */
-function unlockNavigation() {
-  lockNavTimeline.reverse();
-  unlockNavTimeline.play();
-}
-
-/**
- * Fire off GSAP-powered panel scaffolding
- * @return {void}
- */
-function handleUI() {
-  matchMobile();
-  matchDesktop();
-}
-
-// Fire onload
-handleUI();
-
-// Fire on resize
-UtilitySystem.optimizedResize.add(handleUI);
-
-$siteHeaderMenu.addEventListener('click', openNavigation);
-$siteOverlay.addEventListener('click', closeNavigation);
+$siteHeaderMenu.addEventListener('click', toggleNav);
+$siteOverlay.addEventListener('click', toggleNav);
 
 //
 // Animations
