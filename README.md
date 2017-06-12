@@ -14,7 +14,7 @@
 
 ## Development Workflow
 
-Rhinostyle dist/build assets are version controlled already, but if you'd like to rebuild at anytime and start a server, you can run `yarn run dev`
+Rhinostyle dist/build assets are version controlled already, but if you'd like to rebuild at anytime and start a server, you can run `yarn start`
 
 Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but some of the more common ones you will run are:
 
