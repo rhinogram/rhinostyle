@@ -8,7 +8,7 @@ const $siteNavigation = document.querySelector('#site-navigation');
 const $siteHeaderMenu = document.querySelector('.site-header__menu');
 
 const navEase = 0.25;
-const navSelectors = [$siteOverlay, $siteNavigation];
+const navSelectors = [$body, $siteOverlay, $siteNavigation];
 let mobileNavTimeline;
 
 // Timelines
