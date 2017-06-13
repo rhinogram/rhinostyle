@@ -55,17 +55,11 @@
 }
 
 .variable-message__variable {
-  background: linear-gradient(to bottom right, darken(#fff, 2%), darken(#fff, 6%));
+  &:extend(.pill);
+  &:extend(.pill--neutral);
   cursor: default;
-  padding: 2px;
-  border-radius: 3px;
-  display: inline-block;
   user-select: none;
-  position: relative;
-  font-size: 14px;
-  line-height: 1;
-  margin: 0 2px;
-  color: #0081c6;
+  vertical-align: baseline;
 
   // Hide squigglies
   i {
@@ -74,16 +68,19 @@
 
   // Do not show underscore
   b {
-    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    text-indent: -9999px;
+
+    &::after {
+      content: '\00a0';
+    }
   }
 }
 
 .variable-message__close {
-  display: inline-block;
-  position: relative;
-  padding: 0 2px;
+  &:extend(.pill__close);
   cursor: pointer;
-  color: #404040;
 
   &::after {
     content: '\00d7';
