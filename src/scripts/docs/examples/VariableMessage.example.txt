@@ -1,0 +1,22 @@
+class ComponentExample extends React.Component {
+  render() {
+
+    const variableOpts = [
+      { id: 1, value: 'Option One' },
+      { id: 2, value: 'Option Two' },
+      { id: 3, value: 'Option Three' },
+      { id: 4, value: 'Option Four' },
+    ];
+
+    return (
+      <div>
+        <VariableMessage
+          reset
+          variables={variableOpts}
+        />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ComponentExample />, mountNode);

@@ -1,0 +1,51 @@
+//
+// Variables
+//
+
+
+@variable-message-compose-bg: @input-bg;
+@variable-message-compose-border-color: @input-border;
+@variable-message-compose-color: @input-color;
+@variable-message-compose-min-height: @input-height-base;
+@variable-message-compose-horizontal-padding: @input-padding-base;
+@variable-message-compose-vertical-padding: @textarea-vertical-padding;
+@variable-message-compose-border-radius: @input-border-radius;
+
+//
+// Component
+//
+
+
+.variable-message__header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: @global-whitespace-base;
+
+  *:first-child {
+    margin-right: @global-whitespace-small;
+  }
+
+  *:last-child {
+    margin-left: auto;
+  }
+}
+
+.variable-message__compose {
+  background-color: @variable-message-compose-bg;
+  border: 1px solid @variable-message-compose-border-color;
+  border-radius: @variable-message-compose-border-radius;
+  color: @variable-message-compose-color;
+  min-height: @variable-message-compose-min-height;
+  padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+}
+
+.variable-message__footer {
+  margin-top: @global-whitespace-small;
+  display: flex;
+  align-items: center;
+}
+
+.variable-message__explanation {
+  font-size: @global-font-size-small;
+  margin-left: @global-whitespace-small;
+}
