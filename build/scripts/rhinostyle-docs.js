@@ -26198,71 +26198,78 @@ var VariableMessage = function (_React$Component) {
 
       // Update preview
       $preview.innerHTML = reminderText;
-    }, _this.handleVariableClick = function (e) {
-      if (e.target.classList.contains('reminder__close')) {
-        var $parent = e.target.offsetParent;
+    }, _this.handleVariableClick = function () {
+      document.querySelector('body').addEventListener('click', function (e) {
+        if (e.target.classList.contains('variable-message__close')) {
+          var $parent = e.target.parentNode;
 
-        // Remove space `<span>`
-        //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
-        // Remove variable
-        $parent.remove();
+          // Remove space `<span>`
+          //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
+          // Remove variable
+          $parent.remove();
 
-        // Manually trigger `input` update
-        _this.handleComposeInput();
-      }
+          // Manually trigger `input` update
+          _this.handleComposeInput();
+        }
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  /**
-   * Update variable insertion point and cursor position
-   * @param  {string} text
-   * @return {void}
-   */
-
-
-  /**
-   * Transform `{}` into styled component
-   * @param  {string} text
-   * @return {node}
-   */
-
-
-  /**
-   * Insert variable in cursor position
-   * @param  {string} text
-   * @return {void}
-   */
-
-
-  /**
-   * Handle variable selection from `<Select>`
-   * @param  {string} name  input[name]
-   * @param  {string} value input[value]
-   * @return {void}
-   */
-
-
-  /**
-   * Disable `<enter>` within compose window
-   * @param  {event} e
-   * @return {void}
-   */
-
-
-  /**
-   * Handle updating live-preview and variable swap
-   * @return {void}
-   */
-
-
-  /**
-   * Clicking on a variable inside the compose window should remove it
-   * @param  {event} e
-   * @return {void}
-   */
-
-
   _createClass(VariableMessage, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.handleVariableClick();
+    }
+
+    /**
+     * Update variable insertion point and cursor position
+     * @param  {string} text
+     * @return {void}
+     */
+
+
+    /**
+     * Transform `{}` into styled component
+     * @param  {string} text
+     * @return {node}
+     */
+
+
+    /**
+     * Insert variable in cursor position
+     * @param  {string} text
+     * @return {void}
+     */
+
+
+    /**
+     * Handle variable selection from `<Select>`
+     * @param  {string} name  input[name]
+     * @param  {string} value input[value]
+     * @return {void}
+     */
+
+
+    /**
+     * Disable `<enter>` within compose window
+     * @param  {event} e
+     * @return {void}
+     */
+
+
+    /**
+     * Handle updating live-preview and variable swap
+     * @return {void}
+     */
+
+
+    /**
+     * Clicking on a variable inside the compose window should remove it
+     * @param  {event} e
+     * @return {void}
+     */
+
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;

@@ -22,6 +22,10 @@ class VariableMessage extends React.Component {
     explanationMessage: 'Select a variable to insert into the template',
   };
 
+  componentDidMount() {
+    this.handleVariableClick();
+  }
+
   /**
    * Update variable insertion point and cursor position
    * @param  {string} text
@@ -178,18 +182,20 @@ class VariableMessage extends React.Component {
    * @param  {event} e
    * @return {void}
    */
-  handleVariableClick = (e) => {
-    if (e.target.classList.contains('reminder__close')) {
-      const $parent = e.target.offsetParent;
+  handleVariableClick = () => {
+    document.querySelector('body').addEventListener('click', (e) => {
+      if (e.target.classList.contains('variable-message__close')) {
+        const $parent = e.target.parentNode;
 
-      // Remove space `<span>`
-      //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
-      // Remove variable
-      $parent.remove();
+        // Remove space `<span>`
+        //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
+        // Remove variable
+        $parent.remove();
 
-      // Manually trigger `input` update
-      this.handleComposeInput();
-    }
+        // Manually trigger `input` update
+        this.handleComposeInput();
+      }
+    });
   }
 
   render() {
