@@ -1,7 +1,8 @@
 import cx    from 'classnames';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { Message, Select } from '../components';
+import { Message, Select, UtilitySystem } from '../components';
 
 class VariableMessage extends React.Component {
   static displayName = 'RhinoVariableMessage';
@@ -20,10 +21,6 @@ class VariableMessage extends React.Component {
     previewLabel: 'Preview',
     explanationMessage: 'Select a variable to insert into the template',
   };
-
-  componentDidMount() {
-    console.log(this.compose);
-  }
 
   /**
    * Update variable insertion point and cursor position
@@ -74,11 +71,12 @@ class VariableMessage extends React.Component {
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
     $variable.setAttribute('contenteditable', false);
-    $variable.classList.add('reminder__variable');
+    $variable.classList.add('variable-message__variable');
     $variable.innerHTML = value;
 
+    // Close element
     const $close = document.createElement('span');
-    $close.classList.add('reminder__close');
+    $close.classList.add('variable-message__close');
     $variable.appendChild($close);
 
     return $variable;
@@ -94,28 +92,35 @@ class VariableMessage extends React.Component {
 
     this.insertTextAtCursor($variable);
 
-    // Fire off `input` event for browsers to listen to
-    // @TODO Check IE support
-    const event = new Event('input');
-    this.compose.dispatchEvent(event);
+    // Manually trigger `input` update
+    this.handleComposeInput();
   }
 
   /**
    * Handle variable selection from `<Select>`
-   * @param  {event} e
+   * @param  {string} name  input[name]
+   * @param  {string} value input[value]
    * @return {void}
    */
-  handleVariableSelection = (e) => {
-    // Get variable value
-    const value = e.target.value;
+  handleVariableSelection = (name, value) => {
+    const $select = ReactDOM.findDOMNode(this.select);
+    // Get variable context
+    const variable = this.props.variables.find(el => el.id === value);
 
-    this.insertVariable(value);
+    // If we're on a valid variable
+    if (variable.variable) {
+      // Get variable value
+      const variableContext = variable.variable;
 
-    // Reset position
-    e.target.selectedIndex = 0;
+      // Insert variable
+      this.insertVariable(variableContext);
 
-    // Focus back on compose element
-    this.compose.focus();
+      // Reset position
+      $select.selectedIndex = null;
+
+      // Focus back on compose element
+      this.compose.focus();
+    }
   }
 
   /**
@@ -126,6 +131,64 @@ class VariableMessage extends React.Component {
   handleComposeKeypress = (e) => {
     if (e.which === 13) {
       e.preventDefault();
+    }
+  }
+
+  /**
+   * Handle updating live-preview and variable swap
+   * @return {void}
+   */
+  handleComposeInput = () => {
+    const variables = this.props.variables;
+    let reminderText = this.compose.textContent.trim();
+    const $select = ReactDOM.findDOMNode(this.select);
+    const $preview = ReactDOM.findDOMNode(this.preview);
+
+    // Search text to determine if variables are found in it
+    UtilitySystem.forEach(variables, (index, value) => {
+      const variable = value.variable;
+
+      if (variable) {
+        // We found the text
+        if (reminderText.search(variable) !== -1) {
+          // Disable option in select
+          $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
+
+          // Swap out variables for data
+          const regex = new RegExp(variable);
+          reminderText = reminderText.replace(regex, value.variableValue);
+        } else {
+          // Enable option in select
+          $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
+        }
+      }
+    });
+
+    // Take away any trailing space
+    if (reminderText === ' ') {
+      reminderText = '';
+    }
+
+    // Update preview
+    $preview.innerHTML = reminderText;
+  }
+
+  /**
+   * Clicking on a variable inside the compose window should remove it
+   * @param  {event} e
+   * @return {void}
+   */
+  handleVariableClick = (e) => {
+    if (e.target.classList.contains('reminder__close')) {
+      const $parent = e.target.offsetParent;
+
+      // Remove space `<span>`
+      //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
+      // Remove variable
+      $parent.remove();
+
+      // Manually trigger `input` update
+      this.handleComposeInput();
     }
   }
 
@@ -144,16 +207,16 @@ class VariableMessage extends React.Component {
           <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
           {reset ? <button className="button--reset u-text-muted u-text-small">Reset</button> : null}
         </div>
-        <div className="variable-message__compose" contentEditable ref={compose => (this.compose = compose)} />
+        <div className="variable-message__compose" contentEditable onInput={this.handleComposeInput} onKeyPress={this.handleComposeKeypress} ref={ref => (this.compose = ref)} />
         <div className="variable-message__footer">
-          <Select name={variableMessageSelectName} options={variables} />
+          <Select name={variableMessageSelectName} options={variables} onSelect={this.handleVariableSelection} ref={ref => (this.select = ref)} />
           {explanationMessage ? <div className="variable-message__explanation">{explanationMessage}</div> : null}
         </div>
 
         <hr className="u-m-y-large" />
 
         <label htmlFor={variableMessagePreviewName} className="u-block">{previewLabel}</label>
-        <Message type="primary" direction="inbound" ref={preview => (this.preview = preview)} />
+        <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
       </div>
     );
   }

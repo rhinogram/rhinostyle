@@ -37,6 +37,10 @@
   color: @variable-message-compose-color;
   min-height: @variable-message-compose-min-height;
   padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .variable-message__footer {
@@ -48,4 +52,40 @@
 .variable-message__explanation {
   font-size: @global-font-size-small;
   margin-left: @global-whitespace-small;
+}
+
+.variable-message__variable {
+  background: linear-gradient(to bottom right, darken(#fff, 2%), darken(#fff, 6%));
+  cursor: default;
+  padding: 2px;
+  border-radius: 3px;
+  display: inline-block;
+  user-select: none;
+  position: relative;
+  font-size: 14px;
+  line-height: 1;
+  margin: 0 2px;
+  color: #0081c6;
+
+  // Hide squigglies
+  i {
+    display: none;
+  }
+
+  // Do not show underscore
+  b {
+    visibility: hidden;
+  }
+}
+
+.variable-message__close {
+  display: inline-block;
+  position: relative;
+  padding: 0 2px;
+  cursor: pointer;
+  color: #404040;
+
+  &::after {
+    content: '\00d7';
+  }
 }
