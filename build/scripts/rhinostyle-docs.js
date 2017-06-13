@@ -26141,7 +26141,6 @@ var VariableMessage = function (_React$Component) {
       // Manually trigger `input` update
       _this.handleComposeInput();
     }, _this.handleVariableSelection = function (name, value) {
-      var $select = _reactDom2.default.findDOMNode(_this.select);
       // Get variable context
       var variable = _this.props.variables.find(function (el) {
         return el.id === value;
@@ -26156,7 +26155,9 @@ var VariableMessage = function (_React$Component) {
         _this.insertVariable(variableContext);
 
         // Reset position
-        $select.selectedIndex = null;
+        _this.select.setState({
+          selected: 0
+        });
 
         // Focus back on compose element
         _this.compose.focus();

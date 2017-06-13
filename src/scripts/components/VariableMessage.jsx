@@ -107,7 +107,6 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleVariableSelection = (name, value) => {
-    const $select = ReactDOM.findDOMNode(this.select);
     // Get variable context
     const variable = this.props.variables.find(el => el.id === value);
 
@@ -120,7 +119,9 @@ class VariableMessage extends React.Component {
       this.insertVariable(variableContext);
 
       // Reset position
-      $select.selectedIndex = null;
+      this.select.setState({
+        selected: 0,
+      });
 
       // Focus back on compose element
       this.compose.focus();
