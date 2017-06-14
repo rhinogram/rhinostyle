@@ -26125,20 +26125,7 @@ var VariableMessage = function (_React$Component) {
       value = value.replace(regexUnderscores, '<b>_</b>');
 
       // Build variable UI
-      var $variable = document.createElement('span');
-      // Disable spell-checker
-      $variable.setAttribute('spellcheck', false);
-      // Do not allow the variable to be edited
-      $variable.setAttribute('contenteditable', false);
-      $variable.classList.add('variable-message__variable');
-      $variable.innerHTML = value;
-
-      // Close element
-      var $close = document.createElement('span');
-      $close.classList.add('variable-message__close');
-      $variable.appendChild($close);
-
-      return $variable;
+      return new DOMParser().parseFromString('\n        <span contenteditable="false" spellcheck="false" class="variable-message__variable">\n          ' + value + ' <span class="variable-message__close"></span>\n        </span>\n      ', 'text/html').body.firstChild;
     }, _this.insertVariable = function (text) {
       var $variable = _this.transformVar(text);
 
