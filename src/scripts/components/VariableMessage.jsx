@@ -31,7 +31,7 @@ class VariableMessage extends React.Component {
    * @param  {string} text
    * @return {void}
    */
-  insertTextAtCursor = (text) => {
+  insertTextAtCursor = (text, paste = false) => {
     const sel = window.getSelection();
     let range = document.createRange();
 
@@ -42,7 +42,11 @@ class VariableMessage extends React.Component {
       range = sel.getRangeAt(0);
       range.deleteContents();
       //range.insertNode($space);
-      range.insertNode(text);
+      if (paste) {
+        range.insertNode(document.createTextNode(text));
+      } else {
+        range.insertNode(text);
+      }
 
       // Move caret
       range.setStartAfter(text);
@@ -140,6 +144,24 @@ class VariableMessage extends React.Component {
   }
 
   /**
+   * Make sure we force plain-text on paste
+   * @param  {event} e
+   * @return {void}
+   */
+  handlePaste = (e) => {
+    e.preventDefault();
+
+    if (e.clipboardData && e.clipboardData.getData) {
+      const text = e.clipboardData.getData('text/plain');
+      document.execCommand('insertHTML', false, text);
+    } else if (window.clipboardData && window.clipboardData.getData) {
+      const text = window.clipboardData.getData('Text');
+
+      this.insertTextAtCursor(text, true);
+    }
+  }
+
+  /**
    * Handle updating live-preview and variable swap
    * @return {void}
    */
@@ -214,7 +236,7 @@ class VariableMessage extends React.Component {
           <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
           {reset ? <button className="button--reset u-text-muted u-text-small">Reset</button> : null}
         </div>
-        <div className="variable-message__compose" contentEditable onInput={this.handleComposeInput} onKeyPress={this.handleComposeKeypress} ref={ref => (this.compose = ref)} />
+        <div className="variable-message__compose" contentEditable onInput={this.handleComposeInput} onKeyPress={this.handleComposeKeypress} onPaste={this.handlePaste} ref={ref => (this.compose = ref)} />
         <div className="variable-message__footer">
           <Select name={variableMessageSelectName} options={variables} onSelect={this.handleVariableSelection} ref={ref => (this.select = ref)} />
           {explanationMessage ? <div className="variable-message__explanation">{explanationMessage}</div> : null}

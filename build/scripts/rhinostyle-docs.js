@@ -26088,6 +26088,8 @@ var VariableMessage = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = VariableMessage.__proto__ || Object.getPrototypeOf(VariableMessage)).call.apply(_ref, [this].concat(args))), _this), _this.insertTextAtCursor = function (text) {
+      var paste = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       var sel = window.getSelection();
       var range = document.createRange();
 
@@ -26098,7 +26100,11 @@ var VariableMessage = function (_React$Component) {
         range = sel.getRangeAt(0);
         range.deleteContents();
         //range.insertNode($space);
-        range.insertNode(text);
+        if (paste) {
+          range.insertNode(document.createTextNode(text));
+        } else {
+          range.insertNode(text);
+        }
 
         // Move caret
         range.setStartAfter(text);
@@ -26165,6 +26171,17 @@ var VariableMessage = function (_React$Component) {
     }, _this.handleComposeKeypress = function (e) {
       if (e.which === 13) {
         e.preventDefault();
+      }
+    }, _this.handlePaste = function (e) {
+      e.preventDefault();
+
+      if (e.clipboardData && e.clipboardData.getData) {
+        var text = e.clipboardData.getData('text/plain');
+        document.execCommand('insertHTML', false, text);
+      } else if (window.clipboardData && window.clipboardData.getData) {
+        var _text = window.clipboardData.getData('Text');
+
+        _this.insertTextAtCursor(_text, true);
       }
     }, _this.handleComposeInput = function () {
       var variables = _this.props.variables;
@@ -26259,6 +26276,13 @@ var VariableMessage = function (_React$Component) {
 
 
     /**
+     * Make sure we force plain-text on paste
+     * @param  {event} e
+     * @return {void}
+     */
+
+
+    /**
      * Handle updating live-preview and variable swap
      * @return {void}
      */
@@ -26307,7 +26331,7 @@ var VariableMessage = function (_React$Component) {
             'Reset'
           ) : null
         ),
-        _react2.default.createElement('div', { className: 'variable-message__compose', contentEditable: true, onInput: this.handleComposeInput, onKeyPress: this.handleComposeKeypress, ref: function ref(_ref2) {
+        _react2.default.createElement('div', { className: 'variable-message__compose', contentEditable: true, onInput: this.handleComposeInput, onKeyPress: this.handleComposeKeypress, onPaste: this.handlePaste, ref: function ref(_ref2) {
             return _this2.compose = _ref2;
           } }),
         _react2.default.createElement(
