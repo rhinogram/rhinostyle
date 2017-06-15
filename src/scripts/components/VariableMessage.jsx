@@ -329,7 +329,7 @@ class VariableMessage extends React.Component {
           onKeyPress={this.handleComposeKeypress}
           onPaste={this.handlePaste}
           ref={ref => (this.compose = ref)}
-        >&nbsp;</div>
+        />
         <div className="variable-message__footer">
           <Select
             name={variableMessageSelectName}

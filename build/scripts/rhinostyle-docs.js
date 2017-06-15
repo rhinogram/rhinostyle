@@ -26441,20 +26441,16 @@ var VariableMessage = function (_React$Component) {
             )
           ) : null
         ),
-        _react2.default.createElement(
-          'div',
-          {
-            className: 'variable-message__compose',
-            contentEditable: true,
-            onInput: this.handleComposeInput,
-            onKeyPress: this.handleComposeKeypress,
-            onPaste: this.handlePaste,
-            ref: function ref(_ref2) {
-              return _this2.compose = _ref2;
-            }
-          },
-          '\xA0'
-        ),
+        _react2.default.createElement('div', {
+          className: 'variable-message__compose',
+          contentEditable: true,
+          onInput: this.handleComposeInput,
+          onKeyPress: this.handleComposeKeypress,
+          onPaste: this.handlePaste,
+          ref: function ref(_ref2) {
+            return _this2.compose = _ref2;
+          }
+        }),
         _react2.default.createElement(
           'div',
           { className: 'variable-message__footer' },
@@ -28755,7 +28751,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 725 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n          initialValue=\"Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office. Have a great day!\"\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 726 */,
