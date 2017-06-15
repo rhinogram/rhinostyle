@@ -25186,6 +25186,22 @@ var Select = function (_React$Component) {
       };
 
       var renderOpts = function renderOpts(option) {
+        // If the option has options as well we're in an `<optgroup>`
+        if (option.options) {
+          return _react2.default.createElement(
+            'optgroup',
+            { key: option.id, label: option.value },
+            option.options.map(function (childOption) {
+              return _react2.default.createElement(
+                'option',
+                { key: childOption.id, value: childOption.id },
+                childOption.value
+              );
+            })
+          );
+        }
+
+        // We're in a default single-level `<option>`
         return _react2.default.createElement(
           'option',
           { key: option.id, value: option.id },
@@ -26049,6 +26065,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _classnames = __webpack_require__(5);
@@ -26087,7 +26105,19 @@ var VariableMessage = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = VariableMessage.__proto__ || Object.getPrototypeOf(VariableMessage)).call.apply(_ref, [this].concat(args))), _this), _this.insertTextAtCursor = function (text) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = VariableMessage.__proto__ || Object.getPrototypeOf(VariableMessage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      message: ''
+    }, _this.getVariables = function (array) {
+      var variables = array.filter(function (item) {
+        return item.id !== -1;
+      });
+
+      variables = variables.reduce(function (a, b) {
+        return a.concat(b.options || b);
+      }, []);
+
+      return variables;
+    }, _this.insertTextAtCursor = function (text) {
       var paste = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
       var sel = window.getSelection();
@@ -26134,8 +26164,11 @@ var VariableMessage = function (_React$Component) {
       // Manually trigger `input` update
       _this.handleComposeInput();
     }, _this.handleVariableSelection = function (name, value) {
+      // Get flat-leve list of all variables
+      var variables = _this.getVariables(_this.props.variables);
+
       // Get variable context
-      var variable = _this.props.variables.find(function (el) {
+      var variable = variables.find(function (el) {
         return el.id === value;
       });
 
@@ -26176,8 +26209,13 @@ var VariableMessage = function (_React$Component) {
       var $select = _reactDom2.default.findDOMNode(_this.select);
       var $preview = _reactDom2.default.findDOMNode(_this.preview);
 
+      // Update state
+      _this.setState({
+        message: reminderText
+      });
+
       // Search text to determine if variables are found in it
-      _components.UtilitySystem.forEach(variables, function (index, value) {
+      _this.getVariables(variables).forEach(function (value) {
         var variable = value.variable;
 
         if (variable) {
@@ -26203,85 +26241,90 @@ var VariableMessage = function (_React$Component) {
 
       // Update preview
       $preview.innerHTML = reminderText;
-    }, _this.handleVariableClick = function () {
-      document.querySelector('body').addEventListener('click', function (e) {
-        if (e.target.classList.contains('variable-message__close')) {
-          var $parent = e.target.parentNode;
 
-          // Remove space `<span>`
-          //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
-          // Remove variable
-          $parent.remove();
+      if (_this.props.onInput && _typeof(_this.props.onInput === 'function')) {
+        _this.props.onInput(reminderText);
+      }
+    }, _this.handleVariableClick = function (e) {
+      if (e.target.classList.contains('variable-message__close')) {
+        var $parent = e.target.parentNode;
 
-          // Manually trigger `input` update
-          _this.handleComposeInput();
-        }
-      });
+        // Remove space `<span>`
+        //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
+        // Remove variable
+        $parent.remove();
+
+        // Manually trigger `input` update
+        _this.handleComposeInput();
+      }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
+  /**
+   * Retrieves variables
+   * Puts them in a flat-level array since some could be inside of `<optgroup>`s
+   * @param  {array} array
+   * @return {array}
+   */
+
+
+  /**
+   * Update variable insertion point and cursor position
+   * @param  {string} text
+   * @return {void}
+   */
+
+
+  /**
+   * Transform `{}` into styled component
+   * @param  {string} text
+   * @return {node}
+   */
+
+
+  /**
+   * Insert variable in cursor position
+   * @param  {string} text
+   * @return {void}
+   */
+
+
+  /**
+   * Handle variable selection from `<Select>`
+   * @param  {string} name  input[name]
+   * @param  {string} value input[value]
+   * @return {void}
+   */
+
+
+  /**
+   * Disable `<enter>` within compose window
+   * @param  {event} e
+   * @return {void}
+   */
+
+
+  /**
+   * Make sure we force plain-text on paste
+   * @param  {event} e
+   * @return {void}
+   */
+
+
+  /**
+   * Handle updating live-preview and variable swap
+   * @return {void}
+   */
+
+
+  /**
+   * Clicking on a variable inside the compose window should remove it
+   * @param  {event} e
+   * @return {void}
+   */
+
+
   _createClass(VariableMessage, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.handleVariableClick();
-    }
-
-    /**
-     * Update variable insertion point and cursor position
-     * @param  {string} text
-     * @return {void}
-     */
-
-
-    /**
-     * Transform `{}` into styled component
-     * @param  {string} text
-     * @return {node}
-     */
-
-
-    /**
-     * Insert variable in cursor position
-     * @param  {string} text
-     * @return {void}
-     */
-
-
-    /**
-     * Handle variable selection from `<Select>`
-     * @param  {string} name  input[name]
-     * @param  {string} value input[value]
-     * @return {void}
-     */
-
-
-    /**
-     * Disable `<enter>` within compose window
-     * @param  {event} e
-     * @return {void}
-     */
-
-
-    /**
-     * Make sure we force plain-text on paste
-     * @param  {event} e
-     * @return {void}
-     */
-
-
-    /**
-     * Handle updating live-preview and variable swap
-     * @return {void}
-     */
-
-
-    /**
-     * Clicking on a variable inside the compose window should remove it
-     * @param  {event} e
-     * @return {void}
-     */
-
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -26303,7 +26346,7 @@ var VariableMessage = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: classes },
+        { className: classes, onClick: this.handleVariableClick },
         _react2.default.createElement(
           'div',
           { className: 'variable-message__header' },
@@ -26318,15 +26361,27 @@ var VariableMessage = function (_React$Component) {
             'Reset'
           ) : null
         ),
-        _react2.default.createElement('div', { className: 'variable-message__compose', contentEditable: true, onInput: this.handleComposeInput, onKeyPress: this.handleComposeKeypress, onPaste: this.handlePaste, ref: function ref(_ref2) {
+        _react2.default.createElement('div', {
+          className: 'variable-message__compose',
+          contentEditable: true,
+          onInput: this.handleComposeInput,
+          onKeyPress: this.handleComposeKeypress,
+          onPaste: this.handlePaste,
+          ref: function ref(_ref2) {
             return _this2.compose = _ref2;
-          } }),
+          }
+        }),
         _react2.default.createElement(
           'div',
           { className: 'variable-message__footer' },
-          _react2.default.createElement(_components.Select, { name: variableMessageSelectName, options: variables, onSelect: this.handleVariableSelection, ref: function ref(_ref3) {
+          _react2.default.createElement(_components.Select, {
+            name: variableMessageSelectName,
+            options: variables,
+            onSelect: this.handleVariableSelection,
+            ref: function ref(_ref3) {
               return _this2.select = _ref3;
-            } }),
+            }
+          }),
           explanationMessage ? _react2.default.createElement(
             'div',
             { className: 'variable-message__explanation' },
@@ -26356,7 +26411,8 @@ VariableMessage.propTypes = {
   explanationMessage: _react2.default.PropTypes.string,
   previewLabel: _react2.default.PropTypes.string.isRequired,
   reset: _react2.default.PropTypes.bool,
-  variables: _react2.default.PropTypes.array.isRequired
+  variables: _react2.default.PropTypes.array.isRequired,
+  onInput: _react2.default.PropTypes.func
 };
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
@@ -28614,7 +28670,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 725 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n      { id: 2, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n      { id: 3, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 726 */,

@@ -2,7 +2,7 @@ import cx    from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Message, Select, UtilitySystem } from '../components';
+import { Message, Select } from '../components';
 
 class VariableMessage extends React.Component {
   static displayName = 'RhinoVariableMessage';
@@ -14,6 +14,7 @@ class VariableMessage extends React.Component {
     previewLabel: React.PropTypes.string.isRequired,
     reset: React.PropTypes.bool,
     variables: React.PropTypes.array.isRequired,
+    onInput: React.PropTypes.func,
   };
 
   static defaultProps = {
@@ -22,8 +23,22 @@ class VariableMessage extends React.Component {
     explanationMessage: 'Select a variable to insert into the template',
   };
 
-  componentDidMount() {
-    this.handleVariableClick();
+  state = {
+    message: '',
+  };
+
+  /**
+   * Retrieves variables
+   * Puts them in a flat-level array since some could be inside of `<optgroup>`s
+   * @param  {array} array
+   * @return {array}
+   */
+  getVariables = (array) => {
+    let variables = array.filter(item => item.id !== -1);
+
+    variables = variables.reduce((a, b) => a.concat(b.options || b), []);
+
+    return variables;
   }
 
   /**
@@ -103,8 +118,11 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleVariableSelection = (name, value) => {
+    // Get flat-leve list of all variables
+    const variables = this.getVariables(this.props.variables);
+
     // Get variable context
-    const variable = this.props.variables.find(el => el.id === value);
+    const variable = variables.find(el => el.id === value);
 
     // If we're on a valid variable
     if (variable.variable) {
@@ -163,8 +181,13 @@ class VariableMessage extends React.Component {
     const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
 
+    // Update state
+    this.setState({
+      message: reminderText,
+    });
+
     // Search text to determine if variables are found in it
-    UtilitySystem.forEach(variables, (index, value) => {
+    this.getVariables(variables).forEach((value) => {
       const variable = value.variable;
 
       if (variable) {
@@ -190,6 +213,10 @@ class VariableMessage extends React.Component {
 
     // Update preview
     $preview.innerHTML = reminderText;
+
+    if (this.props.onInput && typeof (this.props.onInput === 'function')) {
+      this.props.onInput(reminderText);
+    }
   }
 
   /**
@@ -197,20 +224,18 @@ class VariableMessage extends React.Component {
    * @param  {event} e
    * @return {void}
    */
-  handleVariableClick = () => {
-    document.querySelector('body').addEventListener('click', (e) => {
-      if (e.target.classList.contains('variable-message__close')) {
-        const $parent = e.target.parentNode;
+  handleVariableClick = (e) => {
+    if (e.target.classList.contains('variable-message__close')) {
+      const $parent = e.target.parentNode;
 
-        // Remove space `<span>`
-        //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
-        // Remove variable
-        $parent.remove();
+      // Remove space `<span>`
+      //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
+      // Remove variable
+      $parent.remove();
 
-        // Manually trigger `input` update
-        this.handleComposeInput();
-      }
-    });
+      // Manually trigger `input` update
+      this.handleComposeInput();
+    }
   }
 
   render() {
@@ -223,14 +248,26 @@ class VariableMessage extends React.Component {
     const variableMessagePreviewName = `variable-message-preview-${variableMessageUnique}`;
 
     return (
-      <div className={classes}>
+      <div className={classes} onClick={this.handleVariableClick}>
         <div className="variable-message__header">
           <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
           {reset ? <button className="button--reset u-text-muted u-text-small">Reset</button> : null}
         </div>
-        <div className="variable-message__compose" contentEditable onInput={this.handleComposeInput} onKeyPress={this.handleComposeKeypress} onPaste={this.handlePaste} ref={ref => (this.compose = ref)} />
+        <div
+          className="variable-message__compose"
+          contentEditable
+          onInput={this.handleComposeInput}
+          onKeyPress={this.handleComposeKeypress}
+          onPaste={this.handlePaste}
+          ref={ref => (this.compose = ref)}
+        />
         <div className="variable-message__footer">
-          <Select name={variableMessageSelectName} options={variables} onSelect={this.handleVariableSelection} ref={ref => (this.select = ref)} />
+          <Select
+            name={variableMessageSelectName}
+            options={variables}
+            onSelect={this.handleVariableSelection}
+            ref={ref => (this.select = ref)}
+          />
           {explanationMessage ? <div className="variable-message__explanation">{explanationMessage}</div> : null}
         </div>
 
