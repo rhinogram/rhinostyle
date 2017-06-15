@@ -18,7 +18,7 @@ class ComponentExample extends React.Component {
         <VariableMessage
           reset
           variables={variableOpts}
-          initialValue="{first_name}, this is a test initial value. Here's your last name, {last_name}. At our {office_location} okay?"
+          initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office. Have a great day!"
         />
       </div>
     );

@@ -5,10 +5,14 @@ import Playground from 'component-playground';
 import { VariableMessage } from '../components';
 import variableMessageExample from './examples/VariableMessage.example.txt';
 
-const bucketDocs = {
+const variableMessageDocs = {
   className: '[Optional] - Include additional class name(s)',
-  size: '[Optional] - Bucket size -  [small]',
-  type: '[Optional] - Bucket type -  [default | light | primary]',
+  composeLabel: '[Optional] - Label used above the editable text',
+  explanationMessage: '[Optional] - Text that appears next to the variable select',
+  previewLabel: '[Optional] - Label used above the preview message bubble',
+  reset: '[Optional] - Allow <code>initialValue</code> to be reverted after edit',
+  variables: 'Select options (with variable notes) that power the find/replace functionality',
+  initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
 };
 const variableMessageScope  = {
   React,
@@ -25,7 +29,7 @@ const VariableMessageApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">Variable Message Playground</h3>
-      <Playground theme="default" docClass={VariableMessage} propDescriptionMap={bucketDocs} codeText={variableMessageExample} scope={variableMessageScope} noRender={false} />
+      <Playground theme="default" docClass={VariableMessage} propDescriptionMap={variableMessageDocs} codeText={variableMessageExample} scope={variableMessageScope} noRender={false} />
     </section>
   </div>;
 

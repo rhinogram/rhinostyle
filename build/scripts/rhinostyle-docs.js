@@ -19566,10 +19566,14 @@ var _VariableMessageExample2 = _interopRequireDefault(_VariableMessageExample);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var bucketDocs = {
+var variableMessageDocs = {
   className: '[Optional] - Include additional class name(s)',
-  size: '[Optional] - Bucket size -  [small]',
-  type: '[Optional] - Bucket type -  [default | light | primary]'
+  composeLabel: '[Optional] - Label used above the editable text',
+  explanationMessage: '[Optional] - Text that appears next to the variable select',
+  previewLabel: '[Optional] - Label used above the preview message bubble',
+  reset: '[Optional] - Allow <code>initialValue</code> to be reverted after edit',
+  variables: 'Select options (with variable notes) that power the find/replace functionality',
+  initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database'
 };
 var variableMessageScope = {
   React: _react2.default,
@@ -19603,7 +19607,7 @@ var VariableMessageApp = function VariableMessageApp() {
         { className: 'site-subheadline' },
         'Variable Message Playground'
       ),
-      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.VariableMessage, propDescriptionMap: bucketDocs, codeText: _VariableMessageExample2.default, scope: variableMessageScope, noRender: false })
+      _react2.default.createElement(_componentPlayground2.default, { theme: 'default', docClass: _components.VariableMessage, propDescriptionMap: variableMessageDocs, codeText: _VariableMessageExample2.default, scope: variableMessageScope, noRender: false })
     )
   );
 };
@@ -26106,7 +26110,8 @@ var VariableMessage = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = VariableMessage.__proto__ || Object.getPrototypeOf(VariableMessage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      message: ''
+      message: '',
+      modified: false
     }, _this.getVariables = function (array) {
       var variables = array.filter(function (item) {
         return item.id !== -1;
@@ -26294,6 +26299,8 @@ var VariableMessage = function (_React$Component) {
         // Manually trigger `input` update
         _this.handleComposeInput();
       }
+    }, _this.showReset = function () {
+      return _this.props.reset && _this.props.initialValue && _this.props.initialValue !== _this.state.message;
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -26389,6 +26396,12 @@ var VariableMessage = function (_React$Component) {
      * @return {void}
      */
 
+
+    /**
+     * Determine if we should show reset option
+     * Tests for both the reset prop and if the initialValue is not equal to the current message state
+     */
+
   }, {
     key: 'render',
     value: function render() {
@@ -26397,11 +26410,9 @@ var VariableMessage = function (_React$Component) {
       var _props = this.props,
           className = _props.className,
           composeLabel = _props.composeLabel,
-          reset = _props.reset,
           explanationMessage = _props.explanationMessage,
           previewLabel = _props.previewLabel,
-          variables = _props.variables,
-          initialValue = _props.initialValue;
+          variables = _props.variables;
 
       var classes = (0, _classnames2.default)('variable-message', className);
 
@@ -26420,10 +26431,14 @@ var VariableMessage = function (_React$Component) {
             { htmlFor: variableMessageInputName, className: 'u-block u-m-b-0' },
             composeLabel
           ),
-          reset && initialValue ? _react2.default.createElement(
-            'button',
-            { className: 'button--reset u-text-muted u-text-small' },
-            'Reset'
+          this.showReset() ? _react2.default.createElement(
+            'div',
+            { className: 'variable-message__reset' },
+            _react2.default.createElement(
+              'button',
+              { className: 'button--reset u-text-muted u-text-small', onClick: this.handleInitValue },
+              'Reset'
+            )
           ) : null
         ),
         _react2.default.createElement('div', {
@@ -28736,7 +28751,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 725 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n          initialValue=\"{first_name}, this is a test initial value. Here's your last name, {last_name}. At our {office_location} okay?\"\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n          initialValue=\"Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office. Have a great day!\"\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 726 */,

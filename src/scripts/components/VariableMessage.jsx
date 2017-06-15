@@ -26,6 +26,7 @@ class VariableMessage extends React.Component {
 
   state = {
     message: '',
+    modified: false,
   };
 
   componentWillMount() {
@@ -298,8 +299,14 @@ class VariableMessage extends React.Component {
     }
   }
 
+  /**
+   * Determine if we should show reset option
+   * Tests for both the reset prop and if the initialValue is not equal to the current message state
+   */
+  showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
+
   render() {
-    const { className, composeLabel, reset, explanationMessage, previewLabel, variables, initialValue } = this.props;
+    const { className, composeLabel, explanationMessage, previewLabel, variables } = this.props;
     const classes = cx('variable-message', className);
 
     const variableMessageInputName = `variable-message-input-${this.variableMessageUnique}`;
@@ -310,7 +317,10 @@ class VariableMessage extends React.Component {
       <div className={classes} onClick={this.handleVariableClick}>
         <div className="variable-message__header">
           <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
-          {reset && initialValue ? <button className="button--reset u-text-muted u-text-small">Reset</button> : null}
+          {this.showReset() ?
+            <div className="variable-message__reset">
+              <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Reset</button>
+            </div> : null}
         </div>
         <div
           className="variable-message__compose"
