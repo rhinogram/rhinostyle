@@ -26196,7 +26196,6 @@ var VariableMessage = function (_React$Component) {
       });
 
       // Set message content equal to new mixed content
-      // Remove newlines and spaces between HTML tags so we don't have any extra space that's not editable by the user
       _this.compose.innerHTML = split.join('');
 
       // Manually trigger `input` update
