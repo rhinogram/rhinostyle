@@ -15,6 +15,7 @@ class VariableMessage extends React.Component {
     reset: React.PropTypes.bool,
     variables: React.PropTypes.array.isRequired,
     onInput: React.PropTypes.func,
+    initialValue: React.PropTypes.string,
   };
 
   static defaultProps = {
@@ -26,6 +27,31 @@ class VariableMessage extends React.Component {
   state = {
     message: '',
   };
+
+  componentWillMount() {
+    if (this.props.initialValue) {
+      this.setState({
+        message: this.props.initialValue,
+      });
+    }
+  }
+
+  componentDidMount() {
+    this.variableMessageUnique = Math.floor(Math.random() * 1000000);
+
+    if (this.props.initialValue) {
+      this.compose.textContent = this.props.initialValue;
+      this.handleInitValue();
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.initialValue !== this.props.initialValue) {
+      this.setState({
+        message: nextProps.initialValue,
+      });
+    }
+  }
 
   /**
    * Retrieves variables
@@ -106,6 +132,33 @@ class VariableMessage extends React.Component {
     const $variable = this.transformVar(text);
 
     this.insertTextAtCursor($variable);
+
+    // Manually trigger `input` update
+    this.handleComposeInput();
+  }
+
+  handleInitValue = () => {
+    const initialValue = this.props.initialValue;
+    // Get flat-leve list of all variables
+    const variables = this.getVariables(this.props.variables);
+
+    // Split `initialValue` to target variables
+    const split = initialValue.split(/({\w+})/g);
+
+    // Loop through variables
+    variables.forEach((value) => {
+      const variable = value.variable;
+      const foundVariable = split.indexOf(variable);
+
+      // See if we've found one in our `initialValue`
+      if (foundVariable !== -1) {
+        // If so, transform the variable into HTML
+        split[foundVariable] = this.transformVar(variable).outerHTML;
+      }
+    });
+
+    // Set message content equal to new mixed content
+    this.compose.innerHTML = split.join('');
 
     // Manually trigger `input` update
     this.handleComposeInput();
@@ -239,19 +292,18 @@ class VariableMessage extends React.Component {
   }
 
   render() {
-    const { className, composeLabel, reset, explanationMessage, previewLabel, variables } = this.props;
+    const { className, composeLabel, reset, explanationMessage, previewLabel, variables, initialValue } = this.props;
     const classes = cx('variable-message', className);
 
-    const variableMessageUnique = Math.floor(Math.random() * 1000000);
-    const variableMessageInputName = `variable-message-input-${variableMessageUnique}`;
-    const variableMessageSelectName = `variable-message-select-${variableMessageUnique}`;
-    const variableMessagePreviewName = `variable-message-preview-${variableMessageUnique}`;
+    const variableMessageInputName = `variable-message-input-${this.variableMessageUnique}`;
+    const variableMessageSelectName = `variable-message-select-${this.variableMessageUnique}`;
+    const variableMessagePreviewName = `variable-message-preview-${this.variableMessageUnique}`;
 
     return (
       <div className={classes} onClick={this.handleVariableClick}>
         <div className="variable-message__header">
           <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
-          {reset ? <button className="button--reset u-text-muted u-text-small">Reset</button> : null}
+          {reset && initialValue ? <button className="button--reset u-text-muted u-text-small">Reset</button> : null}
         </div>
         <div
           className="variable-message__compose"

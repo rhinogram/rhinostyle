@@ -26163,6 +26163,31 @@ var VariableMessage = function (_React$Component) {
 
       // Manually trigger `input` update
       _this.handleComposeInput();
+    }, _this.handleInitValue = function () {
+      var initialValue = _this.props.initialValue;
+      // Get flat-leve list of all variables
+      var variables = _this.getVariables(_this.props.variables);
+
+      // Split `initialValue` to target variables
+      var split = initialValue.split(/({\w+})/g);
+
+      // Loop through variables
+      variables.forEach(function (value) {
+        var variable = value.variable;
+        var foundVariable = split.indexOf(variable);
+
+        // See if we've found one in our `initialValue`
+        if (foundVariable !== -1) {
+          // If so, transform the variable into HTML
+          split[foundVariable] = _this.transformVar(variable).outerHTML;
+        }
+      });
+
+      // Set message content equal to new mixed content
+      _this.compose.innerHTML = split.join('');
+
+      // Manually trigger `input` update
+      _this.handleComposeInput();
     }, _this.handleVariableSelection = function (name, value) {
       // Get flat-leve list of all variables
       var variables = _this.getVariables(_this.props.variables);
@@ -26260,71 +26285,99 @@ var VariableMessage = function (_React$Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  /**
-   * Retrieves variables
-   * Puts them in a flat-level array since some could be inside of `<optgroup>`s
-   * @param  {array} array
-   * @return {array}
-   */
-
-
-  /**
-   * Update variable insertion point and cursor position
-   * @param  {string} text
-   * @return {void}
-   */
-
-
-  /**
-   * Transform `{}` into styled component
-   * @param  {string} text
-   * @return {node}
-   */
-
-
-  /**
-   * Insert variable in cursor position
-   * @param  {string} text
-   * @return {void}
-   */
-
-
-  /**
-   * Handle variable selection from `<Select>`
-   * @param  {string} name  input[name]
-   * @param  {string} value input[value]
-   * @return {void}
-   */
-
-
-  /**
-   * Disable `<enter>` within compose window
-   * @param  {event} e
-   * @return {void}
-   */
-
-
-  /**
-   * Make sure we force plain-text on paste
-   * @param  {event} e
-   * @return {void}
-   */
-
-
-  /**
-   * Handle updating live-preview and variable swap
-   * @return {void}
-   */
-
-
-  /**
-   * Clicking on a variable inside the compose window should remove it
-   * @param  {event} e
-   * @return {void}
-   */
-
-
   _createClass(VariableMessage, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (this.props.initialValue) {
+        this.setState({
+          message: this.props.initialValue
+        });
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.variableMessageUnique = Math.floor(Math.random() * 1000000);
+
+      if (this.props.initialValue) {
+        this.compose.textContent = this.props.initialValue;
+        this.handleInitValue();
+      }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.initialValue !== this.props.initialValue) {
+        this.setState({
+          message: nextProps.initialValue
+        });
+      }
+    }
+
+    /**
+     * Retrieves variables
+     * Puts them in a flat-level array since some could be inside of `<optgroup>`s
+     * @param  {array} array
+     * @return {array}
+     */
+
+
+    /**
+     * Update variable insertion point and cursor position
+     * @param  {string} text
+     * @return {void}
+     */
+
+
+    /**
+     * Transform `{}` into styled component
+     * @param  {string} text
+     * @return {node}
+     */
+
+
+    /**
+     * Insert variable in cursor position
+     * @param  {string} text
+     * @return {void}
+     */
+
+
+    /**
+     * Handle variable selection from `<Select>`
+     * @param  {string} name  input[name]
+     * @param  {string} value input[value]
+     * @return {void}
+     */
+
+
+    /**
+     * Disable `<enter>` within compose window
+     * @param  {event} e
+     * @return {void}
+     */
+
+
+    /**
+     * Make sure we force plain-text on paste
+     * @param  {event} e
+     * @return {void}
+     */
+
+
+    /**
+     * Handle updating live-preview and variable swap
+     * @return {void}
+     */
+
+
+    /**
+     * Clicking on a variable inside the compose window should remove it
+     * @param  {event} e
+     * @return {void}
+     */
+
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -26335,14 +26388,14 @@ var VariableMessage = function (_React$Component) {
           reset = _props.reset,
           explanationMessage = _props.explanationMessage,
           previewLabel = _props.previewLabel,
-          variables = _props.variables;
+          variables = _props.variables,
+          initialValue = _props.initialValue;
 
       var classes = (0, _classnames2.default)('variable-message', className);
 
-      var variableMessageUnique = Math.floor(Math.random() * 1000000);
-      var variableMessageInputName = 'variable-message-input-' + variableMessageUnique;
-      var variableMessageSelectName = 'variable-message-select-' + variableMessageUnique;
-      var variableMessagePreviewName = 'variable-message-preview-' + variableMessageUnique;
+      var variableMessageInputName = 'variable-message-input-' + this.variableMessageUnique;
+      var variableMessageSelectName = 'variable-message-select-' + this.variableMessageUnique;
+      var variableMessagePreviewName = 'variable-message-preview-' + this.variableMessageUnique;
 
       return _react2.default.createElement(
         'div',
@@ -26355,7 +26408,7 @@ var VariableMessage = function (_React$Component) {
             { htmlFor: variableMessageInputName, className: 'u-block u-m-b-0' },
             composeLabel
           ),
-          reset ? _react2.default.createElement(
+          reset && initialValue ? _react2.default.createElement(
             'button',
             { className: 'button--reset u-text-muted u-text-small' },
             'Reset'
@@ -26412,7 +26465,8 @@ VariableMessage.propTypes = {
   previewLabel: _react2.default.PropTypes.string.isRequired,
   reset: _react2.default.PropTypes.bool,
   variables: _react2.default.PropTypes.array.isRequired,
-  onInput: _react2.default.PropTypes.func
+  onInput: _react2.default.PropTypes.func,
+  initialValue: _react2.default.PropTypes.string
 };
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
@@ -28670,7 +28724,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 725 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    const variableOpts = [\n      { id: -1, value: 'Select Variable' },\n      { id: 1,\n        value: 'Patient',\n        options: [\n          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },\n          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },\n          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },\n        ],\n      },\n      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },\n    ];\n\n    return (\n      <div>\n        <VariableMessage\n          reset\n          variables={variableOpts}\n          initialValue=\"{first_name}, this is a test initial value. Here's your last name, {last_name}. At our {office_location} okay?\"\n        />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 726 */,
