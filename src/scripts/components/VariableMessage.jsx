@@ -115,12 +115,19 @@ class VariableMessage extends React.Component {
     value = value.replace(regexUnderscores, '<b>_</b>');
 
     // Build variable UI
-    return new DOMParser().parseFromString(
-      `
-        <span contenteditable="false" spellcheck="false" class="variable-message__variable">
-          ${value} <span class="variable-message__close"></span>
-        </span>
-      `, 'text/html').body.firstChild;
+    const $variable = document.createElement('span');
+    // Disable spell-checker
+    $variable.setAttribute('spellcheck', false);
+    // Do not allow the variable to be edited
+    $variable.setAttribute('contenteditable', false);
+    $variable.classList.add('variable-message__variable');
+    $variable.innerHTML = value;
+
+    const $close = document.createElement('span');
+    $close.classList.add('variable-message__close');
+    $variable.appendChild($close);
+
+    return $variable;
   }
 
   /**
