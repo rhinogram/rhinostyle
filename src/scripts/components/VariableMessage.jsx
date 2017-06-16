@@ -215,10 +215,10 @@ class VariableMessage extends React.Component {
   }
 
   /**
-   * IE11 does not support the `input` event on `contenteditable` elements, so blur is used instead to update
+   * IE11 does not support the `input` event on `contenteditable` elements, so `keyup` is used instead to update
    * @return {void}
    */
-  handleOnBlur = () => {
+  handleKeyUp = () => {
     // IE11 check
     if (!!window.MSInputMethodContext && !!document.documentMode) {
       this.handleComposeInput();
@@ -337,7 +337,7 @@ class VariableMessage extends React.Component {
           contentEditable
           onInput={this.handleComposeInput}
           onKeyPress={this.handleComposeKeypress}
-          onBlur={this.handleOnBlur}
+          onKeyUp={this.handleKeyUp}
           onPaste={this.handlePaste}
           ref={ref => (this.compose = ref)}
         />

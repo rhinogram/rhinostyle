@@ -26235,7 +26235,7 @@ var VariableMessage = function (_React$Component) {
       if (e.which === 13) {
         e.preventDefault();
       }
-    }, _this.handleOnBlur = function () {
+    }, _this.handleKeyUp = function () {
       // IE11 check
       if (!!window.MSInputMethodContext && !!document.documentMode) {
         _this.handleComposeInput();
@@ -26382,7 +26382,7 @@ var VariableMessage = function (_React$Component) {
 
 
     /**
-     * IE11 does not support the `input` event on `contenteditable` elements, so blur is used instead to update
+     * IE11 does not support the `input` event on `contenteditable` elements, so `keyup` is used instead to update
      * @return {void}
      */
 
@@ -26457,7 +26457,7 @@ var VariableMessage = function (_React$Component) {
           contentEditable: true,
           onInput: this.handleComposeInput,
           onKeyPress: this.handleComposeKeypress,
-          onBlur: this.handleOnBlur,
+          onKeyUp: this.handleKeyUp,
           onPaste: this.handlePaste,
           ref: function ref(_ref2) {
             return _this2.compose = _ref2;
