@@ -13628,7 +13628,7 @@ var dropdownMenuItemDocs = {
   id: '[Optional] - Identifies the selected item in Dropdown when you want to use as a Dropdown Select',
   label: '[Optional] - Label for item',
   labelDesc: '[Optional] - Description for label',
-  onClick: '[Opational] - Click function',
+  onClick: '[Optional] - Click function',
   route: '[Optional] - React-router route to use for item',
   url: '[Optional] - URL for item'
 };
@@ -19573,7 +19573,8 @@ var variableMessageDocs = {
   previewLabel: '[Optional] - Label used above the preview message bubble',
   reset: '[Optional] - Allow <code>initialValue</code> to be reverted after edit',
   variables: 'Select options (with variable notes) that power the find/replace functionality',
-  initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database'
+  initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
+  onInput: 'Callback function when the composition area is changed'
 };
 var variableMessageScope = {
   React: _react2.default,
@@ -26234,6 +26235,11 @@ var VariableMessage = function (_React$Component) {
       if (e.which === 13) {
         e.preventDefault();
       }
+    }, _this.handleOnBlur = function () {
+      // IE11 check
+      if (!!window.MSInputMethodContext && !!document.documentMode) {
+        _this.handleComposeInput();
+      }
     }, _this.handlePaste = function (e) {
       e.preventDefault();
 
@@ -26291,10 +26297,8 @@ var VariableMessage = function (_React$Component) {
       if (e.target.classList.contains('variable-message__close')) {
         var $parent = e.target.parentNode;
 
-        // Remove space `<span>`
-        //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
         // Remove variable
-        $parent.remove();
+        $parent.parentElement.removeChild($parent);
 
         // Manually trigger `input` update
         _this.handleComposeInput();
@@ -26378,6 +26382,12 @@ var VariableMessage = function (_React$Component) {
 
 
     /**
+     * IE11 does not support the `input` event on `contenteditable` elements, so blur is used instead to update
+     * @return {void}
+     */
+
+
+    /**
      * Make sure we force plain-text on paste
      * @param  {event} e
      * @return {void}
@@ -26400,6 +26410,7 @@ var VariableMessage = function (_React$Component) {
     /**
      * Determine if we should show reset option
      * Tests for both the reset prop and if the initialValue is not equal to the current message state
+     * @return {boolean}
      */
 
   }, {
@@ -26446,6 +26457,7 @@ var VariableMessage = function (_React$Component) {
           contentEditable: true,
           onInput: this.handleComposeInput,
           onKeyPress: this.handleComposeKeypress,
+          onBlur: this.handleOnBlur,
           onPaste: this.handlePaste,
           ref: function ref(_ref2) {
             return _this2.compose = _ref2;

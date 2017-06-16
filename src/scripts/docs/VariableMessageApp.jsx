@@ -13,6 +13,7 @@ const variableMessageDocs = {
   reset: '[Optional] - Allow <code>initialValue</code> to be reverted after edit',
   variables: 'Select options (with variable notes) that power the find/replace functionality',
   initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
+  onInput: 'Callback function when the composition area is changed',
 };
 const variableMessageScope  = {
   React,

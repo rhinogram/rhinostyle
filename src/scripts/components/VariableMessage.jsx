@@ -215,6 +215,17 @@ class VariableMessage extends React.Component {
   }
 
   /**
+   * IE11 does not support the `input` event on `contenteditable` elements, so blur is used instead to update
+   * @return {void}
+   */
+  handleOnBlur = () => {
+    // IE11 check
+    if (!!window.MSInputMethodContext && !!document.documentMode) {
+      this.handleComposeInput();
+    }
+  }
+
+  /**
    * Make sure we force plain-text on paste
    * @param  {event} e
    * @return {void}
@@ -289,10 +300,8 @@ class VariableMessage extends React.Component {
     if (e.target.classList.contains('variable-message__close')) {
       const $parent = e.target.parentNode;
 
-      // Remove space `<span>`
-      //if ($parent.nextSibling.classList.contains('reminder__space')) $parent.nextSibling.remove();
       // Remove variable
-      $parent.remove();
+      $parent.parentElement.removeChild($parent);
 
       // Manually trigger `input` update
       this.handleComposeInput();
@@ -302,6 +311,7 @@ class VariableMessage extends React.Component {
   /**
    * Determine if we should show reset option
    * Tests for both the reset prop and if the initialValue is not equal to the current message state
+   * @return {boolean}
    */
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
@@ -327,6 +337,7 @@ class VariableMessage extends React.Component {
           contentEditable
           onInput={this.handleComposeInput}
           onKeyPress={this.handleComposeKeypress}
+          onBlur={this.handleOnBlur}
           onPaste={this.handlePaste}
           ref={ref => (this.compose = ref)}
         />
