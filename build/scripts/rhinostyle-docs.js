@@ -19571,7 +19571,7 @@ var variableMessageDocs = {
   composeLabel: '[Optional] - Label used above the editable text',
   explanationMessage: '[Optional] - Text that appears next to the variable select',
   previewLabel: '[Optional] - Label used above the preview message bubble',
-  reset: '[Optional] - Allow <code>initialValue</code> to be reverted after edit',
+  reset: '[Optional] - Allow the initial value to be reverted after edit',
   variables: 'Select options (with variable notes) that power the find/replace functionality',
   initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
   onInput: 'Callback function when the composition area is changed'
