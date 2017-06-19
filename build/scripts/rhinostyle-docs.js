@@ -26111,18 +26111,13 @@ var VariableMessage = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = VariableMessage.__proto__ || Object.getPrototypeOf(VariableMessage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      message: '',
-      modified: false
+      message: ''
     }, _this.getVariables = function (array) {
-      var variables = array.filter(function (item) {
+      return array.filter(function (item) {
         return item.id !== -1;
-      });
-
-      variables = variables.reduce(function (a, b) {
+      }).reduce(function (a, b) {
         return a.concat(b.options || b);
       }, []);
-
-      return variables;
     }, _this.insertTextAtCursor = function (text) {
       var paste = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
@@ -26208,10 +26203,8 @@ var VariableMessage = function (_React$Component) {
       _this.handleComposeInput();
     }, _this.handleVariableSelection = function (name, value) {
       // Get flat-leve list of all variables
-      var variables = _this.getVariables(_this.props.variables);
-
-      // Get variable context
-      var variable = variables.find(function (el) {
+      // and variable context
+      var variable = _this.getVariables(_this.props.variables).find(function (el) {
         return el.id === value;
       });
 
@@ -26253,13 +26246,15 @@ var VariableMessage = function (_React$Component) {
       }
     }, _this.handleComposeInput = function () {
       var variables = _this.props.variables;
-      var reminderText = _this.compose.textContent.trim();
+      // Get only the text representation of the message
+      // so we can update our DB with it
+      var message = _this.compose.textContent.trim();
       var $select = _reactDom2.default.findDOMNode(_this.select);
       var $preview = _reactDom2.default.findDOMNode(_this.preview);
 
       // Update state
       _this.setState({
-        message: reminderText
+        message: message
       });
 
       // Search text to determine if variables are found in it
@@ -26268,13 +26263,13 @@ var VariableMessage = function (_React$Component) {
 
         if (variable) {
           // We found the text
-          if (reminderText.search(variable) !== -1) {
+          if (message.search(variable) !== -1) {
             // Disable option in select
             $select.querySelector('[value="' + value.id + '"]').setAttribute('disabled', 'disabled');
 
             // Swap out variables for data
             var regex = new RegExp(variable);
-            reminderText = reminderText.replace(regex, value.variableValue);
+            message = message.replace(regex, value.variableValue);
           } else {
             // Enable option in select
             $select.querySelector('[value="' + value.id + '"]').removeAttribute('disabled');
@@ -26283,15 +26278,15 @@ var VariableMessage = function (_React$Component) {
       });
 
       // Take away any trailing space
-      if (reminderText === ' ') {
-        reminderText = '';
+      if (message === ' ') {
+        message = '';
       }
 
       // Update preview
-      $preview.innerHTML = reminderText;
+      $preview.innerHTML = message;
 
       if (_this.props.onInput && _typeof(_this.props.onInput === 'function')) {
-        _this.props.onInput(reminderText);
+        _this.props.onInput(message);
       }
     }, _this.handleVariableClick = function (e) {
       if (e.target.classList.contains('variable-message__close')) {

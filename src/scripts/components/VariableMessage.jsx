@@ -26,7 +26,6 @@ class VariableMessage extends React.Component {
 
   state = {
     message: '',
-    modified: false,
   };
 
   componentWillMount() {
@@ -60,13 +59,7 @@ class VariableMessage extends React.Component {
    * @param  {array} array
    * @return {array}
    */
-  getVariables = (array) => {
-    let variables = array.filter(item => item.id !== -1);
-
-    variables = variables.reduce((a, b) => a.concat(b.options || b), []);
-
-    return variables;
-  }
+  getVariables = array => array.filter(item => item.id !== -1).reduce((a, b) => a.concat(b.options || b), []);
 
   /**
    * Update variable insertion point and cursor position
@@ -180,10 +173,8 @@ class VariableMessage extends React.Component {
    */
   handleVariableSelection = (name, value) => {
     // Get flat-leve list of all variables
-    const variables = this.getVariables(this.props.variables);
-
-    // Get variable context
-    const variable = variables.find(el => el.id === value);
+    // and variable context
+    const variable = this.getVariables(this.props.variables).find(el => el.id === value);
 
     // If we're on a valid variable
     if (variable.variable) {
@@ -249,13 +240,15 @@ class VariableMessage extends React.Component {
    */
   handleComposeInput = () => {
     const variables = this.props.variables;
-    let reminderText = this.compose.textContent.trim();
+    // Get only the text representation of the message
+    // so we can update our DB with it
+    let message = this.compose.textContent.trim();
     const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
 
     // Update state
     this.setState({
-      message: reminderText,
+      message,
     });
 
     // Search text to determine if variables are found in it
@@ -264,13 +257,13 @@ class VariableMessage extends React.Component {
 
       if (variable) {
         // We found the text
-        if (reminderText.search(variable) !== -1) {
+        if (message.search(variable) !== -1) {
           // Disable option in select
           $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
 
           // Swap out variables for data
           const regex = new RegExp(variable);
-          reminderText = reminderText.replace(regex, value.variableValue);
+          message = message.replace(regex, value.variableValue);
         } else {
           // Enable option in select
           $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
@@ -279,15 +272,15 @@ class VariableMessage extends React.Component {
     });
 
     // Take away any trailing space
-    if (reminderText === ' ') {
-      reminderText = '';
+    if (message === ' ') {
+      message = '';
     }
 
     // Update preview
-    $preview.innerHTML = reminderText;
+    $preview.innerHTML = message;
 
     if (this.props.onInput && typeof (this.props.onInput === 'function')) {
-      this.props.onInput(reminderText);
+      this.props.onInput(message);
     }
   }
 
