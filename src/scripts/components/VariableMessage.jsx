@@ -143,7 +143,7 @@ class VariableMessage extends React.Component {
 
   handleInitValue = () => {
     const initialValue = this.props.initialValue;
-    // Get flat-leve list of all variables
+    // Get flat-level list of all variables
     const variables = this.getVariables(this.props.variables);
 
     // Split `initialValue` to target variables
@@ -175,7 +175,7 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleVariableSelection = (name, value) => {
-    // Get flat-leve list of all variables
+    // Get flat-level list of all variables
     // and variable context
     const variable = this.getVariables(this.props.variables).find(el => el.id === value);
 

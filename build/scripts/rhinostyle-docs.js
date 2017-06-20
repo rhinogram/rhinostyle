@@ -26184,7 +26184,7 @@ var VariableMessage = function (_React$Component) {
       _this.handleComposeInput();
     }, _this.handleInitValue = function () {
       var initialValue = _this.props.initialValue;
-      // Get flat-leve list of all variables
+      // Get flat-level list of all variables
       var variables = _this.getVariables(_this.props.variables);
 
       // Split `initialValue` to target variables
@@ -26208,7 +26208,7 @@ var VariableMessage = function (_React$Component) {
       // Manually trigger `input` update
       _this.handleComposeInput();
     }, _this.handleVariableSelection = function (name, value) {
-      // Get flat-leve list of all variables
+      // Get flat-level list of all variables
       // and variable context
       var variable = _this.getVariables(_this.props.variables).find(function (el) {
         return el.id === value;
