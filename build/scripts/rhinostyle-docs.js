@@ -17064,7 +17064,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   pause: '[Optional] - Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  size: '[Optional] - LoaderCircle size -  [small | large]',
+  size: '[Optional] - LoaderCircle size -  [xsmall | small | large]',
   type: '[Optional] - LoaderCircle type -  [default | primary]'
 };
 var loaderCircleScope = {
@@ -17123,9 +17123,11 @@ var LoaderApp = function LoaderApp() {
         _react2.default.createElement(
           'code',
           null,
-          'size="small | large"'
+          'size="xsmall | small | large"'
         )
       ),
+      _react2.default.createElement(_components.LoaderCircle, { size: 'xsmall' }),
+      ' ',
       _react2.default.createElement(_components.LoaderCircle, { size: 'small' }),
       ' ',
       _react2.default.createElement(_components.LoaderCircle, null),
@@ -20366,7 +20368,8 @@ var config = exports.config = {
     active: 'is-active',
     disabled: 'is-disabled',
     hidden: 'is-hidden',
-    uHidden: 'u-hidden'
+    uHidden: 'u-hidden',
+    loading: 'is-loading'
   }
 };
 
@@ -20905,12 +20908,30 @@ var Button = function (_React$Component) {
       if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
         _this.props.onClick();
       }
+    }, _this.loadingRender = function () {
+      var loaderClass = 'button__loader ' + (['primary', 'secondary', 'danger'].includes(_this.props.type) ? 'button__loader--contrast' : 'button__loader--default');
+
+      var loaderSize = _this.props.size === 'small' ? 'xsmall' : 'small';
+
+      return _this.props.loading ? _react2.default.createElement(
+        'div',
+        { className: loaderClass },
+        _react2.default.createElement(_components.LoaderCircle, { size: loaderSize })
+      ) : null;
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
+
+  /**
+   * Render loading UI based on `loading` prop
+   * @return {render}
+   */
+
 
   _createClass(Button, [{
     key: 'render',
     value: function render() {
+      var _cx;
+
       var _props = this.props,
           active = _props.active,
           blankWindow = _props.blankWindow,
@@ -20924,10 +20945,11 @@ var Button = function (_React$Component) {
           title = _props.title,
           type = _props.type,
           url = _props.url,
-          opts = _objectWithoutProperties(_props, ['active', 'blankWindow', 'block', 'className', 'disabled', 'iconOnly', 'onClick', 'route', 'size', 'title', 'type', 'url']); // eslint-disable-line
+          loading = _props.loading,
+          opts = _objectWithoutProperties(_props, ['active', 'blankWindow', 'block', 'className', 'disabled', 'iconOnly', 'onClick', 'route', 'size', 'title', 'type', 'url', 'loading']); // eslint-disable-line
 
 
-      var classes = (0, _classnames2.default)('button', className, _defineProperty({
+      var classes = (0, _classnames2.default)('button', className, (_cx = {
         'button--default': type === 'default',
         'button--primary': type === 'primary',
         'button--secondary': type === 'secondary',
@@ -20939,29 +20961,31 @@ var Button = function (_React$Component) {
         'button--large': size === 'large',
         'button--block': block,
         'button--icon': iconOnly
-      }, _components.UtilitySystem.config.classes.active, active));
+      }, _defineProperty(_cx, _components.UtilitySystem.config.classes.active, active), _defineProperty(_cx, _components.UtilitySystem.config.classes.loading, loading), _cx));
 
       var markup = '';
 
       if (route) {
         markup = _react2.default.createElement(
           _reactRouter.Link,
-          _extends({ to: route, className: classes, onClick: this.handleClick }, opts, { title: this.props.title }),
+          _extends({ to: route, className: classes, onClick: this.handleClick, disabled: disabled || loading }, opts, { title: this.props.title }),
           _react2.default.createElement(
             'span',
             { className: 'button__text-wrapper' },
             this.props.children
-          )
+          ),
+          this.loadingRender()
         );
       } else {
         markup = _react2.default.createElement(
           'button',
-          _extends({ type: 'button', className: classes, disabled: disabled, onClick: this.handleClick, 'aria-label': this.props.title }, opts),
+          _extends({ type: 'button', className: classes, disabled: disabled || loading, onClick: this.handleClick, 'aria-label': this.props.title }, opts),
           _react2.default.createElement(
             'span',
             { className: 'button__text-wrapper' },
             this.props.children
-          )
+          ),
+          this.loadingRender()
         );
       }
 
@@ -20986,7 +21010,8 @@ Button.propTypes = {
   size: _react2.default.PropTypes.oneOf(['small', 'large']),
   title: _react2.default.PropTypes.string,
   type: _react2.default.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
-  url: _react2.default.PropTypes.string
+  url: _react2.default.PropTypes.string,
+  loading: _react2.default.PropTypes.bool
 };
 Button.defaultProps = {
   active: false,
@@ -23542,7 +23567,8 @@ var LoaderCircle = function (_React$Component) {
         'loader-circle--default': type === 'default',
         'loader-circle--primary': type === 'primary',
         'loader-circle--large': size === 'large',
-        'loader-circle--small': size === 'small'
+        'loader-circle--small': size === 'small',
+        'loader-circle--xsmall': size === 'xsmall'
       });
 
       return _react2.default.createElement('div', { className: classes, ref: function ref(_ref) {
@@ -28048,7 +28074,7 @@ module.exports = "const images = [\n  '//placekitten.com/1500/500',\n  '//placek
 /* 700 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <LoaderCircle size=\"small\" />\n        <LoaderCircle />\n        <LoaderCircle size=\"large\" />\n        <LoaderCircle size=\"small\" type=\"primary\" />\n        <LoaderCircle type=\"primary\" />\n        <LoaderCircle size=\"large\" type=\"primary\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <LoaderCircle size=\"xsmall\" />\n        <LoaderCircle size=\"small\" />\n        <LoaderCircle />\n        <LoaderCircle size=\"large\" />\n        <LoaderCircle size=\"small\" type=\"primary\" />\n        <LoaderCircle type=\"primary\" />\n        <LoaderCircle size=\"large\" type=\"primary\" />\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 701 */

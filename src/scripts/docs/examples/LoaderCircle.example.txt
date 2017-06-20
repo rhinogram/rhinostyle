@@ -2,6 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
+        <LoaderCircle size="xsmall" />
         <LoaderCircle size="small" />
         <LoaderCircle />
         <LoaderCircle size="large" />
