@@ -85,7 +85,21 @@ class Select extends React.Component {
       return false;
     };
 
-    const renderOpts = option => <option key={option.id} value={option.id}>{option.value}</option>;
+    const renderOpts = (option) => {
+      // If the option has options as well we're in an `<optgroup>`
+      if (option.options) {
+        return (
+          <optgroup key={option.id} label={option.value}>
+            {option.options.map(childOption => <option key={childOption.id} value={childOption.id}>{childOption.value}</option>)}
+          </optgroup>
+        );
+      }
+
+      // We're in a default single-level `<option>`
+      return (
+        <option key={option.id} value={option.id}>{option.value}</option>
+      );
+    };
 
     return (
       <div className={formGroupClasses}>
