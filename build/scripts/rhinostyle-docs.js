@@ -12646,7 +12646,8 @@ var buttonDocs = {
   size: '[Optional] - Button size -  [small | large]',
   title: '[Optional] - Include title attribute that represents advisory information',
   type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link]',
-  url: '[Optional] - URL for item'
+  url: '[Optional] - URL for item',
+  loading: '[Optional] - Specify a loading-state for the button to denote a background-action is in-progress'
 };
 var exampleScope = {
   React: _react2.default,
@@ -20996,11 +20997,11 @@ var Button = function (_React$Component) {
 
       var loaderSize = _this.props.size === 'small' ? 'xsmall' : 'small';
 
-      return _this.props.loading ? _react2.default.createElement(
+      return _react2.default.createElement(
         'div',
         { className: loaderClass },
         _react2.default.createElement(_components.LoaderCircle, { size: loaderSize })
-      ) : null;
+      );
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -21057,7 +21058,7 @@ var Button = function (_React$Component) {
             { className: 'button__text-wrapper' },
             this.props.children
           ),
-          this.loadingRender()
+          loading && this.loadingRender()
         );
       } else {
         markup = _react2.default.createElement(
@@ -21068,7 +21069,7 @@ var Button = function (_React$Component) {
             { className: 'button__text-wrapper' },
             this.props.children
           ),
-          this.loadingRender()
+          loading && this.loadingRender()
         );
       }
 

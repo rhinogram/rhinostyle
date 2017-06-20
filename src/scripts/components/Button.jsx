@@ -57,7 +57,7 @@ class Button extends React.Component {
     const loaderSize = this.props.size === 'small' ? 'xsmall' : 'small';
 
     return (
-      this.props.loading ? <div className={loaderClass}><LoaderCircle size={loaderSize} /></div> : null
+      <div className={loaderClass}><LoaderCircle size={loaderSize} /></div>
     );
   }
 
@@ -85,14 +85,14 @@ class Button extends React.Component {
       markup = (
         <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>
-          {this.loadingRender()}
+          {loading && this.loadingRender()}
         </Link>
       );
     } else {
       markup = (
         <button type="button" className={classes} disabled={disabled || loading} onClick={this.handleClick} aria-label={this.props.title} {...opts}>
           <span className="button__text-wrapper">{this.props.children}</span>
-          {this.loadingRender()}
+          {loading && this.loadingRender()}
         </button>
       );
     }
