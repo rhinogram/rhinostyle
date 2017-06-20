@@ -48,6 +48,7 @@ class LoaderCircle extends React.Component {
       'loader-circle--primary':   type === 'primary',
       'loader-circle--large':        size === 'large',
       'loader-circle--small':        size === 'small',
+      'loader-circle--xsmall':        size === 'xsmall',
     });
 
     return (

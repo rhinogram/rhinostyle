@@ -9,7 +9,7 @@ import loaderPulseExample from './examples/LoaderPulse.example.txt';
 const loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   pause: '[Optional] - Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  size: '[Optional] - LoaderCircle size -  [small | large]',
+  size: '[Optional] - LoaderCircle size -  [xsmall | small | large]',
   type: '[Optional] - LoaderCircle type -  [default | primary]',
 };
 const loaderCircleScope = {
@@ -39,8 +39,8 @@ const LoaderApp = () =>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
-      <p className="site-copy"><code>size=&quot;small | large&quot;</code></p>
-      <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />
+      <p className="site-copy"><code>size=&quot;xsmall | small | large&quot;</code></p>
+      <LoaderCircle size="xsmall" /> <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />
     </section>
 
     <section className="site-section">

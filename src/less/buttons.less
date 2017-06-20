@@ -156,6 +156,10 @@
 
   // Disabled
   &[disabled] {
+    &:not(.button--outline-primary):not(.button--outline--reversed) {
+      .mixin-button-variant(@button-default-color; @button-default-bg; @button-default-bg-color; @button-default-border);
+    }
+
     opacity: @global-opacity-disabled;
     cursor: not-allowed;
     pointer-events: none;
@@ -276,5 +280,40 @@
 
   &:empty {
     display: none;
+  }
+}
+
+
+//
+// Loading state
+//
+
+
+.button.is-loading {
+  .button__text-wrapper {
+    opacity: 0;
+  }
+}
+
+.button__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  z-index: 1;
+}
+
+
+//
+// Loading state variation
+//
+
+
+.button__loader--contrast {
+  border-color: fade(@global-color-white, 50%);
+
+  &::after {
+    border-top-color: @global-color-white;
   }
 }

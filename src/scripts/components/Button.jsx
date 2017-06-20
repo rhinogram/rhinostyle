@@ -2,7 +2,7 @@ import cx       from 'classnames';
 import React    from 'react';
 import { Link } from 'react-router';
 
-import { UtilitySystem } from '../components';
+import { LoaderCircle, UtilitySystem } from '../components';
 
 class Button extends React.Component {
   static displayName = 'RhinoButton';
@@ -21,6 +21,7 @@ class Button extends React.Component {
     title:       React.PropTypes.string,
     type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
     url:         React.PropTypes.string,
+    loading: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -46,8 +47,22 @@ class Button extends React.Component {
     }
   }
 
+  /**
+   * Render loading UI based on `loading` prop
+   * @return {render}
+   */
+  loadingRender = () => {
+    const loaderClass = `button__loader ${['primary', 'secondary', 'danger'].includes(this.props.type) ? 'button__loader--contrast' : 'button__loader--default'}`;
+
+    const loaderSize = this.props.size === 'small' ? 'xsmall' : 'small';
+
+    return (
+      <div className={loaderClass}><LoaderCircle size={loaderSize} /></div>
+    );
+  }
+
   render() {
-    const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, ...opts } = this.props; // eslint-disable-line
+    const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, loading, ...opts } = this.props; // eslint-disable-line
     const classes = cx('button', className, {
       'button--default': type === 'default',
       'button--primary': type === 'primary',
@@ -61,20 +76,23 @@ class Button extends React.Component {
       'button--block': block,
       'button--icon': iconOnly,
       [UtilitySystem.config.classes.active]: active,
+      [UtilitySystem.config.classes.loading]: loading,
     });
 
     let markup = '';
 
     if (route) {
       markup = (
-        <Link to={route} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>
+        <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>
+          {loading && this.loadingRender()}
         </Link>
       );
     } else {
       markup = (
-        <button type="button" className={classes} disabled={disabled} onClick={this.handleClick} aria-label={this.props.title} {...opts}>
+        <button type="button" className={classes} disabled={disabled || loading} onClick={this.handleClick} aria-label={this.props.title} {...opts}>
           <span className="button__text-wrapper">{this.props.children}</span>
+          {loading && this.loadingRender()}
         </button>
       );
     }

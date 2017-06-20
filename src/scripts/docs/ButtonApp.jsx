@@ -18,6 +18,7 @@ const buttonDocs = {
   title: '[Optional] - Include title attribute that represents advisory information',
   type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link]',
   url: '[Optional] - URL for item',
+  loading: '[Optional] - Specify a loading-state for the button to denote a background-action is in-progress',
 };
 const exampleScope  = {
   React,
