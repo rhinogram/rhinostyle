@@ -51,6 +51,7 @@ import Toast                from './Toast';
 import UtilityInlineGrid    from './UtilityInlineGrid';
 import UtilityList    from './UtilityList';
 import UtilityListItem from './UtilityListItem';
+import VariableMessage from './VariableMessage';
 
 import { CoverSystem } from '../CoverSystem';
 import { NotificationActions } from '../NotificationSystem';
@@ -119,4 +120,5 @@ export {
   UtilityList,
   UtilityListItem,
   UtilitySystem,
+  VariableMessage,
 };

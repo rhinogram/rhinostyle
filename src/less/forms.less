@@ -16,6 +16,8 @@
 @input-height-base: @global-height;
 @input-padding-base: @button-padding-base;
 
+@textarea-vertical-padding: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
+
 @form-addon-item-bg: @global-color-panel;
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
@@ -494,8 +496,8 @@ input[type='checkbox']:focus {
   textarea& {
     height: auto;
     min-height: @input-height-base;
-    padding-bottom: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
-    padding-top: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
+    padding-bottom: @textarea-vertical-padding;
+    padding-top: @textarea-vertical-padding;
   }
 }
 

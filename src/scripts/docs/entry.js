@@ -1,11 +1,11 @@
-/* eslint-disable */
+/*  eslint-disable global-require */
 
 // Figure out current URL
 const url = window.location.pathname;
 const urlSegments = url.split('/');
 const currentUrl = urlSegments[urlSegments.length - 2];
 
-switch (currentUrl) {
+switch (currentUrl) { // eslint-disable-line default-case
   case 'avatars':
     require('./AvatarApp');
     break;
@@ -78,8 +78,11 @@ switch (currentUrl) {
   case 'utility-components':
     require('./UtilityComponentsApp');
     break;
+  case 'variable-messages':
+    require('./VariableMessageApp');
+    break;
 }
 
-import './Init';
+require('./init');
 
 /* eslint-enable */
