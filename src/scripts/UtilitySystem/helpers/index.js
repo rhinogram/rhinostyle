@@ -23,6 +23,7 @@ export const config = {
     disabled: 'is-disabled',
     hidden: 'is-hidden',
     uHidden: 'u-hidden',
+    readOnly: 'is-read-only',
   },
 };
 

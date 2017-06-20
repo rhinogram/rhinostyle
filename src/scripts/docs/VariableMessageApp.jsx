@@ -14,6 +14,7 @@ const variableMessageDocs = {
   variables: 'Select options (with variable notes) that power the find/replace functionality',
   initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
   onInput: 'Callback function when the composition area is changed',
+  readOnly: '[Optional] - Disable compose input, select variable option, and message preview. This would typically be used in tandem with the intialValue prop',
 };
 const variableMessageScope  = {
   React,

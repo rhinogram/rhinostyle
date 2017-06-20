@@ -19574,7 +19574,8 @@ var variableMessageDocs = {
   reset: '[Optional] - Allow the initial value to be reverted after edit',
   variables: 'Select options (with variable notes) that power the find/replace functionality',
   initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
-  onInput: 'Callback function when the composition area is changed'
+  onInput: 'Callback function when the composition area is changed',
+  readOnly: '[Optional] - Disable compose input, select variable option, and message preview. This would typically be used in tandem with the intialValue prop'
 };
 var variableMessageScope = {
   React: _react2.default,
@@ -20447,7 +20448,8 @@ var config = exports.config = {
     active: 'is-active',
     disabled: 'is-disabled',
     hidden: 'is-hidden',
-    uHidden: 'u-hidden'
+    uHidden: 'u-hidden',
+    readOnly: 'is-read-only'
   }
 };
 
@@ -26090,6 +26092,8 @@ var _components = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -26164,9 +26168,11 @@ var VariableMessage = function (_React$Component) {
       $variable.classList.add('variable-message__variable');
       $variable.innerHTML = value;
 
-      var $close = document.createElement('span');
-      $close.classList.add('variable-message__close');
-      $variable.appendChild($close);
+      if (!_this.props.readOnly) {
+        var $close = document.createElement('span');
+        $close.classList.add('variable-message__close');
+        $variable.appendChild($close);
+      }
 
       return $variable;
     }, _this.insertVariable = function (text) {
@@ -26257,25 +26263,27 @@ var VariableMessage = function (_React$Component) {
         message: message
       });
 
-      // Search text to determine if variables are found in it
-      _this.getVariables(variables).forEach(function (value) {
-        var variable = value.variable;
+      if ($select) {
+        // Search text to determine if variables are found in it
+        _this.getVariables(variables).forEach(function (value) {
+          var variable = value.variable;
 
-        if (variable) {
-          // We found the text
-          if (message.search(variable) !== -1) {
-            // Disable option in select
-            $select.querySelector('[value="' + value.id + '"]').setAttribute('disabled', 'disabled');
+          if (variable) {
+            // We found the text
+            if (message.search(variable) !== -1) {
+              // Disable option in select
+              $select.querySelector('[value="' + value.id + '"]').setAttribute('disabled', 'disabled');
 
-            // Swap out variables for data
-            var regex = new RegExp(variable);
-            message = message.replace(regex, value.variableValue);
-          } else {
-            // Enable option in select
-            $select.querySelector('[value="' + value.id + '"]').removeAttribute('disabled');
+              // Swap out variables for data
+              var regex = new RegExp(variable);
+              message = message.replace(regex, value.variableValue);
+            } else {
+              // Enable option in select
+              $select.querySelector('[value="' + value.id + '"]').removeAttribute('disabled');
+            }
           }
-        }
-      });
+        });
+      }
 
       // Take away any trailing space
       if (message === ' ') {
@@ -26283,7 +26291,10 @@ var VariableMessage = function (_React$Component) {
       }
 
       // Update preview
-      $preview.innerHTML = message;
+      // May not be there based on `readOnly` prop
+      if ($preview) {
+        $preview.innerHTML = message;
+      }
 
       if (_this.props.onInput && _typeof(_this.props.onInput === 'function')) {
         _this.props.onInput(message);
@@ -26418,9 +26429,10 @@ var VariableMessage = function (_React$Component) {
           composeLabel = _props.composeLabel,
           explanationMessage = _props.explanationMessage,
           previewLabel = _props.previewLabel,
-          variables = _props.variables;
+          variables = _props.variables,
+          readOnly = _props.readOnly;
 
-      var classes = (0, _classnames2.default)('variable-message', className);
+      var classes = (0, _classnames2.default)('variable-message', className, _defineProperty({}, _components.UtilitySystem.config.classes.readOnly, readOnly));
 
       var variableMessageInputName = 'variable-message-input-' + this.variableMessageUnique;
       var variableMessageSelectName = 'variable-message-select-' + this.variableMessageUnique;
@@ -26458,32 +26470,36 @@ var VariableMessage = function (_React$Component) {
             return _this2.compose = _ref2;
           }
         }),
-        _react2.default.createElement(
+        !readOnly ? _react2.default.createElement(
           'div',
-          { className: 'variable-message__footer' },
-          _react2.default.createElement(_components.Select, {
-            name: variableMessageSelectName,
-            options: variables,
-            onSelect: this.handleVariableSelection,
-            ref: function ref(_ref3) {
-              return _this2.select = _ref3;
-            }
-          }),
-          explanationMessage ? _react2.default.createElement(
+          { className: 'variable-message__directives' },
+          _react2.default.createElement(
             'div',
-            { className: 'variable-message__explanation' },
-            explanationMessage
-          ) : null
-        ),
-        _react2.default.createElement('hr', { className: 'u-m-y-large' }),
-        _react2.default.createElement(
-          'label',
-          { htmlFor: variableMessagePreviewName, className: 'u-block' },
-          previewLabel
-        ),
-        _react2.default.createElement(_components.Message, { type: 'primary', direction: 'inbound', ref: function ref(_ref4) {
-            return _this2.preview = _ref4;
-          } })
+            { className: 'variable-message__footer' },
+            _react2.default.createElement(_components.Select, {
+              name: variableMessageSelectName,
+              options: variables,
+              onSelect: this.handleVariableSelection,
+              ref: function ref(_ref3) {
+                return _this2.select = _ref3;
+              }
+            }),
+            explanationMessage ? _react2.default.createElement(
+              'div',
+              { className: 'variable-message__explanation' },
+              explanationMessage
+            ) : null
+          ),
+          _react2.default.createElement('hr', { className: 'u-m-y-large' }),
+          _react2.default.createElement(
+            'label',
+            { htmlFor: variableMessagePreviewName, className: 'u-block' },
+            previewLabel
+          ),
+          _react2.default.createElement(_components.Message, { type: 'primary', direction: 'inbound', ref: function ref(_ref4) {
+              return _this2.preview = _ref4;
+            } })
+        ) : null
       );
     }
   }]);
@@ -26500,7 +26516,8 @@ VariableMessage.propTypes = {
   reset: _react2.default.PropTypes.bool,
   variables: _react2.default.PropTypes.array.isRequired,
   onInput: _react2.default.PropTypes.func,
-  initialValue: _react2.default.PropTypes.string
+  initialValue: _react2.default.PropTypes.string,
+  readOnly: _react2.default.PropTypes.bool
 };
 VariableMessage.defaultProps = {
   composeLabel: 'Message',

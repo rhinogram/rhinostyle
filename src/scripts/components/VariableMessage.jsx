@@ -2,7 +2,7 @@ import cx    from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Message, Select } from '../components';
+import { Message, Select, UtilitySystem } from '../components';
 
 class VariableMessage extends React.Component {
   static displayName = 'RhinoVariableMessage';
@@ -16,6 +16,7 @@ class VariableMessage extends React.Component {
     variables: React.PropTypes.array.isRequired,
     onInput: React.PropTypes.func,
     initialValue: React.PropTypes.string,
+    readOnly: React.PropTypes.bool,
   };
 
   static defaultProps = {
@@ -117,9 +118,11 @@ class VariableMessage extends React.Component {
     $variable.classList.add('variable-message__variable');
     $variable.innerHTML = value;
 
-    const $close = document.createElement('span');
-    $close.classList.add('variable-message__close');
-    $variable.appendChild($close);
+    if (!this.props.readOnly) {
+      const $close = document.createElement('span');
+      $close.classList.add('variable-message__close');
+      $variable.appendChild($close);
+    }
 
     return $variable;
   }
@@ -251,25 +254,27 @@ class VariableMessage extends React.Component {
       message,
     });
 
-    // Search text to determine if variables are found in it
-    this.getVariables(variables).forEach((value) => {
-      const variable = value.variable;
+    if ($select) {
+      // Search text to determine if variables are found in it
+      this.getVariables(variables).forEach((value) => {
+        const variable = value.variable;
 
-      if (variable) {
-        // We found the text
-        if (message.search(variable) !== -1) {
-          // Disable option in select
-          $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
+        if (variable) {
+          // We found the text
+          if (message.search(variable) !== -1) {
+            // Disable option in select
+            $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
 
-          // Swap out variables for data
-          const regex = new RegExp(variable);
-          message = message.replace(regex, value.variableValue);
-        } else {
-          // Enable option in select
-          $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
+            // Swap out variables for data
+            const regex = new RegExp(variable);
+            message = message.replace(regex, value.variableValue);
+          } else {
+            // Enable option in select
+            $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
+          }
         }
-      }
-    });
+      });
+    }
 
     // Take away any trailing space
     if (message === ' ') {
@@ -277,7 +282,10 @@ class VariableMessage extends React.Component {
     }
 
     // Update preview
-    $preview.innerHTML = message;
+    // May not be there based on `readOnly` prop
+    if ($preview) {
+      $preview.innerHTML = message;
+    }
 
     if (this.props.onInput && typeof (this.props.onInput === 'function')) {
       this.props.onInput(message);
@@ -309,8 +317,10 @@ class VariableMessage extends React.Component {
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
   render() {
-    const { className, composeLabel, explanationMessage, previewLabel, variables } = this.props;
-    const classes = cx('variable-message', className);
+    const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly } = this.props;
+    const classes = cx('variable-message', className, {
+      [UtilitySystem.config.classes.readOnly]: readOnly,
+    });
 
     const variableMessageInputName = `variable-message-input-${this.variableMessageUnique}`;
     const variableMessageSelectName = `variable-message-select-${this.variableMessageUnique}`;
@@ -334,20 +344,24 @@ class VariableMessage extends React.Component {
           onPaste={this.handlePaste}
           ref={ref => (this.compose = ref)}
         />
-        <div className="variable-message__footer">
-          <Select
-            name={variableMessageSelectName}
-            options={variables}
-            onSelect={this.handleVariableSelection}
-            ref={ref => (this.select = ref)}
-          />
-          {explanationMessage ? <div className="variable-message__explanation">{explanationMessage}</div> : null}
-        </div>
+        {!readOnly ?
+          <div className="variable-message__directives">
+            <div className="variable-message__footer">
+              <Select
+                name={variableMessageSelectName}
+                options={variables}
+                onSelect={this.handleVariableSelection}
+                ref={ref => (this.select = ref)}
+              />
+              {explanationMessage ? <div className="variable-message__explanation">{explanationMessage}</div> : null}
+            </div>
 
-        <hr className="u-m-y-large" />
+            <hr className="u-m-y-large" />
 
-        <label htmlFor={variableMessagePreviewName} className="u-block">{previewLabel}</label>
-        <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
+            <label htmlFor={variableMessagePreviewName} className="u-block">{previewLabel}</label>
+            <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
+          </div>
+        : null}
       </div>
     );
   }
