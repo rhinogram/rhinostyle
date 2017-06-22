@@ -52,7 +52,7 @@ class Button extends React.Component {
    * @return {render}
    */
   loadingRender = () => {
-    const loaderClass = `button__loader ${['primary', 'secondary', 'danger'].includes(this.props.type) ? 'button__loader--contrast' : 'button__loader--default'}`;
+    const loaderClass = `button__loader ${(this.props.type === 'outline-reversed') ? 'button__loader--contrast' : 'button__loader--default'}`;
 
     const loaderSize = this.props.size === 'small' ? 'xsmall' : 'small';
 

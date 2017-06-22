@@ -311,9 +311,10 @@
 
 
 .button__loader--contrast {
-  border-color: fade(@global-color-white, 50%);
-
-  &::after {
-    border-top-color: @global-color-white;
+  .loader-circle {
+    border-color: fade(@global-color-white, 50%);
+      &::after {
+        border-top-color: @global-color-white;
+      }
   }
 }
