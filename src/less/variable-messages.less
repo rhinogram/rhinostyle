@@ -16,12 +16,6 @@
 //
 
 
-.variable-message {
-  &.is-read-only {
-    pointer-events: none;
-  }
-}
-
 .variable-message__header {
   display: flex;
   align-items: baseline;
@@ -37,13 +31,14 @@
 }
 
 .variable-message__compose {
-  background-color: @variable-message-compose-bg;
-  border: 1px solid @variable-message-compose-border-color;
-  border-radius: @variable-message-compose-border-radius;
-  color: @variable-message-compose-color;
-  min-height: @variable-message-compose-min-height;
-  padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
-
+  &[contenteditable='true'] {
+    background-color: @variable-message-compose-bg;
+    border: 1px solid @variable-message-compose-border-color;
+    border-radius: @variable-message-compose-border-radius;
+    color: @variable-message-compose-color;
+    min-height: @variable-message-compose-min-height;
+    padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+  }
   &:focus {
     outline: 0;
   }

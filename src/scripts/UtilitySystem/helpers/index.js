@@ -24,7 +24,6 @@ export const config = {
     hidden: 'is-hidden',
     uHidden: 'u-hidden',
     loading: 'is-loading',
-    readOnly: 'is-read-only',
   },
 };
 

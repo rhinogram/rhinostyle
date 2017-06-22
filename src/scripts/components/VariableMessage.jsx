@@ -2,7 +2,7 @@ import cx    from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Message, Select, UtilitySystem } from '../components';
+import { Message, Select } from '../components';
 
 class VariableMessage extends React.Component {
   static displayName = 'RhinoVariableMessage';
@@ -318,9 +318,7 @@ class VariableMessage extends React.Component {
 
   render() {
     const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly } = this.props;
-    const classes = cx('variable-message', className, {
-      [UtilitySystem.config.classes.readOnly]: readOnly,
-    });
+    const classes = cx('variable-message', className);
 
     const variableMessageInputName = `variable-message-input-${this.variableMessageUnique}`;
     const variableMessageSelectName = `variable-message-select-${this.variableMessageUnique}`;
@@ -328,16 +326,18 @@ class VariableMessage extends React.Component {
 
     return (
       <div className={classes} onClick={this.handleVariableClick}>
-        <div className="variable-message__header">
-          <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
-          {this.showReset() ?
-            <div className="variable-message__reset">
-              <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Reset</button>
-            </div> : null}
-        </div>
+        {!readOnly ?
+          <div className="variable-message__header">
+            <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
+            {this.showReset() ?
+              <div className="variable-message__reset">
+                <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Reset</button>
+              </div> : null}
+          </div>
+        : null }
         <div
           className="variable-message__compose"
-          contentEditable
+          contentEditable={!readOnly}
           onInput={this.handleComposeInput}
           onKeyPress={this.handleComposeKeypress}
           onKeyUp={this.handleKeyUp}

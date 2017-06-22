@@ -20452,8 +20452,7 @@ var config = exports.config = {
     disabled: 'is-disabled',
     hidden: 'is-hidden',
     uHidden: 'u-hidden',
-    loading: 'is-loading',
-    readOnly: 'is-read-only'
+    loading: 'is-loading'
   }
 };
 
@@ -25710,7 +25709,9 @@ var Textarea = function (_React$Component) {
           rows = _props.rows,
           validationMessage = _props.validationMessage;
 
-      var textAreaClasses = (0, _classnames2.default)('form__control');
+      var textAreaClasses = (0, _classnames2.default)('form__control', {
+        'form__control--error': validationMessage
+      });
       var formGroupClasses = (0, _classnames2.default)('form__group', className);
       var characterCountClasses = (0, _classnames2.default)('form__character-count', {
         'form__character-count--danger': this.state.charactersLeft < 11
@@ -26119,8 +26120,6 @@ var _components = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -26459,7 +26458,7 @@ var VariableMessage = function (_React$Component) {
           variables = _props.variables,
           readOnly = _props.readOnly;
 
-      var classes = (0, _classnames2.default)('variable-message', className, _defineProperty({}, _components.UtilitySystem.config.classes.readOnly, readOnly));
+      var classes = (0, _classnames2.default)('variable-message', className);
 
       var variableMessageInputName = 'variable-message-input-' + this.variableMessageUnique;
       var variableMessageSelectName = 'variable-message-select-' + this.variableMessageUnique;
@@ -26468,7 +26467,7 @@ var VariableMessage = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: classes, onClick: this.handleVariableClick },
-        _react2.default.createElement(
+        !readOnly ? _react2.default.createElement(
           'div',
           { className: 'variable-message__header' },
           _react2.default.createElement(
@@ -26485,10 +26484,10 @@ var VariableMessage = function (_React$Component) {
               'Reset'
             )
           ) : null
-        ),
+        ) : null,
         _react2.default.createElement('div', {
           className: 'variable-message__compose',
-          contentEditable: true,
+          contentEditable: !readOnly,
           onInput: this.handleComposeInput,
           onKeyPress: this.handleComposeKeypress,
           onKeyUp: this.handleKeyUp,

@@ -71,7 +71,9 @@ class Textarea extends React.Component {
 
   render() {
     const { abbrMaxCharacters, className, disabled, explanationMessage, label, maxCharacters, name, placeholder, required, rows, validationMessage } = this.props;
-    const textAreaClasses = cx('form__control');
+    const textAreaClasses = cx('form__control', {
+      'form__control--error': validationMessage,
+    });
     const formGroupClasses = cx('form__group', className);
     const characterCountClasses = cx('form__character-count', {
       'form__character-count--danger': this.state.charactersLeft < 11,
