@@ -156,7 +156,9 @@
 
   // Disabled
   &[disabled] {
-    &:not(.button--outline-primary):not(.button--outline-reversed) {
+    &:not(.button--outline-primary)
+    :not(.button--outline-reversed)
+    :not(.button--link) {
       .mixin-button-variant(@button-default-color; @button-default-bg; @button-default-bg-color; @button-default-border);
     }
 
