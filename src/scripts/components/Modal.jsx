@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { componentWillAppendToBody } from 'react-append-to-body';
 
 import { UtilitySystem } from '../components';
 
@@ -12,6 +12,7 @@ class Modal extends React.Component {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     size: React.PropTypes.string,
+    open: React.PropTypes.bool,
     onComplete: React.PropTypes.func,
     onReverseComplete: React.PropTypes.func,
     onReverseStart: React.PropTypes.func,
@@ -22,6 +23,7 @@ class Modal extends React.Component {
     children: null,
     className: '',
     size: '',
+    open: false,
     onComplete: () => {},
     onReverseComplete: () => {},
     onReverseStart: () => {},
@@ -31,14 +33,13 @@ class Modal extends React.Component {
   componentDidMount() {
     const $body = document.body;
     const $modal = this.modal;
-    const $modalContainer = document.querySelector('[data-js="modalContainer"]');
 
     let forward = true;
     let lastTime = 0;
 
     // Attach timeline to each instance
     $modal.timeline = new TimelineMax({
-      paused: true,
+      paused: !this.props.open,
       onStart: () => {
         $body.classList.add('modal-open');
         $modal.classList.add(UtilitySystem.config.classes.open);
@@ -68,16 +69,6 @@ class Modal extends React.Component {
         this.props.onComplete();
       },
       onReverseComplete: () => {
-        ReactDOM.unmountComponentAtNode($modalContainer);
-
-        // Remove container from DOM if it's there
-        // The aforementioned should actually remove the container already
-        // but because we're rendering outside of the app, things
-        // can get in a weird state. @TODO CLEAN THIS UP, render within app
-        // with `ReactDOM.unstable_renderSubtreeIntoContainer()`
-        if ($modalContainer) {
-          $body.removeChild($modalContainer);
-        }
         // Fire off prop update
         this.props.onReverseComplete();
       },
@@ -102,6 +93,36 @@ class Modal extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.open !== this.props.open) {
+      if (this.props.open) {
+        this.openModal();
+      } else {
+        this.closeModal();
+      }
+    }
+  }
+
+  /**
+   * Open modal
+   * @return {void}
+   */
+  openModal = () => {
+    const $modal = this.modal;
+
+    $modal.timeline.play();
+  }
+
+  /**
+   * Close modal
+   * @return {void}
+   */
+  closeModal = () => {
+    const $modal = this.modal;
+
+    $modal.timeline.reverse();
+  }
+
   render() {
     const { children, className, size } = this.props;
     const modalClasses     = cx('modal__dialog', {
@@ -121,4 +142,4 @@ class Modal extends React.Component {
   }
 }
 
-export default Modal;
+export default componentWillAppendToBody(Modal);

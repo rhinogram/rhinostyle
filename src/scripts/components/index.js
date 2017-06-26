@@ -55,7 +55,6 @@ import VariableMessage from './VariableMessage';
 
 import { CoverSystem } from '../CoverSystem';
 import { NotificationActions } from '../NotificationSystem';
-import { ModalSystem } from '../ModalSystem';
 
 // Utilities
 import { UtilitySystem } from '../UtilitySystem';
@@ -96,7 +95,6 @@ export {
   Message,
   MessageBox,
   Modal,
-  ModalSystem,
   ModalBody,
   ModalFooter,
   ModalHeader,
