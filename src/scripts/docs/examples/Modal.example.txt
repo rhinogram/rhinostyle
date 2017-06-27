@@ -53,7 +53,7 @@ class ComponentExample extends React.Component {
         errors,
       });
     } else {
-      this.resetState();
+      this.closeModal();
     }
   }
 
