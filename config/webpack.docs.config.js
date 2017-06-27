@@ -13,7 +13,7 @@ module.exports = {
   devtool: 'eval',
   entry: {
     vendor,
-    'rhinostyle-docs':    path.join(__dirname, '../src/scripts/docs/entry.js'),
+    'rhinostyle-docs': path.join(__dirname, '../src/scripts/docs/entry.js'),
   },
   output: {
     path: path.join(__dirname, '../build/scripts'),
@@ -62,5 +62,18 @@ module.exports = {
     new webpack.DefinePlugin({
       'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),
+    // Moment.js is an extremely popular library that bundles large locale files
+    // by default due to how Webpack interprets its code. This is a practical
+    // solution that requires the user to opt into importing specific locales.
+    // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+    // You can remove this if you don't use Moment.js:
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
+  // Some libraries import Node modules but don't use them in the browser.
+  // Tell Webpack to provide empty mocks for them so importing them works.
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+  },
 };
