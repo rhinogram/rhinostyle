@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 
-import { Close, Icon, ModalSystem }    from '../components';
+import { Close, Icon } from '../components';
 
 class ModalHeader extends React.Component {
   static displayName = 'RhinoModalHeader';
@@ -11,6 +11,7 @@ class ModalHeader extends React.Component {
     icon: React.PropTypes.string,
     iconClassName: React.PropTypes.string,
     onClose: React.PropTypes.func,
+    closeModal: React.PropTypes.func,
     title: React.PropTypes.string,
   }
 
@@ -29,10 +30,9 @@ class ModalHeader extends React.Component {
   closeModal = () => {
     if (this.props.onClose && typeof (this.props.onClose === 'function')) {
       this.props.onClose();
-      ModalSystem.removeModal();
-    } else {
-      ModalSystem.removeModal();
     }
+
+    this.props.closeModal();
   }
 
   render() {

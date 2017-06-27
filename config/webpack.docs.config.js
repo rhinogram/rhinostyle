@@ -10,7 +10,7 @@ const vendor = [
 ];
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'eval',
   entry: {
     vendor,
     'rhinostyle-docs':    path.join(__dirname, '../src/scripts/docs/entry.js'),
@@ -31,8 +31,18 @@ module.exports = {
           path.resolve(__dirname, '../src/scripts'),
         ],
         use: [
-          'babel-loader',
-          'eslint-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              // This is a feature of `babel-loader` for webpack (not Babel itself).
+              // It enables caching results in ./node_modules/.cache/babel-loader/
+              // directory for faster rebuilds.
+              cacheDirectory: true,
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
         ],
       },
     ],

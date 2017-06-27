@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { ModalSystem, Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
+import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
 import modalExample from './examples/Modal.example.txt';
 import modalHeaderExample from './examples/ModalHeader.example.txt';
 import modalBodyExample from './examples/ModalBody.example.txt';
@@ -26,7 +26,6 @@ const exampleScope  = {
   Button,
   Input,
   Modal,
-  ModalSystem,
   ModalHeader,
   ModalBody,
   ModalFooter,
