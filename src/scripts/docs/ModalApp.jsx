@@ -9,6 +9,7 @@ import modalBodyExample from './examples/ModalBody.example.txt';
 import modalFooterExample from './examples/ModalFooter.example.txt';
 
 const modalDocs = {
+  subtreeContainer: '[Optional] - DOM element the modal should be appended to when rendered. You probably will never change this',
   className: '[Optional] - Additional class to add to modal div',
   size: '[Optional] - Modal size -  [ small | large ] - defaults to a normal sized modal',
 };
@@ -37,7 +38,7 @@ const ModalApp = () =>
   <div>
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
-      <p className="site-copy">You can inject a modal by calling <code>ModalSystem.addModal(modal)</code>, where <code>modal</code> can be <code>Modal</code> containing <code>ModalHeader</code>, <code>ModalBody</code>, <code>ModalFooter</code>.</p>
+      <p className="site-copy">Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/jpgorman/react-append-to-body">react-append-to-body</a></p>
       <Playground theme="default" docClass={Modal} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
     </section>
 

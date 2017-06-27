@@ -9,6 +9,7 @@ import coverFooterExample from './examples/CoverFooter.example.txt';
 import coverHeaderExample from './examples/CoverHeader.example.txt';
 
 const coverDocs = {
+  subtreeContainer: '[Optional] - DOM element the modal should be appended to when rendered. You probably will never change this',
   className: '[Optional] - Additional class to add to cover div',
 };
 
@@ -42,7 +43,7 @@ const CoverApp = () =>
   <div>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
-      <p className="site-copy">You can inject a cover by calling <code>CoverSystem.addCover(cover)</code>, where <code>cover</code> can be <code>Cover</code> containing <code>CoverHeader</code>, <code>CoverBody</code>, <code>CoverFooter</code>.</p>
+      <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/jpgorman/react-append-to-body">react-append-to-body</a></p>
       <Playground theme="default" docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
     </section>
 
