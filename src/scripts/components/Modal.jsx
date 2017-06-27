@@ -3,7 +3,7 @@ import { TimelineMax } from 'gsap';
 import React from 'react';
 import { componentWillAppendToBody } from 'react-append-to-body';
 
-import { ModalHeader, UtilitySystem } from '../components';
+import { UtilitySystem } from '../components';
 
 class Modal extends React.Component {
   static displayName = 'RhinoModal';
@@ -103,26 +103,6 @@ class Modal extends React.Component {
     }
   }
 
-  getChildren = () => {
-    const children = this.props.children;
-    let returnChild = null;
-
-    return React.Children.map(children, (child) => {
-      if (child.type === ModalHeader) {
-        returnChild = React.cloneElement(child, {
-          closeModal: () => {
-            // @TODO Need to most likely switch to state
-            console.log('should close and update state');
-          },
-        });
-      } else {
-        returnChild = child;
-      }
-
-      return returnChild;
-    });
-  }
-
   /**
    * Open modal
    * @return {void}
@@ -144,8 +124,8 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { className, size } = this.props;
-    const modalClasses     = cx('modal__dialog', {
+    const { children, className, size } = this.props;
+    const modalClasses = cx('modal__dialog', {
       'modal__dialog--small': size === 'small',
       'modal__dialog--large': size === 'large',
     }, className);
@@ -154,7 +134,7 @@ class Modal extends React.Component {
       <div className="modal" ref={ref => (this.modal = ref)}>
         <div className={modalClasses}>
           <div className="modal__content">
-            {this.getChildren()}
+            {children}
           </div>
         </div>
       </div>

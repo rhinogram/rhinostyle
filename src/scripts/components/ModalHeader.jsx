@@ -11,28 +11,30 @@ class ModalHeader extends React.Component {
     icon: React.PropTypes.string,
     iconClassName: React.PropTypes.string,
     onClose: React.PropTypes.func,
-    closeModal: React.PropTypes.func,
     title: React.PropTypes.string,
   }
 
   static defaultProps = {
     dismissable: true,
+    onClose: () => {},
   }
 
   isDismissable = () => {
     let returnVal = null;
     if (this.props.dismissable) {
-      returnVal = <button onClick={this.closeModal} type="button" className="modal__header__close" aria-label="Close"><Icon icon="close" /></button>;
+      returnVal = <button onClick={this.handleCloseClick} type="button" className="modal__header__close" aria-label="Close"><Icon icon="close" /></button>;
     }
     return returnVal;
+  }
+
+  handleCloseClick = () => {
+    this.closeModal();
   }
 
   closeModal = () => {
     if (this.props.onClose && typeof (this.props.onClose === 'function')) {
       this.props.onClose();
     }
-
-    this.props.closeModal();
   }
 
   render() {
