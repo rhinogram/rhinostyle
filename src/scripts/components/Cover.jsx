@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { componentWillAppendToBody } from 'react-append-to-body';
 
 import { UtilitySystem } from '../components';
 
@@ -11,6 +11,7 @@ class Cover extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
+    open: React.PropTypes.bool,
     onComplete: React.PropTypes.func,
     onReverseComplete: React.PropTypes.func,
     onReverseStart: React.PropTypes.func,
@@ -20,6 +21,7 @@ class Cover extends React.Component {
   static defaultProps = {
     children: null,
     className: '',
+    open: false,
     onComplete: () => {},
     onReverseComplete: () => {},
     onReverseStart: () => {},
@@ -29,14 +31,13 @@ class Cover extends React.Component {
   componentDidMount() {
     const $body = document.body;
     const $cover = this.cover;
-    const $coverContainer = document.querySelector('[data-js="coverContainer"]');
 
     let forward = true;
     let lastTime = 0;
 
     // Attach timeline to each instance
     $cover.timeline = new TimelineMax({
-      paused: true,
+      paused: !this.props.open,
       onStart: () => {
         $body.classList.add('cover-open');
 
@@ -65,17 +66,6 @@ class Cover extends React.Component {
         this.props.onComplete();
       },
       onReverseComplete: () => {
-        ReactDOM.unmountComponentAtNode($coverContainer);
-
-        // Remove container from DOM if it's there
-        // The aforementioned should actually remove the container already
-        // but because we're rendering outside of the app, things
-        // can get in a weird state. @TODO CLEAN THIS UP, render within app
-        // with `ReactDOM.unstable_renderSubtreeIntoContainer()`
-        if ($coverContainer) {
-          $body.removeChild($coverContainer);
-        }
-
         // Fire off prop update
         this.props.onReverseComplete();
       },
@@ -96,6 +86,36 @@ class Cover extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.open !== this.props.open) {
+      if (this.props.open) {
+        this.openCover();
+      } else {
+        this.closeCover();
+      }
+    }
+  }
+
+  /**
+   * Open cover
+   * @return {void}
+   */
+  openCover = () => {
+    const $cover = this.cover;
+
+    $cover.timeline.play();
+  }
+
+  /**
+   * Close cover
+   * @return {void}
+   */
+  closeCover = () => {
+    const $cover = this.cover;
+
+    $cover.timeline.reverse();
+  }
+
   render() {
     const { children, className } = this.props;
     const classes = cx('cover', className);
@@ -108,4 +128,4 @@ class Cover extends React.Component {
   }
 }
 
-export default Cover;
+export default componentWillAppendToBody(Cover);

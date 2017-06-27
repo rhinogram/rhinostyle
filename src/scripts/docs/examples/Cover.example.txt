@@ -1,15 +1,23 @@
 class ComponentExample extends React.Component {
-  state = {
+  static initialState = {
     firstName: '',
     lastName: '',
-  }
+    errors: {},
+    open: false,
+  };
+
+  state = ComponentExample.initialState;
 
   onClick = () => {
-    CoverSystem.addCover(this.renderContent());
+    this.setState({
+      open: true,
+    });
   };
 
   closeCover = () => {
-    CoverSystem.removeCover();
+    this.setState({
+      open: false,
+    });
   }
 
   handleChange = (name, value) => {
@@ -17,6 +25,14 @@ class ComponentExample extends React.Component {
 
     newState[name] = value;
     this.setState(newState);
+  }
+
+  /**
+   * Reset state when `<Cover />` is closed
+   * @return {func}
+   */
+  resetState = () => {
+    this.setState(ComponentExample.initialState);
   }
 
   saveChanges = () => {
@@ -30,42 +46,39 @@ class ComponentExample extends React.Component {
       errors.lastName = 'LastName is required!';
     }
 
-    const errorCount  = Object.keys(errors).length
+    const errorCount  = Object.keys(errors).length;
 
     if (errorCount > 0) {
-      CoverSystem.refreshCover(this.renderContent(errors));
+      this.setState({
+        errors,
+      });
     } else {
-      alert('Changes were saved!');
       this.closeCover();
     }
   }
 
-  renderContent = (errors) => {
-    const errorList = errors || {};
-
-    return (
-      <Cover>
-        <CoverHeader icon="pencil" title="This is a sample Cover" />
-        <CoverBody>
-          <div className="form">
-            <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-            <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-          </div>
-        </CoverBody>
-        <CoverFooter>
-          <UtilityInlineGrid align="right">
-            <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
-            <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-          </UtilityInlineGrid>
-        </CoverFooter>
-      </Cover>
-    );
-  }
-
   render() {
+    const errorList = this.state.errors || {};
+
     return (
       <div>
         <Button type="primary" onClick={this.onClick}>Launch Cover</Button>
+
+        <Cover onReverseComplete={this.resetState} open={this.state.open}>
+          <CoverHeader onClose={this.closeCover} icon="pencil" title="This is a sample Cover" />
+          <CoverBody>
+            <div className="form">
+              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+            </div>
+          </CoverBody>
+          <CoverFooter>
+            <UtilityInlineGrid align="right">
+              <Button type="default" onClick={this.closeCover}>Close</Button>&nbsp;
+              <Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+            </UtilityInlineGrid>
+          </CoverFooter>
+        </Cover>
       </div>
     );
   }
