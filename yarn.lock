@@ -5988,11 +5988,12 @@ react-addons-test-utils@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-append-to-body@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.1.tgz#c80f18a26d0ed75cc9fdf983521d3f3d00f70717"
+react-append-to-body@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.3.tgz#368993153c8664cac6ec64f3c2f4ee30914ee336"
   dependencies:
     node-uuid "^1.4.7"
+    prop-types "^15.5.10"
     ramda "^0.22.1"
     react "^15.4.1"
     react-dom "^15.4.1"
