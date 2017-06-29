@@ -5099,7 +5099,7 @@ node-status-codes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
 
-node-uuid@^1.4.7, node-uuid@~1.4.7:
+node-uuid@~1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.7.tgz#6da5a17668c4b3dd59623bda11cf7fa4c1f60a6f"
 
@@ -5943,10 +5943,6 @@ raf@^3.1.0:
   dependencies:
     performance-now "~0.2.0"
 
-ramda@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
-
 randomatic@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.6.tgz#110dcabff397e9dcff7c0789ccc0a49adf1ec5bb"
@@ -5988,15 +5984,14 @@ react-addons-test-utils@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-append-to-body@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.3.tgz#368993153c8664cac6ec64f3c2f4ee30914ee336"
+react-append-to-body@2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.7.tgz#c0d22d45aa7188556c2c8407847fb80d424b95bf"
   dependencies:
-    node-uuid "^1.4.7"
     prop-types "^15.5.10"
-    ramda "^0.22.1"
     react "^15.4.1"
     react-dom "^15.4.1"
+    uuid "^3.1.0"
 
 react-codemirror@^1.0.0:
   version "1.0.0"
@@ -7288,6 +7283,10 @@ uuid@^2.0.1:
 uuid@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
+
+uuid@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
 v8flags@^2.0.10, v8flags@^2.0.2:
   version "2.0.11"
