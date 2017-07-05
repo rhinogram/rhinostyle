@@ -21063,11 +21063,12 @@ var Button = function (_React$Component) {
       var loaderClass = 'button__loader ' + (_this.props.type === 'outline-reversed' ? 'button__loader--contrast' : 'button__loader--default');
 
       var loaderSize = _this.props.size === 'small' ? 'xsmall' : 'small';
+      var loaderType = ['outline-primary', 'link'].includes(_this.props.type) ? 'primary' : 'default';
 
       return _react2.default.createElement(
         'div',
         { className: loaderClass },
-        _react2.default.createElement(_components.LoaderCircle, { size: loaderSize })
+        _react2.default.createElement(_components.LoaderCircle, { type: loaderType, size: loaderSize })
       );
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
