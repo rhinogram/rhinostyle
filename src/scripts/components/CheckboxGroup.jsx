@@ -1,4 +1,5 @@
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
@@ -7,10 +8,10 @@ class CheckboxGroup extends React.Component {
   static displayName = 'CheckboxGroup';
 
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    inline: React.PropTypes.bool,
-    label: React.PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    inline: PropTypes.bool,
+    label: PropTypes.string,
   };
 
   renderChildren = () => {

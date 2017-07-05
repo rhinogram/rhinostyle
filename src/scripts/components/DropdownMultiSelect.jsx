@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -8,17 +9,17 @@ class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
 
   static propTypes = {
-    activeKeys: React.PropTypes.arrayOf(React.PropTypes.number),
-    block: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-    disabled: React.PropTypes.bool,
-    explanationMessage: React.PropTypes.string,
-    onSelect: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    position: React.PropTypes.string,
-    wide: React.PropTypes.bool,
-    validationMessage: React.PropTypes.string,
+    activeKeys: PropTypes.arrayOf(PropTypes.number),
+    block: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+    disabled: PropTypes.bool,
+    explanationMessage: PropTypes.string,
+    onSelect: PropTypes.func,
+    placeholder: PropTypes.string,
+    position: PropTypes.string,
+    wide: PropTypes.bool,
+    validationMessage: PropTypes.string,
   };
 
   static defaultProps = {

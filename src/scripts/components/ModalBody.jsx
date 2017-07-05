@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const ModalBody = props => <div className={cx('modal__body')}>{props.children}</div>;
@@ -6,7 +7,7 @@ const ModalBody = props => <div className={cx('modal__body')}>{props.children}</
 ModalBody.displayName = 'RhinoModalBody';
 
 ModalBody.propTypes = {
-  children: React.PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default ModalBody;

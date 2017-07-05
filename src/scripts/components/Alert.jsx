@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Close, Icon } from '../components';
@@ -46,14 +47,14 @@ const Alert = (props) => {
 Alert.displayName = 'RhinoAlert';
 
 Alert.propTypes = {
-  className:    React.PropTypes.string,
-  dismissible:  React.PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
-  onDismiss:    React.PropTypes.func,
-  size:         React.PropTypes.oneOf(['small']),
-  title:        React.PropTypes.string,
-  titleIcon:    React.PropTypes.string,
-  children:     React.PropTypes.node,
-  type:         React.PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
+  className:    PropTypes.string,
+  dismissible:  PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
+  onDismiss:    PropTypes.func,
+  size:         PropTypes.oneOf(['small']),
+  title:        PropTypes.string,
+  titleIcon:    PropTypes.string,
+  children:     PropTypes.node,
+  type:         PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
 };
 
 Alert.defaultProps = {

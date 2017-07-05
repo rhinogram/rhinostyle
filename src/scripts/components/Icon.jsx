@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const Icon = (props) => {
@@ -18,10 +19,10 @@ const Icon = (props) => {
 Icon.displayName = 'RhinoIcon';
 
 Icon.propTypes = {
-  bump: React.PropTypes.oneOf(['down', 'up']),
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string.isRequired,
-  style: React.PropTypes.object,
+  bump: PropTypes.oneOf(['down', 'up']),
+  className: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+  style: PropTypes.object,
 };
 
 Icon.defaultProps = {

@@ -1,14 +1,15 @@
 import cx    from 'classnames';
 import { Linear, TimelineMax } from 'gsap';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class LoaderPulse extends React.Component {
   static displayName = 'RhinoLoaderPulse';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    pause: React.PropTypes.bool,
-    type: React.PropTypes.string,
+    className: PropTypes.string,
+    pause: PropTypes.bool,
+    type: PropTypes.string,
   };
 
   static defaultProps = {

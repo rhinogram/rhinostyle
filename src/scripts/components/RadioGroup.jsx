@@ -1,4 +1,5 @@
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
@@ -7,13 +8,13 @@ class RadioGroup extends React.Component {
   static displayName = 'RhinodioGroup';
 
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    inline: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    name: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func,
-    selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    inline: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
 
   static defaultProps = {

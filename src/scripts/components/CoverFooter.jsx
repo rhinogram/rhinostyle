@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const CoverFooter = (props) => {
@@ -15,7 +16,7 @@ const CoverFooter = (props) => {
 CoverFooter.displayName = 'RhinoCoverFooter';
 
 CoverFooter.propTypes = {
-  children: React.PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default CoverFooter;
