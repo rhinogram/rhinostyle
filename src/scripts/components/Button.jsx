@@ -55,9 +55,10 @@ class Button extends React.Component {
     const loaderClass = `button__loader ${(this.props.type === 'outline-reversed') ? 'button__loader--contrast' : 'button__loader--default'}`;
 
     const loaderSize = this.props.size === 'small' ? 'xsmall' : 'small';
+    const loaderType = ['outline-primary', 'link'].includes(this.props.type) ? 'primary' : 'default';
 
     return (
-      <div className={loaderClass}><LoaderCircle size={loaderSize} /></div>
+      <div className={loaderClass}><LoaderCircle type={loaderType} size={loaderSize} /></div>
     );
   }
 
