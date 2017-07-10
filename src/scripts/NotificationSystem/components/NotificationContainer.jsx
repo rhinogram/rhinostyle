@@ -1,4 +1,5 @@
 import { TimelineMax } from 'gsap';
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -11,12 +12,12 @@ const TOAST_TIMING = 0.5;
 
 class NotificationContainer extends React.Component {
   static propTypes = {
-    notification: React.PropTypes.object,
-    onDismiss: React.PropTypes.func, // eslint-disable-line react/no-unused-prop-types
-    onComplete: React.PropTypes.func,
-    onReverseComplete: React.PropTypes.func,
-    onReverseStart: React.PropTypes.func,
-    onStart: React.PropTypes.func,
+    notification: PropTypes.object,
+    onDismiss: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+    onComplete: PropTypes.func,
+    onReverseComplete: PropTypes.func,
+    onReverseStart: PropTypes.func,
+    onStart: PropTypes.func,
   };
 
   static defaultProps = {

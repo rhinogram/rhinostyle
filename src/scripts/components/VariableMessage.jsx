@@ -1,4 +1,5 @@
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -8,15 +9,15 @@ class VariableMessage extends React.Component {
   static displayName = 'RhinoVariableMessage';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    composeLabel: React.PropTypes.string.isRequired,
-    explanationMessage: React.PropTypes.string,
-    previewLabel: React.PropTypes.string.isRequired,
-    reset: React.PropTypes.bool,
-    variables: React.PropTypes.array.isRequired,
-    onInput: React.PropTypes.func,
-    initialValue: React.PropTypes.string,
-    readOnly: React.PropTypes.bool,
+    className: PropTypes.string,
+    composeLabel: PropTypes.string.isRequired,
+    explanationMessage: PropTypes.string,
+    previewLabel: PropTypes.string.isRequired,
+    reset: PropTypes.bool,
+    variables: PropTypes.array.isRequired,
+    onInput: PropTypes.func,
+    initialValue: PropTypes.string,
+    readOnly: PropTypes.bool,
   };
 
   static defaultProps = {

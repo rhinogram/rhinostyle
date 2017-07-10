@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll } from '../components';
@@ -6,12 +7,12 @@ class DropdownFilter extends React.Component {
   static displayName = 'RhinoDropdownFilter';
 
   static propTypes = {
-    activeKey: React.PropTypes.number,
-    children: React.PropTypes.node,
-    handleToggle: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    onSelect: React.PropTypes.func,
-    updateActiveKey: React.PropTypes.func,
+    activeKey: PropTypes.number,
+    children: PropTypes.node,
+    handleToggle: PropTypes.func,
+    placeholder: PropTypes.string,
+    onSelect: PropTypes.func,
+    updateActiveKey: PropTypes.func,
   };
 
   static defaultProps = {

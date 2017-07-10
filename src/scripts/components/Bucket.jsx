@@ -1,4 +1,5 @@
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const Bucket = (props) => {
@@ -20,10 +21,10 @@ const Bucket = (props) => {
 Bucket.displayName = 'RhinoBucket';
 
 Bucket.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  size: React.PropTypes.oneOf(['small']),
-  type: React.PropTypes.oneOf(['default', 'light', 'primary']),
+  children: PropTypes.node,
+  className: PropTypes.string,
+  size: PropTypes.oneOf(['small']),
+  type: PropTypes.oneOf(['default', 'light', 'primary']),
 };
 
 Bucket.defaultProps = {

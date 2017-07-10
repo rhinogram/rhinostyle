@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Close } from '../components';
@@ -7,10 +8,10 @@ class DropdownMenuItemWild extends React.Component {
   static displayName = 'RhinoDropdownMenuItemWild';
 
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    handleToggle: React.PropTypes.func,
-    toggleDropdown: React.PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    handleToggle: PropTypes.func,
+    toggleDropdown: PropTypes.bool,
   };
 
   static defaultProps = {
