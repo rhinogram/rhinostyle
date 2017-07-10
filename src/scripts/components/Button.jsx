@@ -1,4 +1,5 @@
 import cx       from 'classnames';
+import PropTypes from 'prop-types';
 import React    from 'react';
 import { Link } from 'react-router';
 
@@ -8,20 +9,20 @@ class Button extends React.Component {
   static displayName = 'RhinoButton';
 
   static propTypes = {
-    active:      React.PropTypes.bool,
-    blankWindow: React.PropTypes.bool,
-    block:       React.PropTypes.bool,
-    children:    React.PropTypes.node,
-    className:   React.PropTypes.string,
-    onClick:     React.PropTypes.func,
-    disabled:    React.PropTypes.bool,
-    iconOnly:    React.PropTypes.bool,
-    route:       React.PropTypes.string,
-    size:        React.PropTypes.oneOf(['small', 'large']),
-    title:       React.PropTypes.string,
-    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
-    url:         React.PropTypes.string,
-    loading: React.PropTypes.bool,
+    active:      PropTypes.bool,
+    blankWindow: PropTypes.bool,
+    block:       PropTypes.bool,
+    children:    PropTypes.node,
+    className:   PropTypes.string,
+    onClick:     PropTypes.func,
+    disabled:    PropTypes.bool,
+    iconOnly:    PropTypes.bool,
+    route:       PropTypes.string,
+    size:        PropTypes.oneOf(['small', 'large']),
+    title:       PropTypes.string,
+    type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    url:         PropTypes.string,
+    loading: PropTypes.bool,
   };
 
   static defaultProps = {

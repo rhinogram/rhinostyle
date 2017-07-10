@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const ModalFooter = props => <div className={cx('modal__footer')}>{props.children}</div>;
@@ -6,7 +7,7 @@ const ModalFooter = props => <div className={cx('modal__footer')}>{props.childre
 ModalFooter.displayName = 'RhinoModalFooter';
 
 ModalFooter.propTypes = {
-  children: React.PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default ModalFooter;

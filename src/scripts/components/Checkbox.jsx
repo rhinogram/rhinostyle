@@ -1,4 +1,5 @@
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { UtilitySystem } from '../components';
@@ -7,12 +8,12 @@ class Checkbox extends React.Component {
   static displayName = 'Rhinobox';
 
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    isChecked: React.PropTypes.bool,
-    name: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    isChecked: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
   }
 
   static defaultProps = {

@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { Icon } from '../components';
@@ -7,25 +8,25 @@ class Input extends React.Component {
   static displayName = 'RhinoInput';
 
   static propTypes = {
-    addon: React.PropTypes.oneOf(['', 'left', 'right', 'both']),
-    autoCapitalize: React.PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
-    autoComplete: React.PropTypes.oneOf(['off', 'on']),
-    className: React.PropTypes.string,
-    clear: React.PropTypes.bool,
-    disabled: React.PropTypes.bool,
-    explanationMessage: React.PropTypes.string,
-    initialValue: React.PropTypes.string,
-    label: React.PropTypes.string,
-    naked: React.PropTypes.bool,
-    name: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    onKeyPress: React.PropTypes.func,
-    onClear: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    required: React.PropTypes.bool,
-    focus: React.PropTypes.bool,
-    type: React.PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
-    validationMessage: React.PropTypes.string,
+    addon: PropTypes.oneOf(['', 'left', 'right', 'both']),
+    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
+    autoComplete: PropTypes.oneOf(['off', 'on']),
+    className: PropTypes.string,
+    clear: PropTypes.bool,
+    disabled: PropTypes.bool,
+    explanationMessage: PropTypes.string,
+    initialValue: PropTypes.string,
+    label: PropTypes.string,
+    naked: PropTypes.bool,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    onClear: PropTypes.func,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    focus: PropTypes.bool,
+    type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
+    validationMessage: PropTypes.string,
   };
 
   static defaultProps = {

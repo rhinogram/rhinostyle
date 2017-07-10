@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import { TimelineMax } from 'gsap';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { componentWillAppendToBody } from 'react-append-to-body';
 
@@ -9,14 +10,14 @@ class Modal extends React.Component {
   static displayName = 'RhinoModal';
 
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    size: React.PropTypes.string,
-    open: React.PropTypes.bool,
-    onComplete: React.PropTypes.func,
-    onReverseComplete: React.PropTypes.func,
-    onReverseStart: React.PropTypes.func,
-    onStart: React.PropTypes.func,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    size: PropTypes.string,
+    open: PropTypes.bool,
+    onComplete: PropTypes.func,
+    onReverseComplete: PropTypes.func,
+    onReverseStart: PropTypes.func,
+    onStart: PropTypes.func,
   };
 
   static defaultProps = {

@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { UtilitySystem } from '../components';
@@ -23,13 +24,13 @@ const Radio = (props) => {
 Radio.displayName = 'Rhinodio';
 
 Radio.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  name: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  selectedValue: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-  value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 Radio.defaultProps = {
