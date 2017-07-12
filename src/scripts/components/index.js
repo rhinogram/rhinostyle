@@ -57,8 +57,6 @@ import { NotificationActions } from '../NotificationSystem';
 
 // Utilities
 import { UtilitySystem } from '../UtilitySystem';
-/* eslint no-duplicate-imports:0 */
-/* eslint import/no-duplicates:0 */
 
 export {
   Alert,
