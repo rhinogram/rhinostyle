@@ -34458,7 +34458,7 @@ var DatePickerApp = function (_React$Component) {
   return DatePickerApp;
 }(_react2.default.Component);
 
-DatePickerApp.displayName = 'Rhinostyle DatePicker Examples';
+DatePickerApp.displayName = 'RhinoStyle DatePicker Examples';
 
 
 _reactDom2.default.render(_react2.default.createElement(DatePickerApp, null), document.getElementById('js-app'));
@@ -35433,7 +35433,7 @@ var FeedbackApp = function (_React$Component) {
   return FeedbackApp;
 }(_react2.default.Component);
 
-FeedbackApp.displayName = 'Rhinostyle Feedback Examples';
+FeedbackApp.displayName = 'RhinoStyle Feedback Examples';
 
 
 _reactDom2.default.render(_react2.default.createElement(FeedbackApp, null), document.getElementById('js-app'));
@@ -40799,23 +40799,36 @@ var _UtilitySystem = __webpack_require__(455);
 
 var $body = document.body;
 var $siteOverlay = document.querySelector('#site-overlay');
+var $siteWrapper = document.querySelector('.site-wrapper');
 var $siteNavigation = document.querySelector('#site-navigation');
 var $siteHeaderMenu = document.querySelector('.site-header__menu');
 
 var navEase = 0.25;
 var navSelectors = [$body, $siteOverlay, $siteNavigation];
 var mobileNavTimeline = void 0;
+var forward = true;
+var lastTime = 0;
 
 // Timelines
 var mobileNavTimelineFunc = function mobileNavTimelineFunc() {
   return new _gsap.TimelineMax({
     paused: true,
+    onStart: function onStart() {
+      addNavBodyClass();
+    },
+    onUpdate: function onUpdate() {
+      var newTime = mobileNavTimeline.time();
+      if (forward && newTime < lastTime || !forward && newTime > lastTime) {
+        forward = !forward;
+        if (!forward) {
+          removeNavBodyClass();
+        }
+      }
+      lastTime = newTime;
+    },
     onReverseComplete: function onReverseComplete() {
       _gsap.TweenMax.set(navSelectors, { clearProps: 'all' });
     }
-  }).set($body, {
-    height: '100%',
-    overflow: 'hidden'
   }).set($siteOverlay, {
     display: 'block'
   }).to($siteOverlay, navEase, {
@@ -40825,6 +40838,28 @@ var mobileNavTimelineFunc = function mobileNavTimelineFunc() {
     ease: _UtilitySystem.UtilitySystem.config.easing
   }, 'mobileNav');
 };
+
+/**
+ * Add class attached to body when nav visibility is changed
+ * @return {void}
+ */
+function addNavBodyClass() {
+  $body.classList.add('has-open-nav');
+
+  // Focus on navigation
+  $siteNavigation.focus();
+}
+
+/**
+ * Remove class attached to body when nav visibility is changed
+ * @return {void}
+ */
+function removeNavBodyClass() {
+  $body.classList.remove('has-open-nav');
+
+  // Focus on navigation
+  $siteWrapper.focus();
+}
 
 /**
  * Build timelines attached to nav
@@ -40847,6 +40882,8 @@ function navDesktopToMobileCheck() {
 
     // Make sure we clear props for all nav selectors to avoid conflicts
     _gsap.TweenMax.set(navSelectors, { clearProps: 'all' });
+
+    removeNavBodyClass();
 
     // Reset for use later
     buildNavTimeline();

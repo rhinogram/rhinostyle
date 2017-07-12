@@ -18,7 +18,7 @@ const exampleScope  = {
 };
 
 class DatePickerApp extends React.Component {
-  static displayName = 'Rhinostyle DatePicker Examples';
+  static displayName = 'RhinoStyle DatePicker Examples';
 
   state = {
     startDate: moment(),
