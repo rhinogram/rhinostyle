@@ -83,15 +83,14 @@ class Modal extends React.Component {
       css: {
         opacity: 1,
       },
-    })
+    }, 'modal')
     .to($modal.querySelector('.modal__dialog'), 0.5, {
       css: {
         opacity: 1,
         y: 0,
-        scale: 1,
       },
       ease: UtilitySystem.config.easing,
-    });
+    }, 'modal');
   }
 
   componentDidUpdate(prevProps) {

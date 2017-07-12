@@ -81,7 +81,7 @@ class Cover extends React.Component {
     .to($cover, 0.5, {
       css: {
         opacity: 1,
-        scale: 1,
+        y: 0,
       },
       ease: UtilitySystem.config.easing,
     });
