@@ -4,23 +4,35 @@ import { UtilitySystem } from '../UtilitySystem';
 
 const $body = document.body;
 const $siteOverlay = document.querySelector('#site-overlay');
+const $siteWrapper = document.querySelector('.site-wrapper');
 const $siteNavigation = document.querySelector('#site-navigation');
 const $siteHeaderMenu = document.querySelector('.site-header__menu');
 
 const navEase = 0.25;
 const navSelectors = [$body, $siteOverlay, $siteNavigation];
 let mobileNavTimeline;
+let forward = true;
+let lastTime = 0;
 
 // Timelines
 const mobileNavTimelineFunc = () => new TimelineMax({
   paused: true,
+  onStart: () => {
+    addNavBodyClass();
+  },
+  onUpdate: () => {
+    const newTime = mobileNavTimeline.time();
+    if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
+      forward = !forward;
+      if (!forward) {
+        removeNavBodyClass();
+      }
+    }
+    lastTime = newTime;
+  },
   onReverseComplete() {
     TweenMax.set(navSelectors, { clearProps: 'all' });
   },
-})
-.set($body, {
-  height: '100%',
-  overflow: 'hidden',
 })
 .set($siteOverlay, {
   display: 'block',
@@ -32,6 +44,28 @@ const mobileNavTimelineFunc = () => new TimelineMax({
   x: 0,
   ease: UtilitySystem.config.easing,
 }, 'mobileNav');
+
+/**
+ * Add class attached to body when nav visibility is changed
+ * @return {void}
+ */
+function addNavBodyClass() {
+  $body.classList.add('has-open-nav');
+
+  // Focus on navigation
+  $siteNavigation.focus();
+}
+
+/**
+ * Remove class attached to body when nav visibility is changed
+ * @return {void}
+ */
+function removeNavBodyClass() {
+  $body.classList.remove('has-open-nav');
+
+  // Focus on navigation
+  $siteWrapper.focus();
+}
 
 /**
  * Build timelines attached to nav
@@ -55,6 +89,8 @@ function navDesktopToMobileCheck() {
 
     // Make sure we clear props for all nav selectors to avoid conflicts
     TweenMax.set(navSelectors, { clearProps: 'all' });
+
+    removeNavBodyClass();
 
     // Reset for use later
     buildNavTimeline();

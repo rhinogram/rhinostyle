@@ -15,6 +15,20 @@
 @global-header-height: 6rem;
 
 
+// Utility for stopping touch-scroll from bleeding on-top of navigation overlay
+.has-open-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .site-wrapper {
+    pointer-events: none;
+  }
+}
+
+
 //
 // Site Content
 //

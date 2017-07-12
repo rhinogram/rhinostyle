@@ -55,7 +55,7 @@ const systemAlertScope = {
 };
 
 class FeedbackApp extends React.Component {
-  static displayName = 'Rhinostyle Feedback Examples';
+  static displayName = 'RhinoStyle Feedback Examples';
 
   onClick = (event) => {
     event.preventDefault();
