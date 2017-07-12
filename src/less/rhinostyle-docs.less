@@ -268,7 +268,7 @@
     transform: none;
   }
 
-  .no-touch & {
+  .no-touchevents & {
     overflow-y: auto;
   }
 }
@@ -294,7 +294,7 @@
   padding: @global-whitespace-small @global-whitespace-base;
   transition: background-color 250ms @global-trans-timing-cubic;
 
-  .no-touch & {
+  .no-touchevents & {
     &:hover,
     &:focus {
       background-color: lighten(@site-navigation-bg, 3%);
