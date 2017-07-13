@@ -10,7 +10,6 @@ class Button extends React.Component {
 
   static propTypes = {
     active:      PropTypes.bool,
-    blankWindow: PropTypes.bool,
     block:       PropTypes.bool,
     children:    PropTypes.node,
     className:   PropTypes.string,
@@ -35,14 +34,6 @@ class Button extends React.Component {
   };
 
   handleClick = () => {
-    if (this.props.url) {
-      if (!this.props.blankWindow) {
-        window.location = this.props.url;
-      } else {
-        window.open(this.props.url);
-      }
-    }
-
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick();
     }
@@ -64,7 +55,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, loading, ...opts } = this.props; // eslint-disable-line
+    const { active, block, className, disabled, iconOnly, onClick, route, size, title, type, url, loading, ...opts } = this.props; // eslint-disable-line
     const classes = cx('button', className, {
       'button--default': type === 'default',
       'button--primary': type === 'primary',
@@ -83,7 +74,13 @@ class Button extends React.Component {
 
     let markup = '';
 
-    if (route) {
+    if (url) {
+      markup = (
+        <a href={url} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>
+          <span className="button__text-wrapper">{this.props.children}</span>
+        </a>
+      );
+    } else if (route) {
       markup = (
         <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>

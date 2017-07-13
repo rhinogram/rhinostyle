@@ -14394,14 +14394,6 @@ var Button = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Button.__proto__ || Object.getPrototypeOf(Button)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function () {
-      if (_this.props.url) {
-        if (!_this.props.blankWindow) {
-          window.location = _this.props.url;
-        } else {
-          window.open(_this.props.url);
-        }
-      }
-
       if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
         _this.props.onClick();
       }
@@ -14432,7 +14424,6 @@ var Button = function (_React$Component) {
 
       var _props = this.props,
           active = _props.active,
-          blankWindow = _props.blankWindow,
           block = _props.block,
           className = _props.className,
           disabled = _props.disabled,
@@ -14444,7 +14435,7 @@ var Button = function (_React$Component) {
           type = _props.type,
           url = _props.url,
           loading = _props.loading,
-          opts = _objectWithoutProperties(_props, ['active', 'blankWindow', 'block', 'className', 'disabled', 'iconOnly', 'onClick', 'route', 'size', 'title', 'type', 'url', 'loading']); // eslint-disable-line
+          opts = _objectWithoutProperties(_props, ['active', 'block', 'className', 'disabled', 'iconOnly', 'onClick', 'route', 'size', 'title', 'type', 'url', 'loading']); // eslint-disable-line
 
 
       var classes = (0, _classnames2.default)('button', className, (_cx = {
@@ -14463,7 +14454,17 @@ var Button = function (_React$Component) {
 
       var markup = '';
 
-      if (route) {
+      if (url) {
+        markup = _react2.default.createElement(
+          'a',
+          _extends({ href: url, className: classes, onClick: this.handleClick }, opts, { title: this.props.title }),
+          _react2.default.createElement(
+            'span',
+            { className: 'button__text-wrapper' },
+            this.props.children
+          )
+        );
+      } else if (route) {
         markup = _react2.default.createElement(
           _reactRouter.Link,
           _extends({ to: route, className: classes, onClick: this.handleClick, disabled: disabled || loading }, opts, { title: this.props.title }),
@@ -14497,7 +14498,6 @@ var Button = function (_React$Component) {
 Button.displayName = 'RhinoButton';
 Button.propTypes = {
   active: _propTypes2.default.bool,
-  blankWindow: _propTypes2.default.bool,
   block: _propTypes2.default.bool,
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
@@ -33525,7 +33525,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var buttonDocs = {
   active: '[Optional] - Button is active',
-  blankWindow: '[Optional] - Open URL in blank browser window',
   block: '[Optional] - Button is block level',
   className: '[Optional] - Include additional class name(s)',
   onClick: '[Optional] - Include click function for Button',
@@ -34068,7 +34067,7 @@ _reactDom2.default.render(_react2.default.createElement(ButtonApp, null), docume
 /* 945 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" blankWindow title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"button__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div>\n        <UtilityInlineGrid>\n          <Button onClick={() => console.log('clicked too')} url=\"http://www.rhinogram.com\" target=\"_blank\" rel=\"noopen noreferrer\" title=\"Visit Rhinogram\">Default</Button>\n          <Button type=\"primary\">Primary</Button>\n          <Button type=\"secondary\" iconOnly><Icon icon=\"cog\" /></Button>\n        </UtilityInlineGrid>\n        <div className=\"u-m-t\">\n          <UtilityInlineGrid>\n            <Button size=\"large\">Large</Button>\n            <Button size=\"large\"><Icon icon=\"cog\" />&nbsp;Large</Button>\n            <Button size=\"large\" iconOnly><Icon icon=\"cog\" /></Button>\n            <Button>Default</Button>\n            <Button type=\"outline-primary\">Outline Primary with Badge &nbsp;<span className=\"button__badge\">12</span></Button>\n            <Button><Icon icon=\"cog\" />&nbsp;Default</Button>\n            <Button iconOnly><Icon icon=\"cog\" /></Button>\n            <Button size=\"small\">Small</Button>\n            <Button size=\"small\"><Icon icon=\"cog\" />&nbsp;Small</Button>\n            <Button size=\"small\" iconOnly><Icon icon=\"cog\" /></Button>\n          </UtilityInlineGrid>\n        </div>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 946 */
