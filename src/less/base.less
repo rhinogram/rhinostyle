@@ -119,8 +119,11 @@ html {
 }
 
 // IE10+ doesn't honor `<meta name="viewport">` in some cases.
+/* stylelint-disable-next-line at-rule-no-unknown */
 @at-root {
-  @-ms-viewport { width: device-width; }
+  @-ms-viewport {
+    width: device-width;
+  }
 }
 
 // Removes default margin.
@@ -188,7 +191,7 @@ abbr {
     border-bottom: 0;
     // 2
     text-decoration: underline;
-    text-decoration: underline dotted; // lesshint duplicateProperty: false
+    text-decoration: underline dotted;
   }
 }
 

@@ -1,4 +1,5 @@
 import cx       from 'classnames';
+import PropTypes from 'prop-types';
 import React    from 'react';
 import { Link } from 'react-router';
 
@@ -8,20 +9,19 @@ class Button extends React.Component {
   static displayName = 'RhinoButton';
 
   static propTypes = {
-    active:      React.PropTypes.bool,
-    blankWindow: React.PropTypes.bool,
-    block:       React.PropTypes.bool,
-    children:    React.PropTypes.node,
-    className:   React.PropTypes.string,
-    onClick:     React.PropTypes.func,
-    disabled:    React.PropTypes.bool,
-    iconOnly:    React.PropTypes.bool,
-    route:       React.PropTypes.string,
-    size:        React.PropTypes.oneOf(['small', 'large']),
-    title:       React.PropTypes.string,
-    type:        React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
-    url:         React.PropTypes.string,
-    loading: React.PropTypes.bool,
+    active:      PropTypes.bool,
+    block:       PropTypes.bool,
+    children:    PropTypes.node,
+    className:   PropTypes.string,
+    onClick:     PropTypes.func,
+    disabled:    PropTypes.bool,
+    iconOnly:    PropTypes.bool,
+    route:       PropTypes.string,
+    size:        PropTypes.oneOf(['small', 'large']),
+    title:       PropTypes.string,
+    type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    url:         PropTypes.string,
+    loading: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -34,14 +34,6 @@ class Button extends React.Component {
   };
 
   handleClick = () => {
-    if (this.props.url) {
-      if (!this.props.blankWindow) {
-        window.location = this.props.url;
-      } else {
-        window.open(this.props.url);
-      }
-    }
-
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick();
     }
@@ -55,14 +47,15 @@ class Button extends React.Component {
     const loaderClass = `button__loader ${(this.props.type === 'outline-reversed') ? 'button__loader--contrast' : 'button__loader--default'}`;
 
     const loaderSize = this.props.size === 'small' ? 'xsmall' : 'small';
+    const loaderType = ['outline-primary', 'link'].includes(this.props.type) ? 'primary' : 'default';
 
     return (
-      <div className={loaderClass}><LoaderCircle size={loaderSize} /></div>
+      <div className={loaderClass}><LoaderCircle type={loaderType} size={loaderSize} /></div>
     );
   }
 
   render() {
-    const { active, blankWindow, block, className, disabled, iconOnly, onClick, route, size, title, type, url, loading, ...opts } = this.props; // eslint-disable-line
+    const { active, block, className, disabled, iconOnly, onClick, route, size, title, type, url, loading, ...opts } = this.props; // eslint-disable-line
     const classes = cx('button', className, {
       'button--default': type === 'default',
       'button--primary': type === 'primary',
@@ -81,7 +74,13 @@ class Button extends React.Component {
 
     let markup = '';
 
-    if (route) {
+    if (url) {
+      markup = (
+        <a href={url} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>
+          <span className="button__text-wrapper">{this.props.children}</span>
+        </a>
+      );
+    } else if (route) {
       markup = (
         <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>

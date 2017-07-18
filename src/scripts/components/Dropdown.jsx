@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -8,28 +9,28 @@ class Dropdown extends React.Component {
   static displayName = 'RhinoDropdown';
 
   static propTypes = {
-    activeKey: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    block: React.PropTypes.bool,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    disableScroll: React.PropTypes.bool,
-    hideCaret: React.PropTypes.bool,
-    hideActive: React.PropTypes.bool,
-    icon: React.PropTypes.string,
-    label: React.PropTypes.string,
-    lockLabel: React.PropTypes.bool,
-    position: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    size: React.PropTypes.oneOf(['small', 'large']),
-    type: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'input']),
-    wide: React.PropTypes.bool,
-    onComplete: React.PropTypes.func,
-    onReverseComplete: React.PropTypes.func,
-    onReverseStart: React.PropTypes.func,
-    onStart: React.PropTypes.func,
-    manualClose: React.PropTypes.bool,
+    activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    block: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    disableScroll: PropTypes.bool,
+    hideCaret: PropTypes.bool,
+    hideActive: PropTypes.bool,
+    icon: PropTypes.string,
+    label: PropTypes.string,
+    lockLabel: PropTypes.bool,
+    position: PropTypes.string,
+    onClick: PropTypes.func,
+    onSelect: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'large']),
+    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'input']),
+    wide: PropTypes.bool,
+    onComplete: PropTypes.func,
+    onReverseComplete: PropTypes.func,
+    onReverseStart: PropTypes.func,
+    onStart: PropTypes.func,
+    manualClose: PropTypes.bool,
   };
 
   static defaultProps = {

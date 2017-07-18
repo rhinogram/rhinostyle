@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import Textarea from 'react-textarea-autosize';
 
@@ -6,19 +7,19 @@ class MessageBox extends React.Component {
   static displayName = 'RhinoMessageBox';
 
   static propTypes = {
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    label: React.PropTypes.string,
-    name: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    onInput: React.PropTypes.func,
-    onKeyPress: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    required: React.PropTypes.bool,
-    maxHeight: React.PropTypes.string,
-    initialValue: React.PropTypes.string,
-    focus: React.PropTypes.bool,
-    rows: React.PropTypes.number,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    onInput: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool,
+    maxHeight: PropTypes.string,
+    initialValue: PropTypes.string,
+    focus: PropTypes.bool,
+    rows: PropTypes.number,
   };
 
   static defaultProps = {

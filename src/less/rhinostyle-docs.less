@@ -15,6 +15,20 @@
 @global-header-height: 6rem;
 
 
+// Utility for stopping touch-scroll from bleeding on-top of navigation overlay
+.has-open-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .site-wrapper {
+    pointer-events: none;
+  }
+}
+
+
 //
 // Site Content
 //
@@ -268,7 +282,7 @@
     transform: none;
   }
 
-  .no-touch & {
+  .no-touchevents & {
     overflow-y: auto;
   }
 }
@@ -276,6 +290,7 @@
 
 .site-navigation__nav {
   .u-list;
+
   padding-top: @global-whitespace-base;
 
   > li {
@@ -294,7 +309,7 @@
   padding: @global-whitespace-small @global-whitespace-base;
   transition: background-color 250ms @global-trans-timing-cubic;
 
-  .no-touch & {
+  .no-touchevents & {
     &:hover,
     &:focus {
       background-color: lighten(@site-navigation-bg, 3%);
@@ -311,7 +326,6 @@
     color: @global-color-white;
   }
 }
-
 
 
 //
@@ -447,12 +461,12 @@
   }
 }
 
-.playgroundCode { // lesshint selectorNaming: false
+.playgroundCode {
   margin-bottom: @global-whitespace-large;
   margin-top: @global-whitespace-large;
 }
 
-.playgroundError { // lesshint selectorNaming: false
+.playgroundError {
   background: @global-background;
   border: 2px solid currentColor;
   color: @global-color-danger;
@@ -463,10 +477,10 @@
   white-space: pre-wrap;
 }
 
-.CodeMirror-wrap { // lesshint selectorNaming: false
+.CodeMirror-wrap {
   border: 1px solid @global-border-color-base;
 }
 
-.CodeMirror-code { // lesshint selectorNaming: false
+.CodeMirror-code {
   font-size: 1.4rem;
 }

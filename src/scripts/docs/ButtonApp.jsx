@@ -7,7 +7,6 @@ import buttonExample from './examples/Button.example.txt';
 
 const buttonDocs = {
   active: '[Optional] - Button is active',
-  blankWindow: '[Optional] - Open URL in blank browser window',
   block: '[Optional] - Button is block level',
   className: '[Optional] - Include additional class name(s)',
   onClick: '[Optional] - Include click function for Button',

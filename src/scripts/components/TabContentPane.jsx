@@ -1,4 +1,5 @@
 import cx     from 'classnames';
+import PropTypes from 'prop-types';
 import React  from 'react';
 
 import { UtilitySystem } from '../components';
@@ -20,9 +21,9 @@ const TabContentPane = (props) => {
 TabContentPane.displayName = 'RhinoTabContentPane';
 
 TabContentPane.propTypes = {
-  active: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  children: React.PropTypes.node,
+  active: PropTypes.bool,
+  className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 TabContentPane.defaultProps = {

@@ -7,7 +7,7 @@ import less from 'postcss-less';
 const $ = gulpLoadPlugins();
 
 /**
- * Run styles through `lesshint`
+ * Run styles through `stylelint`
  * @return {stream}
  */
 export default function linter() {

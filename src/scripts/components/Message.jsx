@@ -1,14 +1,15 @@
 import cx    from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class Message extends React.Component {
   static displayName = 'RhinoMessage';
 
   static propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    direction: React.PropTypes.oneOf(['inbound', 'outbound']),
-    type: React.PropTypes.oneOf(['default', 'primary', 'note']),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    direction: PropTypes.oneOf(['inbound', 'outbound']),
+    type: PropTypes.oneOf(['default', 'primary', 'note']),
   };
 
   static defaultProps = {

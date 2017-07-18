@@ -29,23 +29,12 @@
   border-radius: 50%;
   border-style: solid;
   border-width: @loader-circle-border-size;
+  border-top-color: fade(@global-background, 0) !important;
   display: inline-flex;
   height: @loader-circle-size;
   position: relative;
   transform-origin: center center;
   width: @loader-circle-size;
-
-  &::after {
-    border: @loader-circle-border-size solid transparent;
-    border-radius: 50%;
-    content: '';
-    height: @loader-circle-size;
-    left: -@loader-circle-border-size;
-    position: absolute;
-    top: -@loader-circle-border-size;
-    width: @loader-circle-size;
-    z-index: 100;
-  }
 }
 
 
@@ -55,19 +44,11 @@
 
 
 .loader-circle--default {
-  border-color: @global-color-gray-light;
-
-  &::after {
-    border-top-color: @global-color-gray;
-  }
+  border-color: @global-font-color-muted;
 }
 
 .loader-circle--primary {
-  border-color: @global-color-primary-rich;
-
-  &::after {
-    border-top-color: @global-color-info;
-  }
+  border-color: @global-color-primary;
 }
 
 
@@ -79,35 +60,17 @@
 .loader-circle--large {
   height: @loader-circle-size-large;
   width: @loader-circle-size-large;
-
-  &::after {
-    height: @loader-circle-size-large;
-    width: @loader-circle-size-large;
-  }
 }
 
 .loader-circle--small {
   height: @loader-circle-size-small;
   width: @loader-circle-size-small;
-
-  &::after {
-    height: @loader-circle-size-small;
-    width: @loader-circle-size-small;
-  }
 }
 
 .loader-circle--xsmall {
   border-width: @loader-xsmall-circle-border-size;
   height: @loader-circle-size-xsmall;
   width: @loader-circle-size-xsmall;
-
-  &::after {
-    border-width: @loader-xsmall-circle-border-size;
-    height: @loader-circle-size-xsmall;
-    width: @loader-circle-size-xsmall;
-    left: -@loader-xsmall-circle-border-size;
-    top: -@loader-xsmall-circle-border-size;
-  }
 }
 
 

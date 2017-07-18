@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const UtilityList = (props) => {
@@ -17,9 +18,9 @@ const UtilityList = (props) => {
 UtilityList.displayName = 'RhinoUtilityList';
 
 UtilityList.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  space: React.PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  space: PropTypes.bool,
 };
 
 UtilityList.defaultProps = {
