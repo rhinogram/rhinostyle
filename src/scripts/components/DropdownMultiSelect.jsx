@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { UtilitySystem } from '../UtilitySystem';
 import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, Pill, UtilityInlineGrid } from '../components';
 
 class DropdownMultiSelect extends React.Component {
@@ -35,6 +35,14 @@ class DropdownMultiSelect extends React.Component {
     isOpen: false,
     items: this.props.children,
   };
+
+  componentWillReceiveProps(nextProps) {
+    const activeKeysHaveChanged = !UtilitySystem.compareFlatArray(this.props.activeKeys, nextProps.activeKeys);
+
+    if (activeKeysHaveChanged) {
+      this.setState({ activeKeys: nextProps.activeKeys });
+    }
+  }
 
   getChildren = () => {
     let returnChild = null;
