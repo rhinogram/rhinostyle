@@ -6,6 +6,7 @@ src/*
 .babelrc
 .eslintrc
 .gitignore
-.lesshintrc
+stylelint.config.js
+webpack.config.js
 .npmignore
 gulpfile.babel.js
