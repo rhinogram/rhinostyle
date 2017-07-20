@@ -88,3 +88,36 @@ export const optimizedResize = (function() { // eslint-disable-line func-names
   };
 
 }()); // eslint-disable-line
+
+/**
+ * Compare two arrays
+ * @param  {arr1}   array
+ * @param  {arr2}   array
+ * @param  {strict} boolean
+ * @return {boolean}
+ */
+export function compareFlatArray(arr1, arr2, strict = false) {
+  if (!arr1 || !arr2) {
+    return false;
+  }
+
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  if (strict) {
+    return compare(arr1, arr2);
+  }
+
+  return compare(arr1.sort(), arr2.sort());
+
+  function compare(a, b) {
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
