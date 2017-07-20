@@ -18,8 +18,7 @@
 .row {
   display: flex;
   flex: 0 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   margin-left: -@grid-gutter;
   // 1
   margin-top: -@grid-gutter;
@@ -301,10 +300,12 @@
     flex-basis: 58.33333%;
     max-width: 58.33333%;
   }
+
   .column-8\@small {
     flex-basis: 66.66667%;
     max-width: 66.66667%;
   }
+
   .column-9\@small {
     flex-basis: 75%;
     max-width: 75%;
@@ -371,6 +372,7 @@
     flex-basis: 75%;
     max-width: 75%;
   }
+
   .column-10\@medium {
     flex-basis: 83.33333%;
     max-width: 83.33333%;
@@ -459,6 +461,7 @@
   .column-offset-6\@xsmall {
     margin-left: 50%;
   }
+
   .column-offset-7\@xsmall {
     margin-left: 58.33333%;
   }

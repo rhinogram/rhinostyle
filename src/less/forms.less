@@ -681,12 +681,11 @@ input[type='checkbox'] {
 }
 
 
-
 .rhinobox {
   padding-left: 0;
 
   input {
-    &:checked+label::before {
+    &:checked + label::before {
       background-color: @form-element-color;
       background-image: url('@{svg-sprite}#icon-checkmark');
       background-position: center center;
@@ -719,7 +718,7 @@ input[type='checkbox'] {
   padding-left: 0;
 
   input {
-    &:checked+label::after {
+    &:checked + label::after {
       transform: translateY(-50%) scale(1);
     }
   }

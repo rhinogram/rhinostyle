@@ -39,6 +39,7 @@
     min-height: @variable-message-compose-min-height;
     padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
   }
+
   &:focus {
     outline: 0;
   }
@@ -58,6 +59,7 @@
 .variable-message__variable {
   &:extend(.pill);
   &:extend(.pill--default);
+
   cursor: default;
   user-select: none;
   vertical-align: baseline;
@@ -76,6 +78,7 @@
 
 .variable-message__close {
   &:extend(.pill__close);
+
   cursor: pointer;
 
   &::after {
