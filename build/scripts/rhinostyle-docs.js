@@ -33192,6 +33192,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.optimizedResize = exports.config = undefined;
 exports.forEach = forEach;
+exports.compareFlatArray = compareFlatArray;
 
 var _gsap = __webpack_require__(65);
 
@@ -33283,6 +33284,41 @@ var optimizedResize = exports.optimizedResize = function () {
     }
   };
 }(); // eslint-disable-line
+
+/**
+ * Compare two arrays
+ * @param  {arr1}   array
+ * @param  {arr2}   array
+ * @param  {strict} boolean
+ * @return {boolean}
+ */
+function compareFlatArray(arr1, arr2) {
+  var strict = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  if (!arr1 || !arr2) {
+    return false;
+  }
+
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  if (strict) {
+    return compare(arr1, arr2);
+  }
+
+  return compare(arr1.sort(), arr2.sort());
+
+  function compare(a, b) {
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
 
 /***/ }),
 /* 940 */
