@@ -210,6 +210,16 @@
 
 .button--outline-primary {
   .mixin-button-outline-variant(@button-outline-primary-color; @button-outline-primary-border; @global-color-white; @button-primary-bg-color);
+
+  // Override for hover/focus state since that is different than default
+  &.is-loading {
+    &:hover,
+    &:focus {
+      .loader-circle {
+        border-color: @global-color-white;
+      }
+    }
+  }
 }
 
 .button--input {
