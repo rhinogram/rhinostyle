@@ -143,7 +143,7 @@ body {
 
 // Suppress focus outline on elements that are triggered via a mouse
 // Possible by bundling `what-input` library
-[data-whatinput='mouse'] :focus {
+html:not([data-whatinput="keyboard"]) :focus {
   outline: none;
 }
 
