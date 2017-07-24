@@ -14190,7 +14190,6 @@ var Bucket = function Bucket(props) {
   var classes = (0, _classnames2.default)('bucket', className, {
     'bucket--default': type === 'default',
     'bucket--light': type === 'light',
-    'bucket--primary': type === 'primary',
     'bucket--small': size === 'small'
   });
 
@@ -33371,7 +33370,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
   size: '[Optional] - Bucket size -  [small]',
-  type: '[Optional] - Bucket type -  [default | light | primary]'
+  type: '[Optional] - Bucket type -  [default | light]'
 };
 var bucketScope = {
   React: _react2.default,
@@ -33440,7 +33439,7 @@ var BucketApp = function BucketApp() {
         _react2.default.createElement(
           'code',
           null,
-          'type="default | light | primary"'
+          'type="default | light"'
         )
       ),
       _react2.default.createElement(
@@ -33457,16 +33456,6 @@ var BucketApp = function BucketApp() {
         _components.Bucket,
         { type: 'light' },
         _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Light', icon: 'cog' }),
-        _react2.default.createElement(
-          _components.BucketBody,
-          null,
-          'Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.'
-        )
-      ),
-      _react2.default.createElement(
-        _components.Bucket,
-        { type: 'primary' },
-        _react2.default.createElement(_components.BucketHeader, { title: 'Bucket Primary', icon: 'sms' }),
         _react2.default.createElement(
           _components.BucketBody,
           null,
