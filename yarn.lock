@@ -6321,14 +6321,9 @@ react-addons-test-utils@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-append-to-body@2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.7.tgz#c0d22d45aa7188556c2c8407847fb80d424b95bf"
-  dependencies:
-    prop-types "^15.5.10"
-    react "^15.4.1"
-    react-dom "^15.4.1"
-    uuid "^3.1.0"
+react-append-to-body@2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.13.tgz#e620c1957a1835012fbabe553a0d1fefcf6ff031"
 
 react-codemirror@^1.0.0:
   version "1.0.0"
@@ -6359,7 +6354,7 @@ react-datepicker@0.48.0:
     react-onclickoutside "^6.1.1"
     tether "^1.4.0"
 
-react-dom@15.6.1, react-dom@^15.4.1:
+react-dom@15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
@@ -6413,7 +6408,7 @@ react-textarea-autosize@5.0.7:
   dependencies:
     prop-types "^15.5.8"
 
-react@15.6.1, react@^15.4.1:
+react@15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
@@ -7771,10 +7766,6 @@ uuid@^2.0.1:
 uuid@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
-
-uuid@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
 v8flags@^2.0.10, v8flags@^2.0.2:
   version "2.0.11"
