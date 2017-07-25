@@ -6,7 +6,7 @@ class ComponentExample extends React.Component {
         <Icon icon="chevron-right" />
         <Icon icon="warning" />
         <Icon icon="email" bump="down" />
-        <Icon icon="arrow-right" bump="up" />
+        <Icon icon="arrow-right" />
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Icon, UtilityInlineGrid } from '../components';
+import { Icon } from '../components';
 import iconExample from './examples/Icon.example.txt';
 
 const iconDocs = {
@@ -16,432 +16,87 @@ const exampleScope  = {
   Icon,
 };
 
+// Add new icons here
+const icons = [
+  'add',
+  'arrow-left',
+  'arrow-right',
+  'attachment',
+  'bank',
+  'bar-graph',
+  'birthday',
+  'calendar',
+  'camera',
+  'checkmark',
+  'checkmark-circle',
+  'chevron-left',
+  'chevron-right',
+  'chevron-up',
+  'chevron-down',
+  'clock',
+  'close',
+  'cog',
+  'compose',
+  'copy',
+  'desktop',
+  'dots-horizontal',
+  'dots-vertical',
+  'download',
+  'credit-card',
+  'email',
+  'file',
+  'filter',
+  'flag',
+  'forward',
+  'gender-female',
+  'gender-male',
+  'globe',
+  'hipaa',
+  'inbox',
+  'info-circle',
+  'link',
+  'lock',
+  'logo-circle-facebook',
+  'logo-twitter',
+  'minor',
+  'mobile',
+  'note',
+  'notification',
+  'notification-off',
+  'pencil',
+  'phone',
+  'pin',
+  'printer',
+  'question-circle',
+  'reply',
+  'search',
+  'sms',
+  'sms-dots',
+  'star',
+  'tag',
+  'trash',
+  'upload',
+  'user',
+  'warning',
+];
+
 const IconApp = () =>
   <div>
     <section className="site-section">
       <h3 className="site-subheadline">SVG Icons</h3>
 
-      <UtilityInlineGrid>
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="add" />
-          </div>
-          <div className="site-swatch__text"><strong>Add</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="arrow-left" />
-          </div>
-          <div className="site-swatch__text"><strong>Arrow Left</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="arrow-right" />
-          </div>
-          <div className="site-swatch__text"><strong>Arrow Right</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="attachment" />
-          </div>
-          <div className="site-swatch__text"><strong>Attachment</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="bank" />
-          </div>
-          <div className="site-swatch__text"><strong>Bank</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="bar-graph" />
-          </div>
-          <div className="site-swatch__text"><strong>Bar Graph</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="birthday" />
-          </div>
-          <div className="site-swatch__text"><strong>Birthday</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="calendar" />
-          </div>
-          <div className="site-swatch__text"><strong>Calendar</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="camera" />
-          </div>
-          <div className="site-swatch__text"><strong>Camera</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="checkmark" />
-          </div>
-          <div className="site-swatch__text"><strong>Checkmark</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="checkmark-circle" />
-          </div>
-          <div className="site-swatch__text"><strong>Checkmark Circle</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="chevron-left" />
-          </div>
-          <div className="site-swatch__text"><strong>Chevron Left</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="chevron-right" />
-          </div>
-          <div className="site-swatch__text"><strong>Chevron Right</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="chevron-up" />
-          </div>
-          <div className="site-swatch__text"><strong>Chevron Up</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="chevron-down" />
-          </div>
-          <div className="site-swatch__text"><strong>Chevron Down</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="clock" />
-          </div>
-          <div className="site-swatch__text"><strong>Clock</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="close" />
-          </div>
-          <div className="site-swatch__text"><strong>Close</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="cog" />
-          </div>
-          <div className="site-swatch__text"><strong>Cog</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="compose" />
-          </div>
-          <div className="site-swatch__text"><strong>Compose</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="copy" />
-          </div>
-          <div className="site-swatch__text"><strong>Copy</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="desktop" />
-          </div>
-          <div className="site-swatch__text"><strong>Desktop</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="dots-horizontal" />
-          </div>
-          <div className="site-swatch__text"><strong>Dots Horizontal</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="dots-vertical" />
-          </div>
-          <div className="site-swatch__text"><strong>Dots Vertical</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="download" />
-          </div>
-          <div className="site-swatch__text"><strong>Download</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="credit-card" />
-          </div>
-          <div className="site-swatch__text"><strong>Credit Card</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="email" />
-          </div>
-          <div className="site-swatch__text"><strong>Email</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="file" />
-          </div>
-          <div className="site-swatch__text"><strong>File</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="filter" />
-          </div>
-          <div className="site-swatch__text"><strong>Filter</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="flag" />
-          </div>
-          <div className="site-swatch__text"><strong>Flag</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="forward" />
-          </div>
-          <div className="site-swatch__text"><strong>Forward</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="gender-female" />
-          </div>
-          <div className="site-swatch__text"><strong>Gender Female</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="gender-male" />
-          </div>
-          <div className="site-swatch__text"><strong>Gender Male</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="globe" />
-          </div>
-          <div className="site-swatch__text"><strong>Globe</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="hipaa" />
-          </div>
-          <div className="site-swatch__text"><strong>HIPAA</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="inbox" />
-          </div>
-          <div className="site-swatch__text"><strong>Inbox</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="info-circle" />
-          </div>
-          <div className="site-swatch__text"><strong>Info Circle</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="link" />
-          </div>
-          <div className="site-swatch__text"><strong>Link</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="lock" />
-          </div>
-          <div className="site-swatch__text"><strong>Lock</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="logo-circle-facebook" />
-          </div>
-          <div className="site-swatch__text"><strong>Logo Circle Facebook</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="logo-twitter" />
-          </div>
-          <div className="site-swatch__text"><strong>Logo Twitter</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="minor" />
-          </div>
-          <div className="site-swatch__text"><strong>Minor</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="mobile" />
-          </div>
-          <div className="site-swatch__text"><strong>Mobile</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="note" />
-          </div>
-          <div className="site-swatch__text"><strong>Note</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="notification" />
-          </div>
-          <div className="site-swatch__text"><strong>Notification</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="notification-off" />
-          </div>
-          <div className="site-swatch__text"><strong>Notification Off</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="pencil" />
-          </div>
-          <div className="site-swatch__text"><strong>Pencil</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="phone" />
-          </div>
-          <div className="site-swatch__text"><strong>Phone</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="pin" />
-          </div>
-          <div className="site-swatch__text"><strong>Pin</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="printer" />
-          </div>
-          <div className="site-swatch__text"><strong>Printer</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="question-circle" />
-          </div>
-          <div className="site-swatch__text"><strong>Question Circle</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="reply" />
-          </div>
-          <div className="site-swatch__text"><strong>Reply</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="search" />
-          </div>
-          <div className="site-swatch__text"><strong>Search</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="sms" />
-          </div>
-          <div className="site-swatch__text"><strong>SMS</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="sms-dots" />
-          </div>
-          <div className="site-swatch__text"><strong>SMS Dots</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="star" />
-          </div>
-          <div className="site-swatch__text"><strong>Star</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="tag" />
-          </div>
-          <div className="site-swatch__text"><strong>Tag</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="trash" />
-          </div>
-          <div className="site-swatch__text"><strong>Trash</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="upload" />
-          </div>
-          <div className="site-swatch__text"><strong>Upload</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="user" />
-          </div>
-          <div className="site-swatch__text"><strong>User</strong></div>
-        </div>
-
-        <div className="site-swatch">
-          <div className="site-swatch__sample">
-            <Icon icon="warning" />
-          </div>
-          <div className="site-swatch__text"><strong>Warning</strong></div>
-        </div>
-      </UtilityInlineGrid>
+      <div className="row">
+        {icons.map(value =>
+          <div className="column-6@xsmall column-4@small column-3@medium">
+            <div className="site-swatch">
+              <div className="site-swatch__sample">
+                <Icon icon={value} />
+              </div>
+              <div className="site-swatch__text"><code>{value}</code></div>
+            </div>
+          </div>,
+        )}
+      </div>
     </section>
 
     <section className="site-section">
