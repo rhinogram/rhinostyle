@@ -36,7 +36,7 @@ class RhinoSwitch extends React.Component {
 
   _toggleChecked = () => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
-      this.props.onClick(!this.state.checked);
+      this.props.onClick(!this.state.checked, this.props.name);
     }
 
     this.setState({

@@ -27988,7 +27988,7 @@ var RhinoSwitch = function (_React$Component) {
       checked: _this.props.isChecked
     }, _this._toggleChecked = function () {
       if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
-        _this.props.onClick(!_this.state.checked);
+        _this.props.onClick(!_this.state.checked, _this.props.name);
       }
 
       _this.setState({
@@ -35654,7 +35654,8 @@ var switchDocs = {
   disabled: '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
   label: '[Optional] - A label for the switch',
-  name: '[Optional] - The name, and the basis of the id for the switch'
+  name: '[Optional] - The name, and the basis of the id for the switch',
+  onClick: '[Optional] - A function that returns the value and name of the current switch'
 };
 var switchScope = {
   React: _react2.default,
@@ -36333,7 +36334,7 @@ module.exports = "class ComponentExample extends React.Component {\n  optionalCa
 /* 972 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <RhinoSwitch label=\"Switcher\" name=\"exampleSwitch4\" />\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  state = {\n    exampleSwitch4: false,\n  };\n\n  handleSwitch = (value, name) => {\n    this.setState({ [name]: value });\n  };\n\n  render() {\n    return (\n      <RhinoSwitch isChecked={this.state.exampleSwitch4} onClick={this.handleSwitch} label=\"Switcher\" name=\"exampleSwitch4\" />\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 973 */

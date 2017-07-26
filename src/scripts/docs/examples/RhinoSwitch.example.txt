@@ -1,7 +1,15 @@
 class ComponentExample extends React.Component {
+  state = {
+    exampleSwitch4: false,
+  };
+
+  handleSwitch = (value, name) => {
+    this.setState({ [name]: value });
+  };
+
   render() {
     return (
-      <RhinoSwitch label="Switcher" name="exampleSwitch4" />
+      <RhinoSwitch isChecked={this.state.exampleSwitch4} onClick={this.handleSwitch} label="Switcher" name="exampleSwitch4" />
     );
   }
 }

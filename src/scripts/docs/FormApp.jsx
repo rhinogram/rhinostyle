@@ -130,6 +130,7 @@ const switchDocs  = {
   isChecked: '[Optional] - Set initial on/off state',
   label:     '[Optional] - A label for the switch',
   name:      '[Optional] - The name, and the basis of the id for the switch',
+  onClick: '[Optional] - A function that returns the value and name of the current switch',
 };
 const switchScope = {
   React,
