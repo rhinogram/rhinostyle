@@ -41,6 +41,16 @@
 @switcher-button-offset: @global-whitespace-xsmall;
 @switcher-text-offset: @global-whitespace-small;
 
+@rhinorange-thumb-height: 20px;
+@rhinorange-thumb-border-radius: 50%;
+@rhinorange-thumb-border: 0;
+@rhinorange-thumb-background: @button-primary-bg;
+@rhinorange-thumb-background-active: @global-color-primary-hover;
+@rhinorange-thumb-webkit-offset: -(@rhinorange-thumb-height / 2) + 2;
+
+@rhinorange-track-height: 6px;
+@rhino-range-track-border-radius: (@rhinorange-track-height / 2);
+@rhinorange-track-background: @global-border-color-light;
 
 //
 // Component
@@ -840,4 +850,137 @@ input[type='checkbox'] {
       }
     }
   }
+}
+
+
+//
+// Range
+//
+
+
+// 1. Normalize and defaults
+// 2. Prevent content overflow if a fixed width is used
+// 3. Take the full width
+// 4. Remove default style
+// 5. Remove white background in Chrome
+// 6. Remove padding in IE11
+.rhinorange {
+  // 1
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: middle;
+  // 2
+  max-width: 100%;
+  // 3
+  width: 100%;
+  // 4
+  -webkit-appearance: none;
+  // 5
+  background: transparent;
+  // 6
+  padding: 0;
+}
+
+// Focus
+.rhinorange:focus { outline: none; }
+.rhinorange::-moz-focus-outer { border: 0; }
+
+// IE11 Reset
+.rhinorange::-ms-track {
+  height: @rhinorange-thumb-height;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+// Improves consistency of cursor style for clickable elements
+.rhinorange:not(:disabled)::-webkit-slider-thumb { cursor: pointer; }
+.rhinorange:not(:disabled)::-moz-range-thumb { cursor: pointer; }
+.rhinorange:not(:disabled)::-ms-thumb { cursor: pointer; }
+
+//
+// Thumb
+//
+
+
+
+// 1. Reset
+// 2. Style
+.mixin-rhinorange-thumb() {
+  // 1
+  appearance: none;
+  // 2
+  background: @rhinorange-thumb-background;
+  background-clip: content-box;
+  border: @rhinorange-thumb-border;
+  height: @rhinorange-thumb-height;
+  width: @rhinorange-thumb-height;
+  border-radius: @rhinorange-thumb-border-radius;
+}
+
+// Webkit
+// 1. Offset override for webkit browsers
+.rhinorange::-webkit-slider-thumb {
+  .mixin-rhinorange-thumb();
+  // 1
+  margin-top: @rhinorange-thumb-webkit-offset;
+}
+
+// Safari doesn't have a focus state. Using active instead.
+.rhinorange:focus::-webkit-slider-thumb,
+.rhinorange:active::-webkit-slider-thumb {
+  background: @rhinorange-thumb-background-active;
+}
+
+// Firefox
+.rhinorange::-moz-range-thumb {
+  .mixin-rhinorange-thumb();
+}
+
+.rhinorange:focus::-moz-range-thumb {
+  background: @rhinorange-thumb-background-active;
+}
+
+// IE11
+// 1. Reset for Edge
+.rhinorange::-ms-thumb {
+  .mixin-rhinorange-thumb();
+  // 1
+  margin-top: 0;
+}
+
+// Edge + IE11
+.rhinorange::-ms-tooltip { display: none; }
+
+.rhinorange:focus::-ms-thumb {
+  background: @rhinorange-thumb-background-active;
+}
+
+
+//
+// Track
+//
+
+
+.mixin-rhinorange-track() {
+  height: @rhinorange-track-height;
+  background: @rhinorange-track-background;
+  border-radius: @rhino-range-track-border-radius;
+  box-shadow: inset @global-shadow-depth-1;
+}
+
+// Webkit
+.rhinorange::-webkit-slider-runnable-track {
+  .mixin-rhinorange-track();
+}
+
+// Firefox
+.rhinorange::-moz-range-track {
+  .mixin-rhinorange-track();
+}
+
+// Edge
+.rhinorange::-ms-fill-lower,
+.rhinorange::-ms-fill-upper {
+  .mixin-rhinorange-track();
 }

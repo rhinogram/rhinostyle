@@ -221,10 +221,11 @@
 .site-header__menu__bar {
   background-color: @global-color-gray-dark;
   height: 0.3rem;
-  width: 2.2rem;
+  width: 2.4rem;
+  border-radius: @global-border-radius;
 
   & + & {
-    margin-top: 0.3rem;
+    margin-top: @global-whitespace-xsmall;
   }
 }
 
@@ -296,8 +297,8 @@
   > li {
     padding: 0 @global-whitespace-base;
 
-    & + & {
-      margin-top: @global-whitespace-small;
+    + li {
+      margin-top: @global-whitespace-xsmall;
     }
   }
 }
@@ -386,10 +387,8 @@
 
 .site-swatch {
   border: 1px solid @global-color-gray-light;
-  display: inline-block;
-  max-width: 20rem;
+  border-radius: @global-border-radius;
   padding: @global-whitespace-small;
-  width: 100%;
 }
 
 .site-swatch__sample {
@@ -440,7 +439,7 @@
 // Code Mirror Playground
 //
 
-.playground > div > ul {
+.playgroundDocs > ul {
   list-style: none;
   margin: 0;
   padding-left: 0;

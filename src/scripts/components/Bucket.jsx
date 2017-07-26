@@ -7,7 +7,6 @@ const Bucket = (props) => {
   const classes = cx('bucket', className, {
     'bucket--default': type === 'default',
     'bucket--light':   type === 'light',
-    'bucket--primary': type === 'primary',
     'bucket--small':      size === 'small',
   });
 
