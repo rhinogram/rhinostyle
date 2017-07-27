@@ -16298,6 +16298,10 @@ var Checkbox = function (_React$Component) {
         _this.props.onClick(!_this.state.checked);
       }
 
+      if (_this.props.onChange && _typeof(_this.props.onChange === 'function')) {
+        _this.props.onChange(_this.props.name, !_this.state.checked);
+      }
+
       _this.setState({
         checked: !_this.state.checked
       });
@@ -16348,7 +16352,8 @@ Checkbox.propTypes = {
   disabled: _propTypes2.default.bool,
   isChecked: _propTypes2.default.bool,
   name: _propTypes2.default.string.isRequired,
-  onClick: _propTypes2.default.func
+  onClick: _propTypes2.default.func,
+  onChange: _propTypes2.default.func
 };
 Checkbox.defaultProps = {
   isChecked: false,
@@ -35625,7 +35630,8 @@ var checkboxDocs = {
   isChecked: '[Optional] - Set initial checked state',
   disabled: '[Optional] - Disable the checkbox',
   name: '[Required] - An id, and label for the checkbox',
-  onClick: '[Optional] - A function you want to trigger when the checkbox is toggled'
+  onClick: '[Optional] - A function you want to trigger when the checkbox is toggled',
+  onChange: '[Optional] - A function that returns the name and value of the checkbox'
 };
 var checkboxScope = {
   React: _react2.default,
@@ -35660,8 +35666,8 @@ var switchDocs = {
   isChecked: '[Optional] - Set initial on/off state',
   label: '[Optional] - A label for the switch',
   name: '[Optional] - The name, and the basis of the id for the switch',
-  onChange: '[Optional] - A function that returns the name and value of the current switch',
-  onClick: '[Optional] - A function taht returns the value of the currenet switch'
+  onChange: '[Optional] - A function that returns the name and value of the switch',
+  onClick: '[Optional] - A function that returns the value of the switch'
 };
 var switchScope = {
   React: _react2.default,
@@ -36328,7 +36334,7 @@ module.exports = "class ComponentExample extends React.Component {\n  render() {
 /* 970 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  render() {\n    return (\n      <div className=\"site-example-checkbox\">\n        <CheckboxGroup label=\"Checkboxes\">\n          <Checkbox name=\"exampleCheckbox31\">Checkbox One</Checkbox>\n          <Checkbox name=\"exampleCheckbox32\">Checkbox Two</Checkbox>\n          <Checkbox name=\"exampleCheckbox33\">Checkbox Three</Checkbox>\n        </CheckboxGroup>\n        <CheckboxGroup label=\"Checkboxes (inline)\" inline>\n          <Checkbox isChecked name=\"exampleCheckbox34\">Checkbox One</Checkbox>\n          <Checkbox name=\"exampleCheckbox35\">Checkbox Two</Checkbox>\n          <Checkbox name=\"exampleCheckbox36\">Checkbox Three</Checkbox>\n        </CheckboxGroup>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  state = {\n    exampleCheckbox31: true,\n    exampleCheckbox32: false,\n    exampleCheckbox33: false,\n  };\n\n  handleChange = (name, value) => {\n    this.setState({ [name]: value }, () => console.log('this state : ', this.state));\n  }\n\n  render() {\n    return (\n      <div className=\"site-example-checkbox\">\n        <CheckboxGroup label=\"Checkboxes\">\n          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox31} name=\"exampleCheckbox31\">Checkbox One</Checkbox>\n          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox32} name=\"exampleCheckbox32\">Checkbox Two</Checkbox>\n          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox33} name=\"exampleCheckbox33\">Checkbox Three</Checkbox>\n        </CheckboxGroup>\n        <CheckboxGroup label=\"Checkboxes (inline)\" inline>\n          <Checkbox isChecked name=\"exampleCheckbox34\">Checkbox One</Checkbox>\n          <Checkbox name=\"exampleCheckbox35\">Checkbox Two</Checkbox>\n          <Checkbox name=\"exampleCheckbox36\">Checkbox Three</Checkbox>\n        </CheckboxGroup>\n      </div>\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 971 */

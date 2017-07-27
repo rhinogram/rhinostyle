@@ -14,6 +14,7 @@ class Checkbox extends React.Component {
     isChecked: PropTypes.bool,
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
@@ -38,6 +39,10 @@ class Checkbox extends React.Component {
   _toggleChecked = () => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick(!this.state.checked);
+    }
+
+    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
+      this.props.onChange(this.props.name, !this.state.checked);
     }
 
     this.setState({
