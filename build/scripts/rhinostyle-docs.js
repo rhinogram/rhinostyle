@@ -27988,7 +27988,11 @@ var RhinoSwitch = function (_React$Component) {
       checked: _this.props.isChecked
     }, _this._toggleChecked = function () {
       if (_this.props.onClick && _typeof(_this.props.onClick === 'function')) {
-        _this.props.onClick(!_this.state.checked, _this.props.name);
+        _this.props.onClick(!_this.state.checked);
+      }
+
+      if (_this.props.onChange && _typeof(_this.props.onChange === 'function')) {
+        _this.props.onChange(_this.props.name, !_this.state.checked);
       }
 
       _this.setState({
@@ -28049,7 +28053,8 @@ RhinoSwitch.propTypes = {
   isChecked: _propTypes2.default.bool,
   name: _propTypes2.default.string.isRequired,
   label: _propTypes2.default.string,
-  onClick: _propTypes2.default.func
+  onClick: _propTypes2.default.func,
+  onChange: _propTypes2.default.func
 };
 RhinoSwitch.defaultProps = {
   isChecked: false,
@@ -35655,7 +35660,8 @@ var switchDocs = {
   isChecked: '[Optional] - Set initial on/off state',
   label: '[Optional] - A label for the switch',
   name: '[Optional] - The name, and the basis of the id for the switch',
-  onClick: '[Optional] - A function that returns the value and name of the current switch'
+  onChange: '[Optional] - A function that returns the name and value of the current switch',
+  onClick: '[Optional] - A function taht returns the value of the currenet switch'
 };
 var switchScope = {
   React: _react2.default,
@@ -36334,7 +36340,7 @@ module.exports = "class ComponentExample extends React.Component {\n  optionalCa
 /* 972 */
 /***/ (function(module, exports) {
 
-module.exports = "class ComponentExample extends React.Component {\n  state = {\n    exampleSwitch4: false,\n  };\n\n  handleSwitch = (value, name) => {\n    this.setState({ [name]: value });\n  };\n\n  render() {\n    return (\n      <RhinoSwitch isChecked={this.state.exampleSwitch4} onClick={this.handleSwitch} label=\"Switcher\" name=\"exampleSwitch4\" />\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
+module.exports = "class ComponentExample extends React.Component {\n  state = {\n    exampleSwitch4: false,\n  };\n\n  handleChange = (name, value) => {\n    this.setState({ [name]: value });\n  };\n\n  render() {\n    return (\n      <RhinoSwitch isChecked={this.state.exampleSwitch4} onChange={this.handleChange} label=\"Switcher\" name=\"exampleSwitch4\" />\n    );\n  }\n}\n\nReactDOM.render(<ComponentExample />, mountNode);\n"
 
 /***/ }),
 /* 973 */

@@ -126,11 +126,12 @@ const radioScope = {
 
 const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',
-  disabled:  '[Optional] - Disable the switch',
+  disabled: '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
-  label:     '[Optional] - A label for the switch',
-  name:      '[Optional] - The name, and the basis of the id for the switch',
-  onClick: '[Optional] - A function that returns the value and name of the current switch',
+  label: '[Optional] - A label for the switch',
+  name: '[Optional] - The name, and the basis of the id for the switch',
+  onChange: '[Optional] - A function that returns the name and value of the current switch',
+  onClick: '[Optional] - A function that returns the value of the currenet switch',
 };
 const switchScope = {
   React,
