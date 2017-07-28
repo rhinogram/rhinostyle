@@ -41,6 +41,7 @@ class Cover extends React.Component {
       paused: !this.props.open,
       onStart: () => {
         $body.classList.add('cover-open');
+        $cover.classList.add(UtilitySystem.config.classes.open);
 
         // Fire off prop update
         this.props.onStart();
@@ -54,7 +55,7 @@ class Cover extends React.Component {
             this.props.onReverseStart();
 
             $body.classList.remove('cover-open');
-            $cover.classList.remove('is-open');
+            $cover.classList.remove(UtilitySystem.config.classes.open);
           }
         }
         lastTime = newTime;
