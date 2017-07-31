@@ -93,9 +93,10 @@ const messageBoxScope = {
 
 const checkboxDocs  = {
   isChecked: '[Optional] - Set initial checked state',
-  disabled:  '[Optional] - Disable the checkbox',
-  name:      '[Required] - An id, and label for the checkbox',
-  onClick:   '[Optional] - A function you want to trigger when the checkbox is toggled',
+  disabled: '[Optional] - Disable the checkbox',
+  name: '[Required] - An id, and label for the checkbox',
+  onClick: '[Optional] - A function you want to trigger when the checkbox is toggled',
+  onChange: '[Optional] - A function that returns the name and value of the checkbox',
 };
 const checkboxScope = {
   React,
@@ -126,10 +127,12 @@ const radioScope = {
 
 const switchDocs  = {
   className: '[Optional] - Any class name you would like to add to the switch',
-  disabled:  '[Optional] - Disable the switch',
+  disabled: '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
-  label:     '[Optional] - A label for the switch',
-  name:      '[Optional] - The name, and the basis of the id for the switch',
+  label: '[Optional] - A label for the switch',
+  name: '[Optional] - The name, and the basis of the id for the switch',
+  onChange: '[Optional] - A function that returns the name and value of the switch',
+  onClick: '[Optional] - A function that returns the value of the switch',
 };
 const switchScope = {
   React,
