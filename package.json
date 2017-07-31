@@ -1,6 +1,6 @@
 {
   "name": "rhinostyle",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "license": "MIT",
   "description": "Components, patterns, and style guide for Rhinogram.",
   "main": "dist/scripts/rhinostyle.min.js",
