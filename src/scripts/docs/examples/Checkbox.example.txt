@@ -1,11 +1,21 @@
 class ComponentExample extends React.Component {
+  state = {
+    exampleCheckbox31: true,
+    exampleCheckbox32: false,
+    exampleCheckbox33: false,
+  };
+
+  handleChange = (name, value) => {
+    this.setState({ [name]: value });
+  }
+
   render() {
     return (
       <div className="site-example-checkbox">
         <CheckboxGroup label="Checkboxes">
-          <Checkbox name="exampleCheckbox31">Checkbox One</Checkbox>
-          <Checkbox name="exampleCheckbox32">Checkbox Two</Checkbox>
-          <Checkbox name="exampleCheckbox33">Checkbox Three</Checkbox>
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox31} name="exampleCheckbox31">Checkbox One</Checkbox>
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox32} name="exampleCheckbox32">Checkbox Two</Checkbox>
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox33} name="exampleCheckbox33">Checkbox Three</Checkbox>
         </CheckboxGroup>
         <CheckboxGroup label="Checkboxes (inline)" inline>
           <Checkbox isChecked name="exampleCheckbox34">Checkbox One</Checkbox>
