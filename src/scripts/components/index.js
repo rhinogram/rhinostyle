@@ -53,14 +53,10 @@ import UtilityList    from './UtilityList';
 import UtilityListItem from './UtilityListItem';
 import VariableMessage from './VariableMessage';
 
-import { CoverSystem } from '../CoverSystem';
 import { NotificationActions } from '../NotificationSystem';
-import { ModalSystem } from '../ModalSystem';
 
 // Utilities
 import { UtilitySystem } from '../UtilitySystem';
-/* eslint no-duplicate-imports:0 */
-/* eslint import/no-duplicates:0 */
 
 export {
   Alert,
@@ -73,7 +69,6 @@ export {
   CheckboxGroup,
   Close,
   Cover,
-  CoverSystem,
   CoverBody,
   CoverFooter,
   CoverHeader,
@@ -96,7 +91,6 @@ export {
   Message,
   MessageBox,
   Modal,
-  ModalSystem,
   ModalBody,
   ModalFooter,
   ModalHeader,

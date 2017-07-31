@@ -6321,6 +6321,10 @@ react-addons-test-utils@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
+react-append-to-body@2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/react-append-to-body/-/react-append-to-body-2.0.13.tgz#e620c1957a1835012fbabe553a0d1fefcf6ff031"
+
 react-codemirror@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-codemirror/-/react-codemirror-1.0.0.tgz#91467b53b1f5d80d916a2fd0b4c7adb85a9001ba"

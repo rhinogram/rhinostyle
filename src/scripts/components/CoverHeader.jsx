@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Close, Icon, CoverSystem } from '../components';
+import { Close, Icon } from '../components';
 
 class CoverHeader extends React.Component {
   static displayName = 'RhinoCoverHeader';
@@ -14,12 +14,17 @@ class CoverHeader extends React.Component {
     title: PropTypes.string,
   }
 
+  static defaultProps = {
+    onClose: () => {},
+  }
+
+  handleCloseClick = () => {
+    this.closeCover();
+  }
+
   closeCover = () => {
     if (this.props.onClose && typeof (this.props.onClose === 'function')) {
       this.props.onClose();
-      CoverSystem.removeCover();
-    } else {
-      CoverSystem.removeCover();
     }
   }
 
@@ -34,7 +39,7 @@ class CoverHeader extends React.Component {
             {icon ? (<Icon icon={icon} className={iconClasses} />) : null}
             <span className="u-text-overflow">{title}</span>
           </h4>
-          <Close className="cover__header__close-button" onClick={this.closeCover} />
+          <Close className="cover__header__close-button" onClick={this.handleCloseClick} />
         </div>
       </div>
     );

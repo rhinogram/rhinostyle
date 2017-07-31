@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { componentWillAppendToBody } from 'react-append-to-body';
 
 import { UtilitySystem } from '../components';
 
@@ -12,6 +12,7 @@ class Cover extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    open: PropTypes.bool,
     onComplete: PropTypes.func,
     onReverseComplete: PropTypes.func,
     onReverseStart: PropTypes.func,
@@ -21,6 +22,7 @@ class Cover extends React.Component {
   static defaultProps = {
     children: null,
     className: '',
+    open: false,
     onComplete: () => {},
     onReverseComplete: () => {},
     onReverseStart: () => {},
@@ -30,16 +32,16 @@ class Cover extends React.Component {
   componentDidMount() {
     const $body = document.body;
     const $cover = this.cover;
-    const $coverContainer = document.querySelector('[data-js="coverContainer"]');
 
     let forward = true;
     let lastTime = 0;
 
     // Attach timeline to each instance
     $cover.timeline = new TimelineMax({
-      paused: true,
+      paused: !this.props.open,
       onStart: () => {
         $body.classList.add('cover-open');
+        $cover.classList.add(UtilitySystem.config.classes.open);
 
         // Fire off prop update
         this.props.onStart();
@@ -53,7 +55,7 @@ class Cover extends React.Component {
             this.props.onReverseStart();
 
             $body.classList.remove('cover-open');
-            $cover.classList.remove('is-open');
+            $cover.classList.remove(UtilitySystem.config.classes.open);
           }
         }
         lastTime = newTime;
@@ -66,17 +68,6 @@ class Cover extends React.Component {
         this.props.onComplete();
       },
       onReverseComplete: () => {
-        ReactDOM.unmountComponentAtNode($coverContainer);
-
-        // Remove container from DOM if it's there
-        // The aforementioned should actually remove the container already
-        // but because we're rendering outside of the app, things
-        // can get in a weird state. @TODO CLEAN THIS UP, render within app
-        // with `ReactDOM.unstable_renderSubtreeIntoContainer()`
-        if ($coverContainer) {
-          $body.removeChild($coverContainer);
-        }
-
         // Fire off prop update
         this.props.onReverseComplete();
       },
@@ -91,10 +82,40 @@ class Cover extends React.Component {
     .to($cover, 0.5, {
       css: {
         opacity: 1,
-        scale: 1,
+        y: 0,
       },
       ease: UtilitySystem.config.easing,
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.open !== this.props.open) {
+      if (this.props.open) {
+        this.openCover();
+      } else {
+        this.closeCover();
+      }
+    }
+  }
+
+  /**
+   * Open cover
+   * @return {void}
+   */
+  openCover = () => {
+    const $cover = this.cover;
+
+    $cover.timeline.play();
+  }
+
+  /**
+   * Close cover
+   * @return {void}
+   */
+  closeCover = () => {
+    const $cover = this.cover;
+
+    $cover.timeline.reverse();
   }
 
   render() {
@@ -109,4 +130,4 @@ class Cover extends React.Component {
   }
 }
 
-export default Cover;
+export default componentWillAppendToBody(Cover);

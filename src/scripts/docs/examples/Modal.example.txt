@@ -1,15 +1,23 @@
 class ComponentExample extends React.Component {
-  state = {
+  static initialState = {
     firstName: '',
     lastName: '',
-  }
+    errors: {},
+    open: false,
+  };
+
+  state = ComponentExample.initialState;
 
   onClick = () => {
-    ModalSystem.addModal(this.renderContent());
+    this.setState({
+      open: true,
+    });
   };
 
   closeModal = () => {
-    ModalSystem.removeModal();
+    this.setState({
+      open: false,
+    });
   }
 
   handleChange = (name, value) => {
@@ -17,6 +25,14 @@ class ComponentExample extends React.Component {
 
     newState[name] = value;
     this.setState(newState);
+  }
+
+  /**
+   * Reset state when `<Modal />` is closed
+   * @return {func}
+   */
+  resetSet = () => {
+    this.setState(ComponentExample.initialState);
   }
 
   saveChanges = () => {
@@ -30,42 +46,39 @@ class ComponentExample extends React.Component {
       errors.lastName = 'LastName is required!';
     }
 
-    const errorCount  = Object.keys(errors).length
+    const errorCount = Object.keys(errors).length;
 
     if (errorCount > 0) {
-      ModalSystem.refreshModal(this.renderContent(errors));
+      this.setState({
+        errors,
+      });
     } else {
-      alert('Changes were saved!');
       this.closeModal();
     }
   }
 
-  renderContent = (errors) => {
-    const errorList = errors || {};
-
-    return (
-      <Modal>
-        <ModalHeader icon="pencil" title="Sample Modal" />
-        <ModalBody>
-          <div className="form">
-              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-          </div>
-        </ModalBody>
-        <ModalFooter>
-          <UtilityInlineGrid align="right">
-            <Button type="default" onClick={this.closeModal}>Close</Button>&nbsp;
-            <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
-          </UtilityInlineGrid>
-        </ModalFooter>
-      </Modal>
-    );
-  }
-
   render() {
+    const errorList = this.state.errors || {};
+
     return (
       <div>
         <Button type="primary" onClick={this.onClick}>Launch Modal</Button>
+
+        <Modal onReverseComplete={this.resetSet} open={this.state.open}>
+          <ModalHeader onClose={this.closeModal} icon="pencil" title="Sample Modal" />
+          <ModalBody>
+            <div className="form">
+                <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+                <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <UtilityInlineGrid align="right">
+              <Button type="default" onClick={this.closeModal}>Close</Button>&nbsp;
+              <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+            </UtilityInlineGrid>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }
