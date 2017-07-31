@@ -8,8 +8,6 @@ import bucketHeaderExample from './examples/BucketHeader.example.txt';
 
 const bucketDocs = {
   className: '[Optional] - Include additional class name(s)',
-  size: '[Optional] - Bucket size -  [small]',
-  type: '[Optional] - Bucket type -  [default | light]',
 };
 const bucketScope  = {
   React,
@@ -42,27 +40,11 @@ const BucketApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Bucket Types</h3>
-      <p className="site-copy"><code>type=&quot;default | light&quot;</code></p>
+      <h3 className="site-subheadline">Bucket</h3>
       <Bucket>
-        <BucketHeader title="Bucket Default" icon="pencil" />
+        <BucketHeader title="Bucket" icon="pencil" />
         <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
       </Bucket>
-      <Bucket type="light">
-        <BucketHeader title="Bucket Light" icon="cog" />
-        <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-      </Bucket>
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Bucket Sizes</h3>
-      <div>
-        <p className="site-copy"><code>size=&quot;small&quot;</code></p>
-        <Bucket size="small">
-          <BucketHeader title="Bucket Header" icon="pencil" />
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-      </div>
     </section>
 
     <section className="site-section">
