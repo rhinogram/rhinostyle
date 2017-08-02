@@ -13,6 +13,7 @@ class VariableMessage extends React.Component {
     composeLabel: PropTypes.string.isRequired,
     explanationMessage: PropTypes.string,
     previewLabel: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     reset: PropTypes.bool,
     variables: PropTypes.array.isRequired,
     onInput: PropTypes.func,
@@ -51,7 +52,7 @@ class VariableMessage extends React.Component {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         message: nextProps.initialValue,
-      });
+      }, this.handleInitValue);
     }
   }
 
@@ -289,7 +290,7 @@ class VariableMessage extends React.Component {
     }
 
     if (this.props.onInput && typeof (this.props.onInput === 'function')) {
-      this.props.onInput(message);
+      this.props.onInput(this.props.name, message);
     }
   }
 
