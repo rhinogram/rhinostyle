@@ -2001,7 +2001,7 @@ eval("module.exports = \"class ComponentExample extends React.Component {\\n  st
 /* 840 */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"class ComponentExample extends React.Component {\\n  render() {\\n    return (\\n      <div>\\n        <DropdownMenuHeader label=\\\"Dropdown Menu Header\\\" />\\n        <DropdownMenuHeader label=\\\"Dropdown Menu Header\\\" className=\\\"u-text-primary\\\" />\\n        <DropdownMenuHeader label=\\\"Dropdown Menu Header\\\" className=\\\"u-text-danger\\\" />\\n      </div>\\n    );\\n  }\\n}\\n\\nReactDOM.render(<ComponentExample />, mountNode);\\n\"\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/scripts/docs/examples/DropdownMenuHeader.example.txt\n// module id = 840\n// module chunks = 0\n\n//# sourceURL=webpack:///./src/scripts/docs/examples/DropdownMenuHeader.example.txt?");
+eval("module.exports = \"class ComponentExample extends React.Component {\\n  render() {\\n    return (\\n      <DropdownMenuHeader label=\\\"Dropdown Menu Header\\\" />\\n    );\\n  }\\n}\\n\\nReactDOM.render(<ComponentExample />, mountNode);\\n\"\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/scripts/docs/examples/DropdownMenuHeader.example.txt\n// module id = 840\n// module chunks = 0\n\n//# sourceURL=webpack:///./src/scripts/docs/examples/DropdownMenuHeader.example.txt?");
 
 /***/ }),
 /* 841 */

@@ -7,8 +7,8 @@
 @dropdown-bg: @global-color-white;
 @dropdown-border: @global-border-color-base;
 @dropdown-chevron-size: 0.7em;
-@dropdown-divider-bg: @global-color-gray-lighter;
-@dropdown-header-color: @global-color-gray;
+@dropdown-divider-bg: @global-border-color-light;
+@dropdown-header-color: @global-font-color-muted;
 @dropdown-link-color: @global-font-color;
 @dropdown-link-hover-color: darken(@global-font-color, 5%);
 @dropdown-link-hover-bg: @global-color-gray-lightest;
@@ -333,10 +333,11 @@
 .dropdown__menu__header {
   color: @dropdown-header-color;
   display: block;
-  font-size: @global-font-size-small;
-  line-height: @global-line-height-base;
+  font-size: @global-font-size-xsmall;
+  text-transform: uppercase;
+  font-weight: @global-font-weight-bold;
+  line-height: @global-line-height-small;
   padding: @dropdown-padding;
-  white-space: nowrap;
 }
 
 
