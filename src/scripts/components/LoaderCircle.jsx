@@ -25,10 +25,10 @@ class LoaderCircle extends React.Component {
       repeat: -1,
       paused: this.props.pause,
     })
-    .to($loader, 0.75, {
-      rotation: '360deg',
-      ease: Linear.easeNone,
-    });
+      .to($loader, 0.75, {
+        rotation: '360deg',
+        ease: Linear.easeNone,
+      });
   }
 
   componentDidUpdate() {

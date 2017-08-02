@@ -4,7 +4,7 @@ class ComponentExample extends React.Component {
       <div className="site-example-messageBox">
         <MessageBox label="Bio" name="biography" minRows={1} placeholder="I like messages!" />
       </div>
-    )
+    );
   }
 }
 

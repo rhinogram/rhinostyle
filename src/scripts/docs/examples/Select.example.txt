@@ -1,4 +1,4 @@
-var selectOpts = [
+const selectOpts = [
   { id: 1, value: 'Option One' },
   { id: 2, value: 'Option Two' },
   { id: 3, value: 'Option Three' },

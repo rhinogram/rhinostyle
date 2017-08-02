@@ -1,11 +1,11 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-    <div>
-      <p>This component allows you to add anything you want to a dropdown. Use the <code>toggleDropdown</code> property if you want the dropdown to close after DropdownMenuItemWild is clicked.</p>
-      <DropdownMenuItemWild>Put whatever you want in here!</DropdownMenuItemWild>
-      <DropdownMenuItemWild><img src="//source.unsplash.com/category/people/200x200"/></DropdownMenuItemWild>
-    </div>
+      <div>
+        <p>This component allows you to add anything you want to a dropdown. Use the <code>toggleDropdown</code> property if you want the dropdown to close after DropdownMenuItemWild is clicked.</p>
+        <DropdownMenuItemWild>Put whatever you want in here!</DropdownMenuItemWild>
+        <DropdownMenuItemWild><img src="//source.unsplash.com/category/people/200x200" /></DropdownMenuItemWild>
+      </div>
     );
   }
 }

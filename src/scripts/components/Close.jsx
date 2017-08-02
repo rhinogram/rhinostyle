@@ -9,7 +9,7 @@ const Close = (props) => {
   const classes = cx('button--reset close', className);
 
   return (
-    <button type="button" className={classes} onClick={onClick} {...opts} role="button" aria-label="Close"><Icon icon="close" /></button>
+    <button type="button" className={classes} onClick={onClick} {...opts} aria-label="Close"><Icon icon="close" /></button>
   );
 };
 

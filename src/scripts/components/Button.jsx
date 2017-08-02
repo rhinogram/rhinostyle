@@ -98,7 +98,6 @@ class Button extends React.Component {
 
     return markup;
   }
-
 }
 
 export default Button;

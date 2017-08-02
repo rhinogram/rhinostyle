@@ -92,16 +92,16 @@ class DropdownWrapper extends React.Component {
     });
 
     $dropdown.timeline
-    .set($dropdownMenu, {
-      display: 'block',
-    })
-    .to($dropdownMenu, 0.25, {
-      css: {
-        y: 0,
-        opacity: 1,
-      },
-      ease: UtilitySystem.config.easing,
-    });
+      .set($dropdownMenu, {
+        display: 'block',
+      })
+      .to($dropdownMenu, 0.25, {
+        css: {
+          y: 0,
+          opacity: 1,
+        },
+        ease: UtilitySystem.config.easing,
+      });
   }
 
   handleClickOutside = () => {

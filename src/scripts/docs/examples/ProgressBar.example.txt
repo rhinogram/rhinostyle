@@ -2,7 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div>
-      	<ProgressBar progress={30} className="u-m-b" />
+        <ProgressBar progress={30} className="u-m-b" />
         <ProgressBar progress={60} showLabel type="primary" className="u-m-b" />
         <ProgressBar progress={90} showLabel type="temperature" />
       </div>

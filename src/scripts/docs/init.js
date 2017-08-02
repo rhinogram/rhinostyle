@@ -34,16 +34,16 @@ const mobileNavTimelineFunc = () => new TimelineMax({
     TweenMax.set(navSelectors, { clearProps: 'all' });
   },
 })
-.set($siteOverlay, {
-  display: 'block',
-})
-.to($siteOverlay, navEase, {
-  opacity: 1,
-}, 'mobileNav')
-.to($siteNavigation, navEase, {
-  x: 0,
-  ease: UtilitySystem.config.easing,
-}, 'mobileNav');
+  .set($siteOverlay, {
+    display: 'block',
+  })
+  .to($siteOverlay, navEase, {
+    opacity: 1,
+  }, 'mobileNav')
+  .to($siteNavigation, navEase, {
+    x: 0,
+    ease: UtilitySystem.config.easing,
+  }, 'mobileNav');
 
 /**
  * Add class attached to body when nav visibility is changed
