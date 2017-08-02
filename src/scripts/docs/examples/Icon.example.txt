@@ -1,7 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div style={{fontSize:'4rem'}}>
+      <div style={{ fontSize: '4rem' }}>
         <Icon icon="cog" />
         <Icon icon="chevron-right" />
         <Icon icon="warning" />

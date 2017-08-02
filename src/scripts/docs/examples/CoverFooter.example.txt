@@ -1,13 +1,13 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-    <div>
-      <CoverFooter>
-        <UtilityInlineGrid align="right">
-          <Button type="default" onClick={this.closeCover}>Close</Button><Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-        </UtilityInlineGrid>
-      </CoverFooter>
-    </div>
+      <div>
+        <CoverFooter>
+          <UtilityInlineGrid align="right">
+            <Button type="default" onClick={this.closeCover}>Close</Button><Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+          </UtilityInlineGrid>
+        </CoverFooter>
+      </div>
     );
   }
 }

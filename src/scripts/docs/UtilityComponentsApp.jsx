@@ -29,7 +29,7 @@ const utilityListScope = {
 };
 
 const UtilityComponentsApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Utility Components</h3>
       <p className="site-text-lead">Helpers that can be used in conjunction with our components.</p>
@@ -53,6 +53,6 @@ const UtilityComponentsApp = () =>
       <h3 className="site-subheadline">List Playground</h3>
       <Playground theme="default" docClass={UtilityList} propDescriptionMap={utilityListDocs} codeText={utilityListExample} scope={utilityListScope} noRender={false} />
     </section>
-  </div>;
+  </div>);
 
 ReactDOM.render(<UtilityComponentsApp />, document.getElementById('js-app'));

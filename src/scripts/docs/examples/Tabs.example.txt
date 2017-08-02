@@ -11,30 +11,30 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-    <div>
-      <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
-        <NavTabsItem id={1}>Tab One</NavTabsItem>
-        <NavTabsItem id={2}>Tab Two</NavTabsItem>
-        <NavTabsItem id={3}>Tab Three</NavTabsItem>
-      </NavTabs>
-      <TabsContent activeKey={this.state.activeKey} >
-        <TabContentPane id={1}>
-          <h5>Tab One Content Pane</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
-          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
-        </TabContentPane>
-        <TabContentPane id={2}>
-          <h5>Tab Two Content Pane</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
-          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
-        </TabContentPane>
-        <TabContentPane id={3}>
-          <h5>Tab Three Content Pane</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
-          <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
-        </TabContentPane>
-      </TabsContent>
-    </div>
+      <div>
+        <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
+          <NavTabsItem id={1}>Tab One</NavTabsItem>
+          <NavTabsItem id={2}>Tab Two</NavTabsItem>
+          <NavTabsItem id={3}>Tab Three</NavTabsItem>
+        </NavTabs>
+        <TabsContent activeKey={this.state.activeKey} >
+          <TabContentPane id={1}>
+            <h5>Tab One Content Pane</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
+            <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
+          </TabContentPane>
+          <TabContentPane id={2}>
+            <h5>Tab Two Content Pane</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
+            <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
+          </TabContentPane>
+          <TabContentPane id={3}>
+            <h5>Tab Three Content Pane</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor gravida sapien, sit amet bibendum sem iaculis ut. Pellentesque nec dui ullamcorper, pellentesque erat id, elementum eros. Cras pulvinar diam quis odio consequat, id fermentum dui tristique.</p>
+            <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
+          </TabContentPane>
+        </TabsContent>
+      </div>
     );
   }
 }

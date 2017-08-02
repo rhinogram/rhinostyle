@@ -24,14 +24,14 @@ class LoaderPulse extends React.Component {
     $loader.timeline = new TimelineMax({
       paused: this.props.pause,
     })
-    .staggerTo($loaderPulses, 0.25, {
-      opacity: 1,
-      repeat: -1,
-      repeatDelay: 0.25,
-      yoyo: true,
-      scale: 1.25,
-      ease: Linear.easeNone,
-    }, 0.125, 'loader');
+      .staggerTo($loaderPulses, 0.25, {
+        opacity: 1,
+        repeat: -1,
+        repeatDelay: 0.25,
+        yoyo: true,
+        scale: 1.25,
+        ease: Linear.easeNone,
+      }, 0.125, 'loader');
   }
 
   componentDidUpdate() {

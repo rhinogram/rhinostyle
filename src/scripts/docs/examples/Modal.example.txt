@@ -68,8 +68,8 @@ class ComponentExample extends React.Component {
           <ModalHeader onClose={this.closeModal} icon="pencil" title="Sample Modal" />
           <ModalBody>
             <div className="form">
-                <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
-                <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
+              <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
+              <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
             </div>
           </ModalBody>
           <ModalFooter>
