@@ -3,13 +3,11 @@
 //
 
 
-@pill-default-bg: @global-color-white;
-@pill-default-border: @global-border-color-base;
-@pill-default-color: @base-link-color;
+@pill-default-bg: @global-color-primary;
+@pill-default-bg-hover: @global-color-primary-hover;
+@pill-default-color: @global-color-white;
 
-@pill-neutral-bg: @global-color-gray-lightest;
-@pill-neutral-border: @global-color-gray-lightest;
-@pill-neutral-color: @base-link-color;
+@pill-close-size: 0.75em;
 
 @pill-padding: @global-whitespace-xsmall;
 
@@ -28,6 +26,15 @@
   padding: @pill-padding;
   vertical-align: middle;
   white-space: nowrap;
+  transition: background 0.25s @global-trans-timing-cubic;
+  user-select: none;
+
+  &:hover,
+  &:focus {
+    .pill__close {
+      transform: scale(1.1);
+    }
+  }
 
   &:empty {
     display: none;
@@ -51,11 +58,7 @@
 
 
 .pill--default {
-  .mixin-pill-variant(@pill-default-bg; @pill-default-border; @pill-default-color);
-}
-
-.pill--neutral {
-  .mixin-pill-variant(@pill-neutral-bg; @pill-neutral-border; @pill-neutral-color);
+  .mixin-pill-variant(@pill-default-bg; @pill-default-bg-hover; @pill-default-color);
 }
 
 
@@ -65,8 +68,12 @@
 
 
 .pill__close {
-  color: @global-font-color;
+  width: @pill-close-size;
+  height: @pill-close-size;
+  color: @pill-default-color;
   margin-left: @global-whitespace-xsmall;
+  transition: transform 0.25s @global-trans-timing-elastic;
+  transform-origin: center center;
 }
 
 

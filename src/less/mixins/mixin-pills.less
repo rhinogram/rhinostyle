@@ -3,13 +3,12 @@
 //
 
 
-.mixin-pill-variant(@background; @border; @global-color) {
+.mixin-pill-variant(@background; @background-hover; @color) {
   background: @background;
-  border: 1px solid @border;
-  color: @global-color;
+  color: @color;
 
   &:hover,
   &:focus {
-    background-color: darken(@background, 2%);
+    background: @background-hover;
   }
 }

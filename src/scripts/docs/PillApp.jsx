@@ -11,7 +11,7 @@ const pillDocs = {
   icon:      '[Optional] - Attaches an Icon to the Pill',
   onClick:   '[Required] - Include click function for Pill',
   label:     '[Required] - Include label for Pill',
-  type:      '[Optional] - Pill type, as a string -  [default | neutral]',
+  type:      '[Optional] - Pill type, as a string - [default]',
 };
 const exampleScope  = {
   React,
