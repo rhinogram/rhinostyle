@@ -17,8 +17,8 @@ export default function audio() {
   return gulp.src([
     path.src,
   ])
-  .pipe(gulp.dest(path.build))
-  .pipe(gulp.dest(path.dist))
-  .pipe($.duration('Copied Audio'))
-  .pipe(reload({ stream: true }));
+    .pipe(gulp.dest(path.build))
+    .pipe(gulp.dest(path.dist))
+    .pipe($.duration('Copied Audio'))
+    .pipe(reload({ stream: true }));
 }

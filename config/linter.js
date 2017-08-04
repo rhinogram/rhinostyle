@@ -12,13 +12,13 @@ const $ = gulpLoadPlugins();
  */
 export default function linter() {
   return gulp.src('./src/less/**/*.less')
-  .pipe($.postcss(
-    [
-      stylelint(),
-      reporter({ clearMessages: true }),
-    ],
-    {
-      syntax: less,
-    },
-  ));
+    .pipe($.postcss(
+      [
+        stylelint(),
+        reporter({ clearMessages: true }),
+      ],
+      {
+        syntax: less,
+      },
+    ));
 }

@@ -9,5 +9,5 @@ const $ = gulpLoadPlugins();
  */
 export default function deploy() {
   return gulp.src('./build/**/*')
-  .pipe($.ghPages());
+    .pipe($.ghPages());
 }
