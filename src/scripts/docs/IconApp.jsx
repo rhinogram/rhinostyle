@@ -58,6 +58,7 @@ const icons = [
   'lock',
   'logo-circle-facebook',
   'logo-twitter',
+  'logout',
   'minor',
   'mobile',
   'note',
