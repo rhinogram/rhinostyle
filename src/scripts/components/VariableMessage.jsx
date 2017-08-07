@@ -247,7 +247,8 @@ class VariableMessage extends React.Component {
     const variables = this.props.variables;
     // Get only the text representation of the message
     // so we can update our DB with it
-    let message = this.compose.textContent.trim();
+    const rawMessage = this.compose.textContent.trim();
+    let message = rawMessage;
     const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
 
@@ -290,7 +291,7 @@ class VariableMessage extends React.Component {
     }
 
     if (this.props.onInput && typeof (this.props.onInput === 'function')) {
-      this.props.onInput(this.props.name, message);
+      this.props.onInput(this.props.name, rawMessage);
     }
   }
 
