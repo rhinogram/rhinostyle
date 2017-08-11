@@ -88,7 +88,7 @@ const IconApp = () =>
 
       <div className="row">
         {icons.map(value =>
-          (<div className="column-6@xsmall column-4@small column-3@medium">
+          (<div key={value} className="column-6@xsmall column-4@small column-3@medium">
             <div className="site-swatch">
               <div className="site-swatch__sample">
                 <Icon icon={value} />
