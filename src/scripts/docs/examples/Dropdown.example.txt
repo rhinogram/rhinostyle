@@ -5,96 +5,96 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-    <UtilityInlineGrid>
-      <Dropdown label="Dropdown" wide>
-        <DropdownMenuHeader label="Menu Header" />
-        <DropdownMenuItem label="Custom Click Item" labelDesc="Click me and I will fire an alert." onClick={() => alert('clicked!')} />
-        <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url="http://www.rhinogram.com" blankWindow />
-        <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
-        <DropdownMenuDivider />
-        <DropdownMenuItem label="Separated Item" />
-        <DropdownMenuDivider />
-        <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
-      </Dropdown>
-      <Dropdown label="Dropdown Select" type="outline-primary" onSelect={this.optionalCallbackFunction}>
-        <DropdownMenuHeader label="Menu Header" />
-        <DropdownMenuItem id={1} label="Item" />
-        <DropdownMenuItem id={2} label="Another item" />
-        <DropdownMenuItem id={3} label="A third item" />
-        <DropdownMenuDivider />
-        <DropdownMenuItem id={4} label="A fourth item" />
-        <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
-      </Dropdown>
-      <Dropdown wide label="Dropdown Select with Filter" type="outline-primary">
-        <DropdownFilter placeholder="Filter Contact">
+      <UtilityInlineGrid>
+        <Dropdown label="Dropdown" wide>
+          <DropdownMenuHeader label="Menu Header" />
+          <DropdownMenuItem label="Custom Click Item" labelDesc="Click me and I will fire an alert." onClick={() => alert('clicked!')} />
+          <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url="http://www.rhinogram.com" blankWindow />
+          <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
+          <DropdownMenuDivider />
+          <DropdownMenuItem label="Separated Item" />
+          <DropdownMenuDivider />
+          <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
+        </Dropdown>
+        <Dropdown label="Dropdown Select" type="outline-primary" onSelect={this.optionalCallbackFunction}>
+          <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem id={1} label="Item" />
           <DropdownMenuItem id={2} label="Another item" />
           <DropdownMenuItem id={3} label="A third item" />
+          <DropdownMenuDivider />
           <DropdownMenuItem id={4} label="A fourth item" />
-          <DropdownMenuItem id={5} label="A fifth item" />
-          <DropdownMenuItem id={6} label="A sixth item" />
-          <DropdownMenuItem id={7} label="A seventh item" />
-          <DropdownMenuItem id={8} label="An eighth item" />
-        </DropdownFilter>
-      </Dropdown>
-      <Dropdown wide label="Dropdown Select with Filter & Avatar" type="outline-primary">
-        <DropdownFilter placeholder="Filter Member">
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ben Bruning", type: "member"}} />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Blake Guilloud", type: "member"}} />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Craig Anthony", type: "member"}} />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ian Greulich", type: "member"}} />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Keaton Foster", type: "member"}} />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Lauren Farr", type: "member"}} />
-          <DropdownMenuItem id={7} label="Max Krause" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Max Krause", type: "member"}} />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Drake", type: "member"}} />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Griffin", type: "member"}} />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Rob Whelan", type: "member"}} />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Terry Kennair", type: "member"}} />
-        </DropdownFilter>
-      </Dropdown>
-      <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
-        <DropdownFilter placeholder="Filter Icon">
-          <DropdownMenuItem id={1} label="Item One" icon="cog" />
-          <DropdownMenuItem id={2} label="Item Two" icon="warning" />
-          <DropdownMenuItem id={3} label="Item Three" icon="pencil" />
-          <DropdownMenuItem id={4} label="Item Four" icon="search" />
-        </DropdownFilter>
-      </Dropdown>
-      <Dropdown label="Search to add a contact" block type="link" className="u-p-l-0" hideCaret icon="add">
-        <DropdownFilter placeholder="Search contacts">
-          <DropdownMenuItemWild toggleDropdown>
-            <Button type="link" className="u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
+          <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
+        </Dropdown>
+        <Dropdown wide label="Dropdown Select with Filter" type="outline-primary">
+          <DropdownFilter placeholder="Filter Contact">
+            <DropdownMenuItem id={1} label="Item" />
+            <DropdownMenuItem id={2} label="Another item" />
+            <DropdownMenuItem id={3} label="A third item" />
+            <DropdownMenuItem id={4} label="A fourth item" />
+            <DropdownMenuItem id={5} label="A fifth item" />
+            <DropdownMenuItem id={6} label="A sixth item" />
+            <DropdownMenuItem id={7} label="A seventh item" />
+            <DropdownMenuItem id={8} label="An eighth item" />
+          </DropdownFilter>
+        </Dropdown>
+        <Dropdown wide label="Dropdown Select with Filter & Avatar" type="outline-primary">
+          <DropdownFilter placeholder="Filter Member">
+            <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
+            <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Blake Guilloud', type: 'member' }} />
+            <DropdownMenuItem id={3} label="Craig Anthony" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Craig Anthony', type: 'member' }} />
+            <DropdownMenuItem id={4} label="Ian Greulich" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ian Greulich', type: 'member' }} />
+            <DropdownMenuItem id={5} label="Keaton Foster" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Keaton Foster', type: 'member' }} />
+            <DropdownMenuItem id={6} label="Lauren Farr" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Lauren Farr', type: 'member' }} />
+            <DropdownMenuItem id={7} label="Max Krause" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Max Krause', type: 'member' }} />
+            <DropdownMenuItem id={8} label="Paul Drake" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Drake', type: 'member' }} />
+            <DropdownMenuItem id={9} label="Paul Griffin" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Griffin', type: 'member' }} />
+            <DropdownMenuItem id={10} label="Rob Whelan" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Rob Whelan', type: 'member' }} />
+            <DropdownMenuItem id={11} label="Terry Kennair" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Terry Kennair', type: 'member' }} />
+          </DropdownFilter>
+        </Dropdown>
+        <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
+          <DropdownFilter placeholder="Filter Icon">
+            <DropdownMenuItem id={1} label="Item One" icon="cog" />
+            <DropdownMenuItem id={2} label="Item Two" icon="warning" />
+            <DropdownMenuItem id={3} label="Item Three" icon="pencil" />
+            <DropdownMenuItem id={4} label="Item Four" icon="search" />
+          </DropdownFilter>
+        </Dropdown>
+        <Dropdown label="Search to add a contact" block type="link" className="u-p-l-0" hideCaret icon="add">
+          <DropdownFilter placeholder="Search contacts">
+            <DropdownMenuItemWild toggleDropdown>
+              <Button type="link" className="u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
+            </DropdownMenuItemWild>
+            <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
+            <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Blake Guilloud', type: 'member' }} />
+            <DropdownMenuItem id={3} label="Craig Anthony" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Craig Anthony', type: 'member' }} />
+            <DropdownMenuItem id={4} label="Ian Greulich" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ian Greulich', type: 'member' }} />
+            <DropdownMenuItem id={5} label="Keaton Foster" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Keaton Foster', type: 'member' }} />
+            <DropdownMenuItem id={6} label="Lauren Farr" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Lauren Farr', type: 'member' }} />
+            <DropdownMenuItem id={7} label="Max Krause" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Max Krause', type: 'member' }} />
+            <DropdownMenuItem id={8} label="Paul Drake" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Drake', type: 'member' }} />
+            <DropdownMenuItem id={9} label="Paul Griffin" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Griffin', type: 'member' }} />
+            <DropdownMenuItem id={10} label="Rob Whelan" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Rob Whelan', type: 'member' }} />
+            <DropdownMenuItem id={11} label="Terry Kennair" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Terry Kennair', type: 'member' }} />
+          </DropdownFilter>
+        </Dropdown>
+        <Dropdown label="Dropdown with Wild Content" wide>
+          <DropdownMenuItemWild>
+            <p>DropdownMenuItemWild with a paragraph and image.</p>
+            <img src="//source.unsplash.com/category/people/200x200" />
           </DropdownMenuItemWild>
-          <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ben Bruning", type: "member"}} />
-          <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Blake Guilloud", type: "member"}} />
-          <DropdownMenuItem id={3} label="Craig Anthony" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Craig Anthony", type: "member"}} />
-          <DropdownMenuItem id={4} label="Ian Greulich" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Ian Greulich", type: "member"}} />
-          <DropdownMenuItem id={5} label="Keaton Foster" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Keaton Foster", type: "member"}} />
-          <DropdownMenuItem id={6} label="Lauren Farr" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Lauren Farr", type: "member"}} />
-          <DropdownMenuItem id={7} label="Max Krause" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Max Krause", type: "member"}} />
-          <DropdownMenuItem id={8} label="Paul Drake" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Drake", type: "member"}} />
-          <DropdownMenuItem id={9} label="Paul Griffin" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Paul Griffin", type: "member"}} />
-          <DropdownMenuItem id={10} label="Rob Whelan" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Rob Whelan", type: "member"}} />
-          <DropdownMenuItem id={11} label="Terry Kennair" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Terry Kennair", type: "member"}} />
-        </DropdownFilter>
-      </Dropdown>
-      <Dropdown label="Dropdown with Wild Content" wide>
-        <DropdownMenuItemWild>
-          <p>DropdownMenuItemWild with a paragraph and image.</p>
-          <img src="//source.unsplash.com/category/people/200x200"/>
-        </DropdownMenuItemWild>
-        <DropdownMenuItemWild toggleDropdown>
-          <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>
-          <Button block type="outline-primary" size="small" onClick={() => alert('clicked!')}>Button Up In Here</Button>
-        </DropdownMenuItemWild>
-      </Dropdown>
-      <Dropdown manualClose label="Dropdown with manual close" wide>
-        <DropdownMenuItemWild>
-          <Close />
-          <p>Here's some wild content!</p>
-        </DropdownMenuItemWild>
-      </Dropdown>
-    </UtilityInlineGrid>
+          <DropdownMenuItemWild toggleDropdown>
+            <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>
+            <Button block type="outline-primary" size="small" onClick={() => alert('clicked!')}>Button Up In Here</Button>
+          </DropdownMenuItemWild>
+        </Dropdown>
+        <Dropdown manualClose label="Dropdown with manual close" wide>
+          <DropdownMenuItemWild>
+            <Close />
+            <p>Here's some wild content!</p>
+          </DropdownMenuItemWild>
+        </Dropdown>
+      </UtilityInlineGrid>
     );
   }
 }

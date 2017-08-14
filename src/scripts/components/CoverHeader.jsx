@@ -5,19 +5,6 @@ import React from 'react';
 import { Close, Icon } from '../components';
 
 class CoverHeader extends React.Component {
-  static displayName = 'RhinoCoverHeader';
-
-  static propTypes = {
-    icon: PropTypes.string,
-    iconClassName: PropTypes.string,
-    onClose: PropTypes.func,
-    title: PropTypes.string,
-  }
-
-  static defaultProps = {
-    onClose: () => {},
-  }
-
   handleCloseClick = () => {
     this.closeCover();
   }
@@ -45,5 +32,18 @@ class CoverHeader extends React.Component {
     );
   }
 }
+
+CoverHeader.displayName = 'RhinoCoverHeader';
+
+CoverHeader.propTypes = {
+  icon: PropTypes.string,
+  iconClassName: PropTypes.string,
+  onClose: PropTypes.func,
+  title: PropTypes.string,
+};
+
+CoverHeader.defaultProps = {
+  onClose: () => {},
+};
 
 export default CoverHeader;

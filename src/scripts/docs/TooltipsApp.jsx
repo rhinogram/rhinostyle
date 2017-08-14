@@ -14,7 +14,7 @@ const exampleScope  = {
 };
 
 const TooltipsApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
       <p className="site-text-lead">Our tooltips are handled purely by CSS via data attributes. These <strong>are not</strong> ReactJS components.</p>
@@ -32,6 +32,6 @@ const TooltipsApp = () =>
       <h3 className="site-subheadline">Tooltips Playground</h3>
       <Playground theme="default" codeText={tooltipsExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>;
+  </div>);
 
 ReactDOM.render(<TooltipsApp />, document.getElementById('js-app'));

@@ -21,7 +21,7 @@ const exampleScope  = {
 };
 
 const AvatarApp = () =>
-  <div>
+  (<div>
 
 
     <section className="site-section">
@@ -72,6 +72,6 @@ const AvatarApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>;
+  </div>);
 
 ReactDOM.render(<AvatarApp />, document.getElementById('js-app'));

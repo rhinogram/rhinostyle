@@ -1,9 +1,9 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-    <div>
-      <ModalHeader icon="pencil" title="This is a sample ModalHeader" />
-    </div>
+      <div>
+        <ModalHeader icon="pencil" title="This is a sample ModalHeader" />
+      </div>
     );
   }
 }

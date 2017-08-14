@@ -13,7 +13,7 @@ const exampleScope  = {
 };
 
 const LabelApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Grid</h3>
       <div className="site-text-lead">
@@ -51,6 +51,6 @@ const LabelApp = () =>
       <Playground theme="default" codeText={offsetExample} scope={exampleScope} noRender={false} />
     </section>
 
-  </div>;
+  </div>);
 
 ReactDOM.render(<LabelApp />, document.getElementById('js-app'));

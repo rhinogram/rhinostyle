@@ -11,7 +11,7 @@ const pillDocs = {
   icon:      '[Optional] - Attaches an Icon to the Pill',
   onClick:   '[Required] - Include click function for Pill',
   label:     '[Required] - Include label for Pill',
-  type:      '[Optional] - Pill type, as a string -  [default | neutral]',
+  type:      '[Optional] - Pill type, as a string - [default]',
 };
 const exampleScope  = {
   React,
@@ -21,7 +21,7 @@ const exampleScope  = {
 };
 
 const PillApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Pills</h3>
       <p className="site-text-lead">The Pill component is used to display current filters or selections.</p>
@@ -32,6 +32,6 @@ const PillApp = () =>
       <Playground theme="default" docClass={Pill} propDescriptionMap={pillDocs} codeText={pillExample} scope={exampleScope} noRender={false} />
     </section>
 
-  </div>;
+  </div>);
 
 ReactDOM.render(<PillApp />, document.getElementById('js-app'));

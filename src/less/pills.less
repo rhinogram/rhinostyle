@@ -3,13 +3,12 @@
 //
 
 
-@pill-default-bg: @global-color-white;
-@pill-default-border: @global-border-color-base;
-@pill-default-color: @base-link-color;
+@pill-bg: @global-color-white;
+@pill-color: @global-color-primary;
+@pill-color-hover: @global-color-primary-hover;
+@pill-border: @pill-color;
 
-@pill-neutral-bg: @global-color-gray-lightest;
-@pill-neutral-border: @global-color-gray-lightest;
-@pill-neutral-color: @base-link-color;
+@pill-close-size: 0.75em;
 
 @pill-padding: @global-whitespace-xsmall;
 
@@ -21,13 +20,24 @@
 
 .pill {
   align-items: center;
+  background: @pill-bg;
+  border: 1px solid @pill-color;
   border-radius: @global-border-radius;
+  color: @pill-color;
   display: inline-flex;
   font-size: @global-font-size-small;
   line-height: 1;
   padding: @pill-padding;
   vertical-align: middle;
   white-space: nowrap;
+  user-select: none;
+  transition: border-color 0.25s @global-trans-timing-cubic, color 0.25s @global-trans-timing-cubic;
+
+  &:hover,
+  &:focus {
+    border-color: @pill-color-hover;
+    color: @pill-color-hover;
+  }
 
   &:empty {
     display: none;
@@ -44,29 +54,17 @@
   }
 }
 
-
-//
-// Pill Modifiers
-//
-
-
-.pill--default {
-  .mixin-pill-variant(@pill-default-bg; @pill-default-border; @pill-default-color);
-}
-
-.pill--neutral {
-  .mixin-pill-variant(@pill-neutral-bg; @pill-neutral-border; @pill-neutral-color);
-}
-
-
 //
 // Pill Close
 //
 
 
 .pill__close {
-  color: @global-font-color;
+  width: @pill-close-size;
+  height: @pill-close-size;
+  color: currentColor;
   margin-left: @global-whitespace-xsmall;
+  transform-origin: center center;
 }
 
 

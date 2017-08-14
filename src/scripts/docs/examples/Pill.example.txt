@@ -5,9 +5,6 @@ class ComponentExample extends React.Component {
         <Pill label="Default Pill" icon="cog" />
         <Pill label="Default Pill" />
         <Pill label="Default Pill Disabled" disabled />
-        <Pill label="Neutral Pill" type="neutral" icon="cog" />
-        <Pill label="Neutral Pill" type="neutral" />
-        <Pill label="Neutral Pill Disabled" type="neutral" disabled />
         <br />
         <Pill label="Click Me" onClick={() => alert('clicked!')} />
       </UtilityInlineGrid>

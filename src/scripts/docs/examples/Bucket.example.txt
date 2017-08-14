@@ -3,7 +3,7 @@ class ComponentExample extends React.Component {
     return (
       <div>
         <Bucket>
-          <BucketHeader avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Robert Plant", type: "member"}} title="Bucket Header" />
+          <BucketHeader avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }} title="Bucket Header" />
           <BucketBody>Bucket body.</BucketBody>
         </Bucket>
 
@@ -27,7 +27,7 @@ class ComponentExample extends React.Component {
         </Bucket>
 
         <Bucket>
-          <BucketHeader className="u-bg-gray-lightest" avatar={{image: "//source.unsplash.com/category/people/200x200", name: "Robert Plant", type: "member"}}>Bucket Header Without Title Property</BucketHeader>
+          <BucketHeader className="u-bg-gray-lightest" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }}>Bucket Header Without Title Property</BucketHeader>
           <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
         </Bucket>
 

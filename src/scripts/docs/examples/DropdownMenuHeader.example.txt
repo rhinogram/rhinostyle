@@ -1,11 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-    <div>
       <DropdownMenuHeader label="Dropdown Menu Header" />
-      <DropdownMenuHeader label="Dropdown Menu Header" className="u-text-primary" />
-      <DropdownMenuHeader label="Dropdown Menu Header" className="u-text-danger" />
-    </div>
     );
   }
 }

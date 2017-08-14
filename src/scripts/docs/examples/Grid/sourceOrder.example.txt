@@ -1,14 +1,14 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-    <div className="row">
-      <div className="column-4 column--last@medium">
-        <div className="site-grid-box"></div>
+      <div className="row">
+        <div className="column-4 column--last@medium">
+          <div className="site-grid-box" />
+        </div>
+        <div className="column-8 column--first@medium">
+          <div className="site-grid-box" />
+        </div>
       </div>
-      <div className="column-8 column--first@medium">
-        <div className="site-grid-box"></div>
-      </div>
-    </div>
     );
   }
 }

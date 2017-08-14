@@ -76,21 +76,21 @@ class Modal extends React.Component {
     });
 
     $modal.timeline
-    .set($modal, {
-      display: 'block',
-    })
-    .to($modal, 0.25, {
-      css: {
-        opacity: 1,
-      },
-    }, 'modal')
-    .to($modal.querySelector('.modal__dialog'), 0.5, {
-      css: {
-        opacity: 1,
-        y: 0,
-      },
-      ease: UtilitySystem.config.easing,
-    }, 'modal');
+      .set($modal, {
+        display: 'block',
+      })
+      .to($modal, 0.25, {
+        css: {
+          opacity: 1,
+        },
+      }, 'modal')
+      .to($modal.querySelector('.modal__dialog'), 0.5, {
+        css: {
+          opacity: 1,
+          y: 0,
+        },
+        ease: UtilitySystem.config.easing,
+      }, 'modal');
   }
 
   componentDidUpdate(prevProps) {

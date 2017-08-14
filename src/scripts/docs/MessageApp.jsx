@@ -18,7 +18,7 @@ const exampleScope  = {
 };
 
 const MessageApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | note&quot;</code></p>
@@ -90,6 +90,6 @@ const MessageApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>;
+  </div>);
 
 ReactDOM.render(<MessageApp />, document.getElementById('js-app'));

@@ -33,10 +33,10 @@ class NotificationContainer extends React.Component {
     // Adds in bottom spacing
     // Separating this out from timeline since we are using the `reverse()` to show the toast which adds in the alternate of the default props 💥
     const bottomSpacing = new TimelineMax({ paused: true })
-    .to($toast, TOAST_TIMING, {
-      marginBottom: (UtilitySystem.config.contentSpacing / 2),
-      ease: UtilitySystem.config.easing,
-    });
+      .to($toast, TOAST_TIMING, {
+        marginBottom: (UtilitySystem.config.contentSpacing / 2),
+        ease: UtilitySystem.config.easing,
+      });
 
     let forward = true;
     let lastTime = 0;

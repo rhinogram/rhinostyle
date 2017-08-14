@@ -337,7 +337,7 @@ class VariableMessage extends React.Component {
                 <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Reset</button>
               </div> : null}
           </div>
-        : null }
+          : null }
         <div
           className="variable-message__compose"
           contentEditable={!readOnly}
@@ -364,7 +364,7 @@ class VariableMessage extends React.Component {
             <label htmlFor={variableMessagePreviewName} className="u-block">{previewLabel}</label>
             <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
           </div>
-        : null}
+          : null}
       </div>
     );
   }

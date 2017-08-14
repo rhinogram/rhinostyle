@@ -46,28 +46,28 @@ srcDirectories.forEach((item) => {
  */
 export default function pages() {
   return metalsmith(process.cwd())
-  .source('./src')
-  .clean(false)
-  .use(msIgnore(ignoreDirectories))
-  .use(msPermalinks())
-  .use(msMoveUp({
-    pattern: 'pages/**/*',
-  }))
-  .use(msRootpath())
-  .use(msInPlace({
-    engine: 'nunjucks',
-  }))
-  .use(msLayouts({
-    engine:    'nunjucks',
-    directory: './src/templates',
-    default:   'default.html',
-  }))
-  .destination('./build')
-  .build((err) => {
-    if (err) {
-      throw err;
-    } else {
-      reload();
-    }
-  });
+    .source('./src')
+    .clean(false)
+    .use(msIgnore(ignoreDirectories))
+    .use(msPermalinks())
+    .use(msMoveUp({
+      pattern: 'pages/**/*',
+    }))
+    .use(msRootpath())
+    .use(msInPlace({
+      engine: 'nunjucks',
+    }))
+    .use(msLayouts({
+      engine:    'nunjucks',
+      directory: './src/templates',
+      default:   'default.html',
+    }))
+    .destination('./build')
+    .build((err) => {
+      if (err) {
+        throw err;
+      } else {
+        reload();
+      }
+    });
 }

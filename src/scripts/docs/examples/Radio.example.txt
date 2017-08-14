@@ -1,7 +1,7 @@
 class ComponentExample extends React.Component {
   optionalCallbackFunction = (value) => {
-     console.log('Run optional callback function', value);
-   };
+    console.log('Run optional callback function', value);
+  };
 
   render() {
     return (

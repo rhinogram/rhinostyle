@@ -40,7 +40,7 @@ const exampleScope  = {
 };
 
 const CoverApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
       <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/jpgorman/react-append-to-body">react-append-to-body</a></p>
@@ -62,6 +62,6 @@ const CoverApp = () =>
       <Playground theme="default" docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
     </section>
 
-  </div>;
+  </div>);
 
 ReactDOM.render(<CoverApp />, document.getElementById('js-app'));

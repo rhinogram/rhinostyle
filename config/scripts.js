@@ -12,10 +12,10 @@ import docsConfig from './webpack.docs.config.js';
  */
 export function distScripts() {
   return webpackStream(distConfig, webpack)
-  .on('error', function handleError() {
-    this.emit('end'); // Recover from errors
-  })
-  .pipe(gulp.dest(paths.scripts.dist));
+    .on('error', function handleError() {
+      this.emit('end'); // Recover from errors
+    })
+    .pipe(gulp.dest(paths.scripts.dist));
 }
 
 /**
@@ -23,9 +23,16 @@ export function distScripts() {
  * @return {stream}
  */
 export function docsScripts() {
+  copyModernizr();
+
   return webpackStream(docsConfig, webpack)
-  .on('error', function handleError() {
-    this.emit('end'); // Recover from errors
-  })
-  .pipe(gulp.dest(paths.scripts.build));
+    .on('error', function handleError() {
+      this.emit('end'); // Recover from errors
+    })
+    .pipe(gulp.dest(paths.scripts.build));
+}
+
+function copyModernizr() {
+  return gulp.src('src/scripts/vendor/modernizr.custom.js')
+    .pipe(gulp.dest(paths.scripts.build));
 }

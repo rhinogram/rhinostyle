@@ -3,6 +3,10 @@
 @import 'rhinostyle';
 @import (inline) '../../node_modules/codemirror/lib/codemirror.css';
 
+//
+// Variables
+//
+
 
 @zindex-site-navigation: 20;
 @zindex-site-overlay: 15;
@@ -13,6 +17,25 @@
 @site-panel-width: 42rem;
 
 @global-header-height: 6rem;
+
+
+//
+// Main scaffolding
+//
+
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+
+//
+// Utilities
+//
 
 
 // Utility for stopping touch-scroll from bleeding on-top of navigation overlay

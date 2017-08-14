@@ -20,7 +20,7 @@ const exampleScope  = {
 };
 
 const LabelApp = () =>
-  <div>
+  (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Table Types</h3>
       <div className="site-example-tables">
@@ -348,6 +348,6 @@ const LabelApp = () =>
       <Playground theme="default" docClass={Table} propDescriptionMap={tableDocs} codeText={tableExample} scope={exampleScope} noRender={false} />
     </section>
 
-  </div>;
+  </div>);
 
 ReactDOM.render(<LabelApp />, document.getElementById('js-app'));

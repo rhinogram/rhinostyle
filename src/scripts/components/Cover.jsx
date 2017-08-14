@@ -74,18 +74,18 @@ class Cover extends React.Component {
     });
 
     $cover.timeline
-    .set($cover, {
-      css: {
-        display: 'flex',
-      },
-    })
-    .to($cover, 0.5, {
-      css: {
-        opacity: 1,
-        y: 0,
-      },
-      ease: UtilitySystem.config.easing,
-    });
+      .set($cover, {
+        css: {
+          display: 'flex',
+        },
+      })
+      .to($cover, 0.5, {
+        css: {
+          opacity: 1,
+          y: 0,
+        },
+        ease: UtilitySystem.config.easing,
+      });
   }
 
   componentDidUpdate(prevProps) {

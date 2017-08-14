@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const DropdownMenuHeader = props => <div className={cx('dropdown__menu__header', props.className)}><span className="u-text-overflow">{props.label}</span></div>;
+const DropdownMenuHeader = props => <div className={cx('dropdown__menu__header', props.className)}>{props.label}</div>;
 
 DropdownMenuHeader.displayName = 'RhinoDropdownMenuHeader';
 
