@@ -31,7 +31,7 @@ class DropdownMenuItem extends React.Component {
     className: PropTypes.string,
     disabled: PropTypes.bool,
     icon: customValidator,
-    label: PropTypes.string,
+    label: PropTypes.any,
     labelDesc: PropTypes.string,
     route: PropTypes.string,
     url: PropTypes.string,
