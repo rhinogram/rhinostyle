@@ -52,7 +52,7 @@ class VariableMessage extends React.Component {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         message: nextProps.initialValue,
-      }, this.handleInitValue);
+      }, this.handleInitValue); // we need to run the init function everytime the component receives props to properly set the content edittable values.
     }
   }
 
@@ -245,9 +245,11 @@ class VariableMessage extends React.Component {
    */
   handleComposeInput = () => {
     const variables = this.props.variables;
+    // Get the rawMessage content to return onInput
+    const rawMessage = this.compose.textContent.trim();
+    
     // Get only the text representation of the message
     // so we can update our DB with it
-    const rawMessage = this.compose.textContent.trim();
     let message = rawMessage;
     const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
@@ -291,7 +293,7 @@ class VariableMessage extends React.Component {
     }
 
     if (this.props.onInput && typeof (this.props.onInput === 'function')) {
-      this.props.onInput(this.props.name, rawMessage);
+      this.props.onInput(this.props.name, rawMessage, message);
     }
   }
 
