@@ -10,6 +10,7 @@
 @variable-message-compose-horizontal-padding: @input-padding-base;
 @variable-message-compose-vertical-padding: @textarea-vertical-padding;
 @variable-message-compose-border-radius: @input-border-radius;
+@variable-message-line-height: (@global-line-height-base + 0.2);
 
 //
 // Component
@@ -38,6 +39,7 @@
     color: @variable-message-compose-color;
     min-height: @variable-message-compose-min-height;
     padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+    line-height: @variable-message-line-height;
   }
 
   &:focus {
