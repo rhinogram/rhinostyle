@@ -10,6 +10,7 @@
 @variable-message-compose-horizontal-padding: @input-padding-base;
 @variable-message-compose-vertical-padding: @textarea-vertical-padding;
 @variable-message-compose-border-radius: @input-border-radius;
+@variable-message-line-height: (@global-line-height-base + 0.2);
 
 //
 // Component
@@ -38,6 +39,7 @@
     color: @variable-message-compose-color;
     min-height: @variable-message-compose-min-height;
     padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+    line-height: @variable-message-line-height;
   }
 
   &:focus {
@@ -79,9 +81,20 @@
 .variable-message__close {
   &:extend(.pill__close);
 
+  position: relative;
   cursor: pointer;
 
   &::after {
-    content: '\00d7';
+    content: '';
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('@{svg-sprite}#icon-close');
+    fill: @pill-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
