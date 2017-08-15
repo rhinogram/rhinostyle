@@ -1,4 +1,16 @@
 class ComponentExample extends React.Component {
+  state = {
+    rawMessage: '',
+    message: '',
+  }
+
+  handleInput = (name, rawMessage, message) => {
+    this.setState({
+      rawMessage,
+      message,
+    });
+  }
+
   render() {
     const variableOpts = [
       { id: -1, value: 'Select Variable' },
@@ -16,6 +28,7 @@ class ComponentExample extends React.Component {
     return (
       <div>
         <VariableMessage
+          onInput={this.handleInput}
           reset
           variables={variableOpts}
           initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office. Have a great day!"
