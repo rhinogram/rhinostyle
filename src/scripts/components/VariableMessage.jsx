@@ -247,7 +247,7 @@ class VariableMessage extends React.Component {
     const variables = this.props.variables;
     // Get the rawMessage content to return onInput
     const rawMessage = this.compose.textContent.trim();
-    
+
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;

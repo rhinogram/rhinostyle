@@ -32,6 +32,8 @@
 }
 
 .variable-message__compose {
+  line-height: @variable-message-line-height;
+
   &[contenteditable='true'] {
     background-color: @variable-message-compose-bg;
     border: 1px solid @variable-message-compose-border-color;
@@ -39,7 +41,6 @@
     color: @variable-message-compose-color;
     min-height: @variable-message-compose-min-height;
     padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
-    line-height: @variable-message-line-height;
   }
 
   &:focus {
