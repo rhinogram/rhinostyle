@@ -1,36 +1,32 @@
 import 'what-input';
-import { TimelineMax, TweenMax, SteppedEase } from 'gsap';
+import { TimelineMax, TweenMax, SteppedEase, Linear } from 'gsap';
+import Draggable from 'gsap/Draggable';
+
+import '../vendor/ThrowPropsPlugin.js';
 import { UtilitySystem } from '../UtilitySystem';
 
 const $body = document.body;
 const $siteOverlay = document.querySelector('#site-overlay');
 const $siteWrapper = document.querySelector('.site-wrapper');
 const $siteNavigation = document.querySelector('#site-navigation');
+const siteNavigationWidth = $siteNavigation.offsetWidth;
+const $proxy = document.createElement('div');
 const $siteHeaderMenu = document.querySelector('.site-header__menu');
 
 const navEase = 0.25;
 const navSelectors = [$body, $siteOverlay, $siteNavigation];
 let mobileNavTimeline;
-let forward = true;
-let lastTime = 0;
 
 // Timelines
 const mobileNavTimelineFunc = () => new TimelineMax({
   paused: true,
   onStart: () => {
     addNavBodyClass();
-  },
-  onUpdate: () => {
-    const newTime = mobileNavTimeline.time();
-    if ((forward && newTime < lastTime) || (!forward && newTime > lastTime)) {
-      forward = !forward;
-      if (!forward) {
-        removeNavBodyClass();
-      }
-    }
-    lastTime = newTime;
+    setupDraggable();
   },
   onReverseComplete() {
+    removeNavBodyClass();
+    killDraggable();
     TweenMax.set(navSelectors, { clearProps: 'all' });
   },
 })
@@ -42,7 +38,7 @@ const mobileNavTimelineFunc = () => new TimelineMax({
   }, 'mobileNav')
   .to($siteNavigation, navEase, {
     x: 0,
-    ease: UtilitySystem.config.easing,
+    ease: Linear.easeNone,
   }, 'mobileNav');
 
 /**
@@ -75,12 +71,106 @@ function buildNavTimeline() {
   mobileNavTimeline = mobileNavTimelineFunc();
 }
 
-
 /**
- * Update nav UI based on "desktop-to-mobile" UI update
+ * Build Draggable instance
  * @return {void}
  */
-function navDesktopToMobileCheck() {
+function setupDraggable() {
+  Draggable.create($proxy, {
+    trigger: $body, // So we can start the drag from outside of the nav itself
+    throwProps: true,
+    overshootTolerance: 0,
+    bounds: $siteNavigation,
+    onClick: handleOnClick,
+    onDrag: updateProgress,
+    onThrowUpdate: updateProgress,
+    onPress: updateProxy,
+    onRelease: checkThrowing,
+    snap: {
+      x: snapX,
+    },
+  });
+}
+
+function handleOnClick(e) {
+  e.stopPropagation();
+}
+
+/**
+ * Removes Draggable instance
+ * @return {void}
+ */
+function killDraggable() {
+  // If Draggable has been initiated
+  if (Draggable.get($proxy)) {
+    Draggable.get($proxy).kill();
+  }
+}
+
+/**
+ * Determine if menu is being "thrown" or "flicked"
+ * @return {void}
+ */
+function checkThrowing() {
+  if (!this.isThrowing) {
+    mobileNavTimeline.resume();
+  }
+}
+
+/**
+ * Determine current offset of proxy in relation to site navigation
+ * @return {void}
+ */
+function updateProxy() {
+  $siteNavigation.style.pointerEvents = 'none';
+  mobileNavTimeline.pause();
+
+  TweenMax.set(this.target, {
+    x: siteNavigationWidth * mobileNavTimeline.progress(),
+  });
+
+  this.update();
+}
+
+/**
+ * Update timeline with current position of draggable element
+ * @return {void}
+ */
+function updateProgress() {
+  const progress = clamp(this.x / siteNavigationWidth, 0, 1);
+
+  mobileNavTimeline.progress(progress);
+}
+
+/**
+ * Ensure "flick" closes navigation
+ * @param  {integer} x
+ * @return {integer}
+ */
+function snapX(x) {
+  if (x <= (siteNavigationWidth / 2)) {
+    return 0;
+  }
+
+  return siteNavigationWidth;
+}
+
+/**
+ * Force value into a range
+ * @param  {integer} value
+ * @param  {integer} min
+ * @param  {integer} max
+ * @return {integer}
+ */
+function clamp(value, min, max) {
+  return value < min ? min : (value > max ? max : value); // eslint-disable-line no-nested-ternary
+}
+
+/**
+ * Update nav UI based on "mobile-to-desktop" UI update
+ * @return {void}
+ */
+function navMobileToDesktop() {
   // Reset navigation timeline based on screen-width
   // If the mobile nav was open previously
   if (mobileNavTimeline.progress() === 1) {
@@ -91,6 +181,7 @@ function navDesktopToMobileCheck() {
     TweenMax.set(navSelectors, { clearProps: 'all' });
 
     removeNavBodyClass();
+    killDraggable();
 
     // Reset for use later
     buildNavTimeline();
@@ -103,22 +194,15 @@ function navDesktopToMobileCheck() {
  * @return {void}
  */
 function buildNavUI() {
-  //
-  // From desktop to mobile
-  //
-
+  // From mobile to desktop
   if (!window.matchMedia(`(max-width: ${UtilitySystem.config.breakpoints.largeMax})`).matches) {
-    //
-    // From mobile to desktop
-    //
-
-    navDesktopToMobileCheck();
+    navMobileToDesktop();
   }
 }
 
 /**
  * Kick off navigation
- * @return {void}}
+ * @return {void}
  */
 function navInit() {
   buildNavTimeline();
@@ -133,7 +217,7 @@ navInit();
 
 /**
  * Toggle navigation based on screen-width
- * @return {[type]} [description]
+ * @return {void}
  */
 function toggleNav() {
   $siteNavigation.scrollTop = 0;

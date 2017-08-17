@@ -19,6 +19,9 @@ module.exports = {
     path: path.join(__dirname, '../build/scripts'),
     filename: '[name].js',
   },
+  externals: {
+    TweenLite: 'TweenLite',
+  },
   module: {
     rules: [
       {

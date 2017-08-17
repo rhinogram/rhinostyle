@@ -1,14 +1,11 @@
 import webpack from 'webpack';
 import path    from 'path';
 
+const nodeEnv = process.env.NODE_ENV || 'development';
 module.exports = {
   devtool: 'source-map',
   entry: {
     rhinostyle: [path.join(__dirname, '../src/scripts/components/index.js')],
-  },
-  externals: {
-    react: 'umd react',
-    'react-dom': 'umd react-dom',
   },
   output: {
     path: path.join(__dirname, '../dist/scripts'),
@@ -16,14 +13,29 @@ module.exports = {
     libraryTarget: 'umd',
     library: 'rhinostyle',
   },
+  externals: {
+    react: 'umd react',
+    'react-dom': 'umd react-dom',
+    TweenLite: 'TweenLite',
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: [/node_modules/],
         use: [
-          'babel-loader',
-          'eslint-loader',
+          {
+            loader: 'babel-loader',
+            options: {
+              // This is a feature of `babel-loader` for webpack (not Babel itself).
+              // It enables caching results in ./node_modules/.cache/babel-loader/
+              // directory for faster rebuilds.
+              cacheDirectory: true,
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
         ],
       },
     ],
@@ -37,9 +49,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
+      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
