@@ -86,12 +86,13 @@
 
 
 .system-alert__link {
-  color: @system-alert-text;
+  color: currentColor;
   font-size: @global-font-size-small;
   margin-left: @global-whitespace-small;
   .u-text-underline;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: currentColor;
   }
 }
