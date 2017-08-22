@@ -63,9 +63,9 @@
     "metalsmith-rootpath": "1.0.4",
     "nunjucks": "3.0.1",
     "postcss": "6.0.8",
+    "postcss-flexbugs-fixes": "3.2.0",
     "postcss-less": "1.1.0",
     "postcss-reporter": "5.0.0",
-    "postcss-flexbugs-fixes": "3.2.0",
     "postcss-sorting": "3.0.1",
     "postcss-svg-fragments": "2.2.0",
     "raw-loader": "0.5.1",
@@ -94,11 +94,11 @@
     "keymirror": "0.1.1",
     "moment": "2.18.1",
     "prop-types": "15.5.10",
-    "react-append-to-body": "2.0.13",
     "react-custom-scrollbars": "4.1.2",
     "react-datepicker": "0.48.0",
     "react-image-lightbox": "4.1.0",
     "react-onclickoutside": "6.4.0",
+    "react-overlays": "0.8.0",
     "react-router": "3.0.5",
     "react-textarea-autosize": "5.1.0"
   }
