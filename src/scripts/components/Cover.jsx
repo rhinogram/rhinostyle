@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { componentWillAppendToBody } from 'react-append-to-body';
+import Portal from 'react-overlays/lib/Portal';
 
 import { UtilitySystem } from '../components';
 
@@ -123,11 +123,13 @@ class Cover extends React.Component {
     const classes = cx('cover', className);
 
     return (
-      <div className={classes} ref={ref => (this.cover = ref)}>
-        {children}
-      </div>
+      <Portal>
+        <div className={classes} ref={ref => (this.cover = ref)}>
+          {children}
+        </div>
+      </Portal>
     );
   }
 }
 
-export default componentWillAppendToBody(Cover);
+export default Cover;
