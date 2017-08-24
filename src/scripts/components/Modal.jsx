@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { componentWillAppendToBody } from 'react-append-to-body';
+import Portal from 'react-overlays/lib/Portal';
 
 import { UtilitySystem } from '../components';
 
@@ -131,15 +131,17 @@ class Modal extends React.Component {
     }, className);
 
     return (
-      <div className="modal" ref={ref => (this.modal = ref)}>
-        <div className={modalClasses}>
-          <div className="modal__content">
-            {children}
+      <Portal>
+        <div className="modal" ref={ref => (this.modal = ref)}>
+          <div className={modalClasses}>
+            <div className="modal__content">
+              {children}
+            </div>
           </div>
         </div>
-      </div>
+      </Portal>
     );
   }
 }
 
-export default componentWillAppendToBody(Modal);
+export default Modal;
