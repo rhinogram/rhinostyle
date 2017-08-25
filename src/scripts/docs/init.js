@@ -79,6 +79,7 @@ function setupDraggable() {
   Draggable.create($proxy, {
     trigger: $body, // So we can start the drag from outside of the nav itself
     throwProps: true,
+    dragClickables: true,
     overshootTolerance: 0,
     bounds: $siteNavigation,
     onClick: handleOnClick,
