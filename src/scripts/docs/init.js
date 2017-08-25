@@ -1,5 +1,5 @@
 import 'what-input';
-import { TimelineMax, TweenMax, SteppedEase, Linear } from 'gsap';
+import { TimelineMax, TweenMax, SteppedEase, Power0 } from 'gsap';
 import Draggable from 'gsap/Draggable';
 
 import '../vendor/ThrowPropsPlugin.js';
@@ -38,7 +38,7 @@ const mobileNavTimelineFunc = () => new TimelineMax({
   }, 'mobileNav')
   .to($siteNavigation, navEase, {
     x: 0,
-    ease: Linear.easeNone,
+    ease: Power0.easeNone,
   }, 'mobileNav');
 
 /**
@@ -77,10 +77,12 @@ function buildNavTimeline() {
  */
 function setupDraggable() {
   Draggable.create($proxy, {
+    type: 'x',
     trigger: $body, // So we can start the drag from outside of the nav itself
     throwProps: true,
     dragClickables: true,
     overshootTolerance: 0,
+    maxDuration: 1, // Speed up snap/throwProps if need-be
     bounds: $siteNavigation,
     onClick: handleOnClick,
     onDrag: updateProgress,
@@ -123,7 +125,6 @@ function checkThrowing() {
  * @return {void}
  */
 function updateProxy() {
-  $siteNavigation.style.pointerEvents = 'none';
   mobileNavTimeline.pause();
 
   TweenMax.set(this.target, {
