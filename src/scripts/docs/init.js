@@ -84,7 +84,6 @@ function setupDraggable() {
     overshootTolerance: 0,
     maxDuration: 1, // Speed up snap/throwProps if need-be
     bounds: $siteNavigation,
-    onClick: handleOnClick,
     onDrag: updateProgress,
     onThrowUpdate: updateProgress,
     onPress: updateProxy,
@@ -93,10 +92,6 @@ function setupDraggable() {
       x: snapX,
     },
   });
-}
-
-function handleOnClick(e) {
-  e.stopPropagation();
 }
 
 /**
