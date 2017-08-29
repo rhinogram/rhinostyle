@@ -45,6 +45,7 @@ const icons = [
   'credit-card',
   'email',
   'file',
+  'file-missing',
   'filter',
   'flag',
   'forward',
