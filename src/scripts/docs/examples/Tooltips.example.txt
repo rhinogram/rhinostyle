@@ -2,11 +2,9 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <UtilityInlineGrid>
-        <span data-tooltip-top="Well hello there!">tooltip top</span> <span data-tooltip-bottom="Well hello there!">tooltip bottom</span>
-        <span data-tooltip-left="Well hello there!">tooltip left</span>
-        <span data-tooltip-right="Well hello there!">tooltip right</span>
-        <a href="#" data-tooltip-top="Well hello there!">link with tooltip</a>
-        <Button data-tooltip-top="Well hello there!">Button with Tooltip</Button>
+        <Tooltip>
+          <span>test</span>
+        </Tooltip>
       </UtilityInlineGrid>
     );
   }

@@ -2,14 +2,14 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Button, Icon, UtilityInlineGrid } from '../components';
+import { Button, Tooltip, UtilityInlineGrid } from '../components';
 import tooltipsExample from './examples/Tooltips.example.txt';
 
 const exampleScope  = {
   React,
   ReactDOM,
   Button,
-  Icon,
+  Tooltip,
   UtilityInlineGrid,
 };
 
