@@ -1,4 +1,4 @@
-import { Expo } from 'gsap';
+import { Back, Expo } from 'gsap';
 
 /**
  * Default configuration
@@ -7,6 +7,7 @@ import { Expo } from 'gsap';
 export const config = {
   contentSpacing: 16,
   easing: Expo.easeInOut,
+  easingBounce: Back.easeOut.config(1),
   breakpoints: {
     xsmall: '480px',
     xsmallMax: '479px',

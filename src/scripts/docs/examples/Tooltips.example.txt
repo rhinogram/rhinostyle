@@ -3,7 +3,7 @@ class ComponentExample extends React.Component {
     return (
       <UtilityInlineGrid>
         <Tooltip>
-          <span>test</span>
+          <span id="tester">test</span>
         </Tooltip>
       </UtilityInlineGrid>
     );
