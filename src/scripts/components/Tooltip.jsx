@@ -149,7 +149,7 @@ class Tooltip extends React.Component {
     };
 
     const onMouseLeave = () => {
-      //this.closeTooltip(document.querySelector(`#${this.tooltipId}`));
+      this.closeTooltip(document.querySelector(`#${this.tooltipId}`));
     };
 
     const returnChild = React.cloneElement(React.Children.only(children), {
@@ -173,7 +173,7 @@ Tooltip.displayName = 'RhinoTooltip';
 
 Tooltip.propTypes = {
   children: PropTypes.node,
-  content: PropTypes.string,
+  content: PropTypes.string.isRequired,
   placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
 };
 

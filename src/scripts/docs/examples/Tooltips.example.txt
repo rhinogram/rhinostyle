@@ -2,7 +2,7 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <UtilityInlineGrid>
-        <Tooltip>
+        <Tooltip placement="right" content="hello there!">
           <span id="tester">test</span>
         </Tooltip>
       </UtilityInlineGrid>
