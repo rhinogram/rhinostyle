@@ -1,10 +1,42 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 import { TimelineMax } from 'gsap';
 
 import { UtilitySystem } from '../UtilitySystem';
 
 class Tooltip extends React.Component {
+  // @NOTE Attaching event listeners here is not ideal, but `onMouseEnter` (and `onMouseOver`) is not reliably fired; as well as the context of the currentTarget being incorrect.
+  componentDidMount() {
+    const tooltipTrigger = this.getTooltipTrigger();
+
+    tooltipTrigger.addEventListener('mouseenter', (e) => {
+      e.preventDefault();
+
+      this.createTooltip();
+    });
+
+    tooltipTrigger.addEventListener('mouseleave', () => {
+      this.closeTooltip(document.querySelector(`#${this.tooltipId}`));
+    });
+  }
+
+  /**
+   * Get tooltip trigger
+   * @return {void} [description]
+   */
+  getTooltipTrigger = () => {
+    const tooltipTrigger = this.tooltipTrigger;
+
+    // If this a React component; get DOM reference
+    if (this.tooltipTrigger._reactInternalInstance) {
+      return ReactDOM.findDOMNode(this.tooltipTrigger);
+    }
+
+    return tooltipTrigger;
+  }
+
   /**
    * Create tooltip
    * @return {void}
@@ -21,7 +53,11 @@ class Tooltip extends React.Component {
     $tooltip.classList.add('tooltip');
 
     $tooltipContent.classList.add('tooltip-inner');
-    $tooltipContent.innerHTML = this.props.content;
+
+    const tooltipContent = this.props.content;
+
+    // If tooltip content is valid HTMl (wrapped in object), convert to HTML and inject
+    $tooltipContent.innerHTML = typeof tooltipContent === 'object' ? ReactDOMServer.renderToStaticMarkup(tooltipContent) : tooltipContent;
 
     $tooltip.appendChild($tooltipContent);
     // Set placement as parameter
@@ -56,9 +92,9 @@ class Tooltip extends React.Component {
 
     $tooltip.timeline.set($tooltip, {
       transformOrigin,
-      scale: 0.5,
+      scale: 0.75,
     })
-      .to($tooltip, 0.25, {
+      .to($tooltip, 0.175, {
         css: {
           y: 0,
           x: 0,
@@ -77,16 +113,17 @@ class Tooltip extends React.Component {
    */
   styleTooltip = (tooltip) => {
     const $tooltip = tooltip;
-    const rect = this.tooltipTrigger.getBoundingClientRect();
+    const tooltipTrigger = this.getTooltipTrigger();
+
+    const rect = tooltipTrigger.getBoundingClientRect();
 
     $tooltip.classList.add(`tooltip--${$tooltip.placement}`);
 
     // Grab dimensions of link
-    const linkDim = { w: this.tooltipTrigger.offsetWidth, h: this.tooltipTrigger.offsetHeight };
+    const linkDim = { w: rect.width, h: rect.height };
 
     // Tooltip dimensions
-    const td = { w: $tooltip.offsetWidth, h: $tooltip.offsetHeight };
-    const tooltipDim = { w: td.w, h: td.h };
+    const tooltipDim = { w: $tooltip.offsetWidth, h: $tooltip.offsetHeight };
 
     const scrollYOffset = window.pageYOffset || document.documentElement.scrollTop;
     const scrollXOffset = window.pageXOffset || document.documentElement.scrollLeft;
@@ -144,19 +181,8 @@ class Tooltip extends React.Component {
   renderChildren = () => {
     const { children } = this.props;
 
-    const onMouseOver = () => {
-      this.createTooltip();
-    };
-
-    const onMouseLeave = () => {
-      this.closeTooltip(document.querySelector(`#${this.tooltipId}`));
-    };
-
     const returnChild = React.cloneElement(React.Children.only(children), {
-      onMouseOver,
-      onMouseLeave,
       ref: (node) => {
-        // Keep your own reference
         this.tooltipTrigger = node;
       },
     });
@@ -172,8 +198,8 @@ class Tooltip extends React.Component {
 Tooltip.displayName = 'RhinoTooltip';
 
 Tooltip.propTypes = {
-  children: PropTypes.node,
-  content: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  content: PropTypes.any.isRequired,
   placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
 };
 

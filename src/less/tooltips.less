@@ -3,9 +3,9 @@
 //
 
 
-@tooltip-arrow-size: 0.5rem;
+@tooltip-arrow-size: 1rem;
 @tooltip-zindex: 1050;
-@tooltip-background: @global-color-black;
+@tooltip-background: @global-color-white;
 
 
 //
@@ -19,74 +19,73 @@
   display: block;
   font-size: @global-font-size-small;
   opacity: 0;
-  padding: (@tooltip-arrow-size + 1);
+  padding: ~'calc(@{tooltip-arrow-size} + 1px)';
 
   &-inner {
-    color: @global-color-white;
-    max-width: 200px;
-    padding: @global-whitespace-xsmall @global-whitespace-small;
+    color: @global-font-color;
+    max-width: 250px;
+    padding: @global-whitespace-small;
     background: @tooltip-background;
+    border: 1px solid @global-border-color-base;
     border-radius: @global-border-radius;
     word-wrap: break-word;
     text-align: center;
     position: relative;
+    box-shadow: @global-shadow-depth-1;
 
     &::after {
       content: '';
+      width: @tooltip-arrow-size;
+      height: @tooltip-arrow-size;
       position: absolute;
-      width: 0;
-      height: 0;
+      background: @tooltip-background;
+      border: 1px solid @global-border-color-base;
+      border-bottom-left-radius: @global-border-radius;
+      border-right: 0;
+      border-top: 0;
     }
   }
 
   &--top {
     .tooltip-inner {
+      // 1. Quirky calculation bug when `rotate()` is used
       &::after {
-        border-left: @tooltip-arrow-size solid transparent;
-        border-right: @tooltip-arrow-size solid transparent;
-        border-top: @tooltip-arrow-size solid @tooltip-background;
-        bottom: (-@tooltip-arrow-size);
         left: 50%;
-        transform: translateX(-50%);
+        bottom: ~'calc(-(@{tooltip-arrow-size} / 2) - 1px)'; // 1
+        transform: translateX(-50%) rotate(-45deg);
       }
     }
   }
 
   &--right {
     .tooltip-inner {
+      // 1. Quirky calculation bug when `rotate()` is used
       &::after {
-        border-top: @tooltip-arrow-size solid transparent;
-        border-bottom: @tooltip-arrow-size solid transparent;
-        border-right: @tooltip-arrow-size solid @tooltip-background;
-        left: (-@tooltip-arrow-size);
+        left: ~'calc(-(@{tooltip-arrow-size} / 2) - 1px)'; // 1
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) rotate(45deg);
       }
     }
   }
 
   &--bottom {
     .tooltip-inner {
+      // 1. Quirky calculation bug when `rotate()` is used
       &::after {
-        border-left: @tooltip-arrow-size solid transparent;
-        border-right: @tooltip-arrow-size solid transparent;
-        border-bottom: @tooltip-arrow-size solid @tooltip-background;
-        top: (-@tooltip-arrow-size);
+        top: ~'calc(-(@{tooltip-arrow-size} / 2) - 1px)'; // 1
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) rotate(135deg);
       }
     }
   }
 
   &--left {
     .tooltip-inner {
+      // 1. Quirky calculation bug when `rotate()` is used
       &::after {
-        border-top: @tooltip-arrow-size solid transparent;
-        border-bottom: @tooltip-arrow-size solid transparent;
-        border-left: @tooltip-arrow-size solid @tooltip-background;
-        right: (-@tooltip-arrow-size);
+        right: ~'calc(-(@{tooltip-arrow-size} / 2) - 1px)'; // 1
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) rotate(-135deg);
       }
     }
   }
