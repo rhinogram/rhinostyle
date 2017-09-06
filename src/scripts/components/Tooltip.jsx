@@ -55,6 +55,13 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   touchInteraction = (e) => {
+    // Close any other open tooltips
+    const $otherOpenTooltips = document.querySelectorAll(`.tooltip:not(#${this.tooltipId})`);
+
+    UtilitySystem.forEach($otherOpenTooltips, (index, value) => {
+      value.timeline.reverse();
+    });
+
     if (this.touchOpen) {
       this.closeTooltip();
     } else {
