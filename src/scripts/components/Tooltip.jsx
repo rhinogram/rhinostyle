@@ -11,15 +11,15 @@ class Tooltip extends React.Component {
   componentDidMount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    tooltipTrigger.addEventListener('mouseenter', (e) => {
-      e.preventDefault();
+    tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
+    tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
+  }
 
-      this.createTooltip();
-    });
+  componentWillUnmount() {
+    const tooltipTrigger = this.getTooltipTrigger();
 
-    tooltipTrigger.addEventListener('mouseleave', () => {
-      this.closeTooltip(document.querySelector(`#${this.tooltipId}`));
-    });
+    tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
+    tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
   }
 
   /**
@@ -41,7 +41,9 @@ class Tooltip extends React.Component {
    * Create tooltip
    * @return {void}
    */
-  createTooltip = () => {
+  createTooltip = (e) => {
+    e.preventDefault();
+
     // Random ID
     this.tooltipId = `tooltip-${Math.random().toString().slice(2, 11)}`;
 
@@ -165,8 +167,8 @@ class Tooltip extends React.Component {
    * @param  {node} tooltip
    * @return {void}
    */
-  closeTooltip(tooltip) {
-    tooltip.timeline.reverse();
+  closeTooltip() {
+    document.querySelector(`#${this.tooltipId}`).timeline.reverse();
   }
 
   /**

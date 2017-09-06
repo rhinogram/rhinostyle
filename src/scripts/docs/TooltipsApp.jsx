@@ -23,7 +23,7 @@ const TooltipsApp = () =>
   (<div>
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
-      <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components.</p>
+      <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For the time being, this is a <strong>desktop-only</strong> feature as touch devices do not have a concept of <code>mouseenter</code> or <code>mouseleave</code></p>
     </section>
 
     <section className="site-section">
