@@ -23,7 +23,7 @@ const TooltipsApp = () =>
   (<div>
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
-      <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For the time being, this is a <strong>desktop-only</strong> feature as touch devices do not have a concept of <code>mouseenter</code> or <code>mouseleave</code></p>
+      <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on <code>mouseenter</code> and <code>mouseleave</code> of the trigger. For touch, the trigger is used as a toggle on <code>click</code>; so an actionable item should not be used in conjunction with this component.</p>
     </section>
 
     <section className="site-section">

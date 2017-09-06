@@ -1,3 +1,4 @@
+/* global Modernizr */
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,15 +12,27 @@ class Tooltip extends React.Component {
   componentDidMount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
-    tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
+    // Set default touch interaction to closed
+    this.touchOpen = false;
+
+    // Run different even listeners based on device support
+    if (Modernizr.touchevents) {
+      tooltipTrigger.addEventListener('click', this.touchInteraction.bind(this));
+    } else {
+      tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
+      tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
+    }
   }
 
   componentWillUnmount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
-    tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
+    if (Modernizr.touchevents) {
+      tooltipTrigger.removeEventListener('click', this.touchInteraction.bind(this));
+    } else {
+      tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
+      tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
+    }
   }
 
   /**
@@ -35,6 +48,18 @@ class Tooltip extends React.Component {
     }
 
     return tooltipTrigger;
+  }
+
+  /**
+   * Determines if we should show or hide tooltip
+   * @return {void}
+   */
+  touchInteraction = (e) => {
+    if (this.touchOpen) {
+      this.closeTooltip();
+    } else {
+      this.createTooltip(e);
+    }
   }
 
   /**
@@ -70,7 +95,11 @@ class Tooltip extends React.Component {
     // Attach GSAP
     $tooltip.timeline = new TimelineMax({
       paused: true,
+      onStart: () => {
+        this.touchOpen = true;
+      },
       onReverseComplete: () => {
+        this.touchOpen = false;
         this.removeTooltip($tooltip);
       },
     });
