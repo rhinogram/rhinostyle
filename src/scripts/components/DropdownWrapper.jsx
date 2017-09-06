@@ -95,12 +95,13 @@ class DropdownWrapper extends React.Component {
       .set($dropdownMenu, {
         display: 'block',
       })
-      .to($dropdownMenu, 0.25, {
+      .to($dropdownMenu, 0.175, {
         css: {
           y: 0,
+          scale: 1,
           opacity: 1,
         },
-        ease: UtilitySystem.config.easing,
+        ease: UtilitySystem.config.easingBounce,
       });
   }
 

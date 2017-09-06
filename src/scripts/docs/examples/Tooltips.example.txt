@@ -1,13 +1,22 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <UtilityInlineGrid>
-        <span data-tooltip-top="Well hello there!">tooltip top</span> <span data-tooltip-bottom="Well hello there!">tooltip bottom</span>
-        <span data-tooltip-left="Well hello there!">tooltip left</span>
-        <span data-tooltip-right="Well hello there!">tooltip right</span>
-        <a href="#" data-tooltip-top="Well hello there!">link with tooltip</a>
-        <Button data-tooltip-top="Well hello there!">Button with Tooltip</Button>
-      </UtilityInlineGrid>
+      <div className="u-p-b-large">
+        <UtilityInlineGrid>
+          <Tooltip content="Attached to another React component">
+            <Icon icon="info-circle" />
+          </Tooltip>
+          <Tooltip placement="right" content={<span>I have <strong>HTML!!!</strong> and an icon <Icon bump="up" icon="inbox" /></span>}>
+            <span>Right</span>
+          </Tooltip>
+          <Tooltip placement="bottom" content="Bottom">
+            <span>Bottom</span>
+          </Tooltip>
+          <Tooltip placement="left" content="Hello there!">
+            <span>Left</span>
+          </Tooltip>
+        </UtilityInlineGrid>
+      </div>
     );
   }
 }

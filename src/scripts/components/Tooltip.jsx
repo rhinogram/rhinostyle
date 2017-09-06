@@ -1,0 +1,248 @@
+/* global Modernizr */
+import PropTypes from 'prop-types';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
+import { TimelineMax } from 'gsap';
+
+import { UtilitySystem } from '../UtilitySystem';
+
+class Tooltip extends React.Component {
+  // @NOTE Attaching event listeners here is not ideal, but `onMouseEnter` (and `onMouseOver`) is not reliably fired; as well as the context of the currentTarget being incorrect.
+  componentDidMount() {
+    const tooltipTrigger = this.getTooltipTrigger();
+
+    // Set default touch interaction to closed
+    this.touchOpen = false;
+
+    // Run different even listeners based on device support
+    if (Modernizr.touchevents) {
+      tooltipTrigger.addEventListener('click', this.touchInteraction.bind(this));
+    } else {
+      tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
+      tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
+    }
+  }
+
+  componentWillUnmount() {
+    const tooltipTrigger = this.getTooltipTrigger();
+
+    if (Modernizr.touchevents) {
+      tooltipTrigger.removeEventListener('click', this.touchInteraction.bind(this));
+    } else {
+      tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
+      tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
+    }
+  }
+
+  /**
+   * Get tooltip trigger
+   * @return {void} [description]
+   */
+  getTooltipTrigger = () => {
+    const tooltipTrigger = this.tooltipTrigger;
+
+    // If this a React component; get DOM reference
+    if (this.tooltipTrigger._reactInternalInstance) {
+      return ReactDOM.findDOMNode(this.tooltipTrigger);
+    }
+
+    return tooltipTrigger;
+  }
+
+  /**
+   * Determines if we should show or hide tooltip
+   * @return {void}
+   */
+  touchInteraction = (e) => {
+    // Close any other open tooltips
+    const $otherOpenTooltips = document.querySelectorAll(`.tooltip:not(#${this.tooltipId})`);
+
+    UtilitySystem.forEach($otherOpenTooltips, (index, value) => {
+      value.timeline.reverse();
+    });
+
+    if (this.touchOpen) {
+      this.closeTooltip();
+    } else {
+      this.createTooltip(e);
+    }
+  }
+
+  /**
+   * Create tooltip
+   * @return {void}
+   */
+  createTooltip = (e) => {
+    e.preventDefault();
+
+    // Random ID
+    this.tooltipId = `tooltip-${Math.random().toString().slice(2, 11)}`;
+
+    const $tooltip = document.createElement('div');
+    const $tooltipContent = document.createElement('div');
+
+    $tooltip.setAttribute('id', this.tooltipId);
+    $tooltip.setAttribute('role', 'tooltip');
+    $tooltip.classList.add('tooltip');
+
+    $tooltipContent.classList.add('tooltip-inner');
+
+    const tooltipContent = this.props.content;
+
+    // If tooltip content is valid HTMl (wrapped in object), convert to HTML and inject
+    $tooltipContent.innerHTML = typeof tooltipContent === 'object' ? ReactDOMServer.renderToStaticMarkup(tooltipContent) : tooltipContent;
+
+    $tooltip.appendChild($tooltipContent);
+    // Set placement as parameter
+    $tooltip.placement = this.props.placement;
+
+    document.body.appendChild($tooltip);
+
+    // Attach GSAP
+    $tooltip.timeline = new TimelineMax({
+      paused: true,
+      onStart: () => {
+        this.touchOpen = true;
+      },
+      onReverseComplete: () => {
+        this.touchOpen = false;
+        this.removeTooltip($tooltip);
+      },
+    });
+
+    let transformOrigin;
+
+    switch ($tooltip.placement) { // eslint-disable-line default-case
+      case 'top':
+        transformOrigin = 'center bottom';
+        break;
+      case 'bottom':
+        transformOrigin = 'center top';
+        break;
+      case 'left':
+        transformOrigin = 'right center';
+        break;
+      case 'right':
+        transformOrigin = 'left center';
+        break;
+    }
+
+    $tooltip.timeline.set($tooltip, {
+      transformOrigin,
+      scale: 0.75,
+    })
+      .to($tooltip, 0.175, {
+        css: {
+          y: 0,
+          x: 0,
+          scale: 1,
+          opacity: 1,
+        },
+        ease: UtilitySystem.config.easingBounce,
+      });
+
+    this.styleTooltip($tooltip);
+  }
+
+  /**
+   * Figure out direciton and position
+   * @return {void}
+   */
+  styleTooltip = (tooltip) => {
+    const $tooltip = tooltip;
+    const tooltipTrigger = this.getTooltipTrigger();
+
+    const rect = tooltipTrigger.getBoundingClientRect();
+
+    $tooltip.classList.add(`tooltip--${$tooltip.placement}`);
+
+    // Grab dimensions of link
+    const linkDim = { w: rect.width, h: rect.height };
+
+    // Tooltip dimensions
+    const tooltipDim = { w: $tooltip.offsetWidth, h: $tooltip.offsetHeight };
+
+    const scrollYOffset = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollXOffset = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // Apply styling
+    switch ($tooltip.placement) { // eslint-disable-line default-case
+      case 'top':
+        $tooltip.style.top = `${(rect.top + scrollYOffset) - tooltipDim.h}px`;
+        $tooltip.style.left = `${(rect.left + scrollXOffset + (linkDim.w / 2)) - (tooltipDim.w / 2)}px`;
+        break;
+      case 'bottom':
+        $tooltip.style.top = `${(rect.top + scrollYOffset) + linkDim.h}px`;
+        $tooltip.style.left = `${(rect.left + scrollXOffset + (linkDim.w / 2)) - (tooltipDim.w / 2)}px`;
+        break;
+      case 'left':
+        $tooltip.style.top = `${(rect.top + scrollYOffset + (linkDim.h / 2)) - (tooltipDim.h / 2)}px`;
+        $tooltip.style.left = `${(rect.left + scrollXOffset) - tooltipDim.w}px`;
+        break;
+      case 'right':
+        $tooltip.style.top = `${(rect.top + scrollYOffset + (linkDim.h / 2)) - (tooltipDim.h / 2)}px`;
+        $tooltip.style.left = `${rect.left + scrollXOffset + linkDim.w}px`;
+        break;
+    }
+
+    this.openTooltip($tooltip);
+  }
+
+  /**
+   * Open tooltip
+   * @param  {node} tooltip
+   * @return {void}
+   */
+  openTooltip(tooltip) {
+    tooltip.timeline.play();
+  }
+
+  /**
+   * Close tooltip
+   * @param  {node} tooltip
+   * @return {void}
+   */
+  closeTooltip() {
+    document.querySelector(`#${this.tooltipId}`).timeline.reverse();
+  }
+
+  /**
+   * Remove tooltip from DOM
+   * @param  {node} tooltip
+   * @return {void}
+   */
+  removeTooltip(tooltip) {
+    tooltip.remove();
+  }
+
+  renderChildren = () => {
+    const { children } = this.props;
+
+    const returnChild = React.cloneElement(React.Children.only(children), {
+      ref: (node) => {
+        this.tooltipTrigger = node;
+      },
+    });
+
+    return returnChild;
+  };
+
+  render() {
+    return React.Children.only(this.renderChildren());
+  }
+}
+
+Tooltip.displayName = 'RhinoTooltip';
+
+Tooltip.propTypes = {
+  children: PropTypes.node.isRequired,
+  content: PropTypes.any.isRequired,
+  placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+};
+
+Tooltip.defaultProps = {
+  placement: 'top',
+};
+
+export default Tooltip;
