@@ -57,9 +57,11 @@
     }
   }
 
+  // 1. Override `scale` attached to other dropdowns
   .dropdown__menu {
     min-width: 100%;
     transform-origin: center top;
+    transform: translateY(-@dropdown-menu-offset);
   }
 }
 
@@ -123,7 +125,7 @@
   position: absolute;
   text-align: left;
   top: ~'calc(100% + @{dropdown-menu-offset})';
-  transform: translateY(-@dropdown-menu-offset);
+  transform: translateY(-@dropdown-menu-offset) scale(0.75);
   transform-origin: left top;
   z-index: @dropdown-zindex;
 
@@ -174,7 +176,7 @@
 
 .dropdown__menu--center {
   left: 50%;
-  transform: translate(-50%, -@dropdown-menu-offset);
+  transform: translate(-50%, -@dropdown-menu-offset) scale(0.75);
   transform-origin: center top;
 
   &::before {
@@ -186,7 +188,7 @@
 .dropdown__menu--top {
   bottom: ~'calc(100% + @{dropdown-menu-offset})';
   top: auto;
-  transform: translateY(@dropdown-menu-offset);
+  transform: translateY(@dropdown-menu-offset) scale(0.75);
   transform-origin: left bottom;
 
   &::before {
@@ -200,7 +202,7 @@
   }
 
   &.dropdown__menu--center {
-    transform: translate(-50%, @dropdown-menu-offset);
+    transform: translate(-50%, @dropdown-menu-offset) scale(0.75);
     transform-origin: center bottom;
   }
 }

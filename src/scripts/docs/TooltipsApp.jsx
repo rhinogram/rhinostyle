@@ -2,35 +2,33 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Button, Icon, UtilityInlineGrid } from '../components';
+import { Icon, Tooltip, UtilityInlineGrid } from '../components';
 import tooltipsExample from './examples/Tooltips.example.txt';
 
 const exampleScope  = {
   React,
   ReactDOM,
-  Button,
   Icon,
+  Tooltip,
   UtilityInlineGrid,
+};
+
+const tooltipDocs = {
+  children: 'Only accepts one child',
+  placement: 'Position of tooltip - [top | right | bottom | left]',
+  content: 'Content of tooltip. May contain HTML or other components',
 };
 
 const TooltipsApp = () =>
   (<div>
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
-      <p className="site-text-lead">Our tooltips are handled purely by CSS via data attributes. These <strong>are not</strong> ReactJS components.</p>
-    </section>
-
-    <section className="site-section">
-      <h3 className="site-subheadline">Tooltip Data Attributes</h3>
-      <div className="site-copy">
-        <p>Pass tooltip text into any one of the following attributes.</p>
-        <p><code>data-tooltip-top | data-tooltip-bottom | data-tooltip-left | data-tooltip-right</code></p>
-      </div>
+      <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on <code>mouseenter</code> and <code>mouseleave</code> of the trigger. For touch, the trigger is used as a toggle on <code>click</code>; so an actionable item should not be used in conjunction with this component.</p>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Tooltips Playground</h3>
-      <Playground theme="default" codeText={tooltipsExample} scope={exampleScope} noRender={false} />
+      <Playground theme="default" docClass={Tooltip} propDescriptionMap={tooltipDocs} codeText={tooltipsExample} scope={exampleScope} noRender={false} />
     </section>
   </div>);
 

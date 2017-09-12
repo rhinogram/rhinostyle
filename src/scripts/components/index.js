@@ -48,6 +48,7 @@ import Table                from './Table';
 import TabsContent          from './TabsContent';
 import Textarea             from './Textarea';
 import Toast                from './Toast';
+import Tooltip              from './Tooltip';
 import UtilityInlineGrid    from './UtilityInlineGrid';
 import UtilityList    from './UtilityList';
 import UtilityListItem from './UtilityListItem';
@@ -110,6 +111,7 @@ export {
   TabsContent,
   Textarea,
   Toast,
+  Tooltip,
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
