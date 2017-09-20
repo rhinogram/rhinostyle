@@ -12,7 +12,7 @@ class ComponentExample extends React.Component {
           <Tooltip placement="bottom" content="Bottom">
             <span>Bottom</span>
           </Tooltip>
-          <Tooltip placement="left" content="Hello there!">
+          <Tooltip placement="left" delay content="I was delayed!">
             <span>Left</span>
           </Tooltip>
         </UtilityInlineGrid>

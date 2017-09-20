@@ -12,13 +12,9 @@ class Tooltip extends React.Component {
   componentDidMount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    // Set default touch interaction to closed
-    this.touchOpen = false;
-
-    // Run different even listeners based on device support
-    if (Modernizr.touchevents) {
-      tooltipTrigger.addEventListener('click', this.touchInteraction.bind(this));
-    } else {
+    // Add event listeners
+    // Tooltips are not triggered on touch-devices to not interfere with actionable items
+    if (!Modernizr.touchevents) {
       tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
       tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
     }
@@ -27,9 +23,8 @@ class Tooltip extends React.Component {
   componentWillUnmount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    if (Modernizr.touchevents) {
-      tooltipTrigger.removeEventListener('click', this.touchInteraction.bind(this));
-    } else {
+    // Remove event listeners from non-touch devices
+    if (!Modernizr.touchevents) {
       tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
       tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
     }
@@ -48,25 +43,6 @@ class Tooltip extends React.Component {
     }
 
     return tooltipTrigger;
-  }
-
-  /**
-   * Determines if we should show or hide tooltip
-   * @return {void}
-   */
-  touchInteraction = (e) => {
-    // Close any other open tooltips
-    const $otherOpenTooltips = document.querySelectorAll(`.tooltip:not(#${this.tooltipId})`);
-
-    UtilitySystem.forEach($otherOpenTooltips, (index, value) => {
-      value.timeline.reverse();
-    });
-
-    if (this.touchOpen) {
-      this.closeTooltip();
-    } else {
-      this.createTooltip(e);
-    }
   }
 
   /**
@@ -195,7 +171,19 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   openTooltip(tooltip) {
-    tooltip.timeline.play();
+    const { delay } = this.props;
+
+    // Convert delay to a number
+    // Takes care of multiple PropTypes
+    const delayAmount = Number.isInteger(delay) ? Number(delay) : 1000;
+
+    if (delay) {
+      setTimeout(() => {
+        tooltip.timeline.play();
+      }, delayAmount);
+    } else {
+      tooltip.timeline.play();
+    }
   }
 
   /**
@@ -236,12 +224,17 @@ class Tooltip extends React.Component {
 Tooltip.displayName = 'RhinoTooltip';
 
 Tooltip.propTypes = {
+  delay: PropTypes.oneOfType([
+    PropTypes.bool.isRequired,
+    PropTypes.number.isRequired,
+  ]),
   children: PropTypes.node.isRequired,
   content: PropTypes.any.isRequired,
   placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
 };
 
 Tooltip.defaultProps = {
+  delay: false,
   placement: 'top',
 };
 
