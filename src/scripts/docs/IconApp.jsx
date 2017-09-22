@@ -71,6 +71,7 @@ const icons = [
   'printer',
   'question-circle',
   'reply',
+  'rotate',
   'search',
   'sms',
   'sms-dots',
