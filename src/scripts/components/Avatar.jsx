@@ -9,7 +9,7 @@ class Avatar extends React.Component {
     className: PropTypes.string,
     image: PropTypes.string,
     name: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'default', 'large']),
+    size: PropTypes.oneOf(['small', 'default', 'large', 'xlarge']),
     src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
     type: PropTypes.oneOf(['default', 'member']),
   };
@@ -47,6 +47,7 @@ class Avatar extends React.Component {
     const classes = cx('avatar', className, {
       'avatar--small': size === 'small',
       'avatar--large': size === 'large',
+      'avatar--xlarge': size === 'xlarge',
       'avatar--default':  type === 'default',
       'avatar--member': type === 'member',
     });

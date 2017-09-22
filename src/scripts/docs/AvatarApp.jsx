@@ -9,7 +9,7 @@ const avatarDocs = {
   className: '[Optional] - Include additional class name(s)',
   image: '[Optional] - Include source to image',
   name: '[Optional] - Name of Avatar, as a string',
-  size: '[Optional] - Size of Avatar, as a string - [small | large]',
+  size: '[Optional] - Size of Avatar, as a string - [small | large | xlarge]',
   type: '[Optional] - Type of Avatar, as a string -  [default | member]',
 };
 const exampleScope  = {
@@ -55,6 +55,15 @@ const AvatarApp = () =>
           <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="large" type="member" />
           <Avatar name="Craig Anthony" size="large" type="member" />
           <Avatar type="member" size="large" />
+        </UtilityInlineGrid>
+      </div>
+      <div className="u-m-b-large">
+        <h5 className="site-miniheadline">XLarge Avatar</h5>
+        <p className="site-copy"><code>size=&quot;xlarge&quot;</code></p>
+        <UtilityInlineGrid>
+          <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" size="xlarge" type="member" />
+          <Avatar name="Craig Anthony" size="xlarge" type="member" />
+          <Avatar type="member" size="xlarge" />
         </UtilityInlineGrid>
       </div>
       <div>
