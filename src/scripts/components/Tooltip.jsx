@@ -173,11 +173,10 @@ class Tooltip extends React.Component {
   openTooltip(tooltip) {
     const { delay } = this.props;
 
-    // Convert delay to a number
-    // Takes care of multiple PropTypes
-    const delayDuration = Number.isInteger(delay) ? Number(delay) : 1000;
-
     if (delay) {
+      // Takes care of multiple PropTypes
+      const delayDuration = Number.isInteger(delay) ? delay : 1000;
+
       setTimeout(() => {
         tooltip.timeline.play();
       }, delayDuration);
