@@ -86,7 +86,7 @@ class RadioGroup extends React.Component {
 
     // Wrap items in either `<UtilityInlineGrid>` or `<UtilityList>` based on prop
     const render = inline ?
-      <UtilityInlineGrid>{this.renderChildren()}</UtilityInlineGrid>
+      <UtilityInlineGrid size="regular">{this.renderChildren()}</UtilityInlineGrid>
       : <UtilityList space>{this.renderChildren()}</UtilityList>;
 
     return (
