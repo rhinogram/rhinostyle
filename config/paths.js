@@ -34,6 +34,8 @@ const paths = {
     templates: './src/templates/*.html',
   },
   scripts: {
+    docEntry: './src/scripts/docs/entry.js',
+    distEntry: './src/scripts/components/index.js',
     src: './src/scripts/**/*.{js,jsx,txt}',
     dist: './dist/scripts/',
     build: './build/scripts/',

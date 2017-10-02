@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path    from 'path';
 
+import paths from './paths';
+
 const nodeEnv = process.env.NODE_ENV || 'development';
 const vendor = [
   'react',
@@ -13,10 +15,10 @@ module.exports = {
   devtool: 'eval',
   entry: {
     vendor,
-    'rhinostyle-docs': path.join(__dirname, '../src/scripts/docs/entry.js'),
+    'rhinostyle-docs': paths.scripts.docEntry,
   },
   output: {
-    path: path.join(__dirname, '../build/scripts'),
+    path: path.join(__dirname, '../', paths.scripts.build),
     filename: '[name].js',
   },
   externals: {
@@ -64,7 +66,7 @@ module.exports = {
       minChuncks: 3,
     }),
     new webpack.DefinePlugin({
-      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv) },
+      'process.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
