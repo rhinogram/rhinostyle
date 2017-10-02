@@ -2,7 +2,7 @@
 
 ## Documentation
 
-[http://rhinogram.github.io/rhinostyle/](http://rhinogram.github.io/rhinostyle/)
+[https://rhinogram.github.io/rhinostyle/](https://rhinogram.github.io/rhinostyle/)
 
 ## Setup
 
