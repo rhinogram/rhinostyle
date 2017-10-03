@@ -1,6 +1,7 @@
 import gulp from 'gulp';
+import path from 'path';
+import util from 'gulp-util';
 import webpack from 'webpack';
-import webpackStream from 'webpack-stream';
 
 import paths from './paths';
 import distConfig from './webpack.dist.config.js';
@@ -10,29 +11,55 @@ import docsConfig from './webpack.docs.config.js';
  * Runs framework scripts through webpack
  * @return {stream}
  */
-export function distScripts() {
-  return webpackStream(distConfig, webpack)
-    .on('error', function handleError() {
-      this.emit('end'); // Recover from errors
-    })
-    .pipe(gulp.dest(paths.scripts.dist));
+export function distScripts(callback) {
+  webpack(distConfig, (err, stats) => {
+    if (err) {
+      throw new $.util.PluginError('[webpack:build]', err);
+    }
+
+    util.log(
+      `[webpack:build] Completed ${stats.toString({
+        assets: true,
+        chunks: false,
+        modules: false,
+        chunkModules: false,
+        colors: true,
+        hash: false,
+        timings: false,
+        version: false,
+      })}`);
+
+    callback();
+  });
 }
 
 /**
  * Runs documentation scripts through webpack
  * @return {stream}
  */
-export function docsScripts() {
-  copyModernizr();
+export function docsScripts(callback) {
+  webpack(docsConfig, (err, stats) => {
+    if (err) {
+      throw new $.util.PluginError('[webpack:build]', err);
+    }
 
-  return webpackStream(docsConfig, webpack)
-    .on('error', function handleError() {
-      this.emit('end'); // Recover from errors
-    })
-    .pipe(gulp.dest(paths.scripts.build));
+    util.log(
+      `[webpack:build] Completed ${stats.toString({
+        assets: true,
+        chunks: false,
+        modules: false,
+        chunkModules: false,
+        colors: true,
+        hash: false,
+        timings: false,
+        version: false,
+      })}`);
+
+    callback();
+  });
 }
 
-function copyModernizr() {
-  return gulp.src('src/scripts/vendor/modernizr.custom.js')
-    .pipe(gulp.dest(paths.scripts.build));
+export function copyModernizr() {
+  return gulp.src('./src/scripts/vendor/modernizr.custom.js')
+    .pipe(gulp.dest(path.resolve(paths.scripts.build)));
 }

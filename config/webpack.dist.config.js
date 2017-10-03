@@ -1,17 +1,20 @@
 import webpack from 'webpack';
 import path    from 'path';
 
+import paths from './paths';
+
 const nodeEnv = process.env.NODE_ENV || 'development';
+
 module.exports = {
   devtool: 'source-map',
   entry: {
-    rhinostyle: [path.join(__dirname, '../src/scripts/components/index.js')],
+    rhinostyle: paths.scripts.distEntry,
   },
   output: {
-    path: path.join(__dirname, '../dist/scripts'),
     filename: '[name].min.js',
     libraryTarget: 'umd',
     library: 'rhinostyle',
+    path: path.join(__dirname, '../', paths.scripts.dist),
   },
   externals: {
     react: 'umd react',
@@ -49,7 +52,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
-      'proccess.env': { NODE_ENV: JSON.stringify(nodeEnv) },
+      'process.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
