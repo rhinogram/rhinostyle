@@ -18,7 +18,7 @@ export function distScripts(callback) {
     }
 
     util.log(
-      `[webpack:build] Completed ${stats.toString({
+      `[webpack:build]\nCompleted ${stats.toString({
         assets: true,
         chunks: false,
         modules: false,
@@ -44,7 +44,7 @@ export function docsScripts(callback) {
     }
 
     util.log(
-      `[webpack:build] Completed ${stats.toString({
+      `[webpack:build]\nCompleted ${stats.toString({
         assets: true,
         chunks: false,
         modules: false,
