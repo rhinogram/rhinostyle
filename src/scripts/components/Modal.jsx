@@ -9,29 +9,48 @@ import { UtilitySystem } from '../components';
 class Modal extends React.Component {
   static displayName = 'RhinoModal';
 
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    size: PropTypes.string,
-    open: PropTypes.bool,
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
+  state = {
+    renderModal: false,
   };
 
-  static defaultProps = {
-    children: null,
-    className: '',
-    size: '',
-    open: false,
-    onComplete: () => {},
-    onReverseComplete: () => {},
-    onReverseStart: () => {},
-    onStart: () => {},
-  };
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.open && nextProps.open) {
+      this.setState({
+        renderModal: true,
+      });
+    }
+  }
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.open && this.props.open) {
+      this.attachTimeline();
+    }
+
+    if (prevProps.open !== this.props.open) {
+      if (this.props.open) {
+        this.openModal();
+      } else {
+        this.closeModal();
+      }
+    }
+  }
+
+  /**
+   * Called after the modal animation is done closing
+   * Takes care of removing `<Modal />` from DOM
+   *
+   */
+  onReverseComplete = () => {
+    this.setState({
+      renderModal: false,
+    }, () => {
+      if (this.props.onReverseComplete && typeof (this.props.onReverseComplete === 'function')) {
+        this.props.onReverseComplete();
+      }
+    });
+  }
+
+  attachTimeline = () => {
     const $body = document.body;
     const $modal = this.modal;
 
@@ -70,8 +89,8 @@ class Modal extends React.Component {
         this.props.onComplete();
       },
       onReverseComplete: () => {
-        // Fire off prop update
-        this.props.onReverseComplete();
+        // Fire off function that handles prop update and removal from DOM
+        this.onReverseComplete();
       },
     });
 
@@ -93,30 +112,12 @@ class Modal extends React.Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.open !== this.props.open) {
-      if (this.props.open) {
-        this.openModal();
-      } else {
-        this.closeModal();
-      }
-    }
-  }
-
-  /**
-   * Open modal
-   * @return {void}
-   */
   openModal = () => {
     const $modal = this.modal;
 
     $modal.timeline.play();
   }
 
-  /**
-   * Close modal
-   * @return {void}
-   */
   closeModal = () => {
     const $modal = this.modal;
 
@@ -129,19 +130,43 @@ class Modal extends React.Component {
       'modal__dialog--small': size === 'small',
       'modal__dialog--large': size === 'large',
     }, className);
+    const { renderModal } = this.state;
 
     return (
-      <Portal>
-        <div className="modal" ref={ref => (this.modal = ref)}>
-          <div className={modalClasses}>
-            <div className="modal__content">
-              {children}
+      renderModal &&
+        <Portal>
+          <div className="modal" ref={ref => (this.modal = ref)}>
+            <div className={modalClasses}>
+              <div className="modal__content">
+                {children}
+              </div>
             </div>
           </div>
-        </div>
-      </Portal>
+        </Portal>
     );
   }
 }
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  size: PropTypes.string,
+  open: PropTypes.bool,
+  onComplete: PropTypes.func,
+  onReverseComplete: PropTypes.func,
+  onReverseStart: PropTypes.func,
+  onStart: PropTypes.func,
+};
+
+Modal.defaultProps = {
+  children: null,
+  className: '',
+  size: '',
+  open: false,
+  onComplete: () => {},
+  onReverseComplete: () => {},
+  onReverseStart: () => {},
+  onStart: () => {},
+};
 
 export default Modal;
