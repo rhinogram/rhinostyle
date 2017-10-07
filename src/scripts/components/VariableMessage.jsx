@@ -19,6 +19,8 @@ class VariableMessage extends React.Component {
     onInput: PropTypes.func,
     initialValue: PropTypes.string,
     readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    validationMessage: PropTypes.string,
   };
 
   static defaultProps = {
@@ -322,18 +324,26 @@ class VariableMessage extends React.Component {
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
   render() {
-    const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly } = this.props;
+    const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly, required, validationMessage } = this.props;
     const classes = cx('variable-message', className);
 
     const variableMessageInputName = `variable-message-input-${this.variableMessageUnique}`;
     const variableMessageSelectName = `variable-message-select-${this.variableMessageUnique}`;
     const variableMessagePreviewName = `variable-message-preview-${this.variableMessageUnique}`;
 
+    const showValidationMessage = () => {
+      if (validationMessage) {
+        return <div className="form__validation-message">{validationMessage}</div>;
+      }
+
+      return false;
+    };
+
     return (
       <div className={classes} onClick={this.handleVariableClick}>
         {!readOnly ?
           <div className="variable-message__header">
-            <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel}</label>
+            <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel} {required && <span className="form__asterisk">*</span>}</label>
             {this.showReset() ?
               <div className="variable-message__reset">
                 <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Reset</button>
@@ -349,6 +359,7 @@ class VariableMessage extends React.Component {
           onPaste={this.handlePaste}
           ref={ref => (this.compose = ref)}
         />
+        {showValidationMessage()}
         {!readOnly ?
           <div className="variable-message__directives">
             <div className="variable-message__footer">
