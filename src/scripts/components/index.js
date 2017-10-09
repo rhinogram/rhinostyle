@@ -24,7 +24,6 @@ import DropdownWrapper      from './DropdownWrapper';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
-import Lightbox             from '../../../node_modules/react-image-lightbox/dist/umd/react-image-lightbox.js';
 import LoaderCircle         from './LoaderCircle';
 import LoaderPulse          from './LoaderPulse';
 import Message              from './Message';
@@ -86,7 +85,6 @@ export {
   Icon,
   Input,
   Label,
-  Lightbox,
   LoaderCircle,
   LoaderPulse,
   Message,
