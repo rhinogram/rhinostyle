@@ -9,27 +9,48 @@ import { UtilitySystem } from '../components';
 class Cover extends React.Component {
   static displayName = 'RhinoCover';
 
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    open: PropTypes.bool,
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
+  state = {
+    renderCover: false,
   };
 
-  static defaultProps = {
-    children: null,
-    className: '',
-    open: false,
-    onComplete: () => {},
-    onReverseComplete: () => {},
-    onReverseStart: () => {},
-    onStart: () => {},
-  };
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.open && nextProps.open) {
+      this.setState({
+        renderCover: true,
+      });
+    }
+  }
 
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.open && this.props.open) {
+      this.attachTimeline();
+    }
+
+    if (prevProps.open !== this.props.open) {
+      if (this.props.open) {
+        this.openCover();
+      } else {
+        this.closeCover();
+      }
+    }
+  }
+
+  /**
+   * Called after the cover animation is done closing
+   * Takes care of removing `<Cover />` from DOM
+   *
+   */
+  onReverseComplete = () => {
+    this.setState({
+      renderCover: false,
+    }, () => {
+      if (this.props.onReverseComplete && typeof (this.props.onReverseComplete === 'function')) {
+        this.props.onReverseComplete();
+      }
+    });
+  }
+
+  attachTimeline = () => {
     const $body = document.body;
     const $cover = this.cover;
 
@@ -68,8 +89,8 @@ class Cover extends React.Component {
         this.props.onComplete();
       },
       onReverseComplete: () => {
-        // Fire off prop update
-        this.props.onReverseComplete();
+        // Fire off function that handles prop update and removal from DOM
+        this.onReverseComplete();
       },
     });
 
@@ -86,16 +107,6 @@ class Cover extends React.Component {
         },
         ease: UtilitySystem.config.easing,
       });
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.open !== this.props.open) {
-      if (this.props.open) {
-        this.openCover();
-      } else {
-        this.closeCover();
-      }
-    }
   }
 
   /**
@@ -121,15 +132,37 @@ class Cover extends React.Component {
   render() {
     const { children, className } = this.props;
     const classes = cx('cover', className);
+    const { renderCover } = this.state;
 
     return (
-      <Portal>
-        <div className={classes} ref={ref => (this.cover = ref)}>
-          {children}
-        </div>
-      </Portal>
+      renderCover &&
+        <Portal>
+          <div className={classes} ref={ref => (this.cover = ref)}>
+            {children}
+          </div>
+        </Portal>
     );
   }
 }
+
+Cover.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  open: PropTypes.bool,
+  onComplete: PropTypes.func,
+  onReverseComplete: PropTypes.func,
+  onReverseStart: PropTypes.func,
+  onStart: PropTypes.func,
+};
+
+Cover.defaultProps = {
+  children: null,
+  className: '',
+  open: false,
+  onComplete: () => {},
+  onReverseComplete: () => {},
+  onReverseStart: () => {},
+  onStart: () => {},
+};
 
 export default Cover;
