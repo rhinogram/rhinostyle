@@ -25,6 +25,7 @@ const icons = [
   'bank',
   'bar-graph',
   'birthday',
+  'block',
   'calendar',
   'camera',
   'checkmark',
