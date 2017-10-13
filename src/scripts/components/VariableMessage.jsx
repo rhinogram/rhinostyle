@@ -346,7 +346,7 @@ class VariableMessage extends React.Component {
             <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel} {required && <span className="form__asterisk">*</span>}</label>
             {this.showReset() ?
               <div className="variable-message__reset">
-                <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Reset</button>
+                <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</button>
               </div> : null}
           </div>
           : null }
