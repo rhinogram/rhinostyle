@@ -6637,13 +6637,6 @@ react-image-lightbox@4.3.0:
     prop-types "^15.5.8"
     react-modal "^3.0.0"
 
-react-modal@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.0.3.tgz#276580ccf3d48edab0e34df682e1e1c74856dc8f"
-  dependencies:
-    exenv "^1.2.0"
-    prop-types "^15.5.10"
-
 react-modal@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.0.0.tgz#2d8c4e0355b610f3df3fac0d60541a81bfc04324"
