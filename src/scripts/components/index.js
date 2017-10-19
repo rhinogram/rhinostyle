@@ -1,3 +1,7 @@
+import Lightbox             from 'react-image-lightbox';
+import { Scrollbars }       from 'react-custom-scrollbars';
+import DatePicker           from 'react-datepicker';
+
 import Alert                from './Alert';
 import Avatar               from './Avatar';
 import Bucket               from './Bucket';
@@ -5,13 +9,12 @@ import BucketBody           from './BucketBody';
 import BucketHeader         from './BucketHeader';
 import Button               from './Button';
 import Checkbox             from './Checkbox';
-import CheckboxGroup from './CheckboxGroup';
+import CheckboxGroup        from './CheckboxGroup';
 import Close                from './Close';
 import Cover                from './Cover';
 import CoverBody            from './CoverBody';
 import CoverFooter          from './CoverFooter';
 import CoverHeader          from './CoverHeader';
-import DatePicker           from '../../../node_modules/react-datepicker/dist/react-datepicker.js';
 import Dropdown             from './Dropdown';
 import DropdownFilter       from './DropdownFilter';
 import DropdownMenuDivider  from './DropdownMenuDivider';
@@ -40,7 +43,6 @@ import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
 import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
-import Scrollbars           from '../../../node_modules/react-custom-scrollbars/dist/react-custom-scrollbars.js';
 import SystemAlert          from './SystemAlert';
 import TabContentPane       from './TabContentPane';
 import Table                from './Table';
@@ -49,9 +51,9 @@ import Textarea             from './Textarea';
 import Toast                from './Toast';
 import Tooltip              from './Tooltip';
 import UtilityInlineGrid    from './UtilityInlineGrid';
-import UtilityList    from './UtilityList';
-import UtilityListItem from './UtilityListItem';
-import VariableMessage from './VariableMessage';
+import UtilityList          from './UtilityList';
+import UtilityListItem      from './UtilityListItem';
+import VariableMessage      from './VariableMessage';
 
 import { NotificationActions } from '../NotificationSystem';
 
@@ -85,6 +87,7 @@ export {
   Icon,
   Input,
   Label,
+  Lightbox,
   LoaderCircle,
   LoaderPulse,
   Message,
