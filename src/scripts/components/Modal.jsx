@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Portal from 'react-overlays/lib/Portal';
 
 import { UtilitySystem } from '../components';
 
@@ -134,16 +134,15 @@ class Modal extends React.Component {
 
     return (
       renderModal &&
-        ReactDOM.createPortal(
+        <Portal>
           <div className="modal" ref={ref => (this.modal = ref)}>
             <div className={modalClasses}>
               <div className="modal__content">
                 {children}
               </div>
             </div>
-          </div>,
-          document.body,
-        )
+          </div>
+        </Portal>
     );
   }
 }

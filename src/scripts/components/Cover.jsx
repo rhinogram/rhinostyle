@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Portal from 'react-overlays/lib/Portal';
 
 import { UtilitySystem } from '../components';
 
@@ -136,12 +136,11 @@ class Cover extends React.Component {
 
     return (
       renderCover &&
-        ReactDOM.createPortal(
+        <Portal>
           <div className={classes} ref={ref => (this.cover = ref)}>
             {children}
-          </div>,
-          document.body,
-        )
+          </div>
+        </Portal>
     );
   }
 }
