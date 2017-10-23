@@ -14,7 +14,7 @@ const BucketHeader = (props) => {
       <div className="bucket__header__title">
         {avatar ? (<Avatar size="small" name={props.avatar.name} type={props.avatar.type} image={props.avatar.image} className="bucket__header__title__avatar" />) : null}
         {icon ? (<Icon icon={icon} className={iconClasses} />) : null}
-        {title && title}
+        {title ? (<span>{title}</span>) : null}
       </div>
       {props.children}
     </div>
