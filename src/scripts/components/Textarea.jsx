@@ -13,6 +13,7 @@ class Textarea extends React.Component {
     initialValue: PropTypes.string,
     label: PropTypes.string,
     maxCharacters: PropTypes.number,
+    naked: PropTypes.bool,
     name: PropTypes.string,
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
@@ -25,6 +26,7 @@ class Textarea extends React.Component {
     abbrMaxCharacters: false,
     label: '',
     maxCharacters: null,
+    naked: false,
     name: '',
     placeholder: '',
     required: false,
@@ -71,9 +73,10 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { abbrMaxCharacters, className, disabled, explanationMessage, label, maxCharacters, name, placeholder, required, rows, validationMessage } = this.props;
+    const { abbrMaxCharacters, className, disabled, explanationMessage, label, maxCharacters, naked, name, placeholder, required, rows, validationMessage } = this.props;
     const textAreaClasses = cx('form__control', {
       'form__control--error': validationMessage,
+      'form__control--naked': naked,
     });
     const formGroupClasses = cx('form__group', className);
     const characterCountClasses = cx('form__character-count', {

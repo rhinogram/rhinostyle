@@ -63,6 +63,7 @@ const textareaDocs  = {
   initialValue:       '[Optional] - Any initial value for the textarea',
   label:              '[Optional] - A label for the textarea',
   maxCharacters:      '[Optional] - Set a maximum character limit in order to display character count',
+  naked:              '[Optional] - Form control is stripped down in appearance',
   name:               '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
   disabled:  '[Optional] - Disable the textarea',
   onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
