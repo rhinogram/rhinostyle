@@ -80,6 +80,7 @@ const textareaScope = {
 const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
   disabled:  '[Optional] - Disable the textarea',
+  naked:              '[Optional] - Form control is stripped down in appearance',
   name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
   placeholder:   '[Optional] - Any placeholder text you want in the textarea',
   initialValue:  '[Optional] - Any initial value for the textarea',
