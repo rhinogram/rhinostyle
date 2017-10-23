@@ -74,6 +74,7 @@ class Textarea extends React.Component {
 
   render() {
     const { abbrMaxCharacters, className, disabled, explanationMessage, label, maxCharacters, naked, name, placeholder, required, rows, validationMessage } = this.props;
+
     const textAreaClasses = cx('form__control', {
       'form__control--error': validationMessage,
       'form__control--naked': naked,
