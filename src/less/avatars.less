@@ -24,16 +24,17 @@
   border-radius: 50%;
   color: @global-color-white;
   display: inline-flex;
-  font-size: @base-h3-font-size;
   height: @avatar-size-base;
-  justify-content: center;
-  letter-spacing: 0.1rem;
   margin-bottom: 0;
+  justify-content: center;
   overflow: hidden;
   pointer-events: none;
-  text-transform: uppercase;
-  vertical-align: middle;
   width: @avatar-size-base;
+
+  text {
+    fill: @global-color-white;
+    text-transform: uppercase;
+  }
 }
 
 
@@ -44,10 +45,18 @@
 
 .avatar--default {
   background-color: @avatar-bg-default;
+
+  circle {
+    fill: @avatar-bg-default;
+  }
 }
 
 .avatar--member {
   background-color: @avatar-bg-member;
+
+  circle {
+    fill: @avatar-bg-member;
+  }
 }
 
 
@@ -57,19 +66,16 @@
 
 
 .avatar--large {
-  font-size: @base-h2-font-size;
   height: @avatar-size-large;
   width: @avatar-size-large;
 }
 
 .avatar--xlarge {
-  font-size: @base-h1-font-size;
   height: @avatar-size-xlarge;
   width: @avatar-size-xlarge;
 }
 
 .avatar--small {
-  font-size: @base-h6-font-size;
   height: @avatar-size-small;
   // use min-width to prevent flex shrinking since we know the width
   // otherwise we would use flex-shrink: 0;
