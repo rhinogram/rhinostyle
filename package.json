@@ -1,6 +1,6 @@
 {
   "name": "rhinostyle",
-  "version": "0.12.1",
+  "version": "0.12.3",
   "license": "MIT",
   "description": "Components, patterns, and style guide for Rhinogram.",
   "main": "dist/scripts/rhinostyle.min.js",
@@ -91,9 +91,9 @@
     "moment": "2.19.1",
     "prop-types": "15.6.0",
     "react-custom-scrollbars": "4.2.0",
-    "react-datepicker": "0.57.0",
+    "react-datepicker": "0.56.0",
     "react-image-lightbox": "4.3.0",
-    "react-onclickoutside": "6.6.2",
+    "react-onclickoutside": "6.1.1",
     "react-router": "3.2.0",
     "react-textarea-autosize": "5.1.0"
   }

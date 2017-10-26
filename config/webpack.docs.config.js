@@ -25,12 +25,6 @@ module.exports = {
     react: 'umd react',
     'react-dom': 'umd react-dom',
     TweenLite: 'TweenLite',
-    'react-onclickoutside': {
-      root: 'onClickOutside',
-      commonjs2: 'react-onclickoutside',
-      commonjs: 'react-onclickoutside',
-      amd: 'react-onclickoutside',
-    },
   },
   module: {
     rules: [
