@@ -18,6 +18,7 @@ class MessageBox extends React.Component {
     placeholder: PropTypes.string,
     required: PropTypes.bool,
     maxHeight: PropTypes.string,
+    naked: PropTypes.bool,
     initialValue: PropTypes.string,
     focus: PropTypes.bool,
     rows: PropTypes.number,
@@ -26,6 +27,7 @@ class MessageBox extends React.Component {
   static defaultProps = {
     label: '',
     initialValue: '',
+    naked: false,
     name: '',
     placeholder: '',
     rows: 1,
@@ -95,12 +97,13 @@ class MessageBox extends React.Component {
   }
 
   render() {
-    const { required, rows, className, disabled, label, name, placeholder, maxHeight } = this.props;
-    const textAreaClasses = cx('form__control', 'u-overflow-y-auto');
+    const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight } = this.props;
+
+    const textAreaClasses = cx('form__control u-overflow-y-auto', {
+      'form__control--naked': naked,
+    });
     const formGroupClasses = cx('form__group', className);
-    const messageBoxStyle = {
-      maxHeight,
-    };
+    const messageBoxStyle = { maxHeight };
 
     const showLabel = () => {
       if (label) {

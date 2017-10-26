@@ -82,9 +82,10 @@ class Avatar extends React.Component {
     }
 
     return (
-      <figure className={classes}>
-        {initials}
-      </figure>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className={classes}>
+        <circle cx="50" cy="50" r="50" />
+        <text x="50" y="50" textAnchor="middle" alignmentBaseline="central" fontSize="40">{initials}</text>
+      </svg>
     );
   }
 }
