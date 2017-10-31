@@ -22,8 +22,6 @@ module.exports = {
     filename: '[name].js',
   },
   externals: {
-    react: 'umd react',
-    'react-dom': 'umd react-dom',
     TweenLite: 'TweenLite',
   },
   module: {

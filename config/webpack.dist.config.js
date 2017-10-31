@@ -17,8 +17,6 @@ module.exports = {
     path: path.join(__dirname, '../', paths.scripts.dist),
   },
   externals: {
-    react: 'umd react',
-    'react-dom': 'umd react-dom',
     TweenLite: 'TweenLite',
   },
   module: {
