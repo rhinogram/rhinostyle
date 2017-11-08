@@ -317,17 +317,12 @@ body {
 
   padding-top: @global-whitespace-base;
 
-  > li {
-    padding: 0 @global-whitespace-base;
-
-    + li {
-      margin-top: @global-whitespace-xsmall;
-    }
+  > li + li {
+    margin-top: @global-whitespace-xsmall;
   }
 }
 
 .site-navigation__nav__button {
-  border-radius: @global-border-radius;
   color: @global-color-white;
   display: block;
   padding: @global-whitespace-small @global-whitespace-base;
