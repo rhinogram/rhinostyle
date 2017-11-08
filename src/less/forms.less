@@ -3,9 +3,8 @@
 //
 
 
-@input-bg: @global-color-white;
-@input-bg-disabled: @global-color-gray-lightest;
-@input-border: @global-border-color-base;
+@input-bg: @global-color-panel;
+@input-border: @global-border-color;
 @input-border-focus: #66afe9;
 @input-border-radius: @global-border-radius;
 @input-color: @global-font-color;
@@ -18,7 +17,7 @@
 
 @textarea-vertical-padding: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
 
-@form-addon-item-bg: @global-color-panel;
+@form-addon-item-bg: @input-bg;
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: 3rem;
 @form-element-color: @global-color-primary;
@@ -50,7 +49,7 @@
 
 @rhinorange-track-height: 6px;
 @rhino-range-track-border-radius: (@rhinorange-track-height / 2);
-@rhinorange-track-background: @global-border-color-light;
+@rhinorange-track-background: @global-border-color;
 
 //
 // Component
@@ -359,6 +358,10 @@ input[type='checkbox']:focus {
   .form__control:not(:first-child):not(:last-child) {
     border-radius: 0;
   }
+
+  .form__control:not(:last-child) {
+    border-right: 0;
+  }
 }
 
 .form__addon__item {
@@ -378,12 +381,18 @@ input[type='checkbox']:focus {
   border-bottom-left-radius: @input-border-radius;
   border-right: 0;
   border-top-left-radius: @input-border-radius;
+  padding-right: 0;
+
+  + .form__control {
+    border-left: 0;
+  }
 }
 
 .form__addon__item--right {
   border-bottom-right-radius: @input-border-radius;
   border-left: 0;
   border-top-right-radius: @input-border-radius;
+  padding-left: 0;
 }
 
 
@@ -498,7 +507,6 @@ input[type='checkbox']:focus {
 
   &[disabled],
   fieldset[disabled] & {
-    background-color: @input-bg-disabled;
     cursor: not-allowed;
     opacity: @global-opacity-disabled; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
@@ -708,7 +716,7 @@ input[type='checkbox'] {
   label {
     &::before {
       background-color: @global-color-white;
-      border: 1px solid @global-border-color-base;
+      border: 1px solid @global-border-color;
       content: '';
       display: inline-block;
       height: @rhinobox-rhinodio-size;
@@ -749,7 +757,7 @@ input[type='checkbox'] {
 
     &::before {
       background-color: @global-color-white;
-      border: 1px solid @global-border-color-base;
+      border: 1px solid @global-border-color;
       border-radius: 50%;
       content: '';
       display: inline-block;

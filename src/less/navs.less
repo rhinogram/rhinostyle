@@ -36,7 +36,7 @@
 
   .nav-tabs__item:last-child .nav-tabs__item__link {
     &::after {
-      background: @global-border-color-base;
+      background: @global-border-color;
       bottom: 0;
       content: '';
       height: 1px;
@@ -89,7 +89,7 @@
   }
 
   .nav-tabs__item__link {
-    border: 1px solid @global-border-color-base;
+    border: 1px solid @global-border-color;
     padding: @nav-link-padding-small;
 
     // hide pseudo border that runs to the run for non-justified tabs
@@ -114,7 +114,7 @@
   // left and right tab borders
   &::after,
   &::before {
-    border-color: @global-border-color-base;
+    border-color: @global-border-color;
     border-style: solid;
     bottom: 0;
     content: '';
@@ -131,7 +131,7 @@
   }
 
   &::before {
-    border-color: @global-border-color-base;
+    border-color: @global-border-color;
     border-width: 0 0 1px;
   }
 

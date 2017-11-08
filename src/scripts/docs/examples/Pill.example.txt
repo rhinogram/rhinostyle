@@ -3,7 +3,7 @@ class ComponentExample extends React.Component {
     return (
       <UtilityInlineGrid>
         <Pill label="Default Pill" icon="cog" />
-        <Pill label="Default Pill" />
+        <Pill type="primary" label="Primary Pill" />
         <Pill label="Default Pill Disabled" disabled />
         <br />
         <Pill label="Click Me" onClick={() => alert('clicked!')} />

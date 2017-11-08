@@ -10,7 +10,6 @@
 @variable-message-compose-horizontal-padding: @input-padding-base;
 @variable-message-compose-vertical-padding: @textarea-vertical-padding;
 @variable-message-compose-border-radius: @input-border-radius;
-@variable-message-line-height: (@global-line-height-base + 0.2);
 
 //
 // Component
@@ -32,8 +31,6 @@
 }
 
 .variable-message__compose {
-  line-height: @variable-message-line-height;
-
   &[contenteditable='true'] {
     background-color: @variable-message-compose-bg;
     border: 1px solid @variable-message-compose-border-color;
@@ -59,10 +56,12 @@
   margin-left: @global-whitespace-small;
 }
 
+// 1. Help space out stacking variables
 .variable-message__variable {
   &:extend(.pill);
-  &:extend(.pill--default);
+  &:extend(.pill--primary);
 
+  margin-bottom: 0.1rem; // 1
   cursor: default;
   user-select: none;
   vertical-align: baseline;
@@ -91,7 +90,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-image: url('@{svg-sprite}#icon-close');
-    fill: @pill-color;
+    fill: @pill-primary-color;
     position: absolute;
     top: 0;
     left: 0;

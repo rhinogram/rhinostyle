@@ -244,7 +244,7 @@ class DropdownMultiSelect extends React.Component {
       });
 
       return (
-        <Pill label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} />
+        <Pill type="primary" label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} />
       );
     };
 

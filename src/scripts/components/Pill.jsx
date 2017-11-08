@@ -5,13 +5,14 @@ import React from 'react';
 import { Icon }  from '../components';
 
 const Pill = (props) => {
-  const { className, disabled, icon, onClick, label, type } = props;
+  const { className, disabled, icon, hideClose, onClick, label, type } = props;
   const classes = cx('button--reset pill', className, {
-    'pill--default':  type === 'default',
+    'pill--default': type === 'default',
+    'pill--primary': type === 'primary',
   });
 
   return (
-    <button type="button" className={classes} onClick={onClick} disabled={disabled}>{icon ? (<Icon icon={icon} className="pill__icon" />) : null} {label} <Icon icon="close" className="pill__close" /></button>
+    <button type="button" className={classes} onClick={onClick} disabled={disabled}>{icon ? (<Icon icon={icon} className="pill__icon" />) : null} {label} {(!disabled && !hideClose) && <Icon icon="close" className="pill__close" /> }</button>
   );
 };
 
@@ -21,14 +22,16 @@ Pill.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.string,
+  hideClose: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default']),
+  type: PropTypes.oneOf(['default', 'primary']),
 };
 
 Pill.defaultProps = {
   onClick: () => {},
   type: 'default',
+  hideClose: false,
 };
 
 export default Pill;
