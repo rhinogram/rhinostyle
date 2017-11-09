@@ -20,10 +20,6 @@
 @button-height-large: @global-height-large;
 @button-height-small: @global-height-small;
 
-@button-icon-padding-base: @button-height-base / 4;
-@button-icon-padding-large: @button-height-large / 4;
-@button-icon-padding-small: @button-height-small / 4;
-
 @button-padding-base: (@global-whitespace-small + (@global-whitespace-xsmall / 2));
 @button-padding-large: (@global-whitespace-small + @global-whitespace-xsmall);
 @button-padding-small: @global-whitespace-small;
@@ -260,17 +256,15 @@
 
 
 .button--icon {
-  padding-left: @button-icon-padding-base;
-  padding-right: @button-icon-padding-base;
+  padding: 0;
+  width: @button-height-base;
 
   &.button--large {
-    padding-left: @button-icon-padding-large;
-    padding-right: @button-icon-padding-large;
+    width: @button-height-large;
   }
 
   &.button--small {
-    padding-left: @button-icon-padding-small;
-    padding-right: @button-icon-padding-small;
+    width: @button-height-small;
   }
 }
 
