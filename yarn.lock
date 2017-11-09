@@ -2932,9 +2932,9 @@ eslint-config-airbnb@15.1.0:
   dependencies:
     eslint-config-airbnb-base "^11.3.0"
 
-eslint-config-rhinogram@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/eslint-config-rhinogram/-/eslint-config-rhinogram-0.0.4.tgz#f9d1f6c5fb0071a6f4863421a206ab48c5f1993f"
+eslint-config-rhinogram@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-rhinogram/-/eslint-config-rhinogram-0.0.5.tgz#21fe02001470afb8f3b1e66b5ce03fda35678904"
   dependencies:
     babel-eslint "8.0.1"
     eslint "4.4.1"
