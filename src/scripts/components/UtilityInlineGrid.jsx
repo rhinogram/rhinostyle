@@ -10,6 +10,7 @@ const UtilityInlineGrid = (props) => {
     'u-inline-grid--large': size === 'large',
     'u-inline-grid--middle': align === 'middle',
     'u-inline-grid--right': align === 'right',
+    'u-inline-grid--between': align === 'between',
   });
 
   return (
@@ -22,7 +23,7 @@ const UtilityInlineGrid = (props) => {
 UtilityInlineGrid.displayName = 'RhinoUtilityInlineGrid';
 
 UtilityInlineGrid.propTypes = {
-  align: PropTypes.oneOf(['middle', 'right']),
+  align: PropTypes.oneOf(['middle', 'right', 'between']),
   children: PropTypes.node,
   size: PropTypes.oneOf(['small', 'regular', 'large']),
 };

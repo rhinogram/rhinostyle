@@ -7,7 +7,7 @@ import utilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
 import utilityListExample from './examples/UtilityList.example.txt';
 
 const utilityInlineGridDocs = {
-  align: '[Optional] - Align grid along x-axis (left by default) - [middle | right]',
+  align: '[Optional] - Align grid along x-axis (left by default) - [middle | right | between]',
   size: '[Optional] - Gutter size for list (small by default) -  [small | regular | large]',
 };
 const utilityInlineGridScope = {
