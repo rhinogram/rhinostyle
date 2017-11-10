@@ -1391,6 +1391,10 @@ base64id@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/base64id/-/base64id-0.1.0.tgz#02ce0fdeee0cef4f40080e1e73e834f0b1bfce3f"
 
+batch-processor@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/batch-processor/-/batch-processor-1.0.0.tgz#75c95c32b748e0850d10c2b168f6bdbe9891ace8"
+
 batch@0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.5.3.tgz#3f3414f380321743bfc1042f9a83ff1d5824d464"
@@ -2139,6 +2143,13 @@ constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
 
+container-query-toolkit@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/container-query-toolkit/-/container-query-toolkit-0.1.1.tgz#197ec8582d119cd9609bf7cf0ed6b1dc0f8d7f83"
+  dependencies:
+    element-resize-detector "1.1.10"
+    lodash "4.17.4"
+
 contains-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/contains-path/-/contains-path-0.1.0.tgz#fe8cf184ff6670b6baef01a9d4861a5cbec4120a"
@@ -2706,6 +2717,18 @@ electron-to-chromium@^1.3.18:
 element-class@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/element-class/-/element-class-0.2.2.tgz#9d3bbd0767f9013ef8e1c8ebe722c1402a60050e"
+
+element-resize-detector@1.1.10:
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.1.10.tgz#512ca38e1a27b3f6582a83ea0dfed1ba1abab56d"
+  dependencies:
+    batch-processor "^1.0.0"
+
+element-resize-detector@1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/element-resize-detector/-/element-resize-detector-1.1.11.tgz#34dc9aff624239e0ebdba6cdadeeae88a4cf0b1b"
+  dependencies:
+    batch-processor "^1.0.0"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -5191,13 +5214,13 @@ lodash.uniq@^4.3.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
+lodash@4.*, lodash@4.17.4, lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
+  version "4.17.4"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
 lodash@^3.10.1, lodash@^3.8.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
-
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
 lodash@~1.0.1:
   version "1.0.2"
@@ -6692,6 +6715,14 @@ react-codemirror@^1.0.0:
     lodash.isequal "^4.5.0"
     prop-types "^15.5.4"
 
+react-container-query@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/react-container-query/-/react-container-query-0.9.1.tgz#57136d98c1ada18084b27cb45a0006a9f03a95d6"
+  dependencies:
+    container-query-toolkit "0.1.1"
+    lodash "4.*"
+    resize-observer-lite "0.2.2"
+
 react-custom-scrollbars@4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/react-custom-scrollbars/-/react-custom-scrollbars-4.1.2.tgz#0e60c4a46c4a61f9e4994a7663e2b9cbbc5187a3"
@@ -7138,6 +7169,12 @@ require-uncached@^1.0.3:
 requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+resize-observer-lite@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/resize-observer-lite/-/resize-observer-lite-0.2.2.tgz#fa441231bb1bd8204e00729042ec67ea608eca1b"
+  dependencies:
+    element-resize-detector "1.1.11"
 
 resolve-dir@^0.1.0:
   version "0.1.1"

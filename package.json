@@ -83,6 +83,7 @@
     "keymirror": "0.1.1",
     "moment": "2.18.1",
     "prop-types": "15.5.10",
+    "react-container-query": "^0.9.1",
     "react-custom-scrollbars": "4.1.2",
     "react-datepicker": "0.55.0",
     "react-image-lightbox": "4.2.1",

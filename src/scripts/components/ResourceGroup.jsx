@@ -1,8 +1,9 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { ContainerQuery } from 'react-container-query';
 
-import { Resource } from '../components';
+import { Resource, UtilitySystem } from '../components';
 
 class ResourceGroup extends React.Component {
   componentDidMount() {
@@ -30,12 +31,20 @@ class ResourceGroup extends React.Component {
 
   render() {
     const { className } = this.props;
-    const classes = cx('resource-group', className);
+    const containerQueryParams = {
+      'resource-group@large': {
+        maxWidth: parseInt(UtilitySystem.config.breakpoints.smallMax, 10),
+      },
+    };
 
     return (
-      <div className={classes}>
-        {this.renderChildren()}
-      </div>
+      <ContainerQuery query={containerQueryParams}>
+        {params => (
+          <div className={cx('resource-group', className, params)}>
+            {this.renderChildren()}
+          </div>
+        )}
+      </ContainerQuery>
     );
   }
 }
@@ -43,8 +52,8 @@ class ResourceGroup extends React.Component {
 ResourceGroup.displayName = 'Rhinodio';
 
 ResourceGroup.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  children: PropTypes.node,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
 };
 

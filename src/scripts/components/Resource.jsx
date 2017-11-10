@@ -16,15 +16,15 @@ class Resource extends React.Component {
   }
 
   render() {
-    const { children, className, open, selected, interfaceMode } = this.props;
+    const { children, className, active, selected, interfaceMode } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
     const classes = cx('resource', className, {
-      [UtilitySystem.config.classes.open]: open && !interfaceMode,
+      [UtilitySystem.config.classes.active]: active && !interfaceMode,
       'has-interface': interfaceMode,
       [`is-${interfaceClass}`]: interfaceMode,
-      'is-selected': selected && !open,
+      'is-selected': selected && !active,
     });
 
     // eslint-disable no-noninteractive-element-interactions
@@ -41,7 +41,7 @@ Resource.displayName = 'Rhinodio';
 Resource.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  open: PropTypes.bool,
+  active: PropTypes.bool,
   selected: PropTypes.bool,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
   onClick: PropTypes.func,
@@ -49,7 +49,7 @@ Resource.propTypes = {
 
 Resource.defaultProps = {
   className: '',
-  open: false,
+  active: false,
   selected: false,
   interfaceMode: null,
   onClick: () => {},
