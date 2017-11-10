@@ -109,19 +109,42 @@
 
   > :only-child {
     margin-right: 0;
+    flex-basis: 100%;
   }
 }
 
 .resource__column-left__intro {
   display: flex;
   align-items: center;
-  background: blue;
   margin-right: @global-whitespace-base;
+  width: 100%;
+  flex-basis: 300px;
 }
 
+// 1. Match width of small avatar
 .resource__column-left__intro__media {
   flex: none;
+  text-align: center;
+  width: @avatar-size-small;
   margin-right: @global-whitespace-small;
+}
+
+.resource__column-left__intro__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.resource__column-left__intro__title__sub {
+  font-size: @global-font-size-small;
+  color: @global-font-color-muted;
+  margin-left: @global-whitespace-small;
+}
+
+.resource__column-left__intro__title__meta {
+  flex: 100%;
+  font-size: @global-font-size-small;
+  color: @global-color-accent;
 }
 
 .resource__column-left__body {

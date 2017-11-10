@@ -4,7 +4,20 @@ class ComponentExample extends React.Component {
       <ResourceGroup interfaceMode="radio">
         <Resource>
           <ResourceColumnLeftWrapper>
-            <ResourceColumnLeftIntro title="Test" />
+            <ResourceColumnLeftIntro avatar={{ image: '//badimage.jpg', name: 'Robert Plant', type: 'member' }} title="Test" titleSub="I'm a sub thing!">
+              I'm a child!
+            </ResourceColumnLeftIntro>
+            <ResourceColumnLeftBody>
+              Some body stuff!
+            </ResourceColumnLeftBody>
+          </ResourceColumnLeftWrapper>
+          <ResourceColumnRightWrapper>
+            83 Members<br /><span className="u-text-accent">This is a warning!</span>
+          </ResourceColumnRightWrapper>
+        </Resource>
+        <Resource>
+          <ResourceColumnLeftWrapper>
+            <ResourceColumnLeftIntro title="Test" icon="star" iconClick={() => console.log('clicked')} />
             <ResourceColumnLeftBody>
               Some body stuff!
             </ResourceColumnLeftBody>
