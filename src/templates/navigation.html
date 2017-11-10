@@ -1,93 +1,40 @@
+{% set pages = [
+    { url: '', title: 'Introduction' },
+    { url: 'animations', title: 'Animations' },
+    { url: 'avatars', title: 'Avatars' },
+    { url: 'buckets', title: 'Buckets' },
+    { url: 'buttons', title: 'Buttons' },
+    { url: 'close', title: 'Close' },
+    { url: 'colors', title: 'Colors' },
+    { url: 'covers', title: 'Covers' },
+    { url: 'datepicker', title: 'Datepicker' },
+    { url: 'dropdowns', title: 'Dropdowns' },
+    { url: 'feedback', title: 'Feedback' },
+    { url: 'forms', title: 'Forms' },
+    { url: 'grid', title: 'Grid' },
+    { url: 'icons', title: 'Icons' },
+    { url: 'labels', title: 'Labels' },
+    { url: 'lightbox', title: 'Lightbox' },
+    { url: 'loaders', title: 'Loaders' },
+    { url: 'modals', title: 'Modals' },
+    { url: 'messages', title: 'Messages' },
+    { url: 'navigation', title: 'Navigation' },
+    { url: 'pills', title: 'Pills' },
+    { url: 'progressbars', title: 'Progress Bars' },
+    { url: 'resources', title: 'Resources' },
+    { url: 'scrollbars', title: 'ScrollBars' },
+    { url: 'tables', title: 'Tables' },
+    { url: 'tabs', title: 'Tabs' },
+    { url: 'tooltips', title: 'Tooltips' },
+    { url: 'typography', title: 'Typography' },
+    { url: 'utility-classes', title: 'Utility Classes' },
+    { url: 'utility-compoents', title: 'Utility Components' },
+    { url: 'variable-messages', title: 'Variable Messages' }
+  ]
+%}
 
-    <ul class="site-navigation__nav">
-      <li>
-        <a href="{{rootPath}}" class="site-navigation__nav__button">Introduction</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}animations/" class="site-navigation__nav__button">Animations</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}avatars/" class="site-navigation__nav__button">Avatars</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}buckets/" class="site-navigation__nav__button">Buckets</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}buttons/" class="site-navigation__nav__button">Buttons</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}close/" class="site-navigation__nav__button">Close</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}colors/" class="site-navigation__nav__button">Colors</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}covers/" class="site-navigation__nav__button">Covers</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}datepicker/" class="site-navigation__nav__button">Datepicker</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}dropdowns/" class="site-navigation__nav__button">Dropdowns</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}feedback/" class="site-navigation__nav__button">Feedback</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}forms/" class="site-navigation__nav__button">Forms</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}grid/" class="site-navigation__nav__button">Grid</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}icons/" class="site-navigation__nav__button">Icons</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}labels/" class="site-navigation__nav__button">Labels</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}lightbox/" class="site-navigation__nav__button">Lightbox</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}loaders/" class="site-navigation__nav__button">Loaders</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}messages/" class="site-navigation__nav__button">Messages</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}navigation/" class="site-navigation__nav__button">Navigation</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}modals/" class="site-navigation__nav__button">Modals</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}pills/" class="site-navigation__nav__button">Pills</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}progressbars/" class="site-navigation__nav__button">Progress Bars</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}scrollbars/" class="site-navigation__nav__button">Scroll Bars</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}tables/" class="site-navigation__nav__button">Tables</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}tabs/" class="site-navigation__nav__button">Tabs</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}tooltips/" class="site-navigation__nav__button">Tooltips</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}typography/" class="site-navigation__nav__button">Typography</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}utility-classes/" class="site-navigation__nav__button">Utility Classes</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}utility-components/" class="site-navigation__nav__button">Utility Components</a>
-      </li>
-      <li>
-        <a href="{{rootPath}}variable-messages/" class="site-navigation__nav__button">Variable Messages</a>
-      </li>
-    </ul>
+<ul class="site-navigation__nav">
+  {% for page in pages %}
+    <li><a class="site-navigation__nav__button" href="{{rootPath}}{{page.url}}{% if page.url.length > 1 %}/{% endif %}">{{page.title}}</a></li>
+  {% endfor %}
+</ul>

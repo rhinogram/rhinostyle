@@ -63,6 +63,9 @@ switch (currentUrl) { // eslint-disable-line default-case
   case 'progressbars':
     require('./ProgressBarApp');
     break;
+  case 'resources':
+    require('./ResourceApp');
+    break;
   case 'scrollbars':
     require('./ScrollBarApp');
     break;

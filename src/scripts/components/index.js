@@ -39,6 +39,8 @@ import Pill                 from './Pill';
 import ProgressBar          from './ProgressBar';
 import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
+import ResourceGroup        from './ResourceGroup';
+import Resource             from './Resource';
 import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
 import Scrollbars           from '../../../node_modules/react-custom-scrollbars/dist/react-custom-scrollbars.js';
@@ -102,6 +104,8 @@ export {
   ProgressBar,
   Radio,
   RadioGroup,
+  ResourceGroup,
+  Resource,
   RhinoSwitch,
   Scrollbars,
   Select,

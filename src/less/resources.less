@@ -1,0 +1,98 @@
+//
+// Variables
+//
+
+@resource-min-height: 50px;
+@resource-padding: @global-whitespace-medium;
+@resource-interface-size: 2rem;
+
+@resource-interface-active-decrease: 0.6rem;
+
+//
+// Component
+//
+
+.resource-group {
+  border: 1px solid @global-border-color;
+}
+
+.resource {
+  display: flex;
+  min-height: @resource-min-height;
+  align-items: center;
+  padding: @resource-padding;
+  position: relative;
+  cursor: pointer;
+
+  & + & {
+    border-top: 1px solid @global-border-color;
+  }
+
+  &.is-open {
+    &::before {
+      content: '';
+      width: 2px;
+      height: 100%;
+      background: @global-color-primary;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &.has-interface {
+    padding-right: (@resource-padding + @resource-interface-size + @global-whitespace-xsmall);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: (@resource-interface-size - @resource-padding);
+      transform: translateY(-50%);
+      width: @resource-interface-size;
+      height: @resource-interface-size;
+      border: 1px solid @global-border-color;
+      z-index: 1;
+    }
+  }
+
+  &.is-checkbox,
+  &.is-radio {
+    &.is-selected {
+      &::before {
+        content: '';
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        right: (@resource-interface-size - @resource-padding + (@resource-interface-active-decrease / 2));
+        transform: translateY(-50%);
+        width: (@resource-interface-size - @resource-interface-active-decrease);
+        height: (@resource-interface-size - @resource-interface-active-decrease);
+      }
+    }
+  }
+
+  &.is-checkbox {
+    &.is-selected {
+      &::before {
+        fill: @global-color-secondary;
+        background-image: url('@{svg-sprite}#icon-checkmark');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  &.is-radio {
+    &::after {
+      border-radius: 50%;
+    }
+
+    &.is-selected {
+      &::before {
+        background: @global-color-primary;
+        border-radius: 50%;
+      }
+    }
+  }
+}
