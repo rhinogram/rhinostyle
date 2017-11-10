@@ -2,8 +2,17 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <ResourceGroup interfaceMode="radio">
-        <Resource />
-        <Resource selected />
+        <Resource>
+          <ResourceColumnLeftWrapper>
+            <ResourceColumnLeftIntro title="Test" />
+            <ResourceColumnLeftBody>
+              Some body stuff!
+            </ResourceColumnLeftBody>
+          </ResourceColumnLeftWrapper>
+          <ResourceColumnRightWrapper>
+            83 Members<br /><span className="u-text-accent">This is a warning!</span>
+          </ResourceColumnRightWrapper>
+        </Resource>
       </ResourceGroup>
     );
   }

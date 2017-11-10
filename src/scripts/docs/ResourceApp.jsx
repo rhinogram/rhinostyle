@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Resource, ResourceGroup } from '../components';
+import { Resource, ResourceGroup, ResourceColumnLeftWrapper, ResourceColumnLeftIntro, ResourceColumnLeftBody, ResourceColumnRightWrapper } from '../components';
 import resourceExample from './examples/Resource.example.txt';
 
 const exampleScope  = {
@@ -10,6 +10,10 @@ const exampleScope  = {
   ReactDOM,
   Resource,
   ResourceGroup,
+  ResourceColumnLeftWrapper,
+  ResourceColumnLeftIntro,
+  ResourceColumnLeftBody,
+  ResourceColumnRightWrapper,
 };
 
 const resourceDocs = {

@@ -5,10 +5,6 @@ import React from 'react';
 import { UtilitySystem } from '../components';
 
 class Resource extends React.Component {
-  componentDidMount() {
-    //console.log('test');
-  }
-
   handleClick = () => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick();
@@ -27,7 +23,6 @@ class Resource extends React.Component {
       'is-selected': selected && !active,
     });
 
-    // eslint-disable no-noninteractive-element-interactions
     return (
       <div role="button" tabIndex={0} className={classes} onClick={this.handleClick}>
         {children}
@@ -36,7 +31,7 @@ class Resource extends React.Component {
   }
 }
 
-Resource.displayName = 'Rhinodio';
+Resource.displayName = 'RhinoResource';
 
 Resource.propTypes = {
   children: PropTypes.node,

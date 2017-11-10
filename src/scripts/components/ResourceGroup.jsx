@@ -32,7 +32,7 @@ class ResourceGroup extends React.Component {
   render() {
     const { className } = this.props;
     const containerQueryParams = {
-      'resource-group@large': {
+      'resource-group@small': {
         maxWidth: parseInt(UtilitySystem.config.breakpoints.smallMax, 10),
       },
     };
@@ -49,7 +49,7 @@ class ResourceGroup extends React.Component {
   }
 }
 
-ResourceGroup.displayName = 'Rhinodio';
+ResourceGroup.displayName = 'RhinoResourceGroup';
 
 ResourceGroup.propTypes = {
   className: PropTypes.string,

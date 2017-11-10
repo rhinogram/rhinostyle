@@ -41,6 +41,10 @@ import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
 import ResourceGroup        from './ResourceGroup';
 import Resource             from './Resource';
+import ResourceColumnLeftWrapper from './ResourceColumnLeftWrapper';
+import ResourceColumnRightWrapper from './ResourceColumnRightWrapper';
+import ResourceColumnLeftIntro from './ResourceColumnLeftIntro';
+import ResourceColumnLeftBody from './ResourceColumnLeftBody';
 import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
 import Scrollbars           from '../../../node_modules/react-custom-scrollbars/dist/react-custom-scrollbars.js';
@@ -105,6 +109,10 @@ export {
   Radio,
   RadioGroup,
   ResourceGroup,
+  ResourceColumnLeftWrapper,
+  ResourceColumnRightWrapper,
+  ResourceColumnLeftIntro,
+  ResourceColumnLeftBody,
   Resource,
   RhinoSwitch,
   Scrollbars,
