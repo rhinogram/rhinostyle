@@ -1,4 +1,8 @@
 class ComponentExample extends React.Component {
+  handleIconClick = () => {
+    console.log('Clicked!');
+  }
+
   render() {
     return (
       <ResourceGroup interfaceMode="radio">
@@ -17,7 +21,7 @@ class ComponentExample extends React.Component {
         </Resource>
         <Resource>
           <ResourceColumnLeftWrapper>
-            <ResourceColumnLeftIntro title="Test" icon="star" iconClick={() => console.log('clicked')} />
+            <ResourceColumnLeftIntro title="Test" icon={{ icon: 'star', bump: 'up', onClick: this.handleIconClick }} />
             <ResourceColumnLeftBody>
               Some body stuff!
             </ResourceColumnLeftBody>

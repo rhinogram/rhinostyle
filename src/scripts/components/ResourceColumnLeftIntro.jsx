@@ -9,19 +9,22 @@ class ResourceColumnLeftIntro extends React.Component {
   }
 
   handleIconClick = () => {
-    if (this.props.iconClick && typeof (this.props.iconClick === 'function')) {
-      this.props.iconClick();
+    const { icon } = this.props;
+
+    if (icon.onClick && typeof (icon.onClick === 'function')) {
+      icon.onClick();
     }
   }
 
   renderMedia = () => {
     const { icon, avatar } = this.props;
     let output = null;
+    const validIcon = icon.icon;
 
-    if (icon) {
+    if (validIcon) {
       output = (
         <button className="button--reset" onClick={this.handleIconClick}>
-          <Icon icon={icon} />
+          <Icon bump={icon.bump} icon={icon.icon} />
         </button>
       );
     } else if (avatar) {
@@ -36,8 +39,10 @@ class ResourceColumnLeftIntro extends React.Component {
     }
 
     if (output) {
+      const classes = `resource__column-left__intro__media${validIcon ? ' resource__column-left__intro__media--icon' : ''}`;
+
       return (
-        <div className="resource__column-left__intro__media">
+        <div className={classes}>
           {output}
         </div>
       );
@@ -75,18 +80,24 @@ ResourceColumnLeftIntro.propTypes = {
     name: PropTypes.string,
     type: PropTypes.oneOf(['default', 'member']),
   }),
+  icon: PropTypes.shape({
+    icon: PropTypes.string,
+    bump: PropTypes.string,
+    onClick: PropTypes.func,
+  }),
   children: PropTypes.node,
   title: PropTypes.string,
   titleSub: PropTypes.string,
-  icon: PropTypes.string,
-  iconClick: PropTypes.func,
 };
 
 ResourceColumnLeftIntro.defaultProps = {
   title: '',
   titleSub: '',
-  icon: '',
-  iconClick: () => {},
+  icon: {
+    icon: '',
+    bump: null,
+    onClick: () => {},
+  },
 };
 
 export default ResourceColumnLeftIntro;

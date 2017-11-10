@@ -118,15 +118,18 @@
   align-items: center;
   margin-right: @global-whitespace-base;
   width: 100%;
-  flex-basis: 300px;
+  flex-basis: 250px;
 }
 
 // 1. Match width of small avatar
 .resource__column-left__intro__media {
   flex: none;
-  text-align: center;
   width: @avatar-size-small;
   margin-right: @global-whitespace-small;
+}
+
+.resource__column-left__intro__media--icon {
+  width: @icon-size;
 }
 
 .resource__column-left__intro__title {
@@ -153,6 +156,8 @@
 }
 
 .resource__column-right-wrapper {
+  text-align: right;
   margin-left: auto;
   font-size: @global-font-size-xsmall;
+  flex-basis: 150px;
 }
