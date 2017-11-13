@@ -17,14 +17,18 @@ const exampleScope  = {
 };
 
 const resourceDocs = {
-  children: 'Stuff',
+  active: '[Optional] - Adds active styling to item; normally used within a list view',
+  selected: '[Optional] - Used in conjunction with interfaceMode to determine an actively selected item',
+  interfaceMode: '[Optional] - Set on the parent <ResourceGroup /> is passed down to impact styling of an item',
+  onClick: '[Optional] - Fires on click of an item',
+  unread: '[Optional] - Adds unread styling to an item; normally used within a list view',
 };
 
-const TooltipsApp = () =>
+const ResourcesApp = () =>
   (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Resources</h3>
-      <p className="site-text-lead">Description</p>
+      <p className="site-text-lead">A multi-use component used to display items throughout the application.</p>
     </section>
 
     <section className="site-section">
@@ -33,4 +37,4 @@ const TooltipsApp = () =>
     </section>
   </div>);
 
-ReactDOM.render(<TooltipsApp />, document.getElementById('js-app'));
+ReactDOM.render(<ResourcesApp />, document.getElementById('js-app'));
