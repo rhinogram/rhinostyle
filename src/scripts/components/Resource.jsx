@@ -12,7 +12,7 @@ class Resource extends React.Component {
   }
 
   render() {
-    const { children, className, active, selected, interfaceMode } = this.props;
+    const { children, className, active, selected, interfaceMode, unread } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
@@ -21,6 +21,7 @@ class Resource extends React.Component {
       'has-interface': interfaceMode,
       [`is-${interfaceClass}`]: interfaceMode,
       'is-selected': selected && !active,
+      'is-unread': unread,
     });
 
     return (
@@ -40,6 +41,7 @@ Resource.propTypes = {
   selected: PropTypes.bool,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
   onClick: PropTypes.func,
+  unread: PropTypes.bool,
 };
 
 Resource.defaultProps = {

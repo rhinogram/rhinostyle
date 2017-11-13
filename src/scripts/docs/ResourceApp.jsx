@@ -28,7 +28,7 @@ const TooltipsApp = () =>
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Tooltips Playground</h3>
+      <h3 className="site-subheadline">Resources Playground</h3>
       <Playground theme="default" docClass={Resource} propDescriptionMap={resourceDocs} codeText={resourceExample} scope={exampleScope} noRender={false} />
     </section>
   </div>);

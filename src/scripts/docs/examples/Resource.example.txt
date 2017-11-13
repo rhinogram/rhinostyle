@@ -19,7 +19,7 @@ class ComponentExample extends React.Component {
             83 Members<br /><span className="u-text-accent">This is a warning!</span>
           </ResourceColumnRightWrapper>
         </Resource>
-        <Resource>
+        <Resource unread>
           <ResourceColumnLeftWrapper>
             <ResourceColumnLeftIntro title="Test" icon={{ icon: 'star', bump: 'up', onClick: this.handleIconClick }} />
             <ResourceColumnLeftBody>

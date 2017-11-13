@@ -3,8 +3,10 @@
 //
 
 @resource-min-height: 50px;
-@resource-padding: @global-whitespace-base;
+@resource-padding-horizontal: (@global-whitespace-base + @global-whitespace-small);
+@resource-padding-vertical: @global-whitespace-base;
 @resource-interface-size: 2rem;
+@resource-unread-size: 1rem;
 
 @resource-interface-active-decrease: 0.6rem;
 
@@ -20,7 +22,7 @@
   display: flex;
   min-height: @resource-min-height;
   align-items: center;
-  padding: @resource-padding;
+  padding: @resource-padding-vertical @resource-padding-horizontal;
   position: relative;
   cursor: pointer;
 
@@ -40,13 +42,13 @@
   }
 
   &.has-interface {
-    padding-right: (@resource-padding + @resource-interface-size + @global-whitespace-xsmall);
+    padding-right: (@resource-padding-horizontal + @resource-interface-size + @global-whitespace-xsmall);
 
     &::after {
       content: '';
       position: absolute;
       top: 50%;
-      right: (@resource-interface-size / 2);
+      right: (@resource-interface-size / 2) + (@global-whitespace-small / 2);
       transform: translateY(-50%);
       width: @resource-interface-size;
       height: @resource-interface-size;
@@ -106,6 +108,22 @@
   align-items: center;
   margin-right: @global-whitespace-base;
   width: 100%;
+  position: relative;
+
+  .is-unread & {
+    &::before {
+      content: '';
+      width: @resource-unread-size;
+      height: @resource-unread-size;
+      background: fadeout(@global-color-primary, 75%);
+      border: 1px solid @global-color-primary;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: -(@resource-padding-horizontal / 2) - (@resource-unread-size / 2);
+      transform: translateY(-50%);
+    }
+  }
 
   > :only-child {
     margin-right: 0;
@@ -141,13 +159,17 @@
 .resource__column-left__intro__title__sub {
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
-  margin-left: @global-whitespace-small;
+
+  &::before {
+    content: '-';
+    display: inline-block;
+    padding: 0 @global-whitespace-small;
+  }
 }
 
 .resource__column-left__intro__title__meta {
   flex: 100%;
   font-size: @global-font-size-small;
-  color: @global-color-accent;
 }
 
 .resource__column-left__body {
