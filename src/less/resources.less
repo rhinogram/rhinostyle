@@ -7,6 +7,8 @@
 @resource-padding-vertical: @global-whitespace-base;
 @resource-interface-size: 2rem;
 @resource-unread-size: 1rem;
+@resource-icon-size: 1.25em;
+@resource-avatar-size: @avatar-size-small;
 
 @resource-interface-active-decrease: 0.6rem;
 
@@ -25,6 +27,10 @@
   padding: @resource-padding-vertical @resource-padding-horizontal;
   position: relative;
   cursor: pointer;
+
+  .resource-group\@small & {
+    align-items: flex-start;
+  }
 
   & + & {
     border-top: 1px solid @global-border-color;
@@ -54,6 +60,13 @@
       height: @resource-interface-size;
       border: 1px solid @global-border-color;
       z-index: 1;
+    }
+
+    .resource-group\@small & {
+      &::after {
+        transform: none;
+        top: (@resource-interface-size / 2) + (@global-whitespace-small / 2);
+      }
     }
   }
 
@@ -104,25 +117,14 @@
 }
 
 .resource__column-left-wrapper {
-  display: flex;
-  align-items: center;
   margin-right: @global-whitespace-base;
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
 
-  .is-unread & {
-    &::before {
-      content: '';
-      width: @resource-unread-size;
-      height: @resource-unread-size;
-      background: fadeout(@global-color-primary, 75%);
-      border: 1px solid @global-color-primary;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: -(@resource-padding-horizontal / 2) - (@resource-unread-size / 2);
-      transform: translateY(-50%);
-    }
+  .resource-group\@small & {
+    display: block;
   }
 
   > :only-child {
@@ -142,8 +144,29 @@
 // 1. Match width of small avatar
 .resource__column-left__intro__media {
   flex: none;
-  width: @avatar-size-small;
+  width: @resource-avatar-size;
   margin-right: @global-whitespace-small;
+  position: relative;
+
+  .is-unread & {
+    &::before {
+      content: '';
+      width: @resource-unread-size;
+      height: @resource-unread-size;
+      background: fadeout(@global-color-primary, 75%);
+      border: 1px solid @global-color-primary;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: -(@resource-padding-horizontal / 2) - (@resource-unread-size / 2);
+      transform: translateY(-50%);
+    }
+  }
+
+  .icon {
+    width: @resource-icon-size;
+    height: @resource-icon-size;
+  }
 }
 
 .resource__column-left__intro__media--icon {
@@ -156,15 +179,13 @@
   align-items: center;
 }
 
+.resource__column-left__intro__title__content.has-subtitle {
+  margin-right: @global-whitespace-small;
+}
+
 .resource__column-left__intro__title__sub {
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
-
-  &::before {
-    content: '-';
-    display: inline-block;
-    padding: 0 @global-whitespace-small;
-  }
 }
 
 .resource__column-left__intro__title__meta {
@@ -175,6 +196,10 @@
 .resource__column-left__body {
   flex: 1;
   font-size: @global-font-size-small;
+
+  .resource-group\@small & {
+    margin-top: @global-whitespace-small;
+  }
 }
 
 .resource__column-right-wrapper {

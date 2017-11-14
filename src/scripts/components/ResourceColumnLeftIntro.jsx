@@ -53,10 +53,11 @@ class ResourceColumnLeftIntro extends React.Component {
 
   renderTitle = () => {
     const { title, titleSub, children } = this.props;
+    const titleClass = `resource__column-left__intro__title__content ${titleSub ? 'has-subtitle' : ''}`;
 
     return (
       <div className="resource__column-left__intro__title">
-        {title}{titleSub && <span className="resource__column-left__intro__title__sub">{titleSub}</span>}
+        <span className={titleClass}>{title}</span>{titleSub && <span className="resource__column-left__intro__title__sub">({titleSub})</span>}
         {children && <div className="resource__column-left__intro__title__meta">{children}</div>}
       </div>
     );
