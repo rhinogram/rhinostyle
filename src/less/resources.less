@@ -181,8 +181,15 @@
   align-items: center;
 }
 
-.resource__column-left__intro__title__content.has-subtitle {
-  margin-right: @global-whitespace-small;
+.resource__column-left__intro__title__content {
+  &.has-subtitle {
+    margin-right: @global-whitespace-small;
+  }
+
+  .is-active &,
+  .is-unread & {
+    font-weight: @global-font-weight-bold;
+  }
 }
 
 .resource__column-left__intro__title__sub {
