@@ -30,7 +30,7 @@ class ResourceGroup extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, maxHeight } = this.props;
     const containerQueryParams = {
       'resource-group@small': {
         maxWidth: parseInt(UtilitySystem.config.breakpoints.xsmallMax, 10),
@@ -40,7 +40,11 @@ class ResourceGroup extends React.Component {
     return (
       <ContainerQuery query={containerQueryParams}>
         {params => (
-          <div className={cx('resource-group', className, params)}>
+          <div className={cx('resource-group', className, {
+            ...params,
+            'has-max-height': maxHeight,
+          })}
+          >
             {this.renderChildren()}
           </div>
         )}
@@ -54,12 +58,14 @@ ResourceGroup.displayName = 'RhinoResourceGroup';
 ResourceGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
+  maxHeight: PropTypes.bool,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
 };
 
 ResourceGroup.defaultProps = {
   className: '',
   interfaceMode: null,
+  maxHeight: false,
 };
 
 export default ResourceGroup;

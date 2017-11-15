@@ -2,6 +2,9 @@
 // Variables
 //
 
+
+@resource-group-max-height: 500px;
+
 @resource-min-height: 50px;
 @resource-padding-horizontal: (@global-whitespace-base + @global-whitespace-small);
 @resource-padding-vertical: @global-whitespace-base;
@@ -19,6 +22,11 @@
 .resource-group {
   border: 1px solid @global-border-color;
   background: @global-color-white;
+  overflow-y: auto;
+
+  &.has-max-height {
+    max-height: @resource-group-max-height;
+  }
 }
 
 .resource {
@@ -60,8 +68,13 @@
       transform: translateY(-50%);
       width: @resource-interface-size;
       height: @resource-interface-size;
-      border: 1px solid @global-border-color;
       z-index: 1;
+    }
+
+    &.is-radio {
+      &::after {
+        border: 1px solid @global-border-color;
+      }
     }
 
     .resource-group\@small & {
@@ -80,7 +93,7 @@
         z-index: 2;
         position: absolute;
         top: 50%;
-        right: ((@resource-interface-size / 2) + (@resource-interface-active-decrease / 2));
+        right: ((@resource-interface-size / 2) + (@global-whitespace-small / 2) + (@resource-interface-active-decrease / 2));
         transform: translateY(-50%);
         width: (@resource-interface-size - @resource-interface-active-decrease);
         height: (@resource-interface-size - @resource-interface-active-decrease);
