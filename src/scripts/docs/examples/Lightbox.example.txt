@@ -1,8 +1,8 @@
 const images = [
-  '//placekitten.com/1500/500',
-  '//placekitten.com/4000/3000',
-  '//placekitten.com/800/1200',
-  '//placekitten.com/1500/1500',
+  'https://source.unsplash.com/random/1200x500',
+  'https://source.unsplash.com/random/1000x500',
+  'https://source.unsplash.com/random/800x1200',
+  'https://source.unsplash.com/random/1200x1500',
 ];
 
 class ComponentExample extends React.Component {

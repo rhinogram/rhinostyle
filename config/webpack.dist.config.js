@@ -17,8 +17,6 @@ module.exports = {
     path: path.join(__dirname, '../', paths.scripts.dist),
   },
   externals: {
-    react: 'umd react',
-    'react-dom': 'umd react-dom',
     TweenLite: 'TweenLite',
   },
   module: {
@@ -54,9 +52,10 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-    }),
+    // Disabling until https://github.com/fritz-c/react-image-lightbox/issues/88 is resolved
+    // Causing an issue within main application
+    //new webpack.optimize.UglifyJsPlugin(),
+
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
