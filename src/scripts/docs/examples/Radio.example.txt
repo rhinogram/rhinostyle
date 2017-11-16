@@ -17,6 +17,21 @@ class ComponentExample extends React.Component {
           <Radio value="2">Radio Two</Radio>
           <Radio value="3">Radio Three</Radio>
         </RadioGroup>
+
+        <RadioGroup blockGroup name="exampleRadio8" label="Radios (block group)" onChange={this.optionalCallbackFunction} selectedValue="3">
+          <Radio value="1">
+            <span className="rhinodio__block-group__label">Radio 1</span>
+            <span className="rhinodio__block-group__desc">This is a test description</span>
+          </Radio>
+          <Radio value="2">
+            <span className="rhinodio__block-group__label">Radio 2</span>
+            <span className="rhinodio__block-group__desc">This is a test description</span>
+          </Radio>
+          <Radio value="3">
+            <span className="rhinodio__block-group__label">Radio 3</span>
+            <span className="rhinodio__block-group__desc">This is a test description</span>
+          </Radio>
+        </RadioGroup>
       </div>
     );
   }

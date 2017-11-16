@@ -5,22 +5,6 @@ import React from 'react';
 import { Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class RadioGroup extends React.Component {
-  static displayName = 'RhinodioGroup';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    inline: PropTypes.bool,
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func,
-    selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  };
-
-  static defaultProps = {
-    name: `rhinodioGroup-${Math.floor(Math.random() * 1000000)}`,
-  };
-
   state = {
     selectedValue: '',
   };
@@ -46,7 +30,7 @@ class RadioGroup extends React.Component {
   };
 
   renderChildren = () => {
-    const { children, name, inline } = this.props;
+    const { blockGroup, children, name, inline } = this.props;
     const { selectedValue } = this.state;
 
     let returnChild = null;
@@ -73,29 +57,69 @@ class RadioGroup extends React.Component {
         returnChild = child;
       }
 
-      return inline ? <div>{returnChild}</div> : <UtilityListItem>{returnChild}</UtilityListItem>;
+      if (inline || blockGroup) {
+        return returnChild;
+      }
+
+      return <UtilityListItem>{returnChild}</UtilityListItem>;
     });
   };
 
+  renderItems = () => {
+    const { blockGroup, inline } = this.props;
+
+    if (inline) {
+      return (
+        <UtilityInlineGrid size="regular">
+          {this.renderChildren()}
+        </UtilityInlineGrid>
+      );
+    } else if (blockGroup) {
+      return (
+        <div className="rhinodio__block-group">
+          {this.renderChildren()}
+        </div>
+      );
+    }
+
+    return (
+      <UtilityList space>
+        {this.renderChildren()}
+      </UtilityList>
+    );
+  }
+
   render() {
-    const { className, inline, label } = this.props;
+    const { className, label } = this.props;
     const classes = cx('form__group', className);
 
     // Show label or not based on prop value
-    const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
-
-    // Wrap items in either `<UtilityInlineGrid>` or `<UtilityList>` based on prop
-    const render = inline ?
-      <UtilityInlineGrid size="regular">{this.renderChildren()}</UtilityInlineGrid>
-      : <UtilityList space>{this.renderChildren()}</UtilityList>;
+    const showLabel = label && <label className="u-block">{label}</label>; // eslint-disable-line jsx-a11y/label-has-for
 
     return (
       <div className={classes}>
         {showLabel}
-        {render}
+        {this.renderItems()}
       </div>
     );
   }
 }
+
+RadioGroup.displayName = 'RhinodioGroup';
+
+RadioGroup.propTypes = {
+  blockGroup: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  inline: PropTypes.bool,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
+RadioGroup.defaultProps = {
+  name: `rhinodioGroup-${Math.floor(Math.random() * 1000000)}`,
+};
 
 export default RadioGroup;

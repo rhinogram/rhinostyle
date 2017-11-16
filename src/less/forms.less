@@ -368,7 +368,6 @@ input[type='checkbox']:focus {
   align-items: center;
   background: @form-addon-item-bg;
   border: 1px solid @input-border;
-  box-shadow: @global-shadow-interact;
   display: flex;
   white-space: nowrap;
   .mixin-addon-size(@input-height-base; (@global-whitespace-small + (@global-whitespace-xsmall / 2)); @global-font-size-base);
@@ -485,7 +484,6 @@ input[type='checkbox']:focus {
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
-  box-shadow: @global-shadow-interact;
   color: @input-color;
   display: flex;
   transition: border-color 0.15s @global-trans-timing-cubic, box-shadow 0.15s @global-trans-timing-cubic;
@@ -523,7 +521,6 @@ input[type='checkbox']:focus {
 
 .form__control--error {
   border-color: @global-color-danger;
-  box-shadow: @global-shadow-interact-size fade(@global-color-danger, 75%);
 }
 
 
@@ -546,7 +543,6 @@ input[type='checkbox']:focus {
 .form__control--naked {
   background: transparent;
   border: 0;
-  box-shadow: none;
   padding: 0 !important;
 }
 
@@ -721,7 +717,6 @@ input[type='checkbox'] {
     &::before {
       background-color: @global-color-white;
       border: 1px solid @global-border-color;
-      box-shadow: @global-shadow-interact;
       content: '';
       display: inline-block;
       height: @rhinobox-rhinodio-size;
@@ -764,7 +759,6 @@ input[type='checkbox'] {
       background-color: @global-color-white;
       border: 1px solid @global-border-color;
       border-radius: 50%;
-      box-shadow: @global-shadow-interact;
       content: '';
       display: inline-block;
       height: @rhinobox-rhinodio-size;
@@ -776,6 +770,49 @@ input[type='checkbox'] {
       width: @rhinobox-rhinodio-size;
     }
   }
+}
+
+.rhinodio__block-group {
+  border: 1px solid @global-border-color;
+
+  .rhinodio {
+    label {
+      padding: @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-xsmall) @global-whitespace-base @global-whitespace-base;
+      position: static;
+      width: 100%;
+
+      &::before {
+        left: auto;
+        right: @global-whitespace-base;
+        top: @global-whitespace-base;
+        transform: none;
+      }
+
+      &::after {
+        left: auto;
+        right: @global-whitespace-base + (@rhinodio-offset / 2);
+        top: @global-whitespace-base + (@rhinodio-offset / 2);
+      }
+    }
+
+    input:checked + label::after {
+      transform: scale(1);
+    }
+
+    + .rhinodio {
+      border-top: 1px solid @global-border-color;
+    }
+  }
+}
+
+.rhinodio__block-group__label {
+  display: block;
+  font-weight: @global-font-weight-bold;
+}
+
+.rhinodio__block-group__desc {
+  font-size: @global-font-size-small;
+  color: @global-font-color-muted;
 }
 
 
