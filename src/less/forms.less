@@ -15,6 +15,8 @@
 @input-height-base: @global-height;
 @input-padding-base: @button-padding-base;
 
+@input-height-large: @global-height-large;
+
 @textarea-vertical-padding: @global-whitespace-base;
 
 @form-addon-item-bg: @input-bg;
@@ -370,7 +372,11 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  .mixin-addon-size(@input-height-base; (@global-whitespace-small + (@global-whitespace-xsmall / 2)); @global-font-size-base);
+  .mixin-addon-size(@input-height-base; @input-padding-base; @global-font-size-base);
+
+  .form__addon--large & {
+    .mixin-addon-size(@input-height-large; @input-padding-base; @global-font-size-medium);
+  }
 
   &[disabled] {
     opacity: @global-opacity-disabled;
@@ -381,7 +387,7 @@ input[type='checkbox']:focus {
   border-bottom-left-radius: @input-border-radius;
   border-right: 0;
   border-top-left-radius: @input-border-radius;
-  padding-right: 0;
+  padding-right: 0 !important;
 
   + .form__control {
     border-left: 0;
@@ -392,7 +398,7 @@ input[type='checkbox']:focus {
   border-bottom-right-radius: @input-border-radius;
   border-left: 0;
   border-top-right-radius: @input-border-radius;
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 
@@ -428,7 +434,7 @@ input[type='checkbox']:focus {
 
 .form__clear__button {
   align-items: center;
-  background: @global-color-gray-light;
+  background: @global-font-color;
   border-radius: 50%;
   color: @global-color-white;
   display: inline-flex;
@@ -437,9 +443,10 @@ input[type='checkbox']:focus {
   justify-content: center;
   opacity: 0.85;
   position: absolute;
-  right: 1rem;
+  right: @input-padding-base;
   text-decoration: none;
-  top: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: 1.8rem;
 
   &:hover,
@@ -484,6 +491,7 @@ input[type='checkbox']:focus {
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
+  border-radius: @global-border-radius;
   color: @input-color;
   display: flex;
   transition: border-color 0.15s @global-trans-timing-cubic, box-shadow 0.15s @global-trans-timing-cubic;
@@ -499,7 +507,7 @@ input[type='checkbox']:focus {
     display: none;
   }
 
-  .mixin-input-size(@input-height-base; @input-padding-base; @global-font-size-base; @input-border-radius);
+  .mixin-input-size(@input-height-base; @input-padding-base; @global-font-size-base);
 
   &:focus {
     .mixin-tab-focus();
@@ -517,6 +525,10 @@ input[type='checkbox']:focus {
     padding-bottom: @textarea-vertical-padding;
     padding-top: @textarea-vertical-padding;
   }
+}
+
+.form__control--large {
+  .mixin-input-size(@input-height-large; @input-padding-base; @global-font-size-base);
 }
 
 .form__control--error {

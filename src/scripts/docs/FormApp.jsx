@@ -25,6 +25,7 @@ const inputDocs  = {
   onChange:           '[Optional] - A callback function that is executed when the input value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the input',
   required:           '[Optional] - Field is required and asterisk is added to label',
+  size: '[Optional] - Impacts size of input - [large]',
   type:               '[Optional] - As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
   validationMessage:  '[Optional] - Validation message for errors',
 };
@@ -214,6 +215,15 @@ const FormApp = () =>
           <p>Use the <code>naked</code> property on Inputs to strip it of background, border, height, and padding.</p>
         </div>
         <Input name="exampleInputText999" placeholder="Naked Input" type="text" naked />
+      </div>
+      <div className="u-m-b-large">
+        <h5 className="site-miniheadline">Large Input</h5>
+        <div className="site-copy">
+          <p>Use the <code>size</code> property on Inputs increase its size.</p>
+        </div>
+        <Input addon="left" size="large" name="exampleInputText999" placeholder="Large Input" type="text">
+          <Icon icon="search" />
+        </Input>
       </div>
     </section>
 

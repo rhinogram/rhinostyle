@@ -5,42 +5,6 @@ import React from 'react';
 import { Icon } from '../components';
 
 class Input extends React.Component {
-  static displayName = 'RhinoInput';
-
-  static propTypes = {
-    addon: PropTypes.oneOf(['', 'left', 'right', 'both']),
-    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
-    autoComplete: PropTypes.oneOf(['off', 'on']),
-    className: PropTypes.string,
-    clear: PropTypes.bool,
-    disabled: PropTypes.bool,
-    explanationMessage: PropTypes.string,
-    initialValue: PropTypes.string,
-    label: PropTypes.string,
-    naked: PropTypes.bool,
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    onKeyPress: PropTypes.func,
-    onClear: PropTypes.func,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    focus: PropTypes.bool,
-    type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
-    validationMessage: PropTypes.string,
-  };
-
-  static defaultProps = {
-    addon: '',
-    clear: false,
-    disabled: false,
-    label: '',
-    naked: false,
-    name: '',
-    required: false,
-    type: 'text',
-    focus: false,
-  };
-
   state = {
     value: '',
   };
@@ -95,13 +59,17 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, label, naked, name, placeholder, required, type, validationMessage } = this.props;
+    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, label, naked, name, placeholder, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear':  clear,
       'form__control--naked':  naked,
       'form__control--error':  validationMessage,
+      'form__control--large': size,
     });
     const formGroupClasses = cx('form__group', className);
+    const addonClasses = cx('form__addon', {
+      'form__addon--large': size,
+    });
 
     const showLabel = () => {
       if (label) {
@@ -143,7 +111,7 @@ class Input extends React.Component {
         switch (addon) {
           case 'left':
             inputMarkup = (
-              <div className="form__addon">
+              <div className={addonClasses}>
                 <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
@@ -154,7 +122,7 @@ class Input extends React.Component {
             break;
           case 'right':
             inputMarkup = (
-              <div className="form__addon">
+              <div className={addonClasses}>
                 <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children}
@@ -164,7 +132,7 @@ class Input extends React.Component {
             break;
           case 'both':
             inputMarkup = (
-              <div className="form__addon">
+              <div className={addonClasses}>
                 <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {this.props.children[0]}
                 </div>
@@ -192,5 +160,42 @@ class Input extends React.Component {
     );
   }
 }
+
+Input.displayName = 'RhinoInput';
+
+Input.propTypes = {
+  addon: PropTypes.oneOf(['', 'left', 'right', 'both']),
+  autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
+  autoComplete: PropTypes.oneOf(['off', 'on']),
+  className: PropTypes.string,
+  clear: PropTypes.bool,
+  disabled: PropTypes.bool,
+  explanationMessage: PropTypes.string,
+  initialValue: PropTypes.string,
+  label: PropTypes.string,
+  size: PropTypes.oneOf(['large']),
+  naked: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  onKeyPress: PropTypes.func,
+  onClear: PropTypes.func,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  focus: PropTypes.bool,
+  type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
+  validationMessage: PropTypes.string,
+};
+
+Input.defaultProps = {
+  addon: '',
+  clear: false,
+  disabled: false,
+  label: '',
+  naked: false,
+  name: '',
+  required: false,
+  type: 'text',
+  focus: false,
+};
 
 export default Input;
