@@ -15,7 +15,7 @@ const buttonDocs = {
   route: '[Optional] - React-router route to use for item',
   size: '[Optional] - Button size -  [small | large]',
   title: '[Optional] - Include title attribute that represents advisory information',
-  type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Button type -  [default | primary | secondary | outline-primary | outline-reversed | link | link-muted]',
   url: '[Optional] - URL for item',
   loading: '[Optional] - Specify a loading-state for the button to denote a background-action is in-progress',
 };
@@ -38,6 +38,7 @@ const ButtonApp = () =>
         <Button type="secondary">Secondary</Button>
         <Button type="outline-primary">Outline Primary</Button>
         <Button type="link">Link</Button>
+        <Button type="link-muted">Link Muted</Button>
         <Button type="danger">Danger</Button>
       </UtilityInlineGrid>
       <p className="site-copy u-m-t"><code>type=&quot;outline-reversed&quot;</code></p>

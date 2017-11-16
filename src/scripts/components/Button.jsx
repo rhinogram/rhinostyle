@@ -61,6 +61,7 @@ class Button extends React.Component {
       'button--primary': type === 'primary',
       'button--secondary': type === 'secondary',
       'button--link': type === 'link',
+      'button--link-muted': type === 'link-muted',
       'button--outline-primary': type === 'outline-primary',
       'button--outline-reversed': type === 'outline-reversed',
       'button--danger': type === 'danger',

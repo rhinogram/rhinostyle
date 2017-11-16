@@ -15,7 +15,7 @@
 @input-height-base: @global-height;
 @input-padding-base: @button-padding-base;
 
-@textarea-vertical-padding: (@global-whitespace-small - (@global-whitespace-xsmall / 2));
+@textarea-vertical-padding: @global-whitespace-base;
 
 @form-addon-item-bg: @input-bg;
 @form-control-chevron-padding: 3rem;
@@ -29,7 +29,7 @@
 @rhinobox-rhinodio-size: 2rem;
 @rhinodio-offset: 0.6rem;
 
-@switcher-height: 3.2rem;
+@switcher-height: 3rem;
 @switcher-width: (@switcher-height * 1.75rem);
 @switcher-transition: all 0.25s @global-trans-timing-cubic;
 @switcher-border-radius: @global-border-radius;
@@ -43,7 +43,7 @@
 @rhinorange-thumb-height: 20px;
 @rhinorange-thumb-border-radius: 50%;
 @rhinorange-thumb-border: 0;
-@rhinorange-thumb-background: @button-primary-bg;
+@rhinorange-thumb-background: @button-primary-bg-color;
 @rhinorange-thumb-background-active: @global-color-primary-hover;
 @rhinorange-thumb-webkit-offset: -(@rhinorange-thumb-height / 2) + 2;
 
@@ -368,6 +368,7 @@ input[type='checkbox']:focus {
   align-items: center;
   background: @form-addon-item-bg;
   border: 1px solid @input-border;
+  box-shadow: @global-shadow-interact;
   display: flex;
   white-space: nowrap;
   .mixin-addon-size(@input-height-base; (@global-whitespace-small + (@global-whitespace-xsmall / 2)); @global-font-size-base);
@@ -484,6 +485,7 @@ input[type='checkbox']:focus {
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid @input-border;
+  box-shadow: @global-shadow-interact;
   color: @input-color;
   display: flex;
   transition: border-color 0.15s @global-trans-timing-cubic, box-shadow 0.15s @global-trans-timing-cubic;
@@ -521,6 +523,7 @@ input[type='checkbox']:focus {
 
 .form__control--error {
   border-color: @global-color-danger;
+  box-shadow: @global-shadow-interact-size fade(@global-color-danger, 75%);
 }
 
 
@@ -543,6 +546,7 @@ input[type='checkbox']:focus {
 .form__control--naked {
   background: transparent;
   border: 0;
+  box-shadow: none;
   padding: 0 !important;
 }
 
@@ -709,6 +713,7 @@ input[type='checkbox'] {
       background-repeat: no-repeat;
       background-size: 80% 80%;
       border-color: @form-element-color;
+      box-shadow: @global-shadow-interact;
       fill: @global-color-white;
     }
   }
@@ -744,6 +749,7 @@ input[type='checkbox'] {
     &::after {
       background-color: @form-element-color;
       border-radius: 50%;
+      box-shadow: @global-shadow-interact;
       content: '';
       height: (@rhinobox-rhinodio-size - @rhinodio-offset);
       left: (@rhinodio-offset / 2);
