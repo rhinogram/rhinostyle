@@ -19,7 +19,7 @@ class Button extends React.Component {
     route:       PropTypes.string,
     size:        PropTypes.oneOf(['small', 'large']),
     title:       PropTypes.string,
-    type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'outline-primary', 'outline-reversed', 'link', 'danger']),
     url:         PropTypes.string,
     loading: PropTypes.bool,
   };
@@ -64,6 +64,7 @@ class Button extends React.Component {
       'button--link-muted': type === 'link-muted',
       'button--outline-primary': type === 'outline-primary',
       'button--outline-reversed': type === 'outline-reversed',
+      'button--accent': type === 'accent',
       'button--danger': type === 'danger',
       'button--small': size === 'small',
       'button--large': size === 'large',

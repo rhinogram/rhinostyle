@@ -37,6 +37,10 @@
 @button-secondary-bg-color: @global-color-secondary;
 @button-secondary-border: darken(@global-color-secondary, 5%);
 
+@button-accent-color: @global-color-white;
+@button-accent-bg-color: @global-color-accent;
+@button-accent-border: darken(@global-color-accent, 5%);
+
 @button-danger-color: @global-color-white;
 @button-danger-bg-color: @global-color-danger;
 @button-danger-border: darken(@global-color-danger, 5%);
@@ -177,6 +181,10 @@
 
 .button--secondary {
   .mixin-button-variant(@button-secondary-color; @button-secondary-bg-color; @button-secondary-border);
+}
+
+.button--accent {
+  .mixin-button-variant(@button-accent-color; @button-accent-bg-color; @button-accent-border);
 }
 
 .button--danger {

@@ -302,6 +302,18 @@ const FormApp = () =>
           <Radio value="3" label="Radio Three" />
         </RadioGroup>
       </div>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Block Group</h5>
+        <p className="site-copy">To place radios inside a contained block, you can add the <code>blockGroup</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
+        <RadioGroup blockGroup label="Radios (block group)" selectedValue="3">
+          <Radio value="1" label={[<span key="1" className="rhinodio__block-group__label">Radio 1</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]} />
+          <Radio value="2" label={[<span key="1" className="rhinodio__block-group__label">Radio 2</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]} />
+          <Radio value="3" label={[<span key="1" className="rhinodio__block-group__label">Radio 3</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]}>
+            I only show up when Radio 3 is selected!
+          </Radio>
+        </RadioGroup>
+      </div>
     </section>
 
     <section className="site-section">
