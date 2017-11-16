@@ -7,29 +7,22 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-radio">
         <RadioGroup name="exampleRadio5" label="Radios" onChange={this.optionalCallbackFunction} selectedValue="3">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
+          <Radio value="1" label="Radio One" />
+          <Radio value="2" label="Radio Two" />
+          <Radio value="3" label="Radio Three" />
         </RadioGroup>
 
         <RadioGroup inline name="exampleRadio7" label="Radios (inline)" onChange={this.optionalCallbackFunction} selectedValue="3">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
+          <Radio value="1" label="Radio One" />
+          <Radio value="2" label="Radio Two" />
+          <Radio value="3" label="Radio Three" />
         </RadioGroup>
 
         <RadioGroup blockGroup name="exampleRadio8" label="Radios (block group)" onChange={this.optionalCallbackFunction} selectedValue="3">
-          <Radio value="1">
-            <span className="rhinodio__block-group__label">Radio 1</span>
-            <span className="rhinodio__block-group__desc">This is a test description</span>
-          </Radio>
-          <Radio value="2">
-            <span className="rhinodio__block-group__label">Radio 2</span>
-            <span className="rhinodio__block-group__desc">This is a test description</span>
-          </Radio>
-          <Radio value="3">
-            <span className="rhinodio__block-group__label">Radio 3</span>
-            <span className="rhinodio__block-group__desc">This is a test description</span>
+          <Radio value="1" label={[<span key="1" className="rhinodio__block-group__label">Radio 1</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]} />
+          <Radio value="2" label={[<span key="1" className="rhinodio__block-group__label">Radio 2</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]} />
+          <Radio value="3" label={[<span key="1" className="rhinodio__block-group__label">Radio 3</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]}>
+            I only show up when Radio 3 is selected!
           </Radio>
         </RadioGroup>
       </div>

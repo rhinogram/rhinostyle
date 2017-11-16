@@ -113,11 +113,13 @@ const checkboxScope = {
 
 const radioDocs  = {
   name:          '[Optional] - The name, and the basis of the id for the radio',
+  label: '[Optional] - Text visible to user next to radio button',
   disabled:  '[Optional] - Disable the radio button',
   inline: '[Optional] - Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
   onChange:      '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
   value:         '[Optional] - A value for the radio',
+  children: '[Optional] - (Currently) only for use when <RadioGroup /> has blockGroup prop; shows content based on select state of option',
 };
 const radioScope = {
   React,
@@ -164,9 +166,9 @@ const FormApp = () =>
           <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
         </CheckboxGroup>
         <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
+          <Radio value="1" label="Radio One" />
+          <Radio value="2" label="Radio Two" />
+          <Radio value="3" label="Radio Three" />
         </RadioGroup>
         <RhinoSwitch label="Switcher" name="exampleSwitch1" />
         <div className="form__group u-text-right">
@@ -286,18 +288,18 @@ const FormApp = () =>
       <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
       <p><strong>Note:</strong> Regardless of the amount, always wrap radio options in the <code>&lt;RadioGroup&gt;</code> component for proper spacing, <code>name</code> attribute, and the availability of the <code>label</code> property.</p>
       <RadioGroup name="exampleRadio2" selectedValue="2">
-        <Radio value="1">Radio One</Radio>
-        <Radio value="2">Radio Two</Radio>
-        <Radio value="3">Radio Three</Radio>
+        <Radio value="1" label="Radio One" />
+        <Radio value="2" label="Radio Two" />
+        <Radio value="3" label="Radio Three" />
       </RadioGroup>
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Inline</h5>
         <p className="site-copy">To place radios inline that wrap with automagic spacing, you can add the <code>inline</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
         <RadioGroup inline name="exampleRadio4" selectedValue="2">
-          <Radio value="1">Radio One</Radio>
-          <Radio value="2">Radio Two</Radio>
-          <Radio value="3">Radio Three</Radio>
+          <Radio value="1" label="Radio One" />
+          <Radio value="2" label="Radio Two" />
+          <Radio value="3" label="Radio Three" />
         </RadioGroup>
       </div>
     </section>

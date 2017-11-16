@@ -787,7 +787,10 @@ input[type='checkbox'] {
 .rhinodio__block-group {
   border: 1px solid @global-border-color;
 
+  // 1. Remove `flex`
   .rhinodio {
+    display: block; // 1
+
     label {
       padding: @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-xsmall) @global-whitespace-base @global-whitespace-base;
       position: static;
@@ -825,6 +828,10 @@ input[type='checkbox'] {
 .rhinodio__block-group__desc {
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
+}
+
+.rhinodio__meta:not(:empty) {
+  padding: 0 @global-whitespace-base @global-whitespace-base @global-whitespace-base;
 }
 
 
