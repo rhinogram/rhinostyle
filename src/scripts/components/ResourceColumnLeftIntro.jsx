@@ -22,11 +22,15 @@ class ResourceColumnLeftIntro extends React.Component {
     const validIcon = icon.icon;
 
     if (validIcon) {
-      output = (
-        <button className="button--reset" onClick={this.handleIconClick}>
-          <Icon bump={icon.bump} icon={icon.icon} />
-        </button>
-      );
+      if (icon.onClick) {
+        output = (
+          <button className="button--reset" onClick={this.handleIconClick}>
+            <Icon bump={icon.bump} icon={icon.icon} />
+          </button>
+        );
+      } else {
+        output = <Icon bump={icon.bump} icon={icon.icon} />;
+      }
     } else if (avatar) {
       output = (
         <Avatar
