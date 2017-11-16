@@ -15,7 +15,7 @@ const Radio = (props) => {
     <div className={classes}>
       <input type="radio" disabled={disabled} name={name} value={value} id={id} checked={props.value === props.selectedValue} onChange={onChange} />
       <label htmlFor={id}>{props.label}</label>
-      {props.value === props.selectedValue &&
+      {((props.value === props.selectedValue) && props.children) &&
         <div className="rhinodio__meta">
           {props.children}
         </div>
