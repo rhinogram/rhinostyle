@@ -12,7 +12,7 @@ class ComponentExample extends React.Component {
               I'm a child!
             </ResourceColumnLeftIntro>
             <ResourceColumnLeftBody>
-              Some body stuff!
+              Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
             </ResourceColumnLeftBody>
           </ResourceColumnLeftWrapper>
           <ResourceColumnRightWrapper>

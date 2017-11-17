@@ -61,7 +61,7 @@ class ResourceColumnLeftIntro extends React.Component {
 
     return (
       <div className="resource__column-left__intro__title">
-        <span className={titleClass}>{title}</span>{titleSub && <span className="resource__column-left__intro__title__sub">({titleSub})</span>}
+        <span className={titleClass}>{title}</span>{titleSub && <span className="resource__column-left__intro__title__sub">{titleSub}</span>}
         {children && <div className="resource__column-left__intro__title__meta">{children}</div>}
       </div>
     );

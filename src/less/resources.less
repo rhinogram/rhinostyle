@@ -6,7 +6,7 @@
 @resource-group-max-height: 500px;
 
 @resource-min-height: 50px;
-@resource-padding-horizontal: (@global-whitespace-base + @global-whitespace-small);
+@resource-padding-horizontal: @global-whitespace-base;
 @resource-padding-vertical: @global-whitespace-base;
 @resource-interface-size: 2rem;
 @resource-unread-size: 1rem;
@@ -64,7 +64,7 @@
       content: '';
       position: absolute;
       top: 50%;
-      right: (@resource-interface-size / 2) + (@global-whitespace-small / 2);
+      right: (@resource-interface-size / 2);
       transform: translateY(-50%);
       width: @resource-interface-size;
       height: @resource-interface-size;
@@ -80,7 +80,7 @@
     .resource-group\@small & {
       &::after {
         transform: none;
-        top: (@resource-interface-size / 2) + (@global-whitespace-small / 2);
+        top: (@resource-interface-size / 2);
       }
     }
   }
@@ -93,10 +93,17 @@
         z-index: 2;
         position: absolute;
         top: 50%;
-        right: ((@resource-interface-size / 2) + (@global-whitespace-small / 2) + (@resource-interface-active-decrease / 2));
+        right: ((@resource-interface-size / 2) + (@resource-interface-active-decrease / 2));
         transform: translateY(-50%);
         width: (@resource-interface-size - @resource-interface-active-decrease);
         height: (@resource-interface-size - @resource-interface-active-decrease);
+      }
+
+      .resource-group\@small & {
+        &::before {
+          transform: none;
+          top: ((@resource-interface-size / 2) + (@resource-interface-active-decrease / 2));
+        }
       }
     }
   }
@@ -131,12 +138,14 @@
   }
 }
 
+// 1. https://css-tricks.com/flexbox-truncated-text/
 .resource__column-left-wrapper {
   margin-right: @global-whitespace-base;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
+  min-width: 0; // 1
 
   .resource-group\@small & {
     display: block;
@@ -144,7 +153,7 @@
 
   > :only-child {
     margin-right: 0;
-    flex-basis: 100%;
+    flex: 1;
   }
 }
 
@@ -153,7 +162,7 @@
   align-items: center;
   margin-right: @global-whitespace-base;
   width: 100%;
-  flex-basis: 250px;
+  flex: 0 0 200px;
 }
 
 // 1. Match width of small avatar
@@ -162,21 +171,6 @@
   width: @resource-avatar-size;
   margin-right: @global-whitespace-small;
   position: relative;
-
-  .is-unread & {
-    &::before {
-      content: '';
-      width: @resource-unread-size;
-      height: @resource-unread-size;
-      background: fadeout(@global-color-primary, 75%);
-      border: 1px solid @global-color-primary;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: -(@resource-padding-horizontal / 2) - (@resource-unread-size / 2);
-      transform: translateY(-50%);
-    }
-  }
 
   .icon {
     width: @resource-icon-size;
@@ -192,6 +186,20 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  position: relative;
+
+  .is-unread & {
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-right: @global-whitespace-xsmall;
+      width: @resource-unread-size;
+      height: @resource-unread-size;
+      background: fadeout(@global-color-primary, 75%);
+      border: 1px solid @global-color-primary;
+      border-radius: 50%;
+    }
+  }
 }
 
 .resource__column-left__intro__title__content {
@@ -218,6 +226,10 @@
 .resource__column-left__body {
   flex: 1;
   font-size: @global-font-size-small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 
   .resource-group\@small & {
     margin-top: @global-whitespace-small;
@@ -228,5 +240,5 @@
   text-align: right;
   margin-left: auto;
   font-size: @global-font-size-xsmall;
-  flex-basis: 150px;
+  flex: 0 0 150px;
 }

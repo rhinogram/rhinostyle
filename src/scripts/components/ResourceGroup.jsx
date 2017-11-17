@@ -33,7 +33,7 @@ class ResourceGroup extends React.Component {
     const { className, maxHeight } = this.props;
     const containerQueryParams = {
       'resource-group@small': {
-        maxWidth: parseInt(UtilitySystem.config.breakpoints.xsmallMax, 10),
+        maxWidth: parseInt(UtilitySystem.config.breakpoints.smallMax, 10),
       },
     };
 
