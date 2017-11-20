@@ -1,6 +1,5 @@
 import Lightbox             from 'react-image-lightbox';
 import { Scrollbars }       from 'react-custom-scrollbars';
-import DatePicker           from 'react-datepicker';
 
 import Alert                from './Alert';
 import Avatar               from './Avatar';
@@ -15,6 +14,7 @@ import Cover                from './Cover';
 import CoverBody            from './CoverBody';
 import CoverFooter          from './CoverFooter';
 import CoverHeader          from './CoverHeader';
+import Date                 from './Date';
 import Dropdown             from './Dropdown';
 import DropdownFilter       from './DropdownFilter';
 import DropdownMenuDivider  from './DropdownMenuDivider';
@@ -80,7 +80,7 @@ export {
   CoverBody,
   CoverFooter,
   CoverHeader,
-  DatePicker,
+  Date,
   Dropdown,
   DropdownFilter,
   DropdownMenuDivider,
