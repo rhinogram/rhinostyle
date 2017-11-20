@@ -3,52 +3,53 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import DatePicker from 'react-datepicker';
 
-class Date extends React.Component {
-  render() {
-    const { className, explanationMessage, validationMessage, label, required, ...opts } = this.props;
-    const classes = cx('form__control', className, {
-      'form__control--error':  validationMessage,
-    });
+const Date = (props) => {
+  const { className, explanationMessage, validationMessage, label, required, ...opts } = props;
+  const formGroupClasses = cx('form__group', className);
+  const inputClasses = cx('form__control', {
+    'form__control--error':  validationMessage,
+  });
 
-    const showLabel = () => {
-      if (label) {
-        return <label key="0" htmlFor={name}>{label} {required && <span className="form__asterisk">*</span>}</label>;
-      }
+  const showLabel = () => {
+    if (label) {
+      return <label key="0" htmlFor={name}>{label} {required && <span className="form__asterisk">*</span>}</label>;
+    }
 
-      return false;
-    };
+    return false;
+  };
 
-    const showValidationMessage = () => {
-      if (validationMessage) {
-        return <div key="2" className="form__validation-message">{validationMessage}</div>;
-      }
+  const showValidationMessage = () => {
+    if (validationMessage) {
+      return <div key="2" className="form__validation-message">{validationMessage}</div>;
+    }
 
-      return false;
-    };
+    return false;
+  };
 
-    const showExplanationMessage = () => {
-      if (explanationMessage) {
-        return <div key="3" className="form__explanation-message">{explanationMessage}</div>;
-      }
+  const showExplanationMessage = () => {
+    if (explanationMessage) {
+      return <div key="3" className="form__explanation-message">{explanationMessage}</div>;
+    }
 
-      return false;
-    };
+    return false;
+  };
 
-    return ([
-      showLabel(),
+  return (
+    <div className={formGroupClasses}>
+      {showLabel()}
       <DatePicker
         key="1"
-        className={classes}
+        className={inputClasses}
         showYearDropdown
         showMonthDropdown
         dropdownMode="select"
         {...opts}
-      />,
-      showValidationMessage(),
-      showExplanationMessage(),
-    ]);
-  }
-}
+      />
+      {showValidationMessage()}
+      {showExplanationMessage()}
+    </div>
+  );
+};
 
 Date.displayName = 'RhinoDate';
 
