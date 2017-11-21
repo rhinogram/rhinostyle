@@ -38,7 +38,6 @@ class DateApp extends React.Component {
           <div className="row">
             <div className="column-3@small">
               <Date
-                className="form__control"
                 selected={this.state.startDate}
                 onChange={this.handleChange}
                 showYearDropdown
