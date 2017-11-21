@@ -22,7 +22,7 @@ switch (currentUrl) { // eslint-disable-line default-case
     require('./CoverApp');
     break;
   case 'datepicker':
-    require('./DatePickerApp');
+    require('./DateApp');
     break;
   case 'dropdowns':
     require('./DropdownApp');
