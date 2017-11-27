@@ -21,7 +21,6 @@ const resourceDocs = {
   selected: '[Optional] - Used in conjunction with interfaceMode to determine an actively selected item',
   interfaceMode: '[Optional] - Set on the parent <ResourceGroup /> is passed down to impact styling of an item - [radio | checkbox]',
   onClick: '[Optional] - Fires on click of an item',
-  maxHeight: '[Optional] - Sets a scrollable bounding box for large lists',
   unread: '[Optional] - Adds unread styling to an item; normally used within a list view',
 };
 

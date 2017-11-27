@@ -3,7 +3,7 @@
 //
 
 
-@resource-group-max-height: 500px;
+@resource-group-height: 400px !important;
 
 @resource-min-height: 50px;
 @resource-padding-horizontal: @global-whitespace-base;
@@ -19,13 +19,48 @@
 // Component
 //
 
+.resource-group__container {
+  & + & {
+    margin-top: @global-whitespace-large;
+  }
+}
+
 .resource-group {
   border: 1px solid @global-border-color;
   background: @global-color-white;
-  overflow-y: auto;
+}
 
-  &.has-max-height {
-    max-height: @resource-group-max-height;
+// Used around `<Scrollbars />` component
+.resource-group__scroll {
+  overflow-y: auto;
+  height: @resource-group-height;
+  border: 1px solid @global-border-color;
+}
+
+.resource-group__separator {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: @global-font-size-small;
+  margin: 0 0 @global-whitespace-large 0;
+  color: @global-font-color-muted;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-flex;
+    flex: 1;
+    height: 2px;
+  }
+
+  &::before {
+    background: linear-gradient(to right, transparent, @global-border-color);
+    margin-right: @global-whitespace-small;
+  }
+
+  &::after {
+    background: linear-gradient(to left, transparent, @global-border-color);
+    margin-left: @global-whitespace-small;
   }
 }
 
@@ -46,6 +81,8 @@
   }
 
   &.is-active {
+    background: fadeout(@global-color-primary, 97.5%);
+
     &::before {
       content: '';
       width: 4px;

@@ -6,10 +6,6 @@ import { ContainerQuery } from 'react-container-query';
 import { Resource, UtilitySystem } from '../components';
 
 class ResourceGroup extends React.Component {
-  componentDidMount() {
-    //console.log('test');
-  }
-
   renderChildren = () => {
     let returnChild = null;
     const children = this.props.children;
@@ -30,7 +26,7 @@ class ResourceGroup extends React.Component {
   }
 
   render() {
-    const { className, maxHeight } = this.props;
+    const { className, separator } = this.props;
     const containerQueryParams = {
       'resource-group@small': {
         maxWidth: parseInt(UtilitySystem.config.breakpoints.smallMax, 10),
@@ -38,17 +34,19 @@ class ResourceGroup extends React.Component {
     };
 
     return (
-      <ContainerQuery query={containerQueryParams}>
-        {params => (
-          <div className={cx('resource-group', className, {
-            ...params,
-            'has-max-height': maxHeight,
-          })}
-          >
-            {this.renderChildren()}
-          </div>
-        )}
-      </ContainerQuery>
+      <div className="resource-group__container">
+        { separator && <div className="resource-group__separator">{separator}</div> }
+        <ContainerQuery query={containerQueryParams}>
+          {params => (
+            <div className={cx('resource-group', className, {
+              ...params,
+            })}
+            >
+              {this.renderChildren()}
+            </div>
+          )}
+        </ContainerQuery>
+      </div>
     );
   }
 }
@@ -58,14 +56,13 @@ ResourceGroup.displayName = 'RhinoResourceGroup';
 ResourceGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  maxHeight: PropTypes.bool,
+  separator: PropTypes.string,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
 };
 
 ResourceGroup.defaultProps = {
   className: '',
   interfaceMode: null,
-  maxHeight: false,
 };
 
 export default ResourceGroup;
