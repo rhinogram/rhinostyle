@@ -23,7 +23,7 @@
 
 @button-padding-base: @global-whitespace-base;
 @button-padding-large: @global-whitespace-medium;
-@button-padding-small: @global-whitespace-small;
+@button-padding-small: (@global-whitespace-small + (@global-whitespace-xsmall / 2));
 
 @button-default-color: @global-font-color;
 @button-default-bg-color: lighten(@global-color-black, 92.5%);

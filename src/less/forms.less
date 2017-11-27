@@ -13,11 +13,11 @@
 @input-group-addon-border-color: @input-border;
 
 @input-height-base: @global-height;
-@input-padding-base: @button-padding-base;
+@input-padding-base: @global-whitespace-medium;
 
 @input-height-large: @global-height-large;
 
-@textarea-vertical-padding: @global-whitespace-base;
+@textarea-vertical-padding: (@global-whitespace-medium - (@global-whitespace-xsmall /2));
 
 @form-addon-item-bg: @input-bg;
 @form-control-chevron-padding: 3rem;
