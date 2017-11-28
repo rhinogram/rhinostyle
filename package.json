@@ -92,7 +92,6 @@
     "react-router": "3.2.0",
     "react-textarea-autosize": "5.2.1",
     "recursive-readdir-sync": "1.0.6",
-    "rsvp": "4.7.0",
-    "svgo": "1.0.3"
+    "rsvp": "4.7.0"
   }
 }

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import RSVP from 'rsvp';
-import Svgo from 'svgo';
+import Svgo from 'svgo'; // eslint-disable-line import/no-extraneous-dependencies
 import parse5 from 'parse5';
 import recursiveReadSync from 'recursive-readdir-sync';
 
