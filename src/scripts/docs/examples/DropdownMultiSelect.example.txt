@@ -29,7 +29,7 @@ class ComponentExample extends React.Component {
           <DropdownMenuItem id={9} label="Paul Griffin" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Griffin', type: 'member' }} />
           <DropdownMenuItem id={10} label="Rob Whelan" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Rob Whelan', type: 'member' }} />
           <DropdownMenuItem id={11} label="Terry Kennair" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Terry Kennair', type: 'member' }} />
-          <DropdownMenuItem id={12} icon="sms" label="Icon Item" />
+          <DropdownMenuItem id={12} icon="chat" label="Icon Item" />
           <DropdownMenuItem id={13} icon="email" label="Icon Item" />
           <DropdownMenuItem id={14} icon="lock" label="Icon Item" />
         </DropdownMultiSelect>

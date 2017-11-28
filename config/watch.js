@@ -10,7 +10,7 @@ const reload = browserSync.reload;
  * @return {void}
  */
 export default function watch() {
-  gulp.watch(paths.svg.src, ['svg-sprite'], reload);
+  gulp.watch(paths.svg.src, ['svg-sprite', 'icons'], reload);
   gulp.watch(paths.styles.src, ['dist:styles']);
   gulp.watch([paths.scripts.src], ['docs:scripts', reload]);
   gulp.watch(paths.styles.docAll, ['docs:styles']);

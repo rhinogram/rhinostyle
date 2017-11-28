@@ -55,15 +55,15 @@ class ComponentExample extends React.Component {
         <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
           <DropdownFilter placeholder="Filter Icon">
             <DropdownMenuItem id={1} label="Item One" icon="cog" />
-            <DropdownMenuItem id={2} label="Item Two" icon="warning" />
-            <DropdownMenuItem id={3} label="Item Three" icon="pencil" />
+            <DropdownMenuItem id={2} label="Item Two" icon="alert-triangle" />
+            <DropdownMenuItem id={3} label="Item Three" icon="star" />
             <DropdownMenuItem id={4} label="Item Four" icon="search" />
           </DropdownFilter>
         </Dropdown>
-        <Dropdown label="Search to add a contact" block type="link" className="u-p-l-0" hideCaret icon="add">
+        <Dropdown label="Search to add a contact" block type="link" className="u-p-l-0" hideCaret icon="add-circle">
           <DropdownFilter placeholder="Search contacts">
             <DropdownMenuItemWild toggleDropdown>
-              <Button type="link" className="u-p-l-0"><Icon icon="add" />&nbsp;Create new contact</Button>
+              <Button type="link" className="u-p-l-0"><Icon icon="add-circle" />&nbsp;Create new contact</Button>
             </DropdownMenuItemWild>
             <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
             <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Blake Guilloud', type: 'member' }} />

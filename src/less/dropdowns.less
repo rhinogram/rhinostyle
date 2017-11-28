@@ -6,7 +6,7 @@
 @dropdown-arrow-size: 1rem;
 @dropdown-bg: @global-color-white;
 @dropdown-border: @global-border-color;
-@dropdown-chevron-size: 0.7em;
+@dropdown-chevron-size: @icon-size-small;
 @dropdown-divider-bg: @global-border-color;
 @dropdown-header-color: @global-font-color;
 @dropdown-link-color: @global-font-color;
@@ -14,7 +14,7 @@
 @dropdown-link-hover-bg: @global-color-gray-lightest;
 @dropdown-link-active-color: @global-component-active-color;
 @dropdown-link-active-bg: @global-component-active-bg;
-@dropdown-link-disabled-color: @global-color-gray-light;
+@dropdown-link-disabled-color: @global-font-color-muted;
 @dropdown-menu-offset: @global-whitespace-small;
 @dropdown-menu-shadow: @global-shadow-depth-1;
 @dropdown-padding-horizontal: @global-whitespace-medium;
@@ -83,19 +83,19 @@
       color: @dropdown-link-color;
 
       &::after {
-        background-image: url('@{svg-sprite}#icon-checkmark-circle');
+        background-image: url('@{svg-sprite}#checkmark');
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: 2rem 2rem;
+        background-size: @icon-size @icon-size;
         content: '';
-        fill: @global-color-primary;
-        height: 2rem;
+        stroke: @global-color-secondary;
+        height: @icon-size;
         pointer-events: none;
         position: absolute;
         right: @global-whitespace-medium;
         top: 50%;
         transform: translateY(-50%);
-        width: 2rem;
+        width: @icon-size;
       }
     }
 
@@ -389,17 +389,17 @@
 //
 
 
+// 1. Modify stroke-width to match selects
 .dropdown__toggle__caret {
   .icon--bump-down;
 
-  fill: currentColor;
-  height: @dropdown-chevron-size;
-  line-height: 1;
-  margin-left: @global-whitespace-xsmall;
-  min-width: @dropdown-chevron-size;
+  margin-left: @global-whitespace-small;
   position: relative;
   vertical-align: middle;
-  width: @dropdown-chevron-size;
+
+  .icon-stroke {
+    stroke-width: 1; // 1
+  }
 }
 
 

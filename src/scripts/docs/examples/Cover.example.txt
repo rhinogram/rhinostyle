@@ -65,7 +65,7 @@ class ComponentExample extends React.Component {
         <Button type="primary" onClick={this.onClick}>Launch Cover</Button>
 
         <Cover onReverseComplete={this.resetState} open={this.state.open}>
-          <CoverHeader onClose={this.closeCover} icon="pencil" title="This is a sample Cover" />
+          <CoverHeader onClose={this.closeCover} icon="star" title="This is a sample Cover" />
           <CoverBody>
             <div className="form">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />

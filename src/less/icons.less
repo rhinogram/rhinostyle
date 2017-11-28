@@ -5,6 +5,11 @@
 
 @icon-bump: 0.1em;
 @icon-size: 1em;
+@icon-size-small: 0.65em;
+@icon-size-large: 1.5em;
+@icon-stroke-width-thin: 1.25;
+@icon-stroke-width: 1.5;
+@icon-vector-effect: non-scaling-stroke; // Can turn off with `default`
 
 
 //
@@ -12,18 +17,37 @@
 //
 
 
-// 1. Fix Firefox blurry SVG rendering: https://bugzilla.mozilla.org/show_bug.cgi?id=1046835
+// 1. Help against rendering bug when scaling
 .icon {
   display: inline-block;
-  fill: currentColor;
   height: @icon-size;
   line-height: 1;
   min-width: @icon-size;
   position: relative;
   vertical-align: middle;
   width: @icon-size;
-  // 1
-  transform: translate(0, 0);
+  backface-visibility: hidden; // 1
+
+  .icon-fill {
+    fill: currentColor;
+  }
+}
+
+.icon-stroke {
+  stroke: currentColor;
+  stroke-width: @icon-stroke-width;
+  vector-effect: @icon-vector-effect;
+
+  * {
+    vector-effect: @icon-vector-effect;
+  }
+}
+
+// Workaround for browsers not supporting `vector-effect: non-scaling-stroke`
+.no-vectorEffect-support {
+  .icon {
+    stroke-width: @icon-stroke-width-thin;
+  }
 }
 
 
@@ -38,4 +62,21 @@
 
 .icon--bump-up {
   top: -@icon-bump;
+}
+
+//
+// Icon Modifiers (Size)
+//
+
+
+.icon--small {
+  height: @icon-size-small;
+  min-width: @icon-size-small;
+  width: @icon-size-small;
+}
+
+.icon--large {
+  height: @icon-size-large;
+  min-width: @icon-size-large;
+  width: @icon-size-large;
 }

@@ -11,7 +11,7 @@
 @datepicker-day-size: 3.2rem;
 @datepicker-nav-color: @global-color-gray;
 @datepicker-nav-hover-color: @datepicker-nav-color;
-@datepicker-nav-size: 2rem;
+@datepicker-nav-size: @icon-size-large;
 @datepicker-shadow: @global-shadow-depth-1;
 @datepicker-arrow-offset: @global-whitespace-small + 0.2rem;
 
@@ -165,7 +165,6 @@
 
 .react-datepicker__navigation--previous,
 .react-datepicker__navigation--next {
-  fill: @global-font-color;
   opacity: @global-opacity-disabled;
 
   &:hover {
@@ -174,12 +173,14 @@
 }
 
 .react-datepicker__navigation--previous {
-  background-image: url('@{svg-sprite}#icon-chevron-left');
+  background-image: url('@{svg-sprite}#caret-left');
+  stroke: @global-font-color;
   left: 1rem;
 }
 
 .react-datepicker__navigation--next {
-  background-image: url('@{svg-sprite}#icon-chevron-right');
+  background-image: url('@{svg-sprite}#caret-right');
+  stroke: @global-font-color;
   right: 1rem;
 }
 
@@ -193,13 +194,13 @@
 }
 
 .react-datepicker__navigation--years-previous {
-  background-image: url('@{svg-sprite}#icon-chevron-down');
-  fill: @global-color-gray;
+  background-image: url('@{svg-sprite}#caret-down');
+  stroke: @global-color-gray;
 }
 
 .react-datepicker__navigation--years-upcoming {
-  background-image: url('@{svg-sprite}#icon-chevron-up');
-  fill: @global-color-gray;
+  background-image: url('@{svg-sprite}#caret-up');
+  stroke: @global-color-gray;
 }
 
 .react-datepicker__month {
@@ -337,11 +338,11 @@
 }
 
 .react-datepicker__close-icon {
-  background-image: url('@{svg-sprite}#icon-close');
+  background-image: url('@{svg-sprite}#close');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
-  fill: @global-font-color;
+  stroke: @global-font-color;
   height: 1.2rem;
   margin-top: -0.6rem;
   position: absolute;

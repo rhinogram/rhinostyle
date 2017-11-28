@@ -122,3 +122,18 @@ export function compareFlatArray(arr1, arr2, strict = false) {
     return true;
   }
 }
+
+/**
+ *  Check if browsers supports `vector-effect: non-scaling-stroke`
+ *  Add class to body if not
+ *
+ * @return {void}
+ */
+export function checkVectorEffectSupport() {
+  const temp = document.createElement('div');
+  const supported = temp.style['vector-effect'] !== undefined;
+
+  if (!supported) {
+    document.body.classList.add('no-vectorEffect-support');
+  }
+}

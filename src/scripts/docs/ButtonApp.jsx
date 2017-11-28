@@ -83,10 +83,10 @@ const ButtonApp = () =>
         <h5 className="site-miniheadline">Icon-Only Buttons</h5>
         <p className="site-copy">Include <code>iconOnly</code> property when creating a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.</p>
         <UtilityInlineGrid>
-          <Button iconOnly><Icon icon="sms" /></Button>
+          <Button iconOnly><Icon icon="chat" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
-          <Button type="outline-primary" iconOnly><Icon icon="pencil" /></Button>
+          <Button type="outline-primary" iconOnly><Icon icon="star" /></Button>
         </UtilityInlineGrid>
       </div>
     </section>

@@ -8,17 +8,17 @@ class ComponentExample extends React.Component {
         </Bucket>
 
         <Bucket>
-          <BucketHeader title="Bucket Header" icon="pencil" />
+          <BucketHeader title="Bucket Header" icon="star" />
           <BucketBody>Bucket body.</BucketBody>
         </Bucket>
 
         <Bucket>
-          <BucketHeader title="Bucket Header With Background" icon="pencil" className="u-bg-gray-lightest" />
+          <BucketHeader title="Bucket Header With Background" icon="star" className="u-bg-gray-lightest" />
           <BucketBody>Bucket body.</BucketBody>
         </Bucket>
 
         <Bucket>
-          <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="pencil">
+          <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="star">
             <div>
               <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
             </div>

@@ -65,7 +65,7 @@ class ComponentExample extends React.Component {
         <Button type="primary" onClick={this.onClick}>Launch Modal</Button>
 
         <Modal onReverseComplete={this.resetSet} open={this.state.open}>
-          <ModalHeader onClose={this.closeModal} icon="pencil" title="Sample Modal" />
+          <ModalHeader onClose={this.closeModal} icon="star" title="Sample Modal" />
           <ModalBody>
             <div className="form">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
