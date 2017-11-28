@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-<path d="M21.6,2.2c-0.4-0.3-0.9-0.2-1.2,0.2L8.1,19.9l-4.7-4.7c-0.3-0.3-0.9-0.3-1.2,0c-0.3,0.3-0.3,0.9,0,1.2l5.4,5.4
-  C7.8,21.9,8,22,8.3,22c0.3,0,0.5-0.1,0.7-0.4L21.8,3.3C22.1,2.9,22,2.4,21.6,2.2z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g class="icon-stroke" stroke="#000000" fill="none" stroke-width="2" transform="translate(1 4)" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="22 0 6.875 15.125 0 8.25" />
+  </g>
 </svg>

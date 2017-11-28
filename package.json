@@ -82,13 +82,17 @@
     "gulp-size": "2.1.0",
     "keymirror": "0.1.1",
     "moment": "2.19.2",
+    "parse5": "3.0.3",
     "prop-types": "15.6.0",
-    "react-container-query": "^0.9.1",
+    "react-container-query": "0.9.1",
     "react-custom-scrollbars": "4.2.1",
     "react-datepicker": "0.61.0",
     "react-image-lightbox": "4.3.0",
     "react-onclickoutside": "6.6.3",
     "react-router": "3.2.0",
-    "react-textarea-autosize": "5.2.1"
+    "react-textarea-autosize": "5.2.1",
+    "recursive-readdir-sync": "1.0.6",
+    "rsvp": "4.7.0",
+    "svgo": "1.0.3"
   }
 }
