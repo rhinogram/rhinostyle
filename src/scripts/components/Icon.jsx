@@ -2,6 +2,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Icons from '../../svg/icons.json';
+
 // This cannot be a stateless component since icons may be used in the context of `<Tooltip />` which requires access to a ref
 // eslint-disable-next-line
 class Icon extends React.Component {
