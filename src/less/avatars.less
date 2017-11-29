@@ -18,7 +18,6 @@
 
 
 .avatar {
-  align-items: center;
   background-position: center center;
   background-size: cover;
   border-radius: 50%;
@@ -26,9 +25,9 @@
   display: inline-flex;
   height: @avatar-size-base;
   margin-bottom: 0;
-  justify-content: center;
   overflow: hidden;
   pointer-events: none;
+  position: relative;
   width: @avatar-size-base;
 
   text {
@@ -90,11 +89,13 @@
 
 
 .avatar__icon {
+  position: absolute;
   fill: currentColor;
   height: 80%;
+  left: 50%;
+  transform: translateX(-50%);
   opacity: 0.75;
-  position: relative;
-  bottom: -12.5%;
+  bottom: -2.5%;
   width: 80%;
 
   .icon-stroke {
