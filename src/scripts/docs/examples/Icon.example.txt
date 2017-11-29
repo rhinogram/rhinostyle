@@ -2,11 +2,13 @@ class ComponentExample extends React.Component {
   render() {
     return (
       <div style={{ fontSize: '4rem' }}>
-        <Icon icon="cog" />
-        <Icon icon="chevron-right" />
-        <Icon icon="warning" />
-        <Icon icon="email" bump="down" />
-        <Icon icon="arrow-right" />
+        <UtilityInlineGrid>
+          <Icon icon="cog" />
+          <Icon icon="caret-right" />
+          <Icon icon="alert-triangle" />
+          <Icon icon="email" bump="down" />
+          <Icon icon="arrow-right" />
+        </UtilityInlineGrid>
       </div>
     );
   }

@@ -226,7 +226,7 @@ class Dropdown extends React.Component {
         <button onClick={this.handleToggle} className={dropdownToggleClasses} disabled={disabled} type="button">
           <span className="button__text-wrapper">
             {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}{(selectedLabel || label) && <span className="dropdown__toggle__text">{selectedLabel || label}</span>}
-            {hideCaret || (icon && !label && !selectedLabel) ? null : <svg className="dropdown__toggle__caret"><use xlinkHref="#icon-chevron-down" /></svg>}
+            {hideCaret || (icon && !label && !selectedLabel) ? null : <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />}
           </span>
         </button>
         <div className={dropdownMenuClasses}>

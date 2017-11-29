@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-<path d="M21.2,12.8H3.3c-0.4,0-0.8-0.3-0.8-0.8s0.3-0.8,0.8-0.8h17.9c0.4,0,0.8,0.3,0.8,0.8S21.7,12.8,21.2,12.8z"/>
-<path d="M9.7,19.7c-0.2,0-0.4-0.1-0.5-0.2l-6.9-6.9c-0.3-0.3-0.3-0.8,0-1.1l6.9-6.9c0.3-0.3,0.8-0.3,1.1,0c0.3,0.3,0.3,0.8,0,1.1
-	L3.9,12l6.4,6.4c0.3,0.3,0.3,0.8,0,1.1C10.1,19.6,9.9,19.7,9.7,19.7z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g class="icon-stroke" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" transform="translate(1 4)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22,8.25 L0,8.25"/>
+    <polyline points="8.25 16.5 0 8.25 8.25 0"/>
+  </g>
 </svg>

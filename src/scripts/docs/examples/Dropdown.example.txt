@@ -55,8 +55,8 @@ class ComponentExample extends React.Component {
         <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
           <DropdownFilter placeholder="Filter Icon">
             <DropdownMenuItem id={1} label="Item One" icon="cog" />
-            <DropdownMenuItem id={2} label="Item Two" icon="warning" />
-            <DropdownMenuItem id={3} label="Item Three" icon="pencil" />
+            <DropdownMenuItem id={2} label="Item Two" icon="alert-triangle" />
+            <DropdownMenuItem id={3} label="Item Three" icon="star" />
             <DropdownMenuItem id={4} label="Item Four" icon="search" />
           </DropdownFilter>
         </Dropdown>

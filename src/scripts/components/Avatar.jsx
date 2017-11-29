@@ -2,6 +2,8 @@ import cx    from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { Icon } from '../components';
+
 class Avatar extends React.Component {
   static displayName = 'RhinoAvatar';
 
@@ -68,7 +70,7 @@ class Avatar extends React.Component {
     if (!image && !name) {
       return (
         <figure className={classes}>
-          <svg className="avatar__icon"><use xlinkHref="#icon-user" /></svg>
+          <Icon className="avatar__icon" icon="user" />
         </figure>
       );
     }

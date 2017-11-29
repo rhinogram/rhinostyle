@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>note</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Icons" stroke="none" stroke-width="1">
-        <g id="note">
-            <path d="M15.2045696,0.351668583 L21.6454304,6.73983132 C21.8372283,6.93005993 22,7.31808755 22,7.59759757 L22,22.5013056 C22,23.339088 21.3269718,24.0019997 20.4967494,24.0019997 L3.5032506,24.0019997 C2.66543579,24.0019997 2,23.3297854 2,22.5005671 L2,1.50143258 C2,0.667001861 2.67121791,-1.0748339e-15 3.49920717,-4.4408921e-16 L14.3462648,7.81896969e-15 C14.6269642,8.03280056e-15 15.0087462,0.157447387 15.2045696,0.351668583 Z M13.5,1.5 L13.5,6.99832438 C13.5,7.82881057 14.1723231,8.5 15.0016756,8.5 L20.5,8.5 L13.5,1.5 Z"></path>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g class="icon-stroke" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" transform="translate(3 1)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11,0 L2.2,0 C0.98497355,0 0,0.98497355 0,2.2 L0,19.8 C0,21.0150264 0.98497355,22 2.2,22 L15.4,22 C16.6150264,22 17.6,21.0150264 17.6,19.8 L17.6,6.6 L11,0 Z"/>
+    <polyline points="11 0 11 6.6 17.6 6.6"/>
+    <path d="M13.2 12.1L4.4 12.1M13.2 16.5L4.4 16.5"/>
+    <polyline points="6.6 7.7 5.5 7.7 4.4 7.7"/>
+  </g>
 </svg>

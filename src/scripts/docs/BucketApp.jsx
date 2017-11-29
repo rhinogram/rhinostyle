@@ -42,7 +42,7 @@ const BucketApp = () =>
     <section className="site-section">
       <h3 className="site-subheadline">Bucket</h3>
       <Bucket>
-        <BucketHeader title="Bucket" icon="pencil" />
+        <BucketHeader title="Bucket" />
         <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
       </Bucket>
     </section>

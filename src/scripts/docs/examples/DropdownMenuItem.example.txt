@@ -18,7 +18,7 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder, Ball Dropper, OB Hitter, Putt Misser" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
         <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder, Ball Dropper, OB Hitter, Putt Misser" icon="cog" />
         <DropdownMenuDivider />
-        <DropdownMenuItem icon="sms" label="Icon Item With a Really Long Name" route="/someroute/" />
+        <DropdownMenuItem icon="chat" label="Icon Item With a Really Long Name" route="/someroute/" />
         <DropdownMenuItem icon="email" label="Icon Item" />
         <DropdownMenuItem icon="lock" label="Icon Item" />
         <DropdownMenuDivider />
@@ -27,14 +27,14 @@ class ComponentExample extends React.Component {
         <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." active />
         <DropdownMenuItem label="Dropdown Menu Item Four" labelDesc="Label description for dropdown menu item." />
         <DropdownMenuDivider />
-        <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="sms" route="/someroute/" />
-        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="logo-twitter" />
-        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="logo-circle-facebook" active />
+        <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="chat" route="/someroute/" />
+        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="twitter" />
+        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="facebook" active />
         <DropdownMenuDivider />
-        <DropdownMenuItem icon="sms" label="Icon Item" />
+        <DropdownMenuItem icon="chat" label="Icon Item" />
         <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="lock" />
-        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="logo-twitter" />
-        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="logo-circle-facebook" />
+        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="twitter" />
+        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="facebook" />
       </div>
     );
   }

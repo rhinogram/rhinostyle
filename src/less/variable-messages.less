@@ -56,12 +56,14 @@
   margin-left: @global-whitespace-small;
 }
 
-// 1. Help space out stacking variables
+// 1. Override padding of pill for tighter spacing
+// 2. Help space out stacking variables
 .variable-message__variable {
   &:extend(.pill);
   &:extend(.pill--primary);
 
-  margin-bottom: 0.1rem; // 1
+  padding: 0 @global-whitespace-xsmall; // 1
+  margin-bottom: 0.1rem; // 2
   cursor: default;
   user-select: none;
   vertical-align: baseline;
@@ -89,8 +91,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('@{svg-sprite}#icon-close');
-    fill: @pill-primary-color;
+    background-image: url('@{svg-sprite}#close');
+    stroke: @pill-primary-color;
     position: absolute;
     top: 0;
     left: 0;

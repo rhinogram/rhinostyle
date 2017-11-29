@@ -11,11 +11,11 @@ class ComponentExample extends React.Component {
 
         <BucketHeader title="Bucket Header" avatar={{ type: 'member' }} />
 
-        <BucketHeader title="Bucket Header" icon="pencil" />
+        <BucketHeader title="Bucket Header" icon="star" />
 
-        <BucketHeader title="Bucket Header With Color" icon="pencil" className="u-text-danger" />
+        <BucketHeader title="Bucket Header With Color" icon="star" className="u-text-danger" />
 
-        <BucketHeader title="Bucket Header With Colored Icon" icon="pencil" iconClassName="u-text-success" />
+        <BucketHeader title="Bucket Header With Colored Icon" icon="star" iconClassName="u-text-success" />
 
         <BucketHeader title="Bucket Header Without Icon" />
 
@@ -26,7 +26,7 @@ class ComponentExample extends React.Component {
         </BucketHeader>
 
         <BucketHeader>
-          <Icon icon="sms" className="u-m-r-small" /> Bucket Header Without Title or Icon Props
+          <Icon icon="chat" className="u-m-r-small" /> Bucket Header Without Title or Icon Props
         </BucketHeader>
 
         <BucketHeader>

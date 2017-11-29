@@ -1,27 +1,27 @@
 const paths = {
   animation_flag: {
-    src:   './src/animation/flag/*.svg',
-    dist:  './dist/animation/flag/',
+    src: './src/animation/flag/*.svg',
+    dist: './dist/animation/flag/',
     build: './build/animation/flag/',
   },
   animation_login: {
-    src:   './src/animation/login/*.svg',
-    dist:  './dist/animation/login/',
+    src: './src/animation/login/*.svg',
+    dist: './dist/animation/login/',
     build: './build/animation/login/',
   },
   animation_secure: {
-    src:   './src/animation/secure/*.svg',
-    dist:  './dist/animation/secure/',
+    src: './src/animation/secure/*.svg',
+    dist: './dist/animation/secure/',
     build: './build/animation/secure/',
   },
   animation_time: {
-    src:   './src/animation/time/*.svg',
-    dist:  './dist/animation/time/',
+    src: './src/animation/time/*.svg',
+    dist: './dist/animation/time/',
     build: './build/animation/time/',
   },
   audio: {
-    src:   './src/audio/*.mp3',
-    dist:  './dist/audio/',
+    src: './src/audio/*.mp3',
+    dist: './dist/audio/',
     build: './build/audio/',
   },
   media: {
@@ -30,7 +30,7 @@ const paths = {
     build: './build/media/',
   },
   metalsmith: {
-    pages:     './src/pages/**/*.html',
+    pages: './src/pages/**/*.html',
     templates: './src/templates/*.html',
   },
   scripts: {
@@ -41,15 +41,16 @@ const paths = {
     build: './build/scripts/',
   },
   styles: {
-    src:    './src/less/rhinostyle.less',
+    src: './src/less/rhinostyle.less',
     docSrc: './src/less/rhinostyle-docs.less',
     docAll: './src/less/**/*.less',
-    dist:   './dist/css/',
-    build:  './build/css/',
+    dist: './dist/css/',
+    build: './build/css/',
   },
-  icons: {
-    src:   './src/svg/*.svg',
-    dist:  './dist/svg/',
+  svg: {
+    src: ['./src/svg/*.svg'],
+    json: './src/svg',
+    dist: './dist/svg/',
     build: './build/svg/',
   },
 };

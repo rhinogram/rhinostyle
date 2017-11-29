@@ -17,6 +17,9 @@ const navEase = 0.25;
 const navSelectors = [$body, $siteOverlay, $siteNavigation];
 let mobileNavTimeline;
 
+// Check for `vector-effect: non-scaling-stroke` support
+UtilitySystem.checkVectorEffectSupport();
+
 // Timelines
 const mobileNavTimelineFunc = () => new TimelineMax({
   paused: true,
