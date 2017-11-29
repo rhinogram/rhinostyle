@@ -19,7 +19,7 @@ class Button extends React.Component {
     route:       PropTypes.string,
     size:        PropTypes.oneOf(['small', 'large']),
     title:       PropTypes.string,
-    type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'outline-primary', 'outline-reversed', 'link', 'danger']),
+    type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
     url:         PropTypes.string,
     loading: PropTypes.bool,
   };

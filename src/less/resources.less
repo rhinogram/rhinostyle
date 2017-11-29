@@ -199,7 +199,7 @@
   align-items: center;
   margin-right: @global-whitespace-base;
   width: 100%;
-  flex: 0 0 200px;
+  flex: 0 0 250px;
 }
 
 // 1. Match width of small avatar
@@ -222,8 +222,18 @@
 .resource__column-left__intro__title {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   position: relative;
+}
+
+.resource__column-left__intro__title__content {
+  &.has-subtitle {
+    margin-right: @global-whitespace-small;
+  }
+
+  .is-active &,
+  .is-unread & {
+    font-weight: @global-font-weight-bold;
+  }
 
   .is-unread & {
     &::before {
@@ -236,17 +246,6 @@
       border: 1px solid @global-color-primary;
       border-radius: 50%;
     }
-  }
-}
-
-.resource__column-left__intro__title__content {
-  &.has-subtitle {
-    margin-right: @global-whitespace-small;
-  }
-
-  .is-active &,
-  .is-unread & {
-    font-weight: @global-font-weight-bold;
   }
 }
 

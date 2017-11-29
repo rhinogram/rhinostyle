@@ -24,7 +24,7 @@ class Dropdown extends React.Component {
     onClick: PropTypes.func,
     onSelect: PropTypes.func,
     size: PropTypes.oneOf(['small', 'large']),
-    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'input']),
+    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'input']),
     wide: PropTypes.bool,
     onComplete: PropTypes.func,
     onReverseComplete: PropTypes.func,
