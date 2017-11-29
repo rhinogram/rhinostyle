@@ -57,6 +57,7 @@ const icons = [
   'search',
   'send',
   'star',
+  'touchid',
   'trash',
   'twitter',
   'unlock',
