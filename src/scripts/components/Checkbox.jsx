@@ -60,7 +60,7 @@ class Checkbox extends React.Component {
 
     return (
       <div className={classes}>
-        <input className="rhinobox__checkbox" type="checkbox" disabled={disabled} id={name} checked={checked} onChange={this._toggleChecked} />
+        <input className="rhinobox__input" type="checkbox" disabled={disabled} id={name} checked={checked} onChange={this._toggleChecked} />
         <label className="rhinobox__label" htmlFor={name}>
           {this.props.children}
         </label>
