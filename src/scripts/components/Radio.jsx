@@ -13,8 +13,8 @@ const Radio = (props) => {
 
   return (
     <div className={classes}>
-      <input type="radio" disabled={disabled} name={name} value={value} id={id} checked={props.value === props.selectedValue} onChange={onChange} />
-      <label htmlFor={id}>{props.label}</label>
+      <input className="rhinodio__input" type="radio" disabled={disabled} name={name} value={value} id={id} checked={props.value === props.selectedValue} onChange={onChange} />
+      <label className="rhinodio__label" htmlFor={id}>{props.label}</label>
       {((props.value === props.selectedValue) && props.children) &&
         <div className="rhinodio__meta">
           {props.children}

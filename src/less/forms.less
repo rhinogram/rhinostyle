@@ -688,25 +688,16 @@ input[type='checkbox'] {
   align-items: center;
   position: relative;
   min-height: @global-line-height-computed; // Ensure the input doesn't jump when there is no text
+}
 
-  input {
-    .mixin-sr-only();
+.rhinobox__label,
+.rhinodio__label {
+  .mixin-checkbox-radio-label-hide();
+}
 
-    &[disabled] + label {
-      cursor: not-allowed;
-      opacity: @global-opacity-disabled;
-    }
-  }
-
-  label {
-    color: inherit;
-    cursor: pointer;
-    font-weight: normal;
-    margin-bottom: 0;
-    padding-left: (@rhinobox-rhinodio-size + @global-whitespace-xsmall);
-    position: relative;
-    user-select: none;
-  }
+.rhinobox__input,
+.rhinodio__input {
+  .mixin-checkbox-radio-input-hide();
 }
 
 
@@ -745,42 +736,42 @@ input[type='checkbox'] {
 
 .rhinodio {
   padding-left: 0;
+}
 
-  input {
-    &:checked + label::after {
-      transform: translateY(-50%) scale(1);
-    }
+.rhinodio__input {
+  &:checked + .rhinodio__label::after {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.rhinodio__label {
+  &::after {
+    background-color: @form-element-color;
+    border-radius: 50%;
+    content: '';
+    height: (@rhinobox-rhinodio-size - @rhinodio-offset);
+    left: (@rhinodio-offset / 2);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    transition: transform 0.25s @global-trans-timing-cubic;
+    transform-origin: center center;
+    width: (@rhinobox-rhinodio-size - @rhinodio-offset);
   }
 
-  label {
-    &::after {
-      background-color: @form-element-color;
-      border-radius: 50%;
-      content: '';
-      height: (@rhinobox-rhinodio-size - @rhinodio-offset);
-      left: (@rhinodio-offset / 2);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%) scale(0);
-      transition: transform 0.25s @global-trans-timing-cubic;
-      transform-origin: center center;
-      width: (@rhinobox-rhinodio-size - @rhinodio-offset);
-    }
-
-    &::before {
-      background-color: @global-color-white;
-      border: 1px solid @global-border-color;
-      border-radius: 50%;
-      content: '';
-      display: inline-block;
-      height: @rhinobox-rhinodio-size;
-      left: 0;
-      position: absolute;
-      speak: none;
-      top: 50%;
-      transform: translateY(-50%);
-      width: @rhinobox-rhinodio-size;
-    }
+  &::before {
+    background-color: @global-color-white;
+    border: 1px solid @global-border-color;
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    height: @rhinobox-rhinodio-size;
+    left: 0;
+    position: absolute;
+    speak: none;
+    top: 50%;
+    transform: translateY(-50%);
+    width: @rhinobox-rhinodio-size;
   }
 }
 
@@ -791,32 +782,32 @@ input[type='checkbox'] {
   .rhinodio {
     display: block; // 1
 
-    label {
-      padding: @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-xsmall) @global-whitespace-base @global-whitespace-base;
-      position: static;
-      width: 100%;
-
-      &::before {
-        left: auto;
-        right: @global-whitespace-base;
-        top: @global-whitespace-base;
-        transform: none;
-      }
-
-      &::after {
-        left: auto;
-        right: @global-whitespace-base + (@rhinodio-offset / 2);
-        top: @global-whitespace-base + (@rhinodio-offset / 2);
-      }
-    }
-
-    input:checked + label::after {
-      transform: scale(1);
-    }
-
     + .rhinodio {
       border-top: 1px solid @global-border-color;
     }
+  }
+
+  .rhinodio__label {
+    padding: @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-xsmall) @global-whitespace-base @global-whitespace-base;
+    position: static;
+    width: 100%;
+
+    &::before {
+      left: auto;
+      right: @global-whitespace-base;
+      top: @global-whitespace-base;
+      transform: none;
+    }
+
+    &::after {
+      left: auto;
+      right: @global-whitespace-base + (@rhinodio-offset / 2);
+      top: @global-whitespace-base + (@rhinodio-offset / 2);
+    }
+  }
+
+  .rhinodio__input:checked + .rhinodio__label::after {
+    transform: scale(1);
   }
 }
 

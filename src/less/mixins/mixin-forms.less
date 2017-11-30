@@ -44,3 +44,23 @@
   height: @input-height;
   padding: 0 @padding-horizontal;
 }
+
+
+.mixin-checkbox-radio-label-hide() {
+  color: inherit;
+  cursor: pointer;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding-left: (@rhinobox-rhinodio-size + @global-whitespace-xsmall);
+  position: relative;
+  user-select: none;
+}
+
+.mixin-checkbox-radio-input-hide() {
+  .mixin-sr-only();
+
+  &[disabled] + label {
+    cursor: not-allowed;
+    opacity: @global-opacity-disabled;
+  }
+}
