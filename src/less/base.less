@@ -118,14 +118,6 @@ html {
   }
 }
 
-// IE10+ doesn't honor `<meta name="viewport">` in some cases.
-/* stylelint-disable-next-line at-rule-no-unknown */
-@at-root {
-  @-ms-viewport {
-    width: device-width;
-  }
-}
-
 // Removes default margin.
 body {
   margin: 0;
@@ -151,21 +143,8 @@ html:not([data-whatinput="keyboard"]) :focus {
 // Links
 //
 
-// 1. Remove the gray background color from active links in IE 10.
-// 2. Removes gaps in link undelrines in iOS 8+ and Safari 8+.
-// 3. Improve readability of focused elements when they are also in an active/hover state.
-a {
-  // 1
-  background: transparent;
-  // 2
-  -webkit-text-decoration-skip: objects;
-
-  // 3
-  &:hover,
-  &:active {
-    outline: 0;
-  }
-}
+// Remove gaps in links underline in iOS 8+ and Safari 8+.
+a { -webkit-text-decoration-skip: objects; }
 
 a {
   color: @base-link-color;
@@ -292,11 +271,6 @@ video {
   // 1
   max-width: 100%;
   height: auto;
-}
-
-// Remove border on images insid eof links in IE 10
-img {
-  border-style: none;
 }
 
 // Correct overflow not hidden in IE 9/10/11.
@@ -507,20 +481,10 @@ pre {
 // HTML5 elements
 //
 
-// Correct `block` display not defined for any HTML5 element in IE 8/9.
-// Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
-// Correct `block` display not defined for `main` in IE 11.
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-nav,
-section,
-summary {
+// Add the correct display in Edge, IE, and Firefox.
+// Add the correct display in IE.
+details, // 1
+main { // 2
   display: block;
 }
 
@@ -537,9 +501,7 @@ audio {
   }
 }
 
-// Address `[hidden]` styling not present in IE 8/9/10.
-// Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
-[hidden],
+// Add the correct display in IE.
 template {
   display: none;
 }
@@ -547,13 +509,6 @@ template {
 // Iframe
 iframe {
   border: 0;
-}
-
-// Fix viewport for IE10 snap mode
-@media screen and (max-width: 400px) {
-  @-ms-viewport {
-    width: device-width;
-  }
 }
 
 //
