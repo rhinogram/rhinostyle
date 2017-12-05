@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ContainerQuery } from 'react-container-query';
 
-import { Resource, UtilitySystem } from '../components';
+import { Resource } from '../components';
 
 class ResourceGroup extends React.Component {
   renderChildren = () => {
@@ -29,7 +29,7 @@ class ResourceGroup extends React.Component {
     const { className, separator } = this.props;
     const containerQueryParams = {
       'resource-group@small': {
-        maxWidth: parseInt(UtilitySystem.config.breakpoints.smallMax, 10),
+        maxWidth: 675,
       },
     };
 
