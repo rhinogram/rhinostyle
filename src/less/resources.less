@@ -4,6 +4,7 @@
 
 
 @resource-group-height: 400px !important;
+@resource-group-height-small: 250px !important;
 
 @resource-min-height: 50px;
 @resource-padding-horizontal: @global-whitespace-base;
@@ -39,6 +40,10 @@
   .resource-group {
     border: 0;
   }
+}
+
+.resource-group__scroll--small {
+  height: @resource-group-height-small;
 }
 
 .resource-group__separator {
