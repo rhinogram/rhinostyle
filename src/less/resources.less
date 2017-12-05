@@ -76,7 +76,8 @@
     align-items: flex-start;
   }
 
-  & + & {
+  // Workaround for container queries watcher
+  & + *:not(.erd_scroll_detection_container) {
     border-top: 1px solid @global-border-color;
   }
 
