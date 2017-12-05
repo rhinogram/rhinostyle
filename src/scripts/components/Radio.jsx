@@ -30,7 +30,7 @@ Radio.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   name: PropTypes.string,
   onChange: PropTypes.func,
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

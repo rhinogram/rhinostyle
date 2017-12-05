@@ -1,4 +1,4 @@
-import React    from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
@@ -122,6 +122,7 @@ const radioDocs  = {
   children: '[Optional] - (Currently) only for use when <RadioGroup /> has blockGroup prop; shows content based on select state of option',
 };
 const radioScope = {
+  Fragment,
   React,
   ReactDOM,
   RadioGroup,
@@ -307,9 +308,33 @@ const FormApp = () =>
         <h5 className="site-miniheadline">Block Group</h5>
         <p className="site-copy">To place radios inside a contained block, you can add the <code>blockGroup</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
         <RadioGroup blockGroup label="Radios (block group)" selectedValue="3">
-          <Radio value="1" label={[<span key="1" className="rhinodio__block-group__label">Radio 1</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]} />
-          <Radio value="2" label={[<span key="1" className="rhinodio__block-group__label">Radio 2</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]} />
-          <Radio value="3" label={[<span key="1" className="rhinodio__block-group__label">Radio 3</span>, <span key="2" className="rhinodio__block-group__desc">This is a test description</span>]}>
+          <Radio
+            value="1"
+            label={
+              <Fragment>
+                <span className="rhinodio__block-group__label">Radio 1</span>
+                <span className="rhinodio__block-group__desc">This is a test description</span>
+              </Fragment>
+            }
+          />
+          <Radio
+            value="2"
+            label={
+              <Fragment>
+                <span className="rhinodio__block-group__label">Radio 2</span>
+                <span className="rhinodio__block-group__desc">This is a test description</span>
+              </Fragment>
+            }
+          />
+          <Radio
+            value="3"
+            label={
+              <Fragment>
+                <span className="rhinodio__block-group__label">Radio 3</span>
+                <span className="rhinodio__block-group__desc">This is a test description</span>
+              </Fragment>
+            }
+          >
             I only show up when Radio 3 is selected!
           </Radio>
         </RadioGroup>
