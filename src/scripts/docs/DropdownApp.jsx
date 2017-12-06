@@ -21,7 +21,7 @@ const dropdownDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  type: '[Optional] - Type of Dropdown -  [default | input | primary | secondary | outline-primary | outline-reversed | link]',
+  type: '[Optional] - Type of Dropdown -  [default | primary | secondary | accent | input | outline-primary | outline-reversed | link | link-muted]',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
   manualClose: '[Optional] - Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
 };

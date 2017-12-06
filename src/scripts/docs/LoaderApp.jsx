@@ -10,7 +10,6 @@ const loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   pause: '[Optional] - Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
   size: '[Optional] - LoaderCircle size -  [xsmall | small | large]',
-  type: '[Optional] - LoaderCircle type -  [default | primary]',
 };
 const loaderCircleScope = {
   React,
@@ -31,12 +30,6 @@ const loaderPulseScope = {
 
 const LoaderApp = () =>
   (<div>
-    <section className="site-section">
-      <h3 className="site-subheadline">LoaderCircle Types</h3>
-      <p className="site-copy"><code>type=&quot;default | primary&quot;</code></p>
-      <LoaderCircle /> <LoaderCircle type="primary" />
-    </section>
-
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
       <p className="site-copy"><code>size=&quot;xsmall | small | large&quot;</code></p>

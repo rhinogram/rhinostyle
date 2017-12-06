@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Message, Select } from '../components';
+import { Button, Message, Select } from '../components';
 
 class VariableMessage extends React.Component {
   static displayName = 'RhinoVariableMessage';
@@ -343,10 +343,10 @@ class VariableMessage extends React.Component {
       <div className={classes} onClick={this.handleVariableClick}>
         {!readOnly ?
           <div className="variable-message__header">
-            <label htmlFor={variableMessageInputName} className="u-block u-m-b-0">{composeLabel} {required && <span className="form__asterisk">*</span>}</label>
+            <label htmlFor={variableMessageInputName} className="variable-message__label">{composeLabel} {required && <span className="form__asterisk">*</span>}</label>
             {this.showReset() ?
               <div className="variable-message__reset">
-                <button className="button--reset u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</button>
+                <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
               </div> : null}
           </div>
           : null }

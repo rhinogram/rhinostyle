@@ -21,7 +21,8 @@
 
 @form-addon-item-bg: @input-bg;
 @form-control-chevron-padding: 3rem;
-@form-control-clear-padding: 3rem;
+@form-control-clear-padding: (@form-control-clear-size + @input-padding-base);
+@form-control-clear-size: 1.8rem;
 @form-element-color: @global-color-primary;
 @form-group-spacing: @global-whitespace-base;
 
@@ -438,8 +439,8 @@ input[type='checkbox']:focus {
   border-radius: 50%;
   color: @global-color-white;
   display: inline-flex;
-  font-size: @global-font-size-xsmall;
-  height: 1.8rem;
+  font-size: (@form-control-clear-size - 1rem);
+  height: @form-control-clear-size;
   justify-content: center;
   opacity: 0.85;
   position: absolute;
@@ -447,7 +448,7 @@ input[type='checkbox']:focus {
   text-decoration: none;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.8rem;
+  width: @form-control-clear-size;
 
   &:hover,
   &:focus {

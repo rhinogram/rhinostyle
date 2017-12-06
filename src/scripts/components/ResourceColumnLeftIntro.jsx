@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Avatar, Icon } from '../components';
+import { Avatar, Button, Icon } from '../components';
 
 class ResourceColumnLeftIntro extends React.Component {
   componentDidMount() {
@@ -24,9 +24,9 @@ class ResourceColumnLeftIntro extends React.Component {
     if (validIcon) {
       if (icon.onClick) {
         output = (
-          <button className="button--reset" onClick={this.handleIconClick}>
+          <Button reset onClick={this.handleIconClick}>
             <Icon bump={icon.bump} icon={icon.icon} />
-          </button>
+          </Button>
         );
       } else {
         output = <Icon bump={icon.bump} icon={icon.icon} />;

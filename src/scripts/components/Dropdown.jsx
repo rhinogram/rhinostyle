@@ -3,51 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+import { Button, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
 
 class Dropdown extends React.Component {
-  static displayName = 'RhinoDropdown';
-
-  static propTypes = {
-    activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    block: PropTypes.bool,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    disableScroll: PropTypes.bool,
-    hideCaret: PropTypes.bool,
-    hideActive: PropTypes.bool,
-    icon: PropTypes.string,
-    label: PropTypes.string,
-    lockLabel: PropTypes.bool,
-    position: PropTypes.string,
-    onClick: PropTypes.func,
-    onSelect: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'large']),
-    type: PropTypes.oneOf(['default', 'primary', 'secondary', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'input']),
-    wide: PropTypes.bool,
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
-    manualClose: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    block: false,
-    disabled: false,
-    disableScroll: false,
-    hideCaret: false,
-    hideActive: false,
-    type: 'default',
-    wide: false,
-    onComplete: () => {},
-    onReverseComplete: () => {},
-    onReverseStart: () => {},
-    onStart: () => {},
-    manualClose: false,
-  };
-
   state = {
     activeKey: this.props.activeKey,
     isOpen: false,
@@ -165,7 +123,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete } = this.props;
+    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete } = this.props;
     const activeKey = this.state.activeKey;
     const hasFilter = this.state.hasFilter;
 
@@ -173,18 +131,7 @@ class Dropdown extends React.Component {
       'dropdown--block': block,
     });
 
-    const dropdownToggleClasses = cx('button', 'dropdown__toggle', className, {
-      'button--default':   type === 'default',
-      'button--input':     type === 'input',
-      'button--primary':   type === 'primary',
-      'button--secondary': type === 'secondary',
-      'button--link':      type === 'link',
-      'button--outline-primary':   type === 'outline-primary',
-      'button--outline-reversed':  type === 'outline-reversed',
-      'button--small': size === 'small',
-      'button--large': size === 'large',
-      'button--icon': (icon && !label),
-    });
+    const dropdownToggleClasses = cx('dropdown__toggle', className);
 
     const dropdownMenuClasses = cx('dropdown__menu', {
       'dropdown__menu--right': position === 'right',
@@ -223,12 +170,10 @@ class Dropdown extends React.Component {
 
     return (
       <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
-        <button onClick={this.handleToggle} className={dropdownToggleClasses} disabled={disabled} type="button">
-          <span className="button__text-wrapper">
-            {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}{(selectedLabel || label) && <span className="dropdown__toggle__text">{selectedLabel || label}</span>}
-            {hideCaret || (icon && !label && !selectedLabel) ? null : <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />}
-          </span>
-        </button>
+        <Button reset={reset} size={size} iconOnly={icon && !label} type={type} onClick={this.handleToggle} className={dropdownToggleClasses} disabled={disabled}>
+          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}{(selectedLabel || label) && <span className="dropdown__toggle__text">{selectedLabel || label}</span>}
+          {hideCaret || (icon && !label && !selectedLabel) ? null : <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />}
+        </Button>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
         </div>
@@ -236,5 +181,48 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+Dropdown.displayName = 'RhinoDropdown';
+
+Dropdown.propTypes = {
+  activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  block: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  disableScroll: PropTypes.bool,
+  hideCaret: PropTypes.bool,
+  hideActive: PropTypes.bool,
+  icon: PropTypes.string,
+  label: PropTypes.string,
+  lockLabel: PropTypes.bool,
+  position: PropTypes.string,
+  onClick: PropTypes.func,
+  onSelect: PropTypes.func,
+  reset: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'large']),
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
+  wide: PropTypes.bool,
+  onComplete: PropTypes.func,
+  onReverseComplete: PropTypes.func,
+  onReverseStart: PropTypes.func,
+  onStart: PropTypes.func,
+  manualClose: PropTypes.bool,
+};
+
+Dropdown.defaultProps = {
+  block: false,
+  disabled: false,
+  disableScroll: false,
+  hideCaret: false,
+  hideActive: false,
+  type: 'default',
+  wide: false,
+  onComplete: () => {},
+  onReverseComplete: () => {},
+  onReverseStart: () => {},
+  onStart: () => {},
+  manualClose: false,
+};
 
 export default Dropdown;

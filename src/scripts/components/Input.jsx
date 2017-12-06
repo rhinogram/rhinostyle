@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Icon } from '../components';
+import { Button, Icon } from '../components';
 
 class Input extends React.Component {
   state = {
@@ -104,7 +104,12 @@ class Input extends React.Component {
         inputMarkup = (
           <div className="form__clear">
             <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
-            {input ? <button type="button" className="button--reset form__clear__button" onClick={this._handleClear} ><Icon icon="close" /></button> : null}
+            {input ?
+              <Button reset className="form__clear__button" onClick={this._handleClear} >
+                <Icon icon="close" />
+              </Button>
+              : null
+            }
           </div>
         );
       } else {

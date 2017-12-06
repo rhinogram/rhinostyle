@@ -381,6 +381,10 @@
 
 .dropdown__toggle__text {
   .u-text-overflow;
+
+  * + & {
+    margin-left: @global-whitespace-xsmall;
+  }
 }
 
 
@@ -399,19 +403,6 @@
 
   .icon-stroke {
     stroke-width: 1; // 1
-  }
-}
-
-
-//
-// Dropdown Toggle Icon
-//
-
-
-// only give right margin to toggle icon unless it's a child of button--icon
-.dropdown__toggle:not(.button--icon) {
-  .dropdown__toggle__icon {
-    margin-right: @global-whitespace-xsmall;
   }
 }
 
