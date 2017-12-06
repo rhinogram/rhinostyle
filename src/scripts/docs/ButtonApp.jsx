@@ -18,6 +18,7 @@ const buttonDocs = {
   type: '[Optional] - Button type -  [default | primary | secondary | accent | outline-primary | outline-reversed | link | link-muted]',
   url: '[Optional] - URL for item',
   loading: '[Optional] - Specify a loading-state for the button to denote a background-action is in-progress',
+  reset: '[Optional] - Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
 };
 const exampleScope  = {
   React,

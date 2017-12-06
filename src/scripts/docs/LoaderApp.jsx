@@ -10,7 +10,6 @@ const loaderCircleDocs = {
   className: '[Optional] - Include additional class name(s)',
   pause: '[Optional] - Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
   size: '[Optional] - LoaderCircle size -  [xsmall | small | large]',
-  type: '[Optional] - LoaderCircle type -  [default | primary]',
 };
 const loaderCircleScope = {
   React,

@@ -10,12 +10,10 @@ class LoaderCircle extends React.Component {
     className: PropTypes.string,
     pause: PropTypes.bool,
     size: PropTypes.string,
-    type: PropTypes.string,
   };
 
   static defaultProps = {
     pause: false,
-    type: 'default',
   };
 
   componentDidMount() {
@@ -42,11 +40,9 @@ class LoaderCircle extends React.Component {
   }
 
   render() {
-    const { className, size, type } = this.props;
+    const { className, size } = this.props;
 
     const classes = cx('loader-circle', className, {
-      'loader-circle--default':   type === 'default',
-      'loader-circle--primary':   type === 'primary',
       'loader-circle--large':        size === 'large',
       'loader-circle--small':        size === 'small',
       'loader-circle--xsmall':        size === 'xsmall',

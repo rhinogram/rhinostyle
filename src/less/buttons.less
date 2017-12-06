@@ -284,9 +284,16 @@
 //
 
 
-.button.is-loading {
-  .button__text-wrapper {
-    opacity: 0;
+// 1. Ensure `.button--reset` also gets relative positioning for loader
+// 2. Hide text
+.button,
+.button--reset {
+  &.is-loading {
+    position: relative; // 1
+
+    .button__text-wrapper {
+      opacity: 0; // 2
+    }
   }
 }
 
@@ -297,16 +304,4 @@
   transform: translate(-50%, -50%);
   line-height: 1;
   z-index: 1;
-}
-
-
-//
-// Loading state variation
-//
-
-
-.button__loader--contrast {
-  .loader-circle {
-    border-color: @global-color-white;
-  }
 }
