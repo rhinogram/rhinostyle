@@ -31,12 +31,6 @@ const loaderPulseScope = {
 const LoaderApp = () =>
   (<div>
     <section className="site-section">
-      <h3 className="site-subheadline">LoaderCircle Types</h3>
-      <p className="site-copy"><code>type=&quot;default | primary&quot;</code></p>
-      <LoaderCircle /> <LoaderCircle type="primary" />
-    </section>
-
-    <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
       <p className="site-copy"><code>size=&quot;xsmall | small | large&quot;</code></p>
       <LoaderCircle size="xsmall" /> <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />

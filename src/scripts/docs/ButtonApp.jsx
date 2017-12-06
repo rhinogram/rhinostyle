@@ -15,7 +15,7 @@ const buttonDocs = {
   route: '[Optional] - React-router route to use for item',
   size: '[Optional] - Button size -  [small | large]',
   title: '[Optional] - Include title attribute that represents advisory information',
-  type: '[Optional] - Button type -  [default | primary | secondary | accent | outline-primary | outline-reversed | link | link-muted]',
+  type: '[Optional] - Button type -  [default | primary | secondary | accent | input | outline-primary | outline-reversed | link | link-muted]',
   url: '[Optional] - URL for item',
   loading: '[Optional] - Specify a loading-state for the button to denote a background-action is in-progress',
   reset: '[Optional] - Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
@@ -32,12 +32,13 @@ const ButtonApp = () =>
   (<div>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
-      <p className="site-copy"><code>type=&quot;default | primary | secondary | accent | outline-primary | link | link-muted | danger&quot;</code></p>
+      <p className="site-copy"><code>type=&quot;default | primary | secondary | accent | input | outline-primary | link | link-muted | danger&quot;</code></p>
       <UtilityInlineGrid>
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
         <Button type="secondary">Secondary</Button>
         <Button type="accent">Accent</Button>
+        <Button type="input">Input</Button>
         <Button type="outline-primary">Outline Primary</Button>
         <Button type="link">Link</Button>
         <Button type="link-muted">Link Muted</Button>
