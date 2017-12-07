@@ -198,7 +198,7 @@ const FormApp = () =>
           <Icon icon="search" />
         </Input>
         <Input addon="right" type="text">
-          <Button className="u-text-primary">Go For It!</Button>
+          <Button reset className="u-text-primary">Go For It!</Button>
         </Input>
         <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
           <span>Amount $</span>

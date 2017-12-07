@@ -120,15 +120,17 @@ class Textarea extends React.Component {
       <div className={formGroupClasses}>
         {showLabel()}
         <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} disabled={disabled} />
-        <div className="form__control-footer">
-          {(showValidationMessage() || showExplanationMessage())
-            ? <div>
-              {showValidationMessage()}
-              {showExplanationMessage()}
-            </div>
-            : ''}
-          {showCharacterCount()}
-        </div>
+        {(showValidationMessage() || showExplanationMessage() || showCharacterCount()) &&
+          <div className="form__control-footer">
+            {(showValidationMessage() || showExplanationMessage()) &&
+              <div className="form__control-footer__left">
+                {showValidationMessage()}
+                {showExplanationMessage()}
+              </div>
+            }
+            {showCharacterCount()}
+          </div>
+        }
       </div>
     );
   }

@@ -19,7 +19,7 @@ class ComponentExample extends React.Component {
 
         <BucketHeader title="Bucket Header Without Icon" />
 
-        <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="sms">
+        <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="chat">
           <div>
             <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
           </div>
