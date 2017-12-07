@@ -100,8 +100,10 @@ const checkboxDocs  = {
   name: '[Required] - An id, and label for the checkbox',
   onClick: '[Optional] - A function you want to trigger when the checkbox is toggled',
   onChange: '[Optional] - A function that returns the name and value of the checkbox',
+  children: '[Optional] - (Currently) only for use when <CheckboxGroup /> has blockGroup prop; shows content based on select state of option',
 };
 const checkboxScope = {
+  Fragment,
   React,
   ReactDOM,
   Checkbox,
@@ -162,9 +164,9 @@ const FormApp = () =>
         <Textarea label="Text Area" name="exampleTextarea1" placeholder="Enter some text" required />
         <MessageBox label="Message Box" placeholder="Enter some text" name="exampleMessageBoxarea1" required />
         <CheckboxGroup label="Checkboxes">
-          <Checkbox name="exampleCheckbox1">Checkbox One</Checkbox>
-          <Checkbox name="exampleCheckbox2">Checkbox Two</Checkbox>
-          <Checkbox name="exampleCheckbox3">Checkbox Three</Checkbox>
+          <Checkbox name="exampleCheckbox1" label="Checkbox One" />
+          <Checkbox name="exampleCheckbox2" label="Checkbox Two" />
+          <Checkbox name="exampleCheckbox3" label="Checkbox Three" />
         </CheckboxGroup>
         <RadioGroup inline name="exampleRadio1" label="Radios" selectedValue="2">
           <Radio value="1" label="Radio One" />
@@ -262,18 +264,55 @@ const FormApp = () =>
       <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
       <p><strong>Note:</strong> Regardless of the amount, always wrap checkboxes in the <code>&lt;CheckboxGroup&gt;</code> component for proper spacing and the availability of the <code>label</code> property.</p>
       <CheckboxGroup>
-        <Checkbox isChecked name="exampleCheckbox11">Checkbox One</Checkbox>
-        <Checkbox name="exampleCheckbox12">Checkbox Two</Checkbox>
-        <Checkbox name="exampleCheckbox13">Checkbox Three</Checkbox>
+        <Checkbox isChecked name="exampleCheckbox11" label="Checkbox One" />
+        <Checkbox name="exampleCheckbox12" label="Checkbox Two" />
+        <Checkbox name="exampleCheckbox13" label="Checkbox Three" />
       </CheckboxGroup>
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Inline</h5>
         <p className="site-copy">To place checkboxes inline that wrap with automagic spacing, you can add the <code>inline</code> property to the <code>&lt;CheckboxGroup&gt;</code> component.</p>
         <CheckboxGroup inline>
-          <Checkbox isChecked name="exampleCheckbox17">Checkbox One</Checkbox>
-          <Checkbox name="exampleCheckbox18">Checkbox Two</Checkbox>
-          <Checkbox name="exampleCheckbox19">Checkbox Three</Checkbox>
+          <Checkbox isChecked name="exampleCheckbox17" label="Checkbox One" />
+          <Checkbox name="exampleCheckbox18" label="Checkbox Two" />
+          <Checkbox name="exampleCheckbox19" label="Checkbox Three" />
+        </CheckboxGroup>
+      </div>
+
+      <div className="u-m-t-large">
+        <h5 className="site-miniheadline">Block Group</h5>
+        <p className="site-copy">To place checkboxes inside a contained block, you can add the <code>blockGroup</code> property to the <code>&lt;CheckboxGroup&gt;</code> component.</p>
+        <CheckboxGroup blockGroup label="Checkboxes (block group)">
+          <Checkbox
+            isChecked
+            name="exampleCheckbox97"
+            label={
+              <Fragment>
+                <span className="form__block-group__label">Checkbox 1</span>
+                <span className="form__block-group__desc">This is a test description</span>
+              </Fragment>
+            }
+          />
+          <Checkbox
+            name="exampleCheckbox98"
+            label={
+              <Fragment>
+                <span className="form__block-group__label">Checkbox 1</span>
+                <span className="form__block-group__desc">This is a test description</span>
+              </Fragment>
+            }
+          />
+          <Checkbox
+            name="exampleCheckbox99"
+            label={
+              <Fragment>
+                <span className="form__block-group__label">Checkbox 1</span>
+                <span className="form__block-group__desc">This is a test description</span>
+              </Fragment>
+            }
+          >
+            I only show up when Checkbox 3 is selected!
+          </Checkbox>
         </CheckboxGroup>
       </div>
     </section>
@@ -312,8 +351,8 @@ const FormApp = () =>
             value="1"
             label={
               <Fragment>
-                <span className="rhinodio__block-group__label">Radio 1</span>
-                <span className="rhinodio__block-group__desc">This is a test description</span>
+                <span className="form__block-group__label">Radio 1</span>
+                <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
             }
           />
@@ -321,8 +360,8 @@ const FormApp = () =>
             value="2"
             label={
               <Fragment>
-                <span className="rhinodio__block-group__label">Radio 2</span>
-                <span className="rhinodio__block-group__desc">This is a test description</span>
+                <span className="form__block-group__label">Radio 2</span>
+                <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
             }
           />
@@ -330,8 +369,8 @@ const FormApp = () =>
             value="3"
             label={
               <Fragment>
-                <span className="rhinodio__block-group__label">Radio 3</span>
-                <span className="rhinodio__block-group__desc">This is a test description</span>
+                <span className="form__block-group__label">Radio 3</span>
+                <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
             }
           >

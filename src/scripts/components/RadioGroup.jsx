@@ -76,7 +76,7 @@ class RadioGroup extends React.Component {
       );
     } else if (blockGroup) {
       return (
-        <div className="rhinodio__block-group">
+        <div className="form__block-group--radio">
           {this.renderChildren()}
         </div>
       );

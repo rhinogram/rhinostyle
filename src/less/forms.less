@@ -776,19 +776,21 @@ input[type='checkbox'] {
   }
 }
 
-.rhinodio__block-group {
+[class^="form__block-group--"] {
   border: 1px solid @global-border-color;
 
   // 1. Remove `flex`
-  .rhinodio {
+  .rhinodio,
+  .rhinobox {
     display: block; // 1
 
-    + .rhinodio {
+    + * {
       border-top: 1px solid @global-border-color;
     }
   }
 
-  .rhinodio__label {
+  .rhinodio__label,
+  .rhinobox__label {
     padding: @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-xsmall) @global-whitespace-base @global-whitespace-base;
     position: static;
     width: 100%;
@@ -812,17 +814,17 @@ input[type='checkbox'] {
   }
 }
 
-.rhinodio__block-group__label {
+.form__block-group__label {
   display: block;
   font-weight: @global-font-weight-bold;
 }
 
-.rhinodio__block-group__desc {
+.form__block-group__desc {
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
 }
 
-.rhinodio__meta:not(:empty) {
+.form__block-group__meta:not(:empty) {
   padding: 0 @global-whitespace-base @global-whitespace-base @global-whitespace-base;
 }
 
