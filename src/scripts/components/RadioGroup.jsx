@@ -118,8 +118,4 @@ RadioGroup.propTypes = {
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-RadioGroup.defaultProps = {
-  name: `rhinodioGroup-${Math.floor(Math.random() * 1000000)}`,
-};
-
 export default RadioGroup;

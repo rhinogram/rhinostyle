@@ -21,7 +21,7 @@ class ComponentExample extends React.Component {
         </Resource>
         <Resource unread>
           <ResourceColumnLeftWrapper>
-            <ResourceColumnLeftIntro title="Test" icon={{ icon: 'star', bump: 'up', onClick: this.handleIconClick }} />
+            <ResourceColumnLeftIntro title="Test" icon={{ icon: 'star', onClick: this.handleIconClick }} />
             <ResourceColumnLeftBody>
               Some body stuff!
             </ResourceColumnLeftBody>

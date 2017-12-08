@@ -4,8 +4,8 @@ class ComponentExample extends React.Component {
       <div>
         <CoverBody>
           <div className="form">
-            <Input label="First Name" name="firstName" initialValue="First Name" validationMessage="" required />
-            <Input label="Last Name" name="lastName" initialValue="" validationMessage="LastName is required!" required />
+            <Input name="firstName" label="First Name" initialValue="First Name" validationMessage="" required />
+            <Input name="lastName" label="Last Name" initialValue="" validationMessage="LastName is required!" required />
           </div>
         </CoverBody>
       </div>

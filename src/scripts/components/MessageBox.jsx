@@ -3,39 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Textarea from 'react-textarea-autosize';
 
+import { UtilitySystem } from '../components';
+
 class MessageBox extends React.Component {
-  static displayName = 'RhinoMessageBox';
-
-  static propTypes = {
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onClick: PropTypes.func,
-    onInput: PropTypes.func,
-    onKeyPress: PropTypes.func,
-    onHeightChange: PropTypes.func,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    maxHeight: PropTypes.string,
-    naked: PropTypes.bool,
-    initialValue: PropTypes.string,
-    focus: PropTypes.bool,
-    rows: PropTypes.number,
-  };
-
-  static defaultProps = {
-    label: '',
-    initialValue: '',
-    naked: false,
-    name: '',
-    placeholder: '',
-    rows: 1,
-    required: false,
-    maxHeight: '20rem',
-    focus: false,
-  };
-
   state = {
     value: '',
   };
@@ -59,6 +29,8 @@ class MessageBox extends React.Component {
       this.rhinoTextArea._rootDOMNode.focus();
     }
   }
+
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
@@ -107,7 +79,7 @@ class MessageBox extends React.Component {
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
+        return <label htmlFor={this.id}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
       }
 
       return false;
@@ -115,10 +87,41 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <Textarea rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onInput={this._handleChange} onClick={this._handleClick} onHeightChange={this._handleHeightChange} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
+        <Textarea name={name} id={this.id} rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onInput={this._handleChange} onClick={this._handleClick} onHeightChange={this._handleHeightChange} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );
   }
 }
+
+MessageBox.displayName = 'RhinoMessageBox';
+
+MessageBox.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  onInput: PropTypes.func,
+  onKeyPress: PropTypes.func,
+  onHeightChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  naked: PropTypes.bool,
+  initialValue: PropTypes.string,
+  focus: PropTypes.bool,
+  rows: PropTypes.number,
+};
+
+MessageBox.defaultProps = {
+  label: '',
+  initialValue: '',
+  naked: false,
+  placeholder: '',
+  rows: 1,
+  required: false,
+  maxHeight: '20rem',
+  focus: false,
+};
 
 export default MessageBox;

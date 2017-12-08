@@ -5,29 +5,6 @@ import React from 'react';
 import { UtilitySystem } from '../components';
 
 class Select extends React.Component {
-  static displayName = 'RhinoSelect';
-
-  static propTypes = {
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    explanationMessage: PropTypes.string,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    options: PropTypes.array.isRequired,
-    onSelect: PropTypes.func,
-    required: PropTypes.bool,
-    selected: PropTypes.number,
-    validationMessage: PropTypes.string,
-  };
-
-  static defaultProps = {
-    disabled: false,
-    label: '',
-    name: '',
-    required: false,
-    selected: -1,
-  };
-
   state = {
     selected: this.props.selected ? this.props.selected : -1,
   }
@@ -39,6 +16,8 @@ class Select extends React.Component {
       });
     }
   }
+
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   _onChange = (event) => {
     const selected = typeof event.target.value !== 'number' ? JSON.parse(event.target.value) : event.target.value;
@@ -64,7 +43,7 @@ class Select extends React.Component {
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label} {required && <span className="form__asterisk">*</span>}</label>;
+        return <label htmlFor={this.id}>{label} {required && <span className="form__asterisk">*</span>}</label>;
       }
 
       return false;
@@ -106,7 +85,7 @@ class Select extends React.Component {
       <div className={formGroupClasses}>
         {showLabel()}
         <div className="rhinoselect">
-          <select className={classes} disabled={disabled} id={name} value={this.state.selected} onChange={this._onChange}>
+          <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this._onChange}>
             {options.map(renderOpts)}
           </select>
         </div>
@@ -116,5 +95,29 @@ class Select extends React.Component {
     );
   }
 }
+
+Select.displayName = 'RhinoSelect';
+
+Select.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  explanationMessage: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  onSelect: PropTypes.func,
+  required: PropTypes.bool,
+  selected: PropTypes.number,
+  validationMessage: PropTypes.string,
+};
+
+Select.defaultProps = {
+  disabled: false,
+  label: '',
+  name: '',
+  required: false,
+  selected: -1,
+};
+
 
 export default Select;

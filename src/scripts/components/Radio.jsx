@@ -6,7 +6,7 @@ import { UtilitySystem } from '../components';
 
 const Radio = (props) => {
   const { children, className, disabled, label, name, onChange, selectedValue, value } = props;
-  const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
+  const id = `${name}-${UtilitySystem.generateUUID()}`;
   const classes = cx('rhinodio', className, {
     [UtilitySystem.config.classes.disabled]: disabled,
   });

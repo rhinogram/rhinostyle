@@ -2,38 +2,9 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 class Textarea extends React.Component {
-  static displayName = 'RhinoTextarea';
-
-  static propTypes = {
-    abbrMaxCharacters: PropTypes.bool,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    explanationMessage: PropTypes.string,
-    initialValue: PropTypes.string,
-    label: PropTypes.string,
-    maxCharacters: PropTypes.number,
-    naked: PropTypes.bool,
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    placeholder: PropTypes.string,
-    required: PropTypes.bool,
-    rows: PropTypes.number,
-    validationMessage: PropTypes.string,
-  };
-
-  static defaultProps = {
-    abbrMaxCharacters: false,
-    label: '',
-    maxCharacters: null,
-    naked: false,
-    name: '',
-    placeholder: '',
-    required: false,
-    rows: 3,
-    validationMessage: '',
-  };
-
   state = {
     charactersLeft: '',
     value: '',
@@ -59,6 +30,8 @@ class Textarea extends React.Component {
       });
     }
   }
+
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   _handleChange = (event) => {
     this.setState({
@@ -102,7 +75,7 @@ class Textarea extends React.Component {
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={name}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
+        return <label htmlFor={this.id}>{label} {required ? <span className="form__asterisk">*</span> : null}</label>;
       }
 
       return false;
@@ -119,7 +92,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         {showLabel()}
-        <textarea id={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} disabled={disabled} />
+        <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} disabled={disabled} />
         {(showValidationMessage() || showExplanationMessage() || showCharacterCount()) &&
           <div className="form__control-footer">
             {(showValidationMessage() || showExplanationMessage()) &&
@@ -135,5 +108,35 @@ class Textarea extends React.Component {
     );
   }
 }
+
+Textarea.displayName = 'RhinoTextarea';
+
+Textarea.propTypes = {
+  abbrMaxCharacters: PropTypes.bool,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  explanationMessage: PropTypes.string,
+  initialValue: PropTypes.string,
+  label: PropTypes.string,
+  maxCharacters: PropTypes.number,
+  naked: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  rows: PropTypes.number,
+  validationMessage: PropTypes.string,
+};
+
+Textarea.defaultProps = {
+  abbrMaxCharacters: false,
+  label: '',
+  maxCharacters: null,
+  naked: false,
+  placeholder: '',
+  required: false,
+  rows: 3,
+  validationMessage: '',
+};
 
 export default Textarea;

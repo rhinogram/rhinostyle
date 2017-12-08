@@ -2,7 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Icon } from '../components';
+import { Icon, UtilityInlineGrid } from '../components';
 import iconExample from './examples/Icon.example.txt';
 
 const iconDocs = {
@@ -14,6 +14,7 @@ const exampleScope  = {
   React,
   ReactDOM,
   Icon,
+  UtilityInlineGrid,
 };
 
 // Add new icons here

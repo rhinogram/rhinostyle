@@ -17,6 +17,8 @@ class Checkbox extends React.Component {
     }
   }
 
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
+
   _toggleChecked = () => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
       this.props.onClick(!this.state.checked);
@@ -34,7 +36,6 @@ class Checkbox extends React.Component {
   render() {
     const { children, className, label, disabled, name, value } = this.props;
     const { checked } = this.state;
-    const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
 
     const classes = cx('rhinobox', className, {
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -48,11 +49,11 @@ class Checkbox extends React.Component {
           type="checkbox"
           disabled={disabled}
           name={name}
-          id={id}
+          id={this.id}
           checked={checked}
           onChange={this._toggleChecked}
         />
-        {label && <label className="rhinobox__label" htmlFor={id}>{label}</label>}
+        {label && <label className="rhinobox__label" htmlFor={this.id}>{label}</label>}
         {((checked) && children) &&
           <div className="form__block-group__meta">
             {children}
