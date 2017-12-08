@@ -32,8 +32,9 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { children, className, label, disabled, name } = this.props;
+    const { children, className, label, disabled, name, value } = this.props;
     const { checked } = this.state;
+    const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
 
     const classes = cx('rhinobox', className, {
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -41,8 +42,17 @@ class Checkbox extends React.Component {
 
     return (
       <div className={classes}>
-        <input className="rhinobox__input" type="checkbox" disabled={disabled} id={name} checked={checked} onChange={this._toggleChecked} />
-        {label && <label className="rhinobox__label" htmlFor={name}>{label}</label>}
+        <input
+          value={value}
+          className="rhinobox__input"
+          type="checkbox"
+          disabled={disabled}
+          name={name}
+          id={id}
+          checked={checked}
+          onChange={this._toggleChecked}
+        />
+        {label && <label className="rhinobox__label" htmlFor={id}>{label}</label>}
         {((checked) && children) &&
           <div className="form__block-group__meta">
             {children}
@@ -64,6 +74,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
+  value: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
