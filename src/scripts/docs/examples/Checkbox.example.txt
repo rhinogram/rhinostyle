@@ -13,14 +13,34 @@ class ComponentExample extends React.Component {
     return (
       <div className="site-example-checkbox">
         <CheckboxGroup label="Checkboxes">
-          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox31} name="exampleCheckbox31">Checkbox One</Checkbox>
-          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox32} name="exampleCheckbox32">Checkbox Two</Checkbox>
-          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox33} name="exampleCheckbox33">Checkbox Three</Checkbox>
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox31} name="exampleCheckbox31" label="Checkbox One" />
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox32} name="exampleCheckbox32" label="Checkbox Two" />
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox33} name="exampleCheckbox33" label="Checkbox Three" />
         </CheckboxGroup>
         <CheckboxGroup label="Checkboxes (inline)" inline>
-          <Checkbox isChecked name="exampleCheckbox34">Checkbox One</Checkbox>
-          <Checkbox name="exampleCheckbox35">Checkbox Two</Checkbox>
-          <Checkbox name="exampleCheckbox36">Checkbox Three</Checkbox>
+          <Checkbox isChecked name="exampleCheckbox34" label="Checkbox One" />
+          <Checkbox name="exampleCheckbox35" label="Checkbox Two" />
+          <Checkbox name="exampleCheckbox36" label="Checkbox Three" />
+        </CheckboxGroup>
+        <CheckboxGroup blockGroup label="Checkboxes (block group)">
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox31} name="exampleCheckbox37" label={
+            <Fragment>
+              <span className="form__block-group__label">Checkbox 1</span>
+              <span className="form__block-group__desc">This is a test description</span>
+            </Fragment>
+          } />
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox32} name="exampleCheckbox38" label={
+            <Fragment>
+              <span className="form__block-group__label">Checkbox 1</span>
+              <span className="form__block-group__desc">This is a test description</span>
+            </Fragment>
+          } />
+          <Checkbox onChange={this.handleChange} isChecked={this.state.exampleCheckbox33} name="exampleCheckbox39" label={
+            <Fragment>
+              <span className="form__block-group__label">Checkbox 1</span>
+              <span className="form__block-group__desc">This is a test description</span>
+            </Fragment>
+          }>I only show up when Checkbox 3 is selected!</Checkbox>
         </CheckboxGroup>
       </div>
     );

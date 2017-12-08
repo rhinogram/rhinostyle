@@ -23,8 +23,8 @@ class ComponentExample extends React.Component {
             value="1"
             label={
               <Fragment>
-                <span className="rhinodio__block-group__label">Radio 1</span>
-                <span className="rhinodio__block-group__desc">This is a test description</span>
+                <span className="form__block-group__label">Radio 1</span>
+                <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
             }
           />
@@ -32,8 +32,8 @@ class ComponentExample extends React.Component {
             value="2"
             label={
               <Fragment>
-                <span className="rhinodio__block-group__label">Radio 2</span>
-                <span className="rhinodio__block-group__desc">This is a test description</span>
+                <span className="form__block-group__label">Radio 2</span>
+                <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
             }
           />
@@ -41,8 +41,8 @@ class ComponentExample extends React.Component {
             value="3"
             label={
               <Fragment>
-                <span className="rhinodio__block-group__label">Radio 3</span>
-                <span className="rhinodio__block-group__desc">This is a test description</span>
+                <span className="form__block-group__label">Radio 3</span>
+                <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
             }
           >

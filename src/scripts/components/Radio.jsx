@@ -5,7 +5,7 @@ import React from 'react';
 import { UtilitySystem } from '../components';
 
 const Radio = (props) => {
-  const { className, disabled, name, onChange, label, value } = props;
+  const { children, className, disabled, label, name, onChange, selectedValue, value } = props;
   const id = `${name}-${Math.floor(Math.random() * 1000000)}`;
   const classes = cx('rhinodio', className, {
     [UtilitySystem.config.classes.disabled]: disabled,
@@ -13,11 +13,11 @@ const Radio = (props) => {
 
   return (
     <div className={classes}>
-      <input className="rhinodio__input" type="radio" disabled={disabled} name={name} value={value} id={id} checked={props.value === props.selectedValue} onChange={onChange} />
-      <label className="rhinodio__label" htmlFor={id}>{props.label}</label>
-      {((props.value === props.selectedValue) && props.children) &&
-        <div className="rhinodio__meta">
-          {props.children}
+      <input className="rhinodio__input" type="radio" disabled={disabled} name={name} value={value} id={id} checked={props.value === selectedValue} onChange={onChange} />
+      {label && <label className="rhinodio__label" htmlFor={id}>{label}</label>}
+      {((props.value === selectedValue) && children) &&
+        <div className="form__block-group__meta">
+          {children}
         </div>
       }
     </div>

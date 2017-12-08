@@ -15,11 +15,11 @@ class ComponentExample extends React.Component {
         <Alert onDismiss={() => alert('dismissed!')}><Icon icon="cog" bump="up" /> This is a default alert without a title and is dismissible.</Alert>
 
         <Alert title="Danger" titleIcon="alert-triangle" type="danger">
-          Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href="javascript:void(0)">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className="u-text-normal"><Checkbox inline name="exampleCheckbox666" className="u-m-b-0">Checkbox</Checkbox></span>
+          Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href="javascript:void(0)">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className="u-text-normal"><Checkbox inline name="exampleCheckbox666" className="u-m-b-0" label="Checkbox" /></span>
         </Alert>
 
         <Alert title="Default" titleIcon="checkmark" size="small">
-          Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href="javascript:void(0)">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className="u-text-normal"><Checkbox inline name="exampleCheckbox66666" className="u-m-b-0">Checkbox</Checkbox></span>
+          Phasellus eu accumsan diam. Donec sed aliquet quam congue ac. <a href="javascript:void(0)">congue aliquet arcu</a> blandit euismod enim turpis rutrum, dignissim ligula.<br /> <span className="u-text-normal"><Checkbox inline name="exampleCheckbox66666" className="u-m-b-0" label="Checkbox" /></span>
         </Alert>
 
       </div>

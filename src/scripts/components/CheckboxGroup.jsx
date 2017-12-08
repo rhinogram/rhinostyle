@@ -5,42 +5,66 @@ import React from 'react';
 import { UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class CheckboxGroup extends React.Component {
-  static displayName = 'CheckboxGroup';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    inline: PropTypes.bool,
-    label: PropTypes.string,
-  };
-
   renderChildren = () => {
-    const { children, inline } = this.props;
+    const { blockGroup, children, inline } = this.props;
 
-    return React.Children.map(children, child =>
-      (inline ? <div>{child}</div> : <UtilityListItem>{child}</UtilityListItem>),
-    );
+    return React.Children.map(children, (child) => {
+      if (inline || blockGroup) {
+        return child;
+      }
+
+      return <UtilityListItem>{child}</UtilityListItem>;
+    });
   };
+
+  renderItems = () => {
+    const { blockGroup, inline } = this.props;
+
+    if (inline) {
+      return (
+        <UtilityInlineGrid size="regular">
+          {this.renderChildren()}
+        </UtilityInlineGrid>
+      );
+    } else if (blockGroup) {
+      return (
+        <div className="form__block-group--checkbox">
+          {this.renderChildren()}
+        </div>
+      );
+    }
+
+    return (
+      <UtilityList space>
+        {this.renderChildren()}
+      </UtilityList>
+    );
+  }
 
   render() {
-    const { className, inline, label } = this.props;
+    const { className, label } = this.props;
     const classes = cx('form__group', className);
 
     // Show label or not based on prop value
     const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
 
-    // Wrap items in either `<UtilityInlineGrid>` or `<UtilityList>` based on prop
-    const render = inline ?
-      <UtilityInlineGrid size="regular">{this.renderChildren()}</UtilityInlineGrid>
-      : <UtilityList space>{this.renderChildren()}</UtilityList>;
-
     return (
       <div className={classes}>
         {showLabel}
-        {render}
+        {this.renderItems()}
       </div>
     );
   }
 }
+
+CheckboxGroup.displayName = 'CheckboxGroup';
+
+CheckboxGroup.propTypes = {
+  blockGroup: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  inline: PropTypes.bool,
+  label: PropTypes.string,
+};
 
 export default CheckboxGroup;

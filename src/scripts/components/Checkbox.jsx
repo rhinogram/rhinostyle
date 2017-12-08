@@ -5,25 +5,6 @@ import React from 'react';
 import { UtilitySystem } from '../components';
 
 class Checkbox extends React.Component {
-  static displayName = 'Rhinobox';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    isChecked: PropTypes.bool,
-    name: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    onChange: PropTypes.func,
-  }
-
-  static defaultProps = {
-    isChecked: false,
-    onClick() {
-      return true;
-    },
-  }
-
   state = {
     checked: this.props.isChecked,
   }
@@ -51,7 +32,7 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { className, disabled, name } = this.props;
+    const { children, className, label, disabled, name } = this.props;
     const { checked } = this.state;
 
     const classes = cx('rhinobox', className, {
@@ -61,12 +42,35 @@ class Checkbox extends React.Component {
     return (
       <div className={classes}>
         <input className="rhinobox__input" type="checkbox" disabled={disabled} id={name} checked={checked} onChange={this._toggleChecked} />
-        <label className="rhinobox__label" htmlFor={name}>
-          {this.props.children}
-        </label>
+        {label && <label className="rhinobox__label" htmlFor={name}>{label}</label>}
+        {((checked) && children) &&
+          <div className="form__block-group__meta">
+            {children}
+          </div>
+        }
       </div>
     );
   }
 }
+
+Checkbox.displayName = 'Rhinobox';
+
+Checkbox.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  isChecked: PropTypes.bool,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  name: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+};
+
+Checkbox.defaultProps = {
+  isChecked: false,
+  onClick() {
+    return true;
+  },
+};
 
 export default Checkbox;
