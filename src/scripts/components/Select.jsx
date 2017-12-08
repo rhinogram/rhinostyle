@@ -27,7 +27,7 @@ class Select extends React.Component {
     });
 
     if (this.props.onSelect && typeof this.props.onSelect === 'function') {
-      this.props.onSelect(event.target.id, selected);
+      this.props.onSelect(event.target.name, selected);
     }
   }
 

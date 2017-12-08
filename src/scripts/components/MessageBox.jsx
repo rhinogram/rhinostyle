@@ -36,13 +36,13 @@ class MessageBox extends React.Component {
     this.setState({ value: event.target.value });
 
     if (this.props.onInput && typeof (this.props.onInput === 'function')) {
-      this.props.onInput(event.target.id, event.target.value);
+      this.props.onInput(event.target.name, event.target.value);
     }
   }
 
   _handleClick = (event) => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
-      this.props.onClick(event.target.id, event.target.value);
+      this.props.onClick(event.target.name, event.target.value);
     }
   }
 
