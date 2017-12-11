@@ -21,7 +21,7 @@ const inputDocs  = {
   initialValue:       '[Optional] - Any initial value for the input',
   label:              '[Optional] - A label for the input',
   naked:              '[Optional] - Form control is stripped down in appearance',
-  name:               '[Optional] - An id for the label and the input, use if you want clicking the label to activate the input',
+  name:               '[Required] - A name attribute for the input',
   onChange:           '[Optional] - A callback function that is executed when the input value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the input',
   required:           '[Optional] - Field is required and asterisk is added to label',
@@ -65,7 +65,7 @@ const textareaDocs  = {
   label:              '[Optional] - A label for the textarea',
   maxCharacters:      '[Optional] - Set a maximum character limit in order to display character count',
   naked:              '[Optional] - Form control is stripped down in appearance',
-  name:               '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the textarea',
+  name:               '[Required] - A name attribute for the textarea',
   disabled:  '[Optional] - Disable the textarea',
   onChange:           '[Optional] - A callback function that is executed when the textarea value changes',
   placeholder:        '[Optional] - Any placeholder text you want in the textarea',
@@ -82,7 +82,7 @@ const messageBoxDocs  = {
   label:         '[Optional] - A label for the textarea',
   disabled:  '[Optional] - Disable the textarea',
   naked:              '[Optional] - Form control is stripped down in appearance',
-  name:          '[Optional] - An id for the label and the textarea, use if you want clicking the label to activate the Message Box',
+  name:               '[Required] - A name attribute for the message box',
   placeholder:   '[Optional] - Any placeholder text you want in the textarea',
   initialValue:  '[Optional] - Any initial value for the textarea',
   maxHeight:     '[Optional] - Controls the max-height (default: 20rem)',
@@ -114,9 +114,9 @@ const checkboxScope = {
 };
 
 const radioDocs  = {
-  name:          '[Optional] - The name, and the basis of the id for the radio',
   label: '[Optional] - Text visible to user next to radio button',
   disabled:  '[Optional] - Disable the radio button',
+  name:               '[Optional] - A name attribute for the radio. Automatically passed down from <RadioGroup />',
   inline: '[Optional] - Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
   onChange:      '[Optional] - A function you which to trigger when you change the selection',
   selectedValue: '[Optional] - The radio you want selected, when used in a group',
@@ -138,7 +138,7 @@ const switchDocs  = {
   disabled: '[Optional] - Disable the switch',
   isChecked: '[Optional] - Set initial on/off state',
   label: '[Optional] - A label for the switch',
-  name: '[Optional] - The name, and the basis of the id for the switch',
+  name:               '[Required] - A name attribute for the switch',
   onChange: '[Optional] - A function that returns the name and value of the switch',
   onClick: '[Optional] - A function that returns the value of the switch',
 };
@@ -193,16 +193,16 @@ const FormApp = () =>
         <div className="site-copy">
           <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
         </div>
-        <Input addon="left" type="text" placeholder="Encrypted">
+        <Input name="example34534534453" addon="left" type="text" placeholder="Encrypted">
           <Icon icon="lock" />
         </Input>
-        <Input addon="left" type="text" placeholder="Search">
+        <Input name="example234232" addon="left" type="text" placeholder="Search">
           <Icon icon="search" />
         </Input>
-        <Input addon="right" type="text">
+        <Input name="example2342323" addon="right" type="text">
           <Button reset className="u-text-primary">Go For It!</Button>
         </Input>
-        <Input addon="both" type="text" placeholder="Lorem ipsum dolor sit">
+        <Input name="example235436345" addon="both" type="text" placeholder="Lorem ipsum dolor sit">
           <span>Amount $</span>
           <span>.00</span>
         </Input>
@@ -346,7 +346,7 @@ const FormApp = () =>
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Block Group</h5>
         <p className="site-copy">To place radios inside a contained block, you can add the <code>blockGroup</code> property to the <code>&lt;RadioGroup&gt;</code> component.</p>
-        <RadioGroup blockGroup label="Radios (block group)" selectedValue="3">
+        <RadioGroup name="asdlkaksl0932902093-2903" blockGroup label="Radios (block group)" selectedValue="3">
           <Radio
             value="1"
             label={

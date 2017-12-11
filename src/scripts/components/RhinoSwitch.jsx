@@ -2,27 +2,9 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 class RhinoSwitch extends React.Component {
-  static display = 'RhinoSwitch';
-
-  static propTypes = {
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    isChecked: PropTypes.bool,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    onChange: PropTypes.func,
-  };
-
-  static defaultProps = {
-    isChecked: false,
-    name: `rhinodioswitcher-${Math.floor(Math.random() * 1000000)}`,
-    onClick() {
-      return true;
-    },
-  };
-
   state = {
     checked: this.props.isChecked,
   };
@@ -34,6 +16,8 @@ class RhinoSwitch extends React.Component {
       });
     }
   }
+
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   _toggleChecked = () => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
@@ -55,18 +39,37 @@ class RhinoSwitch extends React.Component {
     const classes = cx('rhinoswitcher', className);
 
     // Show label or not based on prop value
-    const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
+    const showLabel = label ? <label htmlFor={this.id} className="u-block">{label}</label> : null;
 
     return (
       <div className="form__group">
         {showLabel}
         <div className={classes}>
-          <input type="checkbox" className="rhinoswitcher__input" id={name} checked={checked} disabled={disabled} onChange={this._toggleChecked} />
-          <label className="rhinoswitcher__label" htmlFor={name} />
+          <input type="checkbox" className="rhinoswitcher__input" name={name} id={this.id} checked={checked} disabled={disabled} onChange={this._toggleChecked} />
+          <label className="rhinoswitcher__label" htmlFor={this.id} />
         </div>
       </div>
     );
   }
 }
+
+RhinoSwitch.display = 'RhinoSwitch';
+
+RhinoSwitch.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  isChecked: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+};
+
+RhinoSwitch.defaultProps = {
+  isChecked: false,
+  onClick() {
+    return true;
+  },
+};
 
 export default RhinoSwitch;

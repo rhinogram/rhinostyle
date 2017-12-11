@@ -3,32 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Message, Select } from '../components';
+import { Button, Message, Select, UtilitySystem } from '../components';
 
 class VariableMessage extends React.Component {
-  static displayName = 'RhinoVariableMessage';
-
-  static propTypes = {
-    className: PropTypes.string,
-    composeLabel: PropTypes.string.isRequired,
-    explanationMessage: PropTypes.string,
-    previewLabel: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    reset: PropTypes.bool,
-    variables: PropTypes.array.isRequired,
-    onInput: PropTypes.func,
-    initialValue: PropTypes.string,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
-    validationMessage: PropTypes.string,
-  };
-
-  static defaultProps = {
-    composeLabel: 'Message',
-    previewLabel: 'Preview',
-    explanationMessage: 'Select a variable to insert into the template',
-  };
-
   state = {
     message: '',
   };
@@ -42,8 +19,6 @@ class VariableMessage extends React.Component {
   }
 
   componentDidMount() {
-    this.variableMessageUnique = Math.floor(Math.random() * 1000000);
-
     if (this.props.initialValue) {
       this.compose.textContent = this.props.initialValue;
       this.handleInitValue();
@@ -65,6 +40,8 @@ class VariableMessage extends React.Component {
    * @return {array}
    */
   getVariables = array => array.filter(item => item.id !== -1).reduce((a, b) => a.concat(b.options || b), []);
+
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   /**
    * Update variable insertion point and cursor position
@@ -327,9 +304,9 @@ class VariableMessage extends React.Component {
     const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly, required, validationMessage } = this.props;
     const classes = cx('variable-message', className);
 
-    const variableMessageInputName = `variable-message-input-${this.variableMessageUnique}`;
-    const variableMessageSelectName = `variable-message-select-${this.variableMessageUnique}`;
-    const variableMessagePreviewName = `variable-message-preview-${this.variableMessageUnique}`;
+    const variableMessageInputName = `variable-message-input-${this.id}`;
+    const variableMessageSelectName = `variable-message-select-${this.id}`;
+    const variableMessagePreviewName = `variable-message-preview-${this.id}`;
 
     const showValidationMessage = () => {
       if (validationMessage) {
@@ -382,5 +359,28 @@ class VariableMessage extends React.Component {
     );
   }
 }
+
+VariableMessage.displayName = 'RhinoVariableMessage';
+
+VariableMessage.propTypes = {
+  className: PropTypes.string,
+  composeLabel: PropTypes.string.isRequired,
+  explanationMessage: PropTypes.string,
+  previewLabel: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  reset: PropTypes.bool,
+  variables: PropTypes.array.isRequired,
+  onInput: PropTypes.func,
+  initialValue: PropTypes.string,
+  readOnly: PropTypes.bool,
+  required: PropTypes.bool,
+  validationMessage: PropTypes.string,
+};
+
+VariableMessage.defaultProps = {
+  composeLabel: 'Message',
+  previewLabel: 'Preview',
+  explanationMessage: 'Select a variable to insert into the template',
+};
 
 export default VariableMessage;

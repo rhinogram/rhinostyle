@@ -41,7 +41,7 @@ class RadioGroup extends React.Component {
           if (child.props.value) {
             if (this.props.onChange && typeof (this.props.onChange === 'function')) {
               this.handleChange(child.props.value);
-              this.props.onChange(child.props.value);
+              this.props.onChange(child.props.name, child.props.value);
             } else {
               this.handleChange(child.props.value);
             }
@@ -116,10 +116,6 @@ RadioGroup.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
-
-RadioGroup.defaultProps = {
-  name: `rhinodioGroup-${Math.floor(Math.random() * 1000000)}`,
 };
 
 export default RadioGroup;
