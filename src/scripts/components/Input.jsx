@@ -71,6 +71,7 @@ class Input extends React.Component {
     const formGroupClasses = cx('form__group', className);
     const addonClasses = cx('form__addon', {
       'form__addon--large': size,
+      'has-error': validationMessage,
     });
 
     const showLabel = () => {

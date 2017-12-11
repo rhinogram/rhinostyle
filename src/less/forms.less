@@ -344,6 +344,12 @@ input[type='checkbox']:focus {
 .form__addon {
   display: flex;
 
+  &.has-error {
+    .form__addon__item {
+      border-color: @global-color-danger;
+    }
+  }
+
   .form__control {
     flex: 1;
   }
