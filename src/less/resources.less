@@ -90,9 +90,9 @@
     border-top: 1px solid @global-border-color;
   }
 
-  &.is-active {
-    background: fadeout(@global-color-primary, 97.5%);
-
+  &.is-active,
+  &:not(.has-interface):hover,
+  &:not(.has-interface):focus {
     &::before {
       content: '';
       width: 4px;
@@ -102,6 +102,10 @@
       left: 0;
       top: 0;
     }
+  }
+
+  &.is-active {
+    background: fadeout(@global-color-primary, 97.5%);
   }
 
   &.has-interface {
