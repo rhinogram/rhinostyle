@@ -3,13 +3,13 @@
 //
 
 
-@input-bg: @global-color-panel;
+@input-bg: @global-color-white;
 @input-border: @global-border-color;
 @input-border-focus: #66afe9;
 @input-border-radius: @global-border-radius;
 @input-color: @global-font-color;
 @input-color-placeholder: @global-color-gray;
-@input-group-addon-bg: @global-color-panel;
+@input-group-addon-bg: @global-color-white;
 @input-group-addon-border-color: @input-border;
 
 @input-height-base: @global-height;
@@ -343,6 +343,11 @@ input[type='checkbox']:focus {
 
 .form__addon {
   display: flex;
+  box-shadow: @global-shadow-interact;
+
+  .form__control {
+    box-shadow: none;
+  }
 
   &.has-error {
     .form__addon__item {
@@ -503,6 +508,7 @@ input[type='checkbox']:focus {
   display: flex;
   transition: border-color 0.15s @global-trans-timing-cubic, box-shadow 0.15s @global-trans-timing-cubic;
   width: 100%;
+  box-shadow: @global-shadow-interact;
 
   // hide IE clear on inputs
   &::-ms-clear {
