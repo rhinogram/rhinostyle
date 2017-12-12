@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll } from '../components';
 
@@ -109,14 +109,14 @@ class DropdownFilter extends React.Component {
     const items = this.state.items;
 
     return (
-      <div>
+      <Fragment>
         <div className="dropdown__menu__container">
           <input type="text" className="form__control" ref={ref => (this.filterInput = ref)} placeholder={placeholder} onChange={this.handleFilter} />
         </div>
         <DropdownMenuScroll>
           {items}
         </DropdownMenuScroll>
-      </div>
+      </Fragment>
     );
   }
 }
