@@ -19,9 +19,9 @@ const exampleScope  = {
 
 // Add new icons here
 const icons = [
-  'activity',
   'add-circle',
   'alert-triangle',
+  'announce',
   'arrow-left',
   'arrow-right',
   'assign',
