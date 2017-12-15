@@ -73,6 +73,7 @@
   }
 }
 
+// 1. Seting default top border due to the container query watcher getting mixed within mapped `<Resource />` components as state is changed. This still works fine because it always appears within `<ResourceGroup />`
 .resource {
   display: flex;
   min-height: @resource-min-height;
@@ -80,14 +81,15 @@
   padding: @resource-padding-vertical @resource-padding-horizontal;
   position: relative;
   cursor: pointer;
+  border-top: 1px solid @global-border-color;
 
   .resource-group\@small & {
     align-items: flex-start;
   }
 
-  // Workaround for container queries watcher
-  & + *:not(.erd_scroll_detection_container) {
-    border-top: 1px solid @global-border-color;
+  // Remove default top border if it's the first one
+  &:first-child {
+    border-top: 0;
   }
 
   &.is-active,
