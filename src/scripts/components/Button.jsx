@@ -6,9 +6,9 @@ import { Link } from 'react-router';
 import { LoaderCircle, UtilitySystem } from '../components';
 
 class Button extends React.Component {
-  handleClick = () => {
+  handleClick = (e) => {
     if (this.props.onClick && typeof (this.props.onClick === 'function')) {
-      this.props.onClick();
+      this.props.onClick(e);
     }
   }
 

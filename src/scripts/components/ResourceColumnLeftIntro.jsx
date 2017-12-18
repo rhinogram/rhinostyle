@@ -4,15 +4,13 @@ import React from 'react';
 import { Avatar, Button, Icon } from '../components';
 
 class ResourceColumnLeftIntro extends React.Component {
-  componentDidMount() {
-    // console.log();
-  }
-
-  handleIconClick = () => {
+  handleIconClick = (e) => {
     const { icon } = this.props;
 
+    e.stopPropagation();
+
     if (icon.onClick && typeof (icon.onClick === 'function')) {
-      icon.onClick();
+      icon.onClick(e);
     }
   }
 
