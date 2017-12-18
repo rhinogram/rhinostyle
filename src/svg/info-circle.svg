@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g class="icon-stroke" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <g class="icon-stroke" stroke="#000000" fill="none" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="11"/>
-    <line x1="12" y1="16.4" x2="12" y2="12"/>
-    <circle cx="12" cy="7.6" r="0.5" class="icon-fill"/>
+    <path d="M10.9,11.2H12v6 M10.9,17.2h2.1"/>
+    <circle class="icon-fill" cx="11.75" cy="7.2" r="0.5"/>
   </g>
 </svg>
