@@ -53,7 +53,7 @@ class Tooltip extends React.Component {
     e.preventDefault();
 
     // Random ID
-    this.tooltipId = `tooltip-${Math.random().toString().slice(2, 11)}`;
+    this.tooltipId = `tooltip-${UtilitySystem.generateUUID()}`;
 
     const $tooltip = document.createElement('div');
     const $tooltipContent = document.createElement('div');
