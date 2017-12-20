@@ -20,6 +20,7 @@ const utilityInlineGridScope = {
 
 const utilityListDocs = {
   space: '[Optional] - List items have space between them',
+  border: '[Optional] - List items have space and border between them',
 };
 const utilityListScope = {
   React,

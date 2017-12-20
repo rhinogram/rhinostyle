@@ -16,3 +16,13 @@
     }
   }
 }
+
+.u-list--border {
+  > * {
+    + * {
+      border-top: 1px solid @global-border-color;
+      margin-top: @global-whitespace-base;
+      padding-top: @global-whitespace-base;
+    }
+  }
+}

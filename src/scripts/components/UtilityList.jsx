@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const UtilityList = (props) => {
-  const { className, space, ...opts } = props;
+  const { border, className, space, ...opts } = props;
   const classes = cx('u-list', className, {
-    'u-list--space': space,
+    'u-list--space': space && !border,
+    'u-list--border': border,
   });
 
   return (
@@ -21,11 +22,7 @@ UtilityList.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   space: PropTypes.bool,
-};
-
-UtilityList.defaultProps = {
-  children: null,
-  space: null,
+  border: PropTypes.bool,
 };
 
 export default UtilityList;
