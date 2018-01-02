@@ -223,7 +223,8 @@
   margin-right: @global-whitespace-small;
   position: relative;
 
-  .icon {
+  // Only impact sizing of "non avatar" icons
+  .icon:not(.avatar__icon) {
     width: @resource-icon-size;
     height: @resource-icon-size;
   }

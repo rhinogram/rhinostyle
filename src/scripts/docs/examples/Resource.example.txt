@@ -8,7 +8,7 @@ class ComponentExample extends React.Component {
       <ResourceGroup separator="Today" interfaceMode="radio">
         <Resource>
           <ResourceColumnLeftWrapper>
-            <ResourceColumnLeftIntro avatar={{ image: '//badimage.jpg', name: 'Robert Plant', type: 'member' }} title="Test" titleSub="I'm a sub thing!">
+            <ResourceColumnLeftIntro avatar={{ type: 'member' }} title="Test" titleSub="I'm a sub thing!">
               I'm a child!
             </ResourceColumnLeftIntro>
             <ResourceColumnLeftBody>
