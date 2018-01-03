@@ -17,6 +17,7 @@
 //
 
 
+// 1. Fix issue with alignment of inlined avatars
 .avatar {
   background-position: center center;
   background-size: cover;
@@ -29,6 +30,7 @@
   pointer-events: none;
   position: relative;
   width: @avatar-size-base;
+  vertical-align: bottom; // 1
 
   text {
     fill: @global-color-white;
