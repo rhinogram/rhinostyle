@@ -123,7 +123,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete } = this.props;
+    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow } = this.props;
     const activeKey = this.state.activeKey;
     const hasFilter = this.state.hasFilter;
 
@@ -167,12 +167,37 @@ class Dropdown extends React.Component {
     }
 
     const enableClickOutside = this.props.manualClose ? false : this.state.isOpen;
+    const showLabel = () => {
+      if (selectedLabel || label) {
+        if (showOverflow) {
+          return selectedLabel || label;
+        }
+
+        return <span className="dropdown__toggle__text">{selectedLabel || label}</span>;
+      }
+
+      return false;
+    };
 
     return (
       <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
-        <Button reset={reset} size={size} iconOnly={icon && !label} type={type} onClick={this.handleToggle} className={dropdownToggleClasses} disabled={disabled}>
-          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}{(selectedLabel || label) && <span className="dropdown__toggle__text">{selectedLabel || label}</span>}
-          {hideCaret || (icon && !label && !selectedLabel) ? null : <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />}
+        <Button
+          reset={reset}
+          size={size}
+          iconOnly={icon && !label}
+          type={type}
+          onClick={this.handleToggle}
+          className={dropdownToggleClasses}
+          disabled={disabled}
+        >
+          {selectedIcon || icon ?
+            <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
+          }
+          {showLabel()}
+          {hideCaret || (icon && !label && !selectedLabel) ?
+            null :
+            <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
+          }
         </Button>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
@@ -194,7 +219,7 @@ Dropdown.propTypes = {
   hideCaret: PropTypes.bool,
   hideActive: PropTypes.bool,
   icon: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   lockLabel: PropTypes.bool,
   position: PropTypes.string,
   onClick: PropTypes.func,
@@ -203,6 +228,7 @@ Dropdown.propTypes = {
   size: PropTypes.oneOf(['small', 'large']),
   type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
   wide: PropTypes.bool,
+  showOverflow: PropTypes.bool,
   onComplete: PropTypes.func,
   onReverseComplete: PropTypes.func,
   onReverseStart: PropTypes.func,
@@ -218,6 +244,7 @@ Dropdown.defaultProps = {
   hideActive: false,
   type: 'default',
   wide: false,
+  showOverflow: false,
   onComplete: () => {},
   onReverseComplete: () => {},
   onReverseStart: () => {},
