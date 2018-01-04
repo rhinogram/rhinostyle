@@ -39,15 +39,15 @@ class RhinoSwitch extends React.Component {
     const classes = cx('rhinoswitcher', className);
 
     // Show label or not based on prop value
-    const showLabel = label ? <label htmlFor={this.id} className="u-block">{label}</label> : null;
+    const showLabel = label ? <label className="rhinoswitcher__text" htmlFor={this.id}>{label}</label> : null;
 
     return (
-      <div className="form__group">
-        {showLabel}
+      <div className="form__group rhinoswitcher__form-group">
         <div className={classes}>
           <input type="checkbox" className="rhinoswitcher__input" name={name} id={this.id} checked={checked} disabled={disabled} onChange={this._toggleChecked} />
           <label className="rhinoswitcher__label" htmlFor={this.id} />
         </div>
+        {showLabel}
       </div>
     );
   }
