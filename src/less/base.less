@@ -569,4 +569,10 @@ textarea {
     border: 0;
     padding: 0;
   }
+
+  &[disabled] {
+    opacity: @global-opacity-disabled;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
