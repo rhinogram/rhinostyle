@@ -187,6 +187,16 @@
   > :only-child {
     margin-right: 0;
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .resource__column-left-wrapper,
+    .resource__column-right-wrapper {
+      opacity: @global-opacity-disabled;
+    }
+  }
 }
 
 // 1. https://css-tricks.com/flexbox-truncated-text/

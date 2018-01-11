@@ -6,13 +6,15 @@ import { UtilitySystem } from '../components';
 
 class Resource extends React.Component {
   handleClick = () => {
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+    const { disabled } = this.props;
+
+    if (this.props.onClick && typeof (this.props.onClick === 'function') && !disabled) {
       this.props.onClick();
     }
   }
 
   render() {
-    const { children, className, active, selected, interfaceMode, unread } = this.props;
+    const { children, className, active, disabled, selected, interfaceMode, unread } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
@@ -25,7 +27,7 @@ class Resource extends React.Component {
     });
 
     return (
-      <div role="button" tabIndex={0} className={classes} onClick={this.handleClick}>
+      <div role="button" tabIndex={0} className={classes} onClick={this.handleClick} disabled={disabled}>
         {children}
       </div>
     );
@@ -37,6 +39,7 @@ Resource.displayName = 'RhinoResource';
 Resource.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   active: PropTypes.bool,
   selected: PropTypes.bool,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
