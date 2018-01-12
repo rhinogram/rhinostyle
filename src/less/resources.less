@@ -6,6 +6,8 @@
 @resource-group-height: 400px !important;
 @resource-group-height-small: 250px !important;
 
+@resource-active-background: fadeout(@global-color-primary, 97.5%);
+
 @resource-min-height: 50px;
 @resource-padding-horizontal: @global-whitespace-base;
 @resource-padding-vertical: @global-whitespace-base;
@@ -15,6 +17,23 @@
 @resource-avatar-size: @avatar-size-small;
 
 @resource-interface-active-decrease: 0.6rem;
+
+
+//
+// Mixins
+//
+
+.mixin-resource-active-tab() {
+  &::before {
+    content: '';
+    width: 4px;
+    height: 100%;
+    background: @global-color-primary;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
 
 //
 // Component
@@ -93,19 +112,11 @@
   &.is-active,
   &:not(.has-interface):hover,
   &:not(.has-interface):focus {
-    &::before {
-      content: '';
-      width: 4px;
-      height: 100%;
-      background: @global-color-primary;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
+    .mixin-resource-active-tab();
   }
 
   &.is-active {
-    background: fadeout(@global-color-primary, 97.5%);
+    background: @resource-active-background;
   }
 
   &.has-interface {
