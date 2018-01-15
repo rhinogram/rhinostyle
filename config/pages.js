@@ -7,16 +7,9 @@ import msRootpath from 'metalsmith-rootpath';
 import msPermalinks from 'metalsmith-permalinks';
 import msLayouts from 'metalsmith-layouts';
 import msIgnore from 'metalsmith-ignore';
-import nunjucks from 'nunjucks';
 import browserSync from 'browser-sync';
 
 const reload = browserSync.reload;
-
-// https://github.com/superwolff/metalsmith-layouts/issues/43
-nunjucks.configure(['./src/templates', './dist/svg'], {
-  watch: false,
-  noCache: true,
-});
 
 /**
  * Get top-level directories
@@ -49,18 +42,23 @@ export default function pages() {
     .source('./src')
     .clean(false)
     .use(msIgnore(ignoreDirectories))
-    .use(msPermalinks())
     .use(msMoveUp({
       pattern: 'pages/**/*',
     }))
+    .use(msPermalinks())
     .use(msRootpath())
+
     .use(msInPlace({
-      engine: 'nunjucks',
+      engineOptions: {
+        cache: false,
+      },
     }))
     .use(msLayouts({
-      engine:    'nunjucks',
       directory: './src/templates',
-      default:   'default.html',
+      default:   'default.njk',
+      engineOptions: {
+        cache: false,
+      },
     }))
     .destination('./build')
     .build((err) => {

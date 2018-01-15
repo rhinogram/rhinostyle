@@ -30,8 +30,8 @@ const paths = {
     build: './build/media/',
   },
   metalsmith: {
-    pages: './src/pages/**/*.html',
-    templates: './src/templates/*.html',
+    pages: './src/pages/**/*.html.njk',
+    templates: './src/templates/*.njk',
   },
   scripts: {
     docEntry: './src/scripts/docs/entry.js',
