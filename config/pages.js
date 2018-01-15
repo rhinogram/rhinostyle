@@ -42,12 +42,11 @@ export default function pages() {
     .source('./src')
     .clean(false)
     .use(msIgnore(ignoreDirectories))
+    .use(msPermalinks())
     .use(msMoveUp({
       pattern: 'pages/**/*',
     }))
-    .use(msPermalinks())
     .use(msRootpath())
-
     .use(msInPlace({
       engineOptions: {
         cache: false,
