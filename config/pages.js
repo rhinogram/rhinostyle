@@ -42,10 +42,6 @@ export default function pages() {
     .source('./src')
     .clean(false)
     .use(msIgnore(ignoreDirectories))
-    .use(msPermalinks())
-    .use(msMoveUp({
-      pattern: 'pages/**/*',
-    }))
     .use(msRootpath())
     .use(msInPlace({
       engineOptions: {
@@ -58,6 +54,10 @@ export default function pages() {
       engineOptions: {
         cache: false,
       },
+    }))
+    .use(msPermalinks())
+    .use(msMoveUp({
+      pattern: 'pages/**/*',
     }))
     .destination('./build')
     .build((err) => {
