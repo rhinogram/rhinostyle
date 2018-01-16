@@ -38,7 +38,7 @@ class Tooltip extends React.Component {
     const tooltipTrigger = this.tooltipTrigger;
 
     // If this a React component; get DOM reference
-    if (this.tooltipTrigger._reactInternalInstance) {
+    if (typeof this.tooltipTrigger === 'object') {
       return ReactDOM.findDOMNode(this.tooltipTrigger);
     }
 
