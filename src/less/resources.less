@@ -3,9 +3,6 @@
 //
 
 
-@resource-group-height: 400px !important;
-@resource-group-height-small: 250px !important;
-
 @resource-active-background: fadeout(@global-color-primary, 97.5%);
 
 @resource-min-height: 50px;
@@ -53,16 +50,11 @@
 // Used around `<Scrollbars />` component
 .resource-group__scroll {
   overflow-y: auto;
-  height: @resource-group-height;
   border: 1px solid @global-border-color;
 
   .resource-group {
     border: 0;
   }
-}
-
-.resource-group__scroll--small {
-  height: @resource-group-height-small;
 }
 
 .resource-group__separator {

@@ -26,6 +26,10 @@ export const config = {
     uHidden: 'u-hidden',
     loading: 'is-loading',
   },
+  resourceSizes: {
+    small: 250,
+    large: 400,
+  },
 };
 
 /**
