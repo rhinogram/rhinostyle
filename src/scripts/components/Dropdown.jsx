@@ -123,7 +123,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow } = this.props;
+    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow } = this.props;
     const activeKey = this.state.activeKey;
     const hasFilter = this.state.hasFilter;
 
@@ -189,6 +189,7 @@ class Dropdown extends React.Component {
           onClick={this.handleToggle}
           className={dropdownToggleClasses}
           disabled={disabled}
+          title={title}
         >
           {selectedIcon || icon ?
             <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
@@ -226,6 +227,7 @@ Dropdown.propTypes = {
   onSelect: PropTypes.func,
   reset: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large']),
+  title: PropTypes.string,
   type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
