@@ -13,5 +13,6 @@ module.exports = {
     'max-nesting-depth': [5, {
       ignore: ['blockless-at-rules'],
     }],
+    'no-descending-specificity': null,
   },
 };

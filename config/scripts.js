@@ -1,7 +1,8 @@
 import gulp from 'gulp';
 import path from 'path';
-import util from 'gulp-util';
 import webpack from 'webpack';
+import PluginError from 'plugin-error';
+import log from 'fancy-log';
 
 import paths from './paths';
 import distConfig from './webpack.dist.config.js';
@@ -14,10 +15,10 @@ import docsConfig from './webpack.docs.config.js';
 export function distScripts(callback) {
   webpack(distConfig, (err, stats) => {
     if (err) {
-      throw new $.util.PluginError('[webpack:build]', err);
+      throw new PluginError('[webpack:build]', err);
     }
 
-    util.log(
+    log(
       `[webpack:build]\nCompleted ${stats.toString({
         assets: true,
         chunks: false,
