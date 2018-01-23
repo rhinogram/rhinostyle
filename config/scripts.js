@@ -41,10 +41,10 @@ export function distScripts(callback) {
 export function docsScripts(callback) {
   webpack(docsConfig, (err, stats) => {
     if (err) {
-      throw new $.util.PluginError('[webpack:build]', err);
+      throw new PluginError('[webpack:build]', err);
     }
 
-    util.log(
+    log(
       `[webpack:build]\nCompleted ${stats.toString({
         assets: true,
         chunks: false,

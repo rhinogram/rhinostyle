@@ -6785,9 +6785,9 @@ postcss-filter-plugins@^2.0.0:
     postcss "^5.0.4"
     uniqid "^4.0.0"
 
-postcss-flexbugs-fixes@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-3.3.0.tgz#e00849b536063749da50a0d410ba5d9ee65e27b8"
+postcss-flexbugs-fixes@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-3.2.0.tgz#9b8b932c53f9cf13ba0f61875303e447c33dcc51"
   dependencies:
     postcss "^6.0.1"
 
@@ -7310,9 +7310,9 @@ react-dom@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-image-lightbox@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/react-image-lightbox/-/react-image-lightbox-4.4.1.tgz#2471cf221aea213a5edc6854149680d68097b5fb"
+react-image-lightbox@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/react-image-lightbox/-/react-image-lightbox-4.5.0.tgz#2edf22fb8e8a8a8eebfde87790751e4c06247a49"
   dependencies:
     prop-types "^15.5.8"
     react-modal "^3.1.10"
