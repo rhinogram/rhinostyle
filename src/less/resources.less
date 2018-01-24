@@ -306,6 +306,14 @@
   text-align: right;
   margin-left: auto;
   font-size: @global-font-size-xsmall;
-  flex: 0 0 20%;
-  min-width: 150px;
+
+  &.resource__column-right-wrapper--no-flex {
+    max-width: 150px;
+    flex: none;
+  }
+
+  &:not(.resource__column-right-wrapper--no-flex) {
+    flex: 0 0 20%;
+    min-width: 150px;
+  }
 }
