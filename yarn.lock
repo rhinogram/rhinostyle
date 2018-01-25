@@ -6690,19 +6690,20 @@ react-dom@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-image-lightbox@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/react-image-lightbox/-/react-image-lightbox-4.3.0.tgz#961e99cc7eea6db24c2a75ab9dbd46f632c1ed8a"
+react-image-lightbox@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/react-image-lightbox/-/react-image-lightbox-4.5.0.tgz#2edf22fb8e8a8a8eebfde87790751e4c06247a49"
   dependencies:
     prop-types "^15.5.8"
-    react-modal "^3.0.0"
+    react-modal "^3.1.10"
 
-react-modal@^3.0.0:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.1.2.tgz#6e1fd656315d6fc62a1edda2b5aecc9752ac6bca"
+react-modal@^3.1.10:
+  version "3.1.11"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.1.11.tgz#95c8223fcee7013258ad2d149c38c9f870c89958"
   dependencies:
     exenv "^1.2.0"
     prop-types "^15.5.10"
+    warning "^3.0.0"
 
 react-onclickoutside@6.6.3:
   version "6.6.3"
