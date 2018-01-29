@@ -60,6 +60,14 @@ class Input extends React.Component {
     this.rhinoInput.focus();
   }
 
+  _handleFocus = () => {
+    this.rhinoInput.closest('.form__group').classList.add('has-focus');
+  }
+
+  _handleBlur = () => {
+    this.rhinoInput.closest('.form__group').classList.remove('has-focus');
+  }
+
   render() {
     const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, label, naked, name, placeholder, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
@@ -99,14 +107,32 @@ class Input extends React.Component {
     };
 
     const input = this.state.value;
-
     let inputMarkup = null;
+
+    const inputRender = () => (
+      <input
+        autoCapitalize={autoCapitalize}
+        autoComplete={autoComplete}
+        type={type}
+        disabled={disabled}
+        className={inputClasses}
+        id={this.id}
+        name={name}
+        placeholder={placeholder}
+        value={this.state.value}
+        onFocus={this._handleFocus}
+        onBlur={this._handleBlur}
+        onKeyPress={this._handleKeyPress}
+        onChange={this._handleChange}
+        ref={ref => (this.rhinoInput = ref)}
+      />
+    );
 
     const showInput = () => {
       if (clear) {
         inputMarkup = (
           <div className="form__clear">
-            <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={this.id} name={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
+            {inputRender()}
             {input ?
               <Button reset className="form__clear__button" onClick={this._handleClear} >
                 <Icon icon="close" />
@@ -124,14 +150,14 @@ class Input extends React.Component {
                   {/* eslint react/prop-types:0 */}
                   {this.props.children}
                 </div>
-                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={this.id} name={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
+                {inputRender()}
               </div>
             );
             break;
           case 'right':
             inputMarkup = (
               <div className={addonClasses}>
-                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={this.id} name={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
+                {inputRender()}
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children}
                 </div>
@@ -144,7 +170,7 @@ class Input extends React.Component {
                 <div className="form__addon__item form__addon__item--left" disabled={disabled}>
                   {this.props.children[0]}
                 </div>
-                <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={this.id} name={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />
+                {inputRender()}
                 <div className="form__addon__item form__addon__item--right" disabled={disabled}>
                   {this.props.children[1]}
                 </div>
@@ -152,9 +178,12 @@ class Input extends React.Component {
             );
             break;
           default:
-            inputMarkup = <input autoCapitalize={autoCapitalize} autoComplete={autoComplete} type={type} disabled={disabled} className={inputClasses} id={this.id} name={name} placeholder={placeholder} value={this.state.value} onKeyPress={this._handleKeyPress} onChange={this._handleChange} ref={ref => (this.rhinoInput = ref)} />;
+            inputMarkup = (
+              inputRender()
+            );
         }
       }
+
       return inputMarkup;
     };
 

@@ -5,7 +5,7 @@
 
 @input-bg: lighten(@global-color-panel, 1%);
 @input-border: @global-border-color;
-@input-border-focus: #66afe9;
+@input-border-focus: lighten(@global-color-primary, 10%);
 @input-border-radius: @global-border-radius;
 @input-color: @global-font-color;
 @input-color-placeholder: @global-color-gray;
@@ -344,7 +344,13 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
+  transition: border-color 0.25s @global-trans-timing-cubic;
   .mixin-addon-size(@input-height-base; @input-padding-base; @global-font-size-base);
+
+  // Class added to `.form__group` so we can pass input styles down
+  .has-focus & {
+    border-color: @input-border-focus;
+  }
 
   .form__addon--large & {
     .mixin-addon-size(@input-height-large; @input-padding-base; @global-font-size-medium);
@@ -466,7 +472,7 @@ input[type='checkbox']:focus {
   border-radius: @global-border-radius;
   color: @input-color;
   display: flex;
-  transition: border-color 0.15s @global-trans-timing-cubic, box-shadow 0.15s @global-trans-timing-cubic;
+  transition: border-color 0.25s @global-trans-timing-cubic, box-shadow 0.25s @global-trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs

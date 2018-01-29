@@ -215,23 +215,6 @@ body {
   transition: transform 250ms @global-trans-timing-cubic;
 }
 
-.site-header__logo {
-  display: none;
-  position: relative;
-  top: -0.2rem;
-  width: 7.2rem;
-
-  > img {
-    display: inline-block;
-    height: 4.6rem;
-    max-width: 100%;
-  }
-
-  @media (min-width: @global-screen-large-min) {
-    display: block;
-  }
-}
-
 .site-header__menu {
   cursor: pointer;
   margin-right: @global-whitespace-base;
@@ -311,15 +294,19 @@ body {
   }
 }
 
+.site-navigation__logo {
+  display: flex;
+  height: @global-header-height;
+  align-items: center;
+  padding: 0 @global-whitespace-base;
+
+  img {
+    width: 140px;
+  }
+}
 
 .site-navigation__nav {
   .u-list;
-
-  padding-top: @global-whitespace-base;
-
-  > li + li {
-    margin-top: @global-whitespace-xsmall;
-  }
 }
 
 .site-navigation__nav__button {
