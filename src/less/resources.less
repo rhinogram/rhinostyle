@@ -74,12 +74,12 @@
   }
 
   &::before {
-    background: linear-gradient(to right, transparent, @global-border-color);
+    background: linear-gradient(to right, fadeout(@global-border-color, 100%), @global-border-color);
     margin-right: @global-whitespace-small;
   }
 
   &::after {
-    background: linear-gradient(to left, transparent, @global-border-color);
+    background: linear-gradient(to left, fadeout(@global-border-color, 100%), @global-border-color);
     margin-left: @global-whitespace-small;
   }
 }
