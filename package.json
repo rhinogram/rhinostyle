@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "autoprefixer": "7.2.5",
+    "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-plugin-transform-strict-mode": "6.24.1",
@@ -83,16 +84,16 @@
     "keymirror": "0.1.1",
     "moment": "2.20.1",
     "parse5": "4.0.0",
-    "plugin-error": "1.0.0",
+    "plugin-error": "1.0.1",
     "prop-types": "15.6.0",
     "react-container-query": "0.10.0",
     "react-custom-scrollbars": "4.2.1",
-    "react-datepicker": "1.0.4",
+    "react-datepicker": "1.1.0",
     "react-image-lightbox": "4.5.0",
     "react-onclickoutside": "6.7.1",
     "react-router": "3.2.0",
     "react-textarea-autosize": "5.2.1",
     "recursive-readdir-sync": "1.0.6",
-    "rsvp": "4.8.0"
+    "rsvp": "4.8.1"
   }
 }

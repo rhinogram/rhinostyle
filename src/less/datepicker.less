@@ -11,7 +11,7 @@
 @datepicker-day-size: 3.2rem;
 @datepicker-nav-color: @global-color-gray;
 @datepicker-nav-hover-color: @datepicker-nav-color;
-@datepicker-nav-size: @icon-size-large;
+@datepicker-nav-size: 1.25em;
 @datepicker-shadow: @global-shadow-depth-1;
 @datepicker-arrow-offset: @global-whitespace-small + 0.2rem;
 
@@ -152,6 +152,8 @@
 }
 
 .react-datepicker__navigation {
+  .button--reset;
+
   background-position: center center;
   background-repeat: no-repeat;
   background-size: @datepicker-nav-size @datepicker-nav-size;
