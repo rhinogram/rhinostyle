@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import NotificationContainer from './NotificationContainer';
 import * as NotificationActions from '../actions';
@@ -32,9 +32,9 @@ class NotificationsContainer extends React.Component {
     );
 
     return (
-      <div>
+      <Fragment>
         {notifications}
-      </div>
+      </Fragment>
     );
   }
 }
