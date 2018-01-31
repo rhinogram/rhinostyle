@@ -2,12 +2,8 @@
 // Variables
 //
 
-@toast-border-radius: @global-border-radius;
-@toast-offset: @global-whitespace-base;
-@toast-spacing: @global-whitespace-small;
-@toast-text: @global-color-white;
-
 @toast-zindex: 2000;
+@toast-icon-background-opacity: 90%;
 
 
 //
@@ -21,17 +17,17 @@
 
 
 .toasts-container {
-  left: @toast-offset;
+  left: @global-whitespace-base;
   position: fixed;
-  right: @toast-offset;
-  top: @toast-offset;
+  right: @global-whitespace-base;
+  top: @global-whitespace-base;
   z-index: @toast-zindex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (min-width: @global-screen-xsmall-min) {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: ~'calc(@{global-screen-xsmall-min} - (@{toast-offset} * 2))';
+    align-items: flex-end;
   }
 }
 
@@ -43,30 +39,32 @@
 
 .toast {
   align-items: center;
+  background: @global-color-white;
+  border: 1px solid transparent;
   display: flex;
-  border-radius: @toast-border-radius;
-  color: @toast-text;
-  max-width: 80rem;
-  padding: @toast-spacing;
+  border-radius: @global-border-radius;
+  padding: @global-whitespace-base;
   position: relative;
-}
+  box-shadow: @global-shadow-depth-2;
+  font-size: @global-font-size-small;
+  width: 100%;
+  cursor: pointer;
 
+  @media (min-width: @global-screen-xsmall-min) {
+    max-width: 300px;
+  }
 
-//
-// Toast Modifiers
-//
+  &.toast--default {
+    border-color: @global-color-primary;
+  }
 
+  &.toast--success {
+    border-color: @global-color-success;
+  }
 
-.toast--danger {
-  background: @global-color-danger;
-}
-
-.toast--default {
-  background: @global-color-gray;
-}
-
-.toast--success {
-  background: @global-color-secondary;
+  &.toast--danger {
+    border-color: @global-color-danger;
+  }
 }
 
 
@@ -75,23 +73,26 @@
 //
 
 
+// 1. Don't conflict with close button
 .toast__text {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-right: @toast-spacing;
   min-width: 0;
+  padding-right: @global-whitespace-base; // 1
 }
 
 
 //
-// Toast Close
+// Toast close
 //
 
 
-// Stick close button to right
 .toast__close {
-  margin-left: auto;
+  position: absolute;
+  top: @global-whitespace-small;
+  right: @global-whitespace-small;
+  opacity: @global-opacity-disabled;
 }
 
 
@@ -99,24 +100,22 @@
 // Toast Icon
 //
 
-
 .toast__icon {
-  font-size: @global-font-size-medium;
-  margin-right: @toast-spacing;
-}
+  .icon--large;
 
+  margin-right: @global-whitespace-medium;
 
-//
-// Toast Link
-//
+  .toast--default & {
+    color: @global-color-primary;
+    fill: fadeout(@global-color-primary, @toast-icon-background-opacity);
+  }
 
+  .toast--success & {
+    color: @global-color-secondary;
+  }
 
-.toast__link {
-  color: @toast-text;
-  .u-text-underline;
-
-  &:focus,
-  &:hover {
-    color: currentColor;
+  .toast--danger & {
+    color: @global-color-danger;
+    fill: fadeout(@global-color-danger, @toast-icon-background-opacity);
   }
 }

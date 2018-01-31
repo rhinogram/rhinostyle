@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Close, Icon } from '../components';
+import { Icon } from '../components';
 
 class Toast extends React.Component {
   static displayName = 'RhinoToast';
@@ -10,19 +10,17 @@ class Toast extends React.Component {
   static propTypes = {
     body: PropTypes.string.isRequired,
     className: PropTypes.string,
-    icon: PropTypes.string,
     onDismiss: PropTypes.func.isRequired,
     type: PropTypes.oneOf(['danger', 'default', 'success']),
   };
 
   static defaultProps = {
-    icon:      '',
     onDismiss: () => {},
     type:      'default',
   };
 
   render() {
-    const { body, className, icon, onDismiss, type } = this.props;
+    const { body, className, onDismiss, type } = this.props;
     const classes = cx('toast', className, {
       'toast--danger':  type === 'danger',
       'toast--default': type === 'default',
@@ -30,20 +28,34 @@ class Toast extends React.Component {
     });
 
     const renderIcon = () => {
-      if (icon) {
-        return (<Icon icon={icon} className="toast__icon" />);
+      let icon;
+      let bump = null;
+
+      switch (type) {
+        case 'danger':
+          icon = 'alert-triangle';
+          bump = 'up';
+          break;
+        case 'success':
+          icon = 'checkmark';
+          break;
+        default:
+          icon = 'info-circle';
+          break;
       }
 
-      return false;
+      return (
+        <Icon icon={icon} bump={bump} className="toast__icon" />
+      );
     };
 
     return (
-      <div className={classes}>
+      <div role="button" tabIndex={0} className={classes} onClick={onDismiss}>
         {renderIcon()}
         <div className="toast__text">
           {body}
         </div>
-        <Close onClick={onDismiss} className="toast__close" />
+        <Icon icon="close" size="small" className="toast__close" />
       </div>
     );
   }

@@ -26,7 +26,6 @@ const icons = [
   'arrow-right',
   'assign',
   'attachment',
-  'building',
   'calendar',
   'camera',
   'caret-down',
