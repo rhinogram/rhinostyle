@@ -108,7 +108,7 @@ class FeedbackApp extends React.Component {
           <p className="site-copy">To see a toast in action, <Button reset className="u-text-primary" onClick={this.onClick}>click here</Button>.</p>
           <div className="site-example-toasts u-m-b-large">
             <Toast type="default" body="Default toast notification" />
-            <Toast type="success" icon="checkmark" body="Success toast notification" />
+            <Toast type="success" body="Success toast notification" />
             <Toast type="danger" body="Danger toast notification" />
           </div>
           <h3 className="site-subheadline">Toast Playground</h3>
