@@ -9,7 +9,7 @@
 @msg-padding: (@global-whitespace-small + (@global-whitespace-xsmall / 2)) @global-whitespace-base;
 @msg-default-bg: darken(@global-color-gray-lightest, 2%);
 @msg-primary-bg: @global-color-primary;
-@msg-note-bg: #fffeed;
+@msg-note-bg: @global-color-emphasis;
 
 
 //
@@ -61,6 +61,12 @@
 
   a {
     color: inherit;
+  }
+
+  // Override for text highlights within notes
+  .u-text-highlight {
+    background: @global-font-color !important;
+    color: @global-color-white !important;
   }
 }
 
