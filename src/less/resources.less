@@ -4,6 +4,7 @@
 
 
 @resource-active-background: fadeout(@global-color-primary, 97.5%);
+@resource-active-inset-shadow: 0 0.1rem 0.6rem  rgba(0, 0, 0, 0.1);
 
 @resource-min-height: 50px;
 @resource-padding-horizontal: @global-whitespace-base;
@@ -92,6 +93,10 @@
   position: relative;
   cursor: pointer;
 
+  &:active {
+    box-shadow: inset @resource-active-inset-shadow;
+  }
+
   .resource-group\@small & {
     align-items: flex-start;
   }
@@ -165,11 +170,16 @@
   &.is-checkbox {
     &.is-selected {
       &::before {
-        stroke: @global-color-secondary;
+        stroke: @global-color-white;
         background-image: url('@{svg-sprite}#checkmark');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;
+      }
+
+      &::after {
+        background: @global-color-secondary;
+        border-radius: 50%;
       }
     }
   }
