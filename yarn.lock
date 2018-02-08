@@ -3065,9 +3065,9 @@ eslint-config-airbnb@16.1.0:
   dependencies:
     eslint-config-airbnb-base "^12.1.0"
 
-eslint-config-rhinogram@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/eslint-config-rhinogram/-/eslint-config-rhinogram-0.0.8.tgz#f6e42721f5bc7c82390e34c0b15b0851354b256d"
+eslint-config-rhinogram@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/eslint-config-rhinogram/-/eslint-config-rhinogram-0.0.9.tgz#ced7a1bdc4c462301d8a14db758e17871db39f7b"
   dependencies:
     babel-eslint "8.2.1"
     eslint "4.17.0"

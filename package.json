@@ -12,7 +12,7 @@
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
     "start": "yarn && gulp docs && gulp server",
-    "eslint": "eslint"
+    "eslint": "eslint src/**/*.jsx"
   },
   "peerDependencies": {
     "react": ">=16.2.0",
@@ -32,7 +32,7 @@
     "component-playground": "3.0.0",
     "cssnano": "3.10.0",
     "del": "3.0.0",
-    "eslint-config-rhinogram": "0.0.8",
+    "eslint-config-rhinogram": "0.0.9",
     "gulp": "3.9.1",
     "gulp-changed": "3.2.0",
     "gulp-duration": "0.0.0",
