@@ -32,8 +32,8 @@ const bucketHeaderScope  = {
   Icon,
 };
 
-const BucketApp = () =>
-  (<div>
+const BucketApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Buckets</h3>
       <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets are most often constructed using <span className="u-text-accent">BucketHeader</span> and <span className="u-text-accent">BucketBody</span> child components.</p>
@@ -56,6 +56,7 @@ const BucketApp = () =>
       <h3 className="site-subheadline">Bucket Header Playground</h3>
       <Playground theme="default" docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<BucketApp />, document.getElementById('js-app'));

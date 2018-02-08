@@ -24,8 +24,8 @@ const variableMessageScope  = {
   VariableMessage,
 };
 
-const VariableMessageApp = () =>
-  (<div>
+const VariableMessageApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Variable Messages</h3>
       <p className="site-text-lead">Variable Messages are a composition tool that uses placeholders to create templates that substitute the actual values when in-use.</p>
@@ -35,6 +35,7 @@ const VariableMessageApp = () =>
       <h3 className="site-subheadline">Variable Message Playground</h3>
       <Playground theme="default" docClass={VariableMessage} propDescriptionMap={variableMessageDocs} codeText={variableMessageExample} scope={variableMessageScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<VariableMessageApp />, document.getElementById('js-app'));

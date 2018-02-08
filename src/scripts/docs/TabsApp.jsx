@@ -14,45 +14,18 @@ const exampleScope  = {
   NavTabsItem,
 };
 
-class TabsApp extends React.Component {
-  state = {
-    activeKey: 1,
-    activeAutoKey: 1,
-    activeEqualKey: 1,
-  };
+const TabsApp = () => (
+  <div>
+    <section className="site-section">
+      <h3 className="site-subheadline">About Tabs</h3>
+      <p className="site-text-lead">This page demonstrates how to implement a tabbed system. It is important to note that we do not have a &apos;tabs&apos; component.</p>
+    </section>
 
-  updateActiveKey = (index) => {
-    this.setState({
-      activeKey: index,
-    });
-  };
-
-  updateActiveAutoKey = (index) => {
-    this.setState({
-      activeAutoKey: index,
-    });
-  };
-  updateActiveEqualKey = (index) => {
-    this.setState({
-      activeEqualKey: index,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <section className="site-section">
-          <h3 className="site-subheadline">About Tabs</h3>
-          <p className="site-text-lead">This page demonstrates how to implement a tabbed system. It is important to note that we do not have a &apos;tabs&apos; component.</p>
-        </section>
-
-        <section className="site-section">
-          <h3 className="site-subheadline">Tabs Playground</h3>
-          <Playground theme="default" codeText={tabsExample} scope={exampleScope} noRender={false} />
-        </section>
-      </div>
-    );
-  }
-}
+    <section className="site-section">
+      <h3 className="site-subheadline">Tabs Playground</h3>
+      <Playground theme="default" codeText={tabsExample} scope={exampleScope} noRender={false} />
+    </section>
+  </div>
+);
 
 ReactDOM.render(<TabsApp />, document.getElementById('js-app'));

@@ -12,6 +12,7 @@ class ComponentExample extends React.Component {
       <div className="row row--condensed">
         <div className="column-3@small">
           <Date
+            name="date"
             selected={this.state.startDate}
             onChange={this._handleChange}
             placeholderText="Click to select a date"

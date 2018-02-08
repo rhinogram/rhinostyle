@@ -17,7 +17,7 @@ const ProgressBar = (props) => {
 
   progressTranslation = parseInt(progress, 10);
 
-  if (isNaN(progressTranslation) || progressTranslation < 0) {
+  if (!Number.isInteger(progressTranslation) || progressTranslation < 0) {
     progressTranslation = 0;
   }
 

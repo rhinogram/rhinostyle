@@ -53,7 +53,14 @@ class Checkbox extends React.Component {
           checked={checked}
           onChange={this._toggleChecked}
         />
-        {label && <label className="rhinobox__label" htmlFor={this.id}>{label}</label>}
+        {label &&
+          <label // eslint-disable-line jsx-a11y/label-has-for
+            className="rhinobox__label"
+            htmlFor={this.id}
+          >
+            {label}
+          </label>
+        }
         {((checked) && children) &&
           <div className="form__block-group__meta">
             {children}

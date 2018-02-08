@@ -8,7 +8,7 @@ import { Resource } from '../components';
 class ResourceGroup extends React.Component {
   renderChildren = () => {
     let returnChild = null;
-    const children = this.props.children;
+    const { children } = this.props;
 
     return React.Children.map(children, (child) => {
       if (!child) return false;

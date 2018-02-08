@@ -25,8 +25,8 @@ const resourceDocs = {
   unread: '[Optional] - Adds unread styling to an item; normally used within a list view',
 };
 
-const ResourcesApp = () =>
-  (<div>
+const ResourcesApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Resources</h3>
       <p className="site-text-lead">A multi-use component used to display items throughout the application.</p>
@@ -36,6 +36,7 @@ const ResourcesApp = () =>
       <h3 className="site-subheadline">Resources Playground</h3>
       <Playground theme="default" docClass={Resource} propDescriptionMap={resourceDocs} codeText={resourceExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<ResourcesApp />, document.getElementById('js-app'));

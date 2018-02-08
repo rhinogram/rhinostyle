@@ -15,8 +15,8 @@ const exampleScope  = {
   Scrollbars,
 };
 
-const ScrollBarApp = () =>
-  (<div>
+const ScrollBarApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Scroll Bar <Label className="u-m-l-small" type="accent" label="third party" /></h3>
       <p className="site-copy">We are using <a href="http://malte-wessel.github.io/react-custom-scrollbars/" target="_blank" rel="noopener noreferrer">react-custom-scrolbars</a> for scrolling within areas of the page.</p>
@@ -35,6 +35,7 @@ const ScrollBarApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Scrollbars} propDescriptionMap={scrollBarDocs} codeText={scrollBarExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<ScrollBarApp />, document.getElementById('js-app'));

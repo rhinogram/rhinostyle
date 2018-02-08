@@ -18,17 +18,16 @@ export function distScripts(callback) {
       throw new PluginError('[webpack:build]', err);
     }
 
-    log(
-      `[webpack:build]\nCompleted ${stats.toString({
-        assets: true,
-        chunks: false,
-        modules: false,
-        chunkModules: false,
-        colors: true,
-        hash: false,
-        timings: false,
-        version: false,
-      })}`);
+    log(`[webpack:build]\nCompleted ${stats.toString({
+      assets: true,
+      chunks: false,
+      modules: false,
+      chunkModules: false,
+      colors: true,
+      hash: false,
+      timings: false,
+      version: false,
+    })}`);
 
     callback();
   });
@@ -44,17 +43,16 @@ export function docsScripts(callback) {
       throw new PluginError('[webpack:build]', err);
     }
 
-    log(
-      `[webpack:build]\nCompleted ${stats.toString({
-        assets: true,
-        chunks: false,
-        modules: false,
-        chunkModules: false,
-        colors: true,
-        hash: false,
-        timings: false,
-        version: false,
-      })}`);
+    log(`[webpack:build]\nCompleted ${stats.toString({
+      assets: true,
+      chunks: false,
+      modules: false,
+      chunkModules: false,
+      colors: true,
+      hash: false,
+      timings: false,
+      version: false,
+    })}`);
 
     callback();
   });

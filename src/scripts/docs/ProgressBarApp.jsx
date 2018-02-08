@@ -17,8 +17,8 @@ const exampleScope = {
   ProgressBar,
 };
 
-const ProgressBarApp = () =>
-  (<div>
+const ProgressBarApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">ProgressBar Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | secondary | temperature&quot;</code></p>
@@ -38,6 +38,7 @@ const ProgressBarApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<ProgressBarApp />, document.getElementById('js-app'));

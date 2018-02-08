@@ -70,22 +70,22 @@ const icons = [
   'user',
 ];
 
-const IconApp = () =>
-  (<div>
+const IconApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">SVG Icons</h3>
 
       <div className="row">
-        {icons.map(value =>
-          (<div key={value} className="column-6@xsmall column-4@small column-3@medium">
+        {icons.map(value => (
+          <div key={value} className="column-6@xsmall column-4@small column-3@medium">
             <div className="site-swatch">
               <div className="site-swatch__sample">
                 <Icon icon={value} />
               </div>
               <div className="site-swatch__text"><code>{value}</code></div>
             </div>
-          </div>),
-        )}
+          </div>
+        ))}
       </div>
     </section>
 
@@ -93,6 +93,7 @@ const IconApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<IconApp />, document.getElementById('js-app'));

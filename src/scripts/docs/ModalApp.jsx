@@ -34,8 +34,8 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const ModalApp = () =>
-  (<div>
+const ModalApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
       <p className="site-copy">Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-bootstrap/react-overlays">react-overlays</a></p>
@@ -57,6 +57,7 @@ const ModalApp = () =>
       <Playground theme="default" docClass={ModalFooter} codeText={modalFooterExample} scope={exampleScope} noRender={false} />
     </section>
 
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<ModalApp />, document.getElementById('js-app'));

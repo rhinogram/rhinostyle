@@ -83,8 +83,8 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const DropdownApp = () =>
-  (<div>
+const DropdownApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Dropdowns</h3>
       <p className="site-text-lead">We have two main dropdown components: <span className="u-text-accent">Dropdown</span> and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
@@ -333,6 +333,7 @@ const DropdownApp = () =>
       <h3 className="site-subheadline">DropdownMenuItemWild</h3>
       <Playground theme="default" docClass={DropdownMenuItemWild} propDescriptionMap={dropdownMenuItemWildDocs} codeText={dropdownMenuItemWildExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<DropdownApp />, document.getElementById('js-app'));

@@ -28,8 +28,8 @@ const loaderPulseScope = {
   LoaderPulse,
 };
 
-const LoaderApp = () =>
-  (<div>
+const LoaderApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
       <p className="site-copy"><code>size=&quot;xsmall | small | large&quot;</code></p>
@@ -53,6 +53,7 @@ const LoaderApp = () =>
       <h3 className="site-subheadline">LoaderPulse Playground</h3>
       <Playground theme="default" docClass={LoaderPulse} propDescriptionMap={loaderPulseDocs} codeText={loaderPulseExample} scope={loaderPulseScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<LoaderApp />, document.getElementById('js-app'));

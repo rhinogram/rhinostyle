@@ -3,7 +3,7 @@ import browserSync from 'browser-sync';
 
 import paths from './paths';
 
-const reload = browserSync.reload;
+const { reload } = browserSync;
 
 /**
  * Watch for changes in files

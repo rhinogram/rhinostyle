@@ -4,13 +4,14 @@ import React from 'react';
 
 import { Icon } from '../components';
 
-class Toast extends React.Component {
+// This needs to be a proper component because we reference refs in other portions of the app
+class Toast extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static displayName = 'RhinoToast';
 
   static propTypes = {
     body: PropTypes.string.isRequired,
     className: PropTypes.string,
-    onDismiss: PropTypes.func.isRequired,
+    onDismiss: PropTypes.func,
     type: PropTypes.oneOf(['danger', 'default', 'success']),
   };
 
