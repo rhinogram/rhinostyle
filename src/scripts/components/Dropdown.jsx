@@ -31,7 +31,7 @@ class Dropdown extends React.Component {
 
   getChildren = () => {
     let returnChild = null;
-    const children = this.props.children;
+    const { children } = this.props;
 
     return React.Children.map(children, (child) => {
       if (!child) return false;
@@ -124,8 +124,7 @@ class Dropdown extends React.Component {
 
   render() {
     const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow } = this.props;
-    const activeKey = this.state.activeKey;
-    const hasFilter = this.state.hasFilter;
+    const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
       'dropdown--block': block,

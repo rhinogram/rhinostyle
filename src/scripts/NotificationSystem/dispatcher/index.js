@@ -2,7 +2,7 @@ import { Dispatcher } from 'flux';
 
 import NotificationConstants from '../constants';
 
-const PayloadSources = NotificationConstants.PayloadSources;
+const { PayloadSources } = NotificationConstants;
 
 class DispatcherClass extends Dispatcher {
   handleViewAction(action) {

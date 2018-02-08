@@ -46,7 +46,7 @@ class DropdownMultiSelect extends React.Component {
 
   getChildren = () => {
     let returnChild = null;
-    const children = this.props.children;
+    const { children } = this.props;
 
     return React.Children.map(children, (child) => {
       if (child.type === DropdownMenuItem) {
@@ -150,7 +150,7 @@ class DropdownMultiSelect extends React.Component {
 
     const query = e.target.value;
     const items = [];
-    const children = this.props.children;
+    const { children } = this.props;
 
     React.Children.forEach(children, (child) => {
       if (child.type === DropdownMenuItem) {
@@ -196,9 +196,7 @@ class DropdownMultiSelect extends React.Component {
 
   render() {
     const { block, children, disabled, explanationMessage, placeholder, position, wide, validationMessage } = this.props;
-    const items = this.state.items;
-    const activeKeys = this.state.activeKeys;
-    const isOpen = this.state.isOpen;
+    const { items, activeKeys, isOpen } = this.state;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
       'dropdown--block': block,
@@ -238,8 +236,7 @@ class DropdownMultiSelect extends React.Component {
       // Figure out label
       React.Children.forEach(children, (child) => {
         if (child.type === DropdownMenuItem && child.props.id === id) {
-          icon = child.props.icon;
-          label = child.props.label;
+          ({ icon, label } = child.props);
         }
       });
 
@@ -260,11 +257,13 @@ class DropdownMultiSelect extends React.Component {
         </DropdownWrapper>
         {showValidationMessage()}
         {showExplanationMessage()}
-        {activeKeys.length ? <div className="u-p-t-small">
-          <UtilityInlineGrid>
-            {activeKeys.map(renderPill)}
-          </UtilityInlineGrid>
-        </div> : null }
+        {activeKeys.length ?
+          <div className="u-p-t-small">
+            <UtilityInlineGrid>
+              {activeKeys.map(renderPill)}
+            </UtilityInlineGrid>
+          </div> : null
+        }
       </span>
     );
   }

@@ -1,7 +1,7 @@
 import NotificationDispatcher from '../dispatcher';
 import NotificationConstants  from '../constants';
 
-const ActionTypes = NotificationConstants.ActionTypes;
+const { ActionTypes } = NotificationConstants;
 
 export function addNotification(notification) {
   NotificationDispatcher.handleViewAction({

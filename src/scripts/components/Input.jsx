@@ -84,7 +84,13 @@ class Input extends React.Component {
 
     const showLabel = () => {
       if (label) {
-        return <label htmlFor={this.id}>{label} {required && <span className="form__asterisk">*</span>}</label>;
+        return (
+          <label // eslint-disable-line jsx-a11y/label-has-for
+            htmlFor={this.id}
+          >
+            {label} {required && <span className="form__asterisk">*</span>}
+          </label>
+        );
       }
 
       return false;

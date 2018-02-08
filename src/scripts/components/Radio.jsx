@@ -14,7 +14,14 @@ const Radio = (props) => {
   return (
     <div className={classes}>
       <input className="rhinodio__input" type="radio" disabled={disabled} name={name} value={value} id={id} checked={props.value === selectedValue} onChange={onChange} />
-      {label && <label className="rhinodio__label" htmlFor={id}>{label}</label>}
+      {label && (
+        <label // eslint-disable-line jsx-a11y/label-has-for
+          className="rhinodio__label"
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      )}
       {((props.value === selectedValue) && children) &&
         <div className="form__block-group__meta">
           {children}

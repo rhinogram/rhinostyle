@@ -11,7 +11,7 @@ import paths from './paths';
 import packagedata from '../package.json';
 
 const $ = gulpLoadPlugins();
-const reload = browserSync.reload;
+const { reload } = browserSync;
 const rhinostyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 const processors = [
   autoprefixer({ cascade: false }),

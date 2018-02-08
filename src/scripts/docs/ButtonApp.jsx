@@ -28,8 +28,8 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const ButtonApp = () =>
-  (<div>
+const ButtonApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | secondary | accent | input | outline-primary | link | link-muted | danger&quot;</code></p>
@@ -161,6 +161,7 @@ const ButtonApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Button} propDescriptionMap={buttonDocs} codeText={buttonExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));

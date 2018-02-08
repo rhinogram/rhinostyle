@@ -40,7 +40,7 @@ export const config = {
  * @return {void}
  */
 export function forEach(array, callback, scope) {
-  for (let i = 0, length = array.length; i < length; i += 1) {
+  for (let i = 0, { length } = array; i < length; i += 1) {
     callback.call(scope, i, array[i]); // passes back stuff we need
   }
 }

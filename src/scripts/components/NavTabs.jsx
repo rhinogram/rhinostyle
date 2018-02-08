@@ -21,7 +21,7 @@ class NavTabs extends React.Component {
 
   getChildren = () => {
     let returnChild = null;
-    const children = this.props.children;
+    const { children } = this.props;
 
     return React.Children.map(children, (child) => {
       if (child.type === NavTabsItem) {

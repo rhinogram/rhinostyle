@@ -19,8 +19,8 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const LabelApp = () =>
-  (<div>
+const LabelApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Label Types</h3>
       <div className="u-m-b">
@@ -55,6 +55,7 @@ const LabelApp = () =>
       <Playground theme="default" docClass={Label} propDescriptionMap={labelDocs} codeText={labelExample} scope={exampleScope} noRender={false} />
     </section>
 
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<LabelApp />, document.getElementById('js-app'));

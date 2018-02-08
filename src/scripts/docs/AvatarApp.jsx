@@ -20,10 +20,8 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const AvatarApp = () =>
-  (<div>
-
-
+const AvatarApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>
       <div className="u-m-b-large">
@@ -81,6 +79,7 @@ const AvatarApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<AvatarApp />, document.getElementById('js-app'));

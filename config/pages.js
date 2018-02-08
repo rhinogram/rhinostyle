@@ -10,7 +10,7 @@ import msIgnore from 'metalsmith-ignore';
 import nunjucks from 'nunjucks';
 import browserSync from 'browser-sync';
 
-const reload = browserSync.reload;
+const { reload } = browserSync;
 
 // https://github.com/superwolff/metalsmith-layouts/issues/43
 nunjucks.configure(['./src/templates', './dist/svg'], {

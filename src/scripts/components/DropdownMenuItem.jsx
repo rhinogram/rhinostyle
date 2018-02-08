@@ -65,14 +65,15 @@ class DropdownMenuItem extends React.Component {
       [UtilitySystem.config.classes.disabled]: disabled,
     });
 
-    const renderContent = () =>
-      (<div className="dropdown__menu__item__content">
+    const renderContent = () => (
+      <div className="dropdown__menu__item__content">
         {avatar ? (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-small" />) : null}
         <div className="dropdown__menu__item__content__container">
           <div className="dropdown__menu__item__content__label">{icon ? (<Icon icon={icon} className="u-m-r-small" />) : null}<span className="u-text-overflow">{label}</span></div>
           {labelDesc ? (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>) : null}
         </div>
-      </div>);
+      </div>
+    );
 
     let markup = '';
 

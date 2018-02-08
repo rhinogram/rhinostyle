@@ -39,8 +39,8 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const CoverApp = () =>
-  (<div>
+const CoverApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
       <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-bootstrap/react-overlays">react-overlays</a></p>
@@ -61,7 +61,7 @@ const CoverApp = () =>
       <h3 className="site-subheadline">CoverFooter</h3>
       <Playground theme="default" docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
     </section>
-
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<CoverApp />, document.getElementById('js-app'));

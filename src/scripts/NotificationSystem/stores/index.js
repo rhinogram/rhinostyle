@@ -3,10 +3,10 @@ import EventEmitter from 'events';
 import NotificationDispatcher from '../dispatcher';
 import NotificationConstants  from '../constants';
 
-const ActionTypes    = NotificationConstants.ActionTypes;
-const CHANGE_EVENT   = 'change';
+const { ActionTypes } = NotificationConstants;
+const CHANGE_EVENT = 'change';
 const _notifications = [];
-let _id              = 0;
+let _id = 0;
 
 class NotificationStoreClass extends EventEmitter {
   emitChange() {
@@ -51,7 +51,7 @@ function _removeNotification(id) {
 }
 
 NotificationStore.dispatchToken = NotificationDispatcher.register((payload) => {
-  const action = payload.action;
+  const { action } = payload;
 
   switch (action.type) {
     case ActionTypes.ADD_NOTIFICATION:

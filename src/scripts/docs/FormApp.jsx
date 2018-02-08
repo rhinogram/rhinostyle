@@ -148,8 +148,8 @@ const switchScope = {
   RhinoSwitch,
 };
 
-const FormApp = () =>
-  (<div>
+const FormApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Forms</h3>
       <p className="site-text-lead">Forms are assembled using our suite of custom form components. It is important to understand that form components have a <code>form__control</code> class for consistent appearance. Form components are also wrapped in a <code>form__group</code> class which provides vertical spacing. Finally, you may use the <code>form__section</code> class to provide vertical spacing between sections of a form.</p>
@@ -413,6 +413,7 @@ const FormApp = () =>
       <h3 className="site-subheadline">Switcher Playground</h3>
       <Playground theme="default" docClass={RhinoSwitch} propDescriptionMap={switchDocs} codeText={switchExample} scope={switchScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<FormApp />, document.getElementById('js-app'));

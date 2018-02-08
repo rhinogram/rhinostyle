@@ -23,7 +23,7 @@ Pill.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   hideClose: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['default', 'primary']),
 };

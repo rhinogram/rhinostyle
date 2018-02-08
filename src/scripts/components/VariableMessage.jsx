@@ -320,7 +320,12 @@ class VariableMessage extends React.Component {
       <div className={classes} onClick={this.handleVariableClick}>
         {!readOnly ?
           <div className="variable-message__header">
-            <label htmlFor={variableMessageInputName} className="variable-message__label">{composeLabel} {required && <span className="form__asterisk">*</span>}</label>
+            <label // eslint-disable-line jsx-a11y/label-has-for
+              htmlFor={variableMessageInputName}
+              className="variable-message__label"
+            >
+              {composeLabel} {required && <span className="form__asterisk">*</span>}
+            </label>
             {this.showReset() ?
               <div className="variable-message__reset">
                 <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
@@ -351,7 +356,12 @@ class VariableMessage extends React.Component {
 
             <hr className="u-m-y-large" />
 
-            <label htmlFor={variableMessagePreviewName} className="u-block">{previewLabel}</label>
+            <label // eslint-disable-line jsx-a11y/label-has-for
+              htmlFor={variableMessagePreviewName}
+              className="u-block"
+            >
+              {previewLabel}
+            </label>
             <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
           </div>
           : null}

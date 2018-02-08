@@ -20,8 +20,8 @@ const tooltipDocs = {
   delay: 'Delay showing the tooltip onmouseenter. Can be either the prop itself (defaults 1000 milliseconds) or you can pass in a value',
 };
 
-const TooltipsApp = () =>
-  (<div>
+const TooltipsApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">About Tooltips</h3>
       <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on <code>mouseenter</code> and <code>mouseleave</code> of the trigger. The component interaction is disabled on touch devices due to a lack of hover state.</p>
@@ -31,6 +31,7 @@ const TooltipsApp = () =>
       <h3 className="site-subheadline">Tooltips Playground</h3>
       <Playground theme="default" docClass={Tooltip} propDescriptionMap={tooltipDocs} codeText={tooltipsExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<TooltipsApp />, document.getElementById('js-app'));

@@ -5,7 +5,7 @@ import browserSync from 'browser-sync';
 import paths from './paths';
 
 const $ = gulpLoadPlugins();
-const reload = browserSync.reload;
+const { reload } = browserSync;
 
 /**
  * Copies audio files to build/dist directories

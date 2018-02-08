@@ -15,8 +15,8 @@ const exampleScope  = {
   Close,
 };
 
-const CloseApp = () =>
-  (<div>
+const CloseApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Close</h3>
       <p className="site-text-lead">The Close component is used within numerous components - particularly in our feedback system.</p>
@@ -26,7 +26,7 @@ const CloseApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Close} propDescriptionMap={closeDocs} codeText={closeExample} scope={exampleScope} noRender={false} />
     </section>
-
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<CloseApp />, document.getElementById('js-app'));

@@ -32,7 +32,7 @@ class DropdownFilter extends React.Component {
   }
 
   getChildren = () => {
-    const children = this.props.children;
+    const { children } = this.props;
     let returnChild = null;
 
     return React.Children.map(children, (child) => {
@@ -58,9 +58,7 @@ class DropdownFilter extends React.Component {
   }
 
   itemClick = (child) => {
-    const id = child.props.id;
-    const icon = child.props.icon;
-    const onClick = child.props.onClick;
+    const { id, icon, onClick } = child.props;
 
     if (id) {
       if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
@@ -81,7 +79,7 @@ class DropdownFilter extends React.Component {
   handleFilter = (e) => {
     const query = e.target.value;
     const items = [];
-    const children = this.props.children;
+    const { children } = this.props;
 
     React.Children.forEach(children, (child) => {
       if (child.type === DropdownMenuItem) {
@@ -106,7 +104,7 @@ class DropdownFilter extends React.Component {
 
   render() {
     const { placeholder } = this.props;
-    const items = this.state.items;
+    const { items } = this.state;
 
     return (
       <Fragment>

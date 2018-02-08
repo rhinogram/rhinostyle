@@ -17,25 +17,25 @@ const exampleScope  = {
   UtilityInlineGrid,
 };
 
-const MessageApp = () =>
-  (<div>
+const MessageApp = () => (
+  <div>
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | note&quot;</code></p>
       <UtilityInlineGrid>
         <div>
           <Message>
-            Default Message <a href="javascript:void(0)">www.linktosomething.com</a>
+            Default Message <a href="https://www.rhinogram.com">rhinogram.com</a>
           </Message>
         </div>
         <div>
           <Message type="primary">
-            Primary Message <a href="javascript:void(0)">www.linktosomething.com</a>
+            Primary Message <a href="https://www.rhinogram.com">rhinogram.com</a>
           </Message>
         </div>
         <div>
           <Message type="note">
-            Note Message <a href="javascript:void(0)">www.linktosomething.com</a>
+            Note Message <a href="https://www.rhinogram.com">rhinogram.com</a>
           </Message>
         </div>
       </UtilityInlineGrid>
@@ -90,6 +90,7 @@ const MessageApp = () =>
       <h3 className="site-subheadline">Playground</h3>
       <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
     </section>
-  </div>);
+  </div>
+);
 
 ReactDOM.render(<MessageApp />, document.getElementById('js-app'));
