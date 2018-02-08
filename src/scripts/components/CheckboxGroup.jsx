@@ -5,6 +5,32 @@ import React from 'react';
 import { UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class CheckboxGroup extends React.Component {
+  showValidationMessage = () => {
+    const { validationMessage } = this.props;
+
+    if (validationMessage) {
+      return <div className="form__validation-message">{validationMessage}</div>;
+    }
+
+    return false;
+  };
+
+  showLabel = () => {
+    const { label, required } = this.props;
+
+    if (label) {
+      return (
+        <label // eslint-disable-line jsx-a11y/label-has-for
+          className="u-block"
+        >
+          {label} {required && <span className="form__asterisk">*</span>}
+        </label>
+      );
+    }
+
+    return false;
+  };
+
   renderChildren = () => {
     const { blockGroup, children, inline } = this.props;
 
@@ -35,23 +61,21 @@ class CheckboxGroup extends React.Component {
     }
 
     return (
-      <UtilityList space>
+      <UtilityList space className="u-m-a-0">
         {this.renderChildren()}
       </UtilityList>
     );
   }
 
   render() {
-    const { className, label } = this.props;
+    const { className } = this.props;
     const classes = cx('form__group', className);
-
-    // Show label or not based on prop value
-    const showLabel = label ? <label className="u-block">{label}</label> : null; // eslint-disable-line jsx-a11y/label-has-for
 
     return (
       <div className={classes}>
-        {showLabel}
+        {this.showLabel()}
         {this.renderItems()}
+        {this.showValidationMessage()}
       </div>
     );
   }
@@ -65,6 +89,8 @@ CheckboxGroup.propTypes = {
   className: PropTypes.string,
   inline: PropTypes.bool,
   label: PropTypes.string,
+  required: PropTypes.bool,
+  validationMessage: PropTypes.string,
 };
 
 export default CheckboxGroup;
