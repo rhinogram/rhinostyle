@@ -123,7 +123,7 @@ class VariableMessage extends React.Component {
   }
 
   handleInitValue = () => {
-    const initialValue = this.props.initialValue;
+    const { initialValue } = this.props;
     // Get flat-level list of all variables
     const variables = this.getVariables(this.props.variables);
 
@@ -132,7 +132,7 @@ class VariableMessage extends React.Component {
 
     // Loop through variables
     variables.forEach((value) => {
-      const variable = value.variable;
+      const { variable } = value;
       const foundVariable = split.indexOf(variable);
 
       // See if we've found one in our `initialValue`
@@ -223,7 +223,7 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
-    const variables = this.props.variables;
+    const { variables } = this.props;
     // Get the rawMessage content to return onInput
     const rawMessage = this.compose.textContent.trim();
 
@@ -241,7 +241,7 @@ class VariableMessage extends React.Component {
     if ($select) {
       // Search text to determine if variables are found in it
       this.getVariables(variables).forEach((value) => {
-        const variable = value.variable;
+        const { variable } = value;
 
         if (variable) {
           // We found the text
@@ -364,9 +364,9 @@ VariableMessage.displayName = 'RhinoVariableMessage';
 
 VariableMessage.propTypes = {
   className: PropTypes.string,
-  composeLabel: PropTypes.string.isRequired,
+  composeLabel: PropTypes.string,
   explanationMessage: PropTypes.string,
-  previewLabel: PropTypes.string.isRequired,
+  previewLabel: PropTypes.string,
   name: PropTypes.string.isRequired,
   reset: PropTypes.bool,
   variables: PropTypes.array.isRequired,

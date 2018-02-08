@@ -10,7 +10,7 @@ class Toast extends React.Component {
   static propTypes = {
     body: PropTypes.string.isRequired,
     className: PropTypes.string,
-    onDismiss: PropTypes.func.isRequired,
+    onDismiss: PropTypes.func,
     type: PropTypes.oneOf(['danger', 'default', 'success']),
   };
 

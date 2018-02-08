@@ -15,29 +15,6 @@ const exampleScope  = {
 };
 
 class TabsApp extends React.Component {
-  state = {
-    activeKey: 1,
-    activeAutoKey: 1,
-    activeEqualKey: 1,
-  };
-
-  updateActiveKey = (index) => {
-    this.setState({
-      activeKey: index,
-    });
-  };
-
-  updateActiveAutoKey = (index) => {
-    this.setState({
-      activeAutoKey: index,
-    });
-  };
-  updateActiveEqualKey = (index) => {
-    this.setState({
-      activeEqualKey: index,
-    });
-  };
-
   render() {
     return (
       <div>

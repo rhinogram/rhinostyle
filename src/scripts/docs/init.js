@@ -288,7 +288,7 @@ rhinoTime.timeline.to('.rhino-animation__time', rhinoTime.speed, {
 const hostName = document.location.hostname;
 // Handle active navigation
 const split = (hostName === 'localhost') ? 1 : 2;
-const navLocation = location.pathname.split('/')[split];
+const navLocation = window.location.pathname.split('/')[split];
 
 if (navLocation) {
   // Add active class to current nav item

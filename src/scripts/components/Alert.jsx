@@ -33,10 +33,12 @@ const Alert = (props) => {
   return (
     <div className={classes}>
       {renderClose()}
-      {title ? <div className="alert__title">
-        {renderTitleIcon()}
-        <div className="alert__title__text">{title}</div>
-      </div> : null }
+      {title &&
+        <div className="alert__title">
+          {renderTitleIcon()}
+          <div className="alert__title__text">{title}</div>
+        </div>
+      }
       <div className="alert__body">
         {props.children}
       </div>

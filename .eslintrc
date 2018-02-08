@@ -1,3 +1,7 @@
 {
-  "extends": "rhinogram"
+  "extends": "rhinogram",
+  "rules": {
+    "object-curly-newline": 0,
+    "jsx-a11y/click-events-have-key-events": 0
+  }
 }
