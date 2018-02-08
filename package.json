@@ -12,7 +12,7 @@
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
     "start": "yarn && gulp docs && gulp server",
-    "eslint": "eslint --fix src/**/*.jsx"
+    "eslint": "eslint"
   },
   "peerDependencies": {
     "react": ">=16.2.0",
@@ -64,7 +64,7 @@
     "stylelint": "8.4.0",
     "stylelint-config-standard": "18.0.0",
     "webpack": "3.10.0",
-    "what-input": "5.0.4"
+    "what-input": "5.0.5"
   },
   "files": [
     "README.md",

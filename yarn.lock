@@ -9290,9 +9290,9 @@ webpack@^1.15.0:
     watchpack "^0.2.1"
     webpack-core "~0.6.9"
 
-what-input@5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/what-input/-/what-input-5.0.4.tgz#75b38e458e808c73d33e71e1c9abcebf5ecc66ae"
+what-input@5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/what-input/-/what-input-5.0.5.tgz#6f5fd14baef0354cae7c3ceaa949886a86a456d9"
 
 whatwg-fetch@>=0.10.0:
   version "2.0.2"

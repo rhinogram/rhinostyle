@@ -80,7 +80,11 @@ class DropdownMenuItem extends React.Component {
     if (route) {
       markup = (
         <div className={classes}>
-          <Link to={route} className="dropdown__menu__item__link" onClick={this.handleClick}>
+          <Link // eslint-disable-line jsx-a11y/anchor-is-valid
+            to={route}
+            className="dropdown__menu__item__link"
+            onClick={this.handleClick}
+          >
             {renderContent()}
           </Link>
         </div>
@@ -88,7 +92,11 @@ class DropdownMenuItem extends React.Component {
     } else {
       markup = (
         <div className={classes}>
-          <a href="javascript:void(0)" className="dropdown__menu__item__link" onClick={this.handleClick}>
+          <a // eslint-disable-line jsx-a11y/anchor-is-valid
+            href="javascript:void(0)"
+            className="dropdown__menu__item__link"
+            onClick={this.handleClick}
+          >
             {renderContent()}
           </a>
         </div>
