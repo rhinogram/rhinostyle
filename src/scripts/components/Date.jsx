@@ -19,7 +19,7 @@ const Date = (props) => {
         <label // eslint-disable-line jsx-a11y/label-has-for
           htmlFor={id}
         >
-          {label}{required && <span className="form__asterisk">*</span>}
+          {label} {required && <span className="form__asterisk">*</span>}
         </label>
       );
     }
