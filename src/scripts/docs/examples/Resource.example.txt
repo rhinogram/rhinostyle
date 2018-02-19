@@ -7,25 +7,21 @@ class ComponentExample extends React.Component {
     return (
       <ResourceGroup separator="Today" interfaceMode="radio">
         <Resource>
-          <ResourceColumnLeftWrapper>
-            <ResourceColumnLeftIntro avatar={{ type: 'member' }} title="Test" titleSub="I'm a sub thing!">
-              I'm a child!
-            </ResourceColumnLeftIntro>
-            <ResourceColumnLeftBody>
-              Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
-            </ResourceColumnLeftBody>
-          </ResourceColumnLeftWrapper>
+          <ResourceColumnLeftIntro avatar={{ type: 'member' }} title="Test" titleSub="I'm a sub thing!">
+            I'm a child!
+          </ResourceColumnLeftIntro>
+          <ResourceColumnLeftBody>
+            Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
+          </ResourceColumnLeftBody>
           <ResourceColumnRightWrapper>
             83 Members<br /><span className="u-text-accent">This is a warning!</span>
           </ResourceColumnRightWrapper>
         </Resource>
         <Resource unread>
-          <ResourceColumnLeftWrapper>
-            <ResourceColumnLeftIntro title="Test" icon={{ icon: 'star', onClick: this.handleIconClick }} />
-            <ResourceColumnLeftBody>
-              Some body stuff!
-            </ResourceColumnLeftBody>
-          </ResourceColumnLeftWrapper>
+          <ResourceColumnLeftIntro title="Test" icon={{ icon: 'star', onClick: this.handleIconClick }} />
+          <ResourceColumnLeftBody>
+            Some body stuff!
+          </ResourceColumnLeftBody>
           <ResourceColumnRightWrapper>
             83 Members<br /><span className="u-text-accent">This is a warning!</span>
           </ResourceColumnRightWrapper>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import cx from 'classnames';
 
 const ResourceColumnRightWrapper = (props) => {
@@ -9,9 +9,12 @@ const ResourceColumnRightWrapper = (props) => {
   });
 
   return (
-    <div className={classes}>
-      {children}
-    </div>
+    <Fragment>
+      <div className={classes}>
+        {children}
+      </div>
+      <div className="resource__break" />
+    </Fragment>
   );
 };
 

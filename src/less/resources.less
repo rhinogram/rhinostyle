@@ -97,8 +97,19 @@
     box-shadow: inset @resource-active-inset-shadow;
   }
 
+  // 1. To allow for body to break to next line
   .resource-group\@small & {
     align-items: flex-start;
+    flex-wrap: wrap; // 1
+  }
+
+  // Add right spacing to body (only on small screens) when right column follows
+  .resource__column-left__body:not(:last-child) {
+    margin-right: @global-whitespace-base;
+
+    .resource-group\@small & {
+      margin-right: 0;
+    }
   }
 
   // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
@@ -205,29 +216,11 @@
     cursor: not-allowed;
     pointer-events: none;
 
-    .resource__column-left-wrapper,
+    .resource__column-left__intro,
+    .resource__column-left__body,
     .resource__column-right-wrapper {
       opacity: @global-opacity-disabled;
     }
-  }
-}
-
-// 1. https://css-tricks.com/flexbox-truncated-text/
-.resource__column-left-wrapper {
-  margin-right: @global-whitespace-base;
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-width: 0; // 1
-
-  .resource-group\@small & {
-    display: block;
-  }
-
-  > :only-child {
-    margin-right: 0;
-    flex: 1;
   }
 }
 
@@ -307,8 +300,12 @@
   text-overflow: ellipsis;
   min-width: 0;
 
+  // 1. To break to its own line
   .resource-group\@small & {
     margin-top: @global-whitespace-small;
+    order: 1;
+    flex: none;
+    width: 100%;
   }
 }
 
@@ -318,12 +315,26 @@
   font-size: @global-font-size-xsmall;
 
   &.resource__column-right-wrapper--no-flex {
-    max-width: 150px;
+    max-width: 120px;
     flex: none;
   }
 
   &:not(.resource__column-right-wrapper--no-flex) {
     flex: 0 0 20%;
-    min-width: 150px;
+    min-width: 120px;
+  }
+}
+
+// Used in conjunction with body content to force to next line on smaller variation
+.resource__break {
+  display: none;
+
+  // Force line break
+  .resource-group\@small & {
+    display: block;
+    flex-basis: 100%;
+    width: 0;
+    height: 0;
+    overflow: hidden;
   }
 }
