@@ -97,8 +97,19 @@
     box-shadow: inset @resource-active-inset-shadow;
   }
 
+  // 1. To allow for body to break to next line
   .resource-group\@small & {
     align-items: flex-start;
+    flex-wrap: wrap; // 1
+  }
+
+  // Add right spacing to body (only on small screens) when right column follows
+  .resource__body:not(:last-child) {
+    margin-right: @global-whitespace-base;
+
+    .resource-group\@small & {
+      margin-right: 0;
+    }
   }
 
   // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
@@ -205,33 +216,15 @@
     cursor: not-allowed;
     pointer-events: none;
 
-    .resource__column-left-wrapper,
-    .resource__column-right-wrapper {
+    .resource__intro,
+    .resource__body,
+    .resource__right {
       opacity: @global-opacity-disabled;
     }
   }
 }
 
-// 1. https://css-tricks.com/flexbox-truncated-text/
-.resource__column-left-wrapper {
-  margin-right: @global-whitespace-base;
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-width: 0; // 1
-
-  .resource-group\@small & {
-    display: block;
-  }
-
-  > :only-child {
-    margin-right: 0;
-    flex: 1;
-  }
-}
-
-.resource__column-left__intro {
+.resource__intro {
   display: flex;
   align-items: center;
   margin-right: @global-whitespace-base;
@@ -241,7 +234,7 @@
 }
 
 // 1. Match width of small avatar
-.resource__column-left__intro__media {
+.resource__intro__media {
   flex: none;
   width: @resource-avatar-size;
   margin-right: @global-whitespace-small;
@@ -254,18 +247,18 @@
   }
 }
 
-.resource__column-left__intro__media--icon {
+.resource__intro__media--icon {
   width: @resource-icon-size;
 }
 
-.resource__column-left__intro__title {
+.resource__intro__title {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   position: relative;
 }
 
-.resource__column-left__intro__title__content {
+.resource__intro__title__content {
   &.has-subtitle {
     margin-right: @global-whitespace-small;
   }
@@ -289,17 +282,17 @@
   }
 }
 
-.resource__column-left__intro__title__sub {
+.resource__intro__title__sub {
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
 }
 
-.resource__column-left__intro__title__meta {
+.resource__intro__title__meta {
   flex: 100%;
   font-size: @global-font-size-small;
 }
 
-.resource__column-left__body {
+.resource__body {
   flex: 1;
   font-size: @global-font-size-small;
   white-space: nowrap;
@@ -307,23 +300,47 @@
   text-overflow: ellipsis;
   min-width: 0;
 
+  // 1. To break to its own line
   .resource-group\@small & {
     margin-top: @global-whitespace-small;
+    order: 1;
+    flex: none;
+    width: 100%;
   }
 }
 
-.resource__column-right-wrapper {
+.resource__right {
   text-align: right;
   margin-left: auto;
   font-size: @global-font-size-xsmall;
 
-  &.resource__column-right-wrapper--no-flex {
-    max-width: 150px;
+  &.resource__right--no-flex {
+    max-width: 120px;
     flex: none;
   }
 
-  &:not(.resource__column-right-wrapper--no-flex) {
+  &:not(.resource__right--no-flex) {
     flex: 0 0 20%;
-    min-width: 150px;
+    min-width: 120px;
+  }
+
+  // 1. To break to its own line
+  .resource-group\@small & {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+// Used in conjunction with body content to force to next line on smaller variation
+.resource__break {
+  display: none;
+
+  // Force line break
+  .resource-group\@small & {
+    display: block;
+    flex-basis: 100%;
+    width: 0;
+    height: 0;
+    overflow: hidden;
   }
 }

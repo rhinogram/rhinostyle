@@ -43,10 +43,9 @@ import Radio                from './Radio';
 import RadioGroup           from './RadioGroup';
 import ResourceGroup        from './ResourceGroup';
 import Resource             from './Resource';
-import ResourceColumnLeftWrapper from './ResourceColumnLeftWrapper';
-import ResourceColumnRightWrapper from './ResourceColumnRightWrapper';
-import ResourceColumnLeftIntro from './ResourceColumnLeftIntro';
-import ResourceColumnLeftBody from './ResourceColumnLeftBody';
+import ResourceRight from './ResourceRight';
+import ResourceIntro from './ResourceIntro';
+import ResourceBody from './ResourceBody';
 import RhinoSwitch          from './RhinoSwitch';
 import Select               from './Select';
 import SystemAlert          from './SystemAlert';
@@ -110,10 +109,9 @@ export {
   Radio,
   RadioGroup,
   ResourceGroup,
-  ResourceColumnLeftWrapper,
-  ResourceColumnRightWrapper,
-  ResourceColumnLeftIntro,
-  ResourceColumnLeftBody,
+  ResourceRight,
+  ResourceIntro,
+  ResourceBody,
   Resource,
   RhinoSwitch,
   Scrollbars,

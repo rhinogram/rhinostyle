@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Avatar, Button, Icon } from '../components';
 
-class ResourceColumnLeftIntro extends React.Component {
+class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
     const { icon } = this.props;
 
@@ -41,7 +41,7 @@ class ResourceColumnLeftIntro extends React.Component {
     }
 
     if (output) {
-      const classes = `resource__column-left__intro__media${validIcon ? ' resource__column-left__intro__media--icon' : ''}`;
+      const classes = `resource__intro__media${validIcon ? ' resource__intro__media--icon' : ''}`;
 
       return (
         <div className={classes}>
@@ -55,19 +55,19 @@ class ResourceColumnLeftIntro extends React.Component {
 
   renderTitle = () => {
     const { title, titleSub, children } = this.props;
-    const titleClass = `resource__column-left__intro__title__content ${titleSub ? 'has-subtitle' : ''}`;
+    const titleClass = `resource__intro__title__content ${titleSub ? 'has-subtitle' : ''}`;
 
     return (
-      <div className="resource__column-left__intro__title">
-        <span className={titleClass}>{title}</span>{titleSub && <span className="resource__column-left__intro__title__sub">{titleSub}</span>}
-        {children && <div className="resource__column-left__intro__title__meta">{children}</div>}
+      <div className="resource__intro__title">
+        <span className={titleClass}>{title}</span>{titleSub && <span className="resource__intro__title__sub">{titleSub}</span>}
+        {children && <div className="resource__intro__title__meta">{children}</div>}
       </div>
     );
   }
 
   render() {
     return (
-      <div className="resource__column-left__intro">
+      <div className="resource__intro">
         {this.renderMedia()}
         {this.renderTitle()}
       </div>
@@ -75,9 +75,9 @@ class ResourceColumnLeftIntro extends React.Component {
   }
 }
 
-ResourceColumnLeftIntro.displayName = 'RhinoResourceColumnLeftIntro';
+ResourceIntro.displayName = 'RhinoResourceIntro';
 
-ResourceColumnLeftIntro.propTypes = {
+ResourceIntro.propTypes = {
   avatar: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
@@ -93,7 +93,7 @@ ResourceColumnLeftIntro.propTypes = {
   titleSub: PropTypes.string,
 };
 
-ResourceColumnLeftIntro.defaultProps = {
+ResourceIntro.defaultProps = {
   title: '',
   titleSub: '',
   icon: {
@@ -103,4 +103,4 @@ ResourceColumnLeftIntro.defaultProps = {
   },
 };
 
-export default ResourceColumnLeftIntro;
+export default ResourceIntro;

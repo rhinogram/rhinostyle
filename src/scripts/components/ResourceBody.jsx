@@ -2,9 +2,9 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ResourceColumnLeftBody = (props) => {
+const ResourceBody = (props) => {
   const { className, children } = props;
-  const classes = cx('resource__column-left__body', className);
+  const classes = cx('resource__body', className);
 
   return (
     <div className={classes}>
@@ -13,15 +13,15 @@ const ResourceColumnLeftBody = (props) => {
   );
 };
 
-ResourceColumnLeftBody.displayName = 'RhinoResourceColumnLeftBody';
+ResourceBody.displayName = 'RhinoResourceBody';
 
-ResourceColumnLeftBody.propTypes = {
+ResourceBody.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
 };
 
-ResourceColumnLeftBody.defaultProps = {
+ResourceBody.defaultProps = {
   className: '',
 };
 
-export default ResourceColumnLeftBody;
+export default ResourceBody;
