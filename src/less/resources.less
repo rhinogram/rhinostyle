@@ -101,11 +101,26 @@
   .resource-group\@small & {
     align-items: flex-start;
     flex-wrap: wrap; // 1
+
+    // 1
+    &:not(.has-right-column) {
+      .resource__intro {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+
+    // 1
+    &.has-right-column {
+      .resource__intro {
+        width: 65%;
+      }
+    }
   }
 
   // Add right spacing to body (only on small screens) when right column follows
   .resource__body:not(:last-child) {
-    margin-right: @global-whitespace-base;
+    margin-right: @global-whitespace-small;
 
     .resource-group\@small & {
       margin-right: 0;
@@ -224,13 +239,23 @@
   }
 }
 
+// 1. Hide avatar on small sizes
 .resource__intro {
   display: flex;
   align-items: center;
-  margin-right: @global-whitespace-base;
-  max-width: 350px;
-  width: 100%;
-  flex: 1;
+  margin-right: @global-whitespace-small;
+  width: 300px;
+
+  .resource-group\@small & {
+    align-items: flex-start;
+
+    // 1
+    &.has-avatar {
+      .resource__intro__media {
+        display: none;
+      }
+    }
+  }
 }
 
 // 1. Match width of small avatar
@@ -251,14 +276,26 @@
   width: @resource-icon-size;
 }
 
+.resource__intro__title-wrapper {
+  min-width: 0;
+}
+
 .resource__intro__title {
   display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
   position: relative;
+
+  .resource-group\@small & {
+    flex-direction: column;
+  }
 }
 
 .resource__intro__title__content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+
   &.has-subtitle {
     margin-right: @global-whitespace-small;
   }
@@ -285,10 +322,10 @@
 .resource__intro__title__sub {
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
+  white-space: nowrap;
 }
 
 .resource__intro__title__meta {
-  flex: 100%;
   font-size: @global-font-size-small;
 }
 
@@ -328,19 +365,5 @@
   .resource-group\@small & {
     flex: 1;
     min-width: 0;
-  }
-}
-
-// Used in conjunction with body content to force to next line on smaller variation
-.resource__break {
-  display: none;
-
-  // Force line break
-  .resource-group\@small & {
-    display: block;
-    flex-basis: 100%;
-    width: 0;
-    height: 0;
-    overflow: hidden;
   }
 }

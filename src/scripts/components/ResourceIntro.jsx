@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import cx from 'classnames';
 
 import { Avatar, Button, Icon } from '../components';
 
@@ -58,16 +59,22 @@ class ResourceIntro extends React.Component {
     const titleClass = `resource__intro__title__content ${titleSub ? 'has-subtitle' : ''}`;
 
     return (
-      <div className="resource__intro__title">
-        <span className={titleClass}>{title}</span>{titleSub && <span className="resource__intro__title__sub">{titleSub}</span>}
+      <div className="resource__intro__title-wrapper">
+        <div className="resource__intro__title">
+          <span className={titleClass}>{title}</span>{titleSub && <span className="resource__intro__title__sub">{titleSub}</span>}
+        </div>
         {children && <div className="resource__intro__title__meta">{children}</div>}
       </div>
     );
   }
 
   render() {
+    const classes = cx('resource__intro', {
+      'has-avatar': this.props.avatar,
+    });
+
     return (
-      <div className="resource__intro">
+      <div className={classes}>
         {this.renderMedia()}
         {this.renderTitle()}
       </div>
