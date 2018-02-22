@@ -8,7 +8,9 @@ class ComponentExample extends React.Component {
       <Fragment>
         <ResourceGroup separator="Example separator">
           <Resource unread>
-            <ResourceIntro icon={{ icon: 'star' }} title="Brendan Dagg" titleSub="Patient" />
+            <ResourceIntro icon={{ icon: 'star' }} title="Brendan Dagg" titleSub="Patient">
+              <span className="u-text-accent">Assigned</span>
+            </ResourceIntro>
             <ResourceBody>
               You <Icon size="small" icon="arrow-right" /> Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
             </ResourceBody>
@@ -16,7 +18,7 @@ class ComponentExample extends React.Component {
               Just now
             </ResourceRight>
           </Resource>
-          <Resource>
+          <Resource active>
             <ResourceIntro icon={{ icon: 'mobile' }} title="Landline Channel 1" titleSub="(844) 755-0396" />
             <ResourceBody>
               <span className="u-text-muted">#Billing, #this_is_a_longer_tag</span>
