@@ -5,28 +5,92 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-      <ResourceGroup separator="Today" interfaceMode="radio">
-        <Resource>
-          <ResourceIntro avatar={{ type: 'member' }} title="Test" titleSub="I'm a sub thing!">
-            I'm a child!
-          </ResourceIntro>
-          <ResourceBody>
-            Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
-          </ResourceBody>
-          <ResourceRight>
-            83 Members<br /><span className="u-text-accent">This is a warning!</span>
-          </ResourceRight>
-        </Resource>
-        <Resource unread>
-          <ResourceIntro title="Test" icon={{ icon: 'star', bump: 'down', onClick: this.handleIconClick }} />
-          <ResourceBody>
-            Some body stuff!
-          </ResourceBody>
-          <ResourceRight>
-            83 Members<br /><span className="u-text-accent">This is a warning!</span>
-          </ResourceRight>
-        </Resource>
-      </ResourceGroup>
+      <Fragment>
+        <ResourceGroup separator="Example separator">
+          <Resource unread>
+            <ResourceIntro icon={{ icon: 'star' }} title="Brendan Dagg" titleSub="Patient" />
+            <ResourceBody>
+              You <Icon size="small" icon="arrow-right" /> Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
+            </ResourceBody>
+            <ResourceRight>
+              Just now
+            </ResourceRight>
+          </Resource>
+          <Resource>
+            <ResourceIntro icon={{ icon: 'mobile' }} title="Landline Channel 1" titleSub="(844) 755-0396" />
+            <ResourceBody>
+              <span className="u-text-muted">#Billing, #this_is_a_longer_tag</span>
+            </ResourceBody>
+            <ResourceRight>
+              Mr. Johnny Cash (member)
+            </ResourceRight>
+          </Resource>
+          <Resource unread>
+            <ResourceIntro avatar={{ type: 'member' }} title="Ben Worley" />
+            <ResourceBody>
+              Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
+            </ResourceBody>
+            <ResourceRight>
+              Tue, Feb 20, 1:53 pm
+            </ResourceRight>
+          </Resource>
+          <Resource>
+            <ResourceIntro avatar={{ type: 'default' }} title="Craig Anthony" titleSub="02/01/1944" />
+            <ResourceRight>
+              Patient
+            </ResourceRight>
+          </Resource>
+          <Resource>
+            <ResourceIntro title="Template title" />
+            <ResourceBody>
+              Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
+            </ResourceBody>
+            <ResourceRight>
+              <Icon icon="attachment" />
+            </ResourceRight>
+          </Resource>
+          <Resource>
+            <ResourceIntro title="New Years" />
+            <ResourceBody>
+              <span className="u-text-muted">Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!</span>
+            </ResourceBody>
+            <ResourceRight>
+              Dec 20, 8:00 am - Dec 29, 12:00 pm
+            </ResourceRight>
+          </Resource>
+        </ResourceGroup>
+        <ResourceGroup separator="Another example" interfaceMode="radio">
+          <Resource>
+            <ResourceIntro avatar={{ type: 'member' }} title="Zach Schnackel" />
+            <ResourceBody>
+              <span className="u-text-muted">#Charleston, #Office Administration, #Billing</span>
+            </ResourceBody>
+            <ResourceRight>
+              Patient
+            </ResourceRight>
+          </Resource>
+          <Resource>
+            <ResourceIntro avatar={{ type: 'member' }} title="Test" titleSub="I'm a sub thing!">
+              I'm a child!
+            </ResourceIntro>
+            <ResourceBody>
+              Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
+            </ResourceBody>
+            <ResourceRight>
+              83 Members<br /><span className="u-text-accent">This is a warning!</span>
+            </ResourceRight>
+          </Resource>
+          <Resource unread>
+            <ResourceIntro title="Test" icon={{ icon: 'star', bump: 'down', onClick: this.handleIconClick }} />
+            <ResourceBody>
+              Some body stuff!
+            </ResourceBody>
+            <ResourceRight>
+              83 Members<br /><span className="u-text-accent">This is a warning!</span>
+            </ResourceRight>
+          </Resource>
+        </ResourceGroup>
+      </Fragment>
     );
   }
 }

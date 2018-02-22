@@ -1,11 +1,13 @@
-import React    from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Resource, ResourceGroup, ResourceIntro, ResourceBody, ResourceRight } from '../components';
+import { Icon, Resource, ResourceGroup, ResourceIntro, ResourceBody, ResourceRight } from '../components';
 import resourceExample from './examples/Resource.example.txt';
 
 const exampleScope  = {
+  Fragment,
+  Icon,
   React,
   ReactDOM,
   Resource,
