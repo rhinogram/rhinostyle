@@ -85,6 +85,8 @@
   }
 }
 
+// 1. Resolve `position: relative` elements inside of scroll container being cut-off
+// https://stackoverflow.com/a/8733719/1026742
 .resource {
   display: flex;
   min-height: @resource-min-height;
@@ -92,6 +94,7 @@
   padding: @resource-padding-vertical @resource-padding-horizontal;
   position: relative;
   cursor: pointer;
+  transform: translate3d(0, 0, 0); // 1
 
   &:active {
     box-shadow: inset @resource-active-inset-shadow;
