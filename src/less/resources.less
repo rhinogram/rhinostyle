@@ -281,6 +281,7 @@
 
 .resource__intro__title-wrapper {
   min-width: 0;
+  width: 100%;
 }
 
 .resource__intro__title {
@@ -290,6 +291,7 @@
 
   .resource-group\@small & {
     flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -297,7 +299,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 100%;
+  flex: auto;
+
+  .resource-group\@small & {
+    width: 100%;
+  }
 
   &.has-subtitle {
     margin-right: @global-whitespace-small;
@@ -326,6 +332,7 @@
   font-size: @global-font-size-small;
   color: @global-font-color-muted;
   white-space: nowrap;
+  flex: auto;
 }
 
 .resource__intro__title__meta {
