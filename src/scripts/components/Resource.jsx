@@ -12,6 +12,8 @@ class Resource extends React.Component {
     let returnChild = null;
 
     return React.Children.map(children, (child) => {
+      if (!child) return false;
+
       if (child.type === ResourceRight) {
         this.hasRightColumn = true;
         returnChild = child;
