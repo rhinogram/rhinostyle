@@ -250,7 +250,9 @@
   width: 300px;
 
   .resource-group\@small & {
-    align-items: flex-start;
+    &:not(.has-avatar) {
+      align-items: flex-start;
+    }
 
     // 1
     // Disable for now until more testing is done
