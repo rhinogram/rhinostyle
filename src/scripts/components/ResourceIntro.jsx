@@ -42,7 +42,10 @@ class ResourceIntro extends React.Component {
     }
 
     if (output) {
-      const classes = `resource__intro__media${validIcon ? ' resource__intro__media--icon' : ''}`;
+      const classes = cx('resource__intro__media', {
+        'resource__intro__media--icon': validIcon,
+        'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
+      });
 
       return (
         <div className={classes}>
@@ -56,12 +59,17 @@ class ResourceIntro extends React.Component {
 
   renderTitle = () => {
     const { title, titleSub, children } = this.props;
-    const titleClass = `resource__intro__title__content ${titleSub ? 'has-subtitle' : ''}`;
+    const titleClasses = cx('resource__intro__title__content', {
+      'has-subtitle': titleSub,
+    });
+    const titleSubClasses = cx('resource__intro__title__sub', {
+      'resource__intro__title__sub--hidden@xsmall': this.props.hideTitleSubXsmall,
+    });
 
     return (
       <div className="resource__intro__title-wrapper">
         <div className="resource__intro__title">
-          <span className={titleClass}>{title}</span>{titleSub && <span className="resource__intro__title__sub">{titleSub}</span>}
+          <span className={titleClasses}>{title}</span>{titleSub && <span className={titleSubClasses}>{titleSub}</span>}
         </div>
         {children && <div className="resource__intro__title__meta">{children}</div>}
       </div>
@@ -98,6 +106,8 @@ ResourceIntro.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   titleSub: PropTypes.string,
+  hideMediaXsmall: PropTypes.bool,
+  hideTitleSubXsmall: PropTypes.bool,
 };
 
 ResourceIntro.defaultProps = {

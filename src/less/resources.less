@@ -245,25 +245,12 @@
 // 1. Hide avatar on small sizes
 .resource__intro {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-right: @global-whitespace-small;
   width: 300px;
 
-  .resource-group\@small & {
-    &:not(.has-avatar) {
-      align-items: flex-start;
-    }
-
-    // 1
-    // Disable for now until more testing is done
-
-    /*
-    &.has-avatar {
-      .resource__intro__media {
-        display: none;
-      }
-    }
-    */
+  &.has-avatar {
+    align-items: center;
   }
 }
 
@@ -278,6 +265,13 @@
   .icon:not(.avatar__icon) {
     width: @resource-icon-size;
     height: @resource-icon-size;
+  }
+
+  // Hide media @xsmall size if class is present
+  &.resource__intro__media--hidden\@xsmall {
+    .resource-group\@xsmall & {
+      display: none;
+    }
   }
 }
 
@@ -295,7 +289,7 @@
   align-items: baseline;
   position: relative;
 
-  .resource-group\@small & {
+  .resource-group\@xsmall & {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -306,12 +300,16 @@
   text-overflow: ellipsis;
   overflow: hidden;
 
-  .resource-group\@small & {
-    width: 100%;
-  }
-
   &.has-subtitle {
     margin-right: @global-whitespace-small;
+  }
+
+  .resource-group\@xsmall & {
+    width: 100%;
+
+    &.has-subtitle {
+      margin-right: 0;
+    }
   }
 
   .is-active &,
@@ -338,6 +336,13 @@
   color: @global-font-color-muted;
   white-space: nowrap;
   flex: auto;
+
+  // Hide media @xsmall size if class is present
+  &.resource__intro__title__sub--hidden\@xsmall {
+    .resource-group\@xsmall & {
+      display: none;
+    }
+  }
 }
 
 .resource__intro__title__meta {

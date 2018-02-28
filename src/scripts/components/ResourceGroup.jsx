@@ -31,6 +31,9 @@ class ResourceGroup extends React.Component {
       'resource-group@small': {
         maxWidth: 675,
       },
+      'resource-group@small resource-group@xsmall': {
+        maxWidth: 400,
+      },
     };
 
     return (
