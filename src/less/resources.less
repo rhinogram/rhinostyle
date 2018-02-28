@@ -196,11 +196,16 @@
     }
   }
 
+  @svg-load checkmark url(../svg/checkmark.svg) {
+    .icon-stroke {
+      stroke: @global-color-white;
+    }
+  }
+
   &.is-checkbox {
     &.is-selected {
       &::before {
-        stroke: @global-color-white;
-        background-image: url('@{svg-sprite}#checkmark');
+        background-image: svg-inline(checkmark);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: contain;

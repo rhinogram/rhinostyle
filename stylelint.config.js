@@ -1,6 +1,11 @@
 module.exports = {
   extends: 'stylelint-config-standard',
   rules: {
+    'at-rule-no-unknown': [true, {
+      ignoreAtRules: [
+        'svg-load',
+      ],
+    }],
     'at-rule-empty-line-before': ['always', {
       except: [
         'blockless-after-same-name-blockless',

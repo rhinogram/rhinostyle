@@ -19,7 +19,7 @@
 .variable-message__header {
   display: flex;
   align-items: baseline;
-  margin-bottom: @global-whitespace-base;
+  margin-bottom: @global-whitespace-small;
 }
 
 .variable-message__label {
@@ -88,13 +88,18 @@
   position: relative;
   cursor: pointer;
 
+  @svg-load close url(../svg/close.svg) {
+    .icon-stroke {
+      stroke: @pill-primary-color;
+    }
+  }
+
   &::after {
     content: '';
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url('@{svg-sprite}#close');
-    stroke: @pill-primary-color;
+    background-image: svg-inline(close);
     position: absolute;
     top: 0;
     left: 0;

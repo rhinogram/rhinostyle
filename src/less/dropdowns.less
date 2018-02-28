@@ -74,6 +74,12 @@
 .dropdown--multiselect {
   .mixin-chevron-down(); // add chevron
 
+  @svg-load checkmark url(../svg/checkmark.svg) {
+    .icon-stroke {
+      stroke: @global-color-secondary;
+    }
+  }
+
   .dropdown__menu__item.is-active > .dropdown__menu__item__link {
     padding-right: 3.6rem;
 
@@ -83,12 +89,11 @@
       color: @dropdown-link-color;
 
       &::after {
-        background-image: url('@{svg-sprite}#checkmark');
+        background-image: svg-inline(checkmark);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: @icon-size @icon-size;
         content: '';
-        stroke: @global-color-secondary;
         height: @icon-size;
         pointer-events: none;
         position: absolute;

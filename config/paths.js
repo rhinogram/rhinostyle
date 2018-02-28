@@ -50,8 +50,6 @@ const paths = {
   svg: {
     src: ['./src/svg/*.svg'],
     json: './src/svg',
-    dist: './dist/svg/',
-    build: './build/svg/',
   },
 };
 

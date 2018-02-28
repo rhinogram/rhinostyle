@@ -54,6 +54,7 @@
 @rhino-range-track-border-radius: (@rhinorange-track-height / 2);
 @rhinorange-track-background: @global-border-color;
 
+
 //
 // Component
 //
@@ -673,15 +674,20 @@ input::-webkit-input-placeholder {
 .rhinobox {
   padding-left: 0;
 
+  @svg-load checkmark url(../svg/checkmark.svg) {
+    .icon-stroke {
+      stroke: @global-color-white;
+    }
+  }
+
   input {
     &:checked + label::before {
       background-color: @form-element-color;
-      background-image: url('@{svg-sprite}#checkmark');
+      background-image: svg-inline(checkmark);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 75% 75%;
       border-color: @form-element-color;
-      stroke: @global-color-white;
     }
   }
 

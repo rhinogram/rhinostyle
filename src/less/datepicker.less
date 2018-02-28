@@ -174,15 +174,25 @@
   }
 }
 
+@svg-load datepicker-caret-left url(../svg/caret-left.svg) {
+  .icon-stroke {
+    stroke: @global-font-color;
+  }
+}
+
 .react-datepicker__navigation--previous {
-  background-image: url('@{svg-sprite}#caret-left');
-  stroke: @global-font-color;
+  background-image: svg-inline(datepicker-caret-left);
   left: 1rem;
 }
 
+@svg-load datepicker-caret-right url(../svg/caret-right.svg) {
+  .icon-stroke {
+    stroke: @global-font-color;
+  }
+}
+
 .react-datepicker__navigation--next {
-  background-image: url('@{svg-sprite}#caret-right');
-  stroke: @global-font-color;
+  background-image: svg-inline(datepicker-caret-right);
   right: 1rem;
 }
 
@@ -195,14 +205,15 @@
   top: 0;
 }
 
-.react-datepicker__navigation--years-previous {
-  background-image: url('@{svg-sprite}#caret-down');
-  stroke: @global-color-gray;
+@svg-load datepicker-caret-up url(../svg/caret-up.svg) {
+  .icon-stroke {
+    stroke: @global-color-gray;
+  }
 }
 
+.react-datepicker__navigation--years-previous,
 .react-datepicker__navigation--years-upcoming {
-  background-image: url('@{svg-sprite}#caret-up');
-  stroke: @global-color-gray;
+  background-image: svg-inline(datepicker-caret-up);
 }
 
 .react-datepicker__month {
@@ -339,12 +350,17 @@
   position: absolute;
 }
 
+@svg-load datepicker-close url(../svg/close.svg) {
+  .icon-stroke {
+    stroke: @global-font-color;
+  }
+}
+
 .react-datepicker__close-icon {
-  background-image: url('@{svg-sprite}#close');
+  background-image: svg-inline(datepicker-close);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 1.2rem 1.2rem;
-  stroke: @global-font-color;
   height: 1.2rem;
   margin-top: -0.6rem;
   position: absolute;

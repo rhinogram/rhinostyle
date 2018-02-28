@@ -5,7 +5,7 @@ import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 import flexbugs from 'postcss-flexbugs-fixes';
 import sorting from 'postcss-sorting';
-import svgFragments from 'postcss-svg-fragments';
+import inlineSVG from 'postcss-inline-svg';
 
 import paths from './paths';
 import packagedata from '../package.json';
@@ -15,10 +15,10 @@ const { reload } = browserSync;
 const rhinostyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 const processors = [
   autoprefixer({ cascade: false }),
-  cssnano({ zindex: false }),
   flexbugs(),
   sorting(),
-  svgFragments(),
+  inlineSVG(),
+  cssnano({ zindex: false }),
 ];
 
 /**

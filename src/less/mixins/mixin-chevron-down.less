@@ -7,13 +7,18 @@
 
 
 .mixin-chevron-down() {
+  @svg-load chevron-caret-down url(../svg/caret-down.svg) {
+    .icon-stroke {
+      stroke: @global-font-color;
+    }
+  }
+
   &::after {
-    background-image: url('@{svg-sprite}#caret-down');
+    background-image: svg-inline(chevron-caret-down);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: @dropdown-chevron-size @dropdown-chevron-size;
     content: '';
-    stroke: @global-font-color;
     height: @dropdown-chevron-size;
     pointer-events: none;
     position: absolute;
