@@ -2,9 +2,29 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
+import { ResourceRight, UtilitySystem } from '../components';
 
 class Resource extends React.Component {
+  hasRightColumn = false; // eslint-disable-line react/sort-comp
+
+  getChildren = () => {
+    const { children } = this.props;
+    let returnChild = null;
+
+    return React.Children.map(children, (child) => {
+      if (!child) return false;
+
+      if (child.type === ResourceRight) {
+        this.hasRightColumn = true;
+        returnChild = child;
+      } else {
+        returnChild = child;
+      }
+
+      return returnChild;
+    });
+  }
+
   handleClick = () => {
     const { disabled } = this.props;
 
@@ -14,7 +34,7 @@ class Resource extends React.Component {
   }
 
   render() {
-    const { children, className, active, disabled, selected, interfaceMode, unread } = this.props;
+    const { className, active, disabled, selected, interfaceMode, unread } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
@@ -24,11 +44,12 @@ class Resource extends React.Component {
       [`is-${interfaceClass}`]: interfaceMode,
       'is-selected': selected && !active,
       'is-unread': unread,
+      'has-right-column': this.hasRightColumn,
     });
 
     return (
       <div role="button" tabIndex={0} className={classes} onClick={this.handleClick} disabled={disabled}>
-        {children}
+        {this.getChildren()}
       </div>
     );
   }
