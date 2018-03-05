@@ -30,6 +30,7 @@
 @legend-border-color: @input-border;
 
 @rhinobox-rhinodio-size: 2rem;
+@rhinobox-rhinodio-focus-shadow: 0 0 4px fadeout(@global-color-primary, 35%);
 @rhinodio-offset: 0.6rem;
 
 @switcher-height: 3rem;
@@ -350,7 +351,7 @@ input[type='checkbox']:focus {
 
   // Class added to `.form__group` so we can pass input styles down
   .has-focus & {
-    border-color: @input-border-focus;
+    border-color: @input-border-focus !important;
   }
 
   .form__addon--large & {
@@ -689,6 +690,10 @@ input::-webkit-input-placeholder {
       background-size: 75% 75%;
       border-color: @form-element-color;
     }
+
+    &:focus + label::before {
+      box-shadow: @rhinobox-rhinodio-focus-shadow;
+    }
   }
 
   label {
@@ -717,6 +722,10 @@ input::-webkit-input-placeholder {
 .rhinodio__input {
   &:checked + .rhinodio__label::after {
     transform: translateY(-50%) scale(1);
+  }
+
+  &:focus + label::before {
+    box-shadow: @rhinobox-rhinodio-focus-shadow;
   }
 }
 

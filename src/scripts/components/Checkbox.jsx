@@ -33,6 +33,12 @@ class Checkbox extends React.Component {
     });
   }
 
+  _handleKeyUp = (e) => {
+    if (e.keyCode === 13) {
+      this.checkboxLabel.click();
+    }
+  }
+
   render() {
     const { children, className, label, disabled, name, value } = this.props;
     const { checked } = this.state;
@@ -52,11 +58,13 @@ class Checkbox extends React.Component {
           id={this.id}
           checked={checked}
           onChange={this._toggleChecked}
+          onKeyUp={this._handleKeyUp}
         />
         {label &&
           <label // eslint-disable-line jsx-a11y/label-has-for
             className="rhinobox__label"
             htmlFor={this.id}
+            ref={(checkboxLabel) => { this.checkboxLabel = checkboxLabel; }}
           >
             {label}
           </label>
