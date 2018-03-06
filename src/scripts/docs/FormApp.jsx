@@ -39,7 +39,7 @@ const inputScope = {
 const selectDocs  = {
   label:   '[Optional] - A label for the select',
   name:    '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
-  options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number, value: string }',
+  options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number|string, value: string }',
   disabled:  '[Optional] - Disable the select',
   required: '[Optional] - Field is required and asterisk is added to label',
   onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',

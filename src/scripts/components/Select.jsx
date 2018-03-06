@@ -20,7 +20,7 @@ class Select extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   _onChange = (event) => {
-    const selected = typeof event.target.value !== 'number' ? JSON.parse(event.target.value) : event.target.value;
+    const selected = parseInt(event.target.value, 10) ? parseInt(event.target.value, 10) : event.target.value;
 
     this.setState({
       selected,
