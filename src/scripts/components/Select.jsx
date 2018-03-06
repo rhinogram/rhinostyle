@@ -113,7 +113,7 @@ Select.propTypes = {
   options: PropTypes.array.isRequired,
   onSelect: PropTypes.func,
   required: PropTypes.bool,
-  selected: PropTypes.number,
+  selected: PropTypes.oneOf(['number', 'string']),
   validationMessage: PropTypes.string,
 };
 
