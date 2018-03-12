@@ -1,6 +1,6 @@
 import cx    from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Button, Message, Select, UtilitySystem } from '../components';
@@ -302,7 +302,7 @@ class VariableMessage extends React.Component {
 
   render() {
     const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly, required, validationMessage } = this.props;
-    const classes = cx('variable-message', className);
+    const classes = cx('form__group variable-message', className);
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessageSelectName = `variable-message-select-${this.id}`;
@@ -318,7 +318,7 @@ class VariableMessage extends React.Component {
 
     return (
       <div className={classes} onClick={this.handleVariableClick}>
-        {!readOnly ?
+        {!readOnly &&
           <div className="variable-message__header">
             <label // eslint-disable-line jsx-a11y/label-has-for
               htmlFor={variableMessageInputName}
@@ -326,12 +326,13 @@ class VariableMessage extends React.Component {
             >
               {composeLabel} {required && <span className="form__asterisk">*</span>}
             </label>
-            {this.showReset() ?
+            {this.showReset() &&
               <div className="variable-message__reset">
                 <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
-              </div> : null}
+              </div>
+            }
           </div>
-          : null }
+        }
         <div
           className="variable-message__compose"
           contentEditable={!readOnly}
@@ -342,8 +343,8 @@ class VariableMessage extends React.Component {
           ref={ref => (this.compose = ref)}
         />
         {showValidationMessage()}
-        {!readOnly ?
-          <div className="variable-message__directives">
+        {!readOnly &&
+          <Fragment>
             <div className="variable-message__footer">
               <Select
                 name={variableMessageSelectName}
@@ -351,20 +352,22 @@ class VariableMessage extends React.Component {
                 onSelect={this.handleVariableSelection}
                 ref={ref => (this.select = ref)}
               />
-              {explanationMessage ? <div className="variable-message__explanation">{explanationMessage}</div> : null}
+              {explanationMessage &&
+                <div className="variable-message__explanation">{explanationMessage}</div>
+              }
             </div>
 
-            <hr className="u-m-y-large" />
-
-            <label // eslint-disable-line jsx-a11y/label-has-for
-              htmlFor={variableMessagePreviewName}
-              className="u-block"
-            >
-              {previewLabel}
-            </label>
-            <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
-          </div>
-          : null}
+            <div className="variable-message__preview">
+              <label // eslint-disable-line jsx-a11y/label-has-for
+                htmlFor={variableMessagePreviewName}
+                className="u-block"
+              >
+                {previewLabel}
+              </label>
+              <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
+            </div>
+          </Fragment>
+        }
       </div>
     );
   }
