@@ -301,7 +301,7 @@ class VariableMessage extends React.Component {
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
   render() {
-    const { className, composeLabel, explanationMessage, previewLabel, variables, readOnly, required, validationMessage } = this.props;
+    const { className, composeLabel, explanationMessage, previewLabel, name, variables, readOnly, required, validationMessage } = this.props;
     const classes = cx('form__group variable-message', className);
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
@@ -334,12 +334,14 @@ class VariableMessage extends React.Component {
           </div>
         }
         <div
+          id={variableMessageInputName}
           className="variable-message__compose"
           contentEditable={!readOnly}
           onInput={this.handleComposeInput}
           onKeyPress={this.handleComposeKeypress}
           onKeyUp={this.handleKeyUp}
           onPaste={this.handlePaste}
+          name={name}
           ref={ref => (this.compose = ref)}
         />
         {showValidationMessage()}
