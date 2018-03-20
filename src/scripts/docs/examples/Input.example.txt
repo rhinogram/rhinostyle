@@ -15,6 +15,7 @@ class ComponentExample extends React.Component {
         <Input name="exampleInputText002" placeholder="Naked Input" type="text" naked />
         <Input name="exampleInputValidation" label="Validation Message" initialValue="bademail.com" type="email" validationMessage="This is not a valid email address." />
         <Input name="exampleInputExplanation" label="Explanation Message" initialValue="Lorem ipsum dolor" type="text" explanationMessage="This is an explanation message to help user." />
+        <Input format={{ date: true, datePattern: ['m', 'd', 'Y'] }} explanationMessage="Format MM/DD/YY" name="exampleInputText995699" label="Date input masking" placeholder="Enter a date" type="text" />
       </div>
     );
   }
