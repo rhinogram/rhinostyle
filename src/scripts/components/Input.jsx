@@ -42,7 +42,7 @@ class Input extends React.Component {
     this.setState({ value: event.target.value });
 
     if (this.props.onChange) {
-      this.props.onChange(event.target.name, event.target.value.trimLeft(), event.target.rawValue);
+      this.props.onChange(event.target.name, event.target.rawValue.trimLeft(), event.target.value);
     }
   }
 
