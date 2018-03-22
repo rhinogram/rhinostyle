@@ -18,6 +18,7 @@ const inputDocs  = {
   clear:              '[Optional] - Form control gets a clear value button',
   disabled:  '[Optional] - Disable the input',
   explanationMessage: '[Optional] - Explanation message to help user',
+  format: '[Optional] - Accepts object with custom formatting/mask operations',
   initialValue:       '[Optional] - Any initial value for the input',
   label:              '[Optional] - A label for the input',
   naked:              '[Optional] - Form control is stripped down in appearance',
@@ -182,6 +183,7 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Input</h3>
+      <p className="site-copy">We are using the <a href="http://nosir.github.io/cleave.js/">cleave</a> package to enhance inputs with formatting/masking ability.</p>
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Common Input</h5>
         <Input name="exampleInputEmail31" label="Email Address" type="email" required />
@@ -229,6 +231,14 @@ const FormApp = () => (
         <Input addon="left" size="large" name="exampleInputText999" placeholder="Large Input" type="text">
           <Icon icon="search" />
         </Input>
+      </div>
+
+      <div className="u-m-b-large">
+        <h5 className="site-miniheadline">Input Masking</h5>
+        <div className="site-copy">
+          <p>Use <code>format</code> property alongside options from <a href="https://github.com/nosir/cleave.js">Cleave.js</a> to mask inputs for easier masking/validation. <em>Date example below.</em></p>
+        </div>
+        <Input format={{ date: true, datePattern: ['m', 'd', 'Y'] }} explanationMessage="Format MM/DD/YY" name="exampleInputText9999" placeholder="Enter a date" type="text" />
       </div>
     </section>
 

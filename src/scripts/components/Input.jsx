@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Cleave from 'cleave.js/react';
 
 import { Button, Icon, UtilitySystem } from '../components';
 
@@ -16,8 +17,8 @@ class Input extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.focus && this.rhinoInput) {
-      this.rhinoInput.focus();
+    if (this.props.focus && this.input) {
+      this.input.focus();
     }
   }
 
@@ -31,7 +32,7 @@ class Input extends React.Component {
 
   componentDidUpdate(prevProps) {
     if ((prevProps.focus !== this.props.focus) && this.props.focus) {
-      this.rhinoInput.focus();
+      this.input.focus();
     }
   }
 
@@ -40,36 +41,36 @@ class Input extends React.Component {
   _handleChange = (event) => {
     this.setState({ value: event.target.value });
 
-    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
-      this.props.onChange(event.target.name, event.target.value.trimLeft());
+    if (this.props.onChange) {
+      this.props.onChange(event.target.name, event.target.rawValue.trimLeft(), event.target.value);
     }
   }
 
   _handleKeyPress = (event) => {
-    if (this.props.onKeyPress && typeof (this.props.onKeyPress === 'function')) {
+    if (this.props.onKeyPress) {
       this.props.onKeyPress(event);
     }
   }
 
   _handleClear = (event) => {
-    if (this.props.onClear && typeof (this.props.onClear === 'function')) {
+    if (this.props.onClear) {
       this.props.onClear(event);
     }
 
     this.setState({ value: '' });
-    this.rhinoInput.focus();
+    this.input.focus();
   }
 
   _handleFocus = () => {
-    this.rhinoInput.closest('.form__group').classList.add('has-focus');
+    this.input.closest('.form__group').classList.add('has-focus');
   }
 
   _handleBlur = () => {
-    this.rhinoInput.closest('.form__group').classList.remove('has-focus');
+    this.input.closest('.form__group').classList.remove('has-focus');
   }
 
   render() {
-    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, label, naked, name, placeholder, required, size, type, validationMessage } = this.props;
+    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, placeholder, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear':  clear,
       'form__control--naked':  naked,
@@ -115,24 +116,48 @@ class Input extends React.Component {
     const input = this.state.value;
     let inputMarkup = null;
 
-    const inputRender = () => (
-      <input
-        autoCapitalize={autoCapitalize}
-        autoComplete={autoComplete}
-        type={type}
-        disabled={disabled}
-        className={inputClasses}
-        id={this.id}
-        name={name}
-        placeholder={placeholder}
-        value={this.state.value}
-        onFocus={this._handleFocus}
-        onBlur={this._handleBlur}
-        onKeyPress={this._handleKeyPress}
-        onChange={this._handleChange}
-        ref={ref => (this.rhinoInput = ref)}
-      />
-    );
+    const inputRender = () => {
+      if (format) {
+        return (
+          <Cleave
+            autoCapitalize={autoCapitalize}
+            autoComplete={autoComplete}
+            type={type}
+            disabled={disabled}
+            className={inputClasses}
+            id={this.id}
+            name={name}
+            options={format}
+            placeholder={placeholder}
+            value={this.state.value}
+            onFocus={this._handleFocus}
+            onBlur={this._handleBlur}
+            onKeyPress={this._handleKeyPress}
+            onChange={this._handleChange}
+            htmlRef={ref => (this.input = ref)}
+          />
+        );
+      }
+
+      return (
+        <input
+          autoCapitalize={autoCapitalize}
+          autoComplete={autoComplete}
+          type={type}
+          disabled={disabled}
+          className={inputClasses}
+          id={this.id}
+          name={name}
+          placeholder={placeholder}
+          value={this.state.value}
+          onFocus={this._handleFocus}
+          onBlur={this._handleBlur}
+          onKeyPress={this._handleKeyPress}
+          onChange={this._handleChange}
+          ref={ref => (this.input = ref)}
+        />
+      );
+    };
 
     const showInput = () => {
       if (clear) {
@@ -214,6 +239,7 @@ Input.propTypes = {
   clear: PropTypes.bool,
   disabled: PropTypes.bool,
   explanationMessage: PropTypes.string,
+  format: PropTypes.object,
   initialValue: PropTypes.string,
   label: PropTypes.string,
   size: PropTypes.oneOf(['large']),
