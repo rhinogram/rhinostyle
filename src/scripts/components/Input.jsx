@@ -116,25 +116,48 @@ class Input extends React.Component {
     const input = this.state.value;
     let inputMarkup = null;
 
-    const inputRender = () => (
-      <Cleave
-        autoCapitalize={autoCapitalize}
-        autoComplete={autoComplete}
-        type={type}
-        disabled={disabled}
-        className={inputClasses}
-        id={this.id}
-        name={name}
-        options={format}
-        placeholder={placeholder}
-        value={this.state.value}
-        onFocus={this._handleFocus}
-        onBlur={this._handleBlur}
-        onKeyPress={this._handleKeyPress}
-        onChange={this._handleChange}
-        htmlRef={ref => (this.input = ref)}
-      />
-    );
+    const inputRender = () => {
+      if (format) {
+        return (
+          <Cleave
+            autoCapitalize={autoCapitalize}
+            autoComplete={autoComplete}
+            type={type}
+            disabled={disabled}
+            className={inputClasses}
+            id={this.id}
+            name={name}
+            options={format}
+            placeholder={placeholder}
+            value={this.state.value}
+            onFocus={this._handleFocus}
+            onBlur={this._handleBlur}
+            onKeyPress={this._handleKeyPress}
+            onChange={this._handleChange}
+            htmlRef={ref => (this.input = ref)}
+          />
+        );
+      }
+
+      return (
+        <input
+          autoCapitalize={autoCapitalize}
+          autoComplete={autoComplete}
+          type={type}
+          disabled={disabled}
+          className={inputClasses}
+          id={this.id}
+          name={name}
+          placeholder={placeholder}
+          value={this.state.value}
+          onFocus={this._handleFocus}
+          onBlur={this._handleBlur}
+          onKeyPress={this._handleKeyPress}
+          onChange={this._handleChange}
+          ref={ref => (this.input = ref)}
+        />
+      );
+    };
 
     const showInput = () => {
       if (clear) {

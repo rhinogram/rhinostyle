@@ -183,7 +183,7 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Input</h3>
-      <p className="site-copy">We are using the <a href="http://nosir.github.io/cleave.js/">cleave</a> package to enhance out inputs with formatting/masking ability.</p>
+      <p className="site-copy">We are using the <a href="http://nosir.github.io/cleave.js/">cleave</a> package to enhance inputs with formatting/masking ability.</p>
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Common Input</h5>
         <Input name="exampleInputEmail31" label="Email Address" type="email" required />
