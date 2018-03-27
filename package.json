@@ -89,11 +89,11 @@
     "react-container-query": "0.11.0",
     "react-custom-scrollbars": "4.2.1",
     "react-datepicker": "1.2.2",
-    "react-image-lightbox": "4.5.0",
     "react-onclickoutside": "6.7.1",
     "react-router": "3.2.0",
     "react-textarea-autosize": "6.0.0",
     "recursive-readdir-sync": "1.0.6",
+    "rhino-react-image-lightbox-rotate": "1.2.4",
     "rsvp": "4.8.2"
   }
 }

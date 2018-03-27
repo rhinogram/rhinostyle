@@ -1,4 +1,4 @@
-import Lightbox             from 'react-image-lightbox';
+import Lightbox             from 'rhino-react-image-lightbox-rotate';
 import { Scrollbars }       from 'react-custom-scrollbars';
 
 import Alert                from './Alert';
