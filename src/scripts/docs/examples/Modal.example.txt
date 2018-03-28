@@ -65,7 +65,7 @@ class ComponentExample extends React.Component {
         <Button type="primary" onClick={this.onClick}>Launch Modal</Button>
 
         <Modal onReverseComplete={this.resetSet} open={this.state.open}>
-          <ModalHeader onClose={this.closeModal} icon="star" title="Sample Modal" />
+          <ModalHeader onClose={this.closeModal} title="Sample Modal" titleSub="I'm a subtitle!" />
           <ModalBody>
             <div className="form">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
@@ -73,8 +73,8 @@ class ComponentExample extends React.Component {
             </div>
           </ModalBody>
           <ModalFooter>
-            <UtilityInlineGrid align="right">
-              <Button type="default" onClick={this.closeModal}>Close</Button>&nbsp;
+            <UtilityInlineGrid align="between">
+              <Button type="default" onClick={this.closeModal}>Close</Button>
               <Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
             </UtilityInlineGrid>
           </ModalFooter>

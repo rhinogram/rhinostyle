@@ -9,16 +9,14 @@ import modalBodyExample from './examples/ModalBody.example.txt';
 import modalFooterExample from './examples/ModalFooter.example.txt';
 
 const modalDocs = {
-  subtreeContainer: '[Optional] - DOM element the modal should be appended to when rendered. You probably will never change this',
   className: '[Optional] - Additional class to add to modal div',
   size: '[Optional] - Modal size -  [ small | large ] - defaults to a normal sized modal',
 };
 
 const modalHeaderDocs = {
-  icon: '[Optional] - Attaches an Icon to the Modal Header',
-  iconClassName: '[Optional] - Adds a class to the Modal Header icon',
   onClose: '[Optional] - Callback function to execute in addition to closing the modal',
-  title: '[Optional] - Modal Title -  String to represent the Modal Header',
+  title: '[Optional] - Modal Title - String to represent the Modal Header',
+  titleSub: '[Optional] - Modal Subtitle - String to add subtitle to header',
 };
 
 const exampleScope  = {

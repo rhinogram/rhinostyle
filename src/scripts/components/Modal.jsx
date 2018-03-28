@@ -7,8 +7,6 @@ import ReactDOM from 'react-dom';
 import { UtilitySystem } from '../components';
 
 class Modal extends React.Component {
-  static displayName = 'RhinoModal';
-
   state = {
     renderModal: false,
   };
@@ -44,7 +42,7 @@ class Modal extends React.Component {
     this.setState({
       renderModal: false,
     }, () => {
-      if (this.props.onReverseComplete && typeof (this.props.onReverseComplete === 'function')) {
+      if (this.props.onReverseComplete) {
         this.props.onReverseComplete();
       }
     });
@@ -161,13 +159,13 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   children: null,
-  className: '',
-  size: '',
   open: false,
   onComplete: () => {},
   onReverseComplete: () => {},
   onReverseStart: () => {},
   onStart: () => {},
 };
+
+Modal.displayName = 'RhinoModal';
 
 export default Modal;

@@ -3,8 +3,8 @@ class ComponentExample extends React.Component {
     return (
       <div>
         <ModalFooter>
-          <UtilityInlineGrid align="right">
-            <Button type="default">Close</Button>&nbsp;
+          <UtilityInlineGrid align="between">
+            <Button type="default">Close</Button>
             <Button type="secondary">Save Changes</Button>
           </UtilityInlineGrid>
         </ModalFooter>
