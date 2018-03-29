@@ -96,23 +96,27 @@
 
 .modal__header {
   padding: @modal-header-padding;
+  position: relative;
 }
 
+// 1. To vertically center text with first line of title
 .modal__header__close {
-  display: flex;
-  margin-left: auto;
-  margin-bottom: @global-whitespace-xsmall;
+  position: absolute;
+  right: @modal-inner-padding;
+  margin-top: (@global-font-size-large - @global-font-size-base); // 1
 }
 
 .modal__header__title-wrapper {
   text-align: center;
 }
 
+// 1. Offset for close + small space
 .modal__header__title {
   font-size: @global-font-size-large;
   font-weight: @global-font-weight-normal;
   text-transform: uppercase;
   margin: 0;
+  padding: 0 (@base-body-font-size + @global-whitespace-xsmall); // 1
 }
 
 .modal__header__subtitle {
