@@ -5,21 +5,22 @@ import React from 'react';
 import { Close, Icon } from '../components';
 
 const Alert = (props) => {
-  const { className, onDismiss, title, titleIcon, size, type } = props;
+  const { className, onDismiss, solid, title, titleIcon, type } = props;
   const classes = cx('alert', className, {
-    'alert--small':                size === 'small',
-    'alert--danger':            type === 'danger',
-    'alert--default':           type === 'default',
-    'alert--info':              type === 'info',
-    'alert--success':           type === 'success',
-    'alert--warning':           type === 'warning',
-    'alert--dismissible':       onDismiss,
+    'alert--danger': type === 'danger',
+    'alert--default': type === 'default',
+    'alert--info':  type === 'info',
+    'alert--success': type === 'success',
+    'alert--warning': type === 'warning',
+    'alert--dismissible': onDismiss,
+    'alert--solid': solid,
   });
 
   const renderClose = () => {
     if (onDismiss) {
       return (<Close onClick={onDismiss} className="alert__close" />);
     }
+
     return false;
   };
 
@@ -52,10 +53,10 @@ Alert.propTypes = {
   className:    PropTypes.string,
   dismissible:  PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
   onDismiss:    PropTypes.func,
-  size:         PropTypes.oneOf(['small']),
   title:        PropTypes.string,
   titleIcon:    PropTypes.string,
   children:     PropTypes.node,
+  solid: PropTypes.bool,
   type:         PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
 };
 

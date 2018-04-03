@@ -3,13 +3,23 @@
 //
 
 
-.mixin-alert-variant(@background) {
-  background-color: @background;
-  color: @global-color-white;
+.mixin-alert-variant(@color, @background, @contrast: true) {
+  border: 2px solid @color;
+  background: @background;
+  color: @global-font-color;
 
-  .alert__body {
-    a {
+  &.alert--solid {
+    border: 0;
+    background: @color;
+
+    & when (@contrast = true) {
       color: @global-color-white;
+
+      .alert__body {
+        a {
+          color: @global-color-white;
+        }
+      }
     }
   }
 }

@@ -7,6 +7,7 @@
 
 @modal-content-bg: @global-color-white;
 @modal-content-border-color: @global-color-gray-lighter;
+@modal-border-radius: (@global-border-radius * 2);
 
 @modal-inner-padding: (@global-whitespace-base + @global-whitespace-small);
 @modal-header-padding: @modal-inner-padding @modal-inner-padding @global-whitespace-base @modal-inner-padding;
@@ -62,7 +63,7 @@
   -webkit-overflow-scrolling: touch;
   background-color: @modal-content-bg;
   border: 1px solid @modal-content-border-color;
-  border-radius: @global-border-radius;
+  border-radius: @modal-border-radius;
   box-shadow: @global-shadow-depth-3;
   margin: @global-whitespace-base;
   opacity: 0; // 1

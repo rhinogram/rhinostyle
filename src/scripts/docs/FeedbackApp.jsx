@@ -10,7 +10,6 @@ import systemAlertExample from './examples/SystemAlert.example.txt';
 const alertDocs = {
   className: '[Optional] - Include additional class name(s)',
   onDismiss: '[Optional] - Include dismiss function',
-  size: '[Optional] - Alert size -  [small]',
   title: '[Required] - Alert title text',
   titleIcon: '[Optional] - Alert title icon',
   type: '[Optional] - Alert type, as a string -  [danger | default | info | success ]',
@@ -85,7 +84,6 @@ class FeedbackApp extends React.Component {
             <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
             <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
             <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
-            <Alert title="This is a small info alert!" titleIcon="star" type="info" size="small" onDismiss={() => alert('dismissed!')} />
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
           <Playground theme="default" docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />
