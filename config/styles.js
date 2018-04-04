@@ -11,7 +11,6 @@ import paths from './paths';
 import packagedata from '../package.json';
 
 const $ = gulpLoadPlugins();
-const { reload } = browserSync;
 const rhinostyleVersion = `/*! ${packagedata.name} v${packagedata.version} */\n`;
 const processors = [
   autoprefixer({ cascade: false }),
@@ -29,6 +28,8 @@ export function distStyles() {
   const path = paths.styles;
 
   return gulp.src(path.src)
+    .pipe($.changed(path.dist))
+    .pipe($.sourcemaps.init())
     // Do not compress to allow importing as 'less' in other projects.
     .pipe($.less({ compress: false }).on('error', function(err) { // eslint-disable-line func-names
       // Show error in console
@@ -40,13 +41,14 @@ export function distStyles() {
     }))
     .pipe($.postcss(processors))
     .pipe($.insert.prepend(rhinostyleVersion))
+    .pipe($.sourcemaps.write('./'))
     .pipe($.size({
       showFiles: true,
       title: 'Dist Styles:',
     }))
     .pipe(gulp.dest(path.dist))
-    .pipe($.duration('Built Dist Styles'))
-    .pipe(reload({ stream: true }));
+    .pipe(browserSync.stream({ match: '**/*.css' }))
+    .pipe($.duration('Built Dist Styles'));
 }
 
 /**
@@ -57,6 +59,8 @@ export function docsStyles() {
   const path = paths.styles;
 
   return gulp.src(path.docSrc)
+    .pipe($.changed(path.build))
+    .pipe($.sourcemaps.init())
     .pipe($.less({ compress: false }).on('error', function(err) { // eslint-disable-line func-names
       // Show error in console
       console.error(err.message); // eslint-disable-line no-console
@@ -67,11 +71,12 @@ export function docsStyles() {
     }))
     .pipe($.postcss(processors))
     .pipe($.insert.prepend(rhinostyleVersion))
+    .pipe($.sourcemaps.write('./'))
     .pipe($.size({
       showFiles: true,
       title: 'Doc Styles:',
     }))
     .pipe(gulp.dest(path.build))
-    .pipe($.duration('Built Doc Styles'))
-    .pipe(reload({ stream: true }));
+    .pipe(browserSync.stream({ match: '**/*.css' }))
+    .pipe($.duration('Built Doc Styles'));
 }

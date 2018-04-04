@@ -20,5 +20,6 @@ export default function linter() {
       {
         syntax: less,
       },
-    ));
+    ))
+    .pipe($.duration('linting styles'));
 }
