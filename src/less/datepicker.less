@@ -30,6 +30,7 @@
   font-size: @global-font-size-small;
 }
 
+// 1. Override surrounding area margin rules
 .react-datepicker-popper {
   z-index: 2147483647;
 
@@ -48,7 +49,7 @@
   }
 
   &[data-placement="bottom-start"] {
-    margin-top: @dropdown-menu-offset;
+    margin-top: @dropdown-menu-offset !important; // 1
 
     &::before {
       top: (-@dropdown-arrow-size / 2);
@@ -57,7 +58,7 @@
   }
 
   &[data-placement="top-start"] {
-    margin-bottom: @dropdown-menu-offset;
+    margin-bottom: @dropdown-menu-offset !important; // 1
 
     &::before {
       bottom: (-@dropdown-arrow-size / 2);
