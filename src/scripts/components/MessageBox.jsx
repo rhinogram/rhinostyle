@@ -79,7 +79,7 @@ class MessageBox extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel label={label} id={this.id} required={required} />
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <Textarea name={name} id={this.id} rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onInput={this._handleChange} onClick={this._handleClick} onHeightChange={this._handleHeightChange} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );

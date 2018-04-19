@@ -47,7 +47,7 @@ class CheckboxGroup extends React.Component {
 
     return (
       <div className={classes}>
-        <FormLabel label={label} required={required} id="" />
+        <FormLabel required={required} id="">{label}</FormLabel>
         {this.renderItems()}
         <FormValidationMessage validationMessage={validationMessage} />
         <FormExplanationMessage explanationMessage={explanationMessage} />

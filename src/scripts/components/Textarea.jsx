@@ -67,7 +67,7 @@ class Textarea extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel label={label} id={this.id} required={required} />
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} disabled={disabled} />
         {(validationMessage || explanationMessage || showCharacterCount()) &&
           <div className="form__control-footer">

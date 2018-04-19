@@ -47,7 +47,7 @@ class RhinoSwitch extends React.Component {
             htmlFor={this.id}
           />
         </div>
-        <FormLabel className="rhinoswitcher__text" label={label} id={this.id} />
+        <FormLabel className="rhinoswitcher__text" id={this.id}>{label}</FormLabel>
       </div>
     );
   }

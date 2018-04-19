@@ -194,7 +194,7 @@ class Input extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel label={label} id={this.id} required={required} />
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         {showInput()}
         <FormValidationMessage validationMessage={validationMessage} />
         <FormExplanationMessage explanationMessage={explanationMessage} />

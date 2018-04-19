@@ -16,7 +16,7 @@ const Date = (props) => {
 
   return (
     <div className={formGroupClasses}>
-      <FormLabel label={label} id={id} required={required} />
+      <FormLabel id={id} required={required}>{label}</FormLabel>
       <DatePicker
         customInput={
           <Cleave

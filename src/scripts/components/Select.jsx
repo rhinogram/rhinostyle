@@ -59,7 +59,7 @@ class Select extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel label={label} id={this.id} required={required} />
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <div className="rhinoselect">
           <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this._onChange}>
             {options.map(renderOpts)}

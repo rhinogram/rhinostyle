@@ -312,7 +312,7 @@ class VariableMessage extends React.Component {
       <div className={classes} onClick={this.handleVariableClick}>
         {!readOnly &&
           <div className="variable-message__header">
-            <FormLabel className="variable-message__label" label={composeLabel} id={variableMessageInputName} required={required} />
+            <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
             {this.showReset() &&
               <div className="variable-message__reset">
                 <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
@@ -347,7 +347,7 @@ class VariableMessage extends React.Component {
             </div>
 
             <div className="variable-message__preview">
-              <FormLabel className="u-block" label={previewLabel} id={variableMessagePreviewName} />
+              <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
               <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
             </div>
           </Fragment>

@@ -3,23 +3,23 @@ import React from 'react';
 import cx from 'classnames';
 
 const FormLabel = (props) => {
-  const { className, label, id, required } = props;
+  const { children, className, id, required } = props;
   const classes = cx(className);
 
   return (
-    label ?
+    children ?
       <label // eslint-disable-line jsx-a11y/label-has-for
         htmlFor={id}
         className={classes}
       >
-        {label} {required && <span className="form__asterisk">*</span>}
+        {children} {required && <span className="form__asterisk">*</span>}
       </label> : null
   );
 };
 
 FormLabel.propTypes = {
   className: PropTypes.string,
-  label: PropTypes.string,
+  children: PropTypes.node,
   id: PropTypes.string.isRequired,
   required: PropTypes.bool,
 };
