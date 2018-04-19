@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { UtilitySystem } from '../UtilitySystem';
-import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, Pill, UtilityInlineGrid } from '../components';
+import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '../components';
 
 class DropdownMultiSelect extends React.Component {
   static displayName = 'RhinoDropdownMultiSelect';
@@ -213,22 +213,6 @@ class DropdownMultiSelect extends React.Component {
       'dropdown__menu--wide': wide,
     });
 
-    const showValidationMessage = () => {
-      if (validationMessage) {
-        return <div className="form__validation-message">{validationMessage}</div>;
-      }
-
-      return false;
-    };
-
-    const showExplanationMessage = () => {
-      if (explanationMessage) {
-        return <div className="form__explanation-message">{explanationMessage}</div>;
-      }
-
-      return false;
-    };
-
     const renderPill = (id) => {
       let icon = '';
       let label = '';
@@ -246,7 +230,7 @@ class DropdownMultiSelect extends React.Component {
     };
 
     return (
-      <span>
+      <div className="form__group">
         <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => (this.dropdown = ref)}>
           <input onClick={this.handleToggle} ref={ref => (this.filterInput = ref)} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} disabled={disabled} />
           <div className={dropdownMenuClasses}>
@@ -255,8 +239,8 @@ class DropdownMultiSelect extends React.Component {
             </DropdownMenuScroll>
           </div>
         </DropdownWrapper>
-        {showValidationMessage()}
-        {showExplanationMessage()}
+        <FormValidationMessage validationMessage={validationMessage} />
+        <FormExplanationMessage explanationMessage={explanationMessage} />
         {activeKeys.length ?
           <div className="u-p-t-small">
             <UtilityInlineGrid>
@@ -264,7 +248,7 @@ class DropdownMultiSelect extends React.Component {
             </UtilityInlineGrid>
           </div> : null
         }
-      </span>
+      </div>
     );
   }
 }

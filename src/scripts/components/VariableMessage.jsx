@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Message, Select, UtilitySystem } from '../components';
+import { Button, FormLabel, FormValidationMessage, Message, Select, UtilitySystem } from '../components';
 
 class VariableMessage extends React.Component {
   state = {
@@ -308,24 +308,11 @@ class VariableMessage extends React.Component {
     const variableMessageSelectName = `variable-message-select-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
 
-    const showValidationMessage = () => {
-      if (validationMessage) {
-        return <div className="form__validation-message">{validationMessage}</div>;
-      }
-
-      return false;
-    };
-
     return (
       <div className={classes} onClick={this.handleVariableClick}>
         {!readOnly &&
           <div className="variable-message__header">
-            <label // eslint-disable-line jsx-a11y/label-has-for
-              htmlFor={variableMessageInputName}
-              className="variable-message__label"
-            >
-              {composeLabel} {required && <span className="form__asterisk">*</span>}
-            </label>
+            <FormLabel className="variable-message__label" label={composeLabel} id={variableMessageInputName} required={required} />
             {this.showReset() &&
               <div className="variable-message__reset">
                 <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
@@ -344,7 +331,7 @@ class VariableMessage extends React.Component {
           name={name}
           ref={ref => (this.compose = ref)}
         />
-        {showValidationMessage()}
+        <FormValidationMessage validationMessage={validationMessage} />
         {!readOnly &&
           <Fragment>
             <div className="variable-message__footer">
@@ -360,12 +347,7 @@ class VariableMessage extends React.Component {
             </div>
 
             <div className="variable-message__preview">
-              <label // eslint-disable-line jsx-a11y/label-has-for
-                htmlFor={variableMessagePreviewName}
-                className="u-block"
-              >
-                {previewLabel}
-              </label>
+              <FormLabel className="u-block" label={previewLabel} id={variableMessagePreviewName} />
               <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
             </div>
           </Fragment>

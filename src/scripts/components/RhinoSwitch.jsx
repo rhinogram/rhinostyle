@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
+import { FormLabel, UtilitySystem } from '../components';
 
 class RhinoSwitch extends React.Component {
   state = {
@@ -38,16 +38,6 @@ class RhinoSwitch extends React.Component {
     const { checked } = this.state;
     const classes = cx('rhinoswitcher', className);
 
-    // Show label or not based on prop value
-    const showLabel = label ? (
-      <label // eslint-disable-line jsx-a11y/label-has-for
-        className="rhinoswitcher__text"
-        htmlFor={this.id}
-      >
-        {label}
-      </label>
-    ) : null;
-
     return (
       <div className="form__group rhinoswitcher__form-group">
         <div className={classes}>
@@ -57,7 +47,7 @@ class RhinoSwitch extends React.Component {
             htmlFor={this.id}
           />
         </div>
-        {showLabel}
+        <FormLabel className="rhinoswitcher__text" label={label} id={this.id} />
       </div>
     );
   }
