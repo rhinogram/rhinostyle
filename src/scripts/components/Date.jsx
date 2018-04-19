@@ -2,6 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import DatePicker from 'react-datepicker';
+import Cleave from 'cleave.js/react';
 
 import { UtilitySystem } from '../components';
 
@@ -47,6 +48,15 @@ const Date = (props) => {
     <div className={formGroupClasses}>
       {showLabel()}
       <DatePicker
+        customInput={
+          <Cleave
+            options={{
+              date: true,
+              datePattern: ['m', 'd', 'Y'],
+            }}
+          />
+        }
+        shouldCloseOnSelect={false}
         name={name}
         id={id}
         className={inputClasses}
@@ -73,7 +83,7 @@ Date.propTypes = {
 };
 
 Date.defaultProps = {
-  className: '',
+  explanationMessage: 'Format MM/DD/YYYY',
 };
 
 export default Date;
