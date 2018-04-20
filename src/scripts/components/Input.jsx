@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Cleave from 'cleave.js/react';
 
-import { Button, Icon, UtilitySystem } from '../components';
+import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Icon, UtilitySystem } from '../components';
 
 class Input extends React.Component {
   state = {
@@ -86,36 +86,6 @@ class Input extends React.Component {
       'form__addon--large': size,
       'has-error': validationMessage,
     });
-
-    const showLabel = () => {
-      if (label) {
-        return (
-          <label // eslint-disable-line jsx-a11y/label-has-for
-            htmlFor={this.id}
-          >
-            {label} {required && <span className="form__asterisk">*</span>}
-          </label>
-        );
-      }
-
-      return false;
-    };
-
-    const showValidationMessage = () => {
-      if (validationMessage) {
-        return <div className="form__validation-message">{validationMessage}</div>;
-      }
-
-      return false;
-    };
-
-    const showExplanationMessage = () => {
-      if (explanationMessage) {
-        return <div className="form__explanation-message">{explanationMessage}</div>;
-      }
-
-      return false;
-    };
 
     const input = this.state.value;
     let inputMarkup = null;
@@ -224,10 +194,10 @@ class Input extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        {showLabel()}
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         {showInput()}
-        {showValidationMessage()}
-        {showExplanationMessage()}
+        <FormValidationMessage validationMessage={validationMessage} />
+        <FormExplanationMessage explanationMessage={explanationMessage} />
       </div>
     );
   }

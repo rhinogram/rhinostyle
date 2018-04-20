@@ -2,7 +2,7 @@ import cx    from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
+import { FormLabel, FormExplanationMessage, FormValidationMessage, Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 
 class RadioGroup extends React.Component {
   state = {
@@ -27,32 +27,6 @@ class RadioGroup extends React.Component {
     this.setState({
       selectedValue: value,
     });
-  };
-
-  showValidationMessage = () => {
-    const { validationMessage } = this.props;
-
-    if (validationMessage) {
-      return <div className="form__validation-message">{validationMessage}</div>;
-    }
-
-    return false;
-  };
-
-  showLabel = () => {
-    const { label, required } = this.props;
-
-    if (label) {
-      return (
-        <label // eslint-disable-line jsx-a11y/label-has-for
-          className="u-block"
-        >
-          {label} {required && <span className="form__asterisk">*</span>}
-        </label>
-      );
-    }
-
-    return false;
   };
 
   renderChildren = () => {
@@ -116,14 +90,15 @@ class RadioGroup extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, explanationMessage, label, required, validationMessage } = this.props;
     const classes = cx('form__group', className);
 
     return (
       <div className={classes}>
-        {this.showLabel()}
+        <FormLabel required={required} id="">{label}</FormLabel>
         {this.renderItems()}
-        {this.showValidationMessage()}
+        <FormValidationMessage validationMessage={validationMessage} />
+        <FormExplanationMessage explanationMessage={explanationMessage} />
       </div>
     );
   }
@@ -135,6 +110,7 @@ RadioGroup.propTypes = {
   blockGroup: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
+  explanationMessage: PropTypes.string,
   inline: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,

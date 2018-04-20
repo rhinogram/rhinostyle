@@ -24,6 +24,9 @@ import DropdownMenuItemWild from './DropdownMenuItemWild';
 import DropdownMultiSelect  from './DropdownMultiSelect';
 import DropdownMenuScroll   from './DropdownMenuScroll';
 import DropdownWrapper      from './DropdownWrapper';
+import FormLabel            from './FormLabel';
+import FormValidationMessage from './FormValidationMessage';
+import FormExplanationMessage from './FormExplanationMessage';
 import Icon                 from './Icon';
 import Input                from './Input';
 import Label                from './Label';
@@ -89,6 +92,9 @@ export {
   DropdownMultiSelect,
   DropdownMenuScroll,
   DropdownWrapper,
+  FormLabel,
+  FormValidationMessage,
+  FormExplanationMessage,
   Icon,
   Input,
   Label,

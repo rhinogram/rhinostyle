@@ -31,9 +31,9 @@ class ModalHeader extends React.Component {
       <div className={classes}>
         {dismissable ? (<Close onClick={this.closeModal} className="modal__header__close" />) : null}
         <div className="modal__header__title-wrapper">
-          <h4 className="modal__header__title">
+          <h3 className="modal__header__title">
             {title}
-          </h4>
+          </h3>
           {titleSub && <div className="modal__header__subtitle">{titleSub}</div>}
         </div>
       </div>

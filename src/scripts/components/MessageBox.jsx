@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Textarea from 'react-textarea-autosize';
 
-import { UtilitySystem } from '../components';
+import { FormLabel, UtilitySystem } from '../components';
 
 class MessageBox extends React.Component {
   state = {
@@ -77,22 +77,9 @@ class MessageBox extends React.Component {
     const formGroupClasses = cx('form__group', className);
     const messageBoxStyle = { maxHeight };
 
-    const showLabel = () => {
-      if (label) {
-        return (
-          <label // eslint-disable-line jsx-a11y/label-has-for
-            htmlFor={this.id}
-          >
-            {label} {required ? <span className="form__asterisk">*</span> : null}
-          </label>
-        );
-      }
-
-      return false;
-    };
     return (
       <div className={formGroupClasses}>
-        {showLabel()}
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <Textarea name={name} id={this.id} rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onInput={this._handleChange} onClick={this._handleClick} onHeightChange={this._handleHeightChange} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
       </div>
     );

@@ -2,7 +2,7 @@ import cx    from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
+import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '../components';
 
 class Select extends React.Component {
   state = {
@@ -41,36 +41,6 @@ class Select extends React.Component {
 
     const formGroupClasses = cx('form__group', className);
 
-    const showLabel = () => {
-      if (label) {
-        return (
-          <label // eslint-disable-line jsx-a11y/label-has-for
-            htmlFor={this.id}
-          >
-            {label} {required && <span className="form__asterisk">*</span>}
-          </label>
-        );
-      }
-
-      return false;
-    };
-
-    const showValidationMessage = () => {
-      if (validationMessage) {
-        return <div className="form__validation-message">{validationMessage}</div>;
-      }
-
-      return false;
-    };
-
-    const showExplanationMessage = () => {
-      if (explanationMessage) {
-        return <div className="form__explanation-message">{explanationMessage}</div>;
-      }
-
-      return false;
-    };
-
     const renderOpts = (option) => {
       // If the option has options as well we're in an `<optgroup>`
       if (option.options) {
@@ -89,14 +59,14 @@ class Select extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        {showLabel()}
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <div className="rhinoselect">
           <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this._onChange}>
             {options.map(renderOpts)}
           </select>
         </div>
-        {showValidationMessage()}
-        {showExplanationMessage()}
+        <FormValidationMessage validationMessage={validationMessage} />
+        <FormExplanationMessage explanationMessage={explanationMessage} />
       </div>
     );
   }

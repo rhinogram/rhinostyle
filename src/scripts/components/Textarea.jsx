@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
+import { FormLabel, FormValidationMessage, FormExplanationMessage, UtilitySystem } from '../components';
 
 class Textarea extends React.Component {
   state = {
@@ -57,36 +57,6 @@ class Textarea extends React.Component {
       'form__character-count--danger': this.state.charactersLeft < 11,
     });
 
-    const showValidationMessage = () => {
-      if (validationMessage) {
-        return <div className="form__validation-message">{validationMessage}</div>;
-      }
-
-      return false;
-    };
-
-    const showExplanationMessage = () => {
-      if (explanationMessage) {
-        return <div className="form__explanation-message">{explanationMessage}</div>;
-      }
-
-      return false;
-    };
-
-    const showLabel = () => {
-      if (label) {
-        return (
-          <label // eslint-disable-line jsx-a11y/label-has-for
-            htmlFor={this.id}
-          >
-            {label} {required ? <span className="form__asterisk">*</span> : null}
-          </label>
-        );
-      }
-
-      return false;
-    };
-
     const showCharacterCount = () => {
       if (maxCharacters) {
         return <div className={characterCountClasses}>{this.state.charactersLeft} {!abbrMaxCharacters ? <span>character{(this.state.charactersLeft !== 1) ? 's' : ''} left</span> : null}</div>;
@@ -97,14 +67,14 @@ class Textarea extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        {showLabel()}
+        <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} value={this.state.value} onChange={this._handleChange} disabled={disabled} />
-        {(showValidationMessage() || showExplanationMessage() || showCharacterCount()) &&
+        {(validationMessage || explanationMessage || showCharacterCount()) &&
           <div className="form__control-footer">
-            {(showValidationMessage() || showExplanationMessage()) &&
+            {(validationMessage || explanationMessage) &&
               <div className="form__control-footer__left">
-                {showValidationMessage()}
-                {showExplanationMessage()}
+                <FormValidationMessage validationMessage={validationMessage} />
+                <FormExplanationMessage explanationMessage={explanationMessage} />
               </div>
             }
             {showCharacterCount()}
