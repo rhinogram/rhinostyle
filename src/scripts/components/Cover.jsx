@@ -7,8 +7,6 @@ import ReactDOM from 'react-dom';
 import { UtilitySystem } from '../components';
 
 class Cover extends React.Component {
-  static displayName = 'RhinoCover';
-
   state = {
     renderCover: false,
   };
@@ -44,7 +42,7 @@ class Cover extends React.Component {
     this.setState({
       renderCover: false,
     }, () => {
-      if (this.props.onReverseComplete && typeof (this.props.onReverseComplete === 'function')) {
+      if (this.props.onReverseComplete) {
         this.props.onReverseComplete();
       }
     });
@@ -65,7 +63,7 @@ class Cover extends React.Component {
         $cover.classList.add(UtilitySystem.config.classes.open);
 
         // Fire off prop update
-        this.props.onStart();
+        if (this.props.onStart) this.props.onStart();
       },
       onUpdate: () => {
         const newTime = $cover.timeline.time();
@@ -73,7 +71,7 @@ class Cover extends React.Component {
           forward = !forward;
           if (!forward) {
             // Fire off prop update
-            this.props.onReverseStart();
+            if (this.props.onReverseStart) this.props.onReverseStart();
 
             $body.classList.remove('cover-open');
             $cover.classList.remove(UtilitySystem.config.classes.open);
@@ -86,11 +84,11 @@ class Cover extends React.Component {
         $cover.focus();
 
         // Fire off prop update
-        this.props.onComplete();
+        if (this.props.onComplete) this.props.onComplete();
       },
       onReverseComplete: () => {
         // Fire off function that handles prop update and removal from DOM
-        this.onReverseComplete();
+        if (this.onReverseComplete) this.onReverseComplete();
       },
     });
 
@@ -146,6 +144,8 @@ class Cover extends React.Component {
   }
 }
 
+Cover.displayName = 'RhinoCover';
+
 Cover.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -154,16 +154,6 @@ Cover.propTypes = {
   onReverseComplete: PropTypes.func,
   onReverseStart: PropTypes.func,
   onStart: PropTypes.func,
-};
-
-Cover.defaultProps = {
-  children: null,
-  className: '',
-  open: false,
-  onComplete: () => {},
-  onReverseComplete: () => {},
-  onReverseStart: () => {},
-  onStart: () => {},
 };
 
 export default Cover;

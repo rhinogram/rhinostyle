@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -20,10 +20,6 @@ Close.displayName = 'RhinoClose';
 Close.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
-};
-
-Close.defaultProps = {
-  onClick:  () => {},
 };
 
 export default Close;
