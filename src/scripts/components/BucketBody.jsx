@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -16,7 +16,7 @@ const BucketBody = (props) => {
 BucketBody.displayName = 'RhinoBucketBody';
 
 BucketBody.propTypes = {
-  children:  PropTypes.node,
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 

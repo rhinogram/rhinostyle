@@ -5,26 +5,6 @@ import React from 'react';
 import { Icon } from '../components';
 
 class Avatar extends React.Component {
-  static displayName = 'RhinoAvatar';
-
-  static propTypes = {
-    className: PropTypes.string,
-    image: PropTypes.string,
-    name: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'default', 'large', 'xlarge']),
-    src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-    type: PropTypes.oneOf(['default', 'member']),
-  };
-
-  static defaultProps = {
-    className: '',
-    image: '',
-    name: '',
-    size: 'default',
-    src: '',
-    type: 'default',
-  };
-
   state = {
     imageError: false,
   };
@@ -43,7 +23,6 @@ class Avatar extends React.Component {
 
   render() {
     const { className, image, size, type } = this.props;
-
     const name = this.props.name ? this.props.name.trim() : '';
 
     const classes = cx('avatar', className, {
@@ -91,5 +70,21 @@ class Avatar extends React.Component {
     );
   }
 }
+
+Avatar.displayName = 'RhinoAvatar';
+
+Avatar.propTypes = {
+  className: PropTypes.string,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'default', 'large', 'xlarge']),
+  src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  type: PropTypes.oneOf(['default', 'member']),
+};
+
+Avatar.defaultProps = {
+  size: 'default',
+  type: 'default',
+};
 
 export default Avatar;

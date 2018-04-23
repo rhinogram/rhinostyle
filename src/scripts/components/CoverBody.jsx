@@ -16,18 +16,13 @@ const CoverBody = (props) => {
   });
 
   return (
-    <div className={bodyClasses}><div className={containerClasses}>{children}</div></div>
+    <div className={bodyClasses}>
+      <div className={containerClasses}>{children}</div>
+    </div>
   );
 };
 
 CoverBody.displayName = 'RhinoCoverBody';
-
-CoverBody.defaultProps = {
-  children: null,
-  className: '',
-  contentMiddle: false,
-  size: '',
-};
 
 CoverBody.propTypes = {
   children: PropTypes.node,

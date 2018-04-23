@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -20,11 +20,11 @@ class Checkbox extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   _toggleChecked = () => {
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+    if (this.props.onClick) {
       this.props.onClick(!this.state.checked);
     }
 
-    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
+    if (this.props.onChange) {
       this.props.onChange(this.props.name, !this.state.checked);
     }
 
@@ -95,9 +95,6 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   isChecked: false,
-  onClick() {
-    return true;
-  },
 };
 
 export default Checkbox;

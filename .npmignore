@@ -9,4 +9,3 @@ src/*
 webpack.config.js
 .npmignore
 gulpfile.babel.js
-!stylelint.config.js

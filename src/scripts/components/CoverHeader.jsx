@@ -10,7 +10,7 @@ class CoverHeader extends React.Component {
   }
 
   closeCover = () => {
-    if (this.props.onClose && typeof (this.props.onClose === 'function')) {
+    if (this.props.onClose) {
       this.props.onClose();
     }
   }
@@ -40,10 +40,6 @@ CoverHeader.propTypes = {
   iconClassName: PropTypes.string,
   onClose: PropTypes.func,
   title: PropTypes.string,
-};
-
-CoverHeader.defaultProps = {
-  onClose: () => {},
 };
 
 export default CoverHeader;

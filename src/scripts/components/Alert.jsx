@@ -18,7 +18,7 @@ const Alert = (props) => {
 
   const renderClose = () => {
     if (onDismiss) {
-      return (<Close onClick={onDismiss} className="alert__close" />);
+      return <Close onClick={onDismiss} className="alert__close" />;
     }
 
     return false;
@@ -26,8 +26,9 @@ const Alert = (props) => {
 
   const renderTitleIcon = () => {
     if (titleIcon) {
-      return (<Icon icon={titleIcon} className="alert__title__icon" />);
+      return <Icon icon={titleIcon} className="alert__title__icon" />;
     }
+
     return false;
   };
 
@@ -50,22 +51,18 @@ const Alert = (props) => {
 Alert.displayName = 'RhinoAlert';
 
 Alert.propTypes = {
-  className:    PropTypes.string,
-  dismissible:  PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
-  onDismiss:    PropTypes.func,
-  title:        PropTypes.string,
-  titleIcon:    PropTypes.string,
-  children:     PropTypes.node,
+  className: PropTypes.string,
+  dismissible: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
+  onDismiss: PropTypes.func,
+  title: PropTypes.string,
+  titleIcon: PropTypes.string,
+  children: PropTypes.node,
   solid: PropTypes.bool,
-  type:         PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
+  type: PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
 };
 
 Alert.defaultProps = {
-  className: '',
-  dismissible: false,
-  onDismiss:   null,
-  titleIcon:   '',
-  type:        'default',
+  type: 'default',
 };
 
 export default Alert;

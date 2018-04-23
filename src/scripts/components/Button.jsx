@@ -1,13 +1,13 @@
-import cx       from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React    from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 import { LoaderCircle, UtilitySystem } from '../components';
 
 class Button extends React.Component {
   handleClick = (e) => {
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+    if (this.props.onClick) {
       this.props.onClick(e);
     }
   }
@@ -84,29 +84,24 @@ class Button extends React.Component {
 Button.displayName = 'RhinoButton';
 
 Button.propTypes = {
-  active:      PropTypes.bool,
-  block:       PropTypes.bool,
-  children:    PropTypes.node,
-  className:   PropTypes.string,
-  onClick:     PropTypes.func,
-  disabled:    PropTypes.bool,
-  iconOnly:    PropTypes.bool,
+  active: PropTypes.bool,
+  block: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool,
+  iconOnly: PropTypes.bool,
   reset: PropTypes.bool,
-  route:       PropTypes.string,
-  size:        PropTypes.oneOf(['small', 'large']),
-  title:       PropTypes.string,
-  type:        PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
-  url:         PropTypes.string,
+  route: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'large']),
+  title: PropTypes.string,
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
+  url: PropTypes.string,
   loading: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  active:   false,
-  block:    false,
-  disabled: false,
-  iconOnly: false,
-  onClick:  () => {},
-  type:     'default',
+  type: 'default',
 };
 
 export default Button;

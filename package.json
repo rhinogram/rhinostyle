@@ -28,11 +28,11 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "babel-register": "6.26.0",
-    "browser-sync": "2.23.6",
+    "browser-sync": "2.23.7",
     "component-playground": "3.0.0",
     "cssnano": "3.10.0",
     "del": "3.0.0",
-    "eslint-config-rhinogram": "0.0.9",
+    "eslint-config-rhinogram": "0.0.10",
     "gulp": "3.9.1",
     "gulp-changed": "3.2.0",
     "gulp-duration": "0.0.0",
@@ -68,7 +68,8 @@
   "files": [
     "README.md",
     "dist/**",
-    "src/less/**"
+    "src/less/**",
+    "stylelint.config.js"
   ],
   "repository": {
     "type": "git",
