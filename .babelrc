@@ -2,7 +2,7 @@
   "presets": [
     ["env", {
       "targets": {
-        "browsers": ["last 2 versions", "ie 11"]
+        "browsers": [">0.25%", "ie 11", "not op_mini all"]
       }
     }],
     "stage-0",
