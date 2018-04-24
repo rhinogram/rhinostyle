@@ -1,4 +1,4 @@
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
@@ -16,7 +16,7 @@ const variableMessageDocs = {
   onInput: 'Callback function when the composition area is changed',
   readOnly: '[Optional] - Disable compose input, select variable option, and message preview. This would typically be used in tandem with the intialValue prop',
   required: '[Optional] - Field is required and asterisk is added to label',
-  validationMessage:  '[Optional] - Validation message for errors',
+  validationMessage: '[Optional] - Validation message for errors',
 };
 const variableMessageScope  = {
   React,

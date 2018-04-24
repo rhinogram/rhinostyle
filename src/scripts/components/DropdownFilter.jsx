@@ -4,21 +4,6 @@ import React, { Fragment } from 'react';
 import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll } from '../components';
 
 class DropdownFilter extends React.Component {
-  static displayName = 'RhinoDropdownFilter';
-
-  static propTypes = {
-    activeKey: PropTypes.number,
-    children: PropTypes.node,
-    handleToggle: PropTypes.func,
-    placeholder: PropTypes.string,
-    onSelect: PropTypes.func,
-    updateActiveKey: PropTypes.func,
-  };
-
-  static defaultProps = {
-    onSelect: () => {},
-  };
-
   state = {
     items: this.props.children,
   };
@@ -61,7 +46,7 @@ class DropdownFilter extends React.Component {
     const { id, icon, onClick } = child.props;
 
     if (id) {
-      if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
+      if (this.props.onSelect) {
         this.props.updateActiveKey(id, icon);
         this.props.onSelect(id, icon);
       } else {
@@ -69,7 +54,7 @@ class DropdownFilter extends React.Component {
       }
     }
 
-    if (onClick && typeof (onClick === 'function')) {
+    if (onClick) {
       onClick();
     }
 
@@ -118,5 +103,16 @@ class DropdownFilter extends React.Component {
     );
   }
 }
+
+DropdownFilter.displayName = 'RhinoDropdownFilter';
+
+DropdownFilter.propTypes = {
+  activeKey: PropTypes.number,
+  children: PropTypes.node,
+  handleToggle: PropTypes.func,
+  placeholder: PropTypes.string,
+  onSelect: PropTypes.func,
+  updateActiveKey: PropTypes.func,
+};
 
 export default DropdownFilter;

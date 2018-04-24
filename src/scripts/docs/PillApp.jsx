@@ -1,4 +1,4 @@
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
@@ -7,12 +7,12 @@ import pillExample from './examples/Pill.example.txt';
 
 const pillDocs = {
   className: '[Optional] - Include additional class name(s)',
-  disabled:  '[Optional] - Pill is disabled',
-  icon:      '[Optional] - Attaches an Icon to the Pill',
+  disabled: '[Optional] - Pill is disabled',
+  icon: '[Optional] - Attaches an Icon to the Pill',
   hideClose: '[Optional] - Whether to show close icon',
-  onClick:   '[Required] - Include click function for Pill',
-  label:     '[Required] - Include label for Pill',
-  type:      '[Optional] - Pill type, as a string - [default, primary]',
+  onClick: '[Required] - Include click function for Pill',
+  label: '[Required] - Include label for Pill',
+  type: '[Optional] - Pill type, as a string - [default, primary]',
 };
 const exampleScope  = {
   React,

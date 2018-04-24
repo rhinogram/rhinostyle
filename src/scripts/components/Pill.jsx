@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Button, Icon }  from '../components';
+import { Button, Icon } from '../components';
 
 const Pill = (props) => {
   const { className, disabled, icon, hideClose, onClick, label, type } = props;

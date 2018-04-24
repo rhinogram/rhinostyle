@@ -105,14 +105,7 @@ Textarea.propTypes = {
 };
 
 Textarea.defaultProps = {
-  abbrMaxCharacters: false,
-  label: '',
-  maxCharacters: null,
-  naked: false,
-  placeholder: '',
-  required: false,
   rows: 3,
-  validationMessage: '',
 };
 
 export default Textarea;

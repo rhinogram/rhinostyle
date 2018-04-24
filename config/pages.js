@@ -58,9 +58,9 @@ export default function pages() {
       engine: 'nunjucks',
     }))
     .use(msLayouts({
-      engine:    'nunjucks',
+      engine: 'nunjucks',
       directory: './src/templates',
-      default:   'default.html',
+      default: 'default.html',
     }))
     .destination('./build')
     .build((err) => {

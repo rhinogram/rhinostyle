@@ -1,21 +1,9 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import { Linear, TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 class LoaderCircle extends React.Component {
-  static displayName = 'RhinoLoaderCircle';
-
-  static propTypes = {
-    className: PropTypes.string,
-    pause: PropTypes.bool,
-    size: PropTypes.string,
-  };
-
-  static defaultProps = {
-    pause: false,
-  };
-
   componentDidMount() {
     const $loader = this.loader;
 
@@ -43,9 +31,9 @@ class LoaderCircle extends React.Component {
     const { className, size } = this.props;
 
     const classes = cx('loader-circle', className, {
-      'loader-circle--large':        size === 'large',
-      'loader-circle--small':        size === 'small',
-      'loader-circle--xsmall':        size === 'xsmall',
+      'loader-circle--large': size === 'large',
+      'loader-circle--small': size === 'small',
+      'loader-circle--xsmall': size === 'xsmall',
     });
 
     return (
@@ -53,5 +41,17 @@ class LoaderCircle extends React.Component {
     );
   }
 }
+
+LoaderCircle.displayName = 'RhinoLoaderCircle';
+
+LoaderCircle.propTypes = {
+  className: PropTypes.string,
+  pause: PropTypes.bool,
+  size: PropTypes.string,
+};
+
+LoaderCircle.defaultProps = {
+  pause: false,
+};
 
 export default LoaderCircle;

@@ -9,7 +9,7 @@ const Alert = (props) => {
   const classes = cx('alert', className, {
     'alert--danger': type === 'danger',
     'alert--default': type === 'default',
-    'alert--info':  type === 'info',
+    'alert--info': type === 'info',
     'alert--success': type === 'success',
     'alert--warning': type === 'warning',
     'alert--dismissible': onDismiss,

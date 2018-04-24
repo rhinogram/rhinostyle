@@ -10,7 +10,7 @@ class ResourceIntro extends React.Component {
 
     e.stopPropagation();
 
-    if (icon.onClick && typeof (icon.onClick === 'function')) {
+    if (icon.onClick) {
       icon.onClick(e);
     }
   }
@@ -18,7 +18,7 @@ class ResourceIntro extends React.Component {
   renderMedia = () => {
     const { icon, avatar } = this.props;
     let output = null;
-    const validIcon = icon.icon;
+    const validIcon = icon && icon.icon;
 
     if (validIcon) {
       if (icon.onClick) {
@@ -108,16 +108,6 @@ ResourceIntro.propTypes = {
   titleSub: PropTypes.string,
   hideMediaXsmall: PropTypes.bool,
   hideTitleSubXsmall: PropTypes.bool,
-};
-
-ResourceIntro.defaultProps = {
-  title: '',
-  titleSub: '',
-  icon: {
-    icon: '',
-    bump: null,
-    onClick: () => {},
-  },
 };
 
 export default ResourceIntro;

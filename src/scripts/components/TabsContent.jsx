@@ -5,14 +5,6 @@ import React from 'react';
 import { TabContentPane } from '../components';
 
 class TabsContent extends React.Component {
-  static displayName = 'TabsContent';
-
-  static propTypes = {
-    activeKey: PropTypes.number,
-    children: PropTypes.node,
-    className: PropTypes.string,
-  }
-
   getChildren = () => {
     let returnChild = null;
     const { children } = this.props;
@@ -32,10 +24,19 @@ class TabsContent extends React.Component {
   render() {
     const { className } = this.props;
     const classes = cx('tabs-content', className);
+
     return (
       <div className={classes}>{this.getChildren()}</div>
     );
   }
 }
+
+TabsContent.displayName = 'TabsContent';
+
+TabsContent.propTypes = {
+  activeKey: PropTypes.number,
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
 
 export default TabsContent;

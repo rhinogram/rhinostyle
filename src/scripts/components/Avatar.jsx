@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -29,7 +29,7 @@ class Avatar extends React.Component {
       'avatar--small': size === 'small',
       'avatar--large': size === 'large',
       'avatar--xlarge': size === 'xlarge',
-      'avatar--default':  type === 'default',
+      'avatar--default': type === 'default',
       'avatar--member': type === 'member',
     });
     const styles = {

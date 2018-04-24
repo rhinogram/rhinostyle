@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -29,13 +29,6 @@ Table.propTypes = {
   condensed: PropTypes.bool,
   hover: PropTypes.bool,
   striped: PropTypes.bool,
-};
-
-Table.defaultProps = {
-  bordered: false,
-  condensed: false,
-  hover: false,
-  striped: false,
 };
 
 export default Table;

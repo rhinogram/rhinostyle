@@ -63,7 +63,7 @@ class Modal extends React.Component {
         $modal.classList.add(UtilitySystem.config.classes.open);
 
         // Fire off prop update
-        this.props.onStart();
+        if (this.props.onStart) this.props.onStart();
       },
       onUpdate: () => {
         const newTime = $modal.timeline.time();
@@ -71,7 +71,7 @@ class Modal extends React.Component {
           forward = !forward;
           if (!forward) {
             // Fire off prop update
-            this.props.onReverseStart();
+            if (this.props.onReverseStart) this.props.onReverseStart();
 
             $body.classList.remove('modal-open');
             $modal.classList.remove(UtilitySystem.config.classes.open);
@@ -84,11 +84,11 @@ class Modal extends React.Component {
         $modal.focus();
 
         // Fire off prop update
-        this.props.onComplete();
+        if (this.props.onComplete) this.props.onComplete();
       },
       onReverseComplete: () => {
         // Fire off function that handles prop update and removal from DOM
-        this.onReverseComplete();
+        if (this.props.onReverseComplete) this.props.onReverseComplete();
       },
     });
 
@@ -155,15 +155,6 @@ Modal.propTypes = {
   onReverseComplete: PropTypes.func,
   onReverseStart: PropTypes.func,
   onStart: PropTypes.func,
-};
-
-Modal.defaultProps = {
-  children: null,
-  open: false,
-  onComplete: () => {},
-  onReverseComplete: () => {},
-  onReverseStart: () => {},
-  onStart: () => {},
 };
 
 Modal.displayName = 'RhinoModal';

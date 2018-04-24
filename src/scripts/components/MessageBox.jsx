@@ -107,14 +107,8 @@ MessageBox.propTypes = {
 };
 
 MessageBox.defaultProps = {
-  label: '',
-  initialValue: '',
-  naked: false,
-  placeholder: '',
   rows: 1,
-  required: false,
   maxHeight: '20rem',
-  focus: false,
 };
 
 export default MessageBox;

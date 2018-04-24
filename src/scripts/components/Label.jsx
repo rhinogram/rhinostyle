@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,9 +7,9 @@ import { Icon } from '../components';
 const Label = (props) => {
   const { className, icon, iconBump, label, type } = props;
   const classes = cx('label', className, {
-    'label--accent':    type === 'accent',
-    'label--danger':    type === 'danger',
-    'label--default':   type === 'default',
+    'label--accent': type === 'accent',
+    'label--danger': type === 'danger',
+    'label--default': type === 'default',
     'label--secondary': type === 'secondary',
   });
 
@@ -25,13 +25,10 @@ Label.propTypes = {
   icon: PropTypes.string,
   iconBump: PropTypes.oneOf(['down', 'up']),
   label: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['accent', 'danger', 'default', 'secondary']),
 };
 
 Label.defaultProps = {
-  className: '',
-  icon: null,
-  iconBump: null,
   type: 'default',
 };
 

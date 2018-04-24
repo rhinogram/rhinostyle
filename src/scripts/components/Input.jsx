@@ -76,9 +76,9 @@ class Input extends React.Component {
   render() {
     const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, placeholder, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
-      'form__control--clear':  clear,
-      'form__control--naked':  naked,
-      'form__control--error':  validationMessage,
+      'form__control--clear': clear,
+      'form__control--naked': naked,
+      'form__control--error': validationMessage,
       'form__control--large': size,
     });
     const formGroupClasses = cx('form__group', className);
@@ -206,7 +206,7 @@ class Input extends React.Component {
 Input.displayName = 'RhinoInput';
 
 Input.propTypes = {
-  addon: PropTypes.oneOf(['', 'left', 'right', 'both']),
+  addon: PropTypes.oneOf(['left', 'right', 'both']),
   autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
   autoComplete: PropTypes.oneOf(['off', 'on']),
   className: PropTypes.string,
@@ -230,14 +230,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  addon: '',
-  clear: false,
-  disabled: false,
-  label: '',
-  naked: false,
-  required: false,
   type: 'text',
-  focus: false,
 };
 
 export default Input;

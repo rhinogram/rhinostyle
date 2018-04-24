@@ -52,9 +52,4 @@ Icon.propTypes = {
   size: PropTypes.oneOf(['small', 'large']),
 };
 
-Icon.defaultProps = {
-  className: '',
-  bump: null,
-};
-
 export default Icon;

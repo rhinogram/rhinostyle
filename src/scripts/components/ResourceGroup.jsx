@@ -63,9 +63,4 @@ ResourceGroup.propTypes = {
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
 };
 
-ResourceGroup.defaultProps = {
-  className: '',
-  interfaceMode: null,
-};
-
 export default ResourceGroup;

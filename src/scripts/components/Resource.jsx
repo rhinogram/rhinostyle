@@ -28,7 +28,7 @@ class Resource extends React.Component {
   handleClick = () => {
     const { disabled } = this.props;
 
-    if (this.props.onClick && typeof (this.props.onClick === 'function') && !disabled) {
+    if (this.props.onClick && !disabled) {
       this.props.onClick();
     }
   }
@@ -66,14 +66,6 @@ Resource.propTypes = {
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
   onClick: PropTypes.func,
   unread: PropTypes.bool,
-};
-
-Resource.defaultProps = {
-  className: '',
-  active: false,
-  selected: false,
-  interfaceMode: null,
-  onClick: () => {},
 };
 
 export default Resource;

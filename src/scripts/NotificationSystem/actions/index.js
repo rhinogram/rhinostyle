@@ -1,5 +1,5 @@
 import NotificationDispatcher from '../dispatcher';
-import NotificationConstants  from '../constants';
+import NotificationConstants from '../constants';
 
 const { ActionTypes } = NotificationConstants;
 

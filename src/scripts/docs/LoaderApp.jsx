@@ -1,5 +1,5 @@
-import React      from 'react';
-import ReactDOM   from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { LoaderCircle, LoaderPulse } from '../components';

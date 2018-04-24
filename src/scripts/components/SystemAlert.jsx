@@ -7,9 +7,9 @@ import { Close, Icon } from '../components';
 const SystemAlert = (props) => {
   const { body, children, className, closable, icon, onDismiss, type, url, urlText } = props;
   const classes = cx('system-alert', className, {
-    'system-alert--danger':  type === 'danger',
+    'system-alert--danger': type === 'danger',
     'system-alert--default': type === 'default',
-    'system-alert--info':    type === 'info',
+    'system-alert--info': type === 'info',
     'system-alert--success': type === 'success',
   });
 
@@ -70,12 +70,9 @@ SystemAlert.propTypes = {
 };
 
 SystemAlert.defaultProps = {
-  className: '',
   closable: true,
-  icon: '',
   onDismiss: () => {},
   type: 'default',
-  url: '',
   urlText: 'More Information',
 };
 

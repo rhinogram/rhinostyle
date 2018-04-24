@@ -1,22 +1,9 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import { Linear, TimelineMax } from 'gsap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 class LoaderPulse extends React.Component {
-  static displayName = 'RhinoLoaderPulse';
-
-  static propTypes = {
-    className: PropTypes.string,
-    pause: PropTypes.bool,
-    type: PropTypes.string,
-  };
-
-  static defaultProps = {
-    pause: false,
-    type: 'default',
-  };
-
   componentDidMount() {
     const $loader = this.loader;
     const $loaderPulses = $loader.querySelectorAll('.loader-pulse__pulse');
@@ -47,9 +34,9 @@ class LoaderPulse extends React.Component {
   render() {
     const { className, type } = this.props;
     const classes = cx('loader-pulse', className, {
-      'loader-pulse--default':   type === 'default',
+      'loader-pulse--default': type === 'default',
       'loader-pulse--secondary': type === 'secondary',
-      'loader-pulse--accent':    type === 'accent',
+      'loader-pulse--accent': type === 'accent',
     });
 
     return (
@@ -59,5 +46,19 @@ class LoaderPulse extends React.Component {
     );
   }
 }
+
+LoaderPulse.displayName = 'RhinoLoaderPulse';
+
+LoaderPulse.propTypes = {
+  className: PropTypes.string,
+  pause: PropTypes.bool,
+  type: PropTypes.oneOf(['default', 'secondary', 'accent']),
+};
+
+LoaderPulse.defaultProps = {
+  pause: false,
+  type: 'default',
+};
+
 
 export default LoaderPulse;

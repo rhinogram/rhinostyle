@@ -1,6 +1,6 @@
 import Playground from 'component-playground';
-import React      from 'react';
-import ReactDOM   from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Button, Icon, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
 import utilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
