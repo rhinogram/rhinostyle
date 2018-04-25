@@ -1,6 +1,6 @@
 import Playground from 'component-playground';
-import React      from 'react';
-import ReactDOM   from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
 import alertExample from './examples/Alert.example.txt';

@@ -1,8 +1,8 @@
 import keymirror from 'keymirror';
 
 const constants = {
-  ActionTypes:    keymirror({
-    ADD_NOTIFICATION:    null,
+  ActionTypes: keymirror({
+    ADD_NOTIFICATION: null,
     REMOVE_NOTIFICATION: null,
   }),
   PayloadSources: keymirror({

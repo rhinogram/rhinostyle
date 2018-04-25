@@ -1,6 +1,6 @@
 import Playground from 'component-playground';
-import React      from 'react';
-import ReactDOM   from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Avatar, Icon, UtilityInlineGrid } from '../components';
 import avatarExample from './examples/Avatar.example.txt';

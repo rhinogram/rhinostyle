@@ -1,4 +1,4 @@
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
@@ -7,9 +7,9 @@ import progressBarExample from './examples/ProgressBar.example.txt';
 
 const progressDocs = {
   className: '[Optional] - Include additional class name(s)',
-  progress:  '[Optional] - The initial \'fill\' of the ProgressBar',
+  progress: '[Optional] - The initial \'fill\' of the ProgressBar',
   showLabel: '[Optional] - Show the progress in % on the ProgressBar',
-  type:      '[Optional] - Type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
+  type: '[Optional] - Type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
 };
 const exampleScope = {
   React,

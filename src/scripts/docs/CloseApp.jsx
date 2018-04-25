@@ -1,8 +1,8 @@
-import React      from 'react';
-import ReactDOM   from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
-import { Close }  from '../components';
+import { Close } from '../components';
 import closeExample from './examples/Close.example.txt';
 
 const closeDocs = {

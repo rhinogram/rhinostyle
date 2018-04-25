@@ -6,25 +6,6 @@ import onClickOutside from 'react-onclickoutside';
 import { UtilitySystem } from '../components';
 
 class DropdownWrapper extends React.Component {
-  static displayName = 'RhinoDropdownWrapper';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    handleClick: PropTypes.func,
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
-  };
-
-  static defaultProps = {
-    onComplete: () => {},
-    onReverseComplete: () => {},
-    onReverseStart: () => {},
-    onStart: () => {},
-  };
-
   componentDidMount = () => {
     const $dropdown = this.dropdown;
     const $dropdownMenu = $dropdown.querySelector('.dropdown__menu');
@@ -48,7 +29,7 @@ class DropdownWrapper extends React.Component {
         $dropdown.setAttribute('aria-expanded', true);
 
         // Fire off prop update
-        this.props.onStart();
+        if (this.props.onStart) this.props.onStart();
       },
       onComplete: () => {
         const $input = $dropdown.querySelector('input[type="text"]');
@@ -62,7 +43,7 @@ class DropdownWrapper extends React.Component {
         }
 
         // Fire off prop update
-        this.props.onComplete();
+        if (this.props.onComplete) this.props.onComplete();
       },
       onUpdate: () => {
         const newTime = $dropdown.timeline.time();
@@ -70,7 +51,7 @@ class DropdownWrapper extends React.Component {
           forward = !forward;
           if (!forward) {
             // Fire off prop update
-            this.props.onReverseStart();
+            if (this.props.onReverseStart) this.props.onReverseStart();
 
             // Remove active/open classes
             $dropdown.classList.remove(UtilitySystem.config.classes.open);
@@ -87,7 +68,7 @@ class DropdownWrapper extends React.Component {
       },
       onReverseComplete: () => {
         // Fire off prop update
-        this.props.onReverseComplete();
+        if (this.props.onReverseComplete) this.props.onReverseComplete();
       },
     });
 
@@ -115,5 +96,17 @@ class DropdownWrapper extends React.Component {
     );
   }
 }
+
+DropdownWrapper.displayName = 'RhinoDropdownWrapper';
+
+DropdownWrapper.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  handleClick: PropTypes.func,
+  onComplete: PropTypes.func,
+  onReverseComplete: PropTypes.func,
+  onReverseStart: PropTypes.func,
+  onStart: PropTypes.func,
+};
 
 export default onClickOutside(DropdownWrapper);

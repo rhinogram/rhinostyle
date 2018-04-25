@@ -29,8 +29,6 @@ UtilityInlineGrid.propTypes = {
 };
 
 UtilityInlineGrid.defaultProps = {
-  align: null,
-  children: null,
   size: 'small',
 };
 

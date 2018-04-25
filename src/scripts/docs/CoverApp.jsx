@@ -1,10 +1,10 @@
 import Playground from 'component-playground';
-import React      from 'react';
-import ReactDOM   from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
-import coverBodyExample   from './examples/CoverBody.example.txt';
-import coverExample       from './examples/Cover.example.txt';
+import coverBodyExample from './examples/CoverBody.example.txt';
+import coverExample from './examples/Cover.example.txt';
 import coverFooterExample from './examples/CoverFooter.example.txt';
 import coverHeaderExample from './examples/CoverHeader.example.txt';
 

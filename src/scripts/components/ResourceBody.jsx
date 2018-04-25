@@ -20,8 +20,4 @@ ResourceBody.propTypes = {
   children: PropTypes.node,
 };
 
-ResourceBody.defaultProps = {
-  className: '',
-};
-
 export default ResourceBody;

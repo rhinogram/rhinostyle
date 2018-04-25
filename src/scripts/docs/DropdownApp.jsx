@@ -1,4 +1,4 @@
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
@@ -37,8 +37,8 @@ const dropdownMultiSelectDocs = {
   position: '[Optional] -  Position of Dropdown - [right | top | top-right]',
   size: '[Optional] - Size of Dropdown - [small | large]',
   onSelect: '[Optional] - Callback when a DropdownMenuItem is selected',
-  placeholder:        '[Optional] - Any placeholder text you want in the dropdown',
-  validationMessage:  '[Optional] - Validation message for errors',
+  placeholder: '[Optional] - Any placeholder text you want in the dropdown',
+  validationMessage: '[Optional] - Validation message for errors',
   wide: '[Optional] - Sets a min-width on dropdown menu to ensure a great width',
 };
 

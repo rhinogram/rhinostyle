@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import path    from 'path';
+import path from 'path';
 
 import paths from './paths';
 

@@ -52,7 +52,6 @@ ModalHeader.propTypes = {
 
 ModalHeader.defaultProps = {
   dismissable: true,
-  onClose: () => {},
 };
 
 export default ModalHeader;

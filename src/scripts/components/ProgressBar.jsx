@@ -6,9 +6,9 @@ const ProgressBar = (props) => {
   const { className, progress, showLabel, type } = props;
   const classes = cx('progress', className);
   const barClasses = cx('progress__bar', {
-    'progress__bar--default':     type === 'default',
-    'progress__bar--primary':     type === 'primary',
-    'progress__bar--secondary':   type === 'secondary',
+    'progress__bar--default': type === 'default',
+    'progress__bar--primary': type === 'primary',
+    'progress__bar--secondary': type === 'secondary',
     'progress__bar--temperature': type === 'temperature',
   });
 
@@ -28,8 +28,7 @@ const ProgressBar = (props) => {
   }
 
   const style = {
-    transform:       `translateX(${progressTranslation}%)`,
-    WebkitTransform: `translateX(${progressTranslation}%)`,
+    transform: `translateX(${progressTranslation}%)`,
   };
 
   return (
@@ -53,7 +52,7 @@ ProgressBar.propTypes = {
 };
 
 ProgressBar.defaultProps = {
-  progress:  0,
+  progress: 0,
   showLabel: false,
   type: 'default',
 };

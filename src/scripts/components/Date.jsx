@@ -10,7 +10,7 @@ const Date = (props) => {
   const { className, explanationMessage, validationMessage, label, name, required, ...opts } = props;
   const formGroupClasses = cx('form__group', className);
   const inputClasses = cx('form__control', {
-    'form__control--error':  validationMessage,
+    'form__control--error': validationMessage,
   });
   const id = `${name}-${UtilitySystem.generateUUID()}`;
 

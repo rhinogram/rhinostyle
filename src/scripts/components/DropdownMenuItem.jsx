@@ -17,32 +17,6 @@ function customValidator(props, propName, componentName) {
 }
 
 class DropdownMenuItem extends React.Component {
-  static displayName = 'RhinoDropdownMenuItem';
-
-  static propTypes = {
-    active: PropTypes.bool,
-    avatar: PropTypes.shape({
-      image: PropTypes.string,
-      name: PropTypes.string,
-      type: PropTypes.oneOf(['default', 'member']),
-    }),
-    blankWindow: PropTypes.bool,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    icon: customValidator,
-    label: PropTypes.any,
-    labelDesc: PropTypes.any,
-    route: PropTypes.string,
-    url: PropTypes.string,
-  };
-
-  static defaultProps = {
-    active: false,
-    onClick: () => {},
-    disabled: false,
-  };
-
   handleClick = () => {
     let returnVal = null;
     if (this.props.url) {
@@ -52,7 +26,7 @@ class DropdownMenuItem extends React.Component {
         window.open(this.props.url);
       }
       returnVal = null;
-    } else {
+    } else if (this.props.onClick) {
       returnVal = this.props.onClick();
     }
     return returnVal;
@@ -106,5 +80,25 @@ class DropdownMenuItem extends React.Component {
     return markup;
   }
 }
+
+DropdownMenuItem.displayName = 'RhinoDropdownMenuItem';
+
+DropdownMenuItem.propTypes = {
+  active: PropTypes.bool,
+  avatar: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    type: PropTypes.oneOf(['default', 'member']),
+  }),
+  blankWindow: PropTypes.bool,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: customValidator,
+  label: PropTypes.any,
+  labelDesc: PropTypes.any,
+  route: PropTypes.string,
+  url: PropTypes.string,
+};
 
 export default DropdownMenuItem;

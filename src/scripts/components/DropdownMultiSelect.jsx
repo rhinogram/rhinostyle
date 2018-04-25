@@ -2,34 +2,11 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { UtilitySystem } from '../UtilitySystem';
 import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '../components';
 
 class DropdownMultiSelect extends React.Component {
-  static displayName = 'RhinoDropdownMultiSelect';
-
-  static propTypes = {
-    activeKeys: PropTypes.arrayOf(PropTypes.number),
-    block: PropTypes.bool,
-    children: PropTypes.node,
-    className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-    disabled: PropTypes.bool,
-    explanationMessage: PropTypes.string,
-    onSelect: PropTypes.func,
-    placeholder: PropTypes.string,
-    position: PropTypes.string,
-    wide: PropTypes.bool,
-    validationMessage: PropTypes.string,
-  };
-
-  static defaultProps = {
-    activeKeys: [],
-    block: false,
-    disabled: false,
-    placeholder: 'Click or type to select more ...',
-    wide: false,
-  };
-
   state = {
     activeKeys: this.props.activeKeys,
     isOpen: false,
@@ -252,5 +229,26 @@ class DropdownMultiSelect extends React.Component {
     );
   }
 }
+
+DropdownMultiSelect.displayName = 'RhinoDropdownMultiSelect';
+
+DropdownMultiSelect.propTypes = {
+  activeKeys: PropTypes.arrayOf(PropTypes.number),
+  block: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
+  disabled: PropTypes.bool,
+  explanationMessage: PropTypes.string,
+  onSelect: PropTypes.func,
+  placeholder: PropTypes.string,
+  position: PropTypes.string,
+  wide: PropTypes.bool,
+  validationMessage: PropTypes.string,
+};
+
+DropdownMultiSelect.defaultProps = {
+  activeKeys: [],
+  placeholder: 'Click or type to select more ...',
+};
 
 export default DropdownMultiSelect;

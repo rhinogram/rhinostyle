@@ -1,4 +1,4 @@
-import cx    from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -9,10 +9,10 @@ class Message extends React.Component {
     const { children, className, type, direction } = this.props;
 
     const classes = cx('msg', className, {
-      'msg--default':  type === 'default',
-      'msg--primary':  type === 'primary',
-      'msg--note':     type === 'note',
-      'msg--inbound':  direction === 'inbound',
+      'msg--default': type === 'default',
+      'msg--primary': type === 'primary',
+      'msg--note': type === 'note',
+      'msg--inbound': direction === 'inbound',
       'msg--outbound': direction === 'outbound',
     });
 

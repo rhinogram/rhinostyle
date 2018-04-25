@@ -1,4 +1,4 @@
-import React    from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
@@ -9,7 +9,7 @@ const navTabsDocs = {
   activeKey: '[Optional] - Include active key',
   className: '[Optional] - Include additional class name(s)',
   justified: '[Optional] - Justified options -  [auto | equal | none]',
-  select:    '[Optional] - Include select function',
+  select: '[Optional] - Include select function',
 };
 const exampleScope  = {
   React,

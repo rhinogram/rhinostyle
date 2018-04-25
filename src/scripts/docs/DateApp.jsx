@@ -1,7 +1,7 @@
 import Playground from 'component-playground';
-import React      from 'react';
-import ReactDOM   from 'react-dom';
-import moment     from 'moment';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import moment from 'moment';
 
 import { Date, Label } from '../components';
 import dateExample from './examples/Date.example.txt';

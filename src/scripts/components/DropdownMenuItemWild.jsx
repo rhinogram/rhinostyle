@@ -5,20 +5,6 @@ import React from 'react';
 import { Close } from '../components';
 
 class DropdownMenuItemWild extends React.Component {
-  static displayName = 'RhinoDropdownMenuItemWild';
-
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    handleToggle: PropTypes.func,
-    toggleDropdown: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    handleToggle:    () => {},
-    toggleDropdown:  false,
-  };
-
   getChildren = () => {
     let returnChild = null;
     const { children } = this.props;
@@ -70,5 +56,19 @@ class DropdownMenuItemWild extends React.Component {
     );
   }
 }
+
+DropdownMenuItemWild.displayName = 'RhinoDropdownMenuItemWild';
+
+DropdownMenuItemWild.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  handleToggle: PropTypes.func,
+  toggleDropdown: PropTypes.bool,
+};
+
+DropdownMenuItemWild.defaultProps = {
+  handleToggle: () => {},
+  toggleDropdown: false,
+};
 
 export default DropdownMenuItemWild;

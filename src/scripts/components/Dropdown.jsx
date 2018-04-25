@@ -238,19 +238,7 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-  block: false,
-  disabled: false,
-  disableScroll: false,
-  hideCaret: false,
-  hideActive: false,
   type: 'default',
-  wide: false,
-  showOverflow: false,
-  onComplete: () => {},
-  onReverseComplete: () => {},
-  onReverseStart: () => {},
-  onStart: () => {},
-  manualClose: false,
 };
 
 export default Dropdown;
