@@ -70,6 +70,7 @@
     "README.md",
     "dist/**",
     "src/less/**",
+    "src/svg/**",
     "stylelint.config.js"
   ],
   "repository": {
