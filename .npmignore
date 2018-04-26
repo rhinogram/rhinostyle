@@ -3,6 +3,7 @@ build/
 config/
 src/*
 !src/less/
+!src/svg/
 .babelrc
 .eslintrc
 .gitignore
