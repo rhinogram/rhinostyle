@@ -13,15 +13,9 @@ const UtilityListItem = (props) => {
   );
 };
 
-UtilityListItem.displayName = 'RhinoUtilityListItem';
-
 UtilityListItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-};
-
-UtilityListItem.defaultProps = {
-  children: null,
 };
 
 export default UtilityListItem;

@@ -18,8 +18,6 @@ const TabContentPane = (props) => {
   );
 };
 
-TabContentPane.displayName = 'RhinoTabContentPane';
-
 TabContentPane.propTypes = {
   active: PropTypes.bool,
   className: PropTypes.string,

@@ -6,24 +6,10 @@ import { Icon } from '../components';
 
 // This needs to be a proper component because we reference refs in other portions of the app
 class Toast extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  static displayName = 'RhinoToast';
-
-  static propTypes = {
-    body: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    onDismiss: PropTypes.func,
-    type: PropTypes.oneOf(['danger', 'default', 'success']),
-  };
-
-  static defaultProps = {
-    onDismiss: () => {},
-    type:      'default',
-  };
-
   render() {
     const { body, className, onDismiss, type } = this.props;
     const classes = cx('toast', className, {
-      'toast--danger':  type === 'danger',
+      'toast--danger': type === 'danger',
       'toast--default': type === 'default',
       'toast--success': type === 'success',
     });
@@ -61,5 +47,17 @@ class Toast extends React.Component { // eslint-disable-line react/prefer-statel
     );
   }
 }
+
+Toast.propTypes = {
+  body: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  onDismiss: PropTypes.func,
+  type: PropTypes.oneOf(['danger', 'default', 'success']),
+};
+
+Toast.defaultProps = {
+  onDismiss: () => {},
+  type: 'default',
+};
 
 export default Toast;

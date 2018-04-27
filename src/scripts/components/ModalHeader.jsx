@@ -41,8 +41,6 @@ class ModalHeader extends React.Component {
   }
 }
 
-ModalHeader.displayName = 'RhinoModalHeader';
-
 ModalHeader.propTypes = {
   dismissable: PropTypes.bool,
   onClose: PropTypes.func,

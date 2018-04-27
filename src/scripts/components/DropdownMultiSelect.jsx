@@ -230,8 +230,6 @@ class DropdownMultiSelect extends React.Component {
   }
 }
 
-DropdownMultiSelect.displayName = 'RhinoDropdownMultiSelect';
-
 DropdownMultiSelect.propTypes = {
   activeKeys: PropTypes.arrayOf(PropTypes.number),
   block: PropTypes.bool,

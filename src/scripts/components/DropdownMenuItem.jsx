@@ -81,8 +81,6 @@ class DropdownMenuItem extends React.Component {
   }
 }
 
-DropdownMenuItem.displayName = 'RhinoDropdownMenuItem';
-
 DropdownMenuItem.propTypes = {
   active: PropTypes.bool,
   avatar: PropTypes.shape({

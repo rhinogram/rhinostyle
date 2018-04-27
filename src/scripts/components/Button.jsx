@@ -81,8 +81,6 @@ class Button extends React.Component {
   }
 }
 
-Button.displayName = 'RhinoButton';
-
 Button.propTypes = {
   active: PropTypes.bool,
   block: PropTypes.bool,

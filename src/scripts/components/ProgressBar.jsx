@@ -42,8 +42,6 @@ const ProgressBar = (props) => {
   );
 };
 
-ProgressBar.displayName = 'RhinoProgressBar';
-
 ProgressBar.propTypes = {
   className: PropTypes.string,
   progress: PropTypes.number,

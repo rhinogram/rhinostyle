@@ -20,8 +20,6 @@ const UtilityInlineGrid = (props) => {
   );
 };
 
-UtilityInlineGrid.displayName = 'RhinoUtilityInlineGrid';
-
 UtilityInlineGrid.propTypes = {
   align: PropTypes.oneOf(['middle', 'right', 'between']),
   children: PropTypes.node,

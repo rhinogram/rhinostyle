@@ -42,8 +42,6 @@ class LoaderCircle extends React.Component {
   }
 }
 
-LoaderCircle.displayName = 'RhinoLoaderCircle';
-
 LoaderCircle.propTypes = {
   className: PropTypes.string,
   pause: PropTypes.bool,

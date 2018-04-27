@@ -18,8 +18,6 @@ const exampleScope  = {
 };
 
 class DateApp extends React.Component {
-  static displayName = 'RhinoStyle Date Examples';
-
   state = {
     startDate: moment(),
   };

@@ -90,8 +90,6 @@ class ResourceIntro extends React.Component {
   }
 }
 
-ResourceIntro.displayName = 'RhinoResourceIntro';
-
 ResourceIntro.propTypes = {
   avatar: PropTypes.shape({
     image: PropTypes.string,

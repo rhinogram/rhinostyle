@@ -15,8 +15,6 @@ const Close = (props) => {
   );
 };
 
-Close.displayName = 'RhinoClose';
-
 Close.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,

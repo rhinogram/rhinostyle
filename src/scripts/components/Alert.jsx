@@ -48,8 +48,6 @@ const Alert = (props) => {
   );
 };
 
-Alert.displayName = 'RhinoAlert';
-
 Alert.propTypes = {
   className: PropTypes.string,
   dismissible: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types

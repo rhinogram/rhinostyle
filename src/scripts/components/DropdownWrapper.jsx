@@ -97,8 +97,6 @@ class DropdownWrapper extends React.Component {
   }
 }
 
-DropdownWrapper.displayName = 'RhinoDropdownWrapper';
-
 DropdownWrapper.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

@@ -22,8 +22,6 @@ class Message extends React.Component {
   }
 }
 
-Message.displayName = 'RhinoMessage';
-
 Message.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

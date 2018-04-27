@@ -55,8 +55,6 @@ const SystemAlert = (props) => {
   );
 };
 
-SystemAlert.displayName = 'RhinoSystemAlert';
-
 SystemAlert.propTypes = {
   body: PropTypes.string,
   children: PropTypes.node,

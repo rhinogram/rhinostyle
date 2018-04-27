@@ -86,8 +86,6 @@ class MessageBox extends React.Component {
   }
 }
 
-MessageBox.displayName = 'RhinoMessageBox';
-
 MessageBox.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,

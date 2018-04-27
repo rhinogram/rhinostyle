@@ -54,8 +54,6 @@ class ResourceGroup extends React.Component {
   }
 }
 
-ResourceGroup.displayName = 'RhinoResourceGroup';
-
 ResourceGroup.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,

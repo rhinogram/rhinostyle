@@ -38,8 +38,6 @@ class NavTabs extends React.Component {
   }
 }
 
-NavTabs.displayName = 'RhinoNavTabs';
-
 NavTabs.propTypes = {
   activeKey: PropTypes.number,
   children: PropTypes.node,

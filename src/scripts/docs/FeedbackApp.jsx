@@ -54,8 +54,6 @@ const systemAlertScope = {
 };
 
 class FeedbackApp extends React.Component {
-  static displayName = 'RhinoStyle Feedback Examples';
-
   onClick = () => {
     NotificationActions.addNotification({
       body: 'This is an alert in a toast notification',

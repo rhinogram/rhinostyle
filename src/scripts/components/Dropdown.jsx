@@ -207,8 +207,6 @@ class Dropdown extends React.Component {
   }
 }
 
-Dropdown.displayName = 'RhinoDropdown';
-
 Dropdown.propTypes = {
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   block: PropTypes.bool,

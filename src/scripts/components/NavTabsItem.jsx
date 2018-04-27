@@ -20,8 +20,6 @@ const NavTabsItem = (props) => {
   );
 };
 
-NavTabsItem.displayName = 'RhinoNavTabsItem';
-
 NavTabsItem.propTypes = {
   active: PropTypes.bool,
   className: PropTypes.string,

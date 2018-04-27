@@ -57,8 +57,6 @@ class DropdownMenuItemWild extends React.Component {
   }
 }
 
-DropdownMenuItemWild.displayName = 'RhinoDropdownMenuItemWild';
-
 DropdownMenuItemWild.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

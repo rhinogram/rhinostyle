@@ -144,8 +144,6 @@ class Cover extends React.Component {
   }
 }
 
-Cover.displayName = 'RhinoCover';
-
 Cover.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

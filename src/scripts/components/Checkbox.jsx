@@ -79,8 +79,6 @@ class Checkbox extends React.Component {
   }
 }
 
-Checkbox.displayName = 'Rhinobox';
-
 Checkbox.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

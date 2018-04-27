@@ -203,8 +203,6 @@ class Input extends React.Component {
   }
 }
 
-Input.displayName = 'RhinoInput';
-
 Input.propTypes = {
   addon: PropTypes.oneOf(['left', 'right', 'both']),
   autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),

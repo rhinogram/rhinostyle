@@ -357,8 +357,6 @@ class VariableMessage extends React.Component {
   }
 }
 
-VariableMessage.displayName = 'RhinoVariableMessage';
-
 VariableMessage.propTypes = {
   className: PropTypes.string,
   composeLabel: PropTypes.string,

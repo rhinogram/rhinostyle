@@ -15,8 +15,6 @@ const ResourceRight = (props) => {
   );
 };
 
-ResourceRight.displayName = 'RhinoResourceRight';
-
 ResourceRight.propTypes = {
   children: PropTypes.node,
   noFlex: PropTypes.bool,

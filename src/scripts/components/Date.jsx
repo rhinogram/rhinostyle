@@ -41,8 +41,6 @@ const Date = (props) => {
   );
 };
 
-Date.displayName = 'RhinoDate';
-
 Date.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,

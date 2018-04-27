@@ -31,8 +31,6 @@ class TabsContent extends React.Component {
   }
 }
 
-TabsContent.displayName = 'TabsContent';
-
 TabsContent.propTypes = {
   activeKey: PropTypes.number,
   children: PropTypes.node,

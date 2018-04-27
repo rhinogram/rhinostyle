@@ -47,8 +47,6 @@ class LoaderPulse extends React.Component {
   }
 }
 
-LoaderPulse.displayName = 'RhinoLoaderPulse';
-
 LoaderPulse.propTypes = {
   className: PropTypes.string,
   pause: PropTypes.bool,

@@ -22,8 +22,6 @@ const CoverBody = (props) => {
   );
 };
 
-CoverBody.displayName = 'RhinoCoverBody';
-
 CoverBody.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

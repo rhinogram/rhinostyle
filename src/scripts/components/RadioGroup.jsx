@@ -104,8 +104,6 @@ class RadioGroup extends React.Component {
   }
 }
 
-RadioGroup.displayName = 'RhinodioGroup';
-
 RadioGroup.propTypes = {
   blockGroup: PropTypes.bool,
   children: PropTypes.node,

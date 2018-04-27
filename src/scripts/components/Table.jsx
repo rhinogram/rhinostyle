@@ -20,8 +20,6 @@ const Table = (props) => {
   );
 };
 
-Table.displayName = 'RhinoTable';
-
 Table.propTypes = {
   bordered: PropTypes.bool,
   children: PropTypes.node,

@@ -43,8 +43,6 @@ class Icon extends React.Component {
   }
 }
 
-Icon.displayName = 'RhinoIcon';
-
 Icon.propTypes = {
   bump: PropTypes.oneOf(['down', 'up']),
   className: PropTypes.string,

@@ -33,8 +33,6 @@ class CoverHeader extends React.Component {
   }
 }
 
-CoverHeader.displayName = 'RhinoCoverHeader';
-
 CoverHeader.propTypes = {
   icon: PropTypes.string,
   iconClassName: PropTypes.string,

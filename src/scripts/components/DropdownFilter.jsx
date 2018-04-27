@@ -104,8 +104,6 @@ class DropdownFilter extends React.Component {
   }
 }
 
-DropdownFilter.displayName = 'RhinoDropdownFilter';
-
 DropdownFilter.propTypes = {
   activeKey: PropTypes.number,
   children: PropTypes.node,

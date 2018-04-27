@@ -15,8 +15,6 @@ const Bucket = (props) => {
   );
 };
 
-Bucket.displayName = 'RhinoBucket';
-
 Bucket.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

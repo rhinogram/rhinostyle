@@ -55,8 +55,6 @@ class Resource extends React.Component {
   }
 }
 
-Resource.displayName = 'RhinoResource';
-
 Resource.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

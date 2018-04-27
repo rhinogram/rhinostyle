@@ -21,8 +21,6 @@ const BucketHeader = (props) => {
   );
 };
 
-BucketHeader.displayName = 'RhinoBucketHeader';
-
 BucketHeader.propTypes = {
   avatar: PropTypes.shape({
     image: PropTypes.string,

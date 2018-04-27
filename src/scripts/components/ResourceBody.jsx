@@ -13,8 +13,6 @@ const ResourceBody = (props) => {
   );
 };
 
-ResourceBody.displayName = 'RhinoResourceBody';
-
 ResourceBody.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,

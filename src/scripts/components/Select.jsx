@@ -72,8 +72,6 @@ class Select extends React.Component {
   }
 }
 
-Select.displayName = 'RhinoSelect';
-
 Select.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,

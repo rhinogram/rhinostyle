@@ -13,8 +13,6 @@ const CoverFooter = (props) => {
   );
 };
 
-CoverFooter.displayName = 'RhinoCoverFooter';
-
 CoverFooter.propTypes = {
   children: PropTypes.node,
 };

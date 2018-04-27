@@ -18,8 +18,6 @@ const Label = (props) => {
   );
 };
 
-Label.displayName = 'RhinoLabel';
-
 Label.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,

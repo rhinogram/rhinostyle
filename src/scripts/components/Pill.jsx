@@ -16,8 +16,6 @@ const Pill = (props) => {
   );
 };
 
-Pill.displayName = 'RhinoPill';
-
 Pill.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,

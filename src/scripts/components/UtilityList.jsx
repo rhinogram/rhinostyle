@@ -16,8 +16,6 @@ const UtilityList = (props) => {
   );
 };
 
-UtilityList.displayName = 'RhinoUtilityList';
-
 UtilityList.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

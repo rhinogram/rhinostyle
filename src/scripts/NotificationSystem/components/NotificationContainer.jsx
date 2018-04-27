@@ -11,22 +11,6 @@ const AUTO_DISMISS_TIME  = NotificationConstants.autodismissTime;
 const TOAST_TIMING = 0.5;
 
 class NotificationContainer extends React.Component {
-  static propTypes = {
-    notification: PropTypes.object,
-    onDismiss: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
-    onComplete: PropTypes.func,
-    onReverseComplete: PropTypes.func,
-    onReverseStart: PropTypes.func,
-    onStart: PropTypes.func,
-  };
-
-  static defaultProps = {
-    onComplete: () => {},
-    onReverseComplete: () => {},
-    onReverseStart: () => {},
-    onStart: () => {},
-  };
-
   componentDidMount() {
     const $toast = ReactDOM.findDOMNode(this.toast);
 
@@ -51,7 +35,7 @@ class NotificationContainer extends React.Component {
         $toast.setAttribute('aria-hidden', true);
 
         // Fire off prop update
-        this.props.onStart();
+        if (this.props.onStart) this.props.onStart();
       },
       onUpdate: () => {
         const newTime = $toast.timeline.time();
@@ -59,7 +43,7 @@ class NotificationContainer extends React.Component {
           forward = !forward;
           if (!forward) {
             // Fire off prop update
-            this.props.onReverseStart();
+            if (this.props.onReverseStart) this.props.onReverseStart();
 
             // Bottom spacing for stacked toast notifications
             bottomSpacing.play();
@@ -78,11 +62,11 @@ class NotificationContainer extends React.Component {
         NotificationActions.removeNotification(this.props.notification.id);
 
         // Fire off prop update
-        this.props.onComplete();
+        if (this.props.onComplete) this.props.onComplete();
       },
       onReverseComplete: () => {
         // Fire off prop update
-        this.props.onReverseComplete();
+        if (this.props.onReverseComplete) this.props.onReverseComplete();
       },
     });
 
@@ -122,5 +106,13 @@ class NotificationContainer extends React.Component {
   }
 }
 
-/* eslint new-cap:0 */
+NotificationContainer.propTypes = {
+  notification: PropTypes.object,
+  onDismiss: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
+  onComplete: PropTypes.func,
+  onReverseComplete: PropTypes.func,
+  onReverseStart: PropTypes.func,
+  onStart: PropTypes.func,
+};
+
 export default NotificationContainer;

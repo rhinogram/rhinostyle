@@ -71,8 +71,6 @@ class Avatar extends React.Component {
   }
 }
 
-Avatar.displayName = 'RhinoAvatar';
-
 Avatar.propTypes = {
   className: PropTypes.string,
   image: PropTypes.string,

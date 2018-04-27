@@ -157,6 +157,4 @@ Modal.propTypes = {
   onStart: PropTypes.func,
 };
 
-Modal.displayName = 'RhinoModal';
-
 export default Modal;

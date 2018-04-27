@@ -85,8 +85,6 @@ class Textarea extends React.Component {
   }
 }
 
-Textarea.displayName = 'RhinoTextarea';
-
 Textarea.propTypes = {
   abbrMaxCharacters: PropTypes.bool,
   className: PropTypes.string,

@@ -56,8 +56,6 @@ class CheckboxGroup extends React.Component {
   }
 }
 
-CheckboxGroup.displayName = 'CheckboxGroup';
-
 CheckboxGroup.propTypes = {
   blockGroup: PropTypes.bool,
   children: PropTypes.node,

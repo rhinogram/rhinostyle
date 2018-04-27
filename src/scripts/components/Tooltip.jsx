@@ -220,8 +220,6 @@ class Tooltip extends React.Component {
   }
 }
 
-Tooltip.displayName = 'RhinoTooltip';
-
 Tooltip.propTypes = {
   delay: PropTypes.oneOfType([
     PropTypes.bool.isRequired,
