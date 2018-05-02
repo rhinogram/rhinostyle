@@ -1,78 +1,72 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
+<Fragment>
+  <Bucket>
+    <BucketHeader avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }} title="Bucket Header" />
+    <BucketBody>Bucket body.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <BucketHeader title="Bucket Header" icon="star" />
+    <BucketBody>Bucket body.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <BucketHeader title="Bucket Header With Background" icon="star" className="u-bg-gray-lightest" />
+    <BucketBody>Bucket body.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="star">
       <div>
-        <Bucket>
-          <BucketHeader avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }} title="Bucket Header" />
-          <BucketBody>Bucket body.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <BucketHeader title="Bucket Header" icon="star" />
-          <BucketBody>Bucket body.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <BucketHeader title="Bucket Header With Background" icon="star" className="u-bg-gray-lightest" />
-          <BucketBody>Bucket body.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="star">
-            <div>
-              <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
-            </div>
-          </BucketHeader>
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <BucketHeader className="u-bg-gray-lightest" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }}>Bucket Header Without Title Property</BucketHeader>
-          <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <BucketBody>Bucket body in a default bucket.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <BucketBody className="u-bg-gray-lightest">Bucket body with background.</BucketBody>
-        </Bucket>
-
-        <Bucket>
-          <Table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Ben</td>
-                <td>Bruning</td>
-                <td>@bruning</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Blake</td>
-                <td>Guilloud</td>
-                <td>@guilloud</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Keaton</td>
-                <td>Foster</td>
-                <td>@foster</td>
-              </tr>
-            </tbody>
-          </Table>
-        </Bucket>
-
+        <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
       </div>
-    );
-  }
-}
+    </BucketHeader>
+    <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <BucketHeader className="u-bg-gray-lightest" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }}>Bucket Header Without Title Property</BucketHeader>
+    <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <BucketBody>Bucket body in a default bucket.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <BucketBody className="u-bg-gray-lightest">Bucket body with background.</BucketBody>
+  </Bucket>
+
+  <Bucket>
+    <Table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Ben</td>
+          <td>Bruning</td>
+          <td>@bruning</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Blake</td>
+          <td>Guilloud</td>
+          <td>@guilloud</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Keaton</td>
+          <td>Foster</td>
+          <td>@foster</td>
+        </tr>
+      </tbody>
+    </Table>
+  </Bucket>
+
+</Fragment>

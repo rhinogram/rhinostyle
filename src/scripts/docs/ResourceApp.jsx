@@ -18,12 +18,12 @@ const exampleScope  = {
 };
 
 const resourceDocs = {
-  active: '[Optional] - Adds active styling to item; normally used within a list view',
-  selected: '[Optional] - Used in conjunction with interfaceMode to determine an actively selected item',
-  disabled: '[Optional] - Disables onClick functionality and adds in additional styling',
-  interfaceMode: '[Optional] - Set on the parent <ResourceGroup /> is passed down to impact styling of an item - [radio | checkbox]',
-  onClick: '[Optional] - Fires on click of an item',
-  unread: '[Optional] - Adds unread styling to an item; normally used within a list view',
+  active: 'Adds active styling to item; normally used within a list view',
+  selected: 'Used in conjunction with interfaceMode to determine an actively selected item',
+  disabled: 'Disables onClick functionality and adds in additional styling',
+  interfaceMode: 'Set on the parent <ResourceGroup /> is passed down to impact styling of an item - [radio | checkbox]',
+  onClick: 'Fires on click of an item',
+  unread: 'Adds unread styling to an item; normally used within a list view',
 };
 
 const ResourcesApp = () => (

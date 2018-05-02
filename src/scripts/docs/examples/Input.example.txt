@@ -1,24 +1,16 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div className="site-example-inputs">
-        <Input name="exampleInputFirstName31" label="First Name" placeholder="First Name" type="text" required />
-        <Input name="exampleInputLastName31" label="Last Name" placeholder="Last Name" type="text" required />
-        <Input name="exampleInputPassword31" placeholder="Password" type="password" />
-        <Input name="example2092390209290" addon="both" type="text" placeholder="Lorem ipsum dolor sit">
-          <span>Amount $</span>
-          <span>.00</span>
-        </Input>
-        <Input name="exampleInputText0202" label="Clear Input" type="text" clear />
-        <Input name="exampleInputText022" label="Autocomplete off" autoComplete="off" type="text" />
-        <Input name="exampleInputText022" label="Autocapitalize off" autoCapitalize="none" type="text" />
-        <Input name="exampleInputText002" placeholder="Naked Input" type="text" naked />
-        <Input name="exampleInputValidation" label="Validation Message" initialValue="bademail.com" type="email" validationMessage="This is not a valid email address." />
-        <Input name="exampleInputExplanation" label="Explanation Message" initialValue="Lorem ipsum dolor" type="text" explanationMessage="This is an explanation message to help user." />
-        <Input format={{ date: true, datePattern: ['m', 'd', 'Y'] }} explanationMessage="Format MM/DD/YY" name="exampleInputText995699" label="Date input masking" placeholder="Enter a date" type="text" />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<div className="site-example-inputs">
+  <Input name="exampleInputFirstName31" label="First Name" placeholder="First Name" type="text" required />
+  <Input name="exampleInputLastName31" label="Last Name" placeholder="Last Name" type="text" required />
+  <Input name="exampleInputPassword31" placeholder="Password" type="password" />
+  <Input name="example2092390209290" addon="both" type="text" placeholder="Lorem ipsum dolor sit">
+    <span>Amount $</span>
+    <span>.00</span>
+  </Input>
+  <Input name="exampleInputText0202" label="Clear Input" type="text" clear />
+  <Input name="exampleInputText022" label="Autocomplete off" autoComplete="off" type="text" />
+  <Input name="exampleInputText022" label="Autocapitalize off" autoCapitalize="none" type="text" />
+  <Input name="exampleInputText002" placeholder="Naked Input" type="text" naked />
+  <Input name="exampleInputValidation" label="Validation Message" initialValue="bademail.com" type="email" validationMessage="This is not a valid email address." />
+  <Input name="exampleInputExplanation" label="Explanation Message" initialValue="Lorem ipsum dolor" type="text" explanationMessage="This is an explanation message to help user." />
+  <Input format={{ date: true, datePattern: ['m', 'd', 'Y'] }} explanationMessage="Format MM/DD/YY" name="exampleInputText995699" label="Date input masking" placeholder="Enter a date" type="text" />
+</div>

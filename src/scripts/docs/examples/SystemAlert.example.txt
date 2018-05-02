@@ -1,13 +1,4 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <div className="site-example-systemalerts">
-          <SystemAlert type="danger" icon="alert-triangle" body="Scheduled Maintenance Notification: Sunday August 15, 8:00 AM–10:00 EST." url="http://www.google.com" urlText="Learn more" />
-          <SystemAlert body="Your are currently in offline mode." />
-        </div>
-      </div>
-    );
-  }
-}
-ReactDOM.render(<ComponentExample />, mountNode);
+<div className="site-example-systemalerts">
+  <SystemAlert type="danger" icon="alert-triangle" body="Scheduled Maintenance Notification: Sunday August 15, 8:00 AM–10:00 EST." url="http://www.google.com" urlText="Learn more" />
+  <SystemAlert body="Your are currently in offline mode." />
+</div>

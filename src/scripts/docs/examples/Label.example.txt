@@ -1,12 +1,4 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <UtilityInlineGrid>
-        <Label label="ben bruning" />
-        <Label type="secondary" label="craig anthony" />
-      </UtilityInlineGrid>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<UtilityInlineGrid>
+  <Label label="ben bruning" />
+  <Label type="secondary" label="craig anthony" />
+</UtilityInlineGrid>

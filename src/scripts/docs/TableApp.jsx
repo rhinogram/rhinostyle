@@ -6,11 +6,11 @@ import { Button, Table } from '../components';
 import tableExample from './examples/Table.example.txt';
 
 const tableDocs = {
-  bordered: '[Optional] - Create bordered table',
-  className: '[Optional] - Include additional class name(s)',
-  condensed: '[Optional] - Create condensed table',
-  hover: '[Optional] - Create hover table',
-  striped: '[Optional] - Create striped table',
+  bordered: 'Create bordered table',
+  className: 'Include additional class name(s)',
+  condensed: 'Create condensed table',
+  hover: 'Create hover table',
+  striped: 'Create striped table',
 };
 const exampleScope  = {
   React,

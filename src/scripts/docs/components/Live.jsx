@@ -9,21 +9,27 @@ import {
 
 import Docs from './Docs';
 
-const Live = props => (
-  <Fragment>
-    <Docs component={props.component} propDescriptions={props.propDescriptions} />
-    <LiveProvider
-      scope={props.scope}
-      code={props.code}
-      mountStylesheet={false}
-      transformCode={input => Babel.transform(input, { presets: ['stage-0', 'react'] }).code}
-    >
-      <LiveEditor />
-      <LivePreview />
-      <LiveError />
-    </LiveProvider>
-  </Fragment>
-);
+const Live = (props) => {
+  // Add `Fragment` to every scope by default
+  const scopeProps = props.scope;
+  scopeProps.Fragment = Fragment;
+
+  return (
+    <Fragment>
+      <Docs component={props.component} propDescriptions={props.propDescriptions} />
+      <LiveProvider
+        scope={scopeProps}
+        code={props.code}
+        mountStylesheet={false}
+        transformCode={input => Babel.transform(input, { presets: ['stage-0', 'react'] }).code}
+      >
+        <LiveEditor />
+        <LivePreview />
+        <LiveError />
+      </LiveProvider>
+    </Fragment>
+  );
+};
 
 Live.propTypes = {
   component: PropTypes.func.isRequired,

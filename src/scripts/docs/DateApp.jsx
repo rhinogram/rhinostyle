@@ -7,7 +7,7 @@ import { Date, Label } from '../components';
 import dateExample from './examples/Date.example.txt';
 
 const dateDocs = {
-  className: '[Optional] - Include additional class name(s)',
+  className: 'Include additional class name(s)',
 };
 const exampleScope  = {
   React,

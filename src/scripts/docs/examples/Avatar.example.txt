@@ -1,32 +1,24 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <UtilityInlineGrid>
-          <Avatar image="//source.unsplash.com/category/people/200x200" name="Ben Bruning" size="large" type="member" />
-          <Avatar image="//brokenimage.jpg" name="Ben Bruning" size="large" type="member" />
-          <Avatar name="Ben Bruning" size="large" type="member" />
-          <Avatar size="large" type="member" />
-        </UtilityInlineGrid>
-        <div className="u-m-t">
-          <UtilityInlineGrid>
-            <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" />
-            <Avatar image="//badimage.jpg" name="Craig Anthony" />
-            <Avatar name="Craig Anthony" />
-            <Avatar />
-          </UtilityInlineGrid>
-        </div>
-        <div className="u-m-t">
-          <UtilityInlineGrid>
-            <Avatar image="//source.unsplash.com/category/people/200x200" name="Ian Greulich" size="small" type="member" />
-            <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="member" />
-            <Avatar name="Ian Greulich" size="small" type="member" />
-            <Avatar size="small" type="member" />
-          </UtilityInlineGrid>
-        </div>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<Fragment>
+  <UtilityInlineGrid>
+    <Avatar image="//source.unsplash.com/category/people/200x200" name="Ben Bruning" size="large" type="member" />
+    <Avatar image="//brokenimage.jpg" name="Ben Bruning" size="large" type="member" />
+    <Avatar name="Ben Bruning" size="large" type="member" />
+    <Avatar size="large" type="member" />
+  </UtilityInlineGrid>
+  <div className="u-m-t">
+    <UtilityInlineGrid>
+      <Avatar image="//bit.ly/1UfJ6KF" name="Craig Anthony" />
+      <Avatar image="//badimage.jpg" name="Craig Anthony" />
+      <Avatar name="Craig Anthony" />
+      <Avatar />
+    </UtilityInlineGrid>
+  </div>
+  <div className="u-m-t">
+    <UtilityInlineGrid>
+      <Avatar image="//source.unsplash.com/category/people/200x200" name="Ian Greulich" size="small" type="member" />
+      <Avatar image="//badimage.jpg" name="Ian Greulich" size="small" type="member" />
+      <Avatar name="Ian Greulich" size="small" type="member" />
+      <Avatar size="small" type="member" />
+    </UtilityInlineGrid>
+  </div>
+</Fragment>

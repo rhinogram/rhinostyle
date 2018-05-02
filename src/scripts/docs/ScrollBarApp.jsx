@@ -6,7 +6,7 @@ import { Label, Scrollbars } from '../components';
 import scrollBarExample from './examples/ScrollBar.example.txt';
 
 const scrollBarDocs = {
-  className: '[Optional] - Include additional class name(s)',
+  className: 'Include additional class name(s)',
 };
 const exampleScope  = {
   React,

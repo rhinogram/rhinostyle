@@ -1,15 +1,6 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <UtilityInlineGrid>
-        <Pill label="Default Pill" icon="cog" />
-        <Pill type="primary" label="Primary Pill" />
-        <Pill label="Default Pill Disabled" disabled />
-        <br />
-        <Pill label="Click Me" onClick={() => alert('clicked!')} />
-      </UtilityInlineGrid>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<UtilityInlineGrid>
+  <Pill label="Default Pill" icon="cog" />
+  <Pill type="primary" label="Primary Pill" />
+  <Pill label="Default Pill Disabled" disabled />
+  <Pill label="Click Me" onClick={() => alert('clicked!')} />
+</UtilityInlineGrid>

@@ -1,38 +1,21 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div className="site-example-bucketheaders">
-
-        <BucketHeader title="Bucket Header" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }} />
-
-        <BucketHeader title="Bucket Header" avatar={{ image: '//badimage.jpg', name: 'Robert Plant', type: 'member' }} />
-
-        <BucketHeader title="Bucket Header" avatar={{ name: 'Robert Plant', type: 'member' }} />
-
-        <BucketHeader title="Bucket Header" avatar={{ type: 'member' }} />
-
-        <BucketHeader title="Bucket Header" icon="star" />
-
-        <BucketHeader title="Bucket Header With Color" icon="star" className="u-text-danger" />
-
-        <BucketHeader title="Bucket Header With Colored Icon" icon="star" iconClassName="u-text-success" />
-
-        <BucketHeader title="Bucket Header Without Icon" />
-
-        <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="chat">
-          <div>
-            <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
-          </div>
-        </BucketHeader>
-
-        <BucketHeader>
-          <Icon icon="chat" className="u-m-r-small" /> Bucket Header Without Title or Icon Props
-        </BucketHeader>
-
-        <BucketHeader>
-          Bucket Header Without Title or Icon Props
-        </BucketHeader>
-      </div>
-    );
-  }
-}
+<div className="site-example-bucketheaders">
+  <BucketHeader title="Bucket Header" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Robert Plant', type: 'member' }} />
+  <BucketHeader title="Bucket Header" avatar={{ image: '//badimage.jpg', name: 'Robert Plant', type: 'member' }} />
+  <BucketHeader title="Bucket Header" avatar={{ name: 'Robert Plant', type: 'member' }} />
+  <BucketHeader title="Bucket Header" avatar={{ type: 'member' }} />
+  <BucketHeader title="Bucket Header" icon="star" />
+  <BucketHeader title="Bucket Header With Color" icon="star" className="u-text-danger" />
+  <BucketHeader title="Bucket Header With Colored Icon" icon="star" iconClassName="u-text-success" />
+  <BucketHeader title="Bucket Header Without Icon" />
+  <BucketHeader className="u-flex-justify-between" title="Bucket Header With Extra Content" icon="chat">
+    <div>
+      <a href="" className="u-text-underline">Edit</a> | <a href="" className="u-text-underline">Delete</a>
+    </div>
+  </BucketHeader>
+  <BucketHeader>
+    <Icon icon="chat" className="u-m-r-small" /> Bucket Header Without Title or Icon Props
+  </BucketHeader>
+  <BucketHeader>
+    Bucket Header Without Title or Icon Props
+  </BucketHeader>
+</div>

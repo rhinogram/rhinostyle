@@ -7,9 +7,9 @@ import loaderCircleExample from './examples/LoaderCircle.example.txt';
 import loaderPulseExample from './examples/LoaderPulse.example.txt';
 
 const loaderCircleDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  pause: '[Optional] - Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  size: '[Optional] - LoaderCircle size -  [xsmall | small | large]',
+  className: 'Include additional class name(s)',
+  pause: 'Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
+  size: 'LoaderCircle size -  [xsmall | small | large]',
 };
 const loaderCircleScope = {
   React,
@@ -18,9 +18,9 @@ const loaderCircleScope = {
 };
 
 const loaderPulseDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  pause: '[Optional] - Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  type: '[Optional] - LoaderPulse type -  [secondary | accent]',
+  className: 'Include additional class name(s)',
+  pause: 'Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
+  type: 'LoaderPulse type -  [secondary | accent]',
 };
 const loaderPulseScope = {
   React,

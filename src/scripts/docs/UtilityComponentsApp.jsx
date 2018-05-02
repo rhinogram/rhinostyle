@@ -7,8 +7,8 @@ import utilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
 import utilityListExample from './examples/UtilityList.example.txt';
 
 const utilityInlineGridDocs = {
-  align: '[Optional] - Align grid along x-axis (left by default) - [middle | right | between]',
-  size: '[Optional] - Gutter size for list (small by default) -  [small | regular | large]',
+  align: 'Align grid along x-axis (left by default) - [middle | right | between]',
+  size: 'Gutter size for list (small by default) -  [small | regular | large]',
 };
 const utilityInlineGridScope = {
   React,
@@ -19,8 +19,8 @@ const utilityInlineGridScope = {
 };
 
 const utilityListDocs = {
-  space: '[Optional] - List items have space between them',
-  border: '[Optional] - List items have space and border between them',
+  space: 'List items have space between them',
+  border: 'List items have space and border between them',
 };
 const utilityListScope = {
   React,

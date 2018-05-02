@@ -1,18 +1,17 @@
-import Playground from 'component-playground';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Avatar, Icon, UtilityInlineGrid } from '../components';
-import avatarExample from './examples/Avatar.example.txt';
+import { Live } from './components';
+import AvatarExample from './examples/Avatar.example.txt';
 
-const avatarDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  image: '[Optional] - Include source to image',
-  name: '[Optional] - Name of Avatar, as a string',
-  size: '[Optional] - Size of Avatar, as a string - [small | large | xlarge]',
-  type: '[Optional] - Type of Avatar, as a string -  [default | member]',
+const AvatarDocs = {
+  image: 'Source to image',
+  name: 'Used for fallback initials',
+  size: "<code>oneOf(['small', 'default', 'large', 'xlarge'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['default', 'member'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope  = {
+const AvatarScope  = {
   React,
   ReactDOM,
   Avatar,
@@ -77,7 +76,12 @@ const AvatarApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Avatar} propDescriptionMap={avatarDocs} codeText={avatarExample} scope={exampleScope} noRender={false} />
+      <Live
+        code={AvatarExample}
+        scope={AvatarScope}
+        component={Avatar}
+        propDescriptions={AvatarDocs}
+      />
     </section>
   </div>
 );

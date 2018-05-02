@@ -20,11 +20,7 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-      <div className="site-example-selects">
-        <Select onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={selectOpts} />
-      </div>
+      <Select onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={selectOpts} />
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

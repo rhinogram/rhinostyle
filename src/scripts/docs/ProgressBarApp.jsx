@@ -6,10 +6,10 @@ import { ProgressBar } from '../components';
 import progressBarExample from './examples/ProgressBar.example.txt';
 
 const progressDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  progress: '[Optional] - The initial \'fill\' of the ProgressBar',
-  showLabel: '[Optional] - Show the progress in % on the ProgressBar',
-  type: '[Optional] - Type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
+  className: 'Include additional class name(s)',
+  progress: 'The initial \'fill\' of the ProgressBar',
+  showLabel: 'Show the progress in % on the ProgressBar',
+  type: 'Type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
 };
 const exampleScope = {
   React,

@@ -67,10 +67,10 @@ class ComponentExample extends React.Component {
         <Modal onReverseComplete={this.resetSet} open={this.state.open}>
           <ModalHeader onClose={this.closeModal} title="Sample Modal" titleSub="I'm a subtitle!" />
           <ModalBody>
-            <div className="form">
+            <form className="form">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
               <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-            </div>
+            </form>
           </ModalBody>
           <ModalFooter>
             <UtilityInlineGrid align="between">
@@ -83,5 +83,3 @@ class ComponentExample extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

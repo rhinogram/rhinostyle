@@ -12,23 +12,23 @@ import radioExample from './examples/Radio.example.txt';
 import switchExample from './examples/RhinoSwitch.example.txt';
 
 const inputDocs  = {
-  addon: '[Optional] - Display an add-on on the input, as a string - [left | right | both]',
-  autoCapitalize: '[Optional] - Adjust the capitalization settings of an input - [none | sentences | words | characters]',
-  autoComplete: '[Optional] - Adjust the completion settings on an input - [off | on]',
-  clear: '[Optional] - Form control gets a clear value button',
-  disabled: '[Optional] - Disable the input',
-  explanationMessage: '[Optional] - Explanation message to help user',
-  format: '[Optional] - Accepts object with custom formatting/mask operations',
-  initialValue: '[Optional] - Any initial value for the input',
-  label: '[Optional] - A label for the input',
-  naked: '[Optional] - Form control is stripped down in appearance',
+  addon: 'Display an add-on on the input, as a string - [left | right | both]',
+  autoCapitalize: 'Adjust the capitalization settings of an input - [none | sentences | words | characters]',
+  autoComplete: 'Adjust the completion settings on an input - [off | on]',
+  clear: 'Form control gets a clear value button',
+  disabled: 'Disable the input',
+  explanationMessage: 'Explanation message to help user',
+  format: 'Accepts object with custom formatting/mask operations',
+  initialValue: 'Any initial value for the input',
+  label: 'A label for the input',
+  naked: 'Form control is stripped down in appearance',
   name: '[Required] - A name attribute for the input',
-  onChange: '[Optional] - A callback function that is executed when the input value changes',
-  placeholder: '[Optional] - Any placeholder text you want in the input',
-  required: '[Optional] - Field is required and asterisk is added to label',
-  size: '[Optional] - Impacts size of input - [large]',
-  type: '[Optional] - As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
-  validationMessage: '[Optional] - Validation message for errors',
+  onChange: 'A callback function that is executed when the input value changes',
+  placeholder: 'Any placeholder text you want in the input',
+  required: 'Field is required and asterisk is added to label',
+  size: 'Impacts size of input - [large]',
+  type: 'As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
+  validationMessage: 'Validation message for errors',
 };
 const inputScope = {
   React,
@@ -38,13 +38,13 @@ const inputScope = {
 };
 
 const selectDocs  = {
-  label: '[Optional] - A label for the select',
-  name: '[Optional] - An id for the label and the select, use if you want clicking the label to activate the select',
+  label: 'A label for the select',
+  name: 'An id for the label and the select, use if you want clicking the label to activate the select',
   options: '[Required] - Array of objects that contain the values and text for the options, with an optional selected key, { id: number|string, value: string }',
-  disabled: '[Optional] - Disable the select',
-  required: '[Optional] - Field is required and asterisk is added to label',
-  onSelect: '[Optional] - Function that returns the name of the Select and the value that was selected',
-  selected: '[Optional] - String that pre-selects an option',
+  disabled: 'Disable the select',
+  required: 'Field is required and asterisk is added to label',
+  onSelect: 'Function that returns the name of the Select and the value that was selected',
+  selected: 'String that pre-selects an option',
 };
 const selectScope = {
   React,
@@ -60,18 +60,18 @@ const selectOpts = [
 ];
 
 const textareaDocs  = {
-  abbrMaxCharacters: '[Optional] - Abbreviated max character count - only the count is displayed',
-  explanationMessage: '[Optional] - Explanation message to help user',
-  initialValue: '[Optional] - Any initial value for the textarea',
-  label: '[Optional] - A label for the textarea',
-  maxCharacters: '[Optional] - Set a maximum character limit in order to display character count',
-  naked: '[Optional] - Form control is stripped down in appearance',
+  abbrMaxCharacters: 'Abbreviated max character count - only the count is displayed',
+  explanationMessage: 'Explanation message to help user',
+  initialValue: 'Any initial value for the textarea',
+  label: 'A label for the textarea',
+  maxCharacters: 'Set a maximum character limit in order to display character count',
+  naked: 'Form control is stripped down in appearance',
   name: '[Required] - A name attribute for the textarea',
-  disabled: '[Optional] - Disable the textarea',
-  onChange: '[Optional] - A callback function that is executed when the textarea value changes',
-  placeholder: '[Optional] - Any placeholder text you want in the textarea',
-  required: '[Optional] - Field is required and asterisk is added to label',
-  validationMessage: '[Optional] - Validation message for errors',
+  disabled: 'Disable the textarea',
+  onChange: 'A callback function that is executed when the textarea value changes',
+  placeholder: 'Any placeholder text you want in the textarea',
+  required: 'Field is required and asterisk is added to label',
+  validationMessage: 'Validation message for errors',
 };
 const textareaScope = {
   React,
@@ -80,14 +80,14 @@ const textareaScope = {
 };
 
 const messageBoxDocs  = {
-  label: '[Optional] - A label for the textarea',
-  disabled: '[Optional] - Disable the textarea',
-  naked: '[Optional] - Form control is stripped down in appearance',
+  label: 'A label for the textarea',
+  disabled: 'Disable the textarea',
+  naked: 'Form control is stripped down in appearance',
   name: '[Required] - A name attribute for the message box',
-  placeholder: '[Optional] - Any placeholder text you want in the textarea',
-  initialValue: '[Optional] - Any initial value for the textarea',
-  maxHeight: '[Optional] - Controls the max-height (default: 20rem)',
-  required: '[Optional] - Field is required and asterisk is added to label',
+  placeholder: 'Any placeholder text you want in the textarea',
+  initialValue: 'Any initial value for the textarea',
+  maxHeight: 'Controls the max-height (default: 20rem)',
+  required: 'Field is required and asterisk is added to label',
 };
 const messageBoxScope = {
   React,
@@ -96,12 +96,12 @@ const messageBoxScope = {
 };
 
 const checkboxDocs  = {
-  isChecked: '[Optional] - Set initial checked state',
-  disabled: '[Optional] - Disable the checkbox',
+  isChecked: 'Set initial checked state',
+  disabled: 'Disable the checkbox',
   name: '[Required] - An id, and label for the checkbox',
-  onClick: '[Optional] - A function you want to trigger when the checkbox is toggled',
-  onChange: '[Optional] - A function that returns the name and value of the checkbox',
-  children: '[Optional] - (Currently) only for use when <CheckboxGroup /> has blockGroup prop; shows content based on select state of option',
+  onClick: 'A function you want to trigger when the checkbox is toggled',
+  onChange: 'A function that returns the name and value of the checkbox',
+  children: '(Currently) only for use when <CheckboxGroup /> has blockGroup prop; shows content based on select state of option',
 };
 const checkboxScope = {
   Fragment,
@@ -115,14 +115,14 @@ const checkboxScope = {
 };
 
 const radioDocs  = {
-  label: '[Optional] - Text visible to user next to radio button',
-  disabled: '[Optional] - Disable the radio button',
-  name: '[Optional] - A name attribute for the radio. Automatically passed down from <RadioGroup />',
-  inline: '[Optional] - Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
-  onChange: '[Optional] - A function you which to trigger when you change the selection',
-  selectedValue: '[Optional] - The radio you want selected, when used in a group',
-  value: '[Optional] - A value for the radio',
-  children: '[Optional] - (Currently) only for use when <RadioGroup /> has blockGroup prop; shows content based on select state of option',
+  label: 'Text visible to user next to radio button',
+  disabled: 'Disable the radio button',
+  name: 'A name attribute for the radio. Automatically passed down from <RadioGroup />',
+  inline: 'Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
+  onChange: 'A function you which to trigger when you change the selection',
+  selectedValue: 'The radio you want selected, when used in a group',
+  value: 'A value for the radio',
+  children: '(Currently) only for use when <RadioGroup /> has blockGroup prop; shows content based on select state of option',
 };
 const radioScope = {
   Fragment,
@@ -135,13 +135,13 @@ const radioScope = {
 };
 
 const switchDocs  = {
-  className: '[Optional] - Any class name you would like to add to the switch',
-  disabled: '[Optional] - Disable the switch',
-  isChecked: '[Optional] - Set initial on/off state',
-  label: '[Optional] - A label for the switch',
+  className: 'Any class name you would like to add to the switch',
+  disabled: 'Disable the switch',
+  isChecked: 'Set initial on/off state',
+  label: 'A label for the switch',
   name: '[Required] - A name attribute for the switch',
-  onChange: '[Optional] - A function that returns the name and value of the switch',
-  onClick: '[Optional] - A function that returns the value of the switch',
+  onChange: 'A function that returns the name and value of the switch',
+  onClick: 'A function that returns the value of the switch',
 };
 const switchScope = {
   React,

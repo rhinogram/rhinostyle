@@ -6,9 +6,9 @@ import { Message, UtilityInlineGrid } from '../components';
 import messageExample from './examples/Message.example.txt';
 
 const messageDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  type: '[Optional] - Message type -  [primary | note]',
-  direction: '[Optional] - Message direction -  [inbound | outbound]',
+  className: 'Include additional class name(s)',
+  type: 'Message type -  [primary | note]',
+  direction: 'Message direction -  [inbound | outbound]',
 };
 const exampleScope  = {
   React,

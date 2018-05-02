@@ -1,35 +1,28 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <UtilityInlineGrid>
-          <Button size="large">Large</Button>
-          <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
-          <Button size="large" iconOnly><Icon icon="cog" /></Button>
-          <Button>Default</Button>
-          <Button type="outline-primary">Outline Primary with Badge &nbsp;<span className="button__badge">12</span></Button>
-          <Button><Icon icon="cog" />&nbsp;Default</Button>
-          <Button iconOnly><Icon icon="cog" /></Button>
-          <Button size="small">Small</Button>
-          <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
-          <Button size="small" iconOnly><Icon icon="cog" /></Button>
-        </UtilityInlineGrid>
-        <div className="u-m-t">
-          <UtilityInlineGrid size="large">
-            <Button size="large">Large</Button>
-            <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
-            <Button size="large" iconOnly><Icon icon="cog" /></Button>
-            <Button>Default</Button>
-            <Button type="outline-primary">Outline Primary with Badge &nbsp;<span className="button__badge">12</span></Button>
-            <Button><Icon icon="cog" />&nbsp;Default</Button>
-            <Button iconOnly><Icon icon="cog" /></Button>
-            <Button size="small">Small</Button>
-            <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
-            <Button size="small" iconOnly><Icon icon="cog" /></Button>
-          </UtilityInlineGrid>
-        </div>
-      </div>
-    );
-  }
-}
-ReactDOM.render(<ComponentExample />, mountNode);
+<Fragment>
+  <UtilityInlineGrid>
+    <Button size="large">Large</Button>
+    <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+    <Button size="large" iconOnly><Icon icon="cog" /></Button>
+    <Button>Default</Button>
+    <Button type="outline-primary">Outline Primary with Badge &nbsp;<span className="button__badge">12</span></Button>
+    <Button><Icon icon="cog" />&nbsp;Default</Button>
+    <Button iconOnly><Icon icon="cog" /></Button>
+    <Button size="small">Small</Button>
+    <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+    <Button size="small" iconOnly><Icon icon="cog" /></Button>
+  </UtilityInlineGrid>
+  <div className="u-m-t">
+    <UtilityInlineGrid size="large">
+      <Button size="large">Large</Button>
+      <Button size="large"><Icon icon="cog" />&nbsp;Large</Button>
+      <Button size="large" iconOnly><Icon icon="cog" /></Button>
+      <Button>Default</Button>
+      <Button type="outline-primary">Outline Primary with Badge &nbsp;<span className="button__badge">12</span></Button>
+      <Button><Icon icon="cog" />&nbsp;Default</Button>
+      <Button iconOnly><Icon icon="cog" /></Button>
+      <Button size="small">Small</Button>
+      <Button size="small"><Icon icon="cog" />&nbsp;Small</Button>
+      <Button size="small" iconOnly><Icon icon="cog" /></Button>
+    </UtilityInlineGrid>
+  </div>
+</Fragment>

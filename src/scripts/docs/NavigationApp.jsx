@@ -6,10 +6,10 @@ import { NavTabs, NavTabsItem } from '../components';
 import navTabsExample from './examples/NavTabs.example.txt';
 
 const navTabsDocs = {
-  activeKey: '[Optional] - Include active key',
-  className: '[Optional] - Include additional class name(s)',
-  justified: '[Optional] - Justified options -  [auto | equal | none]',
-  select: '[Optional] - Include select function',
+  activeKey: 'Include active key',
+  className: 'Include additional class name(s)',
+  justified: 'Justified options -  [auto | equal | none]',
+  select: 'Include select function',
 };
 const exampleScope  = {
   React,

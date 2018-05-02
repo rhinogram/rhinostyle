@@ -9,19 +9,19 @@ import coverFooterExample from './examples/CoverFooter.example.txt';
 import coverHeaderExample from './examples/CoverHeader.example.txt';
 
 const coverDocs = {
-  subtreeContainer: '[Optional] - DOM element the modal should be appended to when rendered. You probably will never change this',
-  className: '[Optional] - Additional class to add to cover div',
+  subtreeContainer: 'DOM element the modal should be appended to when rendered. You probably will never change this',
+  className: 'Additional class to add to cover div',
 };
 
 const coverHeaderDocs = {
-  icon: '[Optional] - Attaches an Icon to the Cover Header',
-  iconClassName: '[Optional] - Adds a class to the Cover Header icon',
-  onClose: '[Optional] - Callback function to execute in addition to closing the cover',
-  title: '[Optional] - Cover Title -  String to represent the Cover Header',
+  icon: 'Attaches an Icon to the Cover Header',
+  iconClassName: 'Adds a class to the Cover Header icon',
+  onClose: 'Callback function to execute in addition to closing the cover',
+  title: 'Cover Title -  String to represent the Cover Header',
 };
 
 const coverBodyDocs = {
-  size: '[Optional] - Container size -  [ small | medium | large ] - defaults to a small sized cover body',
+  size: 'Container size -  [ small | medium | large ] - defaults to a small sized cover body',
   contentMiddle: 'Vertically center content within cover',
 };
 

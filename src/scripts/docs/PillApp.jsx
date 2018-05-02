@@ -6,13 +6,13 @@ import { Pill, UtilityInlineGrid } from '../components';
 import pillExample from './examples/Pill.example.txt';
 
 const pillDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  disabled: '[Optional] - Pill is disabled',
-  icon: '[Optional] - Attaches an Icon to the Pill',
-  hideClose: '[Optional] - Whether to show close icon',
+  className: 'Include additional class name(s)',
+  disabled: 'Pill is disabled',
+  icon: 'Attaches an Icon to the Pill',
+  hideClose: 'Whether to show close icon',
   onClick: '[Required] - Include click function for Pill',
   label: '[Required] - Include label for Pill',
-  type: '[Optional] - Pill type, as a string - [default, primary]',
+  type: 'Pill type, as a string - [default, primary]',
 };
 const exampleScope  = {
   React,
