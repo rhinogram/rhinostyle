@@ -1,4 +1,3 @@
-import Playground from 'component-playground';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

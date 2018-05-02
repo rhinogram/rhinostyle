@@ -1,5 +1,5 @@
 <CoverFooter>
   <UtilityInlineGrid align="right">
-    <Button type="default" onClick={this.closeCover}>Close</Button><Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
+    <Button type="default" onClick={this.closeCover}>Close</Button><Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
   </UtilityInlineGrid>
 </CoverFooter>

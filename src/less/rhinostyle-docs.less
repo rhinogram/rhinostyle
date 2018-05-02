@@ -64,6 +64,7 @@ body {
   overflow: hidden;
   padding: @global-whitespace-base;
   position: relative;
+  min-height: ~'calc(100vh - @{global-header-height})';
 
   @media (min-width: @global-screen-large-min) {
     padding: @global-whitespace-large;
