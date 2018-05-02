@@ -6,7 +6,9 @@ import { Live } from './components';
 import BucketExample from './examples/Bucket.example.txt';
 import BucketHeaderExample from './examples/BucketHeader.example.txt';
 
-const BucketDocs = {};
+const BucketDocs = {
+  type: "<code>oneOf(['default'])</code>", // eslint-disable-line single-quotes
+};
 const BucketScope  = {
   React,
   ReactDOM,
@@ -17,12 +19,7 @@ const BucketScope  = {
   Table,
 };
 
-const BucketHeaderDocs = {
-  className: 'Include additional class name(s)',
-  icon: 'Icon name',
-  iconClassName: 'Include additional class name(s) for icon',
-  title: 'Include tile for header',
-};
+const BucketHeaderDocs = {};
 const BucketHeaderScope  = {
   React,
   ReactDOM,

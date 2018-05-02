@@ -10,8 +10,8 @@ const pillDocs = {
   disabled: 'Pill is disabled',
   icon: 'Attaches an Icon to the Pill',
   hideClose: 'Whether to show close icon',
-  onClick: '[Required] - Include click function for Pill',
-  label: '[Required] - Include label for Pill',
+  onClick: 'Include click function for Pill',
+  label: 'Include label for Pill',
   type: 'Pill type, as a string - [default, primary]',
 };
 const exampleScope  = {

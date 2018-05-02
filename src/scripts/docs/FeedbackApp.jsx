@@ -10,7 +10,7 @@ import systemAlertExample from './examples/SystemAlert.example.txt';
 const alertDocs = {
   className: 'Include additional class name(s)',
   onDismiss: 'Include dismiss function',
-  title: '[Required] - Alert title text',
+  title: 'Alert title text',
   titleIcon: 'Alert title icon',
   type: 'Alert type, as a string -  [danger | default | info | success ]',
 };
@@ -24,10 +24,10 @@ const alertScope = {
 };
 
 const toastDocs = {
-  body: '[Required] - Toast body text',
+  body: 'Toast body text',
   className: 'Include additional class name(s)',
   icon: 'Include icon name',
-  onDismiss: '[Required] - Include dismiss function',
+  onDismiss: 'Include dismiss function',
   type: 'Toast type, as a string -  [danger | default | success]',
 };
 const toastScope = {
@@ -38,10 +38,10 @@ const toastScope = {
 };
 
 const systemAlertDocs = {
-  body: '[Required] - SystemAlert body text',
+  body: 'SystemAlert body text',
   className: 'Include additional class name(s)',
   icon: 'Include icon name',
-  onDismiss: '[Required] - Include dismiss function',
+  onDismiss: 'Include dismiss function',
   type: 'SystemAlert type, as a string -  [danger | default | info | success]',
   url: 'SystemAlert url, as a string',
   urlText: 'SystemAlert urlText, as a string - defaults to "More Information"',

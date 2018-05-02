@@ -17,7 +17,7 @@ const Close = (props) => {
 
 Close.propTypes = {
   className: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Close;

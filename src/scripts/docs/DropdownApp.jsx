@@ -1,72 +1,58 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Button, Close, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
-import dropdownExample from './examples/Dropdown.example.txt';
-import dropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
-import dropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
-import dropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
-import dropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
+import { Live } from './components';
+import DropdownExample from './examples/Dropdown.example.txt';
+import DropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
+import DropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
+import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
+import DropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
 
-const dropdownDocs = {
+const DropdownDocs = {
   activeKey: 'The id of the currently selected DropdownMenuItem',
-  block: 'Block level dropdown',
-  className: 'Include additional class name(s)',
+  block: 'Block level',
   disableScroll: 'Disabled default dropdown menu scrolling. Does not apply when filter is used.',
   hideCaret: 'Hide Dropdown caret',
-  icon: 'Name of icon',
   label: 'Text in dropdown when closed',
   lockLabel: 'Do not change label text when selecting item',
-  position: ' Position of Dropdown - [right | top | top-right]',
-  size: 'Size of Dropdown - [small | large]',
+  position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
+  size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   onSelect: 'Callback when a DropdownMenuItem is selected',
-  type: 'Type of Dropdown -  [default | primary | secondary | accent | input | outline-primary | outline-reversed | link | link-muted]',
-  wide: 'Sets a min-width on dropdown menu to ensure a great width',
-  manualClose: 'Disables the default action of closing on an outside click. <Close /> must appear in <DropdownMenuItemWild /> component to close. Refer to example below.',
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes
+  wide: 'Sets a min-width on dropdown menu',
+  manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.',
 };
 
-const dropdownMultiSelectDocs = {
+const DropdownMultiSelectDocs = {
   activeKey: 'The id of the currently selected DropdownMenuItem',
-  block: 'Block level dropdown',
-  className: 'Include additional class name(s)',
-  disabled: 'Disabled state',
-  explanationMessage: 'Explanation message to help user',
-  icon: 'Name of icon',
+  block: 'Block level',
   label: 'Text in dropdown when closed',
-  position: ' Position of Dropdown - [right | top | top-right]',
-  size: 'Size of Dropdown - [small | large]',
+  position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
+  size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   onSelect: 'Callback when a DropdownMenuItem is selected',
   placeholder: 'Any placeholder text you want in the dropdown',
-  validationMessage: 'Validation message for errors',
-  wide: 'Sets a min-width on dropdown menu to ensure a great width',
+  wide: 'Sets a min-width on dropdown menu',
 };
 
-const dropdownMenuHeaderDocs = {
+const DropdownMenuHeaderDocs = {
   className: 'Include additional class name(s)',
-  label: '[Required] - Label for header',
 };
 
-const dropdownMenuItemDocs = {
-  active: 'Active state',
+const DropdownMenuItemDocs = {
   avatar: 'Path to avatar image',
   blankWindow: 'Open URL in blank browser window',
-  className: 'Include additional class name(s)',
-  disabled: 'Disabled state',
-  icon: 'Name of icon',
   id: 'Identifies the selected item in Dropdown when you want to use as a Dropdown Select',
   label: 'Label for item',
   labelDesc: 'Description for label',
-  onClick: 'Click function',
-  route: 'React-router route to use for item',
-  url: 'URL for item',
+  route: '<code>react-router</code> route',
 };
 
-const dropdownMenuItemWildDocs = {
+const DropdownMenuItemWildDocs = {
   toggleDropdown: 'Clicking will close the dropdown',
 };
 
-const exampleScope  = {
+const DropdownScope  = {
   React,
   ReactDOM,
   Button,
@@ -84,7 +70,7 @@ const exampleScope  = {
 };
 
 const DropdownApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Dropdowns</h3>
       <p className="site-text-lead">We have two main dropdown components: <span className="u-text-accent">Dropdown</span> and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
@@ -307,7 +293,13 @@ const DropdownApp = () => (
       <h3 className="site-subheadline">Dropdown</h3>
       <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button&apos;s text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
       <p className="site-copy">Use <code>type=&quot;input&quot;</code> if you want dropdown to appear like a form input.</p>
-      <Playground theme="default" docClass={Dropdown} propDescriptionMap={dropdownDocs} codeText={dropdownExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={DropdownExample}
+        scope={DropdownScope}
+        component={Dropdown}
+        propDescriptions={DropdownDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -316,24 +308,47 @@ const DropdownApp = () => (
         This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as &quot;pills&quot; below the dropdown.
       </p>
 
-      <Playground theme="default" docClass={DropdownMultiSelect} propDescriptionMap={dropdownMultiSelectDocs} codeText={dropdownMultiSelectExample} scope={exampleScope} noRender={false} />
+      <Live
+        code={DropdownMultiSelectExample}
+        scope={DropdownScope}
+        component={DropdownMultiSelect}
+        propDescriptions={DropdownMultiSelectDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuHeader</h3>
-      <Playground theme="default" docClass={DropdownMenuHeader} propDescriptionMap={dropdownMenuHeaderDocs} codeText={dropdownMenuHeaderExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={DropdownMenuHeaderExample}
+        scope={DropdownScope}
+        component={DropdownMenuHeader}
+        propDescriptions={DropdownMenuHeaderDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuItem</h3>
-      <Playground theme="default" docClass={DropdownMenuItem} propDescriptionMap={dropdownMenuItemDocs} codeText={dropdownMenuItemExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={DropdownMenuItemExample}
+        scope={DropdownScope}
+        component={DropdownMenuItem}
+        propDescriptions={DropdownMenuItemDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">DropdownMenuItemWild</h3>
-      <Playground theme="default" docClass={DropdownMenuItemWild} propDescriptionMap={dropdownMenuItemWildDocs} codeText={dropdownMenuItemWildExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={DropdownMenuItemWildExample}
+        scope={DropdownScope}
+        component={DropdownMenuItemWild}
+        propDescriptions={DropdownMenuItemWildDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<DropdownApp />, document.getElementById('js-app'));

@@ -1,15 +1,13 @@
-import Playground from 'component-playground';
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
 
 import { Date, Label } from '../components';
-import dateExample from './examples/Date.example.txt';
+import { Live } from './components';
+import DateExample from './examples/Date.example.txt';
 
-const dateDocs = {
-  className: 'Include additional class name(s)',
-};
-const exampleScope  = {
+const DateDocs = {};
+const DateScope  = {
   React,
   ReactDOM,
   Date,
@@ -28,7 +26,7 @@ class DateApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <section className="site-section">
           <h3 className="site-subheadline">DatePicker <Label className="u-m-l-small" type="accent" label="third party" /></h3>
           <p className="site-copy">We are using <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank" rel="noopener noreferrer">react-datepicker</a> with custom styling. We have wrapped it within our own to provide sensible defaults for our application. Refer to that repos documentation about everything else available, but be aware we only include a subset of styles to meet our needs, instead of including and overriding the entire stylesheet provided.</p>
@@ -49,9 +47,15 @@ class DateApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">Playground</h3>
-          <Playground theme="default" docClass={Date} propDescriptionMap={dateDocs} codeText={dateExample} scope={exampleScope} noRender={false} />
+
+          <Live
+            code={DateExample}
+            scope={DateScope}
+            component={Date}
+            propDescriptions={DateDocs}
+          />
         </section>
-      </div>
+      </Fragment>
     );
   }
 }
