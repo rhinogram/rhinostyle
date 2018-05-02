@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Label, UtilityInlineGrid } from '../components';
 import { Live } from './components';
