@@ -1,6 +1,6 @@
 <CoverBody>
-  <div className="form">
+  <form className="form">
     <Input name="firstName" label="First Name" initialValue="First Name" validationMessage="" required />
     <Input name="lastName" label="Last Name" initialValue="" validationMessage="LastName is required!" required />
-  </div>
+  </form>
 </CoverBody>

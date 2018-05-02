@@ -3,29 +3,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
-import coverBodyExample from './examples/CoverBody.example.txt';
-import coverExample from './examples/Cover.example.txt';
-import coverFooterExample from './examples/CoverFooter.example.txt';
-import coverHeaderExample from './examples/CoverHeader.example.txt';
+import { Live } from './components';
+import CoverBodyExample from './examples/CoverBody.example.txt';
+import CoverExample from './examples/Cover.example.txt';
+import CoverFooterExample from './examples/CoverFooter.example.txt';
+import CoverHeaderExample from './examples/CoverHeader.example.txt';
 
-const coverDocs = {
-  subtreeContainer: 'DOM element the modal should be appended to when rendered. You probably will never change this',
-  className: 'Additional class to add to cover div',
+const CoverDocs = {};
+const CoverHeaderDocs = {
+  icon: 'Attaches Icon to the header',
+  iconClassName: 'Adds class to the header Icon',
 };
-
-const coverHeaderDocs = {
-  icon: 'Attaches an Icon to the Cover Header',
-  iconClassName: 'Adds a class to the Cover Header icon',
-  onClose: 'Callback function to execute in addition to closing the cover',
-  title: 'Cover Title -  String to represent the Cover Header',
+const CoverBodyDocs = {
+  size: "<code>oneOf(['small', 'medium', 'large'])</code>", // eslint-disable-line single-quotes
+  contentMiddle: 'Vertically center content within Cover',
 };
+const CoverFooterDocs = {};
 
-const coverBodyDocs = {
-  size: 'Container size -  [ small | medium | large ] - defaults to a small sized cover body',
-  contentMiddle: 'Vertically center content within cover',
-};
-
-const exampleScope  = {
+const CoverScope  = {
   React,
   ReactDOM,
   Button,
@@ -43,23 +38,47 @@ const CoverApp = () => (
   <div>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
-      <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-bootstrap/react-overlays">react-overlays</a></p>
-      <Playground theme="default" docClass={Cover} propDescriptionMap={coverDocs} codeText={coverExample} scope={exampleScope} noRender={false} />
+      <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application to retiain proper styling.</p>
+
+      <Live
+        code={CoverExample}
+        scope={CoverScope}
+        component={Cover}
+        propDescriptions={CoverDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">CoverHeader</h3>
-      <Playground theme="default" docClass={CoverHeader} propDescriptionMap={coverHeaderDocs} codeText={coverHeaderExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={CoverHeaderExample}
+        scope={CoverScope}
+        component={CoverHeader}
+        propDescriptions={CoverHeaderDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">CoverBody</h3>
-      <Playground theme="default" docClass={CoverBody} propDescriptionMap={coverBodyDocs} codeText={coverBodyExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={CoverBodyExample}
+        scope={CoverScope}
+        component={CoverBody}
+        propDescriptions={CoverBodyDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">CoverFooter</h3>
-      <Playground theme="default" docClass={CoverFooter} codeText={coverFooterExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={CoverFooterExample}
+        scope={CoverScope}
+        component={CoverFooter}
+        propDescriptions={CoverFooterDocs}
+      />
     </section>
   </div>
 );
