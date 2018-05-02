@@ -1,18 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
 
 import { Label, UtilityInlineGrid } from '../components';
-import labelExample from './examples/Label.example.txt';
+import { Live } from './components';
+import LabelExample from './examples/Label.example.txt';
 
-const labelDocs = {
-  className: 'Include additional class name(s)',
-  icon: 'Icon name',
-  iconBump: 'Icon bump [down | up] - used to move icon up or down slightly for precise positioning',
-  label: 'Label text',
-  type: 'Label type -  [default | primary | secondary | accent]',
+const LabelDocs = {
+  iconBump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope  = {
+const LabelScope  = {
   React,
   ReactDOM,
   Label,
@@ -20,7 +18,7 @@ const exampleScope  = {
 };
 
 const LabelApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Label Types</h3>
       <div className="u-m-b">
@@ -52,10 +50,16 @@ const LabelApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Label} propDescriptionMap={labelDocs} codeText={labelExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={LabelExample}
+        scope={LabelScope}
+        component={Label}
+        propDescriptions={LabelDocs}
+      />
     </section>
 
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<LabelApp />, document.getElementById('js-app'));

@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Icon, UtilityInlineGrid } from '../components';
-import iconExample from './examples/Icon.example.txt';
+import { Live } from './components';
+import IconExample from './examples/Icon.example.txt';
 
-const iconDocs = {
-  bump: 'Bump [down | up] - used to move icon up or down slightly for precise positioning',
-  className: 'Include additional class name(s)',
-  icon: 'Icon name',
+const IconDocs = {
+  bump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope  = {
+const IconScope  = {
   React,
   ReactDOM,
   Icon,
@@ -91,7 +89,13 @@ const IconApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={IconExample}
+        scope={IconScope}
+        component={Icon}
+        propDescriptions={IconDocs}
+      />
     </section>
   </div>
 );
