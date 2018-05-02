@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Bucket, BucketBody, BucketHeader, Icon, Table } from '../components';
+import { Live } from './components';
 import bucketExample from './examples/Bucket.example.txt';
 import bucketHeaderExample from './examples/BucketHeader.example.txt';
 
-const bucketDocs = {
-  className: '[Optional] - Include additional class name(s)',
-};
+const bucketDocs = {};
 const bucketScope  = {
   React,
   ReactDOM,
@@ -20,10 +18,10 @@ const bucketScope  = {
 };
 
 const bucketHeaderDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Icon name',
-  iconClassName: '[Optional] - Include additional class name(s) for icon',
-  title: '[Optional] - Include tile for header',
+  className: 'Include additional class name(s)',
+  icon: 'Icon name',
+  iconClassName: 'Include additional class name(s) for icon',
+  title: 'Include tile for header',
 };
 const bucketHeaderScope  = {
   React,
@@ -49,12 +47,22 @@ const BucketApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Playground</h3>
-      <Playground theme="default" docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
+      <Live
+        code={bucketExample}
+        scope={bucketScope}
+        component={Bucket}
+        propDescriptions={bucketDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Header Playground</h3>
-      <Playground theme="default" docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
+      <Live
+        code={bucketHeaderExample}
+        scope={bucketHeaderScope}
+        component={BucketHeader}
+        propDescriptions={bucketHeaderDocs}
+      />
     </section>
   </div>
 );

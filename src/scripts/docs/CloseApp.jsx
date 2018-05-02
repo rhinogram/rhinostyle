@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Close } from '../components';
+import { Live } from './components';
 import closeExample from './examples/Close.example.txt';
 
 const closeDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  onClick: '[Required] - Include click function for Close',
+  onClick: 'Click function for Close',
 };
-const exampleScope  = {
+const closeScope  = {
   React,
   ReactDOM,
   Close,
@@ -24,7 +23,13 @@ const CloseApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Close} propDescriptionMap={closeDocs} codeText={closeExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={closeExample}
+        scope={closeScope}
+        component={Close}
+        propDescriptions={closeDocs}
+      />
     </section>
   </div>
 );

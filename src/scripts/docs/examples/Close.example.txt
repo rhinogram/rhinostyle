@@ -1,11 +1,7 @@
 class ComponentExample extends React.Component {
   render() {
     return (
-      <div>
-        <Close />
-      </div>
+      <Close onClick={() => alert('Clicked!')} />
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

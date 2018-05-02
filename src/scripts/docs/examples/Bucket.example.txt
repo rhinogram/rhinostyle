@@ -76,5 +76,3 @@ class ComponentExample extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);
