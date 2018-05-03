@@ -64,7 +64,7 @@ class ComponentExample extends React.Component {
     const errorList = this.state.errors || {};
 
     return (
-      <div>
+      <Fragment>
         <Button type="primary" onClick={this.onClick}>Launch Modal</Button>
 
         <Modal onReverseComplete={this.resetSet} open={this.state.open}>
@@ -82,7 +82,7 @@ class ComponentExample extends React.Component {
             </UtilityInlineGrid>
           </ModalFooter>
         </Modal>
-      </div>
+      </Fragment>
     );
   }
 }

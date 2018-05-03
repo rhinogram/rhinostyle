@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
@@ -34,7 +34,7 @@ const CoverScope  = {
 };
 
 const CoverApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
       <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application to retiain proper styling.</p>
@@ -79,7 +79,7 @@ const CoverApp = () => (
         propDescriptions={CoverFooterDocs}
       />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<CoverApp />, document.getElementById('js-app'));

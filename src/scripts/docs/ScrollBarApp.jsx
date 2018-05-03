@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Label, Scrollbars } from '../components';
 import { Live } from './components';
-import ScrollbarExample from './examples/Scrollbar.example.txt';
+import ScrollbarExample from './examples/ScrollBar.example.txt';
 
 const ScrollbarDocs = {};
 const ScrollbarScope  = {

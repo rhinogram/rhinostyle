@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Avatar, Icon, UtilityInlineGrid } from '../components';
@@ -20,7 +20,7 @@ const AvatarScope  = {
 };
 
 const AvatarApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Avatar Types</h3>
       <div className="u-m-b-large">
@@ -83,7 +83,7 @@ const AvatarApp = () => (
         propDescriptions={AvatarDocs}
       />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<AvatarApp />, document.getElementById('js-app'));
