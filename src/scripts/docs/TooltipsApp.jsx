@@ -1,37 +1,42 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Icon, Tooltip, UtilityInlineGrid } from '../components';
-import tooltipsExample from './examples/Tooltips.example.txt';
+import { Live } from './components';
+import TooltipsExample from './examples/Tooltips.example.txt';
 
-const exampleScope  = {
+const TooltipsScope  = {
   React,
   ReactDOM,
   Icon,
   Tooltip,
   UtilityInlineGrid,
 };
-
-const tooltipDocs = {
+const TooltipsDocs = {
   children: 'Only accepts one child',
-  placement: 'Position of tooltip - [top | right | bottom | left]',
+  placement: "Position of tooltip  <code>oneOf(['top', 'right', 'bottom', 'left'])</code>", // eslint-disable-line single-quotes
   content: 'Content of tooltip. May contain HTML or other components',
   delay: 'Delay showing the tooltip onmouseenter. Can be either the prop itself (defaults 1000 milliseconds) or you can pass in a value',
 };
 
 const TooltipsApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
-      <h3 className="site-subheadline">About Tooltips</h3>
+      <h3 className="site-subheadline">Tooltips</h3>
       <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on <code>mouseenter</code> and <code>mouseleave</code> of the trigger. The component interaction is disabled on touch devices due to a lack of hover state.</p>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Tooltips Playground</h3>
-      <Playground theme="default" docClass={Tooltip} propDescriptionMap={tooltipDocs} codeText={tooltipsExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={TooltipsExample}
+        scope={TooltipsScope}
+        component={Tooltip}
+        propDescriptions={TooltipsDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<TooltipsApp />, document.getElementById('js-app'));

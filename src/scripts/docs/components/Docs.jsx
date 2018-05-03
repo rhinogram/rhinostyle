@@ -72,7 +72,7 @@ const Docs = (props) => {
       propName,
       type: getReactPropType(component.propTypes[propName]),
       description: ReactHtmlParser(propDescriptions[propName]) || '',
-      default: component.defaultProps && component.defaultProps[propName] && component.defaultProps[propName].toString(),
+      default: (component.defaultProps && component.defaultProps[propName]) && (typeof component.defaultProps[propName] !== 'function' ? component.defaultProps[propName].toString() : null),
     }));
 
   return (
@@ -95,7 +95,7 @@ const Docs = (props) => {
               <code>{propObj.type.name}</code>
             </td>
             <td>{propObj.description}</td>
-            <td>{propObj.default && <code>{propObj.default}</code>}</td>
+            <td>{propObj.default ? <code>{propObj.default}</code> : ''}</td>
           </tr>
         ))}
       </tbody>
