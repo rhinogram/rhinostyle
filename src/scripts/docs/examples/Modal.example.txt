@@ -1,12 +1,10 @@
 class ComponentExample extends React.Component {
-  static initialState = {
+  state = {
     firstName: '',
     lastName: '',
     errors: {},
     open: false,
   };
-
-  state = ComponentExample.initialState;
 
   onClick = () => {
     this.setState({
@@ -32,7 +30,12 @@ class ComponentExample extends React.Component {
    * @return {func}
    */
   resetSet = () => {
-    this.setState(ComponentExample.initialState);
+    this.setState({
+      firstName: '',
+      lastName: '',
+      errors: {},
+      open: false,
+    });
   }
 
   saveChanges = () => {

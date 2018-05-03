@@ -1402,10 +1402,6 @@ babel-runtime@^6.26.0:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
-babel-standalone@^6.26.0:
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-standalone/-/babel-standalone-6.26.0.tgz#15fb3d35f2c456695815ebf1ed96fe7f015b6886"
-
 babel-template@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-template/-/babel-template-6.24.1.tgz#04ae514f1f93b3a2537f2a0f60a5a45fb8308333"
@@ -2312,10 +2308,6 @@ codecov@^3.0.0:
     request "2.81.0"
     urlgrey "0.4.4"
 
-codemirror@^5.30.0:
-  version "5.31.0"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.31.0.tgz#ecf3d057eb74174147066bfc7c5f37b4c4e07df2"
-
 collapse-white-space@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.3.tgz#4b906f670e5a963a87b76b0e1689643341b6023c"
@@ -2418,15 +2410,6 @@ component-emitter@1.2.1, component-emitter@^1.2.1:
 component-inherit@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/component-inherit/-/component-inherit-0.0.3.tgz#645fc4adf58b72b649d5cae65135619db26ff143"
-
-component-playground@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/component-playground/-/component-playground-3.1.2.tgz#6fd11c7c4128b5421fbed5e91dd4d54865d858fe"
-  dependencies:
-    babel-standalone "^6.26.0"
-    codemirror "^5.30.0"
-    prop-types "^15.6.0"
-    react-codemirror2 "^2.0.2"
 
 component-props@1.1.1:
   version "1.1.1"
@@ -8351,10 +8334,6 @@ rc@^1.1.2, rc@~1.1.6:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
-
-react-codemirror2@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-2.0.2.tgz#68b2ae8923174a2b3d8b6fe905d0fd3c91d97d97"
 
 react-container-query@0.11.0:
   version "0.11.0"

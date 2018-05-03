@@ -1,23 +1,22 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { MessageBox, Button, Checkbox, CheckboxGroup, Icon, Input, Radio, RadioGroup, RhinoSwitch, Select, Textarea, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
-import inputExample from './examples/Input.example.txt';
-import selectExample from './examples/Select.example.txt';
-import textareaExample from './examples/Textarea.example.txt';
-import messageBoxExample from './examples/MessageBox.example.txt';
-import checkboxExample from './examples/Checkbox.example.txt';
-import radioExample from './examples/Radio.example.txt';
-import switchExample from './examples/RhinoSwitch.example.txt';
+import { Live } from './components';
+import InputExample from './examples/Input.example.txt';
+import SelectExample from './examples/Select.example.txt';
+import TextareaExample from './examples/Textarea.example.txt';
+import MessageBoxExample from './examples/MessageBox.example.txt';
+import CheckboxExample from './examples/Checkbox.example.txt';
+import RadioExample from './examples/Radio.example.txt';
+import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
-const inputDocs  = {
-  addon: 'Display an add-on on the input, as a string - [left | right | both]',
-  autoCapitalize: 'Adjust the capitalization settings of an input - [none | sentences | words | characters]',
-  autoComplete: 'Adjust the completion settings on an input - [off | on]',
+const InputDocs  = {
+  addon: "Display an add-on on the input, as a string <code>oneOf(['left', 'right', 'both'])</code>", // eslint-disable-line single-quotes
+  autoCapitalize: "Adjust the capitalization settings of an input <code>oneOf(['none', 'sentences', 'words', 'characters'])</code>", // eslint-disable-line single-quotes
+  autoComplete: "Adjust the completion settings on an input <code>oneOf(['off', 'on'])</code>", // eslint-disable-line single-quotes
   clear: 'Form control gets a clear value button',
   disabled: 'Disable the input',
-  explanationMessage: 'Explanation message to help user',
   format: 'Accepts object with custom formatting/mask operations',
   initialValue: 'Any initial value for the input',
   label: 'A label for the input',
@@ -27,17 +26,16 @@ const inputDocs  = {
   placeholder: 'Any placeholder text you want in the input',
   required: 'Field is required and asterisk is added to label',
   size: 'Impacts size of input - [large]',
-  type: 'As a string, what type of input you are creating - [email | password | number | search | tel] - defaults to text',
-  validationMessage: 'Validation message for errors',
+  type: "As a string, what type of input you are creating - <code>oneOf(['email', 'password', 'number', 'search', 'tel'])</code>", // eslint-disable-line single-quotes
 };
-const inputScope = {
+const InputScope = {
   React,
   ReactDOM,
   Icon,
   Input,
 };
 
-const selectDocs  = {
+const SelectDocs  = {
   label: 'A label for the select',
   name: 'An id for the label and the select, use if you want clicking the label to activate the select',
   options: 'Array of objects that contain the values and text for the options, with an optional selected key, { id: number|string, value: string }',
@@ -46,7 +44,7 @@ const selectDocs  = {
   onSelect: 'Function that returns the name of the Select and the value that was selected',
   selected: 'String that pre-selects an option',
 };
-const selectScope = {
+const SelectScope = {
   React,
   ReactDOM,
   Select,
@@ -59,9 +57,8 @@ const selectOpts = [
   { id: 4, value: 'Option Four' },
 ];
 
-const textareaDocs  = {
+const TextareaDocs  = {
   abbrMaxCharacters: 'Abbreviated max character count - only the count is displayed',
-  explanationMessage: 'Explanation message to help user',
   initialValue: 'Any initial value for the textarea',
   label: 'A label for the textarea',
   maxCharacters: 'Set a maximum character limit in order to display character count',
@@ -70,16 +67,14 @@ const textareaDocs  = {
   disabled: 'Disable the textarea',
   onChange: 'A callback function that is executed when the textarea value changes',
   placeholder: 'Any placeholder text you want in the textarea',
-  required: 'Field is required and asterisk is added to label',
-  validationMessage: 'Validation message for errors',
 };
-const textareaScope = {
+const TextareaScope = {
   React,
   ReactDOM,
   Textarea,
 };
 
-const messageBoxDocs  = {
+const MessageBoxDocs  = {
   label: 'A label for the textarea',
   disabled: 'Disable the textarea',
   naked: 'Form control is stripped down in appearance',
@@ -87,24 +82,22 @@ const messageBoxDocs  = {
   placeholder: 'Any placeholder text you want in the textarea',
   initialValue: 'Any initial value for the textarea',
   maxHeight: 'Controls the max-height (default: 20rem)',
-  required: 'Field is required and asterisk is added to label',
 };
-const messageBoxScope = {
+const MessageBoxScope = {
   React,
   ReactDOM,
   MessageBox,
 };
 
-const checkboxDocs  = {
+const CheckboxDocs  = {
   isChecked: 'Set initial checked state',
   disabled: 'Disable the checkbox',
   name: 'An id, and label for the checkbox',
   onClick: 'A function you want to trigger when the checkbox is toggled',
   onChange: 'A function that returns the name and value of the checkbox',
-  children: '(Currently) only for use when <CheckboxGroup /> has blockGroup prop; shows content based on select state of option',
+  children: '(Currently) only for use when <code>&lt;CheckboxGroup /&gt;</code> has blockGroup prop; shows content based on select state of option',
 };
-const checkboxScope = {
-  Fragment,
+const CheckboxScope = {
   React,
   ReactDOM,
   Checkbox,
@@ -114,18 +107,17 @@ const checkboxScope = {
   UtilityListItem,
 };
 
-const radioDocs  = {
+const RadioDocs  = {
   label: 'Text visible to user next to radio button',
   disabled: 'Disable the radio button',
-  name: 'A name attribute for the radio. Automatically passed down from <RadioGroup />',
+  name: 'A name attribute for the radio. Automatically passed down from <code>&lt;RadioGroup /&gt;</code>',
   inline: 'Wrap radio button group in <code>&lt;UtilityInlineGrid&gt;</code> component',
   onChange: 'A function you which to trigger when you change the selection',
   selectedValue: 'The radio you want selected, when used in a group',
   value: 'A value for the radio',
-  children: '(Currently) only for use when <RadioGroup /> has blockGroup prop; shows content based on select state of option',
+  children: '(Currently) only for use when <code>&lt;RadioGroup /&gt;</code> has blockGroup prop; shows content based on select state of option',
 };
-const radioScope = {
-  Fragment,
+const RadioScope = {
   React,
   ReactDOM,
   RadioGroup,
@@ -134,8 +126,7 @@ const radioScope = {
   UtilityListItem,
 };
 
-const switchDocs  = {
-  className: 'Any class name you would like to add to the switch',
+const RhinoSwitchDocs  = {
   disabled: 'Disable the switch',
   isChecked: 'Set initial on/off state',
   label: 'A label for the switch',
@@ -143,14 +134,14 @@ const switchDocs  = {
   onChange: 'A function that returns the name and value of the switch',
   onClick: 'A function that returns the value of the switch',
 };
-const switchScope = {
+const RhinoSwitchScope = {
   React,
   ReactDOM,
   RhinoSwitch,
 };
 
 const FormApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Forms</h3>
       <p className="site-text-lead">Forms are assembled using our suite of custom form components. It is important to understand that form components have a <code>form__control</code> class for consistent appearance. Form components are also wrapped in a <code>form__group</code> class which provides vertical spacing. Finally, you may use the <code>form__section</code> class to provide vertical spacing between sections of a form.</p>
@@ -244,7 +235,13 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Input Playground</h3>
-      <Playground theme="default" docClass={Input} propDescriptionMap={inputDocs} codeText={inputExample} scope={inputScope} noRender={false} />
+
+      <Live
+        code={InputExample}
+        scope={InputScope}
+        component={Input}
+        propDescriptions={InputDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -254,7 +251,13 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Text Area Playground</h3>
-      <Playground theme="default" docClass={Textarea} propDescriptionMap={textareaDocs} codeText={textareaExample} scope={textareaScope} noRender={false} />
+
+      <Live
+        code={TextareaExample}
+        scope={TextareaScope}
+        component={Textarea}
+        propDescriptions={TextareaDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -265,7 +268,13 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Box Playground</h3>
-      <Playground theme="default" docClass={MessageBox} propDescriptionMap={messageBoxDocs} codeText={messageBoxExample} scope={messageBoxScope} noRender={false} />
+
+      <Live
+        code={MessageBoxExample}
+        scope={MessageBoxScope}
+        component={MessageBox}
+        propDescriptions={MessageBoxDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -329,7 +338,13 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox Playground</h3>
-      <Playground theme="default" docClass={Checkbox} propDescriptionMap={checkboxDocs} codeText={checkboxExample} scope={checkboxScope} noRender={false} />
+
+      <Live
+        code={CheckboxExample}
+        scope={CheckboxScope}
+        component={Checkbox}
+        propDescriptions={CheckboxDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -392,7 +407,13 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Radio Playground</h3>
-      <Playground theme="default" docClass={Radio} propDescriptionMap={radioDocs} codeText={radioExample} scope={radioScope} noRender={false} />
+
+      <Live
+        code={RadioExample}
+        scope={RadioScope}
+        component={Radio}
+        propDescriptions={RadioDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -406,7 +427,13 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Select Playground</h3>
-      <Playground theme="default" docClass={Select} propDescriptionMap={selectDocs} codeText={selectExample} scope={selectScope} noRender={false} />
+
+      <Live
+        code={SelectExample}
+        scope={SelectScope}
+        component={Select}
+        propDescriptions={SelectDocs}
+      />
     </section>
 
     <section className="site-section">
@@ -421,9 +448,15 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Switcher Playground</h3>
-      <Playground theme="default" docClass={RhinoSwitch} propDescriptionMap={switchDocs} codeText={switchExample} scope={switchScope} noRender={false} />
+
+      <Live
+        code={RhinoSwitchExample}
+        scope={RhinoSwitchScope}
+        component={RhinoSwitch}
+        propDescriptions={RhinoSwitchDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<FormApp />, document.getElementById('js-app'));

@@ -30,7 +30,6 @@
     "babel-preset-stage-0": "6.24.1",
     "babel-register": "6.26.0",
     "browser-sync": "2.24.1",
-    "component-playground": "3.1.2",
     "cssnano": "3.10.0",
     "del": "3.0.0",
     "eslint-config-rhinogram": "0.0.10",
