@@ -29,7 +29,7 @@
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "babel-register": "6.26.0",
-    "browser-sync": "2.24.1",
+    "browser-sync": "2.24.3",
     "cssnano": "3.10.0",
     "del": "3.0.0",
     "eslint-config-rhinogram": "0.0.10",
@@ -63,7 +63,7 @@
     "stylelint": "9.2.0",
     "stylelint-config-standard": "18.2.0",
     "webpack": "3.11.0",
-    "what-input": "5.0.5"
+    "what-input": "5.0.7"
   },
   "files": [
     "README.md",
