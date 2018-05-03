@@ -1,59 +1,77 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
-import { LoaderCircle, LoaderPulse } from '../components';
-import loaderCircleExample from './examples/LoaderCircle.example.txt';
-import loaderPulseExample from './examples/LoaderPulse.example.txt';
+import { LoaderCircle, LoaderPulse, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
+import { Live } from './components';
+import LoaderCircleExample from './examples/LoaderCircle.example.txt';
+import LoaderPulseExample from './examples/LoaderPulse.example.txt';
 
-const loaderCircleDocs = {
-  className: 'Include additional class name(s)',
+const LoaderCircleDocs = {
   pause: 'Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  size: 'LoaderCircle size -  [xsmall | small | large]',
+  size: "<code>oneOf(['xsmall', 'small', 'large'])</code>", // eslint-disable-line single-quotes
 };
-const loaderCircleScope = {
+const LoaderCircleScope = {
   React,
   ReactDOM,
   LoaderCircle,
+  UtilityInlineGrid,
 };
 
-const loaderPulseDocs = {
-  className: 'Include additional class name(s)',
+const LoaderPulseDocs = {
   pause: 'Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  type: 'LoaderPulse type -  [secondary | accent]',
+  type: "<code>oneOf(['default', 'accent', 'secondary'])</code>", // eslint-disable-line single-quotes
 };
-const loaderPulseScope = {
+const LoaderPulseScope = {
   React,
   ReactDOM,
   LoaderPulse,
 };
 
 const LoaderApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
       <p className="site-copy"><code>size=&quot;xsmall | small | large&quot;</code></p>
-      <LoaderCircle size="xsmall" /> <LoaderCircle size="small" /> <LoaderCircle /> <LoaderCircle size="large" />
+      <UtilityInlineGrid>
+        <LoaderCircle size="xsmall" />
+        <LoaderCircle size="small" />
+        <LoaderCircle />
+        <LoaderCircle size="large" />
+      </UtilityInlineGrid>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Playground</h3>
-      <Playground theme="default" docClass={LoaderCircle} propDescriptionMap={loaderCircleDocs} codeText={loaderCircleExample} scope={loaderCircleScope} noRender={false} />
+
+      <Live
+        code={LoaderCircleExample}
+        scope={LoaderCircleScope}
+        component={LoaderCircle}
+        propDescriptions={LoaderCircleDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Types</h3>
       <p className="site-copy"><code>type=&quot;default | secondary | accent&quot;</code></p>
-      <LoaderPulse /><br />
-      <LoaderPulse type="accent" /><br />
-      <LoaderPulse type="secondary" />
+      <UtilityList space>
+        <UtilityListItem><LoaderPulse /></UtilityListItem>
+        <UtilityListItem><LoaderPulse type="accent" /></UtilityListItem>
+        <UtilityListItem><LoaderPulse type="secondary" /></UtilityListItem>
+      </UtilityList>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Playground</h3>
-      <Playground theme="default" docClass={LoaderPulse} propDescriptionMap={loaderPulseDocs} codeText={loaderPulseExample} scope={loaderPulseScope} noRender={false} />
+
+      <Live
+        code={LoaderPulseExample}
+        scope={LoaderPulseScope}
+        component={LoaderPulse}
+        propDescriptions={LoaderPulseDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<LoaderApp />, document.getElementById('js-app'));

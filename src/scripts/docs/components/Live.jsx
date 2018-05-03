@@ -32,7 +32,7 @@ const Live = (props) => {
 };
 
 Live.propTypes = {
-  component: PropTypes.func.isRequired,
+  component: PropTypes.func,
   code: PropTypes.string.isRequired,
   scope: PropTypes.object.isRequired,
   propDescriptions: PropTypes.object,

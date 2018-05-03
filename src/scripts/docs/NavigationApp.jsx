@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { NavTabs, NavTabsItem } from '../components';
-import navTabsExample from './examples/NavTabs.example.txt';
+import { Live } from './components';
+import NavTabsExample from './examples/NavTabs.example.txt';
 
-const navTabsDocs = {
+const NavTabsDocs = {
   activeKey: 'Include active key',
-  className: 'Include additional class name(s)',
-  justified: 'Justified options -  [auto | equal | none]',
-  select: 'Include select function',
+  justified: "<code>oneOf(['auto', 'equal', 'none'])</code>", // eslint-disable-line single-quotes
+  onSelect: 'On select of nav item',
 };
-const exampleScope  = {
+const NavTabsScope  = {
   React,
   ReactDOM,
   NavTabs,
@@ -52,7 +51,7 @@ class NavigationApp extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <section className="site-section">
           <h3 className="site-subheadline">Navigation</h3>
           <p className="site-text-lead">Below you will find our set of navigation components. This page exists to demonstrate the UI of each - appearance, layout, animation, and active states.
@@ -109,9 +108,15 @@ class NavigationApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Playground</h3>
-          <Playground theme="default" docClass={NavTabs} propDescriptionMap={navTabsDocs} codeText={navTabsExample} scope={exampleScope} noRender={false} />
+
+          <Live
+            code={NavTabsExample}
+            scope={NavTabsScope}
+            component={NavTabs}
+            propDescriptions={NavTabsDocs}
+          />
         </section>
-      </div>
+      </Fragment>
     );
   }
 }

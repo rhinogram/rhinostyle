@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Icon, UtilityInlineGrid } from '../components';
@@ -69,7 +69,7 @@ const icons = [
 ];
 
 const IconApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">SVG Icons</h3>
 
@@ -97,7 +97,7 @@ const IconApp = () => (
         propDescriptions={IconDocs}
       />
     </section>
-  </div>
+  </Fragment>
 );
 
 ReactDOM.render(<IconApp />, document.getElementById('js-app'));

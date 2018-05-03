@@ -64,11 +64,15 @@ const Docs = (props) => {
   const propTypes = [];
   const { component, propDescriptions } = props;
 
+  // If no component was specified; ignore
+  if (!component) return null;
+
   Object.keys(component.propTypes).map(propName =>
     propTypes.push({
       propName,
       type: getReactPropType(component.propTypes[propName]),
       description: ReactHtmlParser(propDescriptions[propName]) || '',
+      default: component.defaultProps && component.defaultProps[propName] && component.defaultProps[propName].toString(),
     }));
 
   return (
@@ -78,18 +82,20 @@ const Docs = (props) => {
           <th>Prop</th>
           <th>Type</th>
           <th>Description</th>
+          <th>Default</th>
         </tr>
       </thead>
       <tbody>
         {propTypes.map(propObj => (
           <tr key={propObj.propName}>
             <td className="u-textNoBreak">
-              <span className="rdocs-cellLabel">{propObj.propName}</span> {propObj.type.isRequired && <Label type="danger" label="Required" />}
+              <code>{propObj.propName}</code> {propObj.type.isRequired && <Label type="danger" label="Required" />}
             </td>
             <td className="u-textNoBreak">
-              <span className="rdocs-cellLabel">{propObj.type.name}</span>
+              <code>{propObj.type.name}</code>
             </td>
             <td>{propObj.description}</td>
+            <td>{propObj.default && <code>{propObj.default}</code>}</td>
           </tr>
         ))}
       </tbody>
