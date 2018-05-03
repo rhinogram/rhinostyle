@@ -74,10 +74,6 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@babel/standalone@7.0.0-beta.44":
-  version "7.0.0-beta.44"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.0.0-beta.44.tgz#5fed09f5263c11f9f79cba3883a6c72af47e5788"
-
 "@babel/template@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.0.0-beta.44.tgz#f8832f4fdcee5d59bf515e595fc5106c529b394f"
