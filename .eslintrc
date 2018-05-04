@@ -1,3 +1,6 @@
 {
-  "extends": "rhinogram"
+  "extends": "rhinogram",
+  "globals": {
+    "Babel": true
+  }
 }

@@ -8,7 +8,6 @@ const vendor = [
   'react',
   'react-dom',
   'moment',
-  'component-playground',
 ];
 
 module.exports = {

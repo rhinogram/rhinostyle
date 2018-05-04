@@ -1,23 +1,14 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div className="u-p-b-large">
-        <UtilityInlineGrid>
-          <Tooltip content="Attached to another React component">
-            <Icon icon="info-circle" />
-          </Tooltip>
-          <Tooltip placement="right" content={<span>I have <strong>HTML!!!</strong> and an icon <Icon bump="up" icon="inbox" /></span>}>
-            <span>Right</span>
-          </Tooltip>
-          <Tooltip placement="bottom" content="Bottom">
-            <span>Bottom</span>
-          </Tooltip>
-          <Tooltip placement="left" delay content="I was delayed!">
-            <span>Left</span>
-          </Tooltip>
-        </UtilityInlineGrid>
-      </div>
-    );
-  }
-}
-ReactDOM.render(<ComponentExample />, mountNode);
+<UtilityInlineGrid>
+  <Tooltip content="Attached to another React component">
+    <Icon icon="info-circle" />
+  </Tooltip>
+  <Tooltip placement="right" content={<span>I have <strong>HTML!!!</strong> and an icon <Icon bump="up" icon="inbox" /></span>}>
+    <span>Right</span>
+  </Tooltip>
+  <Tooltip placement="bottom" content="Bottom">
+    <span>Bottom</span>
+  </Tooltip>
+  <Tooltip placement="left" delay content="I was delayed!">
+    <span>Left</span>
+  </Tooltip>
+</UtilityInlineGrid>

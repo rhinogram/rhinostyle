@@ -1,43 +1,35 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <DropdownMenuItem label="Custom click Item" onClick={() => alert('clicked!')} />
-        <DropdownMenuItem label="Url Blank Window Item" url="http://www.rhinogram.com" blankWindow />
-        <DropdownMenuItem label="Route Item" route="/someroute/" />
-        <DropdownMenuDivider />
-        <DropdownMenuItem label="Active Item" active />
-        <DropdownMenuItem label="Disabled Item" disabled />
-        <DropdownMenuDivider />
-        <DropdownMenuItem label="Ian Avatar" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ian Greulich', type: 'member' }} route="/someroute/" />
-        <DropdownMenuItem label="Paul Avatar" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Drake', type: 'member' }} />
-        <DropdownMenuItem label="Rob Avatar" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Rob Whelan', type: 'member' }} />
-        <DropdownMenuDivider />
-        <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ian Greulich', type: 'member' }} route="/someroute/" />
-        <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Drake', type: 'member' }} />
-        <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder, Ball Dropper, OB Hitter, Putt Misser" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
-        <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder, Ball Dropper, OB Hitter, Putt Misser" icon="cog" />
-        <DropdownMenuDivider />
-        <DropdownMenuItem icon="chat" label="Icon Item With a Really Long Name" route="/someroute/" />
-        <DropdownMenuItem icon="email" label="Icon Item" />
-        <DropdownMenuItem icon="lock" label="Icon Item" />
-        <DropdownMenuDivider />
-        <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." route="/someroute/" />
-        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." />
-        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." active />
-        <DropdownMenuItem label="Dropdown Menu Item Four" labelDesc="Label description for dropdown menu item." />
-        <DropdownMenuDivider />
-        <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="chat" route="/someroute/" />
-        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="twitter" />
-        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="facebook" active />
-        <DropdownMenuDivider />
-        <DropdownMenuItem icon="chat" label="Icon Item" />
-        <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="lock" />
-        <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="twitter" />
-        <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="facebook" />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<Fragment>
+  <DropdownMenuItem label="Custom click Item" onClick={() => alert('clicked!')} />
+  <DropdownMenuItem label="Url Blank Window Item" url="http://www.rhinogram.com" blankWindow />
+  <DropdownMenuItem label="Route Item" route="/someroute/" />
+  <DropdownMenuDivider />
+  <DropdownMenuItem label="Active Item" active />
+  <DropdownMenuItem label="Disabled Item" disabled />
+  <DropdownMenuDivider />
+  <DropdownMenuItem label="Ian Avatar" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ian Greulich', type: 'member' }} route="/someroute/" />
+  <DropdownMenuItem label="Paul Avatar" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Drake', type: 'member' }} />
+  <DropdownMenuItem label="Rob Avatar" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Rob Whelan', type: 'member' }} />
+  <DropdownMenuDivider />
+  <DropdownMenuItem label="Ian Avatar" labelDesc="Programming Master" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ian Greulich', type: 'member' }} route="/someroute/" />
+  <DropdownMenuItem label="Paul Avatar" labelDesc="Designer Extraordinaire" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Paul Drake', type: 'member' }} />
+  <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder, Ball Dropper, OB Hitter, Putt Misser" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
+  <DropdownMenuItem label="Ben Avatar" labelDesc="The Grinder, Ball Dropper, OB Hitter, Putt Misser" icon="cog" />
+  <DropdownMenuDivider />
+  <DropdownMenuItem icon="chat" label="Icon Item With a Really Long Name" route="/someroute/" />
+  <DropdownMenuItem icon="email" label="Icon Item" />
+  <DropdownMenuItem icon="lock" label="Icon Item" />
+  <DropdownMenuDivider />
+  <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." route="/someroute/" />
+  <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." />
+  <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." active />
+  <DropdownMenuItem label="Dropdown Menu Item Four" labelDesc="Label description for dropdown menu item." />
+  <DropdownMenuDivider />
+  <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="chat" route="/someroute/" />
+  <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="twitter" />
+  <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="facebook" active />
+  <DropdownMenuDivider />
+  <DropdownMenuItem icon="chat" label="Icon Item" />
+  <DropdownMenuItem label="Dropdown Menu Item One" labelDesc="Label description for dropdown menu item." icon="lock" />
+  <DropdownMenuItem label="Dropdown Menu Item Two" labelDesc="Label description for dropdown menu item." icon="twitter" />
+  <DropdownMenuItem label="Dropdown Menu Item Three" labelDesc="Label description for dropdown menu item." icon="facebook" />
+</Fragment>

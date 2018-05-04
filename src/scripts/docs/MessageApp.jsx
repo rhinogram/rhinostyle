@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Message, UtilityInlineGrid } from '../components';
-import messageExample from './examples/Message.example.txt';
+import { Live } from './components';
+import MessageExample from './examples/Message.example.txt';
 
-const messageDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  type: '[Optional] - Message type -  [primary | note]',
-  direction: '[Optional] - Message direction -  [inbound | outbound]',
+const MessageDocs = {
+  type: "<code>oneOf(['primary', 'note'])</code>", // eslint-disable-line single-quotes
+  direction: "Message tail direction <code>oneOf(['inbound', 'outbound'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope  = {
+const MessageScope  = {
   React,
   ReactDOM,
   Message,
@@ -18,7 +17,7 @@ const exampleScope  = {
 };
 
 const MessageApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | note&quot;</code></p>
@@ -88,9 +87,15 @@ const MessageApp = () => (
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Message} propDescriptionMap={messageDocs} codeText={messageExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={MessageExample}
+        scope={MessageScope}
+        component={Message}
+        propDescriptions={MessageDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<MessageApp />, document.getElementById('js-app'));
+ReactDOM.render(<MessageApp />, document.getElementById('root'));

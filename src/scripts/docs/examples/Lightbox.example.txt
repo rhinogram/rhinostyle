@@ -1,19 +1,15 @@
-const images = [
-  'https://source.unsplash.com/random/1200x500',
-  'https://source.unsplash.com/random/1000x500',
-  'https://source.unsplash.com/random/800x1200',
-  'https://source.unsplash.com/random/1200x1500',
-];
-
 class ComponentExample extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    photoIndex: 0,
+    isOpen: false,
+  };
 
-    this.state = {
-      photoIndex: 0,
-      isOpen: false,
-    };
-  }
+  images = [
+    'https://source.unsplash.com/random/1200x500',
+    'https://source.unsplash.com/random/1000x500',
+    'https://source.unsplash.com/random/800x1200',
+    'https://source.unsplash.com/random/1200x1500',
+  ];
 
   render() {
     const {
@@ -22,19 +18,17 @@ class ComponentExample extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <Fragment>
         <Button onClick={() => this.setState({ isOpen: true })}>Open Lightbox</Button> {isOpen && <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + (images.length - 1)) % images.length]}
+          mainSrc={this.images[photoIndex]}
+          nextSrc={this.images[(photoIndex + 1) % this.images.length]}
+          prevSrc={this.images[(photoIndex + (this.images.length - 1)) % this.images.length]}
           onCloseRequest={() => this.setState({ isOpen: false })}
-          onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + (images.length - 1)) % images.length })}
-          onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}
+          onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + (this.images.length - 1)) % this.images.length })}
+          onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % this.images.length })}
         />
         }
-      </div>
+      </Fragment>
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

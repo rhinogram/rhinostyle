@@ -1,16 +1,6 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <ModalFooter>
-          <UtilityInlineGrid align="between">
-            <Button type="default">Close</Button>
-            <Button type="secondary">Save Changes</Button>
-          </UtilityInlineGrid>
-        </ModalFooter>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<ModalFooter>
+  <UtilityInlineGrid align="between">
+    <Button type="default">Close</Button>
+    <Button type="secondary">Save Changes</Button>
+  </UtilityInlineGrid>
+</ModalFooter>

@@ -1,26 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Button, Icon, UtilityInlineGrid } from '../components';
-import buttonExample from './examples/Button.example.txt';
+import { Live } from './components';
+import ButtonExample from './examples/Button.example.txt';
 
-const buttonDocs = {
-  active: '[Optional] - Button is active',
-  block: '[Optional] - Button is block level',
-  className: '[Optional] - Include additional class name(s)',
-  onClick: '[Optional] - Include click function for Button',
-  disabled: '[Optional] - Button is disabled',
-  iconOnly: '[Optional] - Button has an icon but no text',
-  route: '[Optional] - React-router route to use for item',
-  size: '[Optional] - Button size -  [small | large]',
-  title: '[Optional] - Include title attribute that represents advisory information',
-  type: '[Optional] - Button type -  [default | primary | secondary | accent | input | outline-primary | outline-reversed | link | link-muted]',
-  url: '[Optional] - URL for item',
-  loading: '[Optional] - Specify a loading-state for the button to denote a background-action is in-progress',
-  reset: '[Optional] - Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
+const ButtonDocs = {
+  iconOnly: 'Icon with no text',
+  route: '<code>react-router</code> route',
+  size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
+  title: 'Represents advisory information on hover',
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes
+  loading: 'Specify a loading-state for the button to denote a background-action is in-progress',
+  reset: 'Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
 };
-const exampleScope  = {
+const ButtonScope  = {
   React,
   ReactDOM,
   Button,
@@ -29,7 +23,7 @@ const exampleScope  = {
 };
 
 const ButtonApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | secondary | accent | input | outline-primary | link | link-muted | danger&quot;</code></p>
@@ -159,9 +153,14 @@ const ButtonApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Button} propDescriptionMap={buttonDocs} codeText={buttonExample} scope={exampleScope} noRender={false} />
+      <Live
+        code={ButtonExample}
+        scope={ButtonScope}
+        component={Button}
+        propDescriptions={ButtonDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));
+ReactDOM.render(<ButtonApp />, document.getElementById('root'));

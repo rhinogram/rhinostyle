@@ -1,40 +1,32 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div className="site-example-tables">
-        <Table bordered>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Ben</td>
-              <td>Bruning</td>
-              <td>@bruning</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Blake</td>
-              <td>Guilloud</td>
-              <td>@guilloud</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Keaton</td>
-              <td>Foster</td>
-              <td>@foster</td>
-            </tr>
-          </tbody>
-        </Table>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<div className="site-example-tables">
+  <Table bordered>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Ben</td>
+        <td>Bruning</td>
+        <td>@bruning</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Blake</td>
+        <td>Guilloud</td>
+        <td>@guilloud</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Keaton</td>
+        <td>Foster</td>
+        <td>@foster</td>
+      </tr>
+    </tbody>
+  </Table>
+</div>

@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Bucket, BucketBody, BucketHeader, Icon, Table } from '../components';
-import bucketExample from './examples/Bucket.example.txt';
-import bucketHeaderExample from './examples/BucketHeader.example.txt';
+import { Live } from './components';
+import BucketExample from './examples/Bucket.example.txt';
+import BucketHeaderExample from './examples/BucketHeader.example.txt';
 
-const bucketDocs = {
-  className: '[Optional] - Include additional class name(s)',
+const BucketDocs = {
+  type: "<code>oneOf(['default'])</code>", // eslint-disable-line single-quotes
 };
-const bucketScope  = {
+const BucketScope  = {
   React,
   ReactDOM,
   Bucket,
@@ -19,13 +19,8 @@ const bucketScope  = {
   Table,
 };
 
-const bucketHeaderDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Icon name',
-  iconClassName: '[Optional] - Include additional class name(s) for icon',
-  title: '[Optional] - Include tile for header',
-};
-const bucketHeaderScope  = {
+const BucketHeaderDocs = {};
+const BucketHeaderScope  = {
   React,
   ReactDOM,
   BucketHeader,
@@ -33,7 +28,7 @@ const bucketHeaderScope  = {
 };
 
 const BucketApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Buckets</h3>
       <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets are most often constructed using <span className="u-text-accent">BucketHeader</span> and <span className="u-text-accent">BucketBody</span> child components.</p>
@@ -49,14 +44,24 @@ const BucketApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Playground</h3>
-      <Playground theme="default" docClass={Bucket} propDescriptionMap={bucketDocs} codeText={bucketExample} scope={bucketScope} noRender={false} />
+      <Live
+        code={BucketExample}
+        scope={BucketScope}
+        component={Bucket}
+        propDescriptions={BucketDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket Header Playground</h3>
-      <Playground theme="default" docClass={BucketHeader} propDescriptionMap={bucketHeaderDocs} codeText={bucketHeaderExample} scope={bucketHeaderScope} noRender={false} />
+      <Live
+        code={BucketHeaderExample}
+        scope={BucketHeaderScope}
+        component={BucketHeader}
+        propDescriptions={BucketHeaderDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<BucketApp />, document.getElementById('js-app'));
+ReactDOM.render(<BucketApp />, document.getElementById('root'));

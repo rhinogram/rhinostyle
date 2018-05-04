@@ -1,11 +1,1 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <CoverHeader icon="cog" title="This is a sample CoverHeader" />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<CoverHeader icon="cog" title="This is a sample CoverHeader" />

@@ -1,0 +1,26 @@
+.react-live {
+  > pre {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
+
+.react-live-error {
+  &:extend(.alert);
+  &:extend(.alert--danger);
+
+  margin-top: @global-whitespace-base;
+  color: @global-color-danger;
+  font-family: @base-code-font-family;
+  white-space: pre-wrap;
+}
+
+// Reset `<code>` inside of documentation table
+.rdocs-table {
+  margin-bottom: @global-whitespace-base;
+
+  code {
+    color: @prism-atrule;
+    white-space: pre-wrap;
+  }
+}

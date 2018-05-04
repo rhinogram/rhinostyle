@@ -1,10 +1,3 @@
-const selectOpts = [
-  { id: 1, value: 'Option One' },
-  { id: 'test-string', value: 'Option Two' },
-  { id: 3, value: 'Option Three' },
-  { id: 4, value: 'Option Four' },
-];
-
 class ComponentExample extends React.Component {
   state = {
     selected: 'test-string',
@@ -18,13 +11,16 @@ class ComponentExample extends React.Component {
     console.log(newState);
   }
 
+  selectOpts = [
+    { id: 1, value: 'Option One' },
+    { id: 'test-string', value: 'Option Two' },
+    { id: 3, value: 'Option Three' },
+    { id: 4, value: 'Option Four' },
+  ];
+
   render() {
     return (
-      <div className="site-example-selects">
-        <Select onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={selectOpts} />
-      </div>
+      <Select onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={this.selectOpts} />
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

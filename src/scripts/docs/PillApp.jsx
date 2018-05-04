@@ -1,20 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Pill, UtilityInlineGrid } from '../components';
-import pillExample from './examples/Pill.example.txt';
+import { Live } from './components';
+import PillExample from './examples/Pill.example.txt';
 
-const pillDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  disabled: '[Optional] - Pill is disabled',
-  icon: '[Optional] - Attaches an Icon to the Pill',
-  hideClose: '[Optional] - Whether to show close icon',
-  onClick: '[Required] - Include click function for Pill',
-  label: '[Required] - Include label for Pill',
-  type: '[Optional] - Pill type, as a string - [default, primary]',
+const PillDocs = {
+  hideClose: 'Whether to show close icon',
+  type: "<code>oneOf(['default', 'primary'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope  = {
+const PillScope  = {
   React,
   ReactDOM,
   Pill,
@@ -22,7 +17,7 @@ const exampleScope  = {
 };
 
 const PillApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Pills</h3>
       <p className="site-text-lead">The Pill component is used to display current filters or selections.</p>
@@ -30,10 +25,16 @@ const PillApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Pill} propDescriptionMap={pillDocs} codeText={pillExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={PillExample}
+        scope={PillScope}
+        component={Pill}
+        propDescriptions={PillDocs}
+      />
     </section>
 
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<PillApp />, document.getElementById('js-app'));
+ReactDOM.render(<PillApp />, document.getElementById('root'));

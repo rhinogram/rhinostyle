@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { ProgressBar } from '../components';
-import progressBarExample from './examples/ProgressBar.example.txt';
+import { Live } from './components';
+import ProgressBarExample from './examples/ProgressBar.example.txt';
 
-const progressDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  progress: '[Optional] - The initial \'fill\' of the ProgressBar',
-  showLabel: '[Optional] - Show the progress in % on the ProgressBar',
-  type: '[Optional] - Type of ProgressBar, as a string -  [default | primary | secondary | temperature]',
+const ProgressBarDocs = {
+  progress: 'The initial \'fill\' of the ProgressBar',
+  showLabel: 'Show the progress in % on the ProgressBar',
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'temperature'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope = {
+const ProgressBarScope = {
   React,
   ReactDOM,
   ProgressBar,
 };
 
 const ProgressBarApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">ProgressBar Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | secondary | temperature&quot;</code></p>
@@ -36,9 +35,15 @@ const ProgressBarApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={ProgressBar} propDescriptionMap={progressDocs} codeText={progressBarExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={ProgressBarExample}
+        scope={ProgressBarScope}
+        component={ProgressBar}
+        propDescriptions={ProgressBarDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<ProgressBarApp />, document.getElementById('js-app'));
+ReactDOM.render(<ProgressBarApp />, document.getElementById('root'));

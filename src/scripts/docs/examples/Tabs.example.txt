@@ -11,7 +11,7 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
           <NavTabsItem id={1}>Tab One</NavTabsItem>
           <NavTabsItem id={2}>Tab Two</NavTabsItem>
@@ -34,9 +34,7 @@ class ComponentExample extends React.Component {
             <p>Quisque gravida iaculis velit, eget condimentum tellus pretium hendrerit. Phasellus et imperdiet dui. Sed eu mi mi. Suspendisse ipsum ipsum, molestie quis dictum at, pharetra sed nisi. Etiam faucibus pulvinar tellus eget faucibus.</p>
           </TabContentPane>
         </TabsContent>
-      </div>
+      </Fragment>
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

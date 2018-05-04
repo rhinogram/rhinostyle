@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Icon, UtilityInlineGrid } from '../components';
-import iconExample from './examples/Icon.example.txt';
+import { Live } from './components';
+import IconExample from './examples/Icon.example.txt';
 
-const iconDocs = {
-  bump: '[Optional] - Bump [down | up] - used to move icon up or down slightly for precise positioning',
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Required] - Icon name',
+const IconDocs = {
+  bump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>", // eslint-disable-line single-quotes
 };
-const exampleScope  = {
+const IconScope  = {
   React,
   ReactDOM,
   Icon,
@@ -71,7 +69,7 @@ const icons = [
 ];
 
 const IconApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">SVG Icons</h3>
 
@@ -91,9 +89,15 @@ const IconApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Icon} propDescriptionMap={iconDocs} codeText={iconExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={IconExample}
+        scope={IconScope}
+        component={Icon}
+        propDescriptions={IconDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<IconApp />, document.getElementById('js-app'));
+ReactDOM.render(<IconApp />, document.getElementById('root'));

@@ -1,12 +1,11 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Icon, Resource, ResourceGroup, ResourceIntro, ResourceBody, ResourceRight } from '../components';
-import resourceExample from './examples/Resource.example.txt';
+import { Live } from './components';
+import ResourceExample from './examples/Resource.example.txt';
 
-const exampleScope  = {
-  Fragment,
+const ResourceScope  = {
   Icon,
   React,
   ReactDOM,
@@ -16,18 +15,17 @@ const exampleScope  = {
   ResourceBody,
   ResourceRight,
 };
-
-const resourceDocs = {
-  active: '[Optional] - Adds active styling to item; normally used within a list view',
-  selected: '[Optional] - Used in conjunction with interfaceMode to determine an actively selected item',
-  disabled: '[Optional] - Disables onClick functionality and adds in additional styling',
-  interfaceMode: '[Optional] - Set on the parent <ResourceGroup /> is passed down to impact styling of an item - [radio | checkbox]',
-  onClick: '[Optional] - Fires on click of an item',
-  unread: '[Optional] - Adds unread styling to an item; normally used within a list view',
+const ResourceDocs = {
+  active: 'Adds active styling to item; normally used within a list view',
+  selected: 'Used in conjunction with interfaceMode to determine an actively selected item',
+  disabled: 'Disables onClick functionality and adds in additional styling',
+  interfaceMode: "Set on the parent <code>&lt;ResourceGroup /&gt;</code> is passed down to impact styling of an item <code>oneOf(['radio', 'checkbox'])</code>", // eslint-disable-line single-quotes
+  onClick: 'Fires on click of an item',
+  unread: 'Adds unread styling to an item; normally used within a list view',
 };
 
 const ResourcesApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Resources</h3>
       <p className="site-text-lead">A multi-use component used to display items throughout the application.</p>
@@ -35,9 +33,15 @@ const ResourcesApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Resources Playground</h3>
-      <Playground theme="default" docClass={Resource} propDescriptionMap={resourceDocs} codeText={resourceExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={ResourceExample}
+        scope={ResourceScope}
+        component={Resource}
+        propDescriptions={ResourceDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<ResourcesApp />, document.getElementById('js-app'));
+ReactDOM.render(<ResourcesApp />, document.getElementById('root'));

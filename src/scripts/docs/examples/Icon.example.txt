@@ -1,17 +1,9 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div style={{ fontSize: '4rem' }}>
-        <UtilityInlineGrid>
-          <Icon icon="cog" />
-          <Icon icon="caret-right" />
-          <Icon icon="alert-triangle" />
-          <Icon icon="email" bump="down" />
-          <Icon icon="arrow-right" />
-        </UtilityInlineGrid>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<div style={{ fontSize: '4rem' }}>
+  <UtilityInlineGrid>
+    <Icon icon="cog" />
+    <Icon icon="caret-right" />
+    <Icon icon="alert-triangle" />
+    <Icon icon="email" bump="down" />
+    <Icon icon="arrow-right" />
+  </UtilityInlineGrid>
+</div>

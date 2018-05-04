@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Button, Table } from '../components';
-import tableExample from './examples/Table.example.txt';
+import { Live } from './components';
+import TableExample from './examples/Table.example.txt';
 
-const tableDocs = {
-  bordered: '[Optional] - Create bordered table',
-  className: '[Optional] - Include additional class name(s)',
-  condensed: '[Optional] - Create condensed table',
-  hover: '[Optional] - Create hover table',
-  striped: '[Optional] - Create striped table',
-};
-const exampleScope  = {
+const TableDocs = {};
+const TableScope  = {
   React,
   ReactDOM,
   Button,
@@ -20,7 +14,7 @@ const exampleScope  = {
 };
 
 const LabelApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Table Types</h3>
       <div className="site-example-tables">
@@ -345,10 +339,16 @@ const LabelApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
-      <Playground theme="default" docClass={Table} propDescriptionMap={tableDocs} codeText={tableExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={TableExample}
+        scope={TableScope}
+        component={Table}
+        propDescriptions={TableDocs}
+      />
     </section>
 
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<LabelApp />, document.getElementById('js-app'));
+ReactDOM.render(<LabelApp />, document.getElementById('root'));

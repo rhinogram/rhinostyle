@@ -1,14 +1,6 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <LoaderCircle size="xsmall" />
-        <LoaderCircle className="u-text-primary" size="small" />
-        <LoaderCircle className="u-text-secondary" />
-        <LoaderCircle className="u-text-danger" size="large" />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<UtilityInlineGrid>
+  <LoaderCircle size="xsmall" />
+  <LoaderCircle className="u-text-primary" size="small" />
+  <LoaderCircle className="u-text-secondary" />
+  <LoaderCircle className="u-text-danger" size="large" />
+</UtilityInlineGrid>

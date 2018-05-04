@@ -1,15 +1,5 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <CoverFooter>
-          <UtilityInlineGrid align="right">
-            <Button type="default" onClick={this.closeCover}>Close</Button><Button type="secondary" onClick={this.saveChanges}>Save Changes</Button>
-          </UtilityInlineGrid>
-        </CoverFooter>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<CoverFooter>
+  <UtilityInlineGrid align="right">
+    <Button type="default" onClick={this.closeCover}>Close</Button><Button type="primary" onClick={this.saveChanges}>Save Changes</Button>
+  </UtilityInlineGrid>
+</CoverFooter>

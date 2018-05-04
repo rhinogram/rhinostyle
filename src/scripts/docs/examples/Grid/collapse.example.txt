@@ -1,22 +1,14 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div className="row row--collapse">
-        <div className="column-6">
-          <div className="site-grid-box" />
-        </div>
-        <div className="column-4 column-8@small">
-          <div className="site-grid-box" />
-        </div>
-        <div className="column-3@xsmall column-4@medium">
-          <div className="site-grid-box" />
-        </div>
-        <div className="column-9 column-2@xsmall">
-          <div className="site-grid-box" />
-        </div>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<div className="row row--collapse">
+  <div className="column-6">
+    <div className="site-grid-box" />
+  </div>
+  <div className="column-4 column-8@small">
+    <div className="site-grid-box" />
+  </div>
+  <div className="column-3@xsmall column-4@medium">
+    <div className="site-grid-box" />
+  </div>
+  <div className="column-9 column-2@xsmall">
+    <div className="site-grid-box" />
+  </div>
+</div>

@@ -1,9 +1,1 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <Toast type="success" body="Success toast notification" />
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<Toast type="success" body="Success toast notification" />

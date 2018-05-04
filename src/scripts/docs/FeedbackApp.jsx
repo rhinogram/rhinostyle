@@ -1,20 +1,17 @@
-import Playground from 'component-playground';
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
-import alertExample from './examples/Alert.example.txt';
-import toastExample from './examples/Toast.example.txt';
-import systemAlertExample from './examples/SystemAlert.example.txt';
+import { Live } from './components';
+import AlertExample from './examples/Alert.example.txt';
+import ToastExample from './examples/Toast.example.txt';
+import SystemAlertExample from './examples/SystemAlert.example.txt';
 
-const alertDocs = {
-  className: '[Optional] - Include additional class name(s)',
-  onDismiss: '[Optional] - Include dismiss function',
-  title: '[Required] - Alert title text',
-  titleIcon: '[Optional] - Alert title icon',
-  type: '[Optional] - Alert type, as a string -  [danger | default | info | success ]',
+const AlertDocs = {
+  onDismiss: 'Called when dimissed',
+  type: "<code>oneOf(['danger', 'default', 'info', 'success'])</code>", // eslint-disable-line single-quotes
 };
-const alertScope = {
+const AlertScope = {
   React,
   ReactDOM,
   Alert,
@@ -23,30 +20,23 @@ const alertScope = {
   Icon,
 };
 
-const toastDocs = {
-  body: '[Required] - Toast body text',
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Include icon name',
-  onDismiss: '[Required] - Include dismiss function',
-  type: '[Optional] - Toast type, as a string -  [danger | default | success]',
+const ToastDocs = {
+  onDismiss: 'Called when dismissed',
+  type: "<code>oneOf(['danger', 'default', 'success'])</code>", // eslint-disable-line single-quotes
 };
-const toastScope = {
+const ToastScope = {
   React,
   ReactDOM,
   Toast,
   Icon,
 };
 
-const systemAlertDocs = {
-  body: '[Required] - SystemAlert body text',
-  className: '[Optional] - Include additional class name(s)',
-  icon: '[Optional] - Include icon name',
-  onDismiss: '[Required] - Include dismiss function',
-  type: '[Optional] - SystemAlert type, as a string -  [danger | default | info | success]',
-  url: '[Optional] - SystemAlert url, as a string',
-  urlText: '[Optional] - SystemAlert urlText, as a string - defaults to "More Information"',
+const SystemAlertDocs = {
+  onDismiss: 'Called when dismissed',
+  type: "<code>oneOf(['danger', 'default', 'info', 'success'])</code>", // eslint-disable-line single-quotes
+  urlText: 'Defaults to "More Information"',
 };
-const systemAlertScope = {
+const SystemAlertScope = {
   React,
   ReactDOM,
   SystemAlert,
@@ -69,7 +59,7 @@ class FeedbackApp extends React.Component {
   /* eslint-disable no-alert */
   render() {
     return (
-      <div>
+      <Fragment>
         <section className="site-section">
           <h3 className="site-subheadline">Feedback</h3>
           <p className="site-text-lead">Numberous components make up our feedback system: Alert, SystemAlert, and Toast.</p>
@@ -84,7 +74,13 @@ class FeedbackApp extends React.Component {
             <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
-          <Playground theme="default" docClass={Alert} propDescriptionMap={alertDocs} codeText={alertExample} scope={alertScope} noRender={false} />
+
+          <Live
+            code={AlertExample}
+            scope={AlertScope}
+            component={Alert}
+            propDescriptions={AlertDocs}
+          />
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">SystemAlert</h3>
@@ -97,7 +93,13 @@ class FeedbackApp extends React.Component {
             </div>
           </div>
           <h3 className="site-subheadline">SystemAlert Playground</h3>
-          <Playground theme="default" docClass={SystemAlert} propDescriptionMap={systemAlertDocs} codeText={systemAlertExample} scope={systemAlertScope} noRender={false} />
+
+          <Live
+            code={SystemAlertExample}
+            scope={SystemAlertScope}
+            component={SystemAlert}
+            propDescriptions={SystemAlertDocs}
+          />
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">Toast</h3>
@@ -108,11 +110,17 @@ class FeedbackApp extends React.Component {
             <Toast type="danger" body="Danger toast notification" />
           </div>
           <h3 className="site-subheadline">Toast Playground</h3>
-          <Playground theme="default" docClass={Toast} propDescriptionMap={toastDocs} codeText={toastExample} scope={toastScope} noRender={false} />
+
+          <Live
+            code={ToastExample}
+            scope={ToastScope}
+            component={Toast}
+            propDescriptions={ToastDocs}
+          />
         </section>
-      </div>
+      </Fragment>
     );
   }
 }
 
-ReactDOM.render(<FeedbackApp />, document.getElementById('js-app'));
+ReactDOM.render(<FeedbackApp />, document.getElementById('root'));

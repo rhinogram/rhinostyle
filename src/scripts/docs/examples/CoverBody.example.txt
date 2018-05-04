@@ -1,16 +1,6 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <div>
-        <CoverBody>
-          <div className="form">
-            <Input name="firstName" label="First Name" initialValue="First Name" validationMessage="" required />
-            <Input name="lastName" label="Last Name" initialValue="" validationMessage="LastName is required!" required />
-          </div>
-        </CoverBody>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<CoverBody>
+  <form className="form">
+    <Input name="firstName" label="First Name" initialValue="First Name" validationMessage="" required />
+    <Input name="lastName" label="Last Name" initialValue="" validationMessage="LastName is required!" required />
+  </form>
+</CoverBody>

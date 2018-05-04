@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Button, Label, Lightbox } from '../components';
-import lightboxExample from './examples/Lightbox.example.txt';
+import { Live } from './components';
+import LightboxExample from './examples/Lightbox.example.txt';
 
-const lightboxDocs = {};
-const lightboxScope = {
+const LightboxDocs = {};
+const LightboxScope = {
   React,
   ReactDOM,
   Button,
@@ -14,7 +14,7 @@ const lightboxScope = {
 };
 
 const LightboxApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Lightbox <Label className="u-m-l-small" type="accent" label="third party" /></h3>
       <p className="site-copy">We are using <a href="https://github.com/fritz-c/react-image-lightbox" target="_blank" rel="noopener noreferrer">react-image-lightbox</a> for lightbox images/galleries.</p>
@@ -22,9 +22,15 @@ const LightboxApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Lightbox Playground</h3>
-      <Playground theme="default" docClass={Lightbox} propDescriptionMap={lightboxDocs} codeText={lightboxExample} scope={lightboxScope} noRender={false} />
+
+      <Live
+        code={LightboxExample}
+        scope={LightboxScope}
+        component={Lightbox}
+        propDescriptions={LightboxDocs}
+      />
     </section>
-  </div>
+  </Fragment>
 );
 
-ReactDOM.render(<LightboxApp />, document.getElementById('js-app'));
+ReactDOM.render(<LightboxApp />, document.getElementById('root'));

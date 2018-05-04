@@ -1,20 +1,12 @@
-class ComponentExample extends React.Component {
-  render() {
-    return (
-      <UtilityInlineGrid>
-        <div>
-          <Message direction="outbound" type="note">
-            This is a note.
-          </Message>
-        </div>
-        <div>
-          <Message direction="inbound">
-            This is a default message.
-          </Message>
-        </div>
-      </UtilityInlineGrid>
-    );
-  }
-}
-
-ReactDOM.render(<ComponentExample />, mountNode);
+<UtilityInlineGrid>
+  <div>
+    <Message direction="outbound" type="note">
+      This is a note.
+    </Message>
+  </div>
+  <div>
+    <Message direction="inbound">
+      This is a default message.
+    </Message>
+  </div>
+</UtilityInlineGrid>

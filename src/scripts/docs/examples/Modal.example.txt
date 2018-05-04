@@ -1,12 +1,10 @@
 class ComponentExample extends React.Component {
-  static initialState = {
+  state = {
     firstName: '',
     lastName: '',
     errors: {},
     open: false,
   };
-
-  state = ComponentExample.initialState;
 
   onClick = () => {
     this.setState({
@@ -32,7 +30,12 @@ class ComponentExample extends React.Component {
    * @return {func}
    */
   resetSet = () => {
-    this.setState(ComponentExample.initialState);
+    this.setState({
+      firstName: '',
+      lastName: '',
+      errors: {},
+      open: false,
+    });
   }
 
   saveChanges = () => {
@@ -61,16 +64,16 @@ class ComponentExample extends React.Component {
     const errorList = this.state.errors || {};
 
     return (
-      <div>
+      <Fragment>
         <Button type="primary" onClick={this.onClick}>Launch Modal</Button>
 
         <Modal onReverseComplete={this.resetSet} open={this.state.open}>
           <ModalHeader onClose={this.closeModal} title="Sample Modal" titleSub="I'm a subtitle!" />
           <ModalBody>
-            <div className="form">
+            <form className="form">
               <Input label="First Name" name="firstName" initialValue={this.state.firstName} validationMessage={errorList.firstName} required onChange={this.handleChange} />
               <Input label="Last Name" name="lastName" initialValue={this.state.lastName} validationMessage={errorList.lastName} required onChange={this.handleChange} />
-            </div>
+            </form>
           </ModalBody>
           <ModalFooter>
             <UtilityInlineGrid align="between">
@@ -79,9 +82,7 @@ class ComponentExample extends React.Component {
             </UtilityInlineGrid>
           </ModalFooter>
         </Modal>
-      </div>
+      </Fragment>
     );
   }
 }
-
-ReactDOM.render(<ComponentExample />, mountNode);

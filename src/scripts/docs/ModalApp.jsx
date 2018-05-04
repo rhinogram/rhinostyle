@@ -1,25 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import Playground from 'component-playground';
 
 import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
-import modalExample from './examples/Modal.example.txt';
-import modalHeaderExample from './examples/ModalHeader.example.txt';
-import modalBodyExample from './examples/ModalBody.example.txt';
-import modalFooterExample from './examples/ModalFooter.example.txt';
+import { Live } from './components';
+import ModalExample from './examples/Modal.example.txt';
+import ModalHeaderExample from './examples/ModalHeader.example.txt';
+import ModalBodyExample from './examples/ModalBody.example.txt';
+import ModalFooterExample from './examples/ModalFooter.example.txt';
 
-const modalDocs = {
-  className: '[Optional] - Additional class to add to modal div',
-  size: '[Optional] - Modal size -  [ small | large ] - defaults to a normal sized modal',
+const ModalDocs = {
+  size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
 };
-
-const modalHeaderDocs = {
-  onClose: '[Optional] - Callback function to execute in addition to closing the modal',
-  title: '[Optional] - Modal Title - String to represent the Modal Header',
-  titleSub: '[Optional] - Modal Subtitle - String to add subtitle to header',
+const ModalHeaderDocs = {
+  onClose: 'Callback function to execute in addition to closing the modal',
+  title: 'String to represent the Modal Header',
+  titleSub: 'String to add subtitle to header',
 };
-
-const exampleScope  = {
+const ModalBodyDocs = {};
+const ModalFooterDocs = {};
+const ModalScope  = {
   React,
   ReactDOM,
   Button,
@@ -33,29 +32,52 @@ const exampleScope  = {
 };
 
 const ModalApp = () => (
-  <div>
+  <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
-      <p className="site-copy">Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application (for proper styling) with the power of <a target="_blank" rel="noopener noreferrer" href="https://github.com/react-bootstrap/react-overlays">react-overlays</a></p>
-      <Playground theme="default" docClass={Modal} propDescriptionMap={modalDocs} codeText={modalExample} scope={exampleScope} noRender={false} />
+      <p className="site-copy">Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application to retain proper styling.</p>
+
+      <Live
+        code={ModalExample}
+        scope={ModalScope}
+        component={Modal}
+        propDescriptions={ModalDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalHeader</h3>
-      <Playground theme="default" docClass={ModalHeader} propDescriptionMap={modalHeaderDocs} codeText={modalHeaderExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={ModalHeaderExample}
+        scope={ModalScope}
+        component={ModalHeader}
+        propDescriptions={ModalHeaderDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalBody</h3>
-      <Playground theme="default" docClass={ModalBody} codeText={modalBodyExample} scope={exampleScope} noRender={false} />
+
+      <Live
+        code={ModalBodyExample}
+        scope={ModalScope}
+        component={ModalBody}
+        propDescriptions={ModalBodyDocs}
+      />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalFooter</h3>
-      <Playground theme="default" docClass={ModalFooter} codeText={modalFooterExample} scope={exampleScope} noRender={false} />
-    </section>
 
-  </div>
+      <Live
+        code={ModalFooterExample}
+        scope={ModalScope}
+        component={ModalFooter}
+        propDescriptions={ModalFooterDocs}
+      />
+    </section>
+  </Fragment>
 );
 
-ReactDOM.render(<ModalApp />, document.getElementById('js-app'));
+ReactDOM.render(<ModalApp />, document.getElementById('root'));

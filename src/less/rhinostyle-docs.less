@@ -1,7 +1,8 @@
 // Note: Documentation styles
 
 @import 'rhinostyle';
-@import (inline) '../../node_modules/codemirror/lib/codemirror.css';
+@import './modules/prism';
+@import './modules/react-live';
 
 //
 // Variables
@@ -63,6 +64,7 @@ body {
   overflow: hidden;
   padding: @global-whitespace-base;
   position: relative;
+  min-height: ~'calc(100vh - @{global-header-height})';
 
   @media (min-width: @global-screen-large-min) {
     padding: @global-whitespace-large;
@@ -437,54 +439,4 @@ body {
   @media (min-width: @global-screen-large-min) {
     margin-left: @site-navigation-width;
   }
-}
-
-
-//
-// Code Mirror Playground
-//
-
-.playgroundDocs > ul {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-
-  li {
-    margin-bottom: @global-whitespace-xsmall;
-
-    b:first-of-type {
-      color: @global-state-info-text;
-      font-weight: @global-font-weight-bold;
-    }
-
-    b:last-of-type {
-      color: @global-state-danger-text;
-      font-size: 1.4rem;
-      font-weight: @global-font-weight-bold;
-    }
-  }
-}
-
-.playgroundCode {
-  margin-bottom: @global-whitespace-large;
-  margin-top: @global-whitespace-large;
-}
-
-.playgroundError {
-  background: @global-background;
-  border: 2px solid currentColor;
-  color: @global-color-danger;
-  font-family: @base-code-font-family;
-  font-size: @global-font-size-small;
-  margin-bottom: @global-whitespace-base;
-  padding: @global-whitespace-small;
-  white-space: pre-wrap;
-}
-
-.CodeMirror-wrap {
-  border: 1px solid @global-border-color;
-}
-
-.CodeMirror-code {
-  font-size: 1.4rem;
 }
