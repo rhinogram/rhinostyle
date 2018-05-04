@@ -42,4 +42,4 @@ const ScrollbarApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<ScrollbarApp />, document.getElementById('js-app'));
+ReactDOM.render(<ScrollbarApp />, document.getElementById('root'));

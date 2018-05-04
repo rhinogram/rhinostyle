@@ -46,4 +46,4 @@ const ProgressBarApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<ProgressBarApp />, document.getElementById('js-app'));
+ReactDOM.render(<ProgressBarApp />, document.getElementById('root'));

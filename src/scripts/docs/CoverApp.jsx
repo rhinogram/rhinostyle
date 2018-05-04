@@ -82,4 +82,4 @@ const CoverApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<CoverApp />, document.getElementById('js-app'));
+ReactDOM.render(<CoverApp />, document.getElementById('root'));

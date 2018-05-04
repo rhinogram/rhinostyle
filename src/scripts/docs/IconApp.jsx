@@ -100,4 +100,4 @@ const IconApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<IconApp />, document.getElementById('js-app'));
+ReactDOM.render(<IconApp />, document.getElementById('root'));

@@ -60,4 +60,4 @@ class DateApp extends React.Component {
   }
 }
 
-ReactDOM.render(<DateApp />, document.getElementById('js-app'));
+ReactDOM.render(<DateApp />, document.getElementById('root'));

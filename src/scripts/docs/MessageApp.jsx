@@ -98,4 +98,4 @@ const MessageApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<MessageApp />, document.getElementById('js-app'));
+ReactDOM.render(<MessageApp />, document.getElementById('root'));

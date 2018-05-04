@@ -69,4 +69,4 @@ const UtilityComponentsApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<UtilityComponentsApp />, document.getElementById('js-app'));
+ReactDOM.render(<UtilityComponentsApp />, document.getElementById('root'));

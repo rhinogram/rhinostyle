@@ -64,4 +64,4 @@ const BucketApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<BucketApp />, document.getElementById('js-app'));
+ReactDOM.render(<BucketApp />, document.getElementById('root'));

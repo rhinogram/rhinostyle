@@ -33,4 +33,4 @@ const LightboxApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<LightboxApp />, document.getElementById('js-app'));
+ReactDOM.render(<LightboxApp />, document.getElementById('root'));

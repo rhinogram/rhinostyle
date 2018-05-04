@@ -41,4 +41,4 @@ const VariableMessageApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<VariableMessageApp />, document.getElementById('js-app'));
+ReactDOM.render(<VariableMessageApp />, document.getElementById('root'));

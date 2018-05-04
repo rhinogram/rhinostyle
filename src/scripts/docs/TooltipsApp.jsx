@@ -39,4 +39,4 @@ const TooltipsApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<TooltipsApp />, document.getElementById('js-app'));
+ReactDOM.render(<TooltipsApp />, document.getElementById('root'));

@@ -123,4 +123,4 @@ class FeedbackApp extends React.Component {
   }
 }
 
-ReactDOM.render(<FeedbackApp />, document.getElementById('js-app'));
+ReactDOM.render(<FeedbackApp />, document.getElementById('root'));

@@ -163,4 +163,4 @@ const ButtonApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<ButtonApp />, document.getElementById('js-app'));
+ReactDOM.render(<ButtonApp />, document.getElementById('root'));

@@ -121,4 +121,4 @@ class NavigationApp extends React.Component {
   }
 }
 
-ReactDOM.render(<NavigationApp />, document.getElementById('js-app'));
+ReactDOM.render(<NavigationApp />, document.getElementById('root'));

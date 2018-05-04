@@ -74,4 +74,4 @@ const LoaderApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<LoaderApp />, document.getElementById('js-app'));
+ReactDOM.render(<LoaderApp />, document.getElementById('root'));

@@ -27,4 +27,4 @@ const TabsApp = () => (
   </section>
 );
 
-ReactDOM.render(<TabsApp />, document.getElementById('js-app'));
+ReactDOM.render(<TabsApp />, document.getElementById('root'));

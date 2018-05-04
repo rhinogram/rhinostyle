@@ -86,4 +86,4 @@ const AvatarApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<AvatarApp />, document.getElementById('js-app'));
+ReactDOM.render(<AvatarApp />, document.getElementById('root'));

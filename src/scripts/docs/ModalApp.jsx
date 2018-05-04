@@ -80,4 +80,4 @@ const ModalApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<ModalApp />, document.getElementById('js-app'));
+ReactDOM.render(<ModalApp />, document.getElementById('root'));

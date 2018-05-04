@@ -37,4 +37,4 @@ const PillApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<PillApp />, document.getElementById('js-app'));
+ReactDOM.render(<PillApp />, document.getElementById('root'));

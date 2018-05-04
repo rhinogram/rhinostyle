@@ -44,4 +44,4 @@ const ResourcesApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<ResourcesApp />, document.getElementById('js-app'));
+ReactDOM.render(<ResourcesApp />, document.getElementById('root'));

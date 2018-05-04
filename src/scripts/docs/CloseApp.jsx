@@ -32,4 +32,4 @@ const CloseApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<CloseApp />, document.getElementById('js-app'));
+ReactDOM.render(<CloseApp />, document.getElementById('root'));

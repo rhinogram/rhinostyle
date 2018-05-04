@@ -351,4 +351,4 @@ const DropdownApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<DropdownApp />, document.getElementById('js-app'));
+ReactDOM.render(<DropdownApp />, document.getElementById('root'));

@@ -459,4 +459,4 @@ const FormApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<FormApp />, document.getElementById('js-app'));
+ReactDOM.render(<FormApp />, document.getElementById('root'));

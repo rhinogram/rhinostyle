@@ -61,4 +61,4 @@ const LabelApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<LabelApp />, document.getElementById('js-app'));
+ReactDOM.render(<LabelApp />, document.getElementById('root'));
