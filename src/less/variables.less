@@ -19,13 +19,18 @@
 @global-color-accent: #ff8300;
 @global-color-primary: #0075c9;
 @global-color-primary-hover: darken(@global-color-primary, 10);
+@global-color-primary-light: tint(@global-color-primary, 96%);
 @global-color-secondary: #82bc00;
 
 // Utility Colors
 @global-color-danger: #f25041;
+@global-color-danger-light: tint(@global-color-danger, 96%);
 @global-color-info: darken(@global-color-primary, 12.5);
+@global-color-info-light: tint(@global-color-info, 96%);
 @global-color-success: #82bc00;
+@global-color-success-light: tint(@global-color-success, 96%);
 @global-color-warning: #f2c746;
+@global-color-warning-light: tint(@global-color-warning, 92%);
 @global-color-emphasis: #fdf9c7;
 
 // Other Colors
@@ -104,26 +109,12 @@
 
 
 @global-state-accent-text: darken(@global-color-accent, 5%);
-
 @global-state-danger-text: @global-color-danger;
-@global-state-danger-bg: tint(@global-color-danger, 80%);
-@global-state-danger-border: lighten(@global-color-danger, 45%);
-
 @global-state-info-text: @global-color-info;
-@global-state-info-bg: tint(@global-color-info, 80%);
-@global-state-info-border: lighten(@global-color-info, 27%);
-
 @global-state-primary-text: @global-color-primary;
-
-@global-state-secondary-text: darken(@global-color-secondary, 4%);
-
-@global-state-success-text: darken(@global-color-success, 4%);
-@global-state-success-bg: tint(@global-color-success, 80%);
-@global-state-success-border: lighten(@global-color-success, 40%);
-
-@global-state-warning-text: darken(@global-color-warning, 12%);
-@global-state-warning-bg: tint(@global-color-warning, 80%);
-@global-state-warning-border: lighten(@global-color-warning, 28%);
+@global-state-secondary-text: darken(@global-color-secondary, 10%);
+@global-state-success-text: darken(@global-color-success, 10%);
+@global-state-warning-text: darken(@global-color-warning, 10%);
 
 
 //
