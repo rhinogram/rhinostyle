@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
   <g class="icon-stroke" stroke="#000000" fill="none" fill-rule="evenodd" stroke-width="2" transform="translate(2 1)" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="0 4.4 2.2 4.4 19.8 4.4"/>
     <path d="M17.6 4.4L17.6 19.8C17.6 21.0150264 16.6150264 22 15.4 22L4.4 22C3.18497355 22 2.2 21.0150264 2.2 19.8L2.2 4.4M5.5 4.4L5.5 2.2C5.5.98497355 6.48497355 0 7.7 0L12.1 0C13.3150264 0 14.3.98497355 14.3 2.2L14.3 4.4M7.7 9.9L7.7 16.5M12.1 9.9L12.1 16.5"/>
+    <polyline points="0 4.4 2.2 4.4 19.8 4.4"/>
   </g>
 </svg>
