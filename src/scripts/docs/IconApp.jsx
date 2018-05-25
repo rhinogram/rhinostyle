@@ -36,6 +36,7 @@ const icons = [
   'clock',
   'close',
   'cog',
+  'copy',
   'desktop',
   'dots-horizontal',
   'dots-vertical',
