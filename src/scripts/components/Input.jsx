@@ -74,7 +74,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, placeholder, required, size, type, validationMessage } = this.props;
+    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, placeholder, readOnly, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear': clear,
       'form__control--naked': naked,
@@ -108,6 +108,7 @@ class Input extends React.Component {
             onBlur={this._handleBlur}
             onKeyPress={this._handleKeyPress}
             onChange={this._handleChange}
+            readOnly={readOnly}
             htmlRef={ref => (this.input = ref)}
           />
         );
@@ -128,6 +129,7 @@ class Input extends React.Component {
           onBlur={this._handleBlur}
           onKeyPress={this._handleKeyPress}
           onChange={this._handleChange}
+          readOnly={readOnly}
           ref={ref => (this.input = ref)}
         />
       );
@@ -221,6 +223,7 @@ Input.propTypes = {
   onKeyPress: PropTypes.func,
   onClear: PropTypes.func,
   placeholder: PropTypes.string,
+  readOnly: PropTypes.bool,
   required: PropTypes.bool,
   focus: PropTypes.bool,
   type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
