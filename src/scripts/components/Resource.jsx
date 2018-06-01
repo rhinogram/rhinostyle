@@ -7,12 +7,15 @@ import { ResourceRight, UtilitySystem } from '../components';
 class Resource extends React.Component {
   hasRightColumn = () => {
     const { children } = this.props;
+    let rightColumnInstance = false;
 
-    if (children) {
-      return Array.isArray(children) ? children.some(child => child.type === ResourceRight) : children.type === ResourceRight;
-    }
+    React.Children.map(children, (child) => {
+      if (child && child.type === ResourceRight) {
+        rightColumnInstance = true;
+      }
+    });
 
-    return false;
+    return rightColumnInstance;
   }
 
   handleClick = () => {
