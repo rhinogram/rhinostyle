@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { TimelineMax } from 'gsap';
+import { TimelineMax } from 'gsap/TweenMax';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';

@@ -1,22 +1,20 @@
 /*!
  * VERSION: 0.11.1
- * DATE: 2017-06-19
+ * DATE: 2018-05-30
  * UPDATES AND DOCS AT: http://greensock.com
  *
- * @license Copyright (c) 2008-2017, GreenSock. All rights reserved.
+ * @license Copyright (c) 2008-2018, GreenSock. All rights reserved.
  * ThrowPropsPlugin is a Club GreenSock membership benefit; You must have a valid membership to use
  * this code without violating the terms of use. Visit http://greensock.com/club/ to sign up or get more details.
  * This work is subject to the software agreement that was issued with your membership.
- * 
+ *
  * @author: Jack Doyle, jack@greensock.com
  */
-var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window; //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
-(_gsScope._gsQueue || (_gsScope._gsQueue = [])).push( function() {
 
-	"use strict";
+import { TweenLite, _gsScope, TweenPlugin, Ease } from "gsap/TweenLite.js";
 
-	_gsScope._gsDefine("plugins.ThrowPropsPlugin", ["plugins.TweenPlugin", "TweenLite", "easing.Ease", "utils.VelocityTracker"], function(TweenPlugin, TweenLite, Ease, VelocityTracker) {
-		
+_gsScope._gsDefine("plugins.ThrowPropsPlugin", ["utils.VelocityTracker", "plugins.TweenPlugin", "TweenLite", "easing.Ease"], function(VelocityTracker) {
+
 		var ThrowPropsPlugin = function(props, priority) {
 				TweenPlugin.call(this, "throwProps");
 				this._overwriteProps.length = 0;
@@ -229,7 +227,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			},
 			p = ThrowPropsPlugin.prototype = new TweenPlugin("throwProps"),
 			_cssProxy, _cssVars, _last, _lastValue; //these serve as a cache of sorts, recording the last css-related proxy and the throwProps vars that get calculated in the _cssRegister() method. This allows us to grab them in the ThrowPropsPlugin.to() function and calculate the duration. Of course we could have structured things in a more "clean" fashion, but performance is of paramount importance.
-			
+
 
 
 		p.constructor = ThrowPropsPlugin;
@@ -344,7 +342,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			}});
 		};
 
-		
+
 		ThrowPropsPlugin.to = function(target, vars, maxDuration, minDuration, overshootTolerance) {
 			if (!vars.throwProps) {
 				vars = {throwProps:vars};
@@ -371,7 +369,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				return tween;
 			}
 		};
-		
+
 		p._onInitTween = function(target, value, tween, index) {
 			this.target = target;
 			this._props = [];
@@ -454,7 +452,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			}
 			return true;
 		};
-		
+
 		p._kill = function(lookup) {
 			var i = this._props.length;
 			while (--i > -1) {
@@ -464,7 +462,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 			}
 			return TweenPlugin.prototype._kill.call(this, lookup);
 		};
-		
+
 		p._mod = function(lookup) {
 			var p = this._props,
 				i = p.length,
@@ -476,9 +474,9 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				}
 			}
 		};
-		
+
 		p.setRatio = function(v) {
-			var i = this._props.length, 
+			var i = this._props.length,
 				cp, val;
 			while (--i > -1) {
 				cp = this._props[i];
@@ -493,13 +491,13 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 				} else {
 					this.target[cp.p] = val;
 				}
-			}	
+			}
 		};
-		
+
 		TweenPlugin.activate([ThrowPropsPlugin]);
-		
+
 		return ThrowPropsPlugin;
-		
+
 	}, true);
 
 
@@ -509,7 +507,7 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
  * VelocityTracker
  * ----------------------------------------------------------------
  */
-	_gsScope._gsDefine("utils.VelocityTracker", ["TweenLite"], function(TweenLite) {
+	_gsScope._gsDefine("utils.VelocityTracker", ["TweenLite"], function() {
 
 		var _first,	_initted, _time1, _time2,
 			_capsExp = /([A-Z])/g,
@@ -719,18 +717,6 @@ var _gsScope = (typeof(module) !== "undefined" && module.exports && typeof(globa
 	}, true);
 
 
-}); if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); }
-
-//export to AMD/RequireJS and CommonJS/Node (precursor to full modular build system coming at a later date)
-(function(name) {
-	"use strict";
-	var getGlobal = function() {
-		return (_gsScope.GreenSockGlobals || _gsScope)[name];
-	};
-	if (typeof(module) !== "undefined" && module.exports) { //node
-		require("gsap/TweenLite");
-		module.exports = getGlobal();
-	} else if (typeof(define) === "function" && define.amd) { //AMD
-		define(["gsap/TweenLite"], getGlobal);
-	}
-}("ThrowPropsPlugin"));
+export const ThrowPropsPlugin = _gsScope.ThrowPropsPlugin;
+export { ThrowPropsPlugin as default };
+export const VelocityTracker = _gsScope.com.greensock.utils.VelocityTracker;

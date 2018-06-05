@@ -1,4 +1,4 @@
-import { TimelineMax } from 'gsap';
+import { TimelineMax } from 'gsap/TweenMax';
 import PropTypes from 'prop-types';
 import React from 'react';
 import onClickOutside from 'react-onclickoutside';

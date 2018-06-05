@@ -1,5 +1,5 @@
 import 'what-input';
-import { TimelineMax, TweenMax, SteppedEase, Power0 } from 'gsap';
+import { TimelineMax, TweenMax, SteppedEase, Power0 } from 'gsap/TweenMax';
 import Draggable from 'gsap/Draggable';
 
 import '../vendor/ThrowPropsPlugin.js';

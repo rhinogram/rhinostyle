@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import { TimelineMax } from 'gsap';
+import { TimelineMax } from 'gsap/TweenMax';
 
 import { UtilitySystem } from '../UtilitySystem';
 
