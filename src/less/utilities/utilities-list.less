@@ -42,13 +42,13 @@
 
   li {
     counter-increment: item;
-    display: flex;
-    align-items: baseline;
+    position: relative;
+    padding-left: (@list-number-size + @global-whitespace-small);
+    padding-top: ~'calc((@{list-number-size} - @{global-line-height-computed}) / 2)';
+    min-height: @list-number-size;
 
     &::before {
       content: counter(item);
-      display: inline-block;
-      flex: none;
       background: @global-color-primary-light;
       border: 1px solid @global-color-primary;
       width: @list-number-size;
@@ -59,7 +59,9 @@
       color: @global-color-primary;
       font-size: @global-font-size-small;
       font-weight: @global-font-weight-bold;
-      margin-right: @global-whitespace-small;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     + li {
