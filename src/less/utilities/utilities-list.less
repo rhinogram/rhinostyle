@@ -1,4 +1,12 @@
 //
+// Variables
+//
+
+
+@list-number-size: (@global-height-small / 1.25);
+
+
+//
 // Component
 //
 
@@ -23,6 +31,39 @@
       border-top: 1px solid @global-border-color;
       margin-top: @global-whitespace-base;
       padding-top: @global-whitespace-base;
+    }
+  }
+}
+
+.u-list--numbers {
+  .u-list;
+
+  counter-reset: item;
+
+  li {
+    counter-increment: item;
+    display: flex;
+    align-items: baseline;
+
+    &::before {
+      content: counter(item);
+      display: inline-block;
+      flex: none;
+      background: @global-color-primary-light;
+      border: 1px solid @global-color-primary;
+      width: @list-number-size;
+      height: @list-number-size;
+      text-align: center;
+      line-height: ~'calc(@{list-number-size} - 1px)';
+      border-radius: 50%;
+      color: @global-color-primary;
+      font-size: @global-font-size-small;
+      font-weight: @global-font-weight-bold;
+      margin-right: @global-whitespace-small;
+    }
+
+    + li {
+      margin-top: @global-whitespace-small;
     }
   }
 }
