@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { Linear, TimelineMax } from 'gsap';
+import { Linear, TimelineMax } from 'gsap/TweenMax';
 import PropTypes from 'prop-types';
 import React from 'react';
 

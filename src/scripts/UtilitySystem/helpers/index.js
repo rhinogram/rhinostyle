@@ -1,4 +1,4 @@
-import { Back, Expo } from 'gsap';
+import { Back, Expo } from 'gsap/TweenMax';
 
 /**
  * Default configuration
