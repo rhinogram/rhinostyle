@@ -58,7 +58,11 @@ class FeedbackApp extends React.Component {
   }*/
 
   handleAddToastClick = (consumer) => {
-    console.log(consumer);
+    consumer.addToast({
+      body: `${Date.now()} This is an alert in a toast notification`,
+      icon: 'warning',
+      type: 'danger',
+    });
   }
 
   /* eslint-disable no-alert */

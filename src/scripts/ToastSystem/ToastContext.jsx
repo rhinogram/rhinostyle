@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { UtilitySystem } from '../components';
+
 export const ToastContext = React.createContext();
 
 export class ToastProvider extends React.Component {
@@ -15,14 +17,24 @@ export class ToastProvider extends React.Component {
         addToast: (toast) => {
           const toastsClone = [...this.state.toasts];
 
-          toastsClone.push(toast);
+          // Add UUID
+          toast.uuid = `toast_${UtilitySystem.generateUUID()}`; // eslint-disable-line no-param-reassign
+
+          toastsClone.unshift(toast);
 
           this.setState({
             toasts: toastsClone,
           });
         },
         removeToast: (id) => {
-          console.log(id);
+          const toastsClone = [...this.state.toasts];
+
+          // Filter out matching toast ID
+          const toasts = toastsClone.filter(toast => toast.uuid !== id);
+
+          this.setState({
+            toasts,
+          });
         },
        }}
       >

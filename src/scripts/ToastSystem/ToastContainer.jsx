@@ -5,17 +5,15 @@ import { Toast } from '../components';
 import { ToastContext } from './ToastContext';
 
 class ToastContainer extends React.Component {
-  hideNotification = () => {
-    console.log('hello');
-  }
-
-  renderToast = toast => (
+  renderToast = (toast, context) => (
     <Toast
       key={toast.uuid}
+      id={toast.uuid}
       ref={ref => (this.toast = ref)}
       type={toast.type}
       body={toast.body}
-      onDismiss={this.hideNotification}
+      onDismissed={() => context.removeToast(toast.uuid)}
+      timeline
     />
   );
 
@@ -25,7 +23,7 @@ class ToastContainer extends React.Component {
         <ToastContext.Consumer>
           {context => (
             <div className="toasts-container">
-              {context.state.toasts.map(this.renderToast)}
+              {context.state.toasts.map(toast => this.renderToast(toast, context))}
             </div>
           )}
         </ToastContext.Consumer>,
