@@ -14,7 +14,7 @@ export class ToastProvider extends React.Component {
     return (
       <ToastContext.Provider value={{
         state: this.state,
-        addToast: (toast) => {
+        addNotification: (toast) => {
           const toastsClone = [...this.state.toasts];
 
           // Add UUID
@@ -26,7 +26,7 @@ export class ToastProvider extends React.Component {
             toasts: toastsClone,
           });
         },
-        removeToast: (id) => {
+        removeNotification: (id) => {
           const toastsClone = [...this.state.toasts];
 
           // Filter out matching toast ID

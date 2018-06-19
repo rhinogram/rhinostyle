@@ -62,7 +62,9 @@ import UtilityInlineGrid from './UtilityInlineGrid';
 import UtilityList from './UtilityList';
 import UtilityListItem from './UtilityListItem';
 import VariableMessage from './VariableMessage';
+
 import ToastContainer from '../ToastSystem/ToastContainer';
+import { ToastContext, ToastProvider } from '../ToastSystem/ToastContext';
 
 import { NotificationActions } from '../NotificationSystem';
 
@@ -130,6 +132,8 @@ export {
   Textarea,
   Toast,
   ToastContainer,
+  ToastContext,
+  ToastProvider,
   Tooltip,
   UtilityInlineGrid,
   UtilityList,

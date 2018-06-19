@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Alert, Button, Checkbox, Icon, SystemAlert, Toast, ToastContainer } from '../components';
+import { Alert, Button, Checkbox, Icon, SystemAlert, Toast, ToastContainer, ToastContext, ToastProvider } from '../components';
 import { Live } from './components';
 import AlertExample from './examples/Alert.example.txt';
 import ToastExample from './examples/Toast.example.txt';
 import SystemAlertExample from './examples/SystemAlert.example.txt';
-
-import { ToastContext, ToastProvider } from '../ToastSystem/ToastContext';
 
 const AlertDocs = {
   onDismiss: 'Called when dimissed',
@@ -58,7 +56,7 @@ class FeedbackApp extends React.Component {
   }*/
 
   handleAddToastClick = (consumer) => {
-    consumer.addToast({
+    consumer.addNotification({
       body: `${Date.now()} This is an alert in a toast notification`,
       icon: 'warning',
       type: 'danger',
@@ -69,10 +67,10 @@ class FeedbackApp extends React.Component {
   render() {
     return (
       <ToastProvider>
+        <ToastContainer />
         <ToastContext.Consumer>
           {consumer => (
             <Fragment>
-              <ToastContainer />
               <section className="site-section">
                 <h3 className="site-subheadline">Feedback</h3>
                 <p className="site-text-lead">Numberous components make up our feedback system: Alert, SystemAlert, and Toast.</p>

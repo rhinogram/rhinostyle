@@ -12,7 +12,7 @@ class ToastContainer extends React.Component {
       ref={ref => (this.toast = ref)}
       type={toast.type}
       body={toast.body}
-      onDismissed={() => context.removeToast(toast.uuid)}
+      onDismissed={() => context.removeNotification(toast.uuid)}
       timeline
     />
   );
