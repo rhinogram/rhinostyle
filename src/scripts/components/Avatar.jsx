@@ -62,10 +62,12 @@ class Avatar extends React.Component {
       initials = splitName[0][0] + splitName[splitName.length - 1][0];
     }
 
+    // https://stackoverflow.com/a/48841447/1026742
+    // For text alignment
     return (
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className={classes}>
         <circle cx="50" cy="50" r="50" />
-        <text x="50" y="50" textAnchor="middle" dominantBaseline="central" fontSize="40">{initials}</text>
+        <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="40">{initials}</text>
       </svg>
     );
   }
