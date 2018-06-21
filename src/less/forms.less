@@ -310,6 +310,8 @@ input[type='checkbox']:focus {
 
 .form__addon {
   display: flex;
+  align-items: center;
+  position: relative;
 
   &.has-error {
     .form__addon__item {
@@ -321,22 +323,30 @@ input[type='checkbox']:focus {
     flex: 1;
   }
 
-  .form__control:first-child {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+  .input__wrapper:first-child {
+    .form__control {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
-  .form__control:last-child {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+  .input__wrapper:last-child {
+    .form__control {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
   }
 
-  .form__control:not(:first-child):not(:last-child) {
-    border-radius: 0;
+  .input__wrapper:not(:first-child):not(:last-child) {
+    .form__control {
+      border-radius: 0;
+    }
   }
 
-  .form__control:not(:last-child) {
-    border-right: 0;
+  .input__wrapper:not(:last-child) {
+    .form__control {
+      border-right: 0;
+    }
   }
 }
 
@@ -369,7 +379,7 @@ input[type='checkbox']:focus {
   border-top-left-radius: @input-border-radius;
   padding-right: 0 !important;
 
-  + .form__control {
+  + .input__wrapper .form__control {
     border-left: 0;
   }
 }

@@ -39,7 +39,7 @@ class Dropdown extends React.Component {
       if (child.type === DropdownMenuItem) {
         const onClick = () => {
           if (child.props.id) {
-            if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
+            if (this.props.onSelect) {
               this.updateActiveKey(child.props.id);
               this.props.onSelect(child.props.id);
             } else {
@@ -47,7 +47,7 @@ class Dropdown extends React.Component {
             }
           }
 
-          if (child.props.onClick && typeof (child.props.onClick === 'function')) {
+          if (child.props.onClick) {
             child.props.onClick();
           }
 
@@ -94,7 +94,7 @@ class Dropdown extends React.Component {
       isOpen: !this.state.isOpen,
     });
 
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+    if (this.props.onClick) {
       this.props.onClick();
     }
   };
@@ -107,7 +107,7 @@ class Dropdown extends React.Component {
 
     this.setState({ isOpen: false });
 
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+    if (this.props.onClick) {
       this.props.onClick();
     }
   }

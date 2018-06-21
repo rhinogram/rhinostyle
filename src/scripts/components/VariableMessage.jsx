@@ -271,7 +271,7 @@ class VariableMessage extends React.Component {
       $preview.innerHTML = message;
     }
 
-    if (this.props.onInput && typeof (this.props.onInput === 'function')) {
+    if (this.props.onInput) {
       this.props.onInput(this.props.name, rawMessage, message);
     }
   }

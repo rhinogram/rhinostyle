@@ -17,7 +17,7 @@ class Avatar extends React.Component {
     }
   }
 
-  _handleImageError = () => {
+  handleImageError = () => {
     this.setState({ imageError: true });
   };
 
@@ -40,7 +40,7 @@ class Avatar extends React.Component {
     if (image && !this.state.imageError) {
       return (
         <figure className={classes} style={styles}>
-          <img alt={name} onError={this._handleImageError} style={{ display: 'none' }} src={image} />
+          <img alt={name} onError={this.handleImageError} style={{ display: 'none' }} src={image} />
         </figure>
       );
     }

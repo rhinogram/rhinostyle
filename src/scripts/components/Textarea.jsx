@@ -33,14 +33,13 @@ class Textarea extends React.Component {
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
-  _handleChange = (event) => {
+  handleChange = (event) => {
     this.setState({
       value: event.target.value,
+      charactersLeft: this.props.maxCharacters - event.target.value.length,
     });
 
-    this.setState({ charactersLeft: this.props.maxCharacters - event.target.value.length });
-
-    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
+    if (this.props.onChange) {
       this.props.onChange(event.target.name, event.target.value.trimLeft());
     }
   }
@@ -68,7 +67,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
-        <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} readOnly={readOnly} value={this.state.value} onChange={this._handleChange} disabled={disabled} />
+        <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} readOnly={readOnly} value={this.state.value} onChange={this.handleChange} disabled={disabled} />
         {(validationMessage || explanationMessage || showCharacterCount()) &&
           <div className="form__control-footer">
             {(validationMessage || explanationMessage) &&

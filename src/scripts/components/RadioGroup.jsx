@@ -39,7 +39,7 @@ class RadioGroup extends React.Component {
       if (child.type === Radio) {
         const onChange = () => {
           if (child.props.value) {
-            if (this.props.onChange && typeof (this.props.onChange === 'function')) {
+            if (this.props.onChange) {
               this.handleChange(child.props.value);
               this.props.onChange(child.props.value);
             } else {

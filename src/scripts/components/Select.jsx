@@ -17,19 +17,19 @@ class Select extends React.Component {
     }
   }
 
-  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
-
-  _onChange = (event) => {
+  onChange = (event) => {
     const selected = parseInt(event.target.value, 10) ? parseInt(event.target.value, 10) : event.target.value;
 
     this.setState({
       selected,
     });
 
-    if (this.props.onSelect && typeof this.props.onSelect === 'function') {
+    if (this.props.onSelect) {
       this.props.onSelect(event.target.name, selected);
     }
   }
+
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   render() {
     const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
@@ -61,7 +61,7 @@ class Select extends React.Component {
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <div className="rhinoselect">
-          <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this._onChange}>
+          <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this.onChange}>
             {options.map(renderOpts)}
           </select>
         </div>

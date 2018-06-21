@@ -1,7 +1,7 @@
 <div className="site-example-inputs">
   <Input name="exampleInputFirstName31" label="First Name" placeholder="First Name" type="text" required />
   <Input name="exampleInputLastName31" label="Last Name" placeholder="Last Name" type="text" required />
-  <Input name="exampleInputPassword31" placeholder="Password" type="password" />
+  <Input addon="left" clear name="exampleInputPassword31" placeholder="Password" type="password"><Icon icon="lock" /></Input>
   <Input name="example2092390209290" addon="both" type="text" placeholder="Lorem ipsum dolor sit">
     <span>Amount $</span>
     <span>.00</span>

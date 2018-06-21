@@ -19,12 +19,12 @@ class RhinoSwitch extends React.Component {
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
-  _toggleChecked = () => {
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+  toggleChecked = () => {
+    if (this.props.onClick) {
       this.props.onClick(!this.state.checked);
     }
 
-    if (this.props.onChange && typeof (this.props.onChange === 'function')) {
+    if (this.props.onChange) {
       this.props.onChange(this.props.name, !this.state.checked);
     }
 
@@ -41,7 +41,7 @@ class RhinoSwitch extends React.Component {
     return (
       <div className="form__group rhinoswitcher__form-group">
         <div className={classes}>
-          <input type="checkbox" className="rhinoswitcher__input" name={name} id={this.id} checked={checked} disabled={disabled} onChange={this._toggleChecked} />
+          <input type="checkbox" className="rhinoswitcher__input" name={name} id={this.id} checked={checked} disabled={disabled} onChange={this.toggleChecked} />
           <label // eslint-disable-line jsx-a11y/label-has-for
             className="rhinoswitcher__label"
             htmlFor={this.id}

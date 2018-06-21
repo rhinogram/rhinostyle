@@ -88,7 +88,7 @@ class DropdownMultiSelect extends React.Component {
   }
 
   itemClick = (id, toggle) => {
-    if (this.props.onSelect && typeof (this.props.onSelect === 'function')) {
+    if (this.props.onSelect) {
       const result = this.updateActiveKeys(id);
       this.props.onSelect(...result);
     } else {

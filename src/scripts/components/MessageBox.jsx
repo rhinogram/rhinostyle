@@ -32,40 +32,30 @@ class MessageBox extends React.Component {
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
-  _handleChange = (event) => {
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
 
-    if (this.props.onInput && typeof (this.props.onInput === 'function')) {
+    if (this.props.onInput) {
       this.props.onInput(event.target.name, event.target.value);
     }
   }
 
-  _handleClick = (event) => {
-    if (this.props.onClick && typeof (this.props.onClick === 'function')) {
+  handleClick = (event) => {
+    if (this.props.onClick) {
       this.props.onClick(event.target.name, event.target.value);
     }
   }
 
-  _handleKeyPress = (event) => {
-    if (this.props.onKeyPress && typeof (this.props.onKeyPress === 'function')) {
+  handleKeyPress = (event) => {
+    if (this.props.onKeyPress) {
       this.props.onKeyPress(event);
     }
   }
 
-  _handleHeightChange = (height, instance) => {
-    if (this.props.onHeightChange && typeof (this.props.onHeightChange === 'function')) {
+  handleHeightChange = (height, instance) => {
+    if (this.props.onHeightChange) {
       this.props.onHeightChange(height, instance);
     }
-  }
-
-  _getValue(props) {
-    if (props) {
-      if (props.valueLink) {
-        return props.valueLink.value;
-      }
-      return props.value;
-    }
-    return false;
   }
 
   render() {
@@ -80,7 +70,21 @@ class MessageBox extends React.Component {
     return (
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
-        <Textarea name={name} id={this.id} rows={rows} placeholder={placeholder} className={textAreaClasses} style={messageBoxStyle} value={this.state.value} onKeyPress={this._handleKeyPress} onInput={this._handleChange} onClick={this._handleClick} onHeightChange={this._handleHeightChange} disabled={disabled} ref={ref => (this.rhinoTextArea = ref)} />
+        <Textarea
+          name={name}
+          id={this.id}
+          rows={rows}
+          placeholder={placeholder}
+          className={textAreaClasses}
+          style={messageBoxStyle}
+          value={this.state.value}
+          onKeyPress={this.handleKeyPress}
+          onInput={this.handleChange}
+          onClick={this.handleClick}
+          onHeightChange={this.handleHeightChange}
+          disabled={disabled}
+          ref={ref => (this.rhinoTextArea = ref)}
+        />
       </div>
     );
   }

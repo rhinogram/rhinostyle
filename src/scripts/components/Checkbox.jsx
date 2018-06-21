@@ -19,7 +19,7 @@ class Checkbox extends React.Component {
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
-  _toggleChecked = () => {
+  toggleChecked = () => {
     if (this.props.onClick) {
       this.props.onClick(!this.state.checked);
     }
@@ -33,7 +33,7 @@ class Checkbox extends React.Component {
     });
   }
 
-  _handleKeyUp = (e) => {
+  handleKeyUp = (e) => {
     if (e.keyCode === 13) {
       this.checkboxLabel.click();
     }
@@ -57,8 +57,8 @@ class Checkbox extends React.Component {
           name={name}
           id={this.id}
           checked={checked}
-          onChange={this._toggleChecked}
-          onKeyUp={this._handleKeyUp}
+          onChange={this.toggleChecked}
+          onKeyUp={this.handleKeyUp}
         />
         {label &&
           <label // eslint-disable-line jsx-a11y/label-has-for

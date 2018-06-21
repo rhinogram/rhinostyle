@@ -17,9 +17,7 @@ class Input extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.focus && this.input) {
-      this.input.focus();
-    }
+    this.checkFocus();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,14 +29,22 @@ class Input extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
-      this.input.focus();
+    if (prevProps.focus !== this.props.focus) {
+      if (!this.props.focus) {
+        this.input.blur();
+      } else {
+        this.checkFocus();
+      }
     }
   }
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
-  _handleChange = (event) => {
+  checkFocus = () => {
+    if (this.props.focus) this.input.focus();
+  }
+
+  handleChange = (event) => {
     this.setState({ value: event.target.value });
 
     if (this.props.onChange) {
@@ -50,26 +56,25 @@ class Input extends React.Component {
     }
   }
 
-  _handleKeyPress = (event) => {
+  handleKeyPress = (event) => {
     if (this.props.onKeyPress) {
       this.props.onKeyPress(event);
     }
   }
 
-  _handleClear = (event) => {
+  handleClear = (event) => {
     if (this.props.onClear) {
       this.props.onClear(event);
     }
 
-    this.setState({ value: '' });
-    this.input.focus();
+    this.setState({ value: '' }, () => this.input.focus());
   }
 
-  _handleFocus = () => {
+  handleFocus = () => {
     this.input.closest('.form__group').classList.add('has-focus');
   }
 
-  _handleBlur = () => {
+  handleBlur = () => {
     this.input.closest('.form__group').classList.remove('has-focus');
   }
 
@@ -85,6 +90,10 @@ class Input extends React.Component {
     const addonClasses = cx('form__addon', {
       'form__addon--large': size,
       'has-error': validationMessage,
+      form__clear: clear,
+    });
+    const inputWrapperClasses = cx('input__wrapper', {
+      form__clear: clear,
     });
 
     const input = this.state.value;
@@ -93,7 +102,37 @@ class Input extends React.Component {
     const inputRender = () => {
       if (format) {
         return (
-          <Cleave
+          <div className={inputWrapperClasses}>
+            <Cleave
+              autoCapitalize={autoCapitalize}
+              autoComplete={autoComplete}
+              type={type}
+              disabled={disabled}
+              className={inputClasses}
+              id={this.id}
+              name={name}
+              options={format}
+              placeholder={placeholder}
+              value={this.state.value}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              onKeyPress={this.handleKeyPress}
+              onChange={this.handleChange}
+              readOnly={readOnly}
+              htmlRef={ref => (this.input = ref)}
+            />
+            {input && clear &&
+              <Button reset className="form__clear__button" onClick={this.handleClear} >
+                <Icon icon="close" />
+              </Button>
+            }
+          </div>
+        );
+      }
+
+      return (
+        <div className={inputWrapperClasses}>
+          <input
             autoCapitalize={autoCapitalize}
             autoComplete={autoComplete}
             type={type}
@@ -101,94 +140,63 @@ class Input extends React.Component {
             className={inputClasses}
             id={this.id}
             name={name}
-            options={format}
             placeholder={placeholder}
             value={this.state.value}
-            onFocus={this._handleFocus}
-            onBlur={this._handleBlur}
-            onKeyPress={this._handleKeyPress}
-            onChange={this._handleChange}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onKeyPress={this.handleKeyPress}
+            onChange={this.handleChange}
             readOnly={readOnly}
-            htmlRef={ref => (this.input = ref)}
+            ref={ref => (this.input = ref)}
           />
-        );
-      }
-
-      return (
-        <input
-          autoCapitalize={autoCapitalize}
-          autoComplete={autoComplete}
-          type={type}
-          disabled={disabled}
-          className={inputClasses}
-          id={this.id}
-          name={name}
-          placeholder={placeholder}
-          value={this.state.value}
-          onFocus={this._handleFocus}
-          onBlur={this._handleBlur}
-          onKeyPress={this._handleKeyPress}
-          onChange={this._handleChange}
-          readOnly={readOnly}
-          ref={ref => (this.input = ref)}
-        />
+          {input && clear &&
+            <Button reset className="form__clear__button" onClick={this.handleClear} >
+              <Icon icon="close" />
+            </Button>
+          }
+        </div>
       );
     };
 
     const showInput = () => {
-      if (clear) {
-        inputMarkup = (
-          <div className="form__clear">
-            {inputRender()}
-            {input ?
-              <Button reset className="form__clear__button" onClick={this._handleClear} >
-                <Icon icon="close" />
-              </Button>
-              : null
-            }
-          </div>
-        );
-      } else {
-        switch (addon) {
-          case 'left':
-            inputMarkup = (
-              <div className={addonClasses}>
-                <div className="form__addon__item form__addon__item--left" disabled={disabled}>
-                  {/* eslint react/prop-types:0 */}
-                  {this.props.children}
-                </div>
-                {inputRender()}
+      switch (addon) {
+        case 'left':
+          inputMarkup = (
+            <div className={addonClasses}>
+              <div className="form__addon__item form__addon__item--left" disabled={disabled}>
+                {this.props.children}
               </div>
-            );
-            break;
-          case 'right':
-            inputMarkup = (
-              <div className={addonClasses}>
-                {inputRender()}
-                <div className="form__addon__item form__addon__item--right" disabled={disabled}>
-                  {this.props.children}
-                </div>
+              {inputRender()}
+            </div>
+          );
+          break;
+        case 'right':
+          inputMarkup = (
+            <div className={addonClasses}>
+              {inputRender()}
+              <div className="form__addon__item form__addon__item--right" disabled={disabled}>
+                {this.props.children}
               </div>
-            );
-            break;
-          case 'both':
-            inputMarkup = (
-              <div className={addonClasses}>
-                <div className="form__addon__item form__addon__item--left" disabled={disabled}>
-                  {this.props.children[0]}
-                </div>
-                {inputRender()}
-                <div className="form__addon__item form__addon__item--right" disabled={disabled}>
-                  {this.props.children[1]}
-                </div>
+            </div>
+          );
+          break;
+        case 'both':
+          inputMarkup = (
+            <div className={addonClasses}>
+              <div className="form__addon__item form__addon__item--left" disabled={disabled}>
+                {this.props.children[0]}
               </div>
-            );
-            break;
-          default:
-            inputMarkup = (
-              inputRender()
-            );
-        }
+              {inputRender()}
+              <div className="form__addon__item form__addon__item--right" disabled={disabled}>
+                {this.props.children[1]}
+              </div>
+            </div>
+          );
+          break;
+        default:
+          inputMarkup = (
+            inputRender()
+          );
       }
 
       return inputMarkup;
@@ -209,6 +217,7 @@ Input.propTypes = {
   addon: PropTypes.oneOf(['left', 'right', 'both']),
   autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
   autoComplete: PropTypes.oneOf(['off', 'on']),
+  children: PropTypes.node,
   className: PropTypes.string,
   clear: PropTypes.bool,
   disabled: PropTypes.bool,
