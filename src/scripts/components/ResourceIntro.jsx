@@ -102,7 +102,7 @@ ResourceIntro.propTypes = {
     onClick: PropTypes.func,
   }),
   children: PropTypes.node,
-  title: PropTypes.string,
+  title: PropTypes.any,
   titleSub: PropTypes.string,
   hideMediaXsmall: PropTypes.bool,
   hideTitleSubXsmall: PropTypes.bool,
