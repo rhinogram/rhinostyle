@@ -32,6 +32,11 @@ export const config = {
   },
 };
 
+export const dateFormat = {
+  date: true,
+  datePattern: ['m', 'd', 'Y'],
+};
+
 /**
  * Loop over DOM nodes
  * @param  {array}   array

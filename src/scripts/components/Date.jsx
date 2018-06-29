@@ -20,10 +20,7 @@ const Date = (props) => {
       <DatePicker
         customInput={
           <Cleave
-            options={{
-              date: true,
-              datePattern: ['m', 'd', 'Y'],
-            }}
+            options={UtilitySystem.dateFormat}
           />
         }
         shouldCloseOnSelect={false}
