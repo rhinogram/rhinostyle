@@ -40,7 +40,7 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { children, className, label, disabled, name, value } = this.props;
+    const { children, className, label, disabled, name, title, value } = this.props;
     const { checked } = this.state;
 
     const classes = cx('rhinobox', className, {
@@ -59,6 +59,7 @@ class Checkbox extends React.Component {
           checked={checked}
           onChange={this.toggleChecked}
           onKeyUp={this.handleKeyUp}
+          title={title}
         />
         {label &&
           <label // eslint-disable-line jsx-a11y/label-has-for
@@ -88,6 +89,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
+  title: PropTypes.string,
   value: PropTypes.string,
 };
 
