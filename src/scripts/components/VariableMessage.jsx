@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, FormLabel, FormValidationMessage, Message, Select, UtilitySystem } from '../components';
+import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Message, Select, UtilitySystem } from '../components';
 
 class VariableMessage extends React.Component {
   state = {
@@ -301,7 +301,7 @@ class VariableMessage extends React.Component {
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
   render() {
-    const { className, composeLabel, explanationMessage, previewLabel, name, variables, readOnly, required, validationMessage } = this.props;
+    const { className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, validationMessage } = this.props;
     const classes = cx('form__group variable-message', className);
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
@@ -331,6 +331,7 @@ class VariableMessage extends React.Component {
           name={name}
           ref={ref => (this.compose = ref)}
         />
+        <FormExplanationMessage explanationMessage={explanationMessage} />
         <FormValidationMessage validationMessage={validationMessage} />
         {!readOnly &&
           <Fragment>
@@ -341,8 +342,8 @@ class VariableMessage extends React.Component {
                 onSelect={this.handleVariableSelection}
                 ref={ref => (this.select = ref)}
               />
-              {explanationMessage &&
-                <div className="variable-message__explanation">{explanationMessage}</div>
+              {variableExplanationMessage &&
+                <div className="variable-message__explanation">{variableExplanationMessage}</div>
               }
             </div>
 
@@ -361,6 +362,7 @@ VariableMessage.propTypes = {
   className: PropTypes.string,
   composeLabel: PropTypes.string,
   explanationMessage: PropTypes.string,
+  variableExplanationMessage: PropTypes.string,
   previewLabel: PropTypes.string,
   name: PropTypes.string.isRequired,
   reset: PropTypes.bool,
@@ -375,7 +377,7 @@ VariableMessage.propTypes = {
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
-  explanationMessage: 'Select a variable to insert into the template',
+  variableExplanationMessage: 'Select a variable to insert into the template',
 };
 
 export default VariableMessage;

@@ -7,13 +7,13 @@ import VariableMessageExample from './examples/VariableMessage.example.txt';
 
 const VariableMessageDocs = {
   composeLabel: 'Label used above the editable text',
-  explanationMessage: 'Text that appears next to the variable select',
   previewLabel: 'Label used above the preview message bubble',
   reset: 'Allow the initial value to be reverted after edit',
   variables: 'Select options (with variable notes) that power the find/replace functionality',
   initialValue: 'Plain-text message value that should be used by default or that is currently stored in the database',
   onInput: 'Callback function when the composition area is changed',
   readOnly: 'Disable compose input, select variable option, and message preview. This would typically be used in tandem with the intialValue prop',
+  variableExplanationMessage: 'Text that appears next to the variable select',
 };
 const VariableMessageScope  = {
   React,
