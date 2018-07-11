@@ -6,7 +6,6 @@
 @modal-backdrop-bg: fade(@global-color-black, 50%);
 
 @modal-content-bg: @global-color-white;
-@modal-content-border-color: @global-color-gray-lighter;
 @modal-border-radius: (@global-border-radius * 2);
 
 @modal-inner-padding: (@global-whitespace-base + @global-whitespace-small);
@@ -62,10 +61,7 @@
 .modal__dialog {
   -webkit-overflow-scrolling: touch;
   background-color: @modal-content-bg;
-  border: 1px solid @modal-content-border-color;
-  border-radius: @modal-border-radius;
   box-shadow: @global-shadow-depth-3;
-  margin: @global-whitespace-base;
   opacity: 0; // 1
   transform: translateY(25%); // 1
   transform-origin: center bottom; // 1
@@ -74,6 +70,7 @@
   @media (min-width: @global-screen-small-min) {
     margin: @global-whitespace-large auto;
     width: @modal-medium;
+    border-radius: @modal-border-radius;
   }
 }
 
