@@ -8581,9 +8581,9 @@ react-router@3.2.0:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react-textarea-autosize@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-6.1.0.tgz#df91387f8a8f22020b77e3833c09829d706a09a5"
+react-textarea-autosize@7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-7.0.3.tgz#a7b35b86d0b9cd8f13cb446ed8145d7df3239056"
   dependencies:
     prop-types "^15.6.0"
 

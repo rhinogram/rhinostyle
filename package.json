@@ -96,7 +96,7 @@
     "react-live": "1.11.0",
     "react-onclickoutside": "6.7.1",
     "react-router": "3.2.0",
-    "react-textarea-autosize": "6.1.0",
+    "react-textarea-autosize": "7.0.3",
     "recursive-readdir-sync": "1.0.6",
     "rhino-react-image-lightbox-rotate": "1.2.4",
     "rsvp": "4.8.3"
