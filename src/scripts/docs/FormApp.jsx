@@ -229,7 +229,7 @@ const FormApp = () => (
         <div className="site-copy">
           <p>Use <code>format</code> property alongside options from <a href="https://github.com/nosir/cleave.js">Cleave.js</a> to mask inputs for easier masking/validation. <em>Date example below.</em></p>
         </div>
-        <Input format={{ date: true, datePattern: ['m', 'd', 'Y'] }} explanationMessage="Format MM/DD/YY" name="exampleInputText9999" placeholder="Enter a date" type="text" />
+        <Input format={{ date: true, datePattern: ['m', 'd', 'Y'] }} explanationMessage="Format MM/DD/YYYY" name="exampleInputText9999" placeholder="Enter a date" type="text" />
       </div>
     </section>
 

@@ -69,7 +69,7 @@ class FeedbackApp extends React.Component {
           <h3 className="site-subheadline">Alert</h3>
           <div className="u-m-b-large">
             <Alert title="This is a danger alert!" titleIcon="star" type="danger" onDismiss={() => alert('dismissed!')}>This is a danger alert for dangerous stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
-            <Alert title="This is a defualt  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for defualt stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
+            <Alert title="This is a default  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>This is a default alert for default stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
             <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>This is a info alert for info stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
             <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>This is a success alert for success stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a></Alert>
           </div>

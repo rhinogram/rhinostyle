@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import RSVP from 'rsvp';
-import Svgo from 'svgo'; // eslint-disable-line import/no-extraneous-dependencies
+import Svgo from 'svgo';
 import parse5 from 'parse5';
 import recursiveReadSync from 'recursive-readdir-sync';
 
@@ -12,19 +12,20 @@ import paths from '../paths';
  * @param {string} svg - An SVG string.
  * @returns {RSVP.Promise<string>}
  */
-function optimizeSvg(svg) {
+async function optimizeSvg(svg) {
   // configure svgo
   const svgo = new Svgo({
     plugins: [
       { convertShapeToPath: false },
       { mergePaths: false },
+      { moveGroupAttrsToElems: false },
       { removeAttrs: { attrs: '(fill|stroke.*)' } },
     ],
   });
 
-  return new RSVP.Promise((resolve) => {
-    svgo.optimize(svg, ({ data }) => resolve(data));
-  });
+  const optimizedSvg = await svgo.optimize(svg);
+
+  return optimizedSvg.data;
 }
 
 /**
