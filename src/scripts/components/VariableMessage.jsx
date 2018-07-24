@@ -301,8 +301,9 @@ class VariableMessage extends React.Component {
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
   render() {
-    const { className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, validationMessage } = this.props;
+    const { characterCountTitle, className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, showCharacterCounter, validationMessage } = this.props;
     const classes = cx('form__group variable-message', className);
+    const { message } = this.state;
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessageSelectName = `variable-message-select-${this.id}`;
@@ -336,14 +337,21 @@ class VariableMessage extends React.Component {
         {!readOnly &&
           <Fragment>
             <div className="variable-message__footer">
-              <Select
-                name={variableMessageSelectName}
-                options={variables}
-                onSelect={this.handleVariableSelection}
-                ref={ref => (this.select = ref)}
-              />
-              {variableExplanationMessage &&
-                <div className="variable-message__explanation">{variableExplanationMessage}</div>
+              <div className="variable-message__footer__left">
+                <Select
+                  name={variableMessageSelectName}
+                  options={variables}
+                  onSelect={this.handleVariableSelection}
+                  ref={ref => (this.select = ref)}
+                />
+                {variableExplanationMessage &&
+                  <div className="variable-message__explanation">{variableExplanationMessage}</div>
+                }
+              </div>
+              {showCharacterCounter &&
+                <div title={characterCountTitle} className="variable-message__character-counter">
+                  {message.length}
+                </div>
               }
             </div>
 
@@ -359,6 +367,7 @@ class VariableMessage extends React.Component {
 }
 
 VariableMessage.propTypes = {
+  characterCountTitle: PropTypes.string,
   className: PropTypes.string,
   composeLabel: PropTypes.string,
   explanationMessage: PropTypes.string,
@@ -371,6 +380,7 @@ VariableMessage.propTypes = {
   initialValue: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
+  showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
 };
 

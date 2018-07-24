@@ -50,12 +50,40 @@
 .variable-message__footer {
   margin-top: @global-whitespace-small;
   display: flex;
-  align-items: center;
+
+  @media (min-width: @global-screen-xsmall-min) {
+    align-items: center;
+  }
+}
+
+.variable-message__footer__left {
+  @media (min-width: @global-screen-xsmall-min) {
+    display: flex;
+    align-items: center;
+  }
+
+  &:not(:last-child) {
+    margin-right: @global-whitespace-small;
+  }
 }
 
 .variable-message__explanation {
   font-size: @global-font-size-small;
-  margin-left: @global-whitespace-small;
+
+  @media (max-width: @global-screen-xsmall-max) {
+    margin-top: @global-whitespace-xsmall;
+  }
+
+  @media (min-width: @global-screen-xsmall-min) {
+    margin-left: @global-whitespace-small;
+  }
+}
+
+.variable-message__character-counter {
+  .u-text-muted;
+  .u-text-small;
+
+  margin-left: auto;
 }
 
 // 1. Override padding of pill for tighter spacing
