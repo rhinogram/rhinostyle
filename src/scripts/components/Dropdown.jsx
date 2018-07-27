@@ -123,12 +123,12 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow } = this.props;
+    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
       'dropdown--block': block,
-    });
+    }, wrapperClassName);
 
     const dropdownToggleClasses = cx('dropdown__toggle', className);
 
@@ -233,6 +233,7 @@ Dropdown.propTypes = {
   onReverseStart: PropTypes.func,
   onStart: PropTypes.func,
   manualClose: PropTypes.bool,
+  wrapperClassName: PropTypes.string,
 };
 
 Dropdown.defaultProps = {
