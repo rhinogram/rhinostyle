@@ -30,6 +30,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    opacity: 0;
   }
 }
 
@@ -93,10 +94,16 @@
   transform: translate3d(0, 0, 0); // 1
   min-height: @resource-min-height;
 
+  &:not(.has-interface) {
+    .mixin-resource-active-tab();
+  }
+
   &.is-active,
   &:not(.has-interface):hover,
   &:not(.has-interface):focus {
-    .mixin-resource-active-tab();
+    &::before {
+      opacity: 1;
+    }
   }
 
   &.is-active {
