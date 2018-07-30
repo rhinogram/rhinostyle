@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Icon, Resource, ResourceGroup, ResourceIntro, ResourceBody, ResourceRight } from '../components';
+import { Icon, Resource, ResourceGroup, ResourceBottom, ResourceIntro, ResourceBody, ResourceRight } from '../components';
 import { Live } from './components';
 import ResourceExample from './examples/Resource.example.txt';
 
@@ -11,6 +11,7 @@ const ResourceScope  = {
   ReactDOM,
   Resource,
   ResourceGroup,
+  ResourceBottom,
   ResourceIntro,
   ResourceBody,
   ResourceRight,

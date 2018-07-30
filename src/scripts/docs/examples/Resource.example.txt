@@ -17,6 +17,9 @@ class ComponentExample extends React.Component {
             <ResourceRight>
               Just now
             </ResourceRight>
+            <ResourceBottom>
+              I'm part of the ResourceBottom component!
+            </ResourceBottom>
           </Resource>
           <Resource active>
             <ResourceIntro icon={{ icon: 'mobile' }} title="This is a really long name that keeps on going" titleSub="(844) 755-0396" />

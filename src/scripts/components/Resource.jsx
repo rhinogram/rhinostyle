@@ -2,9 +2,43 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { ResourceRight, UtilitySystem } from '../components';
+import { ResourceBottom, ResourceRight, UtilitySystem } from '../components';
 
 class Resource extends React.Component {
+  getChildren = () => {
+    let returnChild = null;
+    const { children } = this.props;
+
+    return React.Children.map(children, (child) => {
+      if (!child) return false;
+
+      if (child.type === ResourceBottom) {
+        returnChild = null;
+      } else {
+        returnChild = child;
+      }
+
+      return returnChild;
+    });
+  }
+
+  getResourceBottomChildren = () => {
+    let returnChild = null;
+    const { children } = this.props;
+
+    return React.Children.map(children, (child) => {
+      if (!child) return false;
+
+      if (child.type === ResourceBottom) {
+        returnChild = child;
+      } else {
+        returnChild = null;
+      }
+
+      return returnChild;
+    });
+  }
+
   hasRightColumn = () => {
     const { children } = this.props;
     let rightColumnInstance = false;
@@ -27,7 +61,7 @@ class Resource extends React.Component {
   }
 
   render() {
-    const { className, children, active, disabled, selected, interfaceMode, unread, wrapperClassName } = this.props;
+    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
@@ -46,8 +80,9 @@ class Resource extends React.Component {
     return (
       <div role="button" tabIndex={0} className={wrapperClasses} onClick={this.handleClick} disabled={disabled}>
         <div className={resourceClasses}>
-          {children}
+          {this.getChildren()}
         </div>
+        {this.getResourceBottomChildren()}
       </div>
     );
   }

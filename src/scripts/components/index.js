@@ -46,6 +46,7 @@ import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 import ResourceGroup from './ResourceGroup';
 import Resource from './Resource';
+import ResourceBottom from './ResourceBottom';
 import ResourceRight from './ResourceRight';
 import ResourceIntro from './ResourceIntro';
 import ResourceBody from './ResourceBody';
@@ -115,6 +116,7 @@ export {
   Radio,
   RadioGroup,
   ResourceGroup,
+  ResourceBottom,
   ResourceRight,
   ResourceIntro,
   ResourceBody,
