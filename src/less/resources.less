@@ -93,6 +93,9 @@
   cursor: pointer;
   transform: translate3d(0, 0, 0); // 1
   min-height: @resource-min-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &:not(.has-interface) {
     .mixin-resource-active-tab();
