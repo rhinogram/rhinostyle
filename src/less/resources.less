@@ -30,6 +30,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    opacity: 0;
   }
 }
 
@@ -87,18 +88,144 @@
 
 // 1. Resolve `position: relative` elements inside of scroll container being cut-off
 // https://stackoverflow.com/a/8733719/1026742
-.resource {
-  display: flex;
-  min-height: @resource-min-height;
-  align-items: center;
+.resource__wrapper {
   padding: @resource-padding-vertical @resource-padding-horizontal;
-  position: relative;
   cursor: pointer;
   transform: translate3d(0, 0, 0); // 1
+  min-height: @resource-min-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:not(.has-interface) {
+    .mixin-resource-active-tab();
+  }
+
+  &.is-active,
+  &:not(.has-interface):hover,
+  &:not(.has-interface):focus {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &.is-active {
+    background: @resource-active-background;
+  }
 
   &:active {
     box-shadow: inset @resource-active-inset-shadow;
   }
+
+  &.has-interface {
+    .resource {
+      padding-right: (@resource-interface-size + @global-whitespace-xsmall);
+    }
+
+    .resource::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: @resource-interface-size;
+      height: @resource-interface-size;
+      z-index: 1;
+    }
+
+    &.is-radio {
+      .resource::after {
+        border: 1px solid @global-border-color;
+      }
+    }
+
+    .resource-group\@small & {
+      .resource::after {
+        transform: none;
+        top: 0;
+      }
+    }
+  }
+
+  &.is-checkbox,
+  &.is-radio {
+    &.is-selected {
+      .resource::before {
+        content: '';
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        right: ((@resource-interface-active-decrease / 2));
+        transform: translateY(-50%);
+        width: (@resource-interface-size - @resource-interface-active-decrease);
+        height: (@resource-interface-size - @resource-interface-active-decrease);
+      }
+
+      .resource-group\@small & {
+        .resource::before {
+          transform: none;
+          top: (@resource-interface-active-decrease / 2);
+        }
+      }
+    }
+  }
+
+  @svg-load checkmark url(../svg/checkmark.svg) {
+    .icon-stroke {
+      stroke: @global-color-white;
+    }
+  }
+
+  &.is-checkbox {
+    &.is-selected {
+      .resource::before {
+        background-image: svg-inline(checkmark);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .resource::after {
+        background: @global-color-secondary;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &.is-radio {
+    .resource::after {
+      border-radius: 50%;
+    }
+
+    &.is-selected {
+      .resource::before {
+        background: @global-color-primary;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .resource__intro,
+    .resource__body,
+    .resource__right {
+      opacity: @global-opacity-disabled;
+    }
+  }
+
+  // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
+  ~ .resource__wrapper {
+    border-top: 1px solid @global-border-color;
+  }
+}
+
+.resource {
+  display: flex;
+  align-items: center;
+  position: relative;
 
   // 1. To allow for body to break to next line
   .resource-group\@small & {
@@ -130,120 +257,8 @@
     }
   }
 
-  // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
-  ~ .resource {
-    border-top: 1px solid @global-border-color;
-  }
-
-  &.is-active,
-  &:not(.has-interface):hover,
-  &:not(.has-interface):focus {
-    .mixin-resource-active-tab();
-  }
-
-  &.is-active {
-    background: @resource-active-background;
-  }
-
-  &.has-interface {
-    padding-right: (@resource-padding-horizontal + @resource-interface-size + @global-whitespace-xsmall);
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: (@resource-interface-size / 2);
-      transform: translateY(-50%);
-      width: @resource-interface-size;
-      height: @resource-interface-size;
-      z-index: 1;
-    }
-
-    &.is-radio {
-      &::after {
-        border: 1px solid @global-border-color;
-      }
-    }
-
-    .resource-group\@small & {
-      &::after {
-        transform: none;
-        top: (@resource-interface-size / 2);
-      }
-    }
-  }
-
-  &.is-checkbox,
-  &.is-radio {
-    &.is-selected {
-      &::before {
-        content: '';
-        z-index: 2;
-        position: absolute;
-        top: 50%;
-        right: ((@resource-interface-size / 2) + (@resource-interface-active-decrease / 2));
-        transform: translateY(-50%);
-        width: (@resource-interface-size - @resource-interface-active-decrease);
-        height: (@resource-interface-size - @resource-interface-active-decrease);
-      }
-
-      .resource-group\@small & {
-        &::before {
-          transform: none;
-          top: ((@resource-interface-size / 2) + (@resource-interface-active-decrease / 2));
-        }
-      }
-    }
-  }
-
-  @svg-load checkmark url(../svg/checkmark.svg) {
-    .icon-stroke {
-      stroke: @global-color-white;
-    }
-  }
-
-  &.is-checkbox {
-    &.is-selected {
-      &::before {
-        background-image: svg-inline(checkmark);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: contain;
-      }
-
-      &::after {
-        background: @global-color-secondary;
-        border-radius: 50%;
-      }
-    }
-  }
-
-  &.is-radio {
-    &::after {
-      border-radius: 50%;
-    }
-
-    &.is-selected {
-      &::before {
-        background: @global-color-primary;
-        border-radius: 50%;
-      }
-    }
-  }
-
   > :only-child {
     margin-right: 0;
-  }
-
-  &[disabled] {
-    cursor: not-allowed;
-    pointer-events: none;
-
-    .resource__intro,
-    .resource__body,
-    .resource__right {
-      opacity: @global-opacity-disabled;
-    }
   }
 }
 
@@ -391,4 +406,8 @@
     flex: 1;
     min-width: 0;
   }
+}
+
+.resource__bottom {
+  margin-top: @global-whitespace-small;
 }
