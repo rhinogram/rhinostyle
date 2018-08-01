@@ -10,7 +10,7 @@ class Resource extends React.Component {
     const { children } = this.props;
 
     return React.Children.map(children, (child) => {
-      if (!child) return false;
+      if (!child) return null;
 
       if (child.type === ResourceBottom) {
         returnChild = null;
@@ -27,7 +27,7 @@ class Resource extends React.Component {
     const { children } = this.props;
 
     return React.Children.map(children, (child) => {
-      if (!child) return false;
+      if (!child) return null;
 
       if (child.type === ResourceBottom) {
         returnChild = child;

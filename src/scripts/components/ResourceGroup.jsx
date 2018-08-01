@@ -11,7 +11,7 @@ class ResourceGroup extends React.Component {
     const { children } = this.props;
 
     return React.Children.map(children, (child) => {
-      if (!child) return false;
+      if (!child) return null;
 
       if (child.type === Resource) {
         returnChild = React.cloneElement(child, {
