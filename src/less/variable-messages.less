@@ -79,13 +79,18 @@
   }
 }
 
-.variable-message__character-counter {
-  .u-text-muted;
+.variable-message__character-count {
   .u-text-small;
 
+  color: @global-font-color-muted;
   margin-left: auto;
   text-align: right;
   cursor: default;
+}
+
+.variable-message__character-count--warning {
+  color: @global-color-accent;
+  font-weight: @global-font-weight-bold;
 }
 
 // 1. Override padding of pill for tighter spacing

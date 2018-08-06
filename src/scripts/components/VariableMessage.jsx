@@ -301,9 +301,12 @@ class VariableMessage extends React.Component {
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
   render() {
-    const { characterCountTitle, className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, showCharacterCounter, validationMessage } = this.props;
+    const { characterCountTitle, characterCountWarningLength, className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, showCharacterCounter, validationMessage } = this.props;
     const classes = cx('form__group variable-message', className);
     const { message } = this.state;
+    const characterCounterClasses = cx('variable-message__character-count', {
+      'variable-message__character-count--warning': message.length >= characterCountWarningLength,
+    });
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessageSelectName = `variable-message-select-${this.id}`;
@@ -349,7 +352,7 @@ class VariableMessage extends React.Component {
                 }
               </div>
               {showCharacterCounter &&
-                <div title={characterCountTitle} className="variable-message__character-counter">
+                <div title={characterCountTitle} className={characterCounterClasses}>
                   {message.length}
                 </div>
               }
@@ -368,6 +371,7 @@ class VariableMessage extends React.Component {
 
 VariableMessage.propTypes = {
   characterCountTitle: PropTypes.string,
+  characterCountWarningLength: PropTypes.number,
   className: PropTypes.string,
   composeLabel: PropTypes.string,
   explanationMessage: PropTypes.string,
