@@ -79,7 +79,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, placeholder, readOnly, required, size, type, validationMessage } = this.props;
+    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear': clear,
       'form__control--naked': naked,
@@ -111,6 +111,7 @@ class Input extends React.Component {
               className={inputClasses}
               id={this.id}
               name={name}
+              onInit={onInit}
               options={format}
               placeholder={placeholder}
               value={this.state.value}
@@ -229,6 +230,7 @@ Input.propTypes = {
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onInit: PropTypes.func,
   onKeyPress: PropTypes.func,
   onClear: PropTypes.func,
   placeholder: PropTypes.string,
