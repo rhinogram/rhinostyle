@@ -43,6 +43,7 @@ const icons = [
   'email',
   'facebook',
   'filter',
+  'heart',
   'hipaa',
   'inbox',
   'info-circle',
