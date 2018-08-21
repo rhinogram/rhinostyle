@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import cx from 'classnames';
 
 const ResourceBottom = (props) => {
-  const { children } = props;
+  const { children, className } = props;
+  const classes = cx('resource__bottom', className);
 
   return (
     children && (
-      <div className="resource__bottom">
+      <div className={classes}>
         {children}
       </div>
     )
@@ -15,6 +17,7 @@ const ResourceBottom = (props) => {
 
 ResourceBottom.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export default ResourceBottom;
