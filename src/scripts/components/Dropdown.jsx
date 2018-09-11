@@ -34,7 +34,7 @@ class Dropdown extends React.Component {
     const { children } = this.props;
 
     return React.Children.map(children, (child) => {
-      if (!child) return null;
+      if (!child) return false;
 
       if (child.type === DropdownMenuItem) {
         const onClick = () => {
