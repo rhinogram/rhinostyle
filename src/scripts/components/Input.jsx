@@ -78,6 +78,12 @@ class Input extends React.Component {
     this.input.closest('.form__group').classList.remove('has-focus');
   }
 
+  handleMouseDown = (event) => {
+    if (this.props.onMouseDown) {
+      this.props.onMouseDown(event);
+    }
+  }
+
   render() {
     const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
@@ -119,6 +125,7 @@ class Input extends React.Component {
               onBlur={this.handleBlur}
               onKeyPress={this.handleKeyPress}
               onChange={this.handleChange}
+              onMouseDown={this.handleMouseDown}
               readOnly={readOnly}
               htmlRef={ref => (this.input = ref)}
             />
@@ -147,6 +154,7 @@ class Input extends React.Component {
             onBlur={this.handleBlur}
             onKeyPress={this.handleKeyPress}
             onChange={this.handleChange}
+            onMouseDown={this.handleMouseDown}
             readOnly={readOnly}
             ref={ref => (this.input = ref)}
           />
@@ -233,6 +241,7 @@ Input.propTypes = {
   onInit: PropTypes.func,
   onKeyPress: PropTypes.func,
   onClear: PropTypes.func,
+  onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
