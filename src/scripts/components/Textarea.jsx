@@ -44,6 +44,12 @@ class Textarea extends React.Component {
     }
   }
 
+  handleMouseDown = (event) => {
+    if (this.props.onMouseDown) {
+      this.props.onMouseDown(event);
+    }
+  }
+
   render() {
     const { abbrMaxCharacters, className, disabled, explanationMessage, label, maxCharacters, naked, name, placeholder, readOnly, required, rows, validationMessage } = this.props;
 
@@ -67,7 +73,7 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
-        <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} readOnly={readOnly} value={this.state.value} onChange={this.handleChange} disabled={disabled} />
+        <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} readOnly={readOnly} value={this.state.value} onChange={this.handleChange} onMouseDown={this.handleMouseDown} disabled={disabled} />
         {(validationMessage || explanationMessage || showCharacterCount()) &&
           <div className="form__control-footer">
             {(validationMessage || explanationMessage) &&
@@ -95,6 +101,7 @@ Textarea.propTypes = {
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
