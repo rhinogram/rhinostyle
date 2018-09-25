@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Close, Dropdown, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
+import { Button, Close, Dropdown, DropdownCheckbox, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid, Checkbox } from '../components';
 import { Live } from './components';
 import DropdownExample from './examples/Dropdown.example.txt';
+import DropdownCheckboxExample from './examples/DropdownCheckbox.example.txt';
 import DropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
 import DropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
 import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
@@ -22,6 +23,27 @@ const DropdownDocs = {
   type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes
   wide: 'Sets a min-width on dropdown menu',
   manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.',
+};
+
+const DropdownCheckboxDocs = {
+  activeKey: 'The id of the currently selected DropdownMenuItem',
+  block: 'Block level',
+  disableScroll: 'Disabled default dropdown menu scrolling. Does not apply when filter is used.',
+  hideCaret: 'Hide Dropdown caret',
+  label: 'Text in dropdown when closed',
+  lockLabel: 'Do not change label text when selecting item',
+  position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
+  size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
+  onSelect: 'Callback when a DropdownMenuItem is selected',
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'checkbox', 'checkbox-muted'])</code>", // eslint-disable-line single-quotes
+  wide: 'Sets a min-width on dropdown menu',
+  manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.',
+  isCheckbox: 'Enable the checkbox.',
+  checkboxClassName: 'Classes to be applied to checkbox. <code>partially-checked</code> class can be applied.',
+  isChecked: 'Current state of checkbox.',
+  onChange: 'Callback when checkbox is clicked.',
+  labelValueAssociated: 'Total no. of items present of the same category as the DropdownMenuItem selected.',
+  showAssociatedLabel: 'Enables labelValueAssociated.',
 };
 
 const DropdownMultiSelectDocs = {
@@ -58,6 +80,7 @@ const DropdownScope  = {
   Button,
   Close,
   Dropdown,
+  DropdownCheckbox,
   DropdownFilter,
   DropdownMenuDivider,
   DropdownMenuHeader,
@@ -299,6 +322,20 @@ const DropdownApp = () => (
         scope={DropdownScope}
         component={Dropdown}
         propDescriptions={DropdownDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown Checkbox</h3>
+      <p className="site-copy">Use <code>Dropdown Checkbox</code> component to create a dropdown with selectable menu items and a checkbox. The main use of this component is for performing bulk actions. The checkbox is used to select multiple items at a time.</p>
+      <p className="site-copy">Add <code>checkboxClassName=&quot;partially-checked&quot;</code> property for partial selections.</p>
+      <p className="site-copy">The label associated to an option is enabled using <code>showAssociatedLabel</code> in <code>DropdownCheckbox</code>. Use <code>type=&quot;checkbox&quot;</code> if you want a checkbox to display the component as below.</p>
+
+      <Live
+        code={DropdownCheckboxExample}
+        scope={DropdownScope}
+        component={DropdownCheckbox}
+        propDescriptions={DropdownCheckboxDocs}
       />
     </section>
 

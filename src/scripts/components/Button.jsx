@@ -46,6 +46,8 @@ class Button extends React.Component {
       'button--large': size === 'large',
       'button--block': block,
       'button--icon': iconOnly,
+      'button--checkbox': type === 'checkbox',
+      'button--checkbox-muted': type === 'checkbox-muted',
     };
 
     const classes = cx(buttonBaseClass, className, {
@@ -93,7 +95,7 @@ Button.propTypes = {
   route: PropTypes.string,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger', 'checkbox', 'checkbox-muted']),
   url: PropTypes.string,
   loading: PropTypes.bool,
 };

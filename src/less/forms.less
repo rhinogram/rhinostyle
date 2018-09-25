@@ -674,6 +674,25 @@ input[type='checkbox']:focus {
     }
   }
 
+  @svg-load minus url(../svg/minus.svg) {
+    .icon-stroke {
+      stroke: @global-color-white;
+    }
+  }
+
+  &.partially-checked {
+    input {
+      &:checked + label::before {
+        background-color: @form-element-color;
+        background-image: svg-inline(minus);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 75% 75%;
+        border-color: @form-element-color;
+      }
+    }
+  }
+
   input {
     &:checked + label::before {
       background-color: @form-element-color;

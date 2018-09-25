@@ -1,0 +1,44 @@
+class ComponentExample extends React.Component {
+  state = {
+    checked: false,
+    labelValueAssociated: '',
+    checkboxClassName: '',
+  };
+  
+  handleSelect = (item) => {
+    this.setState({
+      checked: item.isChecked,
+      labelValueAssociated: item.associatedLabel,
+      checkboxClassName: item.checkboxClassName,
+    });
+  }
+
+  handleChecked = () => {
+    const { checked } = this.state;
+    if (checked) {
+      this.setState({
+        labelValueAssociated: '',
+        checkboxClassName: '',
+      });
+    } else {
+      this.setState({
+        labelValueAssociated: 'All Selected',
+      }); 
+    }
+    this.setState({ checked: !this.state.checked });
+  }
+
+  render() {
+    const itemArray = [{ id: 1, label: 'Select All', description: 'All Selected', isChecked: true, associatedLabel: 'All Selected', checkboxClassName: '' },
+    { id: 2, label: 'None', description: 'None', isChecked: false, checkboxClassName: '' },
+    { id: 3, label: 'Following', description: 'Following', isChecked: true, associatedLabel: '2 Selected', checkboxClassName: 'partially-checked' }];
+  
+    return (
+      <UtilityInlineGrid>
+        <DropdownCheckbox isCheckbox type="checkbox" isChecked={this.state.checked} showAssociatedLabel labelValueAssociated={this.state.labelValueAssociated} onChange={this.handleChecked} checkboxClassName={this.state.checkboxClassName}>
+          {itemArray.map(item => <DropdownMenuItem key={item.id} id={item.id} label={item.label} onClick={() => this.handleSelect(item)} />)}
+        </DropdownCheckbox>
+      </UtilityInlineGrid>
+    );
+  }
+}
