@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Close, Dropdown, DropdownCheckbox, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid, Checkbox } from '../components';
+import { Button, Close, Dropdown, DropdownCheckbox, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
 import { Live } from './components';
 import DropdownExample from './examples/Dropdown.example.txt';
 import DropdownCheckboxExample from './examples/DropdownCheckbox.example.txt';

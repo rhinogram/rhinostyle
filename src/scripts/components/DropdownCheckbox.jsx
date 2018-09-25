@@ -243,7 +243,7 @@ DropdownCheckbox.propTypes = {
   reset: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger', 'checkbox', 'button--checkbox-muted']),
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger', 'checkbox', 'checkbox-muted']),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
   showAssociatedLabel: PropTypes.bool,
