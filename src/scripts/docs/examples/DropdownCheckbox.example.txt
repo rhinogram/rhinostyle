@@ -25,7 +25,7 @@ class ComponentExample extends React.Component {
         labelValueAssociated: 'All Selected',
       }); 
     }
-    this.setState({ checked: !this.state.checked });
+    this.setState(prevState => ({ checked: !prevState.checked }));
   }
 
   render() {
@@ -35,8 +35,22 @@ class ComponentExample extends React.Component {
   
     return (
       <UtilityInlineGrid>
-        <DropdownCheckbox isCheckbox type="checkbox" isChecked={this.state.checked} showAssociatedLabel labelValueAssociated={this.state.labelValueAssociated} onChange={this.handleChecked} checkboxClassName={this.state.checkboxClassName}>
-          {itemArray.map(item => <DropdownMenuItem key={item.id} id={item.id} label={item.label} onClick={() => this.handleSelect(item)} />)}
+        <DropdownCheckbox 
+          isCheckbox type="checkbox"
+          isChecked={this.state.checked}
+          showAssociatedLabel
+          labelValueAssociated={this.state.labelValueAssociated}
+          onChange={this.handleChecked}
+          checkboxClassName={this.state.checkboxClassName}
+        >
+          {itemArray.map(item => 
+            <DropdownMenuItem
+              key={item.id}
+              id={item.id}
+              label={item.label}
+              onClick={() => this.handleSelect(item)}
+            />)
+          }
         </DropdownCheckbox>
       </UtilityInlineGrid>
     );
