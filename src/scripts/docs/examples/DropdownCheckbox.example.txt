@@ -36,7 +36,8 @@ class ComponentExample extends React.Component {
     return (
       <UtilityInlineGrid>
         <DropdownCheckbox 
-          isCheckbox type="checkbox"
+          isCheckbox
+          type="checkbox"
           isChecked={this.state.checked}
           showAssociatedLabel
           labelValueAssociated={this.state.labelValueAssociated}

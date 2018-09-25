@@ -88,7 +88,8 @@ class DropdownCheckbox extends React.Component {
   handleToggle = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
-    if (this.state.isOpen) {
+    const { isOpen } = this.state;
+    if (isOpen) {
       // Close dropdown
       $dropdown.timeline.reverse();
     } else {
@@ -97,9 +98,7 @@ class DropdownCheckbox extends React.Component {
     }
 
     // Update state
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
 
     if (this.props.onClick) {
       this.props.onClick();
@@ -188,9 +187,10 @@ class DropdownCheckbox extends React.Component {
       return false;
     };
     const showCheckbox = () => {
-      const { isCheckbox } = this.state;
+      const { isCheckbox, checked } = this.state;
+      const { onChange } = this.props;
       if (isCheckbox) {
-        return <Checkbox name="test" label=" " isChecked={this.state.checked} onChange={this.props.onChange} className={checkboxClassName} />;
+        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClassName} />;
       }
       return false;
     };
