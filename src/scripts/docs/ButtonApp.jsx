@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Icon, UtilityInlineGrid } from '../components';
+import { Avatar, Button, Icon, UtilityInlineGrid } from '../components';
 import { Live } from './components';
 import ButtonExample from './examples/Button.example.txt';
 
 const ButtonDocs = {
   iconOnly: 'Icon with no text',
+  avatarOnly: 'Avatar without text or icon',
   route: '<code>react-router</code> route',
   size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   title: 'Represents advisory information on hover',
@@ -19,6 +20,7 @@ const ButtonScope  = {
   ReactDOM,
   Button,
   Icon,
+  Avatar,
   UtilityInlineGrid,
 };
 
@@ -83,6 +85,13 @@ const ButtonApp = () => (
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
           <Button type="outline-primary" iconOnly><Icon icon="star" /></Button>
+        </UtilityInlineGrid>
+        <h5 className="site-miniheadline">Avatar-Only Buttons</h5>
+        <p className="site-copy">Include <code>avatarOnly</code> property when creating a button with an avatar and without any text or icon. This modifier adjusts the height and the width to give a circular appearance to the button.</p>
+        <UtilityInlineGrid>
+          <Button avatarOnly><Avatar name="Ben Bruning" size="small" type="member" /></Button>
+          <Button avatarOnly><Avatar name="Ben Bruning" size="large" type="member" /></Button>
+          <Button avatarOnly><Avatar name="Ben Bruning" size="xlarge" type="member" /></Button>
         </UtilityInlineGrid>
       </div>
     </section>

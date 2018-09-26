@@ -25,7 +25,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, block, className, disabled, iconOnly, onClick, reset, route, size, title, type, url, loading, ...opts } = this.props;
+    const { active, block, className, disabled, iconOnly, avatarOnly, onClick, reset, route, size, title, type, url, loading, ...opts } = this.props;
 
     const buttonBaseClass = reset ? 'button--reset' : 'button';
     const buttonStyleClasses = reset ? {
@@ -46,6 +46,7 @@ class Button extends React.Component {
       'button--large': size === 'large',
       'button--block': block,
       'button--icon': iconOnly,
+      'button--avatar': avatarOnly,
     };
 
     const classes = cx(buttonBaseClass, className, {
@@ -89,6 +90,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   iconOnly: PropTypes.bool,
+  avatarOnly: PropTypes.bool,
   reset: PropTypes.bool,
   route: PropTypes.string,
   size: PropTypes.oneOf(['small', 'large']),
