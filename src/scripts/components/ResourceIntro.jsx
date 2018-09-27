@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import { Avatar, Button, Icon } from '../components';
+import { Avatar, Button, Checkbox, Icon } from '../components';
 
 class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
@@ -16,19 +16,41 @@ class ResourceIntro extends React.Component {
   }
 
   renderMedia = () => {
-    const { icon, avatar } = this.props;
+    const { icon, avatar, checkbox } = this.props;
     let output = null;
     const validIcon = icon && icon.icon;
 
     if (validIcon) {
       if (icon.onClick) {
         output = (
-          <Button reset onClick={this.handleIconClick}>
-            <Icon bump={icon.bump} icon={icon.icon} />
-          </Button>
+          <div className="u-flex">
+            {checkbox &&
+              <Checkbox
+                label={checkbox.label}
+                name={checkbox.name}
+                isChecked={checkbox.isChecked}
+                onClick={checkbox.onClick}
+              />
+            }
+            <Button reset onClick={this.handleIconClick}>
+              <Icon bump={icon.bump} icon={icon.icon} />
+            </Button>
+          </div>
         );
       } else {
-        output = <Icon bump={icon.bump} icon={icon.icon} />;
+        output = (
+          <div className="u-flex">
+            {checkbox &&
+              <Checkbox
+                label={checkbox.label}
+                name={checkbox.name}
+                isChecked={checkbox.isChecked}
+                onClick={checkbox.onClick}
+              />
+            }
+            <Icon bump={icon.bump} icon={icon.icon} />
+          </div>
+        );
       }
     } else if (avatar) {
       output = (
@@ -39,10 +61,20 @@ class ResourceIntro extends React.Component {
           image={avatar.image}
         />
       );
+    } else if (checkbox) {
+      output = (
+        <Checkbox
+          label={checkbox.label}
+          name={checkbox.name}
+          isChecked={checkbox.isChecked}
+          onClick={checkbox.onClick}
+        />
+      );
     }
 
     if (output) {
       const classes = cx('resource__intro__media', {
+        'resource__intro__media--checkbox': checkbox,
         'resource__intro__media--icon': validIcon,
         'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
       });
@@ -99,6 +131,12 @@ ResourceIntro.propTypes = {
   icon: PropTypes.shape({
     icon: PropTypes.string,
     bump: PropTypes.string,
+    onClick: PropTypes.func,
+  }),
+  checkbox: PropTypes.shape({
+    isChecked: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string,
     onClick: PropTypes.func,
   }),
   children: PropTypes.node,
