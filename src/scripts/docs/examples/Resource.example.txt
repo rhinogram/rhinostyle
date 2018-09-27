@@ -75,7 +75,7 @@ class ComponentExample extends React.Component {
             </ResourceRight>
           </Resource>
         </ResourceGroup>
-        <ResourceGroup separator="Another example" interfaceMode="checkbox">
+        <ResourceGroup separator="Another example" interfaceMode="radio">
           <Resource>
             <ResourceIntro avatar={{ type: 'member' }} title="Zach Schnackel" />
             <ResourceBody>
