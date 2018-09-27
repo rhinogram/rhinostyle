@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+import { Avatar, Button, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+
+function customValidator(props, propName, componentName) {
+  if (props.icon && props.avatar) {
+    return new Error(`Only one of \`avatar\` or \`icon\` can be supplied to \`${componentName}\`.`);
+  } else if (props[propName]) {
+    if (typeof props[propName] !== 'string') {
+      return new Error(`Invalid prop \`${props[propName]}\` of type \`${typeof props[propName]}\` supplied to \`${componentName}\`, expected \`string\`.`);
+    }
+  }
+  return null;
+}
 
 class Dropdown extends React.Component {
   state = {
@@ -123,7 +134,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName } = this.props;
+    const { avatar, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
@@ -183,7 +194,8 @@ class Dropdown extends React.Component {
         <Button
           reset={reset}
           size={size}
-          iconOnly={icon && !label}
+          iconOnly={icon && !label && !avatar}
+          avatarOnly={avatar && !icon && !label}
           type={type}
           onClick={this.handleToggle}
           className={dropdownToggleClasses}
@@ -193,8 +205,11 @@ class Dropdown extends React.Component {
           {selectedIcon || icon ?
             <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
           }
+          {avatar ?
+            <Avatar name={avatar.name} type={avatar.type} image={avatar.image} size={avatar.size} className="app-header__avatar" onClick={this.handleToggle} /> : null
+          }
           {showLabel()}
-          {hideCaret || (icon && !label && !selectedLabel) ?
+          {hideCaret || (icon && avatar && !label && !selectedLabel) ?
             null :
             <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
           }
@@ -216,7 +231,7 @@ Dropdown.propTypes = {
   disableScroll: PropTypes.bool,
   hideCaret: PropTypes.bool,
   hideActive: PropTypes.bool,
-  icon: PropTypes.string,
+  icon: customValidator,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   lockLabel: PropTypes.bool,
   position: PropTypes.string,
@@ -234,6 +249,11 @@ Dropdown.propTypes = {
   onStart: PropTypes.func,
   manualClose: PropTypes.bool,
   wrapperClassName: PropTypes.string,
+  avatar: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    type: PropTypes.oneOf(['default', 'member']),
+  }),
 };
 
 Dropdown.defaultProps = {

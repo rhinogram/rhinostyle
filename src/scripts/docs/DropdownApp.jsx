@@ -188,6 +188,12 @@ const DropdownApp = () => (
           <DropdownMenuDivider />
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
+
+        <Dropdown position="center" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member', size: 'small' }}>
+          <DropdownMenuItem label="Dropdown menu after clicking on an avatar Image" labelDesc="This dropdown button displays image" />
+          <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url="http://www.rhinogram.com" blankWindow />
+          <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
+        </Dropdown>
       </UtilityInlineGrid>
     </section>
 
