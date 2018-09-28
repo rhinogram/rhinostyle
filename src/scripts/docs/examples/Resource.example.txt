@@ -21,6 +21,17 @@ class ComponentExample extends React.Component {
               I'm part of the ResourceBottom component!
             </ResourceBottom>
           </Resource>
+          <Resource unread>
+            <ResourceIntro checkbox={{ name: 'test', label: ' ' }} title="Brendan Dagg" titleSub="Patient">
+              <span className="u-text-accent">Assigned</span>
+            </ResourceIntro>
+            <ResourceBody>
+              You <Icon size="small" icon="arrow-right" /> Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!Some body stuff!
+            </ResourceBody>
+            <ResourceRight>
+              Just now
+            </ResourceRight>
+          </Resource>
           <Resource active>
             <ResourceIntro icon={{ icon: 'mobile' }} title="This is a really long name that keeps on going" titleSub="(844) 755-0396" />
             <ResourceBody>
