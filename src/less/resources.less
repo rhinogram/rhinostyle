@@ -12,6 +12,7 @@
 @resource-interface-size: 2rem;
 @resource-unread-size: 1rem;
 @resource-icon-size: 1.25em;
+@resource-checkbox-margin: 1.5em;
 @resource-avatar-size: @avatar-size-small;
 
 @resource-interface-active-decrease: 0.6rem;
@@ -296,7 +297,15 @@
 }
 
 .resource__intro__media--icon {
+  &.resource__intro__media--checkbox {
+    margin-right: @resource-checkbox-margin;
+  }
+
   width: @resource-icon-size;
+}
+
+.resource__intro__media--checkbox {
+  width: @resource-checkbox-margin;
 }
 
 .resource__intro__title-wrapper {
