@@ -6,7 +6,7 @@ import { Live } from './components';
 import ButtonExample from './examples/Button.example.txt';
 
 const ButtonDocs = {
-  iconOnly: 'Icon with no text',
+  iconOnly: 'Icon with no text or avatar',
   avatarOnly: 'Avatar without text or icon',
   route: '<code>react-router</code> route',
   size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
