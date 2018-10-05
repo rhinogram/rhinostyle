@@ -7,7 +7,7 @@ import browserSync from 'browser-sync';
 export default function server() {
   browserSync.init({
     server: {
-      baseDir: './build',
+      baseDir: './docs',
     },
     port: 3002,
   });
