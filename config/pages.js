@@ -62,7 +62,7 @@ export default function pages() {
       directory: './src/templates',
       default: 'default.html',
     }))
-    .destination('./build')
+    .destination('./docs')
     .build((err) => {
       if (err) {
         throw err;

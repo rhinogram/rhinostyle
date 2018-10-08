@@ -8,6 +8,6 @@ const $ = gulpLoadPlugins();
  * @return {void}
  */
 export default function deploy() {
-  return gulp.src('./build/**/*')
+  return gulp.src('./docs/**/*')
     .pipe($.ghPages());
 }
