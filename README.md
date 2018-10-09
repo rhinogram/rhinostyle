@@ -14,15 +14,12 @@
 
 ## Development Workflow
 
-RhinoStyle dist/build assets are version controlled already, but if you'd like to rebuild at anytime and start a server, you can run `yarn start`
+RhinoStyle dist/docs assets are version controlled already, but if you'd like to rebuild at anytime and start a server, you can run `yarn start`
 
 Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but some of the more common ones you will run are:
 
 * `gulp server` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser.
-* `gulp docs` Bundles all tasks to rebuild documentation site. _This does not include the animations or audio tasks due to their long-processes._
-* `gulp docs:styles` Builds the CSS files for the documentation site (includes framework assets)
-* `gulp docs:scripts` Builds the JS files for the documentation site (includes framework assets)
-* `gulp docs:site` Builds the static pages for the documentation site
+* `gulp docs` Bundles all tasks to rebuild documentation site.
 
 ## Production Workflow
 

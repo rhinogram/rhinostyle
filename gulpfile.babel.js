@@ -36,7 +36,7 @@ gulp.task('docs:site', pages);
 gulp.task('docs:styles', ['styles:lint'], docsStyles);
 gulp.task('icons', icons);
 gulp.task('media', media);
-gulp.task('server', ['watch'], server);
+gulp.task('serve', ['watch'], server);
 gulp.task('styles:lint', linter);
 gulp.task('watch', watch);
 
@@ -49,4 +49,4 @@ gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scr
 gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'media']);
 gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'media']);
 gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
-gulp.task('website', ['docs:deploy']);
+gulp.task('build', ['styles', 'docs', 'dist', 'default', 'animations']);
