@@ -14,36 +14,15 @@
 
 ## Development Workflow
 
-RhinoStyle dist/docs assets are version controlled already, but if you'd like to rebuild at anytime and start a server, you can run `yarn start`
-
-Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but some of the more common ones you will run are:
+Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but for development you will run:
 
 * `gulp server` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser.
-* `gulp docs` Bundles all tasks to rebuild documentation site.
 
-## Production Workflow
-
-Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but some of the more common ones you will run are:
-
-* `gulp dist` Bundles all tasks to rebuild framework. _This does not include the animations or audio tasks due to their long-processes._
-* `gulp dist:styles` Builds the CSS files for the framework
-* `gulp dist:scripts` Builds the JS files for the framework
+When adding / deleting any of the media, audio, or animation files, it may be necessary to run `gulp build` to capture those changes.
 
 ## Releasing
 
-To release a new version of RhinoStyle, run:
-
-```
-npm version x.x.x
-npm publish
-gulp website
-```
-
-This does the following:
-
-1. Rebuilds framework and tags new version on GitHub
-1. Publishes new version to [npmjs.org](https://www.npmjs.com/)
-1. Rebuilds documentation site with latest updates
+To release a new version of RhinoStyle, commit your changes and pull into master. The changes will automatically be updated on the live site.
 
 ## Versioning
 

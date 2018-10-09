@@ -44,7 +44,7 @@ const paths = {
     src: './src/less/rhinostyle-docs.less',
     docSrc: './src/less/rhinostyle-docs.less',
     docAll: './src/less/**/*.less',
-    dist: './docs/css/',
+    dist: './dist/css/',
     build: './docs/css/',
   },
   svg: {
