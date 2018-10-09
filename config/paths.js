@@ -41,7 +41,7 @@ const paths = {
     build: './docs/scripts/',
   },
   styles: {
-    src: './src/less/rhinostyle.less',
+    src: './src/less/rhinostyle-docs.less',
     docSrc: './src/less/rhinostyle-docs.less',
     docAll: './src/less/**/*.less',
     dist: './docs/css/',
