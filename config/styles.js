@@ -55,7 +55,7 @@ export function distStyles() {
  * Builds framework styles
  * @return {stream}
  */
-export default function docsStyles() {
+export function docsStyles() {
   const path = paths.styles;
 
   return gulp.src(path.docSrc)
