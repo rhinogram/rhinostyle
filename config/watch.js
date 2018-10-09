@@ -13,7 +13,7 @@ export default function watch() {
   gulp.watch(paths.svg.src, ['icons'], reload);
   gulp.watch(paths.styles.src, ['dist:styles', reload]);
   gulp.watch([paths.scripts.src], ['docs:scripts', reload]);
-  gulp.watch(paths.styles.docAll, ['docs:styles', reload]);
+  gulp.watch(paths.styles.docAll, ['dist:styles', reload]);
   gulp.watch([paths.metalsmith.pages, paths.metalsmith.templates], ['docs:site']);
   // Stop old version of gulp watch from running when modified
   gulp.watch(['gulpfile.babel.js', './config/*']).on('change', () => process.exit(0));
