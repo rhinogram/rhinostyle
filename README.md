@@ -16,7 +16,7 @@
 
 Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but for development you will run:
 
-* `gulp server` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser.
+* `gulp serve` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser.
 
 When adding / deleting any of the media, audio, or animation files, it may be necessary to run `gulp build` to capture those changes.
 
@@ -24,9 +24,14 @@ When adding / deleting any of the media, audio, or animation files, it may be ne
 
 To release a new version of RhinoStyle, commit your changes and create a PR into master. Once merged, the changes will automatically be updated on the live site.
 
-## Versioning
+After your changes have been merged into master, click on the `releases` tab, then the `Draft a new release` button. Increase the tag number from the previous build, and then press the `Publish Release` button.
 
-RhinoStyle is maintained by using the [Semantic Versioning Specification (SemVer)](http://semver.org).
+In [Rhinofront](https://github.com/rhinogram/rhinofront.git), edit `package.json` to the following:
+```
+"rhinostyle": "https://github.com/rhinogram/rhinostyle.git#<TAG_NUMBER>",
+```
+Test locally to ensure that your changes are coming through, then submit a PR to [Rhinofront](https://github.com/rhinogram/rhinofront.git) with the updated `package.json`.
+
 
 ## Browser Support
 
