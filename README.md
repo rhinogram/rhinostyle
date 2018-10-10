@@ -16,7 +16,7 @@
 
 Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but for development you will run:
 
-* `gulp server` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser.
+* `gulp serve` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser.
 
 When adding / deleting any of the media, audio, or animation files, it may be necessary to run `gulp build` to capture those changes.
 
