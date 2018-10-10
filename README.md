@@ -23,6 +23,7 @@ When adding / deleting any of the media, audio, or animation files, it may be ne
 ## Releasing
 
 To release a new version of RhinoStyle, commit your changes and create a PR into master. Once merged, the changes will automatically be updated on the live site.
+
 After your changes have been merged into master, click on the `releases` tab, then the `Draft a new release` button. Increase the tag number from the previous build, and then press the `Publish Release` button.
 
 In [Rhinofront](https://github.com/rhinogram/rhinofront.git), edit `package.json` to the following:
