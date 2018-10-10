@@ -22,7 +22,7 @@ When adding / deleting any of the media, audio, or animation files, it may be ne
 
 ## Releasing
 
-To release a new version of RhinoStyle, commit your changes and pull into master. The changes will automatically be updated on the live site.
+To release a new version of RhinoStyle, commit your changes and create a PR into master. Once merged, the changes will automatically be updated on the live site.
 
 ## Versioning
 
