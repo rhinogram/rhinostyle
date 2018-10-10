@@ -8,7 +8,6 @@ import { animationFlag, animationLogin, animationSecure, animationTime } from '.
 import audio from './config/audio';
 import icons from './config/icons';
 import clean from './config/clean';
-import deploy from './config/deploy';
 import linter from './config/linter';
 import media from './config/media';
 import pages from './config/pages';
@@ -28,7 +27,6 @@ gulp.task('animation:time', animationTime);
 gulp.task('audio', audio);
 gulp.task('copy', copyModernizr);
 gulp.task('clean', clean);
-gulp.task('docs:deploy', deploy);
 gulp.task('dist:scripts', ['copy'], distScripts);
 gulp.task('dist:styles', distStyles);
 gulp.task('docs:scripts', ['copy'], docsScripts);
