@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import svgSprite  from 'gulp-svg-sprite';
 import browserSync from 'browser-sync';
 
 import paths from './paths';
@@ -15,7 +16,7 @@ export function animationFlag() {
   const path = paths.animation_flag;
 
   return gulp.src(path.src)
-    .pipe($.svgSprite({
+    .pipe(svgSprite({
       transform: [{
         svgo: {
           plugins: [
@@ -82,7 +83,7 @@ export function animationSecure() {
   const path = paths.animation_secure;
 
   return gulp.src(path.src)
-    .pipe($.svgSprite({
+    .pipe(svgSprite({
       transform: [{
         svgo: {
           plugins: [
@@ -120,7 +121,7 @@ export function animationTime() {
   const path = paths.animation_time;
 
   return gulp.src(path.src)
-    .pipe($.svgSprite({
+    .pipe(svgSprite({
       mode: {
         css: {
           dest: '',
