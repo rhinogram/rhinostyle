@@ -273,6 +273,16 @@
   &.has-avatar {
     align-items: center;
   }
+
+  .rhinobox__input {
+    position: absolute !important;
+    -webkit-appearance: none;
+    height: 2rem !important;
+    width: 2rem !important;
+    z-index: 99999;
+    cursor: pointer;
+    clip: auto;
+  }
 }
 
 // 1. Match width of small avatar
@@ -306,6 +316,10 @@
 
 .resource__intro__media--checkbox {
   width: @resource-checkbox-margin;
+
+  .rhinobox {
+    padding-right: 0.2em;
+  }
 }
 
 .resource__intro__title-wrapper {
