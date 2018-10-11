@@ -36,16 +36,6 @@ class DropdownCheckbox extends React.Component {
     }
   }
 
-  onCheckboxChange = () => {
-    const { checked } = this.state;
-    if (checked) {
-      this.setState({ activeKey: 1 });
-    } else {
-      this.setState({ activeKey: 0 });
-    }
-    this.props.onChange();
-  }
-
   getChildren = () => {
     let returnChild = null;
     const { children } = this.props;
@@ -198,8 +188,9 @@ class DropdownCheckbox extends React.Component {
     };
     const showCheckbox = () => {
       const { isCheckbox, checked } = this.state;
+      const { onChange } = this.props;
       if (isCheckbox) {
-        return <Checkbox name="test" label=" " isChecked={checked} onChange={this.onCheckboxChange} className={checkboxClassName} />;
+        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClassName} />;
       }
       return false;
     };
