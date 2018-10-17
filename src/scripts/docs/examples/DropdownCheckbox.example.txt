@@ -3,13 +3,16 @@ class ComponentExample extends React.Component {
     checked: false,
     labelValueAssociated: '',
     checkboxClassName: '',
+    activeKey: 0,
   };
   
   handleSelect = (item) => {
+    const activeKey = item.id === 2 ? 0 : item.id;
     this.setState({
       checked: item.isChecked,
       labelValueAssociated: item.associatedLabel,
       checkboxClassName: item.checkboxClassName,
+      activeKey,
     });
   }
 
@@ -19,10 +22,12 @@ class ComponentExample extends React.Component {
       this.setState({
         labelValueAssociated: '',
         checkboxClassName: '',
+        activeKey: 0,
       });
     } else {
       this.setState({
         labelValueAssociated: 'All Selected',
+        activeKey: 1,
       }); 
     }
     this.setState(prevState => ({ checked: !prevState.checked }));
@@ -43,6 +48,7 @@ class ComponentExample extends React.Component {
           labelValueAssociated={this.state.labelValueAssociated}
           onChange={this.handleChecked}
           checkboxClassName={this.state.checkboxClassName}
+          activeKey={this.state.activeKey}
         >
           {itemArray.map(item => 
             <DropdownMenuItem

@@ -12,7 +12,7 @@
 @resource-interface-size: 2rem;
 @resource-unread-size: 1rem;
 @resource-icon-size: 1.25em;
-@resource-checkbox-margin: 1.5em;
+@resource-checkbox-margin: 1.7em;
 @resource-avatar-size: @avatar-size-small;
 
 @resource-interface-active-decrease: 0.6rem;
@@ -273,6 +273,16 @@
   &.has-avatar {
     align-items: center;
   }
+
+  .rhinobox__input {
+    position: absolute !important;
+    -webkit-appearance: none;
+    height: 2rem !important;
+    width: 2rem !important;
+    z-index: 1;
+    cursor: pointer;
+    clip: auto;
+  }
 }
 
 // 1. Match width of small avatar
@@ -306,6 +316,10 @@
 
 .resource__intro__media--checkbox {
   width: @resource-checkbox-margin;
+
+  .rhinobox {
+    padding-right: 0.4em;
+  }
 }
 
 .resource__intro__title-wrapper {

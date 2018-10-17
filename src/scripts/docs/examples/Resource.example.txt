@@ -3,6 +3,10 @@ class ComponentExample extends React.Component {
     console.log('Clicked!');
   }
 
+  handleCheckboxClick = () => {
+    console.log('checkbox clicked');
+  }
+
   render() {
     return (
       <Fragment>
@@ -21,8 +25,8 @@ class ComponentExample extends React.Component {
               I'm part of the ResourceBottom component!
             </ResourceBottom>
           </Resource>
-          <Resource unread>
-            <ResourceIntro checkbox={{ name: 'test', label: ' ' }} title="Brendan Dagg" titleSub="Patient">
+          <Resource unread onClick={() => console.log('Resource clicked')}>
+            <ResourceIntro checkbox={{ name: 'test', label: ' ', onClick: this.handleCheckboxClick }} title="Brendan Dagg" titleSub="Patient">
               <span className="u-text-accent">Assigned</span>
             </ResourceIntro>
             <ResourceBody>

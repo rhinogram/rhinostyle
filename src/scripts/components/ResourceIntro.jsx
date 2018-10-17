@@ -15,6 +15,16 @@ class ResourceIntro extends React.Component {
     }
   }
 
+  handleCheckboxClick = (isChecked, event) => {
+    const { checkbox } = this.props;
+
+    event.stopPropagation();
+
+    if (checkbox.onClick) {
+      checkbox.onClick(event);
+    }
+  }
+
   renderMedia = () => {
     const { icon, avatar, checkbox } = this.props;
     let output = null;
@@ -29,7 +39,7 @@ class ResourceIntro extends React.Component {
                 label={checkbox.label}
                 name={checkbox.name}
                 isChecked={checkbox.isChecked}
-                onChange={checkbox.onChange}
+                onClick={this.handleCheckboxClick}
               />
             }
             <Button reset onClick={this.handleIconClick}>
@@ -45,7 +55,7 @@ class ResourceIntro extends React.Component {
                 label={checkbox.label}
                 name={checkbox.name}
                 isChecked={checkbox.isChecked}
-                onChange={checkbox.onChange}
+                onClick={this.handleCheckboxClick}
               />
             }
             <Icon bump={icon.bump} icon={icon.icon} />
@@ -67,7 +77,7 @@ class ResourceIntro extends React.Component {
           label={checkbox.label}
           name={checkbox.name}
           isChecked={checkbox.isChecked}
-          onChange={checkbox.onChange}
+          onClick={this.handleCheckboxClick}
         />
       );
     }
@@ -137,7 +147,7 @@ ResourceIntro.propTypes = {
     isChecked: PropTypes.bool,
     label: PropTypes.string,
     name: PropTypes.string,
-    onChange: PropTypes.func,
+    onClick: PropTypes.func,
   }),
   children: PropTypes.node,
   title: PropTypes.any,
