@@ -245,7 +245,7 @@ class VariableMessage extends React.Component {
     this.setState({
       message,
     });
-
+    //
     // if ($select) {
     //   // Search text to determine if variables are found in it
     //   this.getVariables(variables).forEach((value) => {
@@ -258,8 +258,6 @@ class VariableMessage extends React.Component {
     //         $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
     //
     //         // Swap out variables for data
-    //         const regex = new RegExp(variable);
-    //         message = message.replace(regex, value.variableValue);
     //       } else {
     //         // Enable option in select
     //         $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
