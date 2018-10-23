@@ -59,6 +59,7 @@ import Table from './Table';
 import TabsContent from './TabsContent';
 import Textarea from './Textarea';
 import Toast from './Toast';
+import ToggleButton from './ToggleButton';
 import Tooltip from './Tooltip';
 import UtilityInlineGrid from './UtilityInlineGrid';
 import UtilityList from './UtilityList';
@@ -132,6 +133,7 @@ export {
   TabsContent,
   Textarea,
   Toast,
+  ToggleButton,
   Tooltip,
   UtilityInlineGrid,
   UtilityList,

@@ -96,10 +96,10 @@
 // 1. Override padding of pill for tighter spacing
 // 2. Help space out stacking variables
 .variable-message__variable {
-  &:extend(.pill);
+  // &:extend(.pill);
   &:extend(.pill--primary);
 
-  padding: 0 @global-whitespace-xsmall; // 1
+  padding: 0; // 1
   margin-bottom: 0.1rem; // 2
   cursor: default;
   user-select: none;
@@ -116,32 +116,32 @@
     width: 0.3rem;
   }
 }
-
-.variable-message__close {
-  &:extend(.pill__close);
-
-  position: relative;
-  cursor: pointer;
-
-  @svg-load close url(../svg/close.svg) {
-    .icon-stroke {
-      stroke: @pill-primary-color;
-    }
-  }
-
-  &::after {
-    content: '';
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: svg-inline(close);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
+// 
+// .variable-message__close {
+//   &:extend(.pill__close);
+//
+//   position: relative;
+//   cursor: pointer;
+//
+//   @svg-load close url(../svg/close.svg) {
+//     .icon-stroke {
+//       stroke: @pill-primary-color;
+//     }
+//   }
+//
+//   &::after {
+//     content: '';
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     background-image: svg-inline(close);
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .variable-message__preview {
   margin-top: @form-group-spacing;

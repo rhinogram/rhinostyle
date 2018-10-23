@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Message, Select, UtilitySystem } from '../components';
+import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Message, ToggleButton, UtilitySystem } from '../components';
 
 class VariableMessage extends React.Component {
   state = {
     message: '',
+    available: [],
   };
 
   componentWillMount() {
@@ -115,21 +116,33 @@ class VariableMessage extends React.Component {
    */
   insertVariable = (text) => {
     const $variable = this.transformVar(text);
-
     this.insertTextAtCursor($variable);
+  }
 
-    // Manually trigger `input` update
-    this.handleComposeInput();
+  removeVariable = (text) => {
+    const variables = this.getVariables(this.props.variables);
+    const split = this.state.message.split(text).join('').split(/({\w+})/g);
+
+    variables.filter(v => v.value !== text).forEach((value) => {
+      const { variable } = value;
+      const foundVariable = split.indexOf(variable);
+
+      // See if we've found one in our `initialValue`
+      if (foundVariable !== -1) {
+        split[foundVariable] = this.transformVar(variable).outerHTML;
+      }
+    });
+
+    this.compose.innerHTML = split.join('');
   }
 
   handleInitValue = () => {
     const { initialValue } = this.props;
     // Get flat-level list of all variables
     const variables = this.getVariables(this.props.variables);
-
     // Split `initialValue` to target variables
     const split = initialValue.split(/({\w+})/g);
-
+    const available = [];
     // Loop through variables
     variables.forEach((value) => {
       const { variable } = value;
@@ -139,8 +152,12 @@ class VariableMessage extends React.Component {
       if (foundVariable !== -1) {
         // If so, transform the variable into HTML
         split[foundVariable] = this.transformVar(variable).outerHTML;
+      } else {
+        available.push(value.id);
       }
     });
+
+    this.setState({ available });
 
     // Set message content equal to new mixed content
     this.compose.innerHTML = split.join('');
@@ -159,22 +176,25 @@ class VariableMessage extends React.Component {
     // Get flat-level list of all variables
     // and variable context
     const variable = this.getVariables(this.props.variables).find(el => el.id === value);
-
     // If we're on a valid variable
     if (variable.variable) {
       // Get variable value
       const variableContext = variable.variable;
-
-      // Insert variable
-      this.insertVariable(variableContext);
-
-      // Reset position
-      this.select.setState({
-        selected: 0,
+      this.setState((prevState) => {
+        const idx = prevState.available.indexOf(value);
+        if (idx > -1) {
+          prevState.available.splice(idx, 1);
+          this.insertVariable(variableContext);
+        } else {
+          prevState.available.push(value);
+          this.removeVariable(variableContext);
+        }
+        return ({ available: prevState.available });
+      }, () => {
+        // Focus back on compose element
+        this.compose.focus();
+        this.handleComposeInput();
       });
-
-      // Focus back on compose element
-      this.compose.focus();
     }
   }
 
@@ -186,17 +206,6 @@ class VariableMessage extends React.Component {
   handleComposeKeypress = (e) => {
     if (e.which === 13) {
       e.preventDefault();
-    }
-  }
-
-  /**
-   * IE11 does not support the `input` event on `contenteditable` elements, so `keyup` is used instead to update
-   * @return {void}
-   */
-  handleKeyUp = () => {
-    // IE11 check
-    if (!!window.MSInputMethodContext && !!document.documentMode) {
-      this.handleComposeInput();
     }
   }
 
@@ -223,14 +232,13 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
-    const { variables } = this.props;
     // Get the rawMessage content to return onInput
     const rawMessage = this.compose.textContent.trim();
 
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;
-    const $select = ReactDOM.findDOMNode(this.select);
+    // const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
 
     // Update state
@@ -238,27 +246,27 @@ class VariableMessage extends React.Component {
       message,
     });
 
-    if ($select) {
-      // Search text to determine if variables are found in it
-      this.getVariables(variables).forEach((value) => {
-        const { variable } = value;
-
-        if (variable) {
-          // We found the text
-          if (message.search(variable) !== -1) {
-            // Disable option in select
-            $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
-
-            // Swap out variables for data
-            const regex = new RegExp(variable);
-            message = message.replace(regex, value.variableValue);
-          } else {
-            // Enable option in select
-            $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
-          }
-        }
-      });
-    }
+    // if ($select) {
+    //   // Search text to determine if variables are found in it
+    //   this.getVariables(variables).forEach((value) => {
+    //     const { variable } = value;
+    //
+    //     if (variable) {
+    //       // We found the text
+    //       if (message.search(variable) !== -1) {
+    //         // Disable option in select
+    //         $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
+    //
+    //         // Swap out variables for data
+    //         const regex = new RegExp(variable);
+    //         message = message.replace(regex, value.variableValue);
+    //       } else {
+    //         // Enable option in select
+    //         $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
+    //       }
+    //     }
+    //   });
+    // }
 
     // Take away any trailing space
     if (message === ' ') {
@@ -277,28 +285,31 @@ class VariableMessage extends React.Component {
   }
 
   /**
-   * Clicking on a variable inside the compose window should remove it
-   * @param  {event} e
-   * @return {void}
-   */
-  handleVariableClick = (e) => {
-    if (e.target.classList.contains('variable-message__close')) {
-      const $parent = e.target.parentNode;
-
-      // Remove variable
-      $parent.parentElement.removeChild($parent);
-
-      // Manually trigger `input` update
-      this.handleComposeInput();
-    }
-  }
-
-  /**
    * Determine if we should show reset option
    * Tests for both the reset prop and if the initialValue is not equal to the current message state
    * @return {boolean}
    */
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
+
+  renderToggleButtons = variables => (
+    variables.filter(variable => variable.id !== -1)
+      .map((v) => {
+        if (v.options) {
+          return this.renderToggleButtons(v.options);
+        }
+        return (
+          <ToggleButton
+            available={this.state.available.indexOf(v.id) !== -1}
+            variable={v}
+            key={v.id}
+            onClick={this.handleVariableSelection}
+            size="small"
+          >
+            {v.value}
+          </ToggleButton>
+        );
+      })
+  )
 
   render() {
     const { characterCountTitle, characterCountWarningLength, className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, showCharacterCounter, validationMessage } = this.props;
@@ -309,11 +320,19 @@ class VariableMessage extends React.Component {
     });
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
-    const variableMessageSelectName = `variable-message-select-${this.id}`;
+    // const variableMessageSelectName = `variable-message-select-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
 
+    //
+    // <Select
+    //   name={variableMessageSelectName}
+    //   options={variables}
+    //   onSelect={this.handleVariableSelection}
+    //   ref={ref => (this.select = ref)}
+    // />
+
     return (
-      <div className={classes} onClick={this.handleVariableClick}>
+      <div className={classes}>
         {!readOnly &&
           <div className="variable-message__header">
             <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
@@ -341,12 +360,7 @@ class VariableMessage extends React.Component {
           <Fragment>
             <div className="variable-message__footer">
               <div className="variable-message__footer__left">
-                <Select
-                  name={variableMessageSelectName}
-                  options={variables}
-                  onSelect={this.handleVariableSelection}
-                  ref={ref => (this.select = ref)}
-                />
+                {this.renderToggleButtons(variables)}
                 {variableExplanationMessage &&
                   <div className="variable-message__explanation">{variableExplanationMessage}</div>
                 }
