@@ -245,26 +245,19 @@ class VariableMessage extends React.Component {
     this.setState({
       message,
     });
-    //
-    // if ($select) {
-    //   // Search text to determine if variables are found in it
-    //   this.getVariables(variables).forEach((value) => {
-    //     const { variable } = value;
-    //
-    //     if (variable) {
-    //       // We found the text
-    //       if (message.search(variable) !== -1) {
-    //         // Disable option in select
-    //         $select.querySelector(`[value="${value.id}"]`).setAttribute('disabled', 'disabled');
-    //
-    //         // Swap out variables for data
-    //       } else {
-    //         // Enable option in select
-    //         $select.querySelector(`[value="${value.id}"]`).removeAttribute('disabled');
-    //       }
-    //     }
-    //   });
-    // }
+    // Search text to determine if variables are found in it
+    this.getVariables(this.props.variables).forEach((value) => {
+      const { variable } = value;
+
+      if (variable) {
+        // We found the text
+        if (message.search(variable) !== -1) {
+          // Swap out variables for data
+          const regex = new RegExp(variable);
+          message = message.replace(regex, value.variableValue);
+        }
+      }
+    });
 
     // Take away any trailing space
     if (message === ' ') {
