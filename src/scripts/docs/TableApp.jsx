@@ -374,32 +374,6 @@ const LabelApp = () => (
       />
     </section>
 
-    {/* <section className="site-section">
-      <h3 className="site-subheadline">React Table</h3>
-      <ReactTable
-        className="smart-table -striped"
-        showPagination={false}
-        data={data}
-        columns={columns}
-        minRows={0}
-        SubComponent={d => {
-          return <div className="expand-row">{d.original.firstName}!</div>;
-        }}
-        sortable={false}
-        // expanded={{ // The nested row indexes on the current page that should appear expanded
-        //   1: true,
-        //   0: true,
-        // }}
-        // getTheadThProps={(state, rowInfo, column, instance) => {
-        //   return {
-        //     onClick: e => {
-        //       console.log('---------', e, rowInfo);
-        //     }
-        //   };
-        // }}
-      />
-    </section> */}
-
   </Fragment>
 );
 
