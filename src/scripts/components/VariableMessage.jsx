@@ -350,11 +350,11 @@ class VariableMessage extends React.Component {
         {!readOnly &&
           <Fragment>
             <div className="variable-message__footer">
+              {variableExplanationMessage &&
+                <div className="variable-message__explanation">{variableExplanationMessage}</div>
+              }
               <div className="variable-message__footer__left">
                 {this.renderToggleButtons(variables)}
-                {variableExplanationMessage &&
-                  <div className="variable-message__explanation">{variableExplanationMessage}</div>
-                }
               </div>
               {showCharacterCounter &&
                 <div title={characterCountTitle} className={characterCounterClasses}>
@@ -396,7 +396,7 @@ VariableMessage.propTypes = {
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
-  variableExplanationMessage: 'Select a variable to insert into the template',
+  variableExplanationMessage: 'Click to add/remove variables into your message:',
 };
 
 export default VariableMessage;
