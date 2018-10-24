@@ -1,0 +1,103 @@
+class ComponentExample extends React.Component {
+  state = {
+    data: [{ firstName: 'length', lastName: 'profit', age: 26 }, { firstName: 'Abc', lastName: 'Pqr', age: 16 },
+        { firstName: 'Mahima', lastName: 'Agrawal', age: 16 }],
+    columns: [
+        {
+            Header: () => this.renderSortedHeader('First Name'),
+            accessor: 'firstName',
+        },
+        {
+            Header: () => this.renderSortedHeader('Last Name'),
+            accessor: 'lastName',
+        },
+        {
+            Header: () => this.renderSortedHeader('Age'),
+            accessor: 'age',
+        },
+        {
+            Header: rows => this.renderExpandAllButton(rows),
+            expander: true,
+            width: 100,
+            headerClassName: 'expand-header',
+            className: 'expand-column',
+            Expander: ({isExpanded, row}) => 
+            <div>
+                {isExpanded
+                    ? <Button type="link" onClick={() => this.expandRow(row)}>Hide Details</Button>
+                    : <Button type="link" onClick={() => this.expandRow(row)}>Details</Button>
+                }
+            </div>,
+        },
+    ],
+    expanded: {},
+    isAllExpanded: false,
+
+  };
+
+  expandAll = (rows) => {
+    let {expanded, isAllExpanded} = this.state;
+    if (!isAllExpanded) {
+      rows.data && rows.data.map(row => expanded[row._index] = true);
+    } else {
+      for (key of Object.keys(expanded)) {
+        expanded[key] = false;
+      }
+    }
+    this.setState(prevState => ({ isAllExpanded: !prevState.isAllExpanded, expanded}));
+  }
+
+  expandRow = (row) => {
+    let {expanded} = this.state;
+    if (expanded[row._index]) {
+      expanded[row._index] = !expanded[row._index];
+    } else {
+        expanded[row._index] = true;
+    }
+    this.setState({expanded});
+  }
+
+  renderExpandAllButton = (rows) => {
+    const buttonText = this.state.isAllExpanded ? 'Collapse All' : 'Expand All';
+    return (
+      <Button className="expand-all__button" type="link" onClick={() => this.expandAll(rows)}>{buttonText}</Button>
+    );
+  }
+  
+  renderRowDetails = (row) => {
+    return (
+      <div className="expand-row">{row.original.firstName}!</div>
+    );
+  }
+
+  renderSortedHeader = (headerName) => {
+    return (
+      <div className="u-flex">{headerName}
+        <span className="u-flex u-flex-direction-column">
+          <Icon icon="caret-up" />
+          <Icon icon="caret-down" />
+        </span>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <Fragment>
+          <section className="site-section">
+            <h3 className="site-subheadline">React Table</h3>
+            <SmartTable
+              showPagination={false}
+              data={this.state.data}
+              columns={this.state.columns}
+              minRows={0}
+              sortable={true}
+              expanded={this.state.expanded}
+              striped
+              SubComponent={this.renderRowDetails}
+            />
+          </section>
+      </Fragment>
+    );
+  }
+}
