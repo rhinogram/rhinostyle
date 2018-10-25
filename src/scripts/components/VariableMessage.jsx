@@ -184,10 +184,10 @@ class VariableMessage extends React.Component {
         const idx = prevState.available.indexOf(value);
         if (idx > -1) {
           prevState.available.splice(idx, 1);
-          this.insertVariable(variableContext);
+          this.insertVariable(name);
         } else {
           prevState.available.push(value);
-          this.removeVariable(variableContext);
+          this.removeVariable(name);
         }
         return ({ available: prevState.available });
       }, () => {
