@@ -1,8 +1,6 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { Component, Fragment } from 'react';
-
-import { LoaderCircle, UtilitySystem } from '../components';
+import React, { Component } from 'react';
 
 class ToggleButton extends Component {
   handleClick = () => {
