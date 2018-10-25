@@ -1,3 +1,4 @@
+
 .toggle-button--strikethrough {
   text-decoration: line-through;
   color: @global-color-gray-light !important;
@@ -5,29 +6,25 @@
 }
 
 .toggle-button {
+  align-items: center;
   appearance: none;
-  margin: 0;
-  border: 1px solid @global-color-primary;
-  overflow: hidden;
-  font: inherit;
-  font-weight: @button-font-weight;
-  color: @global-color-primary;
-  text-transform: none;
-  display: inline-block;
   background-color: transparent;
-  vertical-align: middle;
+  border-radius: @global-border-radius;
+  border: 1px solid @global-color-primary;
+  color: @global-color-primary;
   cursor: pointer;
-  border-radius: @button-border-radius;
-  transition: @button-transition;
-  position: relative;
+  display: inline-block;
+  font-size: @global-font-size-small;
+  font-weight: @button-font-weight;
+  line-height: @global-line-height-base;
   margin-top: @global-whitespace-small;
-  line-height: ~'calc(@{global-height-small} - (2px))';
-  font-size: @button-font-size-base;
-  text-align: left;
-  white-space: nowrap;
-  max-width: 100%;
-  text-overflow: ellipsis;
+  padding: @global-whitespace-xsmall @global-whitespace-small;
+  position: relative;
+  text-transform: none;
+  transition: @button-transition;
   user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 
   &::-moz-focus-inner {
     border: 0;
