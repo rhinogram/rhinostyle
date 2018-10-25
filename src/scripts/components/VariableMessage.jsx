@@ -179,7 +179,6 @@ class VariableMessage extends React.Component {
     // If we're on a valid variable
     if (variable.variable) {
       // Get variable value
-      const variableContext = variable.variable;
       this.setState((prevState) => {
         const idx = prevState.available.indexOf(value);
         if (idx > -1) {

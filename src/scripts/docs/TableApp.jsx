@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Table } from '../components';
+import { Button, Table, SmartTable, Icon } from '../components';
 import { Live } from './components';
 import TableExample from './examples/Table.example.txt';
+import SmartTableExample from './examples/SmartTable.example.txt';
 
 const TableDocs = {};
 const TableScope  = {
@@ -11,6 +12,20 @@ const TableScope  = {
   ReactDOM,
   Button,
   Table,
+  SmartTable,
+  Icon,
+};
+
+const SmartTableDocs = {
+  showPagination: 'Enable the pagination option',
+  data: 'Array of objects to be displayed in table',
+  columns: 'Headers and Columns to be displayed in table',
+  minRows: 'Number of miniminum rows to be displayed',
+  sortable: 'Enable the sorting',
+  expanded: 'Rows to be expanded',
+  highlight: 'Highlight row on mouse over',
+  striped: 'Show table rows in striped manner',
+  SubComponent: 'Show details on expanding the row',
 };
 
 const LabelApp = () => (
@@ -345,6 +360,17 @@ const LabelApp = () => (
         scope={TableScope}
         component={Table}
         propDescriptions={TableDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">React Table</h3>
+
+      <Live
+        code={SmartTableExample}
+        scope={TableScope}
+        component={SmartTable}
+        propDescriptions={SmartTableDocs}
       />
     </section>
 

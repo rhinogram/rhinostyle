@@ -56,6 +56,7 @@ import Select from './Select';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
 import Table from './Table';
+import SmartTable from './SmartTable';
 import TabsContent from './TabsContent';
 import Textarea from './Textarea';
 import Toast from './Toast';
@@ -129,6 +130,7 @@ export {
   Select,
   SystemAlert,
   TabContentPane,
+  SmartTable,
   Table,
   TabsContent,
   Textarea,
