@@ -15,6 +15,9 @@ switch (currentUrl) { // eslint-disable-line default-case
   case 'buttons':
     require('./ButtonApp');
     break;
+  case 'charts':
+    require('./ChartApp');
+    break;
   case 'close':
     require('./CloseApp');
     break;

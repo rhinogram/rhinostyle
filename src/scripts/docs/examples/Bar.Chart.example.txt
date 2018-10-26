@@ -1,0 +1,40 @@
+class ComponentExample extends React.Component {
+  state = {
+    data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+              {
+                label: 'Rhinogram Bar Chart',
+                backgroundColor: 'rgba(210,235,248,0.5)',
+                borderColor: 'rgba(36,133,207,1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: [65, 59, 80, 81, 56, 55, 40]
+              }
+            ]
+          },
+     width: 300,
+     height: 300,
+  };
+
+  render() {
+    return (
+      <Fragment>
+         <div className="row">
+         <div className="column-6">
+           <div className="box">
+             <Chart
+               width={this.state.width}
+               height={this.state.height}
+               data={this.state.data}
+               type="bar"
+             />
+           </div>
+         </div>
+       </div>
+      </Fragment>
+    );
+  }
+}
+
