@@ -10,7 +10,7 @@ class ToggleButton extends Component {
   }
 
   render() {
-    const { className, onClick, title, type, available, ...opts } = this.props;
+    const { available, className } = this.props;
 
     const buttonBaseClass = 'toggle-button';
     const toggleButtonStyleClasses = {
@@ -23,7 +23,7 @@ class ToggleButton extends Component {
       ...toggleButtonStyleClasses,
     });
     return (
-      <button type="button" className={classes} onClick={this.handleClick} title={this.props.title} {...opts}>
+      <button type="button" className={classes} onClick={this.handleClick}>
         <span className="button__text-wrapper">{this.props.children}</span>
       </button>
     );
@@ -31,13 +31,11 @@ class ToggleButton extends Component {
 }
 
 ToggleButton.propTypes = {
-  available: PropTypes.bool,
-  children: PropTypes.node,
+  available: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  onClick: PropTypes.func,
-  title: PropTypes.string,
-  type: PropTypes.string,
-  variable: PropTypes.object,
+  onClick: PropTypes.func.isRequired,
+  variable: PropTypes.object.isRequired,
 };
 
 export default ToggleButton;
