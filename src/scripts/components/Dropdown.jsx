@@ -134,7 +134,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { avatar, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName } = this.props;
+    const { avatar, inputBlur, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
@@ -190,7 +190,7 @@ class Dropdown extends React.Component {
     };
 
     return (
-      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
+      <DropdownWrapper inputBlur={inputBlur} className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
         <Button
           reset={reset}
           size={size}
@@ -223,6 +223,7 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  inputBlur: PropTypes.bool,
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   block: PropTypes.bool,
   children: PropTypes.node,
