@@ -1,13 +1,21 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Bar, Doughnut, Line } from 'react-chartjs-2';
 
 
 function renderBar(opts) {
   return (
     <div className="box">
       <Bar {...opts} />
+    </div>
+  );
+}
+
+function renderLine(opts) {
+  return (
+    <div className="box">
+      <Line {...opts} />
     </div>
   );
 }
@@ -19,7 +27,6 @@ function renderDoughnut(opts) {
     </div>
   );
 }
-
 const Chart = (props) => {
   const { ...opts } = props;
   switch (opts.type.toLowerCase()) {
@@ -27,6 +34,8 @@ const Chart = (props) => {
       return renderBar(opts);
     case 'doughnut':
       return renderDoughnut(opts);
+    case 'line':
+      return renderLine(opts);
     default:
       return renderBar(opts);
   }

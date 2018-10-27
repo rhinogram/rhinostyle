@@ -5,6 +5,8 @@ import { Chart } from '../components';
 import { Live } from './components';
 import BarChartExample from './examples/Bar.Chart.example.txt';
 import DoughnutChartExample from './examples/Doughnut.Chart.example.txt';
+import BarLineChartExample from './examples/BarLineChart.example.txt';
+import AreaLineMixChartExample from './examples/AreaLineMixChart.example.txt';
 
 const BarDocs = {
   data: 'Display an add-on on the input, as a string <code>{\n' +
@@ -55,6 +57,32 @@ const ChartApp = () => (
       <h3 className="site-subheadline">Doughtnut Chart Playground</h3>
       {<Live
         code={DoughnutChartExample}
+        scope={ChartScope}
+        component={Chart}
+        propDescriptions={BarDocs}
+      />}
+    </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">Mix Bar-Line Chart</h3>
+      <p className="site-text-lead">Mix bar-line charts are probably the most commonly used charts. They are divided into segments, the arc of each segment shows the proportional value of each piece of data.</p>
+    </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">Mix Bar Line Chart Playground</h3>
+      {<Live
+        code={BarLineChartExample}
+        scope={ChartScope}
+        component={Chart}
+        propDescriptions={BarDocs}
+      />}
+    </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">Mix Line Chart</h3>
+      <p className="site-text-lead">Mix Line charts are probably the most commonly used charts. They are divided into segments, the arc of each segment shows the proportional value of each piece of data.</p>
+    </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">Mix Bar Line Chart Playground</h3>
+      {<Live
+        code={AreaLineMixChartExample}
         scope={ChartScope}
         component={Chart}
         propDescriptions={BarDocs}
