@@ -134,17 +134,24 @@ const ChartScope = {
 const ChartApp = () => (
   <Fragment>
     <section className="site-section">
-      <h3 className="site-subheadline">Charts <Label className="u-m-l-small" type="accent" label="third party"/></h3>
-      <p className="site-copy">We are using <a href="https://www.chartjs.org/" target="_blank"
-                                               rel="noopener noreferrer">Chart.js</a>. We have wrapped it within our own
+      <h3 className="site-subheadline">Charts <Label className="u-m-l-small" type="accent" label="third party" /></h3>
+      <p className="site-copy">We are using
+        <a
+          href="https://www.chartjs.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Chart.js
+        </a>. We have wrapped it within our own
         to provide sensible defaults for our application. Refer to that repos documentation about everything else
         available, but be aware we only include a subset of styles to meet our needs, instead of including and
-        overriding the entire stylesheet provided.</p>
+        overriding the entire stylesheet provided.
+      </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Bar Chart</h3>
       <p className="site-text-lead">A bar chart provides a way of showing data values represented as vertical bars. It
-        is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
+        is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+      </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Bar Chart Playground</h3>
@@ -159,7 +166,8 @@ const ChartApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Doughnut Chart</h3>
       <p className="site-text-lead">Doughnut charts are probably the most commonly used charts. They are divided into
-        segments, the arc of each segment shows the proportional value of each piece of data.</p>
+        segments, the arc of each segment shows the proportional value of each piece of data.
+      </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Doughtnut Chart Playground</h3>
@@ -199,4 +207,4 @@ const ChartApp = () => (
   </Fragment>
 );
 
-ReactDOM.render(<ChartApp/>, document.getElementById('root'));
+ReactDOM.render(<ChartApp />, document.getElementById('root'));
