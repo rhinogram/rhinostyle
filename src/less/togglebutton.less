@@ -1,0 +1,33 @@
+
+.toggle-button--strikethrough {
+  text-decoration: line-through;
+  color: @global-color-gray-light !important;
+  border-color: @global-color-gray-light !important;
+}
+
+.toggle-button {
+  align-items: center;
+  appearance: none;
+  background-color: transparent;
+  border-radius: @global-border-radius;
+  border: 1px solid @global-color-primary;
+  color: @global-color-primary;
+  cursor: pointer;
+  display: inline-block;
+  font-size: @global-font-size-small;
+  font-weight: @button-font-weight;
+  line-height: @global-line-height-base;
+  margin-top: @global-whitespace-small;
+  padding: @global-whitespace-xsmall @global-whitespace-small;
+  position: relative;
+  text-transform: none;
+  transition: @button-transition;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
