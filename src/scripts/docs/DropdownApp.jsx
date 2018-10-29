@@ -11,7 +11,7 @@ import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
 import DropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
 
 const DropdownDocs = {
-  inputBlur: 'Blur input inside the dropdown menu. By default the first input type inside the dropdown menu is in focus.',
+  autoFocusInput: 'Set autofocus to false to blur the input inside the dropdown. By default its value is true giving a focus to the inputs.',
   activeKey: 'The id of the currently selected DropdownMenuItem',
   block: 'Block level',
   disableScroll: 'Disabled default dropdown menu scrolling. Does not apply when filter is used.',
@@ -219,7 +219,7 @@ const DropdownApp = () => (
           <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
         </Dropdown>
 
-        <Dropdown label="Dropdown with Blur Inputs" type="primary" inputBlur>
+        <Dropdown label="Dropdown with false autoFocusInput" type="primary" autoFocusInput={false}>
           <DropdownMenuItemWild>
             <Input label="First Name" name="firstName" />
           </DropdownMenuItemWild>

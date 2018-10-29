@@ -34,8 +34,8 @@ class DropdownWrapper extends React.Component {
       onComplete: () => {
         const $input = $dropdown.querySelector('input[type="text"]');
 
-        // If dropdown contains input (for filtering), focus on that
-        if ($input && !this.props.inputBlur) {
+        // If dropdown contains input (for filtering), focus on that if autoFocusInput props is true or undefined
+        if ($input && (this.props.autoFocusInput === undefined || this.props.autoFocusInput !== false)) {
           $input.focus();
         } else {
           // Focus on active dropdown
@@ -105,7 +105,7 @@ DropdownWrapper.propTypes = {
   onReverseComplete: PropTypes.func,
   onReverseStart: PropTypes.func,
   onStart: PropTypes.func,
-  inputBlur: PropTypes.bool,
+  autoFocusInput: PropTypes.bool,
 };
 
 export default onClickOutside(DropdownWrapper);
