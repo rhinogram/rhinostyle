@@ -134,7 +134,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { avatar, autoFocusInput, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName } = this.props;
+    const { avatar, autoFocusInput, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName, noChangeLabel } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
@@ -181,6 +181,10 @@ class Dropdown extends React.Component {
       if (selectedLabel || label) {
         if (showOverflow) {
           return selectedLabel || label;
+        }
+
+        if (selectedLabel === noChangeLabel) {
+          return label;
         }
 
         return <span className="dropdown__toggle__text">{selectedLabel || label}</span>;
@@ -250,6 +254,7 @@ Dropdown.propTypes = {
   onStart: PropTypes.func,
   manualClose: PropTypes.bool,
   wrapperClassName: PropTypes.string,
+  noChangeLabel: PropTypes.string,
   avatar: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,

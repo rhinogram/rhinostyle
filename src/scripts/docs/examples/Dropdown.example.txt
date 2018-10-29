@@ -37,6 +37,16 @@ class ComponentExample extends React.Component {
             <DropdownMenuItem id={8} label="An eighth item" />
           </DropdownFilter>
         </Dropdown>
+        <Dropdown wide label="Dropdown Select with noChange" type="outline-primary" noChangeLabel="Another item">
+          <DropdownMenuItem id={1} label="Item" />
+          <DropdownMenuItem id={2} label="Another item" />
+          <DropdownMenuItem id={3} label="A third item" />
+          <DropdownMenuItem id={4} label="A fourth item" />
+          <DropdownMenuItem id={5} label="A fifth item" />
+          <DropdownMenuItem id={6} label="A sixth item" />
+          <DropdownMenuItem id={7} label="A seventh item" />
+          <DropdownMenuItem id={8} label="An eighth item" />
+        </Dropdown>
         <Dropdown wide label="Dropdown Select with Filter & Avatar" type="outline-primary">
           <DropdownFilter placeholder="Filter Member">
             <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />

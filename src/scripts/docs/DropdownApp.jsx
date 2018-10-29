@@ -24,6 +24,7 @@ const DropdownDocs = {
   type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes
   wide: 'Sets a min-width on dropdown menu',
   manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.',
+  noChangeLabel: 'Displays default label in place of currently selected label.',
 };
 
 const DropdownCheckboxDocs = {

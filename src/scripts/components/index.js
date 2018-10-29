@@ -56,9 +56,11 @@ import Select from './Select';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
 import Table from './Table';
+import SmartTable from './SmartTable';
 import TabsContent from './TabsContent';
 import Textarea from './Textarea';
 import Toast from './Toast';
+import ToggleButton from './ToggleButton';
 import Tooltip from './Tooltip';
 import UtilityInlineGrid from './UtilityInlineGrid';
 import UtilityList from './UtilityList';
@@ -128,10 +130,12 @@ export {
   Select,
   SystemAlert,
   TabContentPane,
+  SmartTable,
   Table,
   TabsContent,
   Textarea,
   Toast,
+  ToggleButton,
   Tooltip,
   UtilityInlineGrid,
   UtilityList,
