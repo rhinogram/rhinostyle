@@ -46,7 +46,7 @@ Chart.propTypes = {
   data: PropTypes.object,
   width: PropTypes.number,
   height: PropTypes.number,
-  type: PropTypes.string,
+  type: PropTypes.string.isRequired,
   legend: PropTypes.object,
   options: PropTypes.object,
 };
