@@ -37,6 +37,16 @@ class ComponentExample extends React.Component {
     },
      width: 300,
      height: 300,
+     title: 'Total Time',
+     header: {
+       text: '535',
+       color: 'primary',
+     },
+     subHeader: {
+       text: '(250 avg.)',
+       color: 'Red',
+     },
+     info: 'info',
   };
 
   render() {
@@ -51,6 +61,10 @@ class ComponentExample extends React.Component {
                data={this.state.data}
                options={this.state.options}
                type="bar"
+               title={this.state.title}
+               header={this.state.header}
+               subHeader={this.state.subHeader}
+               info={this.state.info}
              />
            </div>
          </div>
