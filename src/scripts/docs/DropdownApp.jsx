@@ -220,7 +220,7 @@ const DropdownApp = () => (
           <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
         </Dropdown>
 
-        <Dropdown label="Dropdown with false autoFocusInput" type="primary" autoFocusInput={false}>
+        <Dropdown label="Without Focus" type="primary" autoFocusInput={false}>
           <DropdownMenuItemWild>
             <Input label="First Name" name="firstName" />
           </DropdownMenuItemWild>

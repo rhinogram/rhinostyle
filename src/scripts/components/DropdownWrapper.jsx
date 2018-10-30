@@ -35,7 +35,7 @@ class DropdownWrapper extends React.Component {
         const $input = $dropdown.querySelector('input[type="text"]');
 
         // If dropdown contains input (for filtering), focus on that if autoFocusInput props is true or undefined
-        if ($input && (this.props.autoFocusInput !== false)) {
+        if ($input && this.props.autoFocusInput) {
           $input.focus();
         } else {
           // Focus on active dropdown
