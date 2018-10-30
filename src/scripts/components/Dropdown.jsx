@@ -264,6 +264,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   type: 'default',
+  autoFocusInput: true,
 };
 
 export default Dropdown;
