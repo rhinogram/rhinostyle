@@ -2,11 +2,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import { Icon } from '../components';
 
 
 function renderBar(opts) {
   return (
-    <div className="box">
+    <div className="chart-wrapper">
+      <div className="chart-header u-flex">
+        <div className="chart-title">
+          {opts.header.text}
+          <Icon className="info-icon" icon="info-circle" />
+        </div>
+        <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
+        Avg. 50mins
+          <div className="subtitle-info">
+            (2 avg.)
+          </div>
+        </div>
+      </div>
       <Bar {...opts} />
     </div>
   );
