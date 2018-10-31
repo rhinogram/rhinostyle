@@ -32,6 +32,13 @@ const BarDocs = {
  }</code>`,
   options: `<code>{
 }</code>`,
+  title: 'Total Messages',
+  header: `<code>{
+    text: '535',
+    color: 'primary' | 'default' | 'accent' | 'danger' | 'secondary',
+  }</code>`,
+  subHeader: '(250 avg.)',
+  info: 'Some tooltip information',
 };
 
 const MixLineDocs = {
@@ -66,6 +73,13 @@ const MixLineDocs = {
    }]
   }
 }</code>`,
+  title: 'Total Time',
+  header: `<code>{
+    text: '535',
+    color: 'secondary',
+  }</code>`,
+  subHeader: '(250 avg.)',
+  info: 'Some tooltip information',
 };
 
 const MixBarDocs = {
@@ -101,6 +115,13 @@ const MixBarDocs = {
 }</code>`,
   options: `<code>{
 }</code>`,
+  title: 'Total Count',
+  header: `<code>{
+    text: '450',
+    color: 'primary' | 'default' | 'accent' | 'danger' | 'secondary',
+  }</code>`,
+  subHeader: '(250 Avg.)',
+  info: 'Some tooltip information',
 };
 
 const DoughnutDocs = {
@@ -123,6 +144,13 @@ const DoughnutDocs = {
   legend: `<code>{
   position: 'right',
 }</code>`,
+  title: 'Total Fruits',
+  header: `<code>{
+    text: '450',
+    color: 'primary' | 'default' | 'accent' | 'danger' | 'secondary',
+  }</code>`,
+  subHeader: '(50% healthy.)',
+  info: 'Some tooltip information',
 };
 
 const ChartScope = {
@@ -140,7 +168,7 @@ const ChartApp = () => (
           href="https://www.chartjs.org/"
           target="_blank"
           rel="noopener noreferrer"
-        >Chart.js
+        > Chart.js
         </a>. We have wrapped it within our own
         to provide sensible defaults for our application. Refer to that repos documentation about everything else
         available, but be aware we only include a subset of styles to meet our needs, instead of including and

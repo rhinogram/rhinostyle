@@ -1,52 +1,50 @@
 class ComponentExample extends React.Component {
   state = {
     data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-              {
-                label: 'Message Count',
-                backgroundColor: 'rgba(210,235,248,0.5)',
-                borderColor: 'rgba(36,133,207,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: [65, 59, 80, 81, 56, 55, 40]
-              }
-            ]
-          },
-     width: 300,
-     height: 300,
-     title: 'Total Messages',
-     header: {
-       text: '535',
-       color: 'primary',
-     },
-     subHeader: {
-        text: '(250 avg.)',
-        color: 'Red',
-     },
-     info: 'info',
+      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [
+        {
+          label: 'Message Count',
+          backgroundColor: 'rgba(210,235,248,0.5)',
+          borderColor: 'rgba(36,133,207,1)',
+          borderWidth: 1,
+          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+          hoverBorderColor: 'rgba(255,99,132,1)',
+          data: [65, 59, 80, 81, 56, 55]
+        },
+      ],
+    },
+    width: 300,
+    height: 200,
+    title: 'Total Messages',
+    header: {
+      text: '535',
+      color: 'primary',
+    },
+    subHeader: '(250 avg.)',
+    info: 'info',
   };
 
   render() {
     return (
       <Fragment>
-         <div className="row">
-         <div className="column-6">
-          <Chart
-            width={this.state.width}
-            height={this.state.height}
-            data={this.state.data}
-            type="bar"
-            title={this.state.title}
-            header={this.state.header}
-            subHeader={this.state.subHeader}
-            info={this.state.info}
-          />
-         </div>
-       </div>
+        <div className="row">
+          <div className="column-8@medium column-12@xsmall column-offset-2@medium">
+            <div className="site-grid-box">
+              <Chart
+                width={this.state.width}
+                height={this.state.height}
+                data={this.state.data}
+                type="bar"
+                title={this.state.title}
+                header={this.state.header}
+                subHeader={this.state.subHeader}
+                info={this.state.info}
+              />
+            </div>
+          </div>
+        </div>
       </Fragment>
     );
   }
 }
-

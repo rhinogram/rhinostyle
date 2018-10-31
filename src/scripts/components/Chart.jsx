@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+
 import { Icon } from '../components';
 import Tooltip from './Tooltip';
-
 
 function renderBar(opts) {
   return (
@@ -12,16 +12,22 @@ function renderBar(opts) {
       <div className="chart-header u-flex">
         <div className="chart-title">
           {opts.title}
-          <Tooltip content={opts.info}>
-            <Icon className="info-icon" icon="info-circle" />
-          </Tooltip>
+          {opts.info && (
+            <Tooltip content={opts.info}>
+              <Icon className="info-icon" icon="info-circle" />
+            </Tooltip>
+          )}
         </div>
-        <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
-          {opts.header.text}
-          <div className="subtitle-info">
-            {opts.subHeader.text}
+        {opts.header && opts.header.text && (
+          <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
+            {opts.header.text}
+            {opts.subHeader && (
+              <div className="subtitle-info">
+                {opts.subHeader}
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
       <Bar {...opts} />
     </div>
@@ -34,16 +40,22 @@ function renderLine(opts) {
       <div className="chart-header u-flex">
         <div className="chart-title">
           {opts.title}
-          <Tooltip content={opts.info}>
-            <Icon className="info-icon" icon="info-circle" />
-          </Tooltip>
+          {opts.info && (
+            <Tooltip content={opts.info}>
+              <Icon className="info-icon" icon="info-circle" />
+            </Tooltip>
+          )}
         </div>
-        <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
-          {opts.header.text}
-          <div className="subtitle-info">
-            {opts.subHeader.text}
+        {opts.header && opts.header.text && (
+          <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
+            {opts.header.text}
+            {opts.subHeader && (
+              <div className="subtitle-info">
+                {opts.subHeader}
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
       <Line {...opts} />
     </div>
@@ -56,16 +68,22 @@ function renderDoughnut(opts) {
       <div className="chart-header u-flex">
         <div className="chart-title">
           {opts.title}
-          <Tooltip content={opts.info}>
-            <Icon className="info-icon" icon="info-circle" />
-          </Tooltip>
+          {opts.info && (
+            <Tooltip content={opts.info}>
+              <Icon className="info-icon" icon="info-circle" />
+            </Tooltip>
+          )}
         </div>
-        <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
-          {opts.header.text}
-          <div className="subtitle-info">
-            {opts.subHeader.text}
+        {opts.header && opts.header.text && (
+          <div className={`chart-subtitle u-flex u-flex-align-items-baseline ${opts.header.color}`}>
+            {opts.header.text}
+            {opts.subHeader && (
+              <div className="subtitle-info">
+                {opts.subHeader}
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
       <Doughnut {...opts} />
     </div>
@@ -93,9 +111,9 @@ Chart.propTypes = {
   type: PropTypes.string.isRequired,
   legend: PropTypes.object,
   options: PropTypes.object,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   header: PropTypes.object,
-  subHeader: PropTypes.object,
+  subHeader: PropTypes.string,
   info: PropTypes.string,
 };
 

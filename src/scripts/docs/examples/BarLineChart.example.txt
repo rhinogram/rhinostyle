@@ -42,10 +42,7 @@ class ComponentExample extends React.Component {
        text: '535',
        color: 'primary',
      },
-     subHeader: {
-       text: '(250 avg.)',
-       color: 'Red',
-     },
+     subHeader: '(250 avg.)',
      info: 'info',
   };
 
@@ -53,8 +50,8 @@ class ComponentExample extends React.Component {
     return (
       <Fragment>
          <div className="row">
-         <div className="column-6">
-           <div className="box">
+         <div className="column-8@medium column-12@xsmall column-offset-2@medium">
+           <div className="site-grid-box">
              <Chart
                width={this.state.width}
                height={this.state.height}

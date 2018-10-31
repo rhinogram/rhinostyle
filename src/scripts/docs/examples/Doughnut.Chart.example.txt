@@ -9,7 +9,7 @@ class ComponentExample extends React.Component {
               hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
             }],
           },
-     width: 100,
+     width: 150,
      height: 50,
      options: {
        cutoutPercentage: 80,
@@ -22,10 +22,7 @@ class ComponentExample extends React.Component {
        text: '535',
        color: 'primary',
      },
-     subHeader: {
-       text: '(50% Healty)',
-       color: 'Red',
-     },
+     subHeader: '(50% Healthy)',
      info: 'fruits',
   };
 
@@ -33,8 +30,8 @@ class ComponentExample extends React.Component {
     return (
       <Fragment>
          <div className="row">
-         <div className="column-6">
-           <div className="box">
+         <div className="column-8@medium column-12@xsmall column-offset-2@medium">
+            <div className="site-grid-box">
              <Chart
                width={this.state.width}
                height={this.state.height}
