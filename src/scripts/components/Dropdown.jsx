@@ -134,7 +134,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { avatar, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName, noChangeLabel } = this.props;
+    const { avatar, autoFocusInput, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName, noChangeLabel } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
@@ -194,7 +194,7 @@ class Dropdown extends React.Component {
     };
 
     return (
-      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
+      <DropdownWrapper autoFocusInput={autoFocusInput} className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
         <Button
           reset={reset}
           size={size}
@@ -227,6 +227,7 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  autoFocusInput: PropTypes.bool,
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   block: PropTypes.bool,
   children: PropTypes.node,
@@ -263,6 +264,7 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   type: 'default',
+  autoFocusInput: true,
 };
 
 export default Dropdown;
