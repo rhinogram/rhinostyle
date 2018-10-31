@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Close, Dropdown, DropdownCheckbox, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
+import { Input, Button, Close, Dropdown, DropdownCheckbox, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
 import { Live } from './components';
 import DropdownExample from './examples/Dropdown.example.txt';
 import DropdownCheckboxExample from './examples/DropdownCheckbox.example.txt';
@@ -11,6 +11,7 @@ import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
 import DropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
 
 const DropdownDocs = {
+  autoFocusInput: 'Set autofocus to false to blur the input inside the dropdown. By default its value is true giving a focus to the inputs.',
   activeKey: 'The id of the currently selected DropdownMenuItem',
   block: 'Block level',
   disableScroll: 'Disabled default dropdown menu scrolling. Does not apply when filter is used.',
@@ -217,6 +218,15 @@ const DropdownApp = () => (
           <DropdownMenuItem label="Dropdown menu after clicking on an avatar Image" labelDesc="This dropdown button displays image" />
           <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url="http://www.rhinogram.com" blankWindow />
           <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
+        </Dropdown>
+
+        <Dropdown label="Without Focus" type="primary" autoFocusInput={false}>
+          <DropdownMenuItemWild>
+            <Input label="First Name" name="firstName" />
+          </DropdownMenuItemWild>
+          <DropdownMenuItemWild>
+            <Input label="Last Name" name="lastName" />
+          </DropdownMenuItemWild>
         </Dropdown>
       </UtilityInlineGrid>
     </section>
