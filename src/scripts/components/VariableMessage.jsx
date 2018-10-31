@@ -125,12 +125,11 @@ class VariableMessage extends React.Component {
 
     variables.filter(v => v.value !== text).forEach((value) => {
       const { variable } = value;
-      const isVariablePresent = split.includes(variable);
+      const foundVariable = split.indexOf(variable);
 
       // See if we've found one in our `initialValue`
-      if (isVariablePresent) {
-        const variableIdx = split.indexOf(variable);
-        split[variableIdx] = this.transformVar(variable).outerHTML;
+      if (foundVariable !== -1) {
+        split[foundVariable] = this.transformVar(variable).outerHTML;
       }
     });
 
@@ -147,12 +146,12 @@ class VariableMessage extends React.Component {
     // Loop through variables
     variables.forEach((value) => {
       const { variable } = value;
-      const isVariablePresent = split.includes(variable);
+      const foundVariable = split.indexOf(variable);
 
       // See if we've found one in our `initialValue`
-      if (isVariablePresent) {
-        const variableIdx = split.indexOf(variable);
-        split[variableIdx] = this.transformVar(variable).outerHTML;
+      if (foundVariable !== -1) {
+        // If so, transform the variable into HTML
+        split[foundVariable] = this.transformVar(variable).outerHTML;
       } else {
         available.push(value.id);
       }
@@ -180,15 +179,14 @@ class VariableMessage extends React.Component {
     // If we're on a valid variable
     if (variable.variable) {
       // Get variable value
-      const variableContext = variable.variable;
       this.setState((prevState) => {
         const idx = prevState.available.indexOf(value);
         if (idx > -1) {
           prevState.available.splice(idx, 1);
-          this.insertVariable(variableContext);
+          this.insertVariable(name);
         } else {
           prevState.available.push(value);
-          this.removeVariable(variableContext);
+          this.removeVariable(name);
         }
         return ({ available: prevState.available });
       }, () => {
@@ -207,6 +205,29 @@ class VariableMessage extends React.Component {
   handleComposeKeypress = (e) => {
     if (e.which === 13) {
       e.preventDefault();
+    }
+  }
+
+  handleKeyUp = (e) => {
+    if (e.which === 8 || e.which === 46) { // check if delete key or backspace is pressed to see if a variable was removed
+      console.log('del');
+      const available = [];
+      const split = this.state.message.split(/({\w+})/g);
+      const variables = this.getVariables(this.props.variables);
+      variables.forEach((value) => {
+        const { variable } = value;
+        const foundVariable = split.indexOf(variable);
+
+        // See if we've found one in our `initialValue`
+        if (foundVariable !== -1) {
+          // If so, transform the variable into HTML
+          split[foundVariable] = this.transformVar(variable).outerHTML;
+        } else {
+          available.push(value.id);
+        }
+      });
+
+      this.setState({ available });
     }
   }
 
@@ -239,6 +260,7 @@ class VariableMessage extends React.Component {
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;
+    // const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
 
     // Update state
@@ -294,6 +316,7 @@ class VariableMessage extends React.Component {
             variable={v}
             key={v.id}
             onClick={this.handleVariableSelection}
+            size="small"
           >
             {v.value}
           </ToggleButton>
@@ -310,7 +333,16 @@ class VariableMessage extends React.Component {
     });
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
+    // const variableMessageSelectName = `variable-message-select-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
+
+    //
+    // <Select
+    //   name={variableMessageSelectName}
+    //   options={variables}
+    //   onSelect={this.handleVariableSelection}
+    //   ref={ref => (this.select = ref)}
+    // />
 
     return (
       <div className={classes}>
@@ -352,6 +384,7 @@ class VariableMessage extends React.Component {
                 </div>
               }
             </div>
+
             <div className="variable-message__preview">
               <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
               <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />

@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class ToggleButton extends Component {
   handleClick = () => {
     if (this.props.onClick) {
-      this.props.onClick(this.props.variable.value, this.props.variable.id);
+      this.props.onClick(this.props.variable.variable, this.props.variable.id);
     }
   }
 
