@@ -1,22 +1,22 @@
 .chart {
   padding: @global-whitespace-medium;
 
-	.chart__header {
-	  padding: @global-whitespace-base @global-whitespace-small;
+  .chart__header {
+    padding: @global-whitespace-base @global-whitespace-small;
 
-		.header__title {
-		color: @global-color-gray-darker;
-		font-weight: @global-font-weight-bold;
-		margin-right: @global-whitespace-medium;
+    .header__title {
+      color: @global-color-gray-darker;
+      font-weight: @global-font-weight-bold;
+      margin-right: @global-whitespace-medium;
 
-		.header__icon--info {
-			color: @global-color-gray;
-			margin-left: @global-whitespace-medium/2;
-		}
-	  }
+      .header__icon--info {
+        color: @global-color-gray;
+        margin-left: @global-whitespace-medium/2;
+      }
+    }
 
-		.header__subtitle {
-		  &.accent {
+    .header__subtitle {
+      .accent {
         color: fadeout(@global-color-accent, 20%);
       }
 
@@ -36,11 +36,11 @@
         color: fadeout(@global-color-black, 20%);
       }
 
-		  .subtitle--muted {
-			  color: @global-color-gray;
-			  margin-left: @global-whitespace-medium/2;
-			  font-size: @global-font-size-xsmall;
-		  }
-	  }
+      .subtitle--muted {
+        color: @global-color-gray;
+        margin-left: @global-whitespace-medium/2;
+        font-size: @global-font-size-xsmall;
+      }
+    }
   }
 }
