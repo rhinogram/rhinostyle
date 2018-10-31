@@ -13,17 +13,11 @@ class ComponentExample extends React.Component {
 
   render() {
     const variableOpts = [
-      { id: -1, value: 'Select Variable' },
-      { id: 1,
-        value: 'Patient',
-        options: [
-          { id: 2, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },
-          { id: 3, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },
-          { id: 4, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },
-        ],
-      },
-      { id: 5, value: 'Another option', variable: '{another_option}', variableValue: 'Test' },
-    ];
+          { id: 1, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },
+          { id: 2, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },
+          { id: 3, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },
+          { id: 4, value: 'REPLY ‘1’ to CONFIRM', variable: '{REPLY_‘1’_to_CONFIRM}', variableValue: 'REPLY ‘1’ to CONFIRM' },
+        ]
 
     return (
       <VariableMessage

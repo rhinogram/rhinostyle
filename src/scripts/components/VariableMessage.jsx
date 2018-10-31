@@ -82,14 +82,24 @@ class VariableMessage extends React.Component {
   transformVar = (text) => {
     // Re-assign text value for processing
     let value = text;
+    // We are treating these as a special case because formatting for the "to" needs to me lowercase
+    if (text === '{REPLY_‘1’_to_CONFIRM}' || text === '{REPLY_‘2’_to_CANCEL}') {
+      // Replace text contents of variable to hide squigglies
+      const regexSquiggles = /{(.*)?}/g;
+      value = value.replace(regexSquiggles, '<i>{</i><span>$1</span><i>}</i>');
 
-    // Replace text contents of variable to hide squigglies
-    const regexSquiggles = /{(.*)?}/g;
-    value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
+      // Replace text contents of variable to hide underscore
+      const regexUnderscores = /_/g;
+      value = value.replace(regexUnderscores, '</span><b>_</b><span>');
+    } else {
+      // Replace text contents of variable to hide squigglies
+      const regexSquiggles = /{(.*)?}/g;
+      value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
 
-    // Replace text contents of variable to hide underscore
-    const regexUnderscores = /_/g;
-    value = value.replace(regexUnderscores, '</div><b>_</b><div>');
+      // Replace text contents of variable to hide underscore
+      const regexUnderscores = /_/g;
+      value = value.replace(regexUnderscores, '</div><b>_</b><div>');
+    }
 
     // Build variable UI
     const $variable = document.createElement('span');
