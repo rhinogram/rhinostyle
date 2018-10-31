@@ -85,11 +85,11 @@ class VariableMessage extends React.Component {
 
     // Replace text contents of variable to hide squigglies
     const regexSquiggles = /{(.*)?}/g;
-    value = value.replace(regexSquiggles, '<i>{</i>$1<i>}</i>');
+    value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
 
     // Replace text contents of variable to hide underscore
     const regexUnderscores = /_/g;
-    value = value.replace(regexUnderscores, '<b>_</b>');
+    value = value.replace(regexUnderscores, '</div><b>_</b><div>');
 
     // Build variable UI
     const $variable = document.createElement('span');
@@ -125,11 +125,11 @@ class VariableMessage extends React.Component {
 
     variables.filter(v => v.value !== text).forEach((value) => {
       const { variable } = value;
-      const foundVariable = split.indexOf(variable);
-
+      const isVariablePresent = split.includes(variable);
       // See if we've found one in our `initialValue`
-      if (foundVariable !== -1) {
-        split[foundVariable] = this.transformVar(variable).outerHTML;
+      if (isVariablePresent) {
+        const variableIdx = split.indexOf(variable);
+        split[variableIdx] = this.transformVar(variable).outerHTML;
       }
     });
 
@@ -146,12 +146,12 @@ class VariableMessage extends React.Component {
     // Loop through variables
     variables.forEach((value) => {
       const { variable } = value;
-      const foundVariable = split.indexOf(variable);
-
+      const isVariablePresent = split.includes(variable);
       // See if we've found one in our `initialValue`
-      if (foundVariable !== -1) {
+      if (isVariablePresent) {
         // If so, transform the variable into HTML
-        split[foundVariable] = this.transformVar(variable).outerHTML;
+        const variableIdx = split.indexOf(variable);
+        split[variableIdx] = this.transformVar(variable).outerHTML;
       } else {
         available.push(value.id);
       }
@@ -209,8 +209,8 @@ class VariableMessage extends React.Component {
   }
 
   handleKeyUp = (e) => {
-    if (e.which === 8 || e.which === 46) { // check if delete key or backspace is pressed to see if a variable was removed
-      console.log('del');
+    // check if delete key or backspace is pressed to see if a variable was removed
+    if (e.which === 8 || e.which === 46) {
       const available = [];
       const split = this.state.message.split(/({\w+})/g);
       const variables = this.getVariables(this.props.variables);
@@ -218,11 +218,9 @@ class VariableMessage extends React.Component {
         const { variable } = value;
         const foundVariable = split.indexOf(variable);
 
-        // See if we've found one in our `initialValue`
-        if (foundVariable !== -1) {
+        // See if we've found one in our current message
+        if (foundVariable === -1) {
           // If so, transform the variable into HTML
-          split[foundVariable] = this.transformVar(variable).outerHTML;
-        } else {
           available.push(value.id);
         }
       });
@@ -260,7 +258,6 @@ class VariableMessage extends React.Component {
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;
-    // const $select = ReactDOM.findDOMNode(this.select);
     const $preview = ReactDOM.findDOMNode(this.preview);
 
     // Update state
@@ -312,11 +309,10 @@ class VariableMessage extends React.Component {
         }
         return (
           <ToggleButton
-            available={this.state.available.indexOf(v.id) !== -1}
+            available={this.state.available.includes(v.id)}
             variable={v}
             key={v.id}
             onClick={this.handleVariableSelection}
-            size="small"
           >
             {v.value}
           </ToggleButton>
@@ -333,16 +329,7 @@ class VariableMessage extends React.Component {
     });
 
     const variableMessageInputName = `variable-message-input-${this.id}`;
-    // const variableMessageSelectName = `variable-message-select-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
-
-    //
-    // <Select
-    //   name={variableMessageSelectName}
-    //   options={variables}
-    //   onSelect={this.handleVariableSelection}
-    //   ref={ref => (this.select = ref)}
-    // />
 
     return (
       <div className={classes}>
@@ -384,7 +371,6 @@ class VariableMessage extends React.Component {
                 </div>
               }
             </div>
-
             <div className="variable-message__preview">
               <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
               <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
