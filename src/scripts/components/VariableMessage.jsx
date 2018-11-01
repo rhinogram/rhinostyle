@@ -120,7 +120,7 @@ class VariableMessage extends React.Component {
 
   removeVariable = (text) => {
     const variables = this.getVariables(this.props.variables);
-    const split = this.state.message.split(text).join('').split(/({\w+})/g);
+    const split = this.state.message.split(text).join('').split(/({.*?})/);
     const lowercaseSplit = split.map(e => e.toLowerCase());
 
     variables.filter(v => v.value !== text).forEach((value) => {
@@ -141,13 +141,16 @@ class VariableMessage extends React.Component {
     // Get flat-level list of all variables
     const variables = this.getVariables(this.props.variables);
     // Split `initialValue` to target variables
-    const split = initialValue.split(/({\w+})/g);
+    const split = initialValue.split(/({.*?})/);
+
     const lowercaseSplit = split.map(e => e.toLowerCase());
     const available = [];
     // Loop through variables
+    console.log(lowercaseSplit);
     variables.forEach((value) => {
       const { variable } = value;
       const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
+      console.log(variable.toLowerCase(), isVariablePresent);
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
         // If so, transform the variable into HTML
@@ -213,7 +216,7 @@ class VariableMessage extends React.Component {
     // check if delete key or backspace is pressed to see if a variable was removed
     if (k.which === 8 || k.which === 46) {
       const available = [];
-      const split = this.state.message.split(/({\w+})/g);
+      const split = this.state.message.split(/({.*?})/);
       const lowercaseSplit = split.map(e => e.toLowerCase());
       const variables = this.getVariables(this.props.variables);
       variables.forEach((value) => {
