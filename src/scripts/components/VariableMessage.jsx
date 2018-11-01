@@ -82,24 +82,13 @@ class VariableMessage extends React.Component {
   transformVar = (text) => {
     // Re-assign text value for processing
     let value = text;
-    // We are treating these as a special case because formatting for the "to" needs to me lowercase
-    if (text === '{REPLY_‘1’_to_CONFIRM}' || text === '{REPLY_‘2’_to_CANCEL}') {
-      // Replace text contents of variable to hide squigglies
-      const regexSquiggles = /{(.*)?}/g;
-      value = value.replace(regexSquiggles, '<i>{</i><span>$1</span><i>}</i>');
+    // Replace text contents of variable to hide squigglies
+    const regexSquiggles = /{(.*)?}/g;
+    value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
 
-      // Replace text contents of variable to hide underscore
-      const regexUnderscores = /_/g;
-      value = value.replace(regexUnderscores, '</span><b>_</b><span>');
-    } else {
-      // Replace text contents of variable to hide squigglies
-      const regexSquiggles = /{(.*)?}/g;
-      value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
-
-      // Replace text contents of variable to hide underscore
-      const regexUnderscores = /_/g;
-      value = value.replace(regexUnderscores, '</div><b>_</b><div>');
-    }
+    // Replace text contents of variable to hide underscore
+    const regexUnderscores = /_/g;
+    value = value.replace(regexUnderscores, '</div><b>_</b><div>');
 
     // Build variable UI
     const $variable = document.createElement('span');
@@ -132,13 +121,14 @@ class VariableMessage extends React.Component {
   removeVariable = (text) => {
     const variables = this.getVariables(this.props.variables);
     const split = this.state.message.split(text).join('').split(/({\w+})/g);
+    const lowercaseSplit = split.map(e => e.toLowerCase());
 
     variables.filter(v => v.value !== text).forEach((value) => {
       const { variable } = value;
-      const isVariablePresent = split.includes(variable);
+      const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
-        const variableIdx = split.indexOf(variable);
+        const variableIdx = lowercaseSplit.indexOf(variable.toLowerCase());
         split[variableIdx] = this.transformVar(variable).outerHTML;
       }
     });
@@ -152,15 +142,16 @@ class VariableMessage extends React.Component {
     const variables = this.getVariables(this.props.variables);
     // Split `initialValue` to target variables
     const split = initialValue.split(/({\w+})/g);
+    const lowercaseSplit = split.map(e => e.toLowerCase());
     const available = [];
     // Loop through variables
     variables.forEach((value) => {
       const { variable } = value;
-      const isVariablePresent = split.includes(variable);
+      const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
         // If so, transform the variable into HTML
-        const variableIdx = split.indexOf(variable);
+        const variableIdx = lowercaseSplit.indexOf(variable.toLowerCase());
         split[variableIdx] = this.transformVar(variable).outerHTML;
       } else {
         available.push(value.id);
@@ -223,10 +214,11 @@ class VariableMessage extends React.Component {
     if (e.which === 8 || e.which === 46) {
       const available = [];
       const split = this.state.message.split(/({\w+})/g);
+      const lowercaseSplit = split.map(e => e.toLowerCase());
       const variables = this.getVariables(this.props.variables);
       variables.forEach((value) => {
         const { variable } = value;
-        const foundVariable = split.indexOf(variable);
+        const foundVariable = lowercaseSplit.indexOf(variable.toLowerCase());
 
         // See if we've found one in our current message
         if (foundVariable === -1) {

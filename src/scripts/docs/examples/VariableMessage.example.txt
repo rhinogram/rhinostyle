@@ -13,10 +13,11 @@ class ComponentExample extends React.Component {
 
   render() {
     const variableOpts = [
-          { id: 1, value: 'First Name', variable: '{first_name}', variableValue: 'Craig' },
-          { id: 2, value: 'Last Name', variable: '{last_name}', variableValue: 'Anthony' },
-          { id: 3, value: 'Office Location', variable: '{office_location}', variableValue: 'Mount Pleasant' },
+          { id: 1, value: 'First Name', variable: '{First_Name}', variableValue: 'Craig' },
+          { id: 2, value: 'Last Name', variable: '{Last_Name}', variableValue: 'Anthony' },
+          { id: 3, value: 'Office Location', variable: '{Office_Location}', variableValue: 'Mount Pleasant' },
           { id: 4, value: 'REPLY ‘1’ to CONFIRM', variable: '{REPLY_‘1’_to_CONFIRM}', variableValue: 'REPLY ‘1’ to CONFIRM' },
+          { id: 5, value: 'REPLY ‘2’ to CANCEL', variable: '{REPLY_‘2’_to_CANCEL}', variableValue: 'REPLY ‘2’ to CANCEL' },
         ]
 
     return (
