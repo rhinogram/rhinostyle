@@ -7,6 +7,7 @@ import Bucket from './Bucket';
 import BucketBody from './BucketBody';
 import BucketHeader from './BucketHeader';
 import Button from './Button';
+import Chart from './Chart';
 import Checkbox from './Checkbox';
 import CheckboxGroup from './CheckboxGroup';
 import Close from './Close';
@@ -79,6 +80,7 @@ export {
   BucketBody,
   BucketHeader,
   Button,
+  Chart,
   Checkbox,
   CheckboxGroup,
   Close,

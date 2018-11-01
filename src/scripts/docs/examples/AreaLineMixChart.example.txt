@@ -1,0 +1,63 @@
+ class ComponentExample extends React.Component {
+   state = {
+     data: {
+       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+       datasets: [
+       {
+         label: '# of Votes',
+         data: [12, 19, 3, 5, 2, 3],
+         borderWidth: 1,
+         fill: false,
+       },
+       {
+         label: '# of Points',
+         data: [7, 11, 5, 8, 3, 7],
+         borderWidth: 1,
+        },
+       ],
+      },
+      options: {
+        scales: {
+          yAxes: [{
+          ticks: {
+            reverse: false,
+          },
+         }],
+        },
+      },
+       width: 300,
+       height: 300,
+       title: 'Total Time',
+        header: {
+          text: '535',
+          color: 'primary',
+        },
+        subHeader: '(250 avg.)',
+        info: 'info',
+    };
+
+    render() {
+      return (
+        <Fragment>
+           <div className="row">
+           <div className="column-8@medium column-12@xsmall column-offset-2@medium">
+            <div className="site-grid-box">
+               <Chart
+                 width={this.state.width}
+                 height={this.state.height}
+                 data={this.state.data}
+                 options={this.state.options}
+                 type="line"
+                 title={this.state.title}
+                 header={this.state.header}
+                 subHeader={this.state.subHeader}
+                 info={this.state.info}
+               />
+             </div>
+           </div>
+         </div>
+        </Fragment>
+      );
+    }
+  }
+

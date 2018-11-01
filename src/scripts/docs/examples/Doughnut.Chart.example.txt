@@ -1,0 +1,54 @@
+class ComponentExample extends React.Component {
+  state = {
+    data: {
+            labels: [ 'Apple', 'Orange', 'Grape' ],
+            datasets: [{
+              data: [300, 50, 100],
+              cutoutPercentage: 70,
+              backgroundColor: [ '#1918ff', '#36A2EB','#ff2b0e'],
+              hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+            }],
+          },
+     width: 150,
+     height: 50,
+     options: {
+       cutoutPercentage: 80,
+     },
+     legend: {
+        position: 'right',
+     },
+     title: 'Fruits',
+     header: {
+       text: '535',
+       color: 'primary',
+     },
+     subHeader: '(50% Healthy)',
+     info: 'fruits',
+  };
+
+  render() {
+    return (
+      <Fragment>
+         <div className="row">
+         <div className="column-8@medium column-12@xsmall column-offset-2@medium">
+            <div className="site-grid-box">
+             <Chart
+               width={this.state.width}
+               height={this.state.height}
+               data={this.state.data}
+               type="doughnut"
+               options={this.state.options}
+               legend={this.state.legend}
+               title={this.state.title}
+               header={this.state.header}
+               subHeader={this.state.subHeader}
+               info={this.state.info}
+             />
+           </div>
+         </div>
+       </div>
+      </Fragment>
+    );
+  }
+}
+

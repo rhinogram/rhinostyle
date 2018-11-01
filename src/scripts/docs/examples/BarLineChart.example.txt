@@ -1,0 +1,73 @@
+class ComponentExample extends React.Component {
+  state = {
+    data: {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [{
+          label: 'Sales',
+          type:'line',
+          data: [51, 65, 40, 49, 60, 37, 40],
+          fill: false,
+          borderColor: '#EC932F',
+          backgroundColor: '#EC932F',
+          pointBorderColor: '#EC932F',
+          pointBackgroundColor: '#EC932F',
+          pointHoverBackgroundColor: '#EC932F',
+          pointHoverBorderColor: '#EC932F',
+        },{
+          type: 'bar',
+          label: 'Visitor',
+          data: [200, 185, 590, 621, 250, 400, 95],
+          fill: false,
+          backgroundColor: '#71B37C',
+          borderColor: '#71B37C',
+          hoverBackgroundColor: '#71B37C',
+          hoverBorderColor: '#71B37C',
+        }]
+    },
+    options: {
+      responsive: true,
+      tooltips: {
+        mode: 'label'
+      },
+      elements: {
+        line: {
+          fill: false
+        }
+      },
+    },
+     width: 300,
+     height: 300,
+     title: 'Total Time',
+     header: {
+       text: '535',
+       color: 'primary',
+     },
+     subHeader: '(250 avg.)',
+     info: 'info',
+  };
+
+  render() {
+    return (
+      <Fragment>
+         <div className="row">
+         <div className="column-8@medium column-12@xsmall column-offset-2@medium">
+           <div className="site-grid-box">
+             <Chart
+               width={this.state.width}
+               height={this.state.height}
+               data={this.state.data}
+               options={this.state.options}
+               type="bar"
+               title={this.state.title}
+               header={this.state.header}
+               subHeader={this.state.subHeader}
+               info={this.state.info}
+             />
+           </div>
+         </div>
+       </div>
+      </Fragment>
+    );
+  }
+}
+
