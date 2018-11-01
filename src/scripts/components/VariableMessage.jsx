@@ -209,9 +209,9 @@ class VariableMessage extends React.Component {
     }
   }
 
-  handleKeyUp = (e) => {
+  handleKeyUp = (k) => {
     // check if delete key or backspace is pressed to see if a variable was removed
-    if (e.which === 8 || e.which === 46) {
+    if (k.which === 8 || k.which === 46) {
       const available = [];
       const split = this.state.message.split(/({\w+})/g);
       const lowercaseSplit = split.map(e => e.toLowerCase());
