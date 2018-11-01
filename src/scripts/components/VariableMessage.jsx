@@ -128,8 +128,8 @@ class VariableMessage extends React.Component {
       const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
-        const variableIdx = lowercaseSplit.indexOf(variable.toLowerCase());
-        split[variableIdx] = this.transformVar(variable).outerHTML;
+        const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
+        split[variableIndex] = this.transformVar(variable).outerHTML;
       }
     });
 
@@ -146,16 +146,14 @@ class VariableMessage extends React.Component {
     const lowercaseSplit = split.map(e => e.toLowerCase());
     const available = [];
     // Loop through variables
-    console.log(lowercaseSplit);
     variables.forEach((value) => {
       const { variable } = value;
       const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
-      console.log(variable.toLowerCase(), isVariablePresent);
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
         // If so, transform the variable into HTML
-        const variableIdx = lowercaseSplit.indexOf(variable.toLowerCase());
-        split[variableIdx] = this.transformVar(variable).outerHTML;
+        const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
+        split[variableIndex] = this.transformVar(variable).outerHTML;
       } else {
         available.push(value.id);
       }
@@ -184,9 +182,9 @@ class VariableMessage extends React.Component {
     if (variable.variable) {
       // Get variable value
       this.setState((prevState) => {
-        const idx = prevState.available.indexOf(value);
-        if (idx > -1) {
-          prevState.available.splice(idx, 1);
+        const index = prevState.available.indexOf(value);
+        if (index > -1) {
+          prevState.available.splice(index, 1);
           this.insertVariable(name);
         } else {
           prevState.available.push(value);
@@ -213,8 +211,10 @@ class VariableMessage extends React.Component {
   }
 
   handleKeyUp = (k) => {
+    const backspaceKeyPressed = k.which === 8;
+    const deleteKeyPressed = k.which === 46;
     // check if delete key or backspace is pressed to see if a variable was removed
-    if (k.which === 8 || k.which === 46) {
+    if (backspaceKeyPressed || deleteKeyPressed) {
       const available = [];
       const split = this.state.message.split(/({.*?})/);
       const lowercaseSplit = split.map(e => e.toLowerCase());
