@@ -2,8 +2,18 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import { Button,
+  FormLabel,
+  FormExplanationMessage,
+  FormValidationMessage,
+  Message,
+  ToggleButton,
+  UtilitySystem,
+} from '../components';
 
-import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Message, ToggleButton, UtilitySystem } from '../components';
+const BACKSPACE_KEY = 8;
+const DELETE_KEY = 46;
+const ENTER_KEY = 13;
 
 class VariableMessage extends React.Component {
   state = {
@@ -205,16 +215,14 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeKeypress = (e) => {
-    if (e.which === 13) {
+    if (e.which === ENTER_KEY) {
       e.preventDefault();
     }
   }
 
   handleKeyUp = (k) => {
-    const backspaceKeyPressed = k.which === 8;
-    const deleteKeyPressed = k.which === 46;
     // check if delete key or backspace is pressed to see if a variable was removed
-    if (backspaceKeyPressed || deleteKeyPressed) {
+    if (k.which === BACKSPACE_KEY || k.which === DELETE_KEY) {
       const available = [];
       const split = this.state.message.split(/({.*?})/);
       const lowercaseSplit = split.map(e => e.toLowerCase());
