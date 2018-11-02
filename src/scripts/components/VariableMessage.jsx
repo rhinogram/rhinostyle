@@ -2,8 +2,20 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import { Button,
+  FormLabel,
+  FormExplanationMessage,
+  FormValidationMessage,
+  Message,
+  ToggleButton,
+  UtilitySystem,
+} from '../components';
 
-import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Message, ToggleButton, UtilitySystem } from '../components';
+import {
+  BACKSPACE_KEY,
+  DELETE_KEY,
+  ENTER_KEY,
+} from '../constants';
 
 class VariableMessage extends React.Component {
   state = {
@@ -82,14 +94,13 @@ class VariableMessage extends React.Component {
   transformVar = (text) => {
     // Re-assign text value for processing
     let value = text;
-
     // Replace text contents of variable to hide squigglies
     const regexSquiggles = /{(.*)?}/g;
-    value = value.replace(regexSquiggles, '<i>{</i>$1<i>}</i>');
+    value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
 
     // Replace text contents of variable to hide underscore
     const regexUnderscores = /_/g;
-    value = value.replace(regexUnderscores, '<b>_</b>');
+    value = value.replace(regexUnderscores, '</div><b>_</b><div>');
 
     // Build variable UI
     const $variable = document.createElement('span');
@@ -121,16 +132,16 @@ class VariableMessage extends React.Component {
 
   removeVariable = (text) => {
     const variables = this.getVariables(this.props.variables);
-    const split = this.state.message.split(text).join('').split(/({\w+})/g);
+    const split = this.state.message.split(text).join('').split(/({.*?})/);
+    const lowercaseSplit = split.map(e => e.toLowerCase());
 
     variables.filter(v => v.value !== text).forEach((value) => {
       const { variable } = value;
-      const isVariablePresent = split.includes(variable);
-
+      const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
-        const variableIdx = split.indexOf(variable);
-        split[variableIdx] = this.transformVar(variable).outerHTML;
+        const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
+        split[variableIndex] = this.transformVar(variable).outerHTML;
       }
     });
 
@@ -142,17 +153,19 @@ class VariableMessage extends React.Component {
     // Get flat-level list of all variables
     const variables = this.getVariables(this.props.variables);
     // Split `initialValue` to target variables
-    const split = initialValue.split(/({\w+})/g);
+    const split = initialValue.split(/({.*?})/);
+
+    const lowercaseSplit = split.map(e => e.toLowerCase());
     const available = [];
     // Loop through variables
     variables.forEach((value) => {
       const { variable } = value;
-      const isVariablePresent = split.includes(variable);
-
+      const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
-        const variableIdx = split.indexOf(variable);
-        split[variableIdx] = this.transformVar(variable).outerHTML;
+        // If so, transform the variable into HTML
+        const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
+        split[variableIndex] = this.transformVar(variable).outerHTML;
       } else {
         available.push(value.id);
       }
@@ -180,15 +193,14 @@ class VariableMessage extends React.Component {
     // If we're on a valid variable
     if (variable.variable) {
       // Get variable value
-      const variableContext = variable.variable;
       this.setState((prevState) => {
-        const idx = prevState.available.indexOf(value);
-        if (idx > -1) {
-          prevState.available.splice(idx, 1);
-          this.insertVariable(variableContext);
+        const index = prevState.available.indexOf(value);
+        if (index > -1) {
+          prevState.available.splice(index, 1);
+          this.insertVariable(name);
         } else {
           prevState.available.push(value);
-          this.removeVariable(variableContext);
+          this.removeVariable(name);
         }
         return ({ available: prevState.available });
       }, () => {
@@ -205,8 +217,30 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeKeypress = (e) => {
-    if (e.which === 13) {
+    if (e.which === ENTER_KEY) {
       e.preventDefault();
+    }
+  }
+
+  handleKeyUp = (k) => {
+    // check if delete key or backspace is pressed to see if a variable was removed
+    if (k.which === BACKSPACE_KEY || k.which === DELETE_KEY) {
+      const available = [];
+      const split = this.state.message.split(/({.*?})/);
+      const lowercaseSplit = split.map(e => e.toLowerCase());
+      const variables = this.getVariables(this.props.variables);
+      variables.forEach((value) => {
+        const { variable } = value;
+        const foundVariable = lowercaseSplit.indexOf(variable.toLowerCase());
+
+        // See if we've found one in our current message
+        if (foundVariable === -1) {
+          // If so, transform the variable into HTML
+          available.push(value.id);
+        }
+      });
+
+      this.setState({ available });
     }
   }
 
@@ -290,7 +324,7 @@ class VariableMessage extends React.Component {
         }
         return (
           <ToggleButton
-            available={this.state.available.indexOf(v.id) !== -1}
+            available={this.state.available.includes(v.id)}
             variable={v}
             key={v.id}
             onClick={this.handleVariableSelection}

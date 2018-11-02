@@ -90,7 +90,6 @@
 // 2. Help space out stacking variables
 .variable-message__variable {
   &:extend(.pill--primary);
-
   padding: 0; // 1
   margin-bottom: 0.1rem; // 2
   cursor: default;
@@ -106,10 +105,14 @@
   b {
     opacity: 0;
     width: 0.3rem;
+    font-size: 1rem;
+  }
+
+  div {
+    display: inline-block;
   }
 }
 
 .variable-message__preview {
   margin-top: @form-group-spacing;
 }
-

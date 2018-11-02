@@ -46,7 +46,6 @@ class Input extends React.Component {
 
   handleChange = (event) => {
     this.setState({ value: event.target.value });
-
     if (this.props.onChange) {
       if (this.props.format) {
         this.props.onChange(event.target.name, event.target.rawValue.trimLeft(), event.target.value);
