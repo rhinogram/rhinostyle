@@ -11,9 +11,11 @@ import { Button,
   UtilitySystem,
 } from '../components';
 
-const BACKSPACE_KEY = 8;
-const DELETE_KEY = 46;
-const ENTER_KEY = 13;
+import {
+  BACKSPACE_KEY,
+  DELETE_KEY,
+  ENTER_KEY,
+} from '../constants';
 
 class VariableMessage extends React.Component {
   state = {
