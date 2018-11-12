@@ -52,7 +52,7 @@ const Chart = (props) => {
           </div>
         )}
       </div>
-      { (Object.keys(opts.data).length === 0) ? renderNoData() : renderChart(opts) }
+      { (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0) ? renderNoData() : renderChart(opts) }
     </div>
   );
 };
