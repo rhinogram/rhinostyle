@@ -380,12 +380,12 @@ class VariableMessage extends React.Component {
               <div className="variable-message__footer__left">
                 {this.renderToggleButtons(variables)}
               </div>
-              {showCharacterCounter &&
-                <div title={characterCountTitle} className={characterCounterClasses}>
-                  {message.length}
-                </div>
-              }
             </div>
+            {showCharacterCounter &&
+              <div title={characterCountTitle} className={characterCounterClasses}>
+                {message.length}
+              </div>
+            }
             <div className="variable-message__preview">
               <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
               <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
