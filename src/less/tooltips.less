@@ -5,7 +5,8 @@
 
 @tooltip-arrow-size: 1rem;
 @tooltip-zindex: 1050;
-@tooltip-background: @global-color-white;
+@tooltip-background-light: @global-color-white;
+@tooltip-background-dark: @global-color-gray-darker;
 
 
 //
@@ -22,28 +23,36 @@
   padding: ~'calc(@{tooltip-arrow-size} + 1px)';
 
   &-inner {
-    color: @global-font-color;
     max-width: 250px;
     padding: @global-whitespace-small;
-    background: @tooltip-background;
     border: 1px solid @global-border-color;
     border-radius: @global-border-radius;
     word-wrap: break-word;
     text-align: center;
     position: relative;
     box-shadow: @global-shadow-depth-1;
-
     &::after {
       content: '';
       width: @tooltip-arrow-size;
       height: @tooltip-arrow-size;
       position: absolute;
-      background: @tooltip-background;
+      background: @tooltip-background-dark;
+      color: @global-color-white;
       border: 1px solid @global-border-color;
       border-bottom-left-radius: @global-border-radius;
       border-right: 0;
       border-top: 0;
     }
+  }
+
+  &--light {
+    background: @tooltip-background-light;
+    color: @global-font-color;
+  }
+
+  &--dark {
+    background: @tooltip-background-dark;
+    color: @global-color-white;
   }
 
   &--top {
