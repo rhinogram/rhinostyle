@@ -67,7 +67,7 @@ class Tooltip extends React.Component {
     $tooltip.setAttribute('role', 'tooltip');
     $tooltip.classList.add('tooltip');
 
-    $tooltipContent.classList.add('tooltip-inner', 'tooltip--dark');
+    $tooltipContent.classList.add('tooltip-inner', `tooltip-inner--${this.props.type}`);
 
     const tooltipContent = this.props.content;
 
@@ -233,13 +233,13 @@ Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.any.isRequired,
   placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-  //type: PropTypes.oneOf(['light', 'dark']),
+  type: PropTypes.oneOf(['light', 'dark']),
 };
 
 Tooltip.defaultProps = {
   delay: false,
   placement: 'top',
-  //type: 'dark',
+  type: 'light',
 };
 
 export default Tooltip;
