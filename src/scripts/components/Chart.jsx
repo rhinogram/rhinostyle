@@ -19,6 +19,15 @@ const renderChart = (opts) => {
   }
 };
 
+const renderNoData = () => (
+  <div className="chart__without-data">
+      Sorry! There&#39;s nothing to show.
+    <p>
+      Once data is available for this section, it will appear here.
+    </p>
+  </div>
+);
+
 const Chart = (props) => {
   const { ...opts } = props;
   return (
@@ -43,7 +52,7 @@ const Chart = (props) => {
           </div>
         )}
       </div>
-      {renderChart(opts)}
+      { (Object.keys(opts.data).length === 0) ? renderNoData() : renderChart(opts) }
     </div>
   );
 };
