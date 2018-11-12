@@ -8,7 +8,11 @@ import { TimelineMax } from 'gsap/TweenMax';
 import { UtilitySystem } from '../UtilitySystem';
 
 class Tooltip extends React.Component {
-  // @NOTE Attaching event listeners here is not ideal, but `onMouseEnter` (and `onMouseOver`) is not reliably fired; as well as the context of the currentTarget being incorrect.
+  /**
+   * @NOTE Attaching event listeners here is not ideal,
+   * but `onMouseEnter` (and `onMouseOver`) is not reliably fired;
+   * as well as the context of the currentTarget being incorrect.
+   * */
   componentDidMount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
@@ -32,7 +36,7 @@ class Tooltip extends React.Component {
 
   /**
    * Get tooltip trigger
-   * @return {void} [description]
+   * @return {HTMLElement} DOM Node where tooltip originates
    */
   getTooltipTrigger = () => {
     const { tooltipTrigger } = this;
@@ -47,6 +51,7 @@ class Tooltip extends React.Component {
 
   /**
    * Create tooltip
+   * @param {MouseEvent} e mouse enter event
    * @return {void}
    */
   createTooltip = (e) => {
@@ -122,7 +127,8 @@ class Tooltip extends React.Component {
   }
 
   /**
-   * Figure out direciton and position
+   * Figure out direction and position
+   * @param {HTMLElement} tooltip Div element for tooltip
    * @return {void}
    */
   styleTooltip = (tooltip) => {
@@ -167,7 +173,7 @@ class Tooltip extends React.Component {
 
   /**
    * Open tooltip
-   * @param  {node} tooltip
+   * @param  {HTMLElement} tooltip The DOM node where tooltip originates
    * @return {void}
    */
   openTooltip(tooltip) {
@@ -187,7 +193,6 @@ class Tooltip extends React.Component {
 
   /**
    * Close tooltip
-   * @param  {node} tooltip
    * @return {void}
    */
   closeTooltip() {
@@ -196,7 +201,7 @@ class Tooltip extends React.Component {
 
   /**
    * Remove tooltip from DOM
-   * @param  {node} tooltip
+   * @param {HTMLElement} tooltip DOM node where tooltip originates.
    * @return {void}
    */
   removeTooltip(tooltip) {
