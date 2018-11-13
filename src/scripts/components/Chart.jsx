@@ -21,7 +21,7 @@ const renderChart = (opts) => {
 
 const renderNoData = () => (
   <div className="chart__without-data">
-      Sorry! There&#39;s nothing to show.
+      Sorry! There&apos;s nothing to show.
     <p>
       Once data is available for this section, it will appear here.
     </p>
