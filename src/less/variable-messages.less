@@ -36,7 +36,8 @@
   &[contenteditable='true'] {
     background-color: @variable-message-compose-bg;
     border: 1px solid @variable-message-compose-border-color;
-    border-radius: @variable-message-compose-border-radius;
+    border-top-left-radius: @variable-message-compose-border-radius;
+    border-top-right-radius: @variable-message-compose-border-radius;
     color: @variable-message-compose-color;
     min-height: @variable-message-compose-min-height;
     padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
@@ -48,9 +49,13 @@
 }
 
 .variable-message__footer {
-  margin-top: @global-whitespace-small;
+  padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
   display: flex;
   flex-direction: column;
+  border: 1px solid @variable-message-compose-border-color;
+  border-top: none;
+  border-bottom-left-radius: @variable-message-compose-border-radius;
+  border-bottom-right-radius: @variable-message-compose-border-radius;
 
   @media (min-width: @global-screen-xsmall-min) {
     justify-content: center;
@@ -75,6 +80,7 @@
 .variable-message__character-count {
   .u-text-small;
 
+  margin-top: @global-whitespace-base;
   color: @global-font-color-muted;
   margin-left: auto;
   text-align: right;
