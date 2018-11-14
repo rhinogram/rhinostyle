@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { UtilitySystem } from '../UtilitySystem';
-import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '../components';
+import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '.';
 
 class DropdownMultiSelect extends React.Component {
   state = {
@@ -218,12 +218,13 @@ class DropdownMultiSelect extends React.Component {
         </DropdownWrapper>
         <FormValidationMessage validationMessage={validationMessage} />
         <FormExplanationMessage explanationMessage={explanationMessage} />
-        {activeKeys.length ?
+        {activeKeys.length ? (
           <div className="u-p-t-small">
             <UtilityInlineGrid>
               {activeKeys.map(renderPill)}
             </UtilityInlineGrid>
-          </div> : null
+          </div>
+        ) : null
         }
       </div>
     );

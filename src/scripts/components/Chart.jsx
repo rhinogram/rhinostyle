@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 
-import { Icon } from '../components';
+import { Icon } from '.';
 import Tooltip from './Tooltip';
 
 const renderChart = (opts) => {
@@ -21,7 +21,7 @@ const renderChart = (opts) => {
 
 const renderNoData = () => (
   <div className="chart__without-data">
-      Sorry! There&#39;s nothing to show.
+      Sorry! There&apos;s nothing to show.
     <p>
       Once data is available for this section, it will appear here.
     </p>
@@ -30,6 +30,10 @@ const renderNoData = () => (
 
 const Chart = (props) => {
   const { ...opts } = props;
+  let isChartData = false;
+  if (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0 || Object.keys(opts.data.datasets[0].data).length === 0) {
+    isChartData = true;
+  }
   return (
     <div className="chart">
       <div className="chart__header u-flex">
@@ -41,7 +45,7 @@ const Chart = (props) => {
             </Tooltip>
           )}
         </div>
-        {opts.header && opts.header.text && (
+        {!isChartData && opts.header && opts.header.text && (
           <div className={`header__subtitle ${opts.header.color}`}>
             {opts.header.text}
             {opts.subHeader && (
@@ -52,7 +56,7 @@ const Chart = (props) => {
           </div>
         )}
       </div>
-      { (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0) ? renderNoData() : renderChart(opts) }
+      { isChartData ? renderNoData() : renderChart(opts) }
     </div>
   );
 };

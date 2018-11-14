@@ -15,7 +15,7 @@ const ButtonDocs = {
   loading: 'Specify a loading-state for the button to denote a background-action is in-progress',
   reset: 'Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
 };
-const ButtonScope  = {
+const ButtonScope = {
   React,
   ReactDOM,
   Button,
@@ -173,4 +173,3 @@ const ButtonApp = () => (
 );
 
 ReactDOM.render(<ButtonApp />, document.getElementById('root'));
-

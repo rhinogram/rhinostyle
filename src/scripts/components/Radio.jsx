@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
+import { UtilitySystem } from '.';
 
 const Radio = (props) => {
   const { children, className, disabled, label, name, onChange, selectedValue, value } = props;
@@ -22,11 +22,11 @@ const Radio = (props) => {
           {label}
         </label>
       )}
-      {((props.value === selectedValue) && children) &&
-        <div className="form__block-group__meta">
-          {children}
-        </div>
-      }
+      {((props.value === selectedValue) && children) && (
+      <div className="form__block-group__meta">
+        {children}
+      </div>
+      )}
     </div>
   );
 };

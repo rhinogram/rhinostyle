@@ -7,7 +7,7 @@ import CollapseExample from './examples/Grid/collapse.example.txt';
 import SourceOrderExample from './examples/Grid/sourceOrder.example.txt';
 import OffsetExample from './examples/Grid/offset.example.txt';
 
-const GridScope  = {
+const GridScope = {
   React,
   ReactDOM,
 };

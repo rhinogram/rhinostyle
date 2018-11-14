@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Avatar, Button, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+import { Avatar, Button, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '.';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {

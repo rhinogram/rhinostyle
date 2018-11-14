@@ -10,7 +10,7 @@ const NavTabsDocs = {
   justified: "<code>oneOf(['auto', 'equal', 'none'])</code>", // eslint-disable-line single-quotes
   onSelect: 'On select of nav item',
 };
-const NavTabsScope  = {
+const NavTabsScope = {
   React,
   ReactDOM,
   NavTabs,
@@ -54,8 +54,10 @@ class NavigationApp extends React.Component {
       <Fragment>
         <section className="site-section">
           <h3 className="site-subheadline">Navigation</h3>
-          <p className="site-text-lead">Below you will find our set of navigation components. This page exists to demonstrate the UI of each - appearance, layout, animation, and active states.
-           Some of these components may be used in conjunction with other components - see <a href="../tabs"> Tabs</a> for example.
+          <p className="site-text-lead">Below you will find our set of navigation components. This page exists to
+            demonstrate the UI of each - appearance, layout, animation, and active states.
+           Some of these components may be used in conjunction with other components - see <a href="../tabs"> Tabs</a>
+            for example.
           </p>
         </section>
 
@@ -96,7 +98,9 @@ class NavigationApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Helper Class</h3>
-          <p className="site-copy">Use <code>.nav-tabs--stacked</code> helper/modifier class (with CSS media queries) when necessary to collapse tabs into stacked layout. This is particularly useful on small screens.</p>
+          <p className="site-copy">Use <code>.nav-tabs--stacked</code> helper/modifier class (with CSS media queries)
+            when necessary to collapse tabs into stacked layout. This is particularly useful on small screens.
+          </p>
           <div style={{ maxWidth: '32rem' }}>
             <NavTabs activeKey={this.state.activeStackedKey} onSelect={this.updateActiveStackedKey} className="nav-tabs--stacked">
               <NavTabsItem id={1}>Code</NavTabsItem>

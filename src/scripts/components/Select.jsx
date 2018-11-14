@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '../components';
+import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
 
 class Select extends React.Component {
   state = {

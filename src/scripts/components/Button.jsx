@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
 
-import { LoaderCircle, UtilitySystem } from '../components';
+import { LoaderCircle, UtilitySystem } from '.';
 
 class Button extends React.Component {
   handleClick = (e) => {

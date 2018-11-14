@@ -76,7 +76,7 @@ const DropdownMenuItemWildDocs = {
   toggleDropdown: 'Clicking will close the dropdown',
 };
 
-const DropdownScope  = {
+const DropdownScope = {
   React,
   ReactDOM,
   Button,

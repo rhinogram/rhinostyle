@@ -8,7 +8,7 @@ import IconExample from './examples/Icon.example.txt';
 const IconDocs = {
   bump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>", // eslint-disable-line single-quotes
 };
-const IconScope  = {
+const IconScope = {
   React,
   ReactDOM,
   Icon,

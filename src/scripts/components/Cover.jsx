@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { UtilitySystem } from '../components';
+import { UtilitySystem } from '.';
 
 class Cover extends React.Component {
   state = {

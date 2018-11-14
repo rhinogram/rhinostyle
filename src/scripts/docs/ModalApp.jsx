@@ -18,7 +18,7 @@ const ModalHeaderDocs = {
 };
 const ModalBodyDocs = {};
 const ModalFooterDocs = {};
-const ModalScope  = {
+const ModalScope = {
   React,
   ReactDOM,
   Button,

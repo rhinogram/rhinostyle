@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
 
-import { Avatar, Icon, UtilitySystem } from '../components';
+import { Avatar, Icon, UtilitySystem } from '.';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {
