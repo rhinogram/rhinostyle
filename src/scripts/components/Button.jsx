@@ -25,7 +25,23 @@ class Button extends React.Component {
   }
 
   render() {
-    const { active, block, className, disabled, iconOnly, avatarOnly, onClick, reset, route, size, title, type, url, loading, ...opts } = this.props;
+    const {
+      active,
+      block,
+      className,
+      disabled,
+      iconOnly,
+      avatarOnly,
+      onClick,
+      reset,
+      route,
+      size,
+      title,
+      type,
+      url,
+      loading,
+      ...opts
+    } = this.props;
 
     const buttonBaseClass = reset ? 'button--reset' : 'button';
     const buttonStyleClasses = reset ? {
@@ -97,7 +113,20 @@ Button.propTypes = {
   route: PropTypes.string,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger', 'checkbox', 'checkbox-muted']),
+  type: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'accent',
+    'input',
+    'outline-primary',
+    'outline-reversed',
+    'link',
+    'link-muted',
+    'danger',
+    'checkbox',
+    'checkbox-muted',
+  ]),
   url: PropTypes.string,
   loading: PropTypes.bool,
 };

@@ -134,7 +134,31 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { avatar, autoFocusInput, block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName, noChangeLabel } = this.props;
+    const {
+      avatar,
+      autoFocusInput,
+      block,
+      className,
+      disabled,
+      disableScroll,
+      hideCaret,
+      label,
+      icon,
+      lockLabel,
+      position,
+      reset,
+      size,
+      title,
+      type,
+      wide,
+      onStart,
+      onComplete,
+      onReverseStart,
+      onReverseComplete,
+      showOverflow,
+      wrapperClassName,
+      noChangeLabel,
+    } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
@@ -194,7 +218,18 @@ class Dropdown extends React.Component {
     };
 
     return (
-      <DropdownWrapper autoFocusInput={autoFocusInput} className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
+      <DropdownWrapper
+        autoFocusInput={autoFocusInput}
+        className={dropdownClasses}
+        handleClick={this.handleClickOutside}
+        disableOnClickOutside={!enableClickOutside}
+        enableOnClickOutside={enableClickOutside}
+        onStart={onStart}
+        onComplete={onComplete}
+        onReverseComplete={onReverseComplete}
+        onReverseStart={onReverseStart}
+        ref={ref => (this.dropdown = ref)}
+      >
         <Button
           reset={reset}
           size={size}
@@ -209,8 +244,8 @@ class Dropdown extends React.Component {
           {selectedIcon || icon ?
             <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
           }
-          {avatar ?
-            <Avatar name={avatar.name} type={avatar.type} image={avatar.image} size={avatar.size} className="app-header__avatar" onClick={this.handleToggle} /> : null
+          {avatar &&
+            <Avatar name={avatar.name} type={avatar.type} image={avatar.image} size={avatar.size} className="app-header__avatar" onClick={this.handleToggle} />
           }
           {showLabel()}
           {hideCaret || (icon && avatar && !label && !selectedLabel) ?

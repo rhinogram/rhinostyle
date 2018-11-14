@@ -130,9 +130,9 @@ class Input extends React.Component {
               htmlRef={ref => (this.input = ref)}
             />
             {input && clear && (
-            <Button reset className="form__clear__button" onClick={this.handleClear}>
-              <Icon icon="close" />
-            </Button>
+              <Button reset className="form__clear__button" onClick={this.handleClear}>
+                <Icon icon="close" />
+              </Button>
             )}
           </div>
         );

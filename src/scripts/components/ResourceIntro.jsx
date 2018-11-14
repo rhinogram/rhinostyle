@@ -35,12 +35,12 @@ class ResourceIntro extends React.Component {
         output = (
           <div className="u-flex">
             {checkbox && (
-            <Checkbox
-              label={checkbox.label}
-              name={checkbox.name}
-              isChecked={checkbox.isChecked}
-              onClick={this.handleCheckboxClick}
-            />
+              <Checkbox
+                label={checkbox.label}
+                name={checkbox.name}
+                isChecked={checkbox.isChecked}
+                onClick={this.handleCheckboxClick}
+              />
             )}
             <Button reset onClick={this.handleIconClick}>
               <Icon bump={icon.bump} icon={icon.icon} />
@@ -51,12 +51,12 @@ class ResourceIntro extends React.Component {
         output = (
           <div className="u-flex">
             {checkbox && (
-            <Checkbox
-              label={checkbox.label}
-              name={checkbox.name}
-              isChecked={checkbox.isChecked}
-              onClick={this.handleCheckboxClick}
-            />
+              <Checkbox
+                label={checkbox.label}
+                name={checkbox.name}
+                isChecked={checkbox.isChecked}
+                onClick={this.handleCheckboxClick}
+              />
             )}
             <Icon bump={icon.bump} icon={icon.icon} />
           </div>

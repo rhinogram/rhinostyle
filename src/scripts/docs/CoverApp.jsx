@@ -36,7 +36,9 @@ const CoverApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
-      <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application to retiain proper styling.</p>
+      <p className="site-copy">
+        Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application to retiain proper styling.
+      </p>
 
       <Live
         code={CoverExample}

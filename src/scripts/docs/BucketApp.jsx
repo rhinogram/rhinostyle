@@ -31,14 +31,22 @@ const BucketApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Buckets</h3>
-      <p className="site-text-lead">Buckets are used to contain and separate portions of content. Buckets are most often constructed using <span className="u-text-accent">BucketHeader</span> and <span className="u-text-accent">BucketBody</span> child components.</p>
+      <p className="site-text-lead">
+        Buckets are used to contain and separate portions of content. Buckets are most often constructed using
+        <span className="u-text-accent">BucketHeader</span> and
+        <span className="u-text-accent">BucketBody</span> child components.
+      </p>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Bucket</h3>
       <Bucket>
         <BucketHeader title="Bucket" />
-        <BucketBody>Bucket body. Etiam eu condimentum sem. Etiam a blandit erat. Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit, laoreet in mattis congue, consectetur in eros.</BucketBody>
+        <BucketBody>
+          Bucket body. Etiam eu condimentum sem. Etiam a blandit erat.
+          Nullam a sem at leo finibus rutrum pulvinar vel mauris. Nam purus velit,
+          laoreet in mattis congue, consectetur in eros.
+        </BucketBody>
       </Bucket>
     </section>
 

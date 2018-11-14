@@ -336,7 +336,21 @@ class VariableMessage extends React.Component {
   )
 
   render() {
-    const { characterCountTitle, characterCountWarningLength, className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, showCharacterCounter, validationMessage } = this.props;
+    const {
+      characterCountTitle,
+      characterCountWarningLength,
+      className,
+      composeLabel,
+      explanationMessage,
+      variableExplanationMessage,
+      previewLabel,
+      name,
+      variables,
+      readOnly,
+      required,
+      showCharacterCounter,
+      validationMessage,
+    } = this.props;
     const classes = cx('form__group variable-message', className);
     const { message } = this.state;
     const characterCounterClasses = cx('variable-message__character-count', {

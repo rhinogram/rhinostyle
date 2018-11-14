@@ -62,18 +62,18 @@ class Checkbox extends React.Component {
           title={title}
         />
         {label && (
-        <label // eslint-disable-line jsx-a11y/label-has-for
-          className="rhinobox__label"
-          htmlFor={this.id}
-          ref={(checkboxLabel) => { this.checkboxLabel = checkboxLabel; }}
-        >
-          {label}
-        </label>
+          <label // eslint-disable-line jsx-a11y/label-has-for
+            className="rhinobox__label"
+            htmlFor={this.id}
+            ref={(checkboxLabel) => { this.checkboxLabel = checkboxLabel; }}
+          >
+            {label}
+          </label>
         )}
         {((checked) && children) && (
-        <div className="form__block-group__meta">
-          {children}
-        </div>
+          <div className="form__block-group__meta">
+            {children}
+          </div>
         )}
       </div>
     );

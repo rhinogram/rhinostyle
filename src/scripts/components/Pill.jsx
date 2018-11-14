@@ -12,7 +12,9 @@ const Pill = (props) => {
   });
 
   return (
-    <Button reset className={classes} onClick={onClick} disabled={disabled}>{icon ? (<Icon icon={icon} className="pill__icon" />) : null} {label} {(!disabled && !hideClose) && <Icon icon="close" className="pill__close" /> }</Button>
+    <Button reset className={classes} onClick={onClick} disabled={disabled}>
+      {icon && (<Icon icon={icon} className="pill__icon" />)} {label} {(!disabled && !hideClose) && <Icon icon="close" className="pill__close" /> }
+    </Button>
   );
 };
 
