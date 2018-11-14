@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, UtilitySystem } from '../components';
+import { FormLabel, UtilitySystem } from '.';
 
 class RhinoSwitch extends React.Component {
   state = {

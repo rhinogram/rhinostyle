@@ -6,7 +6,7 @@ import { Live } from './components';
 import TabsExample from './examples/Tabs.example.txt';
 
 const TabsDocs = {};
-const TabsScope  = {
+const TabsScope = {
   React,
   ReactDOM,
   TabsContent,

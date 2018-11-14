@@ -5,7 +5,7 @@ import { Icon, Tooltip, UtilityInlineGrid } from '../components';
 import { Live } from './components';
 import TooltipsExample from './examples/Tooltips.example.txt';
 
-const TooltipsScope  = {
+const TooltipsScope = {
   React,
   ReactDOM,
   Icon,

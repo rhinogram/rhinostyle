@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Textarea from 'react-textarea-autosize';
 
-import { FormLabel, UtilitySystem } from '../components';
+import { FormLabel, UtilitySystem } from '.';
 
 class MessageBox extends React.Component {
   state = {

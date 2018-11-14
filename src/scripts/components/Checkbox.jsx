@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '../components';
+import { UtilitySystem } from '.';
 
 class Checkbox extends React.Component {
   state = {
@@ -61,20 +61,20 @@ class Checkbox extends React.Component {
           onKeyUp={this.handleKeyUp}
           title={title}
         />
-        {label &&
-          <label // eslint-disable-line jsx-a11y/label-has-for
-            className="rhinobox__label"
-            htmlFor={this.id}
-            ref={(checkboxLabel) => { this.checkboxLabel = checkboxLabel; }}
-          >
-            {label}
-          </label>
-        }
-        {((checked) && children) &&
-          <div className="form__block-group__meta">
-            {children}
-          </div>
-        }
+        {label && (
+        <label // eslint-disable-line jsx-a11y/label-has-for
+          className="rhinobox__label"
+          htmlFor={this.id}
+          ref={(checkboxLabel) => { this.checkboxLabel = checkboxLabel; }}
+        >
+          {label}
+        </label>
+        )}
+        {((checked) && children) && (
+        <div className="form__block-group__meta">
+          {children}
+        </div>
+        )}
       </div>
     );
   }

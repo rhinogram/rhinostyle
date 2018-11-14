@@ -7,7 +7,7 @@ import { Live } from './components';
 import DateExample from './examples/Date.example.txt';
 
 const DateDocs = {};
-const DateScope  = {
+const DateScope = {
   React,
   ReactDOM,
   Date,

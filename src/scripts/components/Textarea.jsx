@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormValidationMessage, FormExplanationMessage, UtilitySystem } from '../components';
+import { FormLabel, FormValidationMessage, FormExplanationMessage, UtilitySystem } from '.';
 
 class Textarea extends React.Component {
   state = {
@@ -74,17 +74,17 @@ class Textarea extends React.Component {
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} readOnly={readOnly} value={this.state.value} onChange={this.handleChange} onMouseDown={this.handleMouseDown} disabled={disabled} />
-        {(validationMessage || explanationMessage || showCharacterCount()) &&
-          <div className="form__control-footer">
-            {(validationMessage || explanationMessage) &&
-              <div className="form__control-footer__left">
-                <FormValidationMessage validationMessage={validationMessage} />
-                <FormExplanationMessage explanationMessage={explanationMessage} />
-              </div>
-            }
-            {showCharacterCount()}
+        {(validationMessage || explanationMessage || showCharacterCount()) && (
+        <div className="form__control-footer">
+          {(validationMessage || explanationMessage) && (
+          <div className="form__control-footer__left">
+            <FormValidationMessage validationMessage={validationMessage} />
+            <FormExplanationMessage explanationMessage={explanationMessage} />
           </div>
-        }
+          )}
+          {showCharacterCount()}
+        </div>
+        )}
       </div>
     );
   }

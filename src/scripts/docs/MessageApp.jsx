@@ -9,7 +9,7 @@ const MessageDocs = {
   type: "<code>oneOf(['primary', 'note'])</code>", // eslint-disable-line single-quotes
   direction: "Message tail direction <code>oneOf(['inbound', 'outbound'])</code>", // eslint-disable-line single-quotes
 };
-const MessageScope  = {
+const MessageScope = {
   React,
   ReactDOM,
   Message,

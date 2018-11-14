@@ -15,7 +15,7 @@ const VariableMessageDocs = {
   readOnly: 'Disable compose input, select variable option, and message preview. This would typically be used in tandem with the intialValue prop',
   variableExplanationMessage: 'Text that appears next to the variable select',
 };
-const VariableMessageScope  = {
+const VariableMessageScope = {
   React,
   ReactDOM,
   VariableMessage,

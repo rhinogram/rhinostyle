@@ -9,7 +9,7 @@ import BucketHeaderExample from './examples/BucketHeader.example.txt';
 const BucketDocs = {
   type: "<code>oneOf(['default'])</code>", // eslint-disable-line single-quotes
 };
-const BucketScope  = {
+const BucketScope = {
   React,
   ReactDOM,
   Bucket,
@@ -20,7 +20,7 @@ const BucketScope  = {
 };
 
 const BucketHeaderDocs = {};
-const BucketHeaderScope  = {
+const BucketHeaderScope = {
   React,
   ReactDOM,
   BucketHeader,

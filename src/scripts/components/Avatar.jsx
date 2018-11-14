@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Icon } from '../components';
+import { Icon } from '.';
 
 class Avatar extends React.Component {
   state = {

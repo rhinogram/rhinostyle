@@ -6,7 +6,7 @@ import { Live } from './components';
 import CloseExample from './examples/Close.example.txt';
 
 const CloseDocs = {};
-const CloseScope  = {
+const CloseScope = {
   React,
   ReactDOM,
   Close,
