@@ -17,6 +17,7 @@ const TooltipsDocs = {
   placement: "Position of tooltip  <code>oneOf(['top', 'right', 'bottom', 'left'])</code>", // eslint-disable-line single-quotes
   content: 'Content of tooltip. May contain HTML or other components',
   delay: 'Delay showing the tooltip onmouseenter. Can be either the prop itself (defaults 1000 milliseconds) or you can pass in a value',
+  type: "Color scheme of tooltip <code>oneOf(['light', 'dark'])</code>", // eslint-disable-line single-quotes
 };
 
 const TooltipsApp = () => (
