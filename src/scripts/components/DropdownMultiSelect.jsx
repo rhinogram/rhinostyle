@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { UtilitySystem } from '../UtilitySystem';
-import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '../components';
+import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '.';
 
 class DropdownMultiSelect extends React.Component {
   state = {
@@ -208,8 +208,22 @@ class DropdownMultiSelect extends React.Component {
 
     return (
       <div className="form__group">
-        <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!isOpen} enableOnClickOutside={isOpen} ref={ref => (this.dropdown = ref)}>
-          <input onClick={this.handleToggle} ref={ref => (this.filterInput = ref)} type="text" className={dropdownToggleClasses} placeholder={placeholder} onChange={this.handleFilter} disabled={disabled} />
+        <DropdownWrapper
+          className={dropdownClasses}
+          handleClick={this.handleClickOutside}
+          disableOnClickOutside={!isOpen}
+          enableOnClickOutside={isOpen}
+          ref={ref => (this.dropdown = ref)}
+        >
+          <input
+            onClick={this.handleToggle}
+            ref={ref => (this.filterInput = ref)}
+            type="text"
+            className={dropdownToggleClasses}
+            placeholder={placeholder}
+            onChange={this.handleFilter}
+            disabled={disabled}
+          />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
               { items.length > 0 ? items : <DropdownMenuHeader label="No results" /> }
@@ -218,13 +232,13 @@ class DropdownMultiSelect extends React.Component {
         </DropdownWrapper>
         <FormValidationMessage validationMessage={validationMessage} />
         <FormExplanationMessage explanationMessage={explanationMessage} />
-        {activeKeys.length ?
+        {activeKeys.length && (
           <div className="u-p-t-small">
             <UtilityInlineGrid>
               {activeKeys.map(renderPill)}
             </UtilityInlineGrid>
-          </div> : null
-        }
+          </div>
+        )}
       </div>
     );
   }

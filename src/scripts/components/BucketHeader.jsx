@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Avatar, Icon } from '../components';
+import { Avatar, Icon } from '.';
 
 const BucketHeader = (props) => {
   const { avatar, className, icon, iconClassName, title } = props;

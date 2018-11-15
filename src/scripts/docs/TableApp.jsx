@@ -7,7 +7,7 @@ import TableExample from './examples/Table.example.txt';
 import SmartTableExample from './examples/SmartTable.example.txt';
 
 const TableDocs = {};
-const TableScope  = {
+const TableScope = {
   React,
   ReactDOM,
   Button,
@@ -227,7 +227,9 @@ const LabelApp = () => (
         <div className="u-m-b-large">
           <h5 className="site-miniheadline">Table Data</h5>
           <p className="site-copy">
-            To change the background color, add <code>.table__data--active | .table__data--danger | .table__data--success | .table__data--warning</code> className to the <code>&lt;td&gt;</code> element.
+            To change the background color, add
+            <code>.table__data--active | .table__data--danger | .table__data--success | .table__data--warning</code>
+            className to the <code>&lt;td&gt;</code> element.
           </p>
         </div>
         <Table>
@@ -279,7 +281,9 @@ const LabelApp = () => (
         <div className="u-m-b-large">
           <h5 className="site-miniheadline">Table Row</h5>
           <p className="site-copy">
-            To change the background color, add <code>.table__row--active | .table__row--danger | .table__row--success | .table__row--warning</code> className to the <code>&lt;tr&gt;</code> element.
+            To change the background color, add
+            <code>.table__row--active | .table__row--danger | .table__row--success | .table__row--warning</code>
+            className to the <code>&lt;tr&gt;</code> element.
           </p>
         </div>
         <Table>
@@ -330,7 +334,9 @@ const LabelApp = () => (
         </Table>
         <div className="u-m-b-large">
           <p className="site-copy">
-            To change the vertical alignment add <code>.table__row--valign-middle</code> className to the <code>&lt;tr&gt;</code> element. By default, table rows and data are vertically aligned to the top.
+            To change the vertical alignment add <code>.table__row--valign-middle</code>
+            className to the <code>&lt;tr&gt;</code>
+            element. By default, table rows and data are vertically aligned to the top.
           </p>
         </div>
         <Table>

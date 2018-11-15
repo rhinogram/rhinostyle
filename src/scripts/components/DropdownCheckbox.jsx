@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '../components';
+import { Button, Checkbox, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '.';
 
 class DropdownCheckbox extends React.Component {
   state = {
@@ -129,7 +129,30 @@ class DropdownCheckbox extends React.Component {
   }
 
   render() {
-    const { block, className, disabled, disableScroll, hideCaret, label, icon, lockLabel, position, reset, size, title, type, wide, onStart, onComplete, onReverseStart, onReverseComplete, showOverflow, wrapperClassName, showAssociatedLabel, checkboxClassName } = this.props;
+    const {
+      block,
+      className,
+      disabled,
+      disableScroll,
+      hideCaret,
+      label,
+      icon,
+      lockLabel,
+      position,
+      reset,
+      size,
+      title,
+      type,
+      wide,
+      onStart,
+      onComplete,
+      onReverseStart,
+      onReverseComplete,
+      showOverflow,
+      wrapperClassName,
+      showAssociatedLabel,
+      checkboxClassName,
+    } = this.props;
     const { activeKey, hasFilter } = this.state;
 
     const dropdownClasses = cx('dropdown', {
@@ -196,7 +219,17 @@ class DropdownCheckbox extends React.Component {
     };
 
     return (
-      <DropdownWrapper className={dropdownClasses} handleClick={this.handleClickOutside} disableOnClickOutside={!enableClickOutside} enableOnClickOutside={enableClickOutside} onStart={onStart} onComplete={onComplete} onReverseComplete={onReverseComplete} onReverseStart={onReverseStart} ref={ref => (this.dropdown = ref)}>
+      <DropdownWrapper
+        className={dropdownClasses}
+        handleClick={this.handleClickOutside}
+        disableOnClickOutside={!enableClickOutside}
+        enableOnClickOutside={enableClickOutside}
+        onStart={onStart}
+        onComplete={onComplete}
+        onReverseComplete={onReverseComplete}
+        onReverseStart={onReverseStart}
+        ref={ref => (this.dropdown = ref)}
+      >
         <Button
           reset={reset}
           size={size}
@@ -207,9 +240,7 @@ class DropdownCheckbox extends React.Component {
           disabled={disabled}
           title={title}
         >
-          {selectedIcon || icon ?
-            <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
-          }
+          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
           {showCheckbox()}
           {hideCaret || (icon && !label && !selectedLabel) ?
             null :
@@ -243,7 +274,20 @@ DropdownCheckbox.propTypes = {
   reset: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger', 'checkbox', 'checkbox-muted']),
+  type: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'accent',
+    'input',
+    'outline-primary',
+    'outline-reversed',
+    'link',
+    'link-muted',
+    'danger',
+    'checkbox',
+    'checkbox-muted',
+  ]),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
   showAssociatedLabel: PropTypes.bool,

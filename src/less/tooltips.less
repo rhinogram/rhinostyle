@@ -30,6 +30,7 @@
     text-align: center;
     position: relative;
     box-shadow: @global-shadow-depth-1;
+
     &::after {
       content: '';
       width: @tooltip-arrow-size;
@@ -46,15 +47,17 @@
     background: @tooltip-background-light;
     border: 1px solid @global-border-color;
     color: @global-font-color;
+
     &::after {
       background: @tooltip-background-light;
     }
   }
-  
+
   &-inner--dark {
     border: none;
     background: @tooltip-background-dark;
     color: @global-color-white;
+
     &::after {
       background: @tooltip-background-dark;
     }

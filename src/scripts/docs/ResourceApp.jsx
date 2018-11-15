@@ -5,7 +5,7 @@ import { Icon, Resource, ResourceGroup, ResourceBottom, ResourceIntro, ResourceB
 import { Live } from './components';
 import ResourceExample from './examples/Resource.example.txt';
 
-const ResourceScope  = {
+const ResourceScope = {
   Icon,
   React,
   ReactDOM,
@@ -20,7 +20,8 @@ const ResourceDocs = {
   active: 'Adds active styling to item; normally used within a list view',
   selected: 'Used in conjunction with interfaceMode to determine an actively selected item',
   disabled: 'Disables onClick functionality and adds in additional styling',
-  interfaceMode: "Set on the parent <code>&lt;ResourceGroup /&gt;</code> is passed down to impact styling of an item <code>oneOf(['radio', 'checkbox'])</code>", // eslint-disable-line single-quotes
+  interfaceMode: 'Set on the parent <code>&lt;ResourceGroup /&gt;</code> ' + // eslint-disable-line single-quotes
+    "is passed down to impact styling of an item <code>oneOf(['radio', 'checkbox'])</code>", // eslint-disable-line single-quotes
   onClick: 'Fires on click of an item',
   unread: 'Adds unread styling to an item; normally used within a list view',
 };

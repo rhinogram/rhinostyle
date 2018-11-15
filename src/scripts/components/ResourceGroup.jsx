@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { ContainerQuery } from 'react-container-query';
 
-import { Resource } from '../components';
+import { Resource } from '.';
 
 class ResourceGroup extends React.Component {
   renderChildren = () => {

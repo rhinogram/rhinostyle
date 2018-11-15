@@ -7,13 +7,14 @@ const FormLabel = (props) => {
   const classes = cx(className);
 
   return (
-    children ?
+    children ? (
       <label // eslint-disable-line jsx-a11y/label-has-for
         htmlFor={id}
         className={classes}
       >
         {children} {required && <span className="form__asterisk">*</span>}
-      </label> : null
+      </label>
+    ) : null
   );
 };
 
