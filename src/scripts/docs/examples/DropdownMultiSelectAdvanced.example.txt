@@ -1,0 +1,82 @@
+class ComponentExample extends React.Component {
+  state = {
+    selectedUsers: {},
+    selectedUserIds: [],
+    userSearchLoading: false,
+    users: {
+          1: { id: 1, firstName: 'Ben', lastName: 'Bruning', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          2: { id: 2, firstName: 'Blake', lastName: 'Guilloud', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          3: { id: 3, firstName: 'Craig', lastName: 'Anthony', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          4: { id: 4, firstName: 'Grady', lastName: 'Rogers', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          5: { id: 5, firstName: 'Keaton', lastName: 'Foster', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          6: { id: 6, firstName: 'Lauren', lastName: 'Farr', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          7: { id: 7, firstName: 'Keaton', lastName: 'Foster', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          8: { id: 8, firstName: 'Paul', lastName: 'Griffin', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          9: { id: 9, firstName: 'Rob', lastName: 'Whelan', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+          10: { id: 10, firstName: 'Terry', lastName: 'Kennair', profileImageUrl: '//source.unsplash.com/category/people/200x200' },
+        },    
+    usersIds: [],
+    usersCopy: {},    
+  }
+
+  componentWillMount(){
+    this.setState({ usersIds: Object.keys(this.state.users), usersCopy: this.state.users });
+  }
+
+  fetchUsersSearch = (searchText) => {
+  //This code is written for a case, If we are filtering from the store data only and not from api, Otherwise we will only call api
+    this.setState({ userSearchLoading: true });
+    let searchedUsers = {};
+    if (searchText.length > 0) {
+      Object.keys(this.state.usersCopy).map((k) => {
+        if ((this.state.usersCopy[k].firstName.toLowerCase()).includes(searchText.toLowerCase()) || (this.state.usersCopy[k].lastName.toLowerCase()).includes(searchText.toLowerCase())) {
+          searchedUsers[k] = this.state.usersCopy[k];
+        }
+      })
+    } else {
+      searchedUsers = this.state.usersCopy;
+    }
+    this.setState({ userSearchLoading: false });
+    this.setState({
+      usersIds: Object.keys(searchedUsers),
+      users: searchedUsers,
+    });
+  }
+
+  handleUpdateSelectedIds = (selectedIds, selectedUsers) => {
+    this.setState({
+     selectedUserIds: selectedIds,
+     selectedUsers: selectedUsers,
+    })
+  }
+
+  handleClearAllSelectedUsers = () => {
+    this.setState({
+      selectedUsers: {},
+      selectedUserIds: [],
+    })
+  }
+
+  render() {
+    let label = 'Contact(s)';
+    if (this.state.selectedUserIds.length > 0) {
+      label = `${this.state.selectedUserIds.length} Contacts Selected`;
+    }
+    return (
+      <DropdownMultiSelectAdvanced
+        handleUpdateSelectedIds={this.handleUpdateSelectedIds}
+        userSearchLoading={this.state.userSearchLoading}
+        avatarBaseUrl="baseUrl"
+        users={this.state.users}
+        selectedUsers={this.state.selectedUsers}
+        selectedUserIds={this.state.selectedUserIds}
+        handleClearAllSelectedUsers={this.handleClearAllSelectedUsers}
+        fetchUsersSearch={this.fetchUsersSearch}
+        usersIds={this.state.usersIds}
+        openPanel={true}
+        dropdownLabel={label}
+        filterName="Contacts"
+      />  
+    );
+  }
+}
