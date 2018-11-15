@@ -18,11 +18,11 @@ import {
 class DropdownMultiSelectAdvanced extends React.Component {
   state = {
     searchText: '',
-    viewAllUsers: true,
+    isViewAllUsers: true,
   }
 
-  sortMemberSearchIds = (a, b) => {
-    // Sort the rest by lastName
+  sortSelectedItems = (a, b) => {
+    // Sort the items by firstName
     const nameA = this.props.selectedUsers[a].firstName.toLowerCase();
     const nameB = this.props.selectedUsers[b].firstName.toLowerCase();
 
@@ -47,22 +47,22 @@ class DropdownMultiSelectAdvanced extends React.Component {
       delete selectedUsers[id];
     }
     if (selectedIds.length === 0) {
-      this.setState({ viewAllUsers: true });
+      this.setState({ isViewAllUsers: true });
     }
     this.props.handleUpdateSelectedIds(selectedIds, selectedUsers);
   }
 
   handleToggle = () => {
-    if (this.state.viewAllUsers) {
+    if (this.state.isViewAllUsers) {
       this.setState({ searchText: '' });
       this.props.fetchUsersSearch('');
     }
-    this.setState({ viewAllUsers: !this.state.viewAllUsers });
+    this.setState(prevState => ({ isViewAllUsers: !prevState.isViewAllUsers }));
   }
 
   handleClearAll = () => {
     this.setState({
-      viewAllUsers: true,
+      isViewAllUsers: true,
     });
     this.props.handleClearAllSelectedUsers();
   }
@@ -115,18 +115,36 @@ class DropdownMultiSelectAdvanced extends React.Component {
     return this.renderUserResource(user, id, idx);
   };
 
+  renderClearButton = () => (
+    <Button
+      size="small"
+      type="link"
+      onClick={this.handleClearAll}
+      title="Clear All"
+    >Clear All
+    </Button>
+  );
+
+  renderViewSelected = () => {
+    const title = `View Selected (${this.props.selectedUserIds.length})`;
+    return (
+      <Button
+        size="small"
+        type="link"
+        onClick={this.handleToggle}
+        disabled={this.props.selectedUserIds.length === 0}
+        title={title}
+      >{title}
+      </Button>
+    );
+  };
+
   renderViewSelectedUsers = () => (
     <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} type="outline-primary" disableScroll>
       <div className="dropdown__menu__container">
         <div className="search__group">
           <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-            <Button
-              size="small"
-              type="link"
-              onClick={this.handleClearAll}
-              title="Clear All"
-            >Clear All
-            </Button>
+            {this.renderClearButton()}
             <div>
               <Button
                 size="small"
@@ -141,7 +159,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
         {this.props.selectedUserIds.length > 0 ? (
           <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
             <ResourceGroup interfaceMode="checkbox">
-              {this.props.selectedUserIds.sort(this.sortMemberSearchIds).map(this.renderUser)}
+              {this.props.selectedUserIds.sort(this.sortSelectedItems).map(this.renderUser)}
             </ResourceGroup>
           </Scrollbars>
         ) :
@@ -154,44 +172,23 @@ class DropdownMultiSelectAdvanced extends React.Component {
   render() {
     const { userSearchLoading, openPanel, dropdownLabel, selectedUserIds, filterName } = this.props;
     const usersIds = [...this.props.usersIds];
-    const title = `View Selected (${this.props.selectedUserIds.length})`;
     const searchTitle = `Search ${filterName}`;
     let returnValue = '';
     if (openPanel) {
       returnValue = (
-        this.state.viewAllUsers ?
+        this.state.isViewAllUsers ?
           (
             <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
               <div className="dropdown__menu__container">
                 <div className="search__group">
                   {selectedUserIds.length > 0 ? (
                     <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-                      <Button
-                        size="small"
-                        type="link"
-                        onClick={this.handleClearAll}
-                        title="Clear All"
-                      >Clear All
-                      </Button>
-                      <Button
-                        size="small"
-                        type="link"
-                        onClick={this.handleToggle}
-                        disabled={this.props.selectedUserIds.length === 0}
-                        title={title}
-                      >{title}
-                      </Button>
+                      {this.renderClearButton()}
+                      {this.renderViewSelected()}
                     </UtilityInlineGrid>)
                     :
                     <ResourceRight>
-                      <Button
-                        size="small"
-                        type="link"
-                        onClick={this.handleToggle}
-                        disabled={this.props.selectedUserIds.length === 0}
-                        title={title}
-                      >{title}
-                      </Button>
+                      {this.renderViewSelected()}
                     </ResourceRight>
                   }
                   <Input
