@@ -10,6 +10,7 @@
     "not op_mini all"
   ],
   "scripts": {
+    "install": "gulp build",
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
     "start": "yarn && gulp docs && gulp serve",
