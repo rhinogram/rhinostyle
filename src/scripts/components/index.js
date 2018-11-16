@@ -67,6 +67,7 @@ import UtilityInlineGrid from './UtilityInlineGrid';
 import UtilityList from './UtilityList';
 import UtilityListItem from './UtilityListItem';
 import VariableMessage from './VariableMessage';
+import DropdownMultiSelectAdvanced from './DropdownMultiSelectAdvanced';
 
 import { NotificationActions } from '../NotificationSystem';
 
@@ -144,4 +145,5 @@ export {
   UtilityListItem,
   UtilitySystem,
   VariableMessage,
+  DropdownMultiSelectAdvanced,
 };

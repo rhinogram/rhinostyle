@@ -73,7 +73,6 @@ class ComponentExample extends React.Component {
         handleClearAllSelectedUsers={this.handleClearAllSelectedUsers}
         fetchUsersSearch={this.fetchUsersSearch}
         usersIds={this.state.usersIds}
-        openPanel={true}
         dropdownLabel={label}
         filterName="Contacts"
       />  

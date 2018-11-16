@@ -21,17 +21,6 @@ class DropdownMultiSelectAdvanced extends React.Component {
     isViewAllUsers: true,
   }
 
-  sortSelectedItems = (a, b) => {
-    // Sort the items by firstName
-    const nameA = this.props.selectedUsers[a].firstName.toLowerCase();
-    const nameB = this.props.selectedUsers[b].firstName.toLowerCase();
-
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-
-    return 0;
-  }
-
   handleUpdateSelectedIds = (id) => {
     let selectedIds = this.props.selectedUserIds;
     const { selectedUsers } = this.props;
@@ -159,7 +148,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
         {this.props.selectedUserIds.length > 0 ? (
           <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
             <ResourceGroup interfaceMode="checkbox">
-              {this.props.selectedUserIds.sort(this.sortSelectedItems).map(this.renderUser)}
+              {this.props.selectedUserIds.map(this.renderUser)}
             </ResourceGroup>
           </Scrollbars>
         ) :
@@ -170,57 +159,55 @@ class DropdownMultiSelectAdvanced extends React.Component {
   );
 
   render() {
-    const { userSearchLoading, openPanel, dropdownLabel, selectedUserIds, filterName } = this.props;
+    const { userSearchLoading, dropdownLabel, selectedUserIds, filterName } = this.props;
     const usersIds = [...this.props.usersIds];
     const searchTitle = `Search ${filterName}`;
     let returnValue = '';
-    if (openPanel) {
-      returnValue = (
-        this.state.isViewAllUsers ?
-          (
-            <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
-              <div className="dropdown__menu__container">
-                <div className="search__group">
-                  {selectedUserIds.length > 0 ? (
-                    <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-                      {this.renderClearButton()}
-                      {this.renderViewSelected()}
-                    </UtilityInlineGrid>)
-                    :
-                    <ResourceRight>
-                      {this.renderViewSelected()}
-                    </ResourceRight>
-                  }
-                  <Input
-                    placeholder={searchTitle}
-                    className="search__input"
-                    onChange={this.handleSearch}
-                    initialValue={this.state.searchText}
-                    addon="left"
-                    type="text"
-                    name="preloadedMembers"
-                    autoComplete="off"
-                  >
-                    <Icon icon="search" />
-                  </Input>
-                </div>
+    returnValue = (
+      this.state.isViewAllUsers ?
+        (
+          <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
+            <div className="dropdown__menu__container">
+              <div className="search__group">
+                {selectedUserIds.length > 0 ? (
+                  <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+                    {this.renderClearButton()}
+                    {this.renderViewSelected()}
+                  </UtilityInlineGrid>)
+                  :
+                  <ResourceRight>
+                    {this.renderViewSelected()}
+                  </ResourceRight>
+                }
+                <Input
+                  placeholder={searchTitle}
+                  className="search__input"
+                  onChange={this.handleSearch}
+                  initialValue={this.state.searchText}
+                  addon="left"
+                  type="text"
+                  name="preloadedMembers"
+                  autoComplete="off"
+                >
+                  <Icon icon="search" />
+                </Input>
               </div>
-              <div className="dropdown__menu__container">
-                {usersIds.length > 0 ? (
-                  <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-                    <ResourceGroup interfaceMode="checkbox">
-                      {usersIds.map(this.renderResourceUserSearch)}
-                    </ResourceGroup>
-                  </Scrollbars>
-                  ) :
-                    this.renderSearchHelp(usersIds, userSearchLoading)
-                  }
-              </div>
-            </Dropdown>
-          ) :
-          this.renderViewSelectedUsers()
-      );
-    }
+            </div>
+            <div className="dropdown__menu__container">
+              {usersIds.length > 0 ? (
+                <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
+                  <ResourceGroup interfaceMode="checkbox">
+                    {usersIds.map(this.renderResourceUserSearch)}
+                  </ResourceGroup>
+                </Scrollbars>
+                ) :
+                  this.renderSearchHelp(usersIds, userSearchLoading)
+                }
+            </div>
+          </Dropdown>
+        ) :
+        this.renderViewSelectedUsers()
+    );
     return returnValue;
   }
 }
@@ -235,7 +222,6 @@ DropdownMultiSelectAdvanced.propTypes = {
   selectedUsers: PropTypes.object.isRequired,
   users: PropTypes.object.isRequired,
   avatarBaseUrl: PropTypes.string.isRequired,
-  openPanel: PropTypes.bool.isRequired,
   dropdownLabel: PropTypes.string.isRequired,
   filterName: PropTypes.string.isRequired,
 };
