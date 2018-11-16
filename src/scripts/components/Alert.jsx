@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Close, Icon } from '../components';
+import { Close, Icon } from '.';
 
 const Alert = (props) => {
   const { className, onDismiss, solid, title, titleIcon, type } = props;
@@ -35,12 +35,12 @@ const Alert = (props) => {
   return (
     <div className={classes}>
       {renderClose()}
-      {title &&
+      {title && (
         <div className="alert__title">
           {renderTitleIcon()}
           <div className="alert__title__text">{title}</div>
         </div>
-      }
+      )}
       <div className="alert__body">
         {props.children}
       </div>

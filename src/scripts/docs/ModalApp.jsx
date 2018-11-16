@@ -18,7 +18,7 @@ const ModalHeaderDocs = {
 };
 const ModalBodyDocs = {};
 const ModalFooterDocs = {};
-const ModalScope  = {
+const ModalScope = {
   React,
   ReactDOM,
   Button,
@@ -35,7 +35,9 @@ const ModalApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
-      <p className="site-copy">Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application to retain proper styling.</p>
+      <p className="site-copy">
+        Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application to retain proper styling.
+      </p>
 
       <Live
         code={ModalExample}

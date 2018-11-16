@@ -11,7 +11,7 @@ const AvatarDocs = {
   size: "<code>oneOf(['small', 'default', 'large', 'xlarge'])</code>", // eslint-disable-line single-quotes
   type: "<code>oneOf(['default', 'member'])</code>", // eslint-disable-line single-quotes
 };
-const AvatarScope  = {
+const AvatarScope = {
   React,
   ReactDOM,
   Avatar,

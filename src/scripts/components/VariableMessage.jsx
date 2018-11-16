@@ -9,7 +9,7 @@ import { Button,
   Message,
   ToggleButton,
   UtilitySystem,
-} from '../components';
+} from '.';
 
 import {
   BACKSPACE_KEY,
@@ -71,7 +71,7 @@ class VariableMessage extends React.Component {
     if (sel.getRangeAt && sel.rangeCount) {
       range = sel.getRangeAt(0);
       range.deleteContents();
-      //range.insertNode($space);
+      // range.insertNode($space);
       if (paste) {
         range.insertNode(document.createTextNode(text));
       } else {
@@ -336,7 +336,21 @@ class VariableMessage extends React.Component {
   )
 
   render() {
-    const { characterCountTitle, characterCountWarningLength, className, composeLabel, explanationMessage, variableExplanationMessage, previewLabel, name, variables, readOnly, required, showCharacterCounter, validationMessage } = this.props;
+    const {
+      characterCountTitle,
+      characterCountWarningLength,
+      className,
+      composeLabel,
+      explanationMessage,
+      variableExplanationMessage,
+      previewLabel,
+      name,
+      variables,
+      readOnly,
+      required,
+      showCharacterCounter,
+      validationMessage,
+    } = this.props;
     const classes = cx('form__group variable-message', className);
     const { message } = this.state;
     const characterCounterClasses = cx('variable-message__character-count', {
@@ -348,16 +362,16 @@ class VariableMessage extends React.Component {
 
     return (
       <div className={classes}>
-        {!readOnly &&
-          <div className="variable-message__header">
-            <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
-            {this.showReset() &&
-              <div className="variable-message__reset">
-                <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
-              </div>
-            }
+        {!readOnly && (
+        <div className="variable-message__header">
+          <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
+          {this.showReset() && (
+          <div className="variable-message__reset">
+            <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
           </div>
-        }
+          )}
+        </div>
+        )}
         <div
           id={variableMessageInputName}
           className="variable-message__compose"
@@ -371,27 +385,27 @@ class VariableMessage extends React.Component {
         />
         <FormExplanationMessage explanationMessage={explanationMessage} />
         <FormValidationMessage validationMessage={validationMessage} />
-        {!readOnly &&
-          <Fragment>
-            <div className="variable-message__footer">
-              {variableExplanationMessage &&
-                <div className="variable-message__explanation">{variableExplanationMessage}</div>
+        {!readOnly && (
+        <Fragment>
+          <div className="variable-message__footer">
+            {variableExplanationMessage &&
+            <div className="variable-message__explanation">{variableExplanationMessage}</div>
               }
-              <div className="variable-message__footer__left">
-                {this.renderToggleButtons(variables)}
-              </div>
-              {showCharacterCounter &&
-                <div title={characterCountTitle} className={characterCounterClasses}>
-                  {message.length}
-                </div>
-              }
+            <div className="variable-message__footer__left">
+              {this.renderToggleButtons(variables)}
             </div>
-            <div className="variable-message__preview">
-              <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
-              <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
-            </div>
-          </Fragment>
-        }
+          </div>
+          {showCharacterCounter && (
+          <div title={characterCountTitle} className={characterCounterClasses}>
+            {message.length}
+          </div>
+          )}
+          <div className="variable-message__preview">
+            <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
+            <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
+          </div>
+        </Fragment>
+        )}
       </div>
     );
   }

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import { Avatar, Button, Checkbox, Icon } from '../components';
+import { Avatar, Button, Checkbox, Icon } from '.';
 
 class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
@@ -34,14 +34,14 @@ class ResourceIntro extends React.Component {
       if (icon.onClick) {
         output = (
           <div className="u-flex">
-            {checkbox &&
+            {checkbox && (
               <Checkbox
                 label={checkbox.label}
                 name={checkbox.name}
                 isChecked={checkbox.isChecked}
                 onClick={this.handleCheckboxClick}
               />
-            }
+            )}
             <Button reset onClick={this.handleIconClick}>
               <Icon bump={icon.bump} icon={icon.icon} />
             </Button>
@@ -50,14 +50,14 @@ class ResourceIntro extends React.Component {
       } else {
         output = (
           <div className="u-flex">
-            {checkbox &&
+            {checkbox && (
               <Checkbox
                 label={checkbox.label}
                 name={checkbox.name}
                 isChecked={checkbox.isChecked}
                 onClick={this.handleCheckboxClick}
               />
-            }
+            )}
             <Icon bump={icon.bump} icon={icon.icon} />
           </div>
         );

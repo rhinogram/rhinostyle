@@ -5,7 +5,7 @@ import { Icon, Tooltip, UtilityInlineGrid } from '../components';
 import { Live } from './components';
 import TooltipsExample from './examples/Tooltips.example.txt';
 
-const TooltipsScope  = {
+const TooltipsScope = {
   React,
   ReactDOM,
   Icon,
@@ -17,13 +17,17 @@ const TooltipsDocs = {
   placement: "Position of tooltip  <code>oneOf(['top', 'right', 'bottom', 'left'])</code>", // eslint-disable-line single-quotes
   content: 'Content of tooltip. May contain HTML or other components',
   delay: 'Delay showing the tooltip onmouseenter. Can be either the prop itself (defaults 1000 milliseconds) or you can pass in a value',
+  type: "Color scheme of tooltip <code>oneOf(['light', 'dark'])</code>", // eslint-disable-line single-quotes
 };
 
 const TooltipsApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Tooltips</h3>
-      <p className="site-text-lead">Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on <code>mouseenter</code> and <code>mouseleave</code> of the trigger. The component interaction is disabled on touch devices due to a lack of hover state.</p>
+      <p className="site-text-lead">
+        Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on
+        <code>mouseenter</code> and <code>mouseleave</code> of the trigger. The component interaction is disabled on touch devices due to a lack of hover state.
+      </p>
     </section>
 
     <section className="site-section">

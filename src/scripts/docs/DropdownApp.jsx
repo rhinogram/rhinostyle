@@ -1,7 +1,22 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Input, Button, Close, Dropdown, DropdownCheckbox, DropdownFilter, DropdownMenuDivider, DropdownMenuHeader, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownMultiSelect, Icon, UtilityInlineGrid } from '../components';
+import {
+  Input,
+  Button,
+  Close,
+  Dropdown,
+  DropdownCheckbox,
+  DropdownFilter,
+  DropdownMenuDivider,
+  DropdownMenuHeader,
+  DropdownMenuItem,
+  DropdownMenuItemWild,
+  DropdownMenuScroll,
+  DropdownMultiSelect,
+  Icon,
+  UtilityInlineGrid,
+} from '../components';
 import { Live } from './components';
 import DropdownMultiSelectAdvanced from '../components/DropdownMultiSelectAdvanced';
 import DropdownExample from './examples/Dropdown.example.txt';
@@ -24,9 +39,9 @@ const DropdownDocs = {
   position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
   size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   onSelect: 'Callback when a DropdownMenuItem is selected',
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
   wide: 'Sets a min-width on dropdown menu',
-  manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.',
+  manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.', // eslint-disable-line max-len
   noChangeLabel: 'Displays default label in place of currently selected label.',
 };
 
@@ -40,9 +55,9 @@ const DropdownCheckboxDocs = {
   position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
   size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   onSelect: 'Callback when a DropdownMenuItem is selected',
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'checkbox', 'checkbox-muted'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'checkbox', 'checkbox-muted'])</code>", // eslint-disable-line single-quotes, max-len
   wide: 'Sets a min-width on dropdown menu',
-  manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.',
+  manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.', // eslint-disable-line max-len
   isCheckbox: 'Enable the checkbox.',
   checkboxClassName: 'Classes to be applied to checkbox. <code>partially-checked</code> class can be applied.',
   isChecked: 'Current state of checkbox.',
@@ -79,7 +94,7 @@ const DropdownMenuItemWildDocs = {
   toggleDropdown: 'Clicking will close the dropdown',
 };
 
-const DropdownScope  = {
+const DropdownScope = {
   React,
   ReactDOM,
   Button,
@@ -102,12 +117,16 @@ const DropdownApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Dropdowns</h3>
-      <p className="site-text-lead">We have two main dropdown components: <span className="u-text-accent">Dropdown</span> and <span className="u-text-accent">DropdownMultiSelect</span>.</p>
+      <p className="site-text-lead">
+        We have two main dropdown components: <span className="u-text-accent">Dropdown</span> and <span className="u-text-accent">DropdownMultiSelect</span>.
+      </p>
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Types</h3>
-      <p className="site-copy">Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.</p>
+      <p className="site-copy">
+        Types are the same as the Button component with one exception - Dropdowns include an <code>input</code> type so that they mimic form controls.
+      </p>
       <UtilityInlineGrid>
         <Dropdown label="Default">
           <DropdownMenuHeader label="Menu Header" />
@@ -220,7 +239,12 @@ const DropdownApp = () => (
 
         <Dropdown position="center" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member', size: 'small' }}>
           <DropdownMenuItem label="Dropdown menu after clicking on an avatar Image" labelDesc="This dropdown button displays image" />
-          <DropdownMenuItem label="Url Blank Window Item" labelDesc="Click me and I will take you to a site that opens in a new browser window." url="http://www.rhinogram.com" blankWindow />
+          <DropdownMenuItem
+            label="Url Blank Window Item"
+            labelDesc="Click me and I will take you to a site that opens in a new browser window."
+            url="http://www.rhinogram.com"
+            blankWindow
+          />
           <DropdownMenuItem label="Url Item" labelDesc="Click me and I will take you to a new site in the same browser window." url="http://www.rhinogram.com" />
         </Dropdown>
 
@@ -320,7 +344,9 @@ const DropdownApp = () => (
 
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Dropdown Wide</h5>
-        <p className="site-copy">Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.</p>
+        <p className="site-copy">
+          Add <code>wide</code> property. This gives the dropdown menu a larger min-width value. Handy when you want to include an input filter.
+        </p>
         <Dropdown label="Dropdown Wide" type="default" wide>
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
@@ -335,7 +361,10 @@ const DropdownApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown</h3>
-      <p className="site-copy">Use <code>Dropdown</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button&apos;s text when an <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.</p>
+      <p className="site-copy">
+        Use <code>Dropdown</code> component to create a dropdown with selectable menu items. Selected menu items are reflected in the dropdown button&apos;s text when an
+        <code>id</code> is used in <code>DropdownMenuItem</code>. To prevent this, use the <code>lockLabel</code> property.
+      </p>
       <p className="site-copy">Use <code>type=&quot;input&quot;</code> if you want dropdown to appear like a form input.</p>
 
       <Live
@@ -348,9 +377,15 @@ const DropdownApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown Checkbox</h3>
-      <p className="site-copy">Use <code>Dropdown Checkbox</code> component to create a dropdown with selectable menu items and a checkbox. The main use of this component is for performing bulk actions. The checkbox is used to select multiple items at a time.</p>
+      <p className="site-copy">
+        Use <code>Dropdown Checkbox</code> component to create a dropdown with selectable menu items and a checkbox. The main use of this component is for
+        performing bulk actions. The checkbox is used to select multiple items at a time.
+      </p>
       <p className="site-copy">Add <code>checkboxClassName=&quot;partially-checked&quot;</code> property for partial selections.</p>
-      <p className="site-copy">The label associated to an option is enabled using <code>showAssociatedLabel</code> in <code>DropdownCheckbox</code>. Use <code>type=&quot;checkbox&quot;</code> if you want a checkbox to display the component as below.</p>
+      <p className="site-copy">
+        The label associated to an option is enabled using <code>showAssociatedLabel</code> in <code>DropdownCheckbox</code>.
+        Use <code>type=&quot;checkbox&quot;</code> if you want a checkbox to display the component as below.
+      </p>
 
       <Live
         code={DropdownCheckboxExample}

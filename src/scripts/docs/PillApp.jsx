@@ -9,7 +9,7 @@ const PillDocs = {
   hideClose: 'Whether to show close icon',
   type: "<code>oneOf(['default', 'primary'])</code>", // eslint-disable-line single-quotes
 };
-const PillScope  = {
+const PillScope = {
   React,
   ReactDOM,
   Pill,

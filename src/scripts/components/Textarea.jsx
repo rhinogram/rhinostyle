@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormValidationMessage, FormExplanationMessage, UtilitySystem } from '../components';
+import { FormLabel, FormValidationMessage, FormExplanationMessage, UtilitySystem } from '.';
 
 class Textarea extends React.Component {
   state = {
@@ -51,7 +51,21 @@ class Textarea extends React.Component {
   }
 
   render() {
-    const { abbrMaxCharacters, className, disabled, explanationMessage, label, maxCharacters, naked, name, placeholder, readOnly, required, rows, validationMessage } = this.props;
+    const {
+      abbrMaxCharacters,
+      className,
+      disabled,
+      explanationMessage,
+      label,
+      maxCharacters,
+      naked,
+      name,
+      placeholder,
+      readOnly,
+      required,
+      rows,
+      validationMessage,
+    } = this.props;
 
     const textAreaClasses = cx('form__control', {
       'form__control--error': validationMessage,
@@ -64,7 +78,11 @@ class Textarea extends React.Component {
 
     const showCharacterCount = () => {
       if (maxCharacters) {
-        return <div className={characterCountClasses}>{this.state.charactersLeft} {!abbrMaxCharacters ? <span>character{(this.state.charactersLeft !== 1) ? 's' : ''} left</span> : null}</div>;
+        return (
+          <div className={characterCountClasses}>
+            {this.state.charactersLeft} {!abbrMaxCharacters && <span>character{(this.state.charactersLeft !== 1) ? 's' : ''} left</span>}
+          </div>
+        );
       }
 
       return false;
@@ -73,18 +91,29 @@ class Textarea extends React.Component {
     return (
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
-        <textarea id={this.id} name={name} className={textAreaClasses} rows={rows} placeholder={placeholder} readOnly={readOnly} value={this.state.value} onChange={this.handleChange} onMouseDown={this.handleMouseDown} disabled={disabled} />
-        {(validationMessage || explanationMessage || showCharacterCount()) &&
+        <textarea
+          id={this.id}
+          name={name}
+          className={textAreaClasses}
+          rows={rows}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          value={this.state.value}
+          onChange={this.handleChange}
+          onMouseDown={this.handleMouseDown}
+          disabled={disabled}
+        />
+        {(validationMessage || explanationMessage || showCharacterCount()) && (
           <div className="form__control-footer">
-            {(validationMessage || explanationMessage) &&
-              <div className="form__control-footer__left">
-                <FormValidationMessage validationMessage={validationMessage} />
-                <FormExplanationMessage explanationMessage={explanationMessage} />
-              </div>
-            }
+            {(validationMessage || explanationMessage) && (
+            <div className="form__control-footer__left">
+              <FormValidationMessage validationMessage={validationMessage} />
+              <FormExplanationMessage explanationMessage={explanationMessage} />
+            </div>
+            )}
             {showCharacterCount()}
           </div>
-        }
+        )}
       </div>
     );
   }

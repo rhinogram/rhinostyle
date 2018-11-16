@@ -9,7 +9,7 @@ const LabelDocs = {
   iconBump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>", // eslint-disable-line single-quotes
   type: "<code>oneOf(['default', 'primary', 'secondary', 'accent'])</code>", // eslint-disable-line single-quotes
 };
-const LabelScope  = {
+const LabelScope = {
   React,
   ReactDOM,
   Label,

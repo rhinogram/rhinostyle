@@ -11,11 +11,11 @@ const ButtonDocs = {
   route: '<code>react-router</code> route',
   size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   title: 'Represents advisory information on hover',
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
   loading: 'Specify a loading-state for the button to denote a background-action is in-progress',
   reset: 'Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
 };
-const ButtonScope  = {
+const ButtonScope = {
   React,
   ReactDOM,
   Button,
@@ -79,7 +79,9 @@ const ButtonApp = () => (
       </div>
       <div>
         <h5 className="site-miniheadline">Icon-Only Buttons</h5>
-        <p className="site-copy">Include <code>iconOnly</code> property when creating a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.</p>
+        <p className="site-copy">
+          Include <code>iconOnly</code> property when creating a button with an icon but no text. This modifier adjusts the padding to give a more square appearance.
+        </p>
         <UtilityInlineGrid>
           <Button iconOnly><Icon icon="chat" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
@@ -87,7 +89,11 @@ const ButtonApp = () => (
           <Button type="outline-primary" iconOnly><Icon icon="star" /></Button>
         </UtilityInlineGrid>
         <h5 className="site-miniheadline">Avatar-Only Buttons</h5>
-        <p className="site-copy">Include <code>avatarOnly</code> property when creating a button with an avatar and without any text or icon. This modifier adjusts the height and the width to give a circular appearance to the button.</p>
+        <p className="site-copy">
+          Include <code>avatarOnly</code> property when creating a button with an
+          avatar and without any text or icon. This modifier adjusts the height
+          and the width to give a circular appearance to the button.
+        </p>
         <UtilityInlineGrid>
           <Button avatarOnly><Avatar name="Ben Bruning" size="small" type="member" /></Button>
           <Button avatarOnly><Avatar name="Ben Bruning" size="large" type="member" /></Button>
@@ -173,4 +179,3 @@ const ButtonApp = () => (
 );
 
 ReactDOM.render(<ButtonApp />, document.getElementById('root'));
-
