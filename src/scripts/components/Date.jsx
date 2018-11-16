@@ -4,7 +4,7 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import Cleave from 'cleave.js/react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '../components';
+import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
 
 const Date = (props) => {
   const { className, explanationMessage, validationMessage, label, name, required, ...opts } = props;
@@ -18,11 +18,11 @@ const Date = (props) => {
     <div className={formGroupClasses}>
       <FormLabel id={id} required={required}>{label}</FormLabel>
       <DatePicker
-        customInput={
+        customInput={(
           <Cleave
             options={UtilitySystem.dateFormat}
           />
-        }
+)}
         shouldCloseOnSelect={false}
         name={name}
         id={id}

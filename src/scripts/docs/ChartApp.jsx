@@ -208,7 +208,9 @@ const ChartApp = () => (
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Bar-Line Chart</h3>
-      <p className="site-text-lead">Mix bar-line charts are probably the most commonly used charts.  It is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
+      <p className="site-text-lead">
+        Mix bar-line charts are probably the most commonly used charts.  It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+      </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Bar Line Chart Playground</h3>
@@ -221,7 +223,9 @@ const ChartApp = () => (
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Line Chart</h3>
-      <p className="site-text-lead">Mix Line charts are probably the most commonly used charts.  It is sometimes used to show trend data, and the comparison of multiple data sets side by side..</p>
+      <p className="site-text-lead">
+        Mix Line charts are probably the most commonly used charts.  It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+      </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Line Chart Playground</h3>

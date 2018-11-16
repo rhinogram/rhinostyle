@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Close, Icon } from '../components';
+import { Close, Icon } from '.';
 
 const SystemAlert = (props) => {
   const { body, children, className, closable, icon, onDismiss, type, url, urlText } = props;

@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
+import { FormLabel, FormExplanationMessage, FormValidationMessage, Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '.';
 
 class RadioGroup extends React.Component {
   state = {

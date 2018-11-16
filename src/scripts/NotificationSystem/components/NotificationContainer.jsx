@@ -7,7 +7,7 @@ import { Toast, UtilitySystem } from '../../components';
 import * as NotificationActions from '../actions';
 import NotificationConstants from '../constants';
 
-const AUTO_DISMISS_TIME  = NotificationConstants.autodismissTime;
+const AUTO_DISMISS_TIME = NotificationConstants.autodismissTime;
 const TOAST_TIMING = 0.5;
 
 class NotificationContainer extends React.Component {
@@ -80,7 +80,11 @@ class NotificationContainer extends React.Component {
       ease: UtilitySystem.config.easing,
     });
 
-    // Since the `componentDidMount()` is run when we'd like to render and start the animation, we progress the animation to the end; which "shows" the toast, and then play the animation after the interval
+    /**
+     * Since the `componentDidMount()` is run when we'd like to render and start the animation,
+     * we progress the animation to the end; which "shows" the toast,
+     * and then play the animation after the interval
+     * */
     $toast.timeline.progress(1, true).reverse();
 
     setTimeout(() => {

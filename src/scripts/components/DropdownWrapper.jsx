@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import onClickOutside from 'react-onclickoutside';
 
-import { UtilitySystem } from '../components';
+import { UtilitySystem } from '.';
 
 class DropdownWrapper extends React.Component {
   componentDidMount = () => {

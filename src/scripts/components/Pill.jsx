@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Button, Icon } from '../components';
+import { Button, Icon } from '.';
 
 const Pill = (props) => {
   const { className, disabled, icon, hideClose, onClick, label, type } = props;
@@ -12,7 +12,9 @@ const Pill = (props) => {
   });
 
   return (
-    <Button reset className={classes} onClick={onClick} disabled={disabled}>{icon ? (<Icon icon={icon} className="pill__icon" />) : null} {label} {(!disabled && !hideClose) && <Icon icon="close" className="pill__close" /> }</Button>
+    <Button reset className={classes} onClick={onClick} disabled={disabled}>
+      {icon && (<Icon icon={icon} className="pill__icon" />)} {label} {(!disabled && !hideClose) && <Icon icon="close" className="pill__close" /> }
+    </Button>
   );
 };
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Cleave from 'cleave.js/react';
 
-import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Icon, UtilitySystem } from '../components';
+import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Icon, UtilitySystem } from '.';
 
 class Input extends React.Component {
   state = {
@@ -84,7 +84,8 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format, label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage } = this.props;
+    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format,
+      label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear': clear,
       'form__control--naked': naked,
@@ -128,11 +129,11 @@ class Input extends React.Component {
               readOnly={readOnly}
               htmlRef={ref => (this.input = ref)}
             />
-            {input && clear &&
-              <Button reset className="form__clear__button" onClick={this.handleClear} >
+            {input && clear && (
+              <Button reset className="form__clear__button" onClick={this.handleClear}>
                 <Icon icon="close" />
               </Button>
-            }
+            )}
           </div>
         );
       }
@@ -157,11 +158,11 @@ class Input extends React.Component {
             readOnly={readOnly}
             ref={ref => (this.input = ref)}
           />
-          {input && clear &&
-            <Button reset className="form__clear__button" onClick={this.handleClear} >
-              <Icon icon="close" />
-            </Button>
-          }
+          {input && clear && (
+          <Button reset className="form__clear__button" onClick={this.handleClear}>
+            <Icon icon="close" />
+          </Button>
+          )}
         </div>
       );
     };

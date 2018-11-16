@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { CoverSystem, Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
+import { Cover, Button, Input, CoverHeader, CoverBody, CoverFooter, Icon, UtilityInlineGrid } from '../components';
 import { Live } from './components';
 import CoverBodyExample from './examples/CoverBody.example.txt';
 import CoverExample from './examples/Cover.example.txt';
@@ -19,13 +19,12 @@ const CoverBodyDocs = {
 };
 const CoverFooterDocs = {};
 
-const CoverScope  = {
+const CoverScope = {
   React,
   ReactDOM,
   Button,
   Input,
   Cover,
-  CoverSystem,
   CoverHeader,
   CoverBody,
   CoverFooter,
@@ -37,7 +36,9 @@ const CoverApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Cover Example</h3>
-      <p className="site-copy">Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application to retiain proper styling.</p>
+      <p className="site-copy">
+        Although the <code>&lt;Cover /&gt;</code> component is written inline, it actually renders outside of the main application to retiain proper styling.
+      </p>
 
       <Live
         code={CoverExample}
