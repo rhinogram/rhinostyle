@@ -13,83 +13,87 @@ import {
   Dropdown,
   UtilityInlineGrid,
   ResourceRight,
-} from '../components';
+} from '.';
 
 class DropdownMultiSelectAdvanced extends React.Component {
   state = {
     searchText: '',
-    isViewAllUsers: true,
+    isViewAllItems: true,
   }
 
   handleUpdateSelectedIds = (id) => {
-    let selectedIds = this.props.selectedUserIds;
-    const { selectedUsers } = this.props;
-    const selectedUser = this.props.users[id];
+    let selectedIds = this.props.selectedItemsIds;
+    const { selectedItems } = this.props;
+    const selectedItem = this.props.items[id];
 
     const addAction = !selectedIds.includes(id);
 
     if (addAction) {
       selectedIds = selectedIds.concat(id);
-      selectedUsers[id] = selectedUser;
+      selectedItems[id] = selectedItem;
     } else {
       selectedIds = selectedIds.filter(selectedId => selectedId !== id);
-      delete selectedUsers[id];
+      delete selectedItems[id];
     }
     if (selectedIds.length === 0) {
-      this.setState({ isViewAllUsers: true });
+      this.setState({ isViewAllItems: true });
     }
-    this.props.handleUpdateSelectedIds(selectedIds, selectedUsers);
+    this.props.handleUpdateSelectedIds(selectedIds, selectedItems);
   }
 
   handleToggle = () => {
-    if (this.state.isViewAllUsers) {
+    if (this.state.isViewAllItems) {
       this.setState({ searchText: '' });
-      this.props.fetchUsersSearch('');
+      this.props.fetchAllItems('');
     }
-    this.setState(prevState => ({ isViewAllUsers: !prevState.isViewAllUsers }));
+    this.setState(prevState => ({ isViewAllItems: !prevState.isViewAllItems }));
   }
 
   handleClearAll = () => {
     this.setState({
-      isViewAllUsers: true,
+      isViewAllItems: true,
     });
-    this.props.handleClearAllSelectedUsers();
+    this.props.handleClearAllSelectedItems();
   }
 
   handleSearch = (id, value) => {
-    const { fetchUsersSearch } = this.props;
+    const { fetchAllItems } = this.props;
     const searchValue = value;
 
-    fetchUsersSearch(searchValue);
+    fetchAllItems(searchValue);
 
     this.setState({ searchText: searchValue });
   };
 
   clearSearch = () => {
     this.setState({ searchText: '' });
-    this.props.fetchUsersSearch('');
+    this.props.fetchAllItems('');
   }
 
-  renderUserResource = (user, id, idx) => {
-    const selected = this.props.selectedUserIds.includes(id);
-    const profileImageUrl = user.profileImageUrl ? `${this.props.avatarBaseUrl}${user.profileImageUrl}` : '';
-    const userName = `${user.firstName} ${user.lastName}`;
+  renderListItems = (listItem, id, idx) => {
+    const selected = this.props.selectedItemsIds.includes(id);
+    let profileImageUrl = '';
+    let avatarDetails = {};
+    if (this.props.type === 'member') {
+      profileImageUrl = listItem.profileImageUrl ? `${this.props.avatarBaseUrl}${listItem.profileImageUrl}` : '';
+      avatarDetails = { image: profileImageUrl, name: listItem.name, type: 'member' };
+    }
     return (
       <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)}>
-        <ResourceIntro
-          avatar={{ image: profileImageUrl, name: UtilitySystem.formatAvatarName(user.firstName, user.lastName), type: 'member' }}
-          title={userName}
-        />
+        {this.props.type === 'member' ? <ResourceIntro avatar={avatarDetails} title={listItem.title} />
+          :
+          listItem.title
+        }
       </Resource>
     );
   };
 
-  renderResourceUserSearch = (id, idx) => {
-    const user = this.props.users[id];
-    return this.renderUserResource(user, id, idx);
+  renderList = (id, idx) => {
+    const item = this.props.items[id];
+    return this.renderListItems(item, id, idx);
   };
 
-  renderSearchHelp = (idArray = this.props.usersIds, loading = this.props.userSearchLoading) => {
+  renderSearchHelp = (idArray = this.props.itemsIds, loading = this.props.itemSearchLoading) => {
     if ((this.state.searchText.length === 0 || this.state.searchText.length > 2) && loading) {
       return <div className="u-text-center"><LoaderPulse type="secondary" /></div>;
     } else if (this.state.searchText.length > 2 && !idArray.length && !loading) {
@@ -99,9 +103,9 @@ class DropdownMultiSelectAdvanced extends React.Component {
     return null;
   };
 
-  renderUser = (id, idx) => {
-    const user = this.props.selectedUsers[id];
-    return this.renderUserResource(user, id, idx);
+  renderSelectedItemsList = (id, idx) => {
+    const item = this.props.selectedItems[id];
+    return this.renderListItems(item, id, idx);
   };
 
   renderClearButton = () => (
@@ -115,20 +119,20 @@ class DropdownMultiSelectAdvanced extends React.Component {
   );
 
   renderViewSelected = () => {
-    const title = `View Selected (${this.props.selectedUserIds.length})`;
+    const title = `View Selected (${this.props.selectedItemsIds.length})`;
     return (
       <Button
         size="small"
         type="link"
         onClick={this.handleToggle}
-        disabled={this.props.selectedUserIds.length === 0}
+        disabled={this.props.selectedItemsIds.length === 0}
         title={title}
       >{title}
       </Button>
     );
   };
 
-  renderViewSelectedUsers = () => (
+  renderViewSelectedItems = () => (
     <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} type="outline-primary" disableScroll>
       <div className="dropdown__menu__container">
         <div className="search__group">
@@ -145,39 +149,40 @@ class DropdownMultiSelectAdvanced extends React.Component {
             </div>
           </UtilityInlineGrid>
         </div>
-        {this.props.selectedUserIds.length > 0 ? (
+        {this.props.selectedItemsIds.length > 0 ? (
           <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
             <ResourceGroup interfaceMode="checkbox">
-              {this.props.selectedUserIds.map(this.renderUser)}
+              {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
             </ResourceGroup>
           </Scrollbars>
         ) :
-          'No Users Added'
+          'No items Added'
         }
       </div>
     </Dropdown>
   );
 
   render() {
-    const { userSearchLoading, dropdownLabel, selectedUserIds, filterName } = this.props;
-    const usersIds = [...this.props.usersIds];
+    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName } = this.props;
+    const itemsIds = [...this.props.itemsIds];
     const searchTitle = `Search ${filterName}`;
     let returnValue = '';
     returnValue = (
-      this.state.isViewAllUsers ?
+      this.state.isViewAllItems ?
         (
           <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
             <div className="dropdown__menu__container">
               <div className="search__group">
-                {selectedUserIds.length > 0 ? (
+                {selectedItemsIds.length > 0 ? (
                   <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
                     {this.renderClearButton()}
                     {this.renderViewSelected()}
                   </UtilityInlineGrid>)
                   :
-                  <ResourceRight>
-                    {this.renderViewSelected()}
-                  </ResourceRight>
+                  (
+                    <ResourceRight>
+                      {this.renderViewSelected()}
+                    </ResourceRight>)
                 }
                 <Input
                   placeholder={searchTitle}
@@ -194,36 +199,37 @@ class DropdownMultiSelectAdvanced extends React.Component {
               </div>
             </div>
             <div className="dropdown__menu__container">
-              {usersIds.length > 0 ? (
+              {itemsIds.length > 0 ? (
                 <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
                   <ResourceGroup interfaceMode="checkbox">
-                    {usersIds.map(this.renderResourceUserSearch)}
+                    {itemsIds.map(this.renderList)}
                   </ResourceGroup>
                 </Scrollbars>
-                ) :
-                  this.renderSearchHelp(usersIds, userSearchLoading)
+              ) :
+                this.renderSearchHelp(itemsIds, itemSearchLoading)
                 }
             </div>
           </Dropdown>
         ) :
-        this.renderViewSelectedUsers()
+        this.renderViewSelectedItems()
     );
     return returnValue;
   }
 }
 
 DropdownMultiSelectAdvanced.propTypes = {
-  fetchUsersSearch: PropTypes.func.isRequired,
+  fetchAllItems: PropTypes.func.isRequired,
   handleUpdateSelectedIds: PropTypes.func.isRequired,
-  handleClearAllSelectedUsers: PropTypes.func.isRequired,
-  usersIds: PropTypes.array.isRequired,
-  userSearchLoading: PropTypes.bool.isRequired,
-  selectedUserIds: PropTypes.array.isRequired,
-  selectedUsers: PropTypes.object.isRequired,
-  users: PropTypes.object.isRequired,
-  avatarBaseUrl: PropTypes.string.isRequired,
+  handleClearAllSelectedItems: PropTypes.func.isRequired,
+  itemsIds: PropTypes.array.isRequired,
+  itemSearchLoading: PropTypes.bool.isRequired,
+  selectedItemsIds: PropTypes.array.isRequired,
+  selectedItems: PropTypes.object.isRequired,
+  items: PropTypes.object.isRequired,
+  avatarBaseUrl: PropTypes.string,
   dropdownLabel: PropTypes.string.isRequired,
   filterName: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default DropdownMultiSelectAdvanced;

@@ -412,7 +412,8 @@ const DropdownApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown MultiSelect Advanced</h3>
       <p className="site-copy">Use <code>DropdownMultiSelectAdvanced</code> component to create a multi-select list of items.
-        This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as &quot;pills&quot; below the dropdown. This will allow you to select multiple items, search, preview of selected items and clear all items.
+        This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as &quot;pills&quot; below the dropdown.
+        This will allow you to select multiple items, search, preview of selected items and clear all items.
       </p>
 
       <Live
