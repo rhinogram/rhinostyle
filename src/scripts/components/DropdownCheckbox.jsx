@@ -234,14 +234,15 @@ class DropdownCheckbox extends React.Component {
           className={dropdownToggleClasses}
           disabled={disabled}
           title={title}
+          iconOnly={icon && !label}
         >
-          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
           {showCheckbox()}
+          {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}
+          {showLabel()}
           {hideCaret || (icon && !label && !selectedLabel) ?
             null :
             <Icon size="small" icon="caret-down" className="dropdown__toggle__caret dropdown__caret--auto" />
           }
-          {showLabel()}
         </div>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
