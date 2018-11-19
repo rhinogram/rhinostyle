@@ -23,8 +23,9 @@ class ComponentExample extends React.Component {
     this.setState({ itemsIds: Object.keys(this.state.items), itemsCopy: this.state.items });
   }
 
-  fetchAllItems = (searchText) => {
+  fetchAllItems = (searchText, filterName) => {
   //This code is written for a case, If we are filtering from the store data only and not from api, Otherwise we will only call api
+  //console.log(filterName);
     this.setState({ itemSearchLoading: true });
     let searchedItems = {};
     if (searchText.length > 0) {
