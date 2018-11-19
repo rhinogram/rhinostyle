@@ -23,8 +23,8 @@ class ComponentExample extends React.Component {
     this.setState({ itemsIds: Object.keys(this.state.items), itemsCopy: this.state.items });
   }
 
+  //This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
   fetchAllItems = (searchText, filterName) => {
-  //This code is written for a case, If we are filtering from the store data only and not from api, Otherwise we will only call api
   //console.log(filterName);
     this.setState({ itemSearchLoading: true });
     let searchedItems = {};

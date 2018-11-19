@@ -168,49 +168,47 @@ class DropdownMultiSelectAdvanced extends React.Component {
     const searchTitle = `Search ${filterName}`;
     let returnValue = '';
     returnValue = (
-      this.state.isViewAllItems ?
-        (
-          <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
-            <div className="dropdown__menu__container">
-              <div className="search__group">
-                {selectedItemsIds.length > 0 ? (
-                  <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-                    {this.renderClearButton()}
-                    {this.renderViewSelected()}
-                  </UtilityInlineGrid>)
-                  :
-                  (
-                    <ResourceRight>
-                      {this.renderViewSelected()}
-                    </ResourceRight>)
-                }
-                <Input
-                  placeholder={searchTitle}
-                  className="search__input"
-                  onChange={this.handleSearch}
-                  initialValue={this.state.searchText}
-                  addon="left"
-                  type="text"
-                  name="preloadedMembers"
-                  autoComplete="off"
-                >
-                  <Icon icon="search" />
-                </Input>
-              </div>
+      this.state.isViewAllItems ? (
+        <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
+          <div className="dropdown__menu__container">
+            <div className="search__group">
+              {selectedItemsIds.length > 0 ? (
+                <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+                  {this.renderClearButton()}
+                  {this.renderViewSelected()}
+                </UtilityInlineGrid>
+              ) : (
+                <ResourceRight>
+                  {this.renderViewSelected()}
+                </ResourceRight>)
+              }
+              <Input
+                placeholder={searchTitle}
+                className="search__input"
+                onChange={this.handleSearch}
+                initialValue={this.state.searchText}
+                addon="left"
+                type="text"
+                name="preloadedMembers"
+                autoComplete="off"
+              >
+                <Icon icon="search" />
+              </Input>
             </div>
-            <div className="dropdown__menu__container">
-              {itemsIds.length > 0 ? (
-                <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-                  <ResourceGroup interfaceMode="checkbox">
-                    {itemsIds.map(this.renderList)}
-                  </ResourceGroup>
-                </Scrollbars>
-              ) :
-                this.renderSearchHelp(itemsIds, itemSearchLoading)
-                }
-            </div>
-          </Dropdown>
-        ) :
+          </div>
+          <div className="dropdown__menu__container">
+            {itemsIds.length > 0 ? (
+              <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
+                <ResourceGroup interfaceMode="checkbox">
+                  {itemsIds.map(this.renderList)}
+                </ResourceGroup>
+              </Scrollbars>
+            ) :
+              this.renderSearchHelp(itemsIds, itemSearchLoading)
+              }
+          </div>
+        </Dropdown>
+      ) :
         this.renderViewSelectedItems()
     );
     return returnValue;
