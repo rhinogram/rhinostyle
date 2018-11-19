@@ -49,10 +49,10 @@ class ComponentExample extends React.Component {
 
   expandRow = (row) => {
     let {expanded} = this.state;
-    if (expanded[row._index]) {
-      expanded[row._index] = !expanded[row._index];
+    if (expanded[row._viewIndex]) {// rowInfo.index is related to the whole data set and does not change. So I am using rowInfo.viewIndex which is relative to the view.
+      expanded[row._viewIndex] = !expanded[row._viewIndex];
     } else {
-        expanded[row._index] = true;
+        expanded[row._viewIndex] = true;
     }
     this.setState({expanded});
   }
