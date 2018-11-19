@@ -23,15 +23,20 @@
 @form-control-chevron-padding: 3rem;
 @form-control-clear-padding: (@form-control-clear-size + @input-padding-base);
 @form-control-clear-size: 1.8rem;
-@form-element-color: @global-color-primary;
 @form-group-spacing: @global-whitespace-base;
+
+@form-element-primary-color: @global-color-primary;
+@form-element-secondary-color: @global-color-secondary;
 
 @legend-color: @global-font-color-muted;
 @legend-border-color: @input-border;
 
-@rhinobox-rhinodio-size: 2rem;
-@rhinobox-rhinodio-focus-shadow: 0 0 4px fadeout(@global-color-primary, 35%);
 @rhinodio-offset: 0.6rem;
+
+@rhinobox-rhinodio-size: 2rem;
+
+@rhinobox-rhinodio-focus-shadow-primary: 0 0 4px fadeout(@global-color-primary, 35%);
+@rhinobox-rhinodio-focus-shadow-secondary: 0 0 4px fadeout(@global-color-secondary, 35%);
 
 @switcher-height: 3rem;
 @switcher-width: (@switcher-height * 1.75rem);
@@ -680,31 +685,48 @@ input[type='checkbox']:focus {
     }
   }
 
-  &.partially-checked {
-    input {
-      &:checked + label::before {
-        background-color: @form-element-color;
-        background-image: svg-inline(minus);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 75% 75%;
-        border-color: @form-element-color;
-      }
-    }
-  }
-
   input {
     &:checked + label::before {
-      background-color: @form-element-color;
       background-image: svg-inline(checkmark);
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 75% 75%;
-      border-color: @form-element-color;
     }
+  }
 
-    &:focus + label::before {
-      box-shadow: @rhinobox-rhinodio-focus-shadow;
+  &.rhinobox--primary {
+    input {
+      &:checked + label::before {
+        background-color: @form-element-primary-color;
+        border-color: @form-element-primary-color;
+      }
+  
+      &:focus + label::before {
+        box-shadow: @rhinobox-rhinodio-focus-shadow-primary;
+      }
+    }
+  }
+
+  &.rhinobox--secondary {
+    input {
+      &:checked + label::before {
+        background-color: @form-element-secondary-color;
+        border-color: @form-element-secondary-color;
+      }
+  
+      &:focus + label::before {
+        box-shadow: @rhinobox-rhinodio-focus-shadow-secondary;
+      }
+    }
+  }
+
+  &.partially-checked {
+    input {
+      &:checked + label::before {
+        background-color: @form-element-primary-color;
+        background-image: svg-inline(minus);
+        border-color: @form-element-primary-color;
+      }
     }
   }
 
@@ -737,13 +759,13 @@ input[type='checkbox']:focus {
   }
 
   &:focus + label::before {
-    box-shadow: @rhinobox-rhinodio-focus-shadow;
+    box-shadow: @rhinobox-rhinodio-focus-shadow-primary;
   }
 }
 
 .rhinodio__label {
   &::after {
-    background-color: @form-element-color;
+    background-color: @form-element-primary-color;
     border-radius: 50%;
     content: '';
     height: (@rhinobox-rhinodio-size - @rhinodio-offset);
