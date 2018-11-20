@@ -40,10 +40,10 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { children, className, label, disabled, name, title, value } = this.props;
+    const { children, className, label, disabled, name, title, value, type } = this.props;
     const { checked } = this.state;
 
-    const classes = cx('rhinobox', className, {
+    const classes = cx('rhinobox', `rhinobox--${type}`, className, {
       [UtilitySystem.config.classes.disabled]: disabled,
     });
 
@@ -91,10 +91,12 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   title: PropTypes.string,
   value: PropTypes.string,
+  type: PropTypes.oneOf('primary', 'secondary'),
 };
 
 Checkbox.defaultProps = {
   isChecked: false,
+  type: 'primary',
 };
 
 export default Checkbox;
