@@ -234,7 +234,6 @@ class DropdownCheckbox extends React.Component {
           className={dropdownToggleClasses}
           disabled={disabled}
           title={title}
-          iconOnly={icon && !label}
         >
           {showCheckbox()}
           {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}

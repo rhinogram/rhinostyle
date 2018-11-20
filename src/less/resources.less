@@ -282,6 +282,12 @@
     z-index: 1;
     cursor: pointer;
     clip: auto;
+    -moz-appearance: none;
+    top: 0;
+
+    &::-ms-check {
+      visibility: hidden;
+    }
   }
 }
 
