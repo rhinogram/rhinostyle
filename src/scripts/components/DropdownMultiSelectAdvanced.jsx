@@ -205,7 +205,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
               </Scrollbars>
             ) :
               this.renderSearchHelp(itemsIds, itemSearchLoading)
-              }
+            }
           </div>
         </Dropdown>
       ) :
