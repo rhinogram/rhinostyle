@@ -18,12 +18,15 @@ import {
   UtilityInlineGrid,
 } from '../components';
 import { Live } from './components';
+import DropdownMultiSelectAdvanced from '../components/DropdownMultiSelectAdvanced';
 import DropdownExample from './examples/Dropdown.example.txt';
 import DropdownCheckboxExample from './examples/DropdownCheckbox.example.txt';
 import DropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
 import DropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
 import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
 import DropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
+import DropdownMultiSelectAdvancedExample from './examples/DropdownMultiSelectAdvanced.example.txt';
+
 
 const DropdownDocs = {
   autoFocusInput: 'Set autofocus to false to blur the input inside the dropdown. By default its value is true giving a focus to the inputs.',
@@ -107,6 +110,7 @@ const DropdownScope = {
   DropdownMultiSelect,
   Icon,
   UtilityInlineGrid,
+  DropdownMultiSelectAdvanced,
 };
 
 const DropdownApp = () => (
@@ -401,6 +405,21 @@ const DropdownApp = () => (
         code={DropdownMultiSelectExample}
         scope={DropdownScope}
         component={DropdownMultiSelect}
+        propDescriptions={DropdownMultiSelectDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown MultiSelect Advanced</h3>
+      <p className="site-copy">Use <code>DropdownMultiSelectAdvanced</code> component to create a multi-select list of items.
+        This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as &quot;pills&quot; below the dropdown.
+        This will allow you to select multiple items, search, preview of selected items and clear all items.
+      </p>
+
+      <Live
+        code={DropdownMultiSelectAdvancedExample}
+        scope={DropdownScope}
+        component={DropdownMultiSelectAdvanced}
         propDescriptions={DropdownMultiSelectDocs}
       />
     </section>
