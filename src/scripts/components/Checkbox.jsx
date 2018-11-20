@@ -58,6 +58,7 @@ class Checkbox extends React.Component {
           id={this.id}
           checked={checked}
           onClick={this.toggleChecked}
+          onChange={this.toggleChecked}
           onKeyUp={this.handleKeyUp}
           title={title}
         />
