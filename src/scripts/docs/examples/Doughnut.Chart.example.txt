@@ -26,6 +26,10 @@ class ComponentExample extends React.Component {
      info: 'fruits',
   };
 
+  componentDidMount() {
+    console.log('calling ref', this.ref, this.chartInstance);
+  }
+
   render() {
     return (
       <Fragment>
@@ -43,6 +47,7 @@ class ComponentExample extends React.Component {
                header={this.state.header}
                subHeader={this.state.subHeader}
                info={this.state.info}
+               ref={(chartInstance) => { this.chartInstance = chartInstance; }}
              />
            </div>
          </div>

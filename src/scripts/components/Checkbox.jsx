@@ -92,7 +92,7 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   title: PropTypes.string,
   value: PropTypes.string,
-  type: PropTypes.oneOf('primary', 'secondary'),
+  type: PropTypes.oneOf(['primary', 'secondary']),
 };
 
 Checkbox.defaultProps = {

@@ -6,61 +6,146 @@ import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import { Icon } from '.';
 import Tooltip from './Tooltip';
 
-const renderChart = (opts) => {
-  switch (opts.type.toLowerCase()) {
-    case 'bar':
-      return (<Bar {...opts} />);
-    case 'doughnut':
-      return (<Doughnut {...opts} />);
-    case 'line':
-      return (<Line {...opts} />);
-    default:
-      return (<Bar {...opts} />);
-  }
-};
+// const renderChart = (opts) => {
+//   switch (opts.type.toLowerCase()) {
+//     case 'bar':
+//       return (<Bar {...opts} />);
+//     case 'doughnut':
+//       return (<Doughnut {...opts} />);
+//     case 'line':
+//       return (<Line {...opts} />);
+//     default:
+//       return (<Bar {...opts} />);
+//   }
+// };
 
-const renderNoData = () => (
-  <div className="chart__without-data">
+// const renderNoData = () => (
+//   <div className="chart__without-data">
+//       Sorry! There&apos;s nothing to show.
+//     <p>
+//       Once data is available for this section, it will appear here.
+//     </p>
+//   </div>
+// );
+
+// const Chart = (props) => {
+//   const { ...opts } = props;
+//   let isChartData = false;
+//   if (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0 || Object.keys(opts.data.datasets[0].data).length === 0) {
+//     isChartData = true;
+//   }
+//   return (
+//     <div className="chart">
+//       <div className="chart__header u-flex">
+//         <div className="header__title">
+//           {opts.title}
+//           {opts.info && (
+//             <Tooltip content={opts.info}>
+//               <Icon className="header__icon--info" icon="info-circle" />
+//             </Tooltip>
+//           )}
+//         </div>
+//         {!isChartData && opts.header && opts.header.text && (
+//           <div className={`header__subtitle ${opts.header.color}`}>
+//             {opts.header.text}
+//             {opts.subHeader && (
+//               <span className="subtitle--muted">
+//                 {opts.subHeader}
+//               </span>
+//             )}
+//           </div>
+//         )}
+//       </div>
+//       { isChartData ? renderNoData() : renderChart(opts) }
+//     </div>
+//   );
+// };
+
+// const renderChart = (opts) => {
+//   switch (opts.type.toLowerCase()) {
+//     case 'bar':
+//       return (<Bar {...opts} />);
+//     case 'doughnut':
+//       return (<Doughnut ref={(chartInstance) => { this.chartInstance = chartInstance; }} {...opts} />);
+//     case 'line':
+//       return (<Line {...opts} />);
+//     default:
+//       return (<Bar {...opts} />);
+//   }
+// };
+
+// const renderNoData = () => (
+//   <div className="chart__without-data">
+//       Sorry! There&apos;s nothing to show.
+//     <p>
+//       Once data is available for this section, it will appear here.
+//     </p>
+//   </div>
+// );
+
+class Chart extends React.Component {
+  state = {
+    isChartData: false,
+  }
+
+  componentWillMount() {
+    const { ...opts } = this.props;
+    if (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0 || Object.keys(opts.data.datasets[0].data).length === 0) {
+      this.setState({ isChartData: true });
+    }
+  }
+
+  renderChart = (opts) => {
+    switch (opts.type.toLowerCase()) {
+      case 'bar':
+        return (<Bar {...opts} />);
+      case 'doughnut':
+        return (<Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />);
+      case 'line':
+        return (<Line {...opts} />);
+      default:
+        return (<Bar {...opts} />);
+    }
+  };
+
+  renderNoData = () => (
+    <div className="chart__without-data">
       Sorry! There&apos;s nothing to show.
-    <p>
-      Once data is available for this section, it will appear here.
-    </p>
-  </div>
-);
-
-const Chart = (props) => {
-  const { ...opts } = props;
-  let isChartData = false;
-  if (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0 || Object.keys(opts.data.datasets[0].data).length === 0) {
-    isChartData = true;
-  }
-  return (
-    <div className="chart">
-      <div className="chart__header u-flex">
-        <div className="header__title">
-          {opts.title}
-          {opts.info && (
-            <Tooltip content={opts.info}>
-              <Icon className="header__icon--info" icon="info-circle" />
-            </Tooltip>
-          )}
-        </div>
-        {!isChartData && opts.header && opts.header.text && (
-          <div className={`header__subtitle ${opts.header.color}`}>
-            {opts.header.text}
-            {opts.subHeader && (
-              <span className="subtitle--muted">
-                {opts.subHeader}
-              </span>
-            )}
-          </div>
-        )}
-      </div>
-      { isChartData ? renderNoData() : renderChart(opts) }
+   <p>
+        Once data is available for this section, it will appear here.
+   </p>
     </div>
   );
-};
 
+  render() {
+    const { ...opts } = this.props;
+    return (
+      <div className="chart">
+        <div className="chart__header u-flex">
+          <div className="header__title">
+            {opts.title}
+            {opts.info && (
+              <Tooltip content={opts.info}>
+                <Icon className="header__icon--info" icon="info-circle" />
+              </Tooltip>
+            )}
+          </div>
+          {!this.state.isChartData && opts.header && opts.header.text && (
+            <div className={`header__subtitle ${opts.header.color}`}>
+              {opts.header.text}
+              {opts.subHeader && (
+                <span className="subtitle--muted">
+                  {opts.subHeader}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+        {this.state.isChartData ? this.renderNoData() : this.renderChart(opts)}
+      </div>
+    );
+  }
+}
 
 Chart.propTypes = {
   data: PropTypes.object,
