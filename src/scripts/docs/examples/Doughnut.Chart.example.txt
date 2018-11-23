@@ -13,6 +13,9 @@ class ComponentExample extends React.Component {
      height: 50,
      options: {
        cutoutPercentage: 80,
+       legendCallback: function(chart) {
+            console.log('calling legend callback');
+        }
      },
      legend: {
         position: 'right',
@@ -27,7 +30,7 @@ class ComponentExample extends React.Component {
   };
 
   componentDidMount() {
-    console.log('calling ref', this.ref, this.chartInstance);
+    console.log('calling ref', this.chartInstance);
   }
 
   render() {
@@ -47,7 +50,7 @@ class ComponentExample extends React.Component {
                header={this.state.header}
                subHeader={this.state.subHeader}
                info={this.state.info}
-               ref={(chartInstance) => { this.chartInstance = chartInstance; }}
+               ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }}
              />
            </div>
          </div>

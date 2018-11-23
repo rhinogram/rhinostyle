@@ -18,12 +18,21 @@ class Chart extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.forceUpdate();
+  }
+
   renderChart = (opts) => {
     switch (opts.type.toLowerCase()) {
       case 'bar':
         return (<Bar {...opts} />);
       case 'doughnut':
-        return (<Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />);
+        return (
+          <div>
+            <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />
+            {this.chartInstance && this.chartInstance.generateLegend()}
+          </div>
+        );
       case 'line':
         return (<Line {...opts} />);
       default:
