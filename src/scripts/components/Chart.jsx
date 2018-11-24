@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactHtmlParser from 'react-html-parser';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 
 import { Icon } from '.';
@@ -9,7 +10,22 @@ import Tooltip from './Tooltip';
 class Chart extends React.Component {
   state = {
     isChartData: false,
-  }
+  };
+
+  legendCallback = function(chart) {  // eslint-disable-line
+    const { labels } = chart.data;
+    const { data } = chart.data.datasets[0];
+    const { backgroundColor } = chart.data.datasets[0];
+    const text = [];
+    text.push('<ul>');
+    for (let i = 0; i < labels.length; i++) {
+      text.push('<li>');
+      text.push(`<span style="background-color: ${backgroundColor[i]}" />${labels[i]}${data[i]}`);
+      text.push('</li>');
+    }
+    text.push('</ul>');
+    return text.join('');
+  };
 
   componentWillMount() {
     const { ...opts } = this.props;
@@ -27,10 +43,11 @@ class Chart extends React.Component {
       case 'bar':
         return (<Bar {...opts} />);
       case 'doughnut':
+        opts.options.legendCallback = this.legendCallback; // eslint-disable-line
         return (
           <div>
             <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />
-            {this.chartInstance && this.chartInstance.generateLegend()}
+            {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
           </div>
         );
       case 'line':
@@ -43,9 +60,9 @@ class Chart extends React.Component {
   renderNoData = () => (
     <div className="chart__without-data">
       Sorry! There&apos;s nothing to show.
-   <p>
+      <p>
         Once data is available for this section, it will appear here.
-   </p>
+      </p>
     </div>
   );
 
