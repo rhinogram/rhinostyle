@@ -20,7 +20,7 @@ class Chart extends React.Component {
     text.push('<ul>');
     for (let i = 0; i < labels.length; i++) {
       text.push('<li>');
-      text.push(`<span style="background-color: ${backgroundColor[i]}" />${labels[i]}${data[i]}`);
+      text.push(`<div style="border-color: ${backgroundColor[i]}"><span class="list--title" /> <span>${labels[i]}</span><span>${data[i]}</span></div>`);
       text.push('</li>');
     }
     text.push('</ul>');
@@ -45,9 +45,13 @@ class Chart extends React.Component {
       case 'doughnut':
         opts.options.legendCallback = this.legendCallback; // eslint-disable-line
         return (
-          <div>
-            <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />
-            {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
+          <div className="row">
+            <div className="column-8@medium column-12@xsmall">
+              <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />
+            </div>
+            <div className="column-4@medium column-12@xsmall chart__doughnut--info">
+              {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
+            </div>
           </div>
         );
       case 'line':
