@@ -20,7 +20,7 @@ class Chart extends React.Component {
     text.push('<ul>');
     for (let i = 0; i < labels.length; i++) {
       text.push('<li>');
-      text.push(`<div style="border-color: ${backgroundColor[i]}"><span class="list--title" /> <span>${labels[i]}</span><span>${data[i]}</span></div>`);
+      text.push(`<div style="border-color: ${backgroundColor[i]}"><span class="list-title" /> <span>${labels[i]}</span><span>${data[i]}</span></div>`);
       text.push('</li>');
     }
     text.push('</ul>');
@@ -49,7 +49,7 @@ class Chart extends React.Component {
             <div className="column-8@medium column-12@xsmall">
               <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />
             </div>
-            <div className="column-4@medium column-12@xsmall chart__doughnut--info">
+            <div className="column-4@medium column-12@xsmall chart-doughnut__info">
               {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
             </div>
           </div>
