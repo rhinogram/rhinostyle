@@ -30,7 +30,7 @@ class ComponentExample extends React.Component {
     let searchedItems = {};
     if (searchText.length > 0) {
       Object.keys(this.state.itemsCopy).map((k) => {
-        if ((this.state.itemsCopy[k].firstName.toLowerCase()).includes(searchText.toLowerCase()) || (this.state.itemsCopy[k].lastName.toLowerCase()).includes(searchText.toLowerCase())) {
+        if ((this.state.itemsCopy[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
           searchedItems[k] = this.state.itemsCopy[k];
         }
       })
