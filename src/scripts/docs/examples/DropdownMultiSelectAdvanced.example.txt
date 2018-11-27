@@ -63,6 +63,7 @@ class ComponentExample extends React.Component {
     if (this.state.selectedItemsIds.length > 0) {
       label = `${this.state.selectedItemsIds.length} Contacts Selected`;
     }
+    const classes = 'multi-select__dropdown__height';
     return (
       <DropdownMultiSelectAdvanced
         handleUpdateSelectedIds={this.handleUpdateSelectedIds}
@@ -77,6 +78,7 @@ class ComponentExample extends React.Component {
         dropdownLabel={label}
         filterName="Contacts"
         type="member"
+        className={classes}
       />  
     );
   }

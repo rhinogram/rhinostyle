@@ -132,8 +132,8 @@ class DropdownMultiSelectAdvanced extends React.Component {
     );
   };
 
-  renderViewSelectedItems = () => (
-    <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} type="outline-primary" disableScroll>
+  renderViewSelectedItems = (classes, dropdownType) => (
+    <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} type={dropdownType} disableScroll>
       <div className="dropdown__menu__container">
         <div className="search__group">
           <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
@@ -150,7 +150,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
           </UtilityInlineGrid>
         </div>
         {this.props.selectedItemsIds.length > 0 ? (
-          <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
+          <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
             <ResourceGroup interfaceMode="checkbox">
               {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
             </ResourceGroup>
@@ -163,13 +163,22 @@ class DropdownMultiSelectAdvanced extends React.Component {
   );
 
   render() {
-    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName } = this.props;
+    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName, className } = this.props;
+    let classes = 'resource-group__scroll';
+    if (className) {
+      classes = `resource-group__scroll ${className}`;
+    }
+
     const itemsIds = [...this.props.itemsIds];
     const searchTitle = `Search ${filterName}`;
     let returnValue = '';
+    let dropdownType = 'input';
+    if (selectedItemsIds.length > 0) {
+      dropdownType = 'outline-primary';
+    }
     returnValue = (
       this.state.isViewAllItems ? (
-        <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type="outline-primary" disableScroll>
+        <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type={dropdownType} disableScroll>
           <div className="dropdown__menu__container">
             <div className="search__group">
               {selectedItemsIds.length > 0 ? (
@@ -198,7 +207,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
           </div>
           <div className="dropdown__menu__container">
             {itemsIds.length > 0 ? (
-              <Scrollbars className="resource-group__scroll" autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
+              <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
                 <ResourceGroup interfaceMode="checkbox">
                   {itemsIds.map(this.renderList)}
                 </ResourceGroup>
@@ -209,7 +218,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
           </div>
         </Dropdown>
       ) :
-        this.renderViewSelectedItems()
+        this.renderViewSelectedItems(classes, dropdownType)
     );
     return returnValue;
   }
@@ -228,6 +237,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   dropdownLabel: PropTypes.string.isRequired,
   filterName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default DropdownMultiSelectAdvanced;
