@@ -9,13 +9,13 @@ import Tooltip from './Tooltip';
 
 class Chart extends React.Component {
   state = {
-    isChartData: false,
+    hasChartData: false,
   };
 
-  legendCallback = function(chart) {  // eslint-disable-line
-    const { labels } = chart.data;
-    const { data } = chart.data.datasets[0];
-    const { backgroundColor } = chart.data.datasets[0];
+  legendCallback = (chart) => {
+    const { labels, datasets } = chart.data;
+    const [dataset] = datasets;
+    const { data, backgroundColor } = dataset;
     const text = [];
     text.push('<ul>');
     for (let i = 0; i < labels.length; i++) {
@@ -27,38 +27,33 @@ class Chart extends React.Component {
     return text.join('');
   };
 
-  componentWillMount() {
-    const { ...opts } = this.props;
-    if (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0 || Object.keys(opts.data.datasets[0].data).length === 0) {
-      this.setState({ isChartData: true });
-    }
-  }
-
   componentDidMount() {
+    const { data } = this.props;
+    if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || Object.keys(data.datasets[0].data).length === 0) {
+      this.setState({ hasChartData: true });
+    }
     this.forceUpdate();
   }
 
-  renderChart = (opts) => {
-    switch (opts.type.toLowerCase()) {
-      case 'bar':
-        return (<Bar {...opts} />);
-      case 'doughnut':
-        opts.options.legendCallback = this.legendCallback; // eslint-disable-line
-        return (
-          <div className="row">
-            <div className="column-8@medium column-12@xsmall">
-              <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...opts} />
-            </div>
-            <div className="column-4@medium column-12@xsmall chart-doughnut__info">
-              {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
-            </div>
-          </div>
-        );
-      case 'line':
-        return (<Line {...opts} />);
-      default:
-        return (<Bar {...opts} />);
+  renderChart = (Options) => {
+    const { type } = Options;
+    if (type.toLowerCase() === 'bar') {
+      return (<Bar {...Options} />);
+    } else if (type.toLowerCase() === 'line') {
+      return (<Line {...Options} />);
     }
+    /* eslint-disable no-param-reassign */
+    Options.options.legendCallback = this.legendCallback;
+    return (
+      <div className="row">
+        <div className="column-8@medium column-12@xsmall">
+          <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...Options} />
+        </div>
+        <div className="column-4@medium column-12@xsmall chart-doughnut__info">
+          {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
+        </div>
+      </div>
+    );
   };
 
   renderNoData = () => (
@@ -71,30 +66,30 @@ class Chart extends React.Component {
   );
 
   render() {
-    const { ...opts } = this.props;
+    const { ...Options } = this.props;
     return (
       <div className="chart">
         <div className="chart__header u-flex">
           <div className="header__title">
-            {opts.title}
-            {opts.info && (
-              <Tooltip content={opts.info}>
+            {Options.title}
+            {Options.info && (
+              <Tooltip content={Options.info}>
                 <Icon className="header__icon--info" icon="info-circle" />
               </Tooltip>
             )}
           </div>
-          {!this.state.isChartData && opts.header && opts.header.text && (
-            <div className={`header__subtitle ${opts.header.color}`}>
-              {opts.header.text}
-              {opts.subHeader && (
+          {!this.state.hasChartData && Options.header && Options.header.text && (
+            <div className={`header__subtitle ${Options.header.color}`}>
+              {Options.header.text}
+              {Options.subHeader && (
                 <span className="subtitle--muted">
-                  {opts.subHeader}
+                  {Options.subHeader}
                 </span>
               )}
             </div>
           )}
         </div>
-        {this.state.isChartData ? this.renderNoData() : this.renderChart(opts)}
+        {this.state.hasChartData ? this.renderNoData() : this.renderChart(Options)}
       </div>
     );
   }
