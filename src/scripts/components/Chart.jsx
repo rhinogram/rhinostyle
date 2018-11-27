@@ -13,6 +13,9 @@ class Chart extends React.Component {
   };
 
   legendCallback = (chart) => {
+    if (chart && chart.data) {
+      return '';
+    }
     const { labels, datasets } = chart.data;
     const [dataset] = datasets;
     const { data, backgroundColor } = dataset;
@@ -29,7 +32,7 @@ class Chart extends React.Component {
 
   componentDidMount() {
     const { data } = this.props;
-    if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || Object.keys(data.datasets[0].data).length === 0) {
+    if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || data.datasets.length === 0) {
       this.setState({ hasChartData: true });
     }
     this.forceUpdate();
