@@ -19,7 +19,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
   state = {
     searchText: '',
     isViewAllItems: true,
-  }
+  };
 
   handleUpdateSelectedIds = (id) => {
     let selectedIds = this.props.selectedItemsIds;
@@ -39,7 +39,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       this.setState({ isViewAllItems: true });
     }
     this.props.handleUpdateSelectedIds(selectedIds, selectedItems, this.props.filterName.toLowerCase());
-  }
+  };
 
   handleToggle = () => {
     if (this.state.isViewAllItems) {
@@ -47,14 +47,14 @@ class DropdownMultiSelectAdvanced extends React.Component {
       this.props.fetchAllItems('', this.props.filterName.toLowerCase());
     }
     this.setState(prevState => ({ isViewAllItems: !prevState.isViewAllItems }));
-  }
+  };
 
   handleClearAll = () => {
     this.setState({
       isViewAllItems: true,
     });
     this.props.handleClearAllSelectedItems();
-  }
+  };
 
   handleSearch = (id, value) => {
     const { fetchAllItems } = this.props;
@@ -68,7 +68,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
   clearSearch = () => {
     this.setState({ searchText: '' });
     this.props.fetchAllItems('', this.props.filterName.toLowerCase());
-  }
+  };
 
   renderListItems = (listItem, id, idx) => {
     const selected = this.props.selectedItemsIds.includes(id);
@@ -171,12 +171,12 @@ class DropdownMultiSelectAdvanced extends React.Component {
 
     const itemsIds = [...this.props.itemsIds];
     const searchTitle = `Search ${filterName}`;
-    let returnValue = '';
+    // let returnValue = '';
     let dropdownType = 'input';
     if (selectedItemsIds.length > 0) {
       dropdownType = 'outline-primary';
     }
-    returnValue = (
+    return (
       this.state.isViewAllItems ? (
         <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type={dropdownType} disableScroll>
           <div className="dropdown__menu__container">
@@ -220,7 +220,6 @@ class DropdownMultiSelectAdvanced extends React.Component {
       ) :
         this.renderViewSelectedItems(classes, dropdownType)
     );
-    return returnValue;
   }
 }
 

@@ -10,7 +10,7 @@ class ComponentExample extends React.Component {
             }],
           },
      width: 150,
-     height: 50,
+     height: 100,
      options: {
        cutoutPercentage: 80,
        legend: {
