@@ -10,12 +10,26 @@ class ComponentExample extends React.Component {
             }],
           },
      width: 150,
-     height: 50,
+     height: 100,
      options: {
        cutoutPercentage: 80,
-     },
-     legend: {
-        position: 'right',
+       legend: {
+         display: false,
+       },
+       legendCallback: function (chart) {
+           const { labels } = chart.data;
+           const { data } = chart.data.datasets[0];
+           const { backgroundColor } = chart.data.datasets[0];
+           const text = [];
+           text.push('<ul>');
+           for (let i = 0; i < labels.length; i++) {
+             text.push('<li>');
+             text.push(`<span style="background-color: ${backgroundColor[i]}" />${labels[i]}${data[i]}`);
+             text.push('</li>');
+           }
+           text.push('</ul>');
+           return text.join('');
+         }
      },
      title: 'Fruits',
      header: {
@@ -43,6 +57,7 @@ class ComponentExample extends React.Component {
                header={this.state.header}
                subHeader={this.state.subHeader}
                info={this.state.info}
+               ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }}
              />
            </div>
          </div>

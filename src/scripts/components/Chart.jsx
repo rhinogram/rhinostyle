@@ -1,66 +1,99 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactHtmlParser from 'react-html-parser';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 
 import { Icon } from '.';
 import Tooltip from './Tooltip';
 
-const renderChart = (opts) => {
-  switch (opts.type.toLowerCase()) {
-    case 'bar':
-      return (<Bar {...opts} />);
-    case 'doughnut':
-      return (<Doughnut {...opts} />);
-    case 'line':
-      return (<Line {...opts} />);
-    default:
-      return (<Bar {...opts} />);
-  }
-};
+class Chart extends React.Component {
+  state = {
+    hasChartData: false,
+  };
 
-const renderNoData = () => (
-  <div className="chart__without-data">
-      Sorry! There&apos;s nothing to show.
-    <p>
-      Once data is available for this section, it will appear here.
-    </p>
-  </div>
-);
+  legendCallback = (chart) => {
+    const { labels, datasets } = chart.data;
+    const [dataset] = datasets;
+    const { data, backgroundColor } = dataset;
+    const text = [];
+    text.push('<ul>');
+    for (let i = 0; i < labels.length; i++) {
+      text.push('<li>');
+      text.push(`<div style="border-color: ${backgroundColor[i]}"><span class="list-title" /> <span>${labels[i]}</span><span>${data[i]}</span></div>`);
+      text.push('</li>');
+    }
+    text.push('</ul>');
+    return text.join('');
+  };
 
-const Chart = (props) => {
-  const { ...opts } = props;
-  let isChartData = false;
-  if (typeof opts.data === 'undefined' || opts.data === null || Object.keys(opts.data).length === 0 || Object.keys(opts.data.datasets[0].data).length === 0) {
-    isChartData = true;
+  componentDidMount() {
+    const { data } = this.props;
+    if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || data.datasets.length === 0) {
+      this.setState({ hasChartData: true });
+    }
+    this.forceUpdate();
   }
-  return (
-    <div className="chart">
-      <div className="chart__header u-flex">
-        <div className="header__title">
-          {opts.title}
-          {opts.info && (
-            <Tooltip content={opts.info}>
-              <Icon className="header__icon--info" icon="info-circle" />
-            </Tooltip>
-          )}
+
+  renderChart = (properties) => {
+    const { type } = properties;
+    if (type.toLowerCase() === 'bar') {
+      return (<Bar {...properties} />);
+    } else if (type.toLowerCase() === 'line') {
+      return (<Line {...properties} />);
+    }
+    /* eslint-disable no-param-reassign */
+    properties.options.legendCallback = this.legendCallback;
+    return (
+      <div className="row">
+        <div className="column-8@medium column-12@xsmall">
+          <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...properties} />
         </div>
-        {!isChartData && opts.header && opts.header.text && (
-          <div className={`header__subtitle ${opts.header.color}`}>
-            {opts.header.text}
-            {opts.subHeader && (
-              <span className="subtitle--muted">
-                {opts.subHeader}
-              </span>
-            )}
-          </div>
-        )}
+        <div className="column-4@medium column-12@xsmall chart-doughnut__info">
+          {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
+        </div>
       </div>
-      { isChartData ? renderNoData() : renderChart(opts) }
+    );
+  };
+
+  renderNoData = () => (
+    <div className="chart__without-data">
+      Sorry! There&apos;s nothing to show.
+      <p>
+        Once data is available for this section, it will appear here.
+      </p>
     </div>
   );
-};
 
+  render() {
+    const { ...ChartProperties } = this.props;
+    return (
+      <div className="chart">
+        <div className="chart__header u-flex">
+          <div className="header__title">
+            {ChartProperties.title}
+            {ChartProperties.info && (
+              <Tooltip content={ChartProperties.info}>
+                <Icon className="header__icon--info" icon="info-circle" />
+              </Tooltip>
+            )}
+          </div>
+          {!this.state.hasChartData && ChartProperties.header && ChartProperties.header.text && (
+            <div className={`header__subtitle ${ChartProperties.header.color}`}>
+              {ChartProperties.header.text}
+              {ChartProperties.subHeader && (
+                <span className="subtitle--muted">
+                  {ChartProperties.subHeader}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+        {this.state.hasChartData ? this.renderNoData() : this.renderChart(ChartProperties)}
+      </div>
+    );
+  }
+}
 
 Chart.propTypes = {
   data: PropTypes.object,
