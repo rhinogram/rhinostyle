@@ -95,7 +95,7 @@
   }
 }
 
-//Responsive styles
+//Responsive styles for mobiles
 
 @media (max-width: @global-screen-xsmall-max) {
   .chart-doughnut__info {
@@ -105,6 +105,24 @@
 
     .list-title {
       font-size: @global-font-size-xsmall !important;
+    }
+  }
+}
+
+//Media queries for big screens
+
+@media (min-width: 1650px) {
+  .chart {
+    min-height: 500px;
+    position: relative;
+
+    .chart__without-data {
+      border: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: unset;
     }
   }
 }
