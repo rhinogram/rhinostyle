@@ -13,9 +13,6 @@ class Chart extends React.Component {
   };
 
   legendCallback = (chart) => {
-    if (chart && chart.data) {
-      return '';
-    }
     const { labels, datasets } = chart.data;
     const [dataset] = datasets;
     const { data, backgroundColor } = dataset;
@@ -38,19 +35,19 @@ class Chart extends React.Component {
     this.forceUpdate();
   }
 
-  renderChart = (Options) => {
-    const { type } = Options;
+  renderChart = (properties) => {
+    const { type } = properties;
     if (type.toLowerCase() === 'bar') {
-      return (<Bar {...Options} />);
+      return (<Bar {...properties} />);
     } else if (type.toLowerCase() === 'line') {
-      return (<Line {...Options} />);
+      return (<Line {...properties} />);
     }
     /* eslint-disable no-param-reassign */
-    Options.options.legendCallback = this.legendCallback;
+    properties.options.legendCallback = this.legendCallback;
     return (
       <div className="row">
         <div className="column-8@medium column-12@xsmall">
-          <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...Options} />
+          <Doughnut ref={(ref) => { this.chartInstance = ref && ref.chartInstance; }} {...properties} />
         </div>
         <div className="column-4@medium column-12@xsmall chart-doughnut__info">
           {this.chartInstance && ReactHtmlParser(this.chartInstance.generateLegend())}
@@ -69,30 +66,30 @@ class Chart extends React.Component {
   );
 
   render() {
-    const { ...Options } = this.props;
+    const { ...ChartProperties } = this.props;
     return (
       <div className="chart">
         <div className="chart__header u-flex">
           <div className="header__title">
-            {Options.title}
-            {Options.info && (
-              <Tooltip content={Options.info}>
+            {ChartProperties.title}
+            {ChartProperties.info && (
+              <Tooltip content={ChartProperties.info}>
                 <Icon className="header__icon--info" icon="info-circle" />
               </Tooltip>
             )}
           </div>
-          {!this.state.hasChartData && Options.header && Options.header.text && (
-            <div className={`header__subtitle ${Options.header.color}`}>
-              {Options.header.text}
-              {Options.subHeader && (
+          {!this.state.hasChartData && ChartProperties.header && ChartProperties.header.text && (
+            <div className={`header__subtitle ${ChartProperties.header.color}`}>
+              {ChartProperties.header.text}
+              {ChartProperties.subHeader && (
                 <span className="subtitle--muted">
-                  {Options.subHeader}
+                  {ChartProperties.subHeader}
                 </span>
               )}
             </div>
           )}
         </div>
-        {this.state.hasChartData ? this.renderNoData() : this.renderChart(Options)}
+        {this.state.hasChartData ? this.renderNoData() : this.renderChart(ChartProperties)}
       </div>
     );
   }
