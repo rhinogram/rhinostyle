@@ -33,6 +33,10 @@ class Checkbox extends React.Component {
     });
   }
 
+  handleClick = (event) => {
+    event.stopPropagation();
+  }
+
   handleKeyUp = (e) => {
     if (e.keyCode === 13) {
       this.checkboxLabel.click();
@@ -58,6 +62,7 @@ class Checkbox extends React.Component {
           id={this.id}
           checked={checked}
           onChange={this.toggleChecked}
+          onClick={this.handleClick}
           onKeyUp={this.handleKeyUp}
           title={title}
         />
