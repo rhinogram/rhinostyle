@@ -20,12 +20,8 @@ class Checkbox extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   toggleChecked = (event) => {
-    if (this.props.onClick) {
-      this.props.onClick(!this.state.checked, event);
-    }
-
     if (this.props.onChange) {
-      this.props.onChange(this.props.name, !this.state.checked);
+      this.props.onChange(this.props.name, !this.state.checked, event);
     }
 
     this.setState({
