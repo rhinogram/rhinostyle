@@ -20,17 +20,17 @@ class Checkbox extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   toggleChecked = (event) => {
-    if (this.props.onClick) {
-      this.props.onClick(!this.state.checked, event);
-    }
-
     if (this.props.onChange) {
-      this.props.onChange(this.props.name, !this.state.checked);
+      this.props.onChange(this.props.name, !this.state.checked, event);
     }
 
     this.setState({
       checked: !this.state.checked,
     });
+  }
+
+  handleClick = (event) => {
+    event.stopPropagation();
   }
 
   handleKeyUp = (e) => {
@@ -57,8 +57,8 @@ class Checkbox extends React.Component {
           name={name}
           id={this.id}
           checked={checked}
-          onClick={this.toggleChecked}
           onChange={this.toggleChecked}
+          onClick={this.handleClick}
           onKeyUp={this.handleKeyUp}
           title={title}
         />
@@ -88,7 +88,6 @@ Checkbox.propTypes = {
   isChecked: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
   onChange: PropTypes.func,
   title: PropTypes.string,
   value: PropTypes.string,
