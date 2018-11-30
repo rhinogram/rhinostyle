@@ -195,6 +195,7 @@ class DropdownCheckbox extends React.Component {
     }
 
     const enableClickOutside = this.props.manualClose ? false : this.state.isOpen;
+
     const showLabel = () => {
       const { labelValueAssociated } = this.props;
       if (showAssociatedLabel) {
@@ -205,7 +206,7 @@ class DropdownCheckbox extends React.Component {
           return selectedLabel || label;
         }
 
-        return <span className="dropdown__toggle__text">{selectedLabel || label}</span>;
+        return <span className="dropdown__toggle__text" onClick={this.handleToggle}>{selectedLabel || label}</span>;
       }
       return false;
     };
