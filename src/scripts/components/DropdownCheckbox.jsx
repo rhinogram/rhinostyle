@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Checkbox, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '.';
+import { Button, Checkbox, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '.';
 
 class DropdownCheckbox extends React.Component {
   state = {
@@ -139,7 +139,10 @@ class DropdownCheckbox extends React.Component {
       icon,
       lockLabel,
       position,
+      reset,
+      size,
       title,
+      type,
       wide,
       onStart,
       onComplete,
@@ -156,7 +159,7 @@ class DropdownCheckbox extends React.Component {
       'dropdown--block': block,
     }, wrapperClassName);
 
-    let dropdownToggleClasses = cx('dropdown__toggle', className);
+    const dropdownToggleClasses = cx('dropdown__toggle', className);
 
     const dropdownMenuClasses = cx('dropdown__menu', {
       'dropdown__menu--right': position === 'right',
@@ -192,6 +195,7 @@ class DropdownCheckbox extends React.Component {
     }
 
     const enableClickOutside = this.props.manualClose ? false : this.state.isOpen;
+
     const showLabel = () => {
       const { labelValueAssociated } = this.props;
       if (showAssociatedLabel) {
@@ -202,7 +206,7 @@ class DropdownCheckbox extends React.Component {
           return selectedLabel || label;
         }
 
-        return <span className="dropdown__toggle__text">{selectedLabel || label}</span>;
+        return <span className="dropdown__toggle__text" onClick={this.handleToggle}>{selectedLabel || label}</span>;
       }
       return false;
     };
@@ -214,8 +218,6 @@ class DropdownCheckbox extends React.Component {
       }
       return false;
     };
-
-    dropdownToggleClasses = `${dropdownToggleClasses} button dropdown__toggle button--checkbox u-flex`;
 
     return (
       <DropdownWrapper
@@ -229,20 +231,23 @@ class DropdownCheckbox extends React.Component {
         onReverseStart={onReverseStart}
         ref={ref => (this.dropdown = ref)}
       >
-        <div
-          onClick={this.handleToggle}
+        <Button
+          reset={reset}
+          size={size}
+          iconOnly={icon && !label}
+          type={type}
           className={dropdownToggleClasses}
           disabled={disabled}
           title={title}
         >
+          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
           {showCheckbox()}
-          {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}
-          {showLabel()}
           {hideCaret || (icon && !label && !selectedLabel) ?
             null :
-            <Icon size="small" icon="caret-down" className="dropdown__toggle__caret dropdown__caret--auto" />
+            <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" onClick={this.handleToggle} />
           }
-        </div>
+          {showLabel()}
+        </Button>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
         </div>
@@ -266,7 +271,23 @@ DropdownCheckbox.propTypes = {
   position: PropTypes.string,
   onClick: PropTypes.func,
   onSelect: PropTypes.func,
+  reset: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
+  type: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'accent',
+    'input',
+    'outline-primary',
+    'outline-reversed',
+    'link',
+    'link-muted',
+    'danger',
+    'checkbox',
+    'checkbox-muted',
+  ]),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
   showAssociatedLabel: PropTypes.bool,
@@ -284,6 +305,7 @@ DropdownCheckbox.propTypes = {
 };
 
 DropdownCheckbox.defaultProps = {
+  type: 'default',
   isChecked: false,
 };
 
