@@ -40,6 +40,7 @@ class Button extends React.Component {
       type,
       url,
       loading,
+      hasClickableChildren,
       ...opts
     } = this.props;
 
@@ -87,6 +88,13 @@ class Button extends React.Component {
           {loading && this.loadingRender()}
         </Link>
       );
+    } else if (hasClickableChildren) {
+      markup = (
+        <div className={classes} disabled={disabled || loading} onClick={this.handleClick} title={this.props.title} {...opts}>
+          <span className="button__text-wrapper">{this.props.children}</span>
+          {loading && this.loadingRender()}
+        </div>
+      );
     } else {
       markup = (
         <button type="button" className={classes} disabled={disabled || loading} onClick={this.handleClick} title={this.props.title} {...opts}>
@@ -129,6 +137,7 @@ Button.propTypes = {
   ]),
   url: PropTypes.string,
   loading: PropTypes.bool,
+  hasClickableChildren: PropTypes.bool,
 };
 
 Button.defaultProps = {
