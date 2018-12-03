@@ -199,7 +199,7 @@ class DropdownCheckbox extends React.Component {
     const showLabel = () => {
       const { labelValueAssociated } = this.props;
       if (showAssociatedLabel) {
-        return <span className="dropdown__toggle__text">{labelValueAssociated}</span>;
+        return <span className="dropdown__toggle__text" onClick={this.handleToggle}>{labelValueAssociated}</span>;
       }
       if (selectedLabel || label) {
         if (showOverflow) {
@@ -239,14 +239,17 @@ class DropdownCheckbox extends React.Component {
           className={dropdownToggleClasses}
           disabled={disabled}
           title={title}
+          hasClickableChildren
         >
-          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
-          {showCheckbox()}
-          {hideCaret || (icon && !label && !selectedLabel) ?
-            null :
-            <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" onClick={this.handleToggle} />
-          }
-          {showLabel()}
+          <span style={{ display: 'flex', pointerEvents: 'inherit' }}>
+            {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
+            {showCheckbox()}
+            {hideCaret || (icon && !label && !selectedLabel) ?
+              null :
+              <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" onClick={this.handleToggle} />
+            }
+            {showLabel()}
+          </span>
         </Button>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
