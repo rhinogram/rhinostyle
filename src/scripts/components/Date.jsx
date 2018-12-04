@@ -6,37 +6,39 @@ import Cleave from 'cleave.js/react';
 
 import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
 
-const Date = (props) => {
-  const { className, explanationMessage, validationMessage, label, name, required, ...opts } = props;
-  const formGroupClasses = cx('form__group', className);
-  const inputClasses = cx('form__control', {
-    'form__control--error': validationMessage,
-  });
-  const id = `${name}-${UtilitySystem.generateUUID()}`;
-
-  return (
-    <div className={formGroupClasses}>
-      <FormLabel id={id} required={required}>{label}</FormLabel>
-      <DatePicker
-        customInput={(
-          <Cleave
-            options={UtilitySystem.dateFormat}
-          />
-)}
-        shouldCloseOnSelect={false}
-        name={name}
-        id={id}
-        className={inputClasses}
-        showYearDropdown
-        showMonthDropdown
-        dropdownMode="select"
-        {...opts}
-      />
-      <FormValidationMessage validationMessage={validationMessage} />
-      <FormExplanationMessage explanationMessage={explanationMessage} />
-    </div>
-  );
-};
+class Date extends React.Component {
+  render() {
+    const { className, explanationMessage, validationMessage, label, name, required, ...opts } = this.props;
+    const formGroupClasses = cx('form__group', className);
+    const inputClasses = cx('form__control', {
+      'form__control--error': validationMessage,
+    });
+    const id = `${name}-${UtilitySystem.generateUUID()}`;
+    return (
+      <div className={formGroupClasses}>
+        <FormLabel id={id} required={required}>{label}</FormLabel>
+        <DatePicker
+          customInput={(
+            <Cleave
+              options={UtilitySystem.dateFormat}
+            />
+          )}
+          shouldCloseOnSelect={false}
+          name={name}
+          id={id}
+          className={inputClasses}
+          showYearDropdown
+          showMonthDropdown
+          dropdownMode="select"
+          ref={inputRef => (this.datePickerInput = inputRef)}
+          {...opts}
+        />
+        <FormValidationMessage validationMessage={validationMessage} />
+        <FormExplanationMessage explanationMessage={explanationMessage} />
+      </div>
+    );
+  }
+}
 
 Date.propTypes = {
   name: PropTypes.string.isRequired,
