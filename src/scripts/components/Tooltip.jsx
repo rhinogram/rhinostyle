@@ -8,6 +8,8 @@ import { TimelineMax } from 'gsap/TweenMax';
 import { UtilitySystem } from '../UtilitySystem';
 
 class Tooltip extends React.Component {
+  state = { isTooltipOpen: false };
+
   /**
    * @NOTE Attaching event listeners here is not ideal,
    * but `onMouseEnter` (and `onMouseOver`) is not reliably fired;
@@ -21,6 +23,9 @@ class Tooltip extends React.Component {
     if (!Modernizr.touchevents) {
       tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
       tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
+    }
+    if (Modernizr.touchevents || Modernizr.pointerevents) {
+      tooltipTrigger.addEventListener('click', this.toggleTooltip.bind(this));
     }
   }
 
@@ -55,11 +60,14 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   createTooltip = (e) => {
+    if (this.touchOpen) {
+      return;
+    }
+    this.touchOpen = true;
     e.preventDefault();
-
     // Random ID
     this.tooltipId = `tooltip-${UtilitySystem.generateUUID()}`;
-
+    console.log('CREATED TOOLTIP', this.state.isTooltipOpen);
     const $tooltip = document.createElement('div');
     const $tooltipContent = document.createElement('div');
 
@@ -85,10 +93,12 @@ class Tooltip extends React.Component {
       paused: true,
       onStart: () => {
         this.touchOpen = true;
+        this.setState({ isTooltipOpen: true });
       },
       onReverseComplete: () => {
         this.touchOpen = false;
         this.removeTooltip($tooltip);
+        this.setState({ isTooltipOpen: false });
       },
     });
 
@@ -196,6 +206,8 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   closeTooltip() {
+    console.log('CLOSED TOOLTIP', this.state.isTooltipOpen);
+    this.touchOpen = false;
     document.querySelector(`#${this.tooltipId}`).timeline.reverse();
   }
 
@@ -205,6 +217,10 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   removeTooltip(tooltip) {
+    if (!this.touchOpen) {
+      return;
+    }
+
     tooltip.remove();
   }
 
@@ -219,6 +235,14 @@ class Tooltip extends React.Component {
 
     return returnChild;
   };
+
+  toggleTooltip(e) {
+    if (!this.state.isTooltipOpen) {
+      this.createTooltip(e);
+    } else {
+      this.closeTooltip(e);
+    }
+  }
 
   render() {
     return React.Children.only(this.renderChildren());
