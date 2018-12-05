@@ -16,7 +16,7 @@ const TooltipsDocs = {
   children: 'Only accepts one child',
   placement: "Position of tooltip  <code>oneOf(['top', 'right', 'bottom', 'left'])</code>", // eslint-disable-line single-quotes
   content: 'Content of tooltip. May contain HTML or other components',
-  delay: 'Delay showing the tooltip onmouseenter. Can be either the prop itself (defaults 1000 milliseconds) or you can pass in a value',
+  delay: 'Delay showing the tooltip onmouseenter or click. Can be either the prop itself (defaults 1000 milliseconds) or you can pass in a value',
   type: "Color scheme of tooltip <code>oneOf(['light', 'dark'])</code>", // eslint-disable-line single-quotes
 };
 
@@ -26,7 +26,8 @@ const TooltipsApp = () => (
       <h3 className="site-subheadline">Tooltips</h3>
       <p className="site-text-lead">
         Our tooltips can be attached to any valid element, including other React components. For desktop, a tooltip is initiated on
-        <code>mouseenter</code> and <code>mouseleave</code> of the trigger. The component interaction is disabled on touch devices due to a lack of hover state.
+        <code>mouseenter</code>, and closed on <code>mouseleave</code> of the trigger. On touch devices, tooltips are enabled via the touch simulated
+        <code>click</code> event
       </p>
     </section>
 
