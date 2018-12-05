@@ -45,6 +45,9 @@ class Tooltip extends React.Component {
       tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
       tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
     }
+    if (Modernizr.touchevents || Modernizr.pointerevents) {
+      tooltipTrigger.removeEventListener('click', this.toggleTooltip.bind(this));
+    }
   }
 
   /**
