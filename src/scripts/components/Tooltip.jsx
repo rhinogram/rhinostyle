@@ -8,7 +8,10 @@ import { TimelineMax } from 'gsap/TweenMax';
 import { UtilitySystem } from '../UtilitySystem';
 
 class Tooltip extends React.Component {
-  state = { isTooltipOpen: false };
+  constructor(props) {
+    super(props);
+    this.isTooltipOpen = false;
+  }
 
   /**
    * @NOTE Attaching event listeners here is not ideal,
@@ -60,14 +63,14 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   createTooltip = (e) => {
-    if (this.touchOpen) {
+    if (this.tooltipId) {
       return;
     }
-    this.touchOpen = true;
+
     e.preventDefault();
     // Random ID
     this.tooltipId = `tooltip-${UtilitySystem.generateUUID()}`;
-    console.log('CREATED TOOLTIP', this.state.isTooltipOpen);
+    console.log('CREATED TOOLTIP', this.tooltipId);
     const $tooltip = document.createElement('div');
     const $tooltipContent = document.createElement('div');
 
@@ -92,13 +95,11 @@ class Tooltip extends React.Component {
     $tooltip.timeline = new TimelineMax({
       paused: true,
       onStart: () => {
-        this.touchOpen = true;
-        this.setState({ isTooltipOpen: true });
+        this.isTooltipOpen = true;
       },
       onReverseComplete: () => {
-        this.touchOpen = false;
         this.removeTooltip($tooltip);
-        this.setState({ isTooltipOpen: false });
+        this.isTooltipOpen = false;
       },
     });
 
@@ -206,9 +207,12 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   closeTooltip() {
-    console.log('CLOSED TOOLTIP', this.state.isTooltipOpen);
-    this.touchOpen = false;
+    if (!this.isTooltipOpen) {
+      return;
+    }
+
     document.querySelector(`#${this.tooltipId}`).timeline.reverse();
+    this.isTooltipOpen = false;
   }
 
   /**
@@ -217,11 +221,10 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   removeTooltip(tooltip) {
-    if (!this.touchOpen) {
-      return;
-    }
-
+    console.log('REMOVING TOOLTIP: ', this.tooltipId);
     tooltip.remove();
+    this.tooltipId = undefined;
+    console.log('TOOLTIP REMOVED', this.tooltipId);
   }
 
   renderChildren = () => {
@@ -237,7 +240,7 @@ class Tooltip extends React.Component {
   };
 
   toggleTooltip(e) {
-    if (!this.state.isTooltipOpen) {
+    if (!this.isTooltipOpen) {
       this.createTooltip(e);
     } else {
       this.closeTooltip(e);
