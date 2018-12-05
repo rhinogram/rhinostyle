@@ -7,6 +7,7 @@ import Cleave from 'cleave.js/react';
 import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
 
 class Date extends React.Component {
+  datePickerInput = undefined;
   render() {
     const { className, explanationMessage, validationMessage, label, name, required, ...opts } = this.props;
     const formGroupClasses = cx('form__group', className);
@@ -14,6 +15,7 @@ class Date extends React.Component {
       'form__control--error': validationMessage,
     });
     const id = `${name}-${UtilitySystem.generateUUID()}`;
+
     return (
       <div className={formGroupClasses}>
         <FormLabel id={id} required={required}>{label}</FormLabel>
