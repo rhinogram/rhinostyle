@@ -8,11 +8,8 @@ import { TimelineMax } from 'gsap/TweenMax';
 import { UtilitySystem } from '../UtilitySystem';
 
 class Tooltip extends React.Component {
-  constructor(props) {
-    super(props);
-    this.isTooltipOpen = false; // We don't use React state because setState is asyncronous and we need syncronous changes here.
-    this.tooltipTimer = undefined; // Store setInterval when using tooltip delay. Used in order to clearInterval when needed.
-  }
+  isTooltipOpen = false; // We don't use React state because setState is asyncronous and we need syncronous changes here.
+  tooltipTimer = undefined; // Store setInterval when using tooltip delay. Used in order to clearInterval when needed.
 
   /**
    * @NOTE Attaching event listeners here is not ideal,
