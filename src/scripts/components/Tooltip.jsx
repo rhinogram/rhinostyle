@@ -10,7 +10,8 @@ import { UtilitySystem } from '../UtilitySystem';
 class Tooltip extends React.Component {
   constructor(props) {
     super(props);
-    this.isTooltipOpen = false;
+    this.isTooltipOpen = false; // We don't use React state because setState is asyncronous and we need syncronous changes here.
+    this.tooltipTimer = undefined; // Store setInterval when using tooltip delay. Used in order to clearInterval when needed.
   }
 
   /**
@@ -21,8 +22,15 @@ class Tooltip extends React.Component {
   componentDidMount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    // Add event listeners
-    // Tooltips are not triggered on touch-devices to not interfere with actionable items
+    /**
+     * Add event listeners
+     * Tooltips using Modernizr we detect whether we're dealing with a touch device
+     * in order to attach the correct event listener. The tooltip works with
+     * HOVER on non-touch devices, and CLICK on touch devices.
+     *
+     * @NOTE: We're not using native touch event sequence since touch devices will emulate a
+     * click event and this is the most reliable way to toggle the tooltip.
+     *  */
     if (!Modernizr.touchevents) {
       tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
       tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
@@ -63,21 +71,21 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   createTooltip = (e) => {
+    e.preventDefault();
+
     if (this.tooltipId) {
       return;
     }
 
-    e.preventDefault();
     // Random ID
     this.tooltipId = `tooltip-${UtilitySystem.generateUUID()}`;
-    console.log('CREATED TOOLTIP', this.tooltipId);
+
     const $tooltip = document.createElement('div');
     const $tooltipContent = document.createElement('div');
 
     $tooltip.setAttribute('id', this.tooltipId);
     $tooltip.setAttribute('role', 'tooltip');
     $tooltip.classList.add('tooltip');
-
     $tooltipContent.classList.add('tooltip-inner', `tooltip-inner--${this.props.type}`);
 
     const tooltipContent = this.props.content;
@@ -194,7 +202,7 @@ class Tooltip extends React.Component {
       // Takes care of multiple PropTypes
       const delayDuration = Number.isInteger(delay) ? delay : 1000;
 
-      setTimeout(() => {
+      this.tooltipTimer = setTimeout(() => {
         tooltip.timeline.play();
       }, delayDuration);
     } else {
@@ -207,11 +215,14 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   closeTooltip() {
-    if (!this.isTooltipOpen) {
-      return;
+    // Cancel delayed tooltip open if user hovers out of target. On 'mouseleave'.
+    if (this.tooltipTimer) {
+      clearInterval(this.tooltipTimer);
     }
 
     document.querySelector(`#${this.tooltipId}`).timeline.reverse();
+
+    this.tooltipTimer = undefined;
     this.isTooltipOpen = false;
   }
 
@@ -221,10 +232,23 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   removeTooltip(tooltip) {
-    console.log('REMOVING TOOLTIP: ', this.tooltipId);
     tooltip.remove();
     this.tooltipId = undefined;
-    console.log('TOOLTIP REMOVED', this.tooltipId);
+  }
+
+  /**
+   * Open or close tooltip based on its current state.
+   * Used only on touch devices that rely on click events since a click could
+   * call for either opening or closing.
+   * @param {event} e
+   * @return {void}
+   */
+  toggleTooltip(e) {
+    if (!this.isTooltipOpen) {
+      this.createTooltip(e);
+    } else {
+      this.closeTooltip(e);
+    }
   }
 
   renderChildren = () => {
@@ -238,14 +262,6 @@ class Tooltip extends React.Component {
 
     return returnChild;
   };
-
-  toggleTooltip(e) {
-    if (!this.isTooltipOpen) {
-      this.createTooltip(e);
-    } else {
-      this.closeTooltip(e);
-    }
-  }
 
   render() {
     return React.Children.only(this.renderChildren());
