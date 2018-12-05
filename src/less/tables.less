@@ -699,7 +699,6 @@
 }
 
 @media (max-width: @global-screen-small-max) {
-
   .ReactTable {
     .rt-table {
       overflow-x: scroll;
@@ -707,45 +706,53 @@
       width: 80%;
 
       .rt-tbody {
-        overflow: hidden !important;
-        width: 330px !important;
+        overflow: hidden;
+        min-width: 330px !important;
       }
 
-      .rt-head {
-        width: 330px !important;
+      .rt-thead {
+        min-width: 330px !important;
       }
 
       .rt-td:nth-child(1),
       .rt-th:nth-child(1) {
         z-index: 1;
-        position: absolute !important;
-        width: 100px !important;
-        left: 4px;
+        position: absolute;
+        left: @global-whitespace-xsmall / 2;
         top: auto;
-        background-color: #fff;
+        background-color: @global-background;
       }
 
       .rt-tr {
         &.-odd {
           .rt-td:nth-child(1) {
-            background-color: #00000008 !important;
+            background-color: tint(@global-color-gray-lighter, 65%);;
           }
         }
       }
 
       .rt-th {
+        text-transform: uppercase;
+
         span {
-          margin-left: 1px;
+          margin-left: @global-whitespace-xsmall / 2;
         }
       }
 
       .rt-td,
       .rt-th {
-        padding: 7px 4px;
-        font-size: 1.3rem;
+        padding: @global-whitespace-small @global-whitespace-xsmall;
+        font-size: 13px;
+        height: 40px;
+
+        button {
+          padding-left: 0;
+        }
       }
 
       .rt-td {
+        text-transform: capitalize;
+
         div {
           text-overflow: ellipsis;
           overflow: hidden;
