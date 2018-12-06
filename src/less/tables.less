@@ -698,3 +698,68 @@
   }
 }
 
+@media (max-width: @global-screen-small-max) {
+  .ReactTable {
+    padding-left: 0;
+
+    .rt-table {
+      overflow-x: scroll;
+      margin-left: 102px;
+      width: 80%;
+
+      .rt-tbody {
+        overflow: hidden;
+        min-width: 330px !important;
+      }
+
+      .rt-thead {
+        min-width: 330px !important;
+      }
+
+      .rt-td:nth-child(1),
+      .rt-th:nth-child(1) {
+        z-index: 1;
+        position: absolute;
+        left: @global-whitespace-xsmall / 2;
+        top: auto;
+        background-color: @global-background;
+      }
+
+      .rt-tr {
+        &.-odd {
+          .rt-td:nth-child(1) {
+            background-color: tint(@global-color-gray-lighter, 65%);
+          }
+        }
+      }
+
+      .rt-th {
+        text-transform: uppercase;
+
+        span {
+          margin-left: @global-whitespace-xsmall / 2;
+        }
+      }
+
+      .rt-td,
+      .rt-th {
+        padding: @global-whitespace-small @global-whitespace-xsmall;
+        font-size: 13px;
+        height: 40px;
+
+        button {
+          padding-left: 0;
+        }
+      }
+
+      .rt-td {
+        text-transform: capitalize;
+
+        div {
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
