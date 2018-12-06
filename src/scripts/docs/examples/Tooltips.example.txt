@@ -9,7 +9,7 @@
     <span>Bottom</span>
   </Tooltip>
   <Tooltip placement="left" delay content="I was delayed!">
-    <span>Left</span>
+    <span>Left and Delayed</span>
   </Tooltip>
   <Tooltip type="dark" placement="right" content="I have a dark background!">
     <span>Dark</span>

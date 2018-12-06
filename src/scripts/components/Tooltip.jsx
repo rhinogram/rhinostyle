@@ -8,6 +8,9 @@ import { TimelineMax } from 'gsap/TweenMax';
 import { UtilitySystem } from '../UtilitySystem';
 
 class Tooltip extends React.Component {
+  isTooltipOpen = false; // We don't use React state because setState is asyncronous and we need syncronous changes here.
+  tooltipDelayTimeoutId = undefined; // Store setTimeout when using tooltip delay. Used in order to clearTimeout when needed.
+
   /**
    * @NOTE Attaching event listeners here is not ideal,
    * but `onMouseEnter` (and `onMouseOver`) is not reliably fired;
@@ -16,11 +19,21 @@ class Tooltip extends React.Component {
   componentDidMount() {
     const tooltipTrigger = this.getTooltipTrigger();
 
-    // Add event listeners
-    // Tooltips are not triggered on touch-devices to not interfere with actionable items
+    /**
+     * Add event listeners for tooltips triggers.
+     * Using Modernizr we detect whether we're dealing with a touch device
+     * in order to attach the correct event listener. The tooltip works with
+     * HOVER on non-touch devices, and CLICK on touch devices.
+     *
+     * @NOTE: We're not using native touch event sequence since touch devices will emulate a
+     * click event and this is the most reliable way to toggle the tooltip.
+     *  */
     if (!Modernizr.touchevents) {
-      tooltipTrigger.addEventListener('mouseenter', this.createTooltip.bind(this));
-      tooltipTrigger.addEventListener('mouseleave', this.closeTooltip.bind(this));
+      tooltipTrigger.addEventListener('mouseenter', this.createTooltip);
+      tooltipTrigger.addEventListener('mouseleave', this.closeTooltip);
+    }
+    if (Modernizr.touchevents || Modernizr.pointerevents) {
+      tooltipTrigger.addEventListener('click', this.toggleTooltip);
     }
   }
 
@@ -29,8 +42,11 @@ class Tooltip extends React.Component {
 
     // Remove event listeners from non-touch devices
     if (!Modernizr.touchevents) {
-      tooltipTrigger.removeEventListener('mouseenter', this.createTooltip.bind(this));
-      tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip.bind(this));
+      tooltipTrigger.removeEventListener('mouseenter', this.createTooltip);
+      tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip);
+    }
+    if (Modernizr.touchevents || Modernizr.pointerevents) {
+      tooltipTrigger.removeEventListener('click', this.toggleTooltip);
     }
   }
 
@@ -57,6 +73,10 @@ class Tooltip extends React.Component {
   createTooltip = (e) => {
     e.preventDefault();
 
+    if (this.tooltipId) {
+      return;
+    }
+
     // Random ID
     this.tooltipId = `tooltip-${UtilitySystem.generateUUID()}`;
 
@@ -66,7 +86,6 @@ class Tooltip extends React.Component {
     $tooltip.setAttribute('id', this.tooltipId);
     $tooltip.setAttribute('role', 'tooltip');
     $tooltip.classList.add('tooltip');
-
     $tooltipContent.classList.add('tooltip-inner', `tooltip-inner--${this.props.type}`);
 
     const tooltipContent = this.props.content;
@@ -84,11 +103,11 @@ class Tooltip extends React.Component {
     $tooltip.timeline = new TimelineMax({
       paused: true,
       onStart: () => {
-        this.touchOpen = true;
+        this.isTooltipOpen = true;
       },
       onReverseComplete: () => {
-        this.touchOpen = false;
         this.removeTooltip($tooltip);
+        this.isTooltipOpen = false;
       },
     });
 
@@ -183,7 +202,7 @@ class Tooltip extends React.Component {
       // Takes care of multiple PropTypes
       const delayDuration = Number.isInteger(delay) ? delay : 1000;
 
-      setTimeout(() => {
+      this.tooltipDelayTimeoutId = setTimeout(() => {
         tooltip.timeline.play();
       }, delayDuration);
     } else {
@@ -195,8 +214,16 @@ class Tooltip extends React.Component {
    * Close tooltip
    * @return {void}
    */
-  closeTooltip() {
+  closeTooltip = () => {
+    // Cancel delayed tooltip open if user hovers out of target. On 'mouseleave'.
+    if (this.tooltipDelayTimeoutId) {
+      clearTimeout(this.tooltipDelayTimeoutId);
+    }
+
     document.querySelector(`#${this.tooltipId}`).timeline.reverse();
+
+    this.tooltipDelayTimeoutId = undefined;
+    this.isTooltipOpen = false;
   }
 
   /**
@@ -206,6 +233,22 @@ class Tooltip extends React.Component {
    */
   removeTooltip(tooltip) {
     tooltip.remove();
+    this.tooltipId = undefined;
+  }
+
+  /**
+   * Open or close tooltip based on its current state.
+   * Used only on touch devices that rely on click events since a click could
+   * call for either opening or closing.
+   * @param {event} e
+   * @return {void}
+   */
+  toggleTooltip = (e) => {
+    if (!this.isTooltipOpen) {
+      this.createTooltip(e);
+    } else {
+      this.closeTooltip(e);
+    }
   }
 
   renderChildren = () => {
