@@ -32,7 +32,8 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: [
-          path.resolve(__dirname, '../src/scripts'),
+          path.resolve(__dirname, '../src/scripts/'),
+          path.resolve(__dirname, '../node_modules'), // Include dependencies since some modules come transpiled in ES6 and will break IE11.
         ],
         use: [
           {

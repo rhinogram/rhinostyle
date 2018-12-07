@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import '@babel/polyfill';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Cleave from 'cleave.js/react';
