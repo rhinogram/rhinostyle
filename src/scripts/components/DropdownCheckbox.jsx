@@ -246,7 +246,11 @@ class DropdownCheckbox extends React.Component {
             {showCheckbox()}
             {hideCaret || (icon && !label && !selectedLabel) ?
               null :
-              <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" onClick={this.handleToggle} />
+              (
+                <div onClick={this.handleToggle}>
+                  <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" bump="up" />
+                </div>
+              )
             }
             {showLabel()}
           </span>
