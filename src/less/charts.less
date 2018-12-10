@@ -98,22 +98,28 @@
 //Responsive styles for mobiles
 
 @media (max-width: @global-screen-xsmall-max) {
-  .chart-doughnut__info {
-    div {
-      margin-top: @global-whitespace-small !important;
+  .chart {
+    .chart__header {
+      display: block !important;
+  
+      .chart-doughnut__info {
+        div {
+          margin-top: @global-whitespace-small !important;
+        }
+    
+        .list-title {
+          font-size: @global-font-size-xsmall !important;
+        }
+      }
     }
-
-    .list-title {
-      font-size: @global-font-size-xsmall !important;
-    }
-  }
+  }  
 }
 
 //Media queries for big screens
 
 @media (min-width: 1650px) {
   .chart {
-    min-height: 500px;
+    min-height: 300px;
     position: relative;
 
     .chart__without-data {
