@@ -26,6 +26,7 @@ class Avatar extends React.Component {
     const name = this.props.name ? this.props.name.trim() : '';
 
     const classes = cx('avatar', className, {
+      'avatar--xsmall': size === 'xsmall',
       'avatar--small': size === 'small',
       'avatar--large': size === 'large',
       'avatar--xlarge': size === 'xlarge',
