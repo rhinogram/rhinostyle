@@ -78,7 +78,7 @@ Avatar.propTypes = {
   className: PropTypes.string,
   image: PropTypes.string,
   name: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'default', 'large', 'xlarge']),
+  size: PropTypes.oneOf(['xsmall', 'small', 'default', 'large', 'xlarge']),
   src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   type: PropTypes.oneOf(['default', 'member']),
 };

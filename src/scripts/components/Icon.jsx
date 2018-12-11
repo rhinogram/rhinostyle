@@ -48,7 +48,7 @@ Icon.propTypes = {
   bump: PropTypes.oneOf(['down', 'up']),
   className: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['small', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 export default Icon;
