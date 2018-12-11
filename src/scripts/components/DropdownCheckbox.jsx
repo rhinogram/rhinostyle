@@ -241,7 +241,7 @@ class DropdownCheckbox extends React.Component {
           title={title}
           hasClickableChildren
         >
-          <span style={{ display: 'flex', pointerEvents: 'inherit' }}>
+          <span style={{ display: 'flex', alignItems: 'center', pointerEvents: 'inherit' }}>
             {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
             {showCheckbox()}
             {hideCaret || (icon && !label && !selectedLabel) ? (
