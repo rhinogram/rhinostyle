@@ -69,7 +69,7 @@ class Chart extends React.Component {
     const { ...ChartProperties } = this.props;
     return (
       <div className="chart">
-        <div className="chart__header u-flex">
+        <div className="chart__header">
           <div className="header__title">
             {ChartProperties.title}
             {ChartProperties.info && (

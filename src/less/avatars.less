@@ -7,10 +7,9 @@
 @avatar-bg-member: #7fc0d3; // one-off color that may need to become variable
 
 @avatar-size-base: 6rem;
-@avatar-size-xlarge: 9.6rem;
 @avatar-size-large: 7.2rem;
 @avatar-size-small: 4rem;
-@avatar-size-xsmall: 2rem;
+@avatar-size-xlarge: 9.6rem;
 
 
 //
@@ -78,14 +77,6 @@
 }
 
 .avatar--small {
-  height: @avatar-size-small;
-  // use min-width to prevent flex shrinking since we know the width
-  // otherwise we would use flex-shrink: 0;
-  min-width: @avatar-size-small;
-  width: @avatar-size-small;
-}
-
-.avatar--xsmall {
   height: @avatar-size-small;
   // use min-width to prevent flex shrinking since we know the width
   // otherwise we would use flex-shrink: 0;

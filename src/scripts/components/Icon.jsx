@@ -13,7 +13,6 @@ class Icon extends React.Component {
       'icon--bump-down': bump === 'down',
       'icon--bump-up': bump === 'up',
       'icon--small': size === 'small',
-      'icon--medium': size === 'medium',
       'icon--large': size === 'large',
     });
 
@@ -48,7 +47,7 @@ Icon.propTypes = {
   bump: PropTypes.oneOf(['down', 'up']),
   className: PropTypes.string,
   icon: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'large']),
 };
 
 export default Icon;
