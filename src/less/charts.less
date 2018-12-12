@@ -3,6 +3,7 @@
 
   .chart__header {
     padding: @global-whitespace-base @global-whitespace-small;
+    display: flex;
 
     .header__title {
       color: @global-color-gray-darker;
@@ -66,7 +67,7 @@
     div {
       background-color: @global-background;
       border: 5px solid;
-      border-radius: 100px;
+      border-radius: 50%;
       height: 20px;
       width: 20px;
       color: @global-color-black;
@@ -100,16 +101,15 @@
 @media (max-width: @global-screen-xsmall-max) {
   .chart {
     .chart__header {
-      display: block !important;
+      display: block;
+    }
+    .chart-doughnut__info {
+      div {
+        margin-top: @global-whitespace-small;
+      }
 
-      .chart-doughnut__info {
-        div {
-          margin-top: @global-whitespace-small !important;
-        }
-
-        .list-title {
-          font-size: @global-font-size-xsmall !important;
-        }
+      .list-title {
+        font-size: @global-font-size-xsmall;
       }
     }
   }
