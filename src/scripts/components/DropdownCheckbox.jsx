@@ -214,10 +214,11 @@ class DropdownCheckbox extends React.Component {
       const { isCheckbox, checked } = this.state;
       const { onChange } = this.props;
 
-      const derivedCheckboxClassName = checkboxClassName ? `${checkboxClassName} rhinobox__label--ie11` : 'rhinobox__label--ie11';
+      // Appending IE10/11 specific class for proper checkbox alignment.
+      const checkboxClasses = checkboxClassName ? `${checkboxClassName} rhinobox__label--ie11` : 'rhinobox__label--ie11';
 
       if (isCheckbox) {
-        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={derivedCheckboxClassName} />;
+        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClasses} />;
       }
       return false;
     };
