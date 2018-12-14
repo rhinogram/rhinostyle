@@ -832,6 +832,27 @@ input[type='checkbox']:focus {
   }
 }
 
+/* IE 10/11 */
+/** 
+* This is a CSS HACK that allows application of a class ONLY on IE10 and IE11, 
+* but does not apply this same style to other browsers.
+* It is necessary only in special cases, and only for the <Checkbox /> component. 
+* Our <Checkbox /> components hide default checkboxes and use a
+* pseudo element on the label to generate a styled checkbox. 
+* IE does not apply pseudo selector classes on self-closing elements such as <input/>
+* so we can't properly align the styled checkbox when it's part of a flex container. 
+* We have to hard-align it with padding.
+* Reference for browser hacks here: http://browserhacks.com/
+* SO issue RE: pseudo-selector CSS on self-closing tags: https://stackoverflow.com/questions/2587669/can-i-use-a-before-or-after-pseudo-element-on-an-input-field
+* W3 Spec RE: pseudo-selector CSS on self-closing tags: https://www.w3.org/TR/CSS2/generate.html#before-after-content
+** */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .rhinobox__label--ie11 {
+    padding-top: 1.1rem;
+  }
+}
+/* END IE 10/11 */
+
 .form__block-group__label {
   display: block;
   font-weight: @global-font-weight-bold;
