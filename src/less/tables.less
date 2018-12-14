@@ -701,6 +701,7 @@
 @media (max-width: @global-screen-small-max) {
   .ReactTable {
     padding-left: 0;
+    overflow: hidden;
 
     .rt-table {
       overflow-x: scroll;
@@ -711,6 +712,16 @@
         overflow: hidden;
       }
 
+      .rt-thead,
+      .rt-tbody {
+        .expand-header,
+        .expand-column {
+          max-width: 150px !important;
+          width: 150px !important;
+          text-align: center;
+        }
+      }
+
       .rt-td:nth-child(1),
       .rt-th:nth-child(1) {
         z-index: 1;
@@ -718,6 +729,7 @@
         left: @global-whitespace-xsmall / 2;
         top: auto;
         background-color: @global-background;
+        height: 400px !important;
       }
 
       .rt-tr {
