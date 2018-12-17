@@ -68,6 +68,7 @@ const icons = [
   'upload',
   'user-group',
   'user',
+  'empty-state',
 ];
 
 const IconApp = () => (
