@@ -213,8 +213,12 @@ class DropdownCheckbox extends React.Component {
     const showCheckbox = () => {
       const { isCheckbox, checked } = this.state;
       const { onChange } = this.props;
+
+      // Appending IE10/11 specific class for proper checkbox alignment.
+      const checkboxClasses = checkboxClassName ? `${checkboxClassName} rhinobox__label--ie11` : 'rhinobox__label--ie11';
+
       if (isCheckbox) {
-        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClassName} />;
+        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClasses} />;
       }
       return false;
     };
@@ -241,18 +245,20 @@ class DropdownCheckbox extends React.Component {
           title={title}
           hasClickableChildren
         >
-          <span style={{ display: 'flex', alignItems: 'center', pointerEvents: 'inherit' }}>
-            {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
-            {showCheckbox()}
+          {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}
+          {showCheckbox()}
+          <Button reset>
             {hideCaret || (icon && !label && !selectedLabel) ? (
               null
             ) : (
-              <div onClick={this.handleToggle}>
-                <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" bump="up" />
-              </div>
+              // This icon needs to be wrapped in a <Button/>, because IE11 will only fire onClick event on the actual path of an SVG
+              // and not it's container. If we remove the <Button/> wrapper and just use the <Icon/>, it's near impossible to click it.
+              <Button reset onClick={this.handleToggle}>
+                <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
+              </Button>
             )}
             {showLabel()}
-          </span>
+          </Button>
         </Button>
         <div className={dropdownMenuClasses}>
           {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
