@@ -13,6 +13,8 @@ class ScrollUpBar extends Component {
     className: 'scroll-up-bar scoll-up-bar--unfixed'
   };
 
+  setRef = ref => (this.inner = ref);
+
   componentDidMount() {
 
   }
@@ -32,7 +34,6 @@ class ScrollUpBar extends Component {
   componentWillUnmount() {
 
   }
-
 
 }
 
