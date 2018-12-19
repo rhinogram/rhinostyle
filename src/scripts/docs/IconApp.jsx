@@ -69,6 +69,7 @@ const icons = [
   'user-group',
   'user',
   'empty-state',
+  'contacts',
 ];
 
 const IconApp = () => (
