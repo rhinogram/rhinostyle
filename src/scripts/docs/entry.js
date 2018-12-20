@@ -75,6 +75,9 @@ switch (currentUrl) { // eslint-disable-line default-case
   case 'scrollbars':
     require('./ScrollBarApp');
     break;
+  case 'scrollupbar':
+    require('./ScrollUpBarApp');
+    break;
   case 'tables':
     require('./TableApp');
     break;
