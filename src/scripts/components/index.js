@@ -53,6 +53,7 @@ import ResourceRight from './ResourceRight';
 import ResourceIntro from './ResourceIntro';
 import ResourceBody from './ResourceBody';
 import RhinoSwitch from './RhinoSwitch';
+import ScrollUpBar from './ScrollUpBar';
 import Select from './Select';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
@@ -130,6 +131,7 @@ export {
   Resource,
   RhinoSwitch,
   Scrollbars,
+  ScrollUpBar,
   Select,
   SystemAlert,
   TabContentPane,
