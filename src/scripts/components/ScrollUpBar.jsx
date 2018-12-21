@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 class ScrollUpBar extends Component {
@@ -206,20 +206,40 @@ class ScrollUpBar extends Component {
     }
   }
 
-  static getDerivedStateFromProps() {
+  /* static getDerivedStateFromProps() {
     return null;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isDisabled && !this.props.isDisabled) {
+      this.unfix();
+      this.props.parent().removeEventListener('scroll', this.handleScroll);
+      this.props.parent().removeEventListener('resize', this.handleResize);
+    } else if (!nextProps.isDisabled && this.props.isDisabled) {
+      this.props.parent().addEventListener('scroll', this.handleScroll);
+
+      if (this.props.calcHeightOnResize) {
+        this.props.parent().addEventListener('resize', this.handleResize);
+      }
+    }
   }
 
   /* shouldComponentUpdate() {
 
   } */
 
-  componentDidUpdate() {
-
+  componentDidUpdate(prevProps) {
+    // Measure again if children have changed.
+    if (prevProps.children !== this.props.children) {
+      this.setHeightOffset();
+    }
   }
 
   componentWillUnmount() {
+    this.props.parent().removeEventListener('scroll', this.handleScroll);
+    this.props.parent().removeEventListener('resize', this.handleResize);
 
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   render() {
@@ -233,6 +253,7 @@ class ScrollUpBar extends Component {
       left: 0,
       right: 0,
       zIndex: 1,
+      width: 'inherit',
       WebkitTransform: `translate3D(0, ${translateY}, 0)`,
       MsTransform: `translate3D(0, ${translateY}, 0)`,
       transform: `translate3D(0, ${translateY}, 0)`,
@@ -257,11 +278,7 @@ class ScrollUpBar extends Component {
     return (
       <div className="scroll-up-bar">
         <div className="scroll-up-bar__inner" ref={this.setRef} style={innerStyle}>
-          <p>{barStatus}</p>
-          <p>{translateY}</p>
-          <p>{className}</p>
-          <p>{this.props.isDisabled}</p>
-          <div>{this.props.children}</div>
+          <Fragment>{this.props.children}</Fragment>
         </div>
       </div>
     );
