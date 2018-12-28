@@ -21,6 +21,13 @@ class DropdownMultiSelectAdvanced extends React.Component {
     isViewAllItems: true,
   };
 
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.selectedItemsIds.length === 0) {
+      return { isViewAllItems: true };
+    }
+    return null;
+  }
+
   handleUpdateSelectedIds = (id) => {
     let selectedIds = this.props.selectedItemsIds;
     const { selectedItems } = this.props;
