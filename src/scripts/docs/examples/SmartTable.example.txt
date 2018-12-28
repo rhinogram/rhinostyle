@@ -1,19 +1,31 @@
 class ComponentExample extends React.Component {
   state = {
-    data: [{ firstName: 'length', lastName: 'profit', age: 26 }, { firstName: 'Abc', lastName: 'Pqr', age: 16 },
-        { firstName: 'Mahima', lastName: 'Agrawal', age: 16 }],
+    data: [{ date: '1545897645870', member: 'member1', contact: 'contact1', category: 'Contact', action: 'View' },
+    { date: '1545897645870', member: 'member2', contact: 'contact2', category: 'Contact', action: 'View' },
+    { date: '1545897645870', member: 'member1', contact: 'contact1', category: 'Contact', action: 'View' },
+    { date: '1545897645870', member: 'member1', contact: 'contact1', category: 'Contact', action: 'View' },
+    { date: '1545897645870', member: 'member1', contact: 'contact1', category: 'Contact', action: 'View' }],
     columns: [
         {
-            Header: () => this.renderSortedHeader('First Name'),
-            accessor: 'firstName',
+            Header: () => this.renderSortedHeader('Date'),
+            accessor: 'date',
+            fixed: 'left',
         },
         {
-            Header: () => this.renderSortedHeader('Last Name'),
-            accessor: 'lastName',
+            Header: () => this.renderSortedHeader('Member'),
+            accessor: 'member',
         },
         {
-            Header: () => this.renderSortedHeader('Age'),
-            accessor: 'age',
+            Header: () => this.renderSortedHeader('Contact'),
+            accessor: 'contact',
+        },
+        {
+            Header: () => this.renderSortedHeader('Category'),
+            accessor: 'category',
+        },
+        {
+            Header: () => this.renderSortedHeader('Action'),
+            accessor: 'action',
         },
         {
             Header: rows => this.renderExpandAllButton(rows),
@@ -94,6 +106,7 @@ class ComponentExample extends React.Component {
               sortable={true}
               expanded={this.state.expanded}
               striped
+              sticky
               SubComponent={this.renderRowDetails}
             />
           </section>
