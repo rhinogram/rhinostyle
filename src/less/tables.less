@@ -434,6 +434,12 @@
   overflow: hidden;
   transition: 0.3s ease;
   transition-property: width, min-width, padding, opacity;
+
+  div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 
 .ReactTable .rt-th.-hidden,
@@ -732,7 +738,8 @@
       .rt-th {
         padding: @global-whitespace-small @global-whitespace-xsmall;
         font-size: 13px;
-        height: 40px;
+        height: 50px;
+        white-space: normal;
 
         button {
           padding-left: 0;
@@ -743,8 +750,7 @@
         text-transform: capitalize;
 
         div {
-          text-overflow: ellipsis;
-          overflow: hidden;
+          white-space: normal;
         }
       }
     }
