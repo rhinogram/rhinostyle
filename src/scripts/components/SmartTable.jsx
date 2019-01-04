@@ -11,10 +11,12 @@ const SmartTable = (props) => {
     '-sorting': sortable,
   });
   return (
-    <ReactTable
-      className={classes}
-      {...opts}
-    />
+    <div className="autoscroll">
+      <ReactTable
+        className={classes}
+        {...opts}
+      />
+    </div>
   );
 };
 SmartTable.propTypes = {
