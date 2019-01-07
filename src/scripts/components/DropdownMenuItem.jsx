@@ -33,7 +33,7 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, route } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -45,6 +45,7 @@ class DropdownMenuItem extends React.Component {
         <div className="dropdown__menu__item__content__container">
           <div className="dropdown__menu__item__content__label">
             {icon && (<Icon icon={icon} className="u-m-r-small" />)}<span className="u-text-overflow">{label}</span>
+            {labelRaised && (<div className="u-inline-block"><span className="dropdown__menu__item__content__raised">{labelRaised}</span></div>)}
           </div>
           {labelDesc && (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>)}
         </div>
@@ -99,6 +100,7 @@ DropdownMenuItem.propTypes = {
   labelDesc: PropTypes.any,
   route: PropTypes.string,
   url: PropTypes.string,
+  labelRaised: PropTypes.any,
 };
 
 export default DropdownMenuItem;
