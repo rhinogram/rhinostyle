@@ -87,8 +87,11 @@ class Tooltip extends React.Component {
 
     $tooltip.setAttribute('id', this.tooltipId);
     $tooltip.setAttribute('role', 'tooltip');
-    $tooltip.className += 'tooltip';
-    $tooltipContent.className += `tooltip-inner tooltip-inner--${this.props.type}`;
+    $tooltip.classList.add('tooltip');
+
+    // Because classList.add function do not works with multiple arguments in IE
+    $tooltipContent.classList.add('tooltip-inner');
+    $tooltipContent.classList.add(`tooltip-inner--${this.props.type}`);
 
     const tooltipContent = this.props.content;
 
