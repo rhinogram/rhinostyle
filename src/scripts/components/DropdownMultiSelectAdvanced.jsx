@@ -49,7 +49,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
   };
 
   handleToggle = () => {
-    if (this.state.isViewAllItems) {
+    if (this.state.isViewAllItems && this.state.searchText.length > 0) {
       this.setState({ searchText: '' });
       this.props.fetchAllItems('', this.props.filterName.toLowerCase());
     }
@@ -66,15 +66,16 @@ class DropdownMultiSelectAdvanced extends React.Component {
   handleSearch = (id, value) => {
     const { fetchAllItems } = this.props;
     const searchValue = value;
-
-    fetchAllItems(searchValue, this.props.filterName.toLowerCase());
+    if (searchValue.length > 2 || searchValue.length === 0) fetchAllItems(searchValue, this.props.filterName.toLowerCase());
 
     this.setState({ searchText: searchValue });
   };
 
   clearSearch = () => {
-    this.setState({ searchText: '' });
-    this.props.fetchAllItems('', this.props.filterName.toLowerCase());
+    if (this.state.searchText.length > 0) {
+      this.setState({ searchText: '' });
+      this.props.fetchAllItems('', this.props.filterName.toLowerCase());
+    }
   };
 
   renderListItems = (listItem, id, idx) => {
