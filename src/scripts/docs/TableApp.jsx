@@ -25,6 +25,7 @@ const SmartTableDocs = {
   expanded: 'Rows to be expanded',
   highlight: 'Highlight row on mouse over',
   striped: 'Show table rows in striped manner',
+  sticky: 'Apply css for sticky column',
   SubComponent: 'Show details on expanding the row',
 };
 
