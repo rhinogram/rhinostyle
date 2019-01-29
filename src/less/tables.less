@@ -434,6 +434,18 @@
   overflow: hidden;
   transition: 0.3s ease;
   transition-property: width, min-width, padding, opacity;
+
+  div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  button {
+    span {
+      justify-content: left;
+    }
+  }
 }
 
 .ReactTable .rt-th.-hidden,
@@ -732,20 +744,27 @@
       .rt-th {
         padding: @global-whitespace-small @global-whitespace-xsmall;
         font-size: 13px;
-        height: 40px;
+        height: 48px;
+        white-space: normal;
+        word-wrap: break-word;
+
+        div {
+          white-space: normal;
+          word-wrap: break-word;
+        }
 
         button {
           padding-left: 0;
+          line-height: 1.7rem;
+
+          span {
+            white-space: normal;
+          }
         }
       }
 
       .rt-td {
         text-transform: capitalize;
-
-        div {
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
       }
     }
   }
