@@ -17,6 +17,7 @@ class Tooltip extends React.Component {
    * as well as the context of the currentTarget being incorrect.
    * */
   componentDidMount() {
+    window.addEventListener('scroll', this.closeTooltip, true);
     const tooltipTrigger = this.getTooltipTrigger();
 
     /**
@@ -39,6 +40,7 @@ class Tooltip extends React.Component {
 
   componentWillUnmount() {
     const tooltipTrigger = this.getTooltipTrigger();
+    window.removeEventListener('scroll', this.closeTooltip);
 
     // Remove event listeners from non-touch devices
     if (!Modernizr.touchevents) {
@@ -86,7 +88,10 @@ class Tooltip extends React.Component {
     $tooltip.setAttribute('id', this.tooltipId);
     $tooltip.setAttribute('role', 'tooltip');
     $tooltip.classList.add('tooltip');
-    $tooltipContent.classList.add('tooltip-inner', `tooltip-inner--${this.props.type}`);
+
+    // Because classList.add function do not works with multiple arguments in IE
+    $tooltipContent.classList.add('tooltip-inner');
+    $tooltipContent.classList.add(`tooltip-inner--${this.props.type}`);
 
     const tooltipContent = this.props.content;
 
@@ -220,7 +225,9 @@ class Tooltip extends React.Component {
       clearTimeout(this.tooltipDelayTimeoutId);
     }
 
-    document.querySelector(`#${this.tooltipId}`).timeline.reverse();
+    if (this.tooltipId) {
+      document.querySelector(`#${this.tooltipId}`).timeline.reverse();
+    }
 
     this.tooltipDelayTimeoutId = undefined;
     this.isTooltipOpen = false;
