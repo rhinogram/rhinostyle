@@ -55,7 +55,7 @@ class Resource extends React.Component {
   handleClick = () => {
     const { disabled } = this.props;
 
-    if (this.props.onClick && !disabled) {
+    if (this.props.onClick && (!disabled && !unavailable)) {
       this.props.onClick();
     }
   }
@@ -67,7 +67,7 @@ class Resource extends React.Component {
 
     const wrapperClasses = cx('resource__wrapper', wrapperClassName, {
       [UtilitySystem.config.classes.active]: active && !interfaceMode,
-      'has-interface': interfaceMode,
+      'has-interface': interfaceMode && !unavailable,
       [`is-${interfaceClass}`]: interfaceMode,
       'is-selected': selected && !active,
       'is-unread': unread,
@@ -92,6 +92,7 @@ Resource.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  unavailable: PropTypes.bool,
   active: PropTypes.bool,
   selected: PropTypes.bool,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),
