@@ -53,21 +53,21 @@ class Resource extends React.Component {
   }
 
   handleClick = () => {
-    const { disabled } = this.props;
+    const { disabled, unavailable } = this.props;
 
-    if (this.props.onClick && !disabled) {
+    if (this.props.onClick && (!disabled && !unavailable)) {
       this.props.onClick();
     }
   }
 
   render() {
-    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName } = this.props;
+    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName, unavailable } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
     const wrapperClasses = cx('resource__wrapper', wrapperClassName, {
       [UtilitySystem.config.classes.active]: active && !interfaceMode,
-      'has-interface': interfaceMode,
+      'has-interface': interfaceMode && !unavailable,
       [`is-${interfaceClass}`]: interfaceMode,
       'is-selected': selected && !active,
       'is-unread': unread,
@@ -75,6 +75,7 @@ class Resource extends React.Component {
 
     const resourceClasses = cx('resource', className, {
       'has-right-column': this.hasRightColumn(),
+      'resource--is-unavailable': unavailable,
     });
 
     return (
@@ -91,7 +92,8 @@ class Resource extends React.Component {
 Resource.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool, // disables resource button completely.
+  unavailable: PropTypes.bool, // hides the checkbox/radio and voids the click function. Still adds muted text styles to Intro and Body.
   active: PropTypes.bool,
   selected: PropTypes.bool,
   interfaceMode: PropTypes.oneOf(['radio', 'checkbox']),

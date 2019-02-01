@@ -228,6 +228,13 @@
   align-items: center;
   position: relative;
 
+  &--is-unavailable {
+    .resource__intro,
+    .resource__body {
+      opacity: @global-opacity-disabled;
+    }
+  }
+
   // 1. To allow for body to break to next line
   .resource-group\@small & {
     align-items: flex-start;
