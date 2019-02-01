@@ -25,7 +25,7 @@ class Icon extends React.Component {
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          fill="none"
+          fill="transparent"
           strokeLinecap="round"
           strokeLinejoin="round"
           className={classes}
