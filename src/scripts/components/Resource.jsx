@@ -67,6 +67,7 @@ class Resource extends React.Component {
 
     const wrapperClasses = cx('resource__wrapper', wrapperClassName, {
       [UtilitySystem.config.classes.active]: active && !interfaceMode,
+      'is-unavailable': unavailable,
       'has-interface': interfaceMode && !unavailable,
       [`is-${interfaceClass}`]: interfaceMode,
       'is-selected': selected && !active,
