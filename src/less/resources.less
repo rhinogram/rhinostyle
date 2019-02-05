@@ -98,7 +98,7 @@
   flex-direction: column;
   justify-content: center;
 
-  &:not(.has-interface) {
+  &:not(.has-interface):not(.is-unavailable) {
     .mixin-resource-active-tab();
   }
 
@@ -227,6 +227,13 @@
   display: flex;
   align-items: center;
   position: relative;
+
+  &--is-unavailable {
+    .resource__intro,
+    .resource__body {
+      opacity: @global-opacity-disabled;
+    }
+  }
 
   // 1. To allow for body to break to next line
   .resource-group\@small & {

@@ -20,6 +20,7 @@ const ResourceDocs = {
   active: 'Adds active styling to item; normally used within a list view',
   selected: 'Used in conjunction with interfaceMode to determine an actively selected item',
   disabled: 'Disables onClick functionality and adds in additional styling',
+  unavailable: 'Disables onClick functionality, but maintains hover events on resource. Adds additional styling to mute ResourceIntro and ResourceBody.',
   interfaceMode: 'Set on the parent <code>&lt;ResourceGroup /&gt;</code> ' + // eslint-disable-line single-quotes
     "is passed down to impact styling of an item <code>oneOf(['radio', 'checkbox'])</code>", // eslint-disable-line single-quotes
   onClick: 'Fires on click of an item',
