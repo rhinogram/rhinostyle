@@ -184,7 +184,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
 
-  .rt-tr.-odd {
+  .rt-tr.-even {
     & + .expand-row {
       background-color: rgba(0, 0, 0, 0.03);
     }
@@ -367,11 +367,7 @@
 }
 
 .ReactTable .rt-tbody .rt-tr-group {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.05);
-}
-
-.ReactTable .rt-tbody .rt-tr-group:last-child {
-  border-bottom: 0;
+  border-bottom: 0 solid transparent !important;
 }
 
 .ReactTable .rt-tbody .rt-td {
@@ -522,8 +518,12 @@
   border-right: 0;
 }
 
-.ReactTable.-striped .rt-tr.-odd {
-  background: rgba(0, 0, 0, 0.03);
+.ReactTable.-striped .rt-tr.-odd .rt-td {
+  background: #fff !important;
+}
+
+.ReactTable.-striped .rt-tr.-even .rt-td {
+  background: rgba(0, 0, 0, 0.03) !important;
 }
 
 .ReactTable.-highlight .rt-tbody .rt-tr:not(.-padRow):hover {
