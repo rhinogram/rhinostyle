@@ -35,6 +35,7 @@ class Tooltip extends React.Component {
     }
     if (Modernizr.touchevents || Modernizr.pointerevents) {
       tooltipTrigger.addEventListener('click', this.toggleTooltip);
+      tooltipTrigger.addEventListener('focusout', this.closeTooltip);
     }
   }
 
@@ -49,6 +50,7 @@ class Tooltip extends React.Component {
     }
     if (Modernizr.touchevents || Modernizr.pointerevents) {
       tooltipTrigger.removeEventListener('click', this.toggleTooltip);
+      tooltipTrigger.removeEventListener('focusout', this.closeTooltip);
     }
   }
 
