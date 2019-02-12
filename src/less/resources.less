@@ -177,7 +177,7 @@
     }
   }
 
-  &.is-checkbox {
+  &.is-checkbox:not(.is-unavailable) {
     &.is-selected {
       .resource::before {
         background-image: svg-inline(checkmark);
@@ -193,7 +193,7 @@
     }
   }
 
-  &.is-radio {
+  &.is-radio:not(.is-unavailable) {
     .resource::after {
       border-radius: 50%;
     }
