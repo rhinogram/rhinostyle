@@ -372,6 +372,13 @@ const LabelApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">React Table</h3>
+      <div className="u-m-b-large">
+        <h5 className="site-miniheadline">Column Casing</h5>
+        <p className="site-copy">
+          To change the casing, add <code>column--lowercase | column--capitalize | column--uppercase </code>
+          className to the column/s. By default, there is no casing on the columns.
+        </p>
+      </div>
 
       <Live
         code={SmartTableExample}
