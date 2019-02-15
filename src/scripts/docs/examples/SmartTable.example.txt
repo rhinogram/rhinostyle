@@ -14,6 +14,7 @@ class ComponentExample extends React.Component {
         {
             Header: () => this.renderSortedHeader('Member'),
             accessor: 'member',
+            className: 'column--uppercase',
         },
         {
             Header: () => this.renderSortedHeader('Contact'),
@@ -22,10 +23,12 @@ class ComponentExample extends React.Component {
         {
             Header: () => this.renderSortedHeader('Category'),
             accessor: 'category',
+            className: 'column--capitalize',
         },
         {
             Header: () => this.renderSortedHeader('Action'),
             accessor: 'action',
+            className: 'column--lowercase',
         },
         {
             Header: rows => this.renderExpandAllButton(rows),
@@ -97,7 +100,6 @@ class ComponentExample extends React.Component {
     return (
       <Fragment>
           <section className="site-section">
-            <h3 className="site-subheadline">React Table</h3>
             <SmartTable
               showPagination={false}
               data={this.state.data}
