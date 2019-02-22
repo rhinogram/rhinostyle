@@ -350,6 +350,47 @@
 
 .dropdown__menu__container {
   padding: @dropdown-padding;
+
+  .resource__wrapper {
+    @media (max-width: @global-screen-small-max) {
+      padding: @dropdown-padding-vertical;
+    }
+
+    .resource__intro__media {
+      @media (max-width: @global-screen-small-max) {
+        width: 3rem;
+      }
+    }
+
+    .avatar--small {
+      @media (max-width: @global-screen-small-max) {
+        height: 3rem;
+        min-width: 3rem;
+        width: 3rem;
+      }
+    }
+
+    .resource__intro__title__content {
+      @media (max-width: @global-screen-small-max) {
+        font-size: @global-font-size-small;
+      }
+    }
+  }
+
+  .input__wrapper {
+    input {
+      @media (max-width: @global-screen-small-max) {
+        font-size: @global-font-size-small;
+        height: 3rem;
+      }
+    }
+  }
+
+  .form__addon__item {
+    @media (max-width: @global-screen-small-max) {
+      height: 3rem;
+    }
+  }
 }
 
 
