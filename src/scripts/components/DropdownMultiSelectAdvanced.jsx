@@ -140,8 +140,8 @@ class DropdownMultiSelectAdvanced extends React.Component {
     );
   };
 
-  renderViewSelectedItems = (classes, dropdownType) => (
-    <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} type={dropdownType} disableScroll>
+  renderViewSelectedItems = (classes, dropdownType, dropDownClass) => (
+    <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} className={this.props.dropDownClass} type={dropdownType} disableScroll>
       <div className="dropdown__menu__container">
         <div className="search__group">
           <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
@@ -171,7 +171,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
   );
 
   render() {
-    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName, className } = this.props;
+    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName, className, dropDownClass } = this.props;
     let classes = 'resource-group__scroll';
     if (className) {
       classes = `resource-group__scroll ${className}`;
@@ -186,7 +186,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     }
     return (
       this.state.isViewAllItems ? (
-        <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} type={dropdownType} disableScroll>
+        <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} className={dropDownClass} type={dropdownType} disableScroll>
           <div className="dropdown__menu__container">
             <div className="search__group">
               {selectedItemsIds.length > 0 ? (
@@ -242,6 +242,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   items: PropTypes.object.isRequired,
   avatarBaseUrl: PropTypes.string,
   dropdownLabel: PropTypes.string.isRequired,
+  dropDownClass: PropTypes.string,
   filterName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
