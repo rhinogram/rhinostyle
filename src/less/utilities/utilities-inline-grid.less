@@ -8,6 +8,7 @@
 
 @inline-grid-spacing-base: @global-whitespace-base;
 @inline-grid-spacing-small: @global-whitespace-small;
+@inline-grid-spacing-xsmall: @global-whitespace-xsmall;
 @inline-grid-spacing-large: @global-whitespace-large;
 
 
@@ -27,6 +28,10 @@
   > * {
     margin-left: @inline-grid-spacing-base !important;
     margin-top: @inline-grid-spacing-base !important;
+
+    @media (max-width: @global-screen-xsmall-min) {
+      margin-bottom: @inline-grid-spacing-xsmall;
+    }
   }
 }
 
