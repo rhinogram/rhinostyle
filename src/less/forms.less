@@ -692,7 +692,7 @@ input[type='checkbox']:focus {
       background-repeat: no-repeat;
       background-size: 75% 75%;
     }
-  }
+   }
 
   &.rhinobox--primary {
     input {
@@ -727,6 +727,12 @@ input[type='checkbox']:focus {
         background-image: svg-inline(minus);
         border-color: @form-element-primary-color;
       }
+    }
+  }
+
+  &.is-disabled {
+    label::before {
+      background-color: @global-color-gray-light;
     }
   }
 
