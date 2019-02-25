@@ -170,6 +170,10 @@
   @media (min-width: @global-screen-xsmall-min) {
     max-width: 44rem;
   }
+
+  @media (max-width: @global-screen-xsmall-min) {
+    max-width: 14rem;
+  }
 }
 
 
@@ -480,4 +484,19 @@
 
 .multi-select__dropdown--fixed-height > div:nth-child(1) {
   max-height: 300px !important;
+}
+
+.contact_dropdown {
+  & + .dropdown__menu {
+    @media (max-width: @global-screen-xsmall-min) {
+      left: auto;
+      right: -3rem;
+      margin: 0 auto;
+
+      &::before {
+        left: auto;
+        right: 7rem;
+      }
+    }
+  }
 }
