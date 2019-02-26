@@ -730,6 +730,12 @@ input[type='checkbox']:focus {
     }
   }
 
+  &.is-disabled {
+    label::before {
+      background-color: @global-color-gray-light;
+    }
+  }
+
   label {
     &::before {
       background-color: @global-color-white;
