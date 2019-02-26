@@ -2,7 +2,6 @@
 // Variables
 //
 
-
 @dropdown-arrow-size: 1rem;
 @dropdown-bg: @global-color-white;
 @dropdown-border: @global-border-color;
@@ -23,11 +22,9 @@
 
 @dropdown-zindex: 1030;
 
-
 //
 // Component
 //
-
 
 .dropdown {
   display: inline-flex;
@@ -46,11 +43,9 @@
   }
 }
 
-
 //
 // Dropdown Modifier (Block)
 //
-
 
 .dropdown--block {
   width: 100%;
@@ -75,20 +70,18 @@
   }
 }
 
-
 //
 // Dropdown Modifier (Multiselect)
 //
 
-
 .dropdown--multiselect {
   .mixin-chevron-down(); // add chevron
 
-@svg-load checkmark url(../svg/checkmark.svg) {
-  .icon-stroke {
-    stroke: @global-color-secondary;
+  @svg-load checkmark url(../svg/checkmark.svg) {
+    .icon-stroke {
+      stroke: @global-color-secondary;
+    }
   }
-}
 
   .dropdown__menu__item.is-active > .dropdown__menu__item__link {
     padding-right: 3.6rem;
@@ -120,7 +113,6 @@
     }
   }
 }
-
 
 //
 // Dropdown Menu
@@ -176,11 +168,9 @@
   }
 }
 
-
 //
 // Dropdown Menu Modifiers
 //
-
 
 .dropdown__menu--right {
   left: auto;
@@ -230,11 +220,9 @@
   min-width: 26rem;
 }
 
-
 //
 // Dropdown Menu Item
 //
-
 
 .dropdown__menu__item {
   position: relative; // needed for active state with checkmark
@@ -263,11 +251,9 @@
   }
 }
 
-
 //
 // Dropdown Menu Item Link
 //
-
 
 .dropdown__menu__item__link {
   color: @dropdown-link-color;
@@ -286,11 +272,9 @@
   }
 }
 
-
 //
 // Dropdown Menu Item Content
 //
-
 
 .dropdown__menu__item__content {
   align-items: center;
@@ -298,24 +282,20 @@
   position: relative;
 }
 
-
 //
 // Dropdown Menu Item Content Container
 //
 // Isolates label and desc from avatar for alignment
 // Also allows for text overflow of label but not description
 
-
 .dropdown__menu__item__content__container {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-
 //
 // Dropdown Menu Item Desc Content Description
 //
-
 
 .dropdown__menu__item__content__desc {
   font-size: 1.4rem;
@@ -339,18 +319,15 @@
 // Dropdown Menu Item Content Label
 //
 
-
 .dropdown__menu__item__content__label {
   align-items: center;
   display: flex;
 }
 
-
 //
 // Dropdown Menu Container
 //
 // Simply gives same padding as links.
-
 
 .dropdown__menu__container {
   padding: @dropdown-padding;
@@ -387,11 +364,9 @@
   }
 }
 
-
 //
 // Dropdown Menu Header
 //
-
 
 .dropdown__menu__header {
   color: @dropdown-header-color;
@@ -406,11 +381,9 @@
   text-overflow: ellipsis;
 }
 
-
 //
 // Dropdown Menu Divider
 //
-
 
 .dropdown__menu__divider {
   background-color: @global-color-gray-lighter;
@@ -419,12 +392,10 @@
   overflow: hidden;
 }
 
-
 //
 // Dropdown Menu Scroll
 //
 // Scrollable menu content
-
 
 // 1. Fixes scrollbar position bug that results from translateY on dropdown__menu
 .dropdown__menu__scroll {
@@ -434,11 +405,9 @@
   transform: translate3d(0, 0, 0);
 }
 
-
 //
 // Dropdown Toggle Text
 //
-
 
 .dropdown__toggle__text {
   .u-text-overflow;
@@ -448,11 +417,9 @@
   }
 }
 
-
 //
 // Dropdown Toggle Caret
 //
-
 
 // 1. Modify stroke-width to match selects
 .dropdown__toggle__caret {
@@ -464,7 +431,6 @@
     stroke-width: 1; // 1
   }
 }
-
 
 //
 // Dropdown Close
