@@ -84,11 +84,11 @@
 .dropdown--multiselect {
   .mixin-chevron-down(); // add chevron
 
-  @svg-load checkmark url(../svg/checkmark.svg) {
-    .icon-stroke {
-      stroke: @global-color-secondary;
-    }
+@svg-load checkmark url(../svg/checkmark.svg) {
+  .icon-stroke {
+    stroke: @global-color-secondary;
   }
+}
 
   .dropdown__menu__item.is-active > .dropdown__menu__item__link {
     padding-right: 3.6rem;
@@ -453,9 +453,9 @@
 
 .contact_dropdown {
   & + .dropdown__menu {
-    @media (max-width: @global-screen-xsmall-min) {
+    @media (max-width: @global-screen-xxsmall-min) {
       left: auto;
-      right: -3rem;
+      right: -2rem;
       margin: 0 auto;
 
       &::before {
@@ -465,3 +465,4 @@
     }
   }
 }
+
