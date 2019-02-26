@@ -354,6 +354,37 @@
 
 .dropdown__menu__container {
   padding: @dropdown-padding;
+
+  @media (max-width: @global-screen-small-max) {
+    .resource__wrapper {
+      padding: @dropdown-padding-vertical;
+
+      .resource__intro__media {
+        width: @base-h1-font-size;
+      }
+
+      .avatar--small {
+        height: @base-h1-font-size;
+        min-width: @base-h1-font-size;
+        width: @base-h1-font-size;
+      }
+
+      .resource__intro__title__content {
+        font-size: @global-font-size-small;
+      }
+    }
+
+    .input__wrapper {
+      input {
+        font-size: @global-font-size-small;
+        height: @base-h1-font-size;
+      }
+    }
+
+    .form__addon__item {
+      height: @base-h1-font-size;
+    }
+  }
 }
 
 
@@ -451,18 +482,4 @@
   max-height: 300px !important;
 }
 
-.contact_dropdown {
-  & + .dropdown__menu {
-    @media (max-width: @global-screen-xxsmall-min) {
-      left: auto;
-      right: -2rem;
-      margin: 0 auto;
-
-      &::before {
-        left: auto;
-        right: 7rem;
-      }
-    }
-  }
-}
 
