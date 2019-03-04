@@ -140,7 +140,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     );
   };
 
-  renderViewSelectedItems = (classes, dropdownType, dropDownClass) => (
+  renderViewSelectedItems = (classes, dropdownType) => (
     <Dropdown wide onClick={this.clearSearch} autoFocusInput={false} label={this.props.dropdownLabel} className={this.props.dropDownClass} type={dropdownType} disableScroll>
       <div className="dropdown__menu__container">
         <div className="search__group">
