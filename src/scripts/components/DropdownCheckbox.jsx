@@ -247,7 +247,7 @@ class DropdownCheckbox extends React.Component {
         >
           {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}
           {showCheckbox()}
-          <Button reset>
+          <Button reset hasClickableChildren>
             {hideCaret || (icon && !label && !selectedLabel) ? (
               null
             ) : (
