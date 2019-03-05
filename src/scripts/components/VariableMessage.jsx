@@ -363,18 +363,19 @@ class VariableMessage extends React.Component {
     return (
       <div className={classes}>
         {!readOnly && (
-          <div className="variable-message__header">
-            <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
-            {this.showReset() && (
-            <div className="variable-message__reset">
-              <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
-            </div>
-            )}
+        <div className="variable-message__header">
+          <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
+          {this.showReset() && (
+          <div className="variable-message__reset">
+            <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
           </div>
+          )}
+        </div>
         )}
-        <textarea
+        <div
           id={variableMessageInputName}
           className="variable-message__compose"
+          contentEditable={!readOnly}
           onInput={this.handleComposeInput}
           onKeyPress={this.handleComposeKeypress}
           onKeyUp={this.handleKeyUp}
