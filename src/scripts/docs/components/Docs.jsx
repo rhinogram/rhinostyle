@@ -67,10 +67,10 @@ const Docs = (props) => {
   // If no component was specified; ignore
   if (!component) return null;
 
-  Object.keys(component.propTypes).map(propName =>
+  Object.keys(component.propTypes).map(propName => // eslint-disable-line react/forbid-foreign-prop-types
     propTypes.push({
       propName,
-      type: getReactPropType(component.propTypes[propName]),
+      type: getReactPropType(component.propTypes[propName]), // eslint-disable-line react/forbid-foreign-prop-types
       description: ReactHtmlParser(propDescriptions[propName]) || '',
       default: (component.defaultProps && component.defaultProps[propName]) && (typeof component.defaultProps[propName] !== 'function' ? component.defaultProps[propName].toString() : null), // eslint-disable-line max-len
     }));
