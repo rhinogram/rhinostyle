@@ -12,6 +12,7 @@ import {
   RadioGroup,
   RhinoSwitch,
   Select,
+  SlidingRadio,
   Textarea,
   UtilityInlineGrid,
   UtilityList,
@@ -187,6 +188,15 @@ const FormApp = () => (
           <Radio value="3" label="Radio Three" />
         </RadioGroup>
         <RhinoSwitch label="Switcher" name="exampleSwitch1" />
+        <SlidingRadio
+          selectedValue="1"
+          onChange={e => console.log(e)}
+          options={[
+            { name: 'Denied', value: '1' },
+            { name: 'Unknown', value: '2' },
+            { name: 'Granted', value: '3' },
+          ]}
+        />
         <div className="form__group u-text-right">
           <Button type="primary">Submit Form</Button>
         </div>
