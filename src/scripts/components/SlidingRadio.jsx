@@ -14,22 +14,22 @@ class SlidingRadio extends Component {
     if (this.props.onChange) this.props.onChange(value);
   }
 
-  getLabelColor = (value) => {
+  getLabelStyle = (value) => {
     const isChecked = value === this.state.selectedValue;
     const { options } = this.props;
 
-    let color;
+    let style;
     if (!isChecked) {
-      color = 'u-text-muted';
+      style = 'u-font-weight-normal';
     } else if (value === options[0].value) {
-      color = 'u-text-danger';
+      style = 'u-text-danger';
     } else if (value === options[1].value) {
-      color = 'u-text-warning';
+      style = 'u-text-warning';
     } else if (value === options[2].value) {
-      color = 'u-text-secondary';
+      style = 'u-text-secondary';
     }
 
-    return color;
+    return style;
   }
 
 
@@ -56,7 +56,7 @@ class SlidingRadio extends Component {
                 onChange={() => this.handleChange(option.value)}
               />
               <label // eslint-disable-line jsx-a11y/label-has-for
-                className={`rhinoslidingradio__label ${this.getLabelColor(option.value)}`}
+                className={`rhinoslidingradio__label ${this.getLabelStyle(option.value)}`}
                 htmlFor={option.value}
               >
                 {option.label}

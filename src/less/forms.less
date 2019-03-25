@@ -810,8 +810,6 @@ input[type='checkbox']:focus {
     transition: all 0.25s @global-trans-timing-cubic;
   }
   &:checked + .rhinoslidingradio__label.u-text-danger {
-    // border-bottom: 1px solid @global-color-danger;
-
     &::after {
       border: 2px solid @global-color-danger;
     }
@@ -822,8 +820,6 @@ input[type='checkbox']:focus {
     }
   }
   &:checked + .rhinoslidingradio__label.u-text-warning {
-    // border-bottom: 1px solid @global-color-warning;
-
     &::after {
       border: 2px solid @global-color-warning;
     }
@@ -834,8 +830,6 @@ input[type='checkbox']:focus {
     }
   }
   &:checked + .rhinoslidingradio__label.u-text-secondary {
-    // border-bottom: 1px solid @global-color-secondary;
-
     &::after {
       border: 2px solid @global-color-secondary;
     }
@@ -894,6 +888,7 @@ input[type='checkbox']:focus {
   border-bottom: 1px solid @global-border-color;
   & > div {
     position: relative;
+    min-width: 7rem;
   }
 }
 
