@@ -189,12 +189,14 @@ const FormApp = () => (
         </RadioGroup>
         <RhinoSwitch label="Switcher" name="exampleSwitch1" />
         <SlidingRadio
-          selectedValue="1"
-          onChange={e => console.log(e)}
+          selectedValue="2"
+          label="Sliding Radios"
+          name="exampleSlidingRadio1"
+          slidingRadioContainerClass="rhinoslidingradio__container"
           options={[
-            { name: 'Denied', value: '1' },
-            { name: 'Unknown', value: '2' },
-            { name: 'Granted', value: '3' },
+            { label: 'Denied', value: '1' },
+            { label: 'Unknown', value: '2' },
+            { label: 'Granted', value: '3' },
           ]}
         />
         <div className="form__group u-text-right">

@@ -24,7 +24,6 @@ class RadioGroup extends React.Component {
   }
 
   handleChange = (value) => {
-    console.log({ value });
     this.setState({
       selectedValue: value,
     });
@@ -55,14 +54,12 @@ class RadioGroup extends React.Component {
           name,
         });
       } else if (child.type === SlidingRadio) {
-        const onChange = () => {
-          if (child.props.value) {
-            if (this.props.onChange) {
-              this.handleChange(child.props.value);
-              this.props.onChange(child.props.value);
-            } else {
-              this.handleChange(child.props.value);
-            }
+        const onChange = (value) => {
+          if (this.props.onChange) {
+            this.handleChange(value);
+            this.props.onChange(value);
+          } else {
+            this.handleChange(value);
           }
         };
 

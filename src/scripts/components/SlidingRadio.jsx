@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
-import { UtilitySystem } from '.';
+import { UtilitySystem, FormLabel } from '.';
 
 class SlidingRadio extends Component {
   state={
@@ -11,18 +11,21 @@ class SlidingRadio extends Component {
 
   handleChange = (value) => {
     this.setState({ selectedValue: value });
+    if (this.props.onChange) this.props.onChange(value);
   }
 
   getLabelColor = (value) => {
     const isChecked = value === this.state.selectedValue;
+    const { options } = this.props;
+
     let color;
     if (!isChecked) {
       color = 'u-text-muted';
-    } else if (value === '1') {
+    } else if (value === options[0].value) {
       color = 'u-text-danger';
-    } else if (value === '2') {
+    } else if (value === options[1].value) {
       color = 'u-text-warning';
-    } else if (value === '3') {
+    } else if (value === options[2].value) {
       color = 'u-text-secondary';
     }
 
@@ -31,34 +34,48 @@ class SlidingRadio extends Component {
 
 
   render() {
-    const { className, disabled, options } = this.props;
+    const { slidingRadioContainerClass, disabled, options, slidingRadioClass, label, required, name } = this.props;
     const { selectedValue } = this.state;
-    const classes = cx('rhinoslidingradio', className, {
+    const classes = cx('rhinoslidingradio', {
       [UtilitySystem.config.classes.disabled]: disabled,
-    });
+    }, slidingRadioContainerClass);
     return (
-      <div className={classes}>
-        {options.map(({ value, name }) => (
-          <div>
-            <input className="rhinoslidingradio__input" type="radio" disabled={disabled} name={name} value={value} id={value} checked={value === selectedValue} onChange={() => this.handleChange(value)} />
-            <label // eslint-disable-line jsx-a11y/label-has-for
-              className={`rhinoslidingradio__label ${this.getLabelColor(value)}`}
-              htmlFor={value}
-            >
-              {name}
-            </label>
-          </div>
-        ))}
+      <div className="form__group">
+        <FormLabel id="" required={required}>{label}</FormLabel>
+        <div className={classes}>
+          {options.map(option => (
+            <div key={option.value} className={slidingRadioClass}>
+              <input
+                className="rhinoslidingradio__input"
+                type="radio"
+                disabled={disabled}
+                name={name}
+                value={option.value}
+                id={option.value}
+                checked={option.value === selectedValue}
+                onChange={() => this.handleChange(option.value)}
+              />
+              <label // eslint-disable-line jsx-a11y/label-has-for
+                className={`rhinoslidingradio__label ${this.getLabelColor(option.value)}`}
+                htmlFor={option.value}
+              >
+                {option.label}
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
 }
 
 SlidingRadio.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
+  slidingRadioContainerClass: PropTypes.string,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  slidingRadioClass: PropTypes.string,
   disabled: PropTypes.bool,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  required: PropTypes.bool,
   onChange: PropTypes.func,
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.array.isRequired,
