@@ -149,7 +149,7 @@ class Input extends React.Component {
               onMouseDown={this.handleMouseDown}
               readOnly={readOnly}
               htmlRef={ref => (this.input = ref)}
-              {...customHTMLAttributes}
+              {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
             />
             {input && clear && (
               <Button reset className="form__clear__button" onClick={this.handleClear}>
@@ -179,7 +179,7 @@ class Input extends React.Component {
             onMouseDown={this.handleMouseDown}
             readOnly={readOnly}
             ref={ref => (this.input = ref)}
-            {...customHTMLAttributes}
+            {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
           />
           {input && clear && (
           <Button reset className="form__clear__button" onClick={this.handleClear}>
