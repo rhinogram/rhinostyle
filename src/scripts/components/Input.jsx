@@ -85,7 +85,7 @@ class Input extends React.Component {
 
   render() {
     const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format,
-      label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage } = this.props;
+      label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage, ...rest } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear': clear,
       'form__control--naked': naked,
@@ -128,6 +128,7 @@ class Input extends React.Component {
               onMouseDown={this.handleMouseDown}
               readOnly={readOnly}
               htmlRef={ref => (this.input = ref)}
+              {...rest}
             />
             {input && clear && (
               <Button reset className="form__clear__button" onClick={this.handleClear}>
@@ -157,6 +158,7 @@ class Input extends React.Component {
             onMouseDown={this.handleMouseDown}
             readOnly={readOnly}
             ref={ref => (this.input = ref)}
+            {...rest}
           />
           {input && clear && (
           <Button reset className="form__clear__button" onClick={this.handleClear}>
