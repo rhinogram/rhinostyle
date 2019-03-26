@@ -84,8 +84,29 @@ class Input extends React.Component {
   }
 
   render() {
-    const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format,
-      label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage, id, ...rest } = this.props;
+    const {
+      addon,
+      autoCapitalize,
+      autoComplete,
+      className,
+      clear,
+      customHTMLAttributes,
+      disabled,
+      explanationMessage,
+      format,
+      id,
+      label,
+      naked,
+      name,
+      onInit,
+      placeholder,
+      readOnly,
+      required,
+      size,
+      type,
+      validationMessage,
+    } = this.props;
+
     const inputClasses = cx('form__control', {
       'form__control--clear': clear,
       'form__control--naked': naked,
@@ -128,7 +149,7 @@ class Input extends React.Component {
               onMouseDown={this.handleMouseDown}
               readOnly={readOnly}
               htmlRef={ref => (this.input = ref)}
-              {...rest}
+              {...customHTMLAttributes}
             />
             {input && clear && (
               <Button reset className="form__clear__button" onClick={this.handleClear}>
@@ -158,7 +179,7 @@ class Input extends React.Component {
             onMouseDown={this.handleMouseDown}
             readOnly={readOnly}
             ref={ref => (this.input = ref)}
-            {...rest}
+            {...customHTMLAttributes}
           />
           {input && clear && (
           <Button reset className="form__clear__button" onClick={this.handleClear}>
@@ -231,12 +252,13 @@ Input.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   clear: PropTypes.bool,
+  customHTMLAttributes: PropTypes.object,
   disabled: PropTypes.bool,
   explanationMessage: PropTypes.string,
+  focus: PropTypes.bool,
   format: PropTypes.object,
   initialValue: PropTypes.string,
   label: PropTypes.string,
-  size: PropTypes.oneOf(['large']),
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
@@ -247,7 +269,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
-  focus: PropTypes.bool,
+  size: PropTypes.oneOf(['large']),
   type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
   validationMessage: PropTypes.string,
 };
