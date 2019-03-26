@@ -115,7 +115,7 @@ class Input extends React.Component {
               type={type}
               disabled={disabled}
               className={inputClasses}
-              id={id ? id : this.id} // If parent doesn't explicitly pass an ID, we will generate one dynamically.
+              id={id || this.id} // If parent doesn't explicitly pass an ID, we will generate one dynamically.
               name={name}
               onInit={onInit}
               options={format}
@@ -147,7 +147,7 @@ class Input extends React.Component {
             type={type}
             disabled={disabled}
             className={inputClasses}
-            id={id ? id : this.id} // If parent doesn't explicitly pass an ID, we will generate one dynamically.
+            id={id || this.id} // If parent doesn't explicitly pass an ID, we will generate one dynamically.
             name={name}
             placeholder={placeholder}
             value={this.state.value}
