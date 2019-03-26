@@ -809,30 +809,36 @@ input[type='checkbox']:focus {
     transform: scale(1.5, 1.5);
     transition: all 0.25s @global-trans-timing-cubic;
   }
+
   &:checked + .rhinoslidingradio__label.u-text-danger {
     &::after {
       border: 2px solid @global-color-danger;
     }
+
     &::before {
       transform: scale(1, 1);
       background-color: @global-color-danger;
       transition: all 0.25s @global-trans-timing-cubic;
     }
   }
+
   &:checked + .rhinoslidingradio__label.u-text-warning {
     &::after {
       border: 2px solid @global-color-warning;
     }
+
     &::before {
       transform: scale(1, 1);
       background-color: @global-color-warning;
       transition: all 0.25s @global-trans-timing-cubic;
     }
   }
+
   &:checked + .rhinoslidingradio__label.u-text-secondary {
     &::after {
       border: 2px solid @global-color-secondary;
     }
+
     &::before {
       transform: scale(1, 1);
       background-color: @global-color-secondary;
@@ -859,7 +865,7 @@ input[type='checkbox']:focus {
     margin-left: -0.5rem;
     position: absolute;
     speak: none;
-    bottom: -.6rem;
+    bottom: -0.6rem;
     transform-origin: center center;
     transform: scale(1, 1);
     width: 1rem;
@@ -886,6 +892,7 @@ input[type='checkbox']:focus {
   justify-content: space-between;
   display: flex;
   border-bottom: 1px solid @global-border-color;
+
   & > div {
     position: relative;
     min-width: 7rem;
