@@ -85,7 +85,7 @@ class Input extends React.Component {
 
   render() {
     const { addon, autoCapitalize, autoComplete, className, clear, disabled, explanationMessage, format,
-      label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage, ...rest } = this.props;
+      label, naked, name, onInit, placeholder, readOnly, required, size, type, validationMessage, id, ...rest } = this.props;
     const inputClasses = cx('form__control', {
       'form__control--clear': clear,
       'form__control--naked': naked,
@@ -115,7 +115,7 @@ class Input extends React.Component {
               type={type}
               disabled={disabled}
               className={inputClasses}
-              id={this.id}
+              id={id ? id : this.id} // If parent doesn't explicitly pass an ID, we will generate one dynamically.
               name={name}
               onInit={onInit}
               options={format}
@@ -147,7 +147,7 @@ class Input extends React.Component {
             type={type}
             disabled={disabled}
             className={inputClasses}
-            id={this.id}
+            id={id ? id : this.id} // If parent doesn't explicitly pass an ID, we will generate one dynamically.
             name={name}
             placeholder={placeholder}
             value={this.state.value}
