@@ -217,14 +217,12 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeKeypress = (e) => {
-    console.log('HELLO FROM handleComposeKeypress');
     if (e.which === ENTER_KEY) {
       e.preventDefault();
     }
   }
 
   handleKeyUp = (k) => {
-    console.log('HELLO FROM handleKeyUp');
     // check if delete key or backspace is pressed to see if a variable was removed
     if (k.which === BACKSPACE_KEY || k.which === DELETE_KEY) {
       const available = [];
@@ -269,7 +267,6 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
-    console.log('HELLO FROM handleComposeInput');
     // Get the rawMessage content to return onInput
     const rawMessage = this.compose.textContent.trim();
 
