@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, Radio, UtilityInlineGrid, UtilityList, UtilityListItem } from '.';
+import { FormLabel, FormExplanationMessage, FormValidationMessage, Radio, SlidingRadio, UtilityInlineGrid, UtilityList, UtilityListItem } from '.';
 
 class RadioGroup extends React.Component {
   state = {
@@ -45,6 +45,21 @@ class RadioGroup extends React.Component {
             } else {
               this.handleChange(child.props.value);
             }
+          }
+        };
+
+        returnChild = React.cloneElement(child, {
+          onChange,
+          selectedValue,
+          name,
+        });
+      } else if (child.type === SlidingRadio) {
+        const onChange = (value) => {
+          if (this.props.onChange) {
+            this.handleChange(value);
+            this.props.onChange(value);
+          } else {
+            this.handleChange(value);
           }
         };
 

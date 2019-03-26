@@ -665,7 +665,8 @@ input[type='checkbox']:focus {
 }
 
 .rhinobox__input,
-.rhinodio__input {
+.rhinodio__input,
+.rhinoslidingradio__input {
   .mixin-checkbox-radio-input-hide();
 }
 
@@ -800,6 +801,97 @@ input[type='checkbox']:focus {
   }
 }
 
+// add other attr to input to identify it in css file, similar to checked
+
+.rhinoslidingradio__input {
+  &:checked + .rhinoslidingradio__label::after {
+    transform-origin: center center;
+    transform: scale(1.5, 1.5);
+    transition: all 0.25s @global-trans-timing-cubic;
+  }
+  &:checked + .rhinoslidingradio__label.u-text-danger {
+    &::after {
+      border: 2px solid @global-color-danger;
+    }
+    &::before {
+      transform: scale(1, 1);
+      background-color: @global-color-danger;
+      transition: all 0.25s @global-trans-timing-cubic;
+    }
+  }
+  &:checked + .rhinoslidingradio__label.u-text-warning {
+    &::after {
+      border: 2px solid @global-color-warning;
+    }
+    &::before {
+      transform: scale(1, 1);
+      background-color: @global-color-warning;
+      transition: all 0.25s @global-trans-timing-cubic;
+    }
+  }
+  &:checked + .rhinoslidingradio__label.u-text-secondary {
+    &::after {
+      border: 2px solid @global-color-secondary;
+    }
+    &::before {
+      transform: scale(1, 1);
+      background-color: @global-color-secondary;
+      transition: all 0.25s @global-trans-timing-cubic;
+    }
+  }
+}
+
+.rhinoslidingradio__label {
+  padding: 0 0 1rem 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+
+  &::after {
+    background-color: @global-color-white;
+    border: 1px solid @global-border-color;
+    border-radius: 50%;
+    content: '';
+    display: inline-block;
+    height: 1rem;
+    left: 50%;
+    margin-left: -0.5rem;
+    position: absolute;
+    speak: none;
+    bottom: -.6rem;
+    transform-origin: center center;
+    transform: scale(1, 1);
+    width: 1rem;
+  }
+
+  &::before {
+    transform-origin: center center;
+    box-sizing: content-box;
+    height: 3px;
+    width: 100%;
+    transform: scale(0, 0);
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+  }
+}
+
+.rhinoslidingradio__container {
+  width: 30rem;
+}
+
+.rhinoslidingradio {
+  justify-content: space-between;
+  display: flex;
+  border-bottom: 1px solid @global-border-color;
+  & > div {
+    position: relative;
+    min-width: 7rem;
+  }
+}
+
 [class^="form__block-group--"] {
   border: 1px solid @global-border-color;
 
@@ -814,7 +906,8 @@ input[type='checkbox']:focus {
   }
 
   .rhinodio__label,
-  .rhinobox__label {
+  .rhinobox__label,
+  .rhinoslidingradio__label {
     padding: @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-xsmall) @global-whitespace-base @global-whitespace-base;
     position: static;
     width: 100%;
