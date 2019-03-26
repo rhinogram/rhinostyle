@@ -54,6 +54,7 @@ import ResourceIntro from './ResourceIntro';
 import ResourceBody from './ResourceBody';
 import RhinoSwitch from './RhinoSwitch';
 import Select from './Select';
+import SlidingRadio from './SlidingRadio';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
 import Table from './Table';
@@ -131,6 +132,7 @@ export {
   RhinoSwitch,
   Scrollbars,
   Select,
+  SlidingRadio,
   SystemAlert,
   TabContentPane,
   SmartTable,
