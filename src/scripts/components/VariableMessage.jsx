@@ -372,17 +372,20 @@ class VariableMessage extends React.Component {
           )}
         </div>
         )}
-        <div
-          id={variableMessageInputName}
-          className="variable-message__compose"
-          contentEditable={!readOnly}
-          onInput={this.handleComposeInput}
-          onKeyPress={this.handleComposeKeypress}
-          onKeyUp={this.handleKeyUp}
-          onPaste={this.handlePaste}
-          name={name}
-          ref={ref => (this.compose = ref)}
-        />
+        <div style={{ position: 'relative' }}>
+          <div
+            id={variableMessageInputName}
+            className="variable-message__compose"
+            contentEditable={!readOnly}
+            onInput={this.handleComposeInput}
+            onFocus={this.handleComposeInput}
+            onKeyPress={this.handleComposeKeypress}
+            onKeyUp={this.handleKeyUp}
+            onPaste={this.handlePaste}
+            name={name}
+            ref={ref => (this.compose = ref)}
+          />
+        </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
         <FormValidationMessage validationMessage={validationMessage} />
         {!readOnly && (

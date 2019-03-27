@@ -36,6 +36,9 @@ const InputDocs = {
     "<code>oneOf(['none', 'sentences', 'words', 'characters'])</code>", // eslint-disable-line single-quotes
   autoComplete: "Adjust the completion settings on an input <code>oneOf(['off', 'on'])</code>", // eslint-disable-line single-quotes
   clear: 'Form control gets a clear value button',
+  customHTMLAttributes: `Any additional attributes you want to pass down to the <code>< input ></code> selector.
+    <br><br>These should be contained in an object, with each item in the object formatted as <code>'data-test': 'my input'</code>
+    <br><br><strong>NOTE:</strong> Only traditional custom attributes such as 'data-' or  'aria-' attributes will be rendered to the DOM`,
   disabled: 'Disable the input',
   format: 'Accepts object with custom formatting/mask operations',
   initialValue: 'Any initial value for the input',
@@ -549,7 +552,6 @@ const FormApp = () => (
         propDescriptions={RhinoSwitchDocs}
       />
     </section>
-
 
     <section className="site-section">
       <h3 className="site-subheadline">Sliding Radio</h3>
