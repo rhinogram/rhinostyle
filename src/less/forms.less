@@ -40,7 +40,7 @@
 
 @switcher-height: 3rem;
 @switcher-width: (@switcher-height * 1.75rem);
-@switcher-transition: all 0.25s @global-trans-timing-cubic;
+@switcher-transition: all @global-transition-speed-normal @global-trans-timing-cubic;
 @switcher-border-radius: @global-border-radius;
 @switcher-background: lighten(@global-font-color, 25);
 @switcher-background-active: @global-color-secondary;
@@ -361,7 +361,7 @@ input[type='checkbox']:focus {
   border: 1px solid @input-border;
   display: flex;
   white-space: nowrap;
-  transition: border-color 0.25s @global-trans-timing-cubic;
+  transition: border-color @global-transition-speed-normal @global-trans-timing-cubic;
   .mixin-addon-size(@input-height-base; @input-padding-base; @global-font-size-base);
 
   // Class added to `.form__group` so we can pass input styles down
@@ -493,7 +493,7 @@ input[type='checkbox']:focus {
   border-radius: @global-border-radius;
   color: @input-color;
   display: flex;
-  transition: border-color 0.25s @global-trans-timing-cubic, box-shadow 0.25s @global-trans-timing-cubic;
+  transition: border-color @global-transition-speed-normal @global-trans-timing-cubic, box-shadow @global-transition-speed-normal @global-trans-timing-cubic;
   width: 100%;
 
   // hide IE clear on inputs
@@ -689,7 +689,7 @@ input[type='checkbox']:focus {
   input {
     &:checked + label::before {
       background-image: svg-inline(checkmark);
-      background-position: center center;
+      background-position: center;
       background-repeat: no-repeat;
       background-size: 75% 75%;
     }
@@ -750,7 +750,7 @@ input[type='checkbox']:focus {
       speak: none;
       top: 50%;
       transform: translateY(-50%);
-      transition: background-color 0.25s @global-trans-timing-cubic;
+      transition: background-color @global-transition-speed-normal @global-trans-timing-cubic;
       width: @rhinobox-rhinodio-size;
     }
   }
@@ -780,8 +780,8 @@ input[type='checkbox']:focus {
     position: absolute;
     top: 50%;
     transform: translateY(-50%) scale(0);
-    transition: transform 0.25s @global-trans-timing-cubic;
-    transform-origin: center center;
+    transition: transform @global-transition-speed-normal @global-trans-timing-cubic;
+    transform-origin: center;
     width: (@rhinobox-rhinodio-size - @rhinodio-offset);
   }
 
@@ -801,42 +801,38 @@ input[type='checkbox']:focus {
   }
 }
 
-// add other attr to input to identify it in css file, similar to checked
-
 .rhinoslidingradio__input {
   &:checked + .rhinoslidingradio__label::after {
-    transform-origin: center center;
-    transform: scale(1.5, 1.5);
-    transition: all 0.25s @global-trans-timing-cubic;
+    transform-origin: center;
+    transform: scale(1.5);
+    transition: all @global-transition-speed-normal @global-trans-timing-cubic;
+  }
+  &:checked + .rhinoslidingradio__label::before {
+    transform: scale(1);
+    transition: all @global-transition-speed-normal @global-trans-timing-cubic;
   }
   &:checked + .rhinoslidingradio__label.u-text-danger {
     &::after {
-      border: 2px solid @global-color-danger;
+      border: 1px solid @global-color-danger;
     }
     &::before {
-      transform: scale(1, 1);
       background-color: @global-color-danger;
-      transition: all 0.25s @global-trans-timing-cubic;
     }
   }
   &:checked + .rhinoslidingradio__label.u-text-warning {
     &::after {
-      border: 2px solid @global-color-warning;
+      border: 1px solid @global-color-warning;
     }
     &::before {
-      transform: scale(1, 1);
       background-color: @global-color-warning;
-      transition: all 0.25s @global-trans-timing-cubic;
     }
   }
   &:checked + .rhinoslidingradio__label.u-text-secondary {
     &::after {
-      border: 2px solid @global-color-secondary;
+      border: 1px solid @global-color-secondary;
     }
     &::before {
-      transform: scale(1, 1);
       background-color: @global-color-secondary;
-      transition: all 0.25s @global-trans-timing-cubic;
     }
   }
 }
@@ -860,26 +856,22 @@ input[type='checkbox']:focus {
     position: absolute;
     speak: none;
     bottom: -.6rem;
-    transform-origin: center center;
-    transform: scale(1, 1);
+    transform-origin: center;
+    transform: scale(1);
     width: 1rem;
   }
 
   &::before {
-    transform-origin: center center;
+    transform-origin: center;
     box-sizing: content-box;
     height: 3px;
     width: 100%;
-    transform: scale(0, 0);
+    transform: scale(0);
     content: '';
     position: absolute;
     bottom: -2px;
     left: 0;
   }
-}
-
-.rhinoslidingradio__container {
-  width: 30rem;
 }
 
 .rhinoslidingradio {
@@ -888,7 +880,6 @@ input[type='checkbox']:focus {
   border-bottom: 1px solid @global-border-color;
   & > div {
     position: relative;
-    min-width: 7rem;
   }
 }
 

@@ -6,6 +6,7 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  FormLabel,
   Icon,
   Input,
   Radio,
@@ -17,6 +18,7 @@ import {
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
+  UtilitySystem,
 } from '../components';
 import { Live } from './components';
 import InputExample from './examples/Input.example.txt';
@@ -25,6 +27,7 @@ import TextareaExample from './examples/Textarea.example.txt';
 import MessageBoxExample from './examples/MessageBox.example.txt';
 import CheckboxExample from './examples/Checkbox.example.txt';
 import RadioExample from './examples/Radio.example.txt';
+import SlidingRadioExample from './examples/SlidingRadio.example.txt';
 import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
 const InputDocs = {
@@ -144,6 +147,24 @@ const RadioScope = {
   UtilityListItem,
 };
 
+const SlidingRadioDocs = {
+  label: 'Text visible to user above component',
+  disabled: 'Disable the component',
+  options: 'An array of objects consisting of <code>name, value, and type</code>.&nbsp;'
+    + 'The <code>type</code> value is string identifyer for color class selections - <code>oneOf(["warning", "danger", "secondary"])</code>',
+  onChange: 'A function you which to trigger when you change the selection',
+  selectedValue: 'The sliding radio you want selected',
+  className: 'Class to be applied to the individual sliding radios',
+  name: 'A name attribute for the component',
+};
+const SlidingRadioScope = {
+  React,
+  ReactDOM,
+  SlidingRadio,
+  UtilitySystem,
+  FormLabel,
+};
+
 const RhinoSwitchDocs = {
   disabled: 'Disable the switch',
   isChecked: 'Set initial on/off state',
@@ -188,17 +209,18 @@ const FormApp = () => (
           <Radio value="3" label="Radio Three" />
         </RadioGroup>
         <RhinoSwitch label="Switcher" name="exampleSwitch1" />
-        <SlidingRadio
-          selectedValue="2"
-          label="Sliding Radios"
-          name="exampleSlidingRadio1"
-          slidingRadioContainerClass="rhinoslidingradio__container"
-          options={[
-            { label: 'Denied', value: '1' },
-            { label: 'Unknown', value: '2' },
-            { label: 'Granted', value: '3' },
-          ]}
-        />
+        <div className="u-m-t" style={{ width: '30rem' }}>
+          <SlidingRadio
+            selectedValue="2"
+            label="Sliding Radios"
+            name="exampleSlidingRadio1"
+            options={[
+              { label: 'Denied', value: '1', type: 'danger' },
+              { label: 'Unknown', value: '2', type: 'warning' },
+              { label: 'Granted', value: '3', type: 'secondary' },
+            ]}
+          />
+        </div>
         <div className="form__group u-text-right">
           <Button type="primary">Submit Form</Button>
         </div>
@@ -525,6 +547,38 @@ const FormApp = () => (
         scope={RhinoSwitchScope}
         component={RhinoSwitch}
         propDescriptions={RhinoSwitchDocs}
+      />
+    </section>
+
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Sliding Radio</h3>
+      <h5 className="site-miniheadline">Rhinoslidingradio</h5>
+      <p className="site-copy">Our custom radio element is called <code>rhinoslidingradio</code>.</p>
+      <p><strong>Note:</strong> The <code>SlidingRadio</code> component is automatically set to full width.
+       To limit it&#39;s size, wrap the component in a <code>div</code> tag (or similar HTML tag) with a set width.
+      </p>
+      <div className="u-m-t" style={{ width: '30rem' }}>
+        <SlidingRadio
+          selectedValue="2"
+          name="exampleSlidingRadio3"
+          options={[
+            { label: 'Denied', value: '1', type: 'danger' },
+            { label: 'Unknown', value: '2', type: 'warning' },
+            { label: 'Granted', value: '3', type: 'secondary' },
+          ]}
+        />
+      </div>
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Sliding Radio Playground</h3>
+
+      <Live
+        code={SlidingRadioExample}
+        scope={SlidingRadioScope}
+        component={SlidingRadio}
+        propDescriptions={SlidingRadioDocs}
       />
     </section>
   </Fragment>
