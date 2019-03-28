@@ -1,5 +1,5 @@
 <div className="site-example-inputs">
-  <Input name="exampleInputFirstName31" label="First Name" placeholder="First Name" type="text" required customHTMLAttributes={{'data-test': 'hello', 'aria-custom': 'world'}}/>
+  <Input name="exampleInputFirstName31" label="First Name" placeholder="First Name" type="text" required customHTMLAttributes={{'data-test': 'hello', 'aria-labelledby': 'world'}}/>
   <Input name="exampleInputLastName31" label="Last Name" placeholder="Last Name" type="text" required />
   <Input addon="left" clear name="exampleInputPassword31" placeholder="Password" type="password"><Icon icon="lock" /></Input>
   <Input name="example2092390209290" addon="both" type="text" placeholder="Lorem ipsum dolor sit">

@@ -214,7 +214,7 @@ body {
   display: flex;
   height: @global-header-height;
   padding: 0 @global-whitespace-base;
-  transition: transform 250ms @global-trans-timing-cubic;
+  transition: transform @global-transition-speed-normal @global-trans-timing-cubic;
 }
 
 .site-header__menu {
@@ -315,7 +315,7 @@ body {
   color: @global-color-white;
   display: block;
   padding: @global-whitespace-small @global-whitespace-base;
-  transition: background-color 250ms @global-trans-timing-cubic;
+  transition: background-color @global-transition-speed-normal @global-trans-timing-cubic;
 
   .no-touchevents & {
     &:hover,

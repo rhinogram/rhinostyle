@@ -1,0 +1,23 @@
+class ComponentExample extends React.Component {
+  optionalCallbackFunction = (value) => {
+    console.log('Run optional callback function', value);
+  };
+
+  render() {
+    return (
+      <div className="u-m-t" style={{ width: '30rem' }}>
+        <SlidingRadio
+          selectedValue="2"
+          label="Sliding Radios"
+          name="exampleSlidingRadio2"
+          onChange={this.optionalCallbackFunction}
+          options={[
+            { label: 'Denied', value: '1', type: 'danger' },
+            { label: 'Unknown', value: '2', type: 'warning' },
+            { label: 'Granted', value: '3', type: 'secondary' },
+          ]}
+        />
+      </div>
+    );
+  }
+}
