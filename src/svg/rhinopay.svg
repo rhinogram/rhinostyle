@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g class="icon-stroke" stroke="#000000" fill="none" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+    <circle
+       class="icon-stroke"
+       id="circle5184"
+       r="11"
+       cy="12"
+       cx="12" />
+  </g>
+  <text
+     class="icon-stroke icon-fill"
+     id="text5736"
+     y="16.758976"
+     x="8.1791248"
+     style="font-style:normal;font-weight:normal;font-size:14.02357101px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       y="16.758976"
+       x="8.1791248"
+       id="tspan5738">$</tspan></text>
+</svg>
