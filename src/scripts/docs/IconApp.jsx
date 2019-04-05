@@ -77,6 +77,18 @@ const IconApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">SVG Icons</h3>
+      <div>Adding <span className="u-text-accent">Icons</span> to <code>RhinoStyle</code> requires a few simple steps in a set order.
+         With <code>gulp serve</code> running, add the icon file to the <code>/src/svg</code> directory. In a new terminal window run <code>gulp icons</code>.
+         This will generate a new <code>icons.json</code> file that consists of a flattened array with your newly added <span className="u-text-accent">Icon</span>.
+         Next, in <code>IconApp.jsx</code> add the filename of your new <span className="u-text-accent">Icon</span> to the icons array near the top of the file.
+         Your icon should now be visible on the <code>/icons</code> page.
+        <div className="u-m-b u-m-t">
+          <strong>Note: </strong>There are two classes available for <span className="u-text-accent">Icons</span>: <code>icon-stroke</code> and <code>icon-fill</code>.
+             These are required for stroked svg paths and filled svg paths, as they override the <span className="u-text-accent">Icon</span>
+           &nbsp;color and allow for dynamic coloring via props.
+        </div>
+      </div>
+
 
       <div className="row">
         {icons.map(value => (
