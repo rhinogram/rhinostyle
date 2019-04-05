@@ -1,0 +1,56 @@
+.daterange__dropdown {
+  text-align: center;
+
+  .dropdown {
+    .date-range__buttons {
+      .button {
+        background-color: @global-color-gray-lightest;
+        box-shadow: none;
+        font-size: @global-font-size-small;
+        height: @global-whitespace-large;
+      }
+    }
+
+    .menu__divider {
+      margin-top: @global-whitespace-small;
+      margin-bottom: @global-whitespace-small;
+    }
+
+    .dropdown__menu {
+      font-size: @global-font-size-small;
+      width: 300px;
+
+      .dropdown__menu__divider {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: @global-whitespace-small;
+        margin-bottom: @global-whitespace-small;
+      }
+
+      .date-range__label {
+        font-weight: @global-font-weight-bold;
+      }
+
+      .dropdown__menu__scroll {
+        overflow-y: unset;
+        max-height: inherit;
+        overflow: visible;
+      }
+    }
+  }
+
+  .form__group {
+    label {
+      color: @global-color-gray;
+      margin-bottom: 0;
+    }
+  }
+
+  .react-datepicker__input-container {
+    input {
+      @media (max-width: @global-screen-xsmall-min) {
+        font-size: @global-font-size-small;
+      }
+    }
+  }
+}

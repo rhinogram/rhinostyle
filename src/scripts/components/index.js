@@ -17,6 +17,7 @@ import CoverFooter from './CoverFooter';
 import CoverHeader from './CoverHeader';
 import Date from './Date';
 import Dropdown from './Dropdown';
+import DateRangeDropdown from './DateRangeDropdown';
 import DropdownCheckbox from './DropdownCheckbox';
 import DropdownFilter from './DropdownFilter';
 import DropdownMenuDivider from './DropdownMenuDivider';
@@ -92,6 +93,7 @@ export {
   CoverHeader,
   Date,
   Dropdown,
+  DateRangeDropdown,
   DropdownCheckbox,
   DropdownFilter,
   DropdownMenuDivider,
