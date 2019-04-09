@@ -19,7 +19,6 @@ class ComponentExample extends React.Component {
       from = from.setDate(from.getDate() - duration);
     }
     let to = new Date();
-    console.log('from value--', from);
     return { startDate: new Date(from), endDate: new Date(to) };
   }
 
