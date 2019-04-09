@@ -18,16 +18,6 @@ class DateRangeDropdown extends React.Component {
     this.setState({ isApplyEnabled: false, startDate: moment(this.props.startDate), endDate: moment(this.props.endDate) });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // Checking the next updated values of date. If those are not equal with previous values, component needs to be updated with new values
-    if (prevState.endDate !== this.state.endDate && this.props.isCustomDate) {
-      this.endDatePickerInput.datePickerInput.input.setRawValue(this.state.endDate.format('MM/DD/YYYY'));
-    }
-    if (prevState.startDate !== this.state.startDate && this.props.isCustomDate) {
-      this.startDatePickerInput.datePickerInput.input.setRawValue(this.state.startDate.format('MM/DD/YYYY'));
-    }
-  }
-
   handleDropdownClick = () => {
     if (this.props.isCustomDate) {
       const startInputValue = this.startDatePickerInput.datePickerInput.input.element.value;
