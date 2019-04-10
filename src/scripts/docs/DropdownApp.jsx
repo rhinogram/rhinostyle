@@ -19,6 +19,7 @@ import {
 } from '../components';
 import { Live } from './components';
 import DropdownMultiSelectAdvanced from '../components/DropdownMultiSelectAdvanced';
+import DateRangeDropdown from '../components/DateRangeDropdown';
 import DropdownExample from './examples/Dropdown.example.txt';
 import DropdownCheckboxExample from './examples/DropdownCheckbox.example.txt';
 import DropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
@@ -26,6 +27,7 @@ import DropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt
 import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
 import DropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
 import DropdownMultiSelectAdvancedExample from './examples/DropdownMultiSelectAdvanced.example.txt';
+import DateRangeDropdownExample from './examples/DateRangeDropdown.example.txt';
 
 
 const DropdownDocs = {
@@ -64,6 +66,20 @@ const DropdownCheckboxDocs = {
   onChange: 'Callback when checkbox is clicked.',
   labelValueAssociated: 'Total no. of items present of the same category as the DropdownMenuItem selected.',
   showAssociatedLabel: 'Enables labelValueAssociated.',
+};
+
+const DateRangeDropdownDocs = {
+  activeKey: 'The id of the currently selected DropdownMenuItem',
+  startDate: 'Default selected Start date for calendar',
+  endDate: 'Default selected End date for calendar',
+  minDate: 'Minimum date for calendar',
+  maxDate: 'Maximum date for calendar',
+  position: 'Position of Dropdown',
+  name: 'Name of the dropdown',
+  selectDate: 'Function to set start date and end date in to start of container',
+  dropdownMenuItems: 'Menu Items to be displayed as options',
+  selectDateRange: 'Function to calculate start date and end date on basis of selected option',
+  isCustomDate: 'Boolean value to render custom date selector',
 };
 
 const DropdownMultiSelectDocs = {
@@ -111,6 +127,7 @@ const DropdownScope = {
   Icon,
   UtilityInlineGrid,
   DropdownMultiSelectAdvanced,
+  DateRangeDropdown,
 };
 
 const DropdownApp = () => (
@@ -454,6 +471,20 @@ const DropdownApp = () => (
         scope={DropdownScope}
         component={DropdownMenuItemWild}
         propDescriptions={DropdownMenuItemWildDocs}
+      />
+    </section>
+    <section className="site-section">
+      <h3 className="site-subheadline">Date Range Dropdoen</h3>
+      <p className="site-copy">Use <code>DateRangeDropdown</code> component to create custom date range selector.
+        This dropdown and dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as &quot;pills&quot; below the dropdown.
+        This will allow you to select date range on basis of selected option to fetch data within a date range
+      </p>
+
+      <Live
+        code={DateRangeDropdownExample}
+        scope={DropdownScope}
+        component={DateRangeDropdown}
+        propDescriptions={DateRangeDropdownDocs}
       />
     </section>
   </Fragment>

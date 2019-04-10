@@ -1,0 +1,57 @@
+
+class ComponentExample extends React.Component {
+  state = {
+    startDate: new Date(),
+    endDate: new Date(),
+    minDate: new Date((new Date()).setFullYear((new Date()).getFullYear() - 1)),
+    maxDate: new Date(),
+    datePickerDropdownLabels: [{ id: 1, label: 'Today', duration: 0 }, { id: 2, label: 'Last 7 Days', duration: 6 },
+      { id: 3, label: 'Last 30 Days', duration: 29 }, { id: 4, label: 'Last 90 Days', duration: 89 },
+      { id: 5, label: 'Last 12 Months', duration: 'year' }, { id: 6, label: 'Custom Date' }],
+  }
+
+  // This function is written for calculating start date and end date for selected option  
+  selectDateRange = (duration, activeKey) => {
+		let from = new Date();
+    if (duration === 'year') {
+      from = from.setFullYear(from.getFullYear() -1);
+    } else {
+      from = from.setDate(from.getDate() - duration);
+    }
+    let to = new Date();
+    return { startDate: new Date(from), endDate: new Date(to) };
+  }
+
+  selectDate = (date) => {
+    if (date.startDate > date.endDate) {
+      this.setState({ isValidDate: false });
+    } else {
+      this.setState({
+        activeKey: date.activeKey,
+        isValidDate: true,
+        isDateSelected: true,
+        startDate: date.startDate,
+        endDate: date.endDate,
+      });
+    }
+  };
+
+  render() {
+    const { startDate, endDate, minDate, maxDate, datePickerDropdownLabels} = this.state;	
+    return (
+      <DateRangeDropdown
+        name="Date Range Dropdown"
+        startDate={startDate}
+        endDate={endDate}
+        selectDate={this.selectDate}
+        minDate={minDate}
+        maxDate={maxDate}
+        activeKey={1}
+        position="top-center"
+        dropdownMenuItems={datePickerDropdownLabels}
+        selectDateRange={this.selectDateRange}
+        isCustomDate
+      />  
+    );
+  }
+}
