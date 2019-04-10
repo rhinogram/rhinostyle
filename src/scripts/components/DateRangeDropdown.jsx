@@ -78,7 +78,8 @@ class DateRangeDropdown extends React.Component {
   }
 
   applyDates = () => {
-    this.setState({ isApplyEnabled: false, activeKey: 6 });
+    const totalLabels = this.props.dropdownMenuItems.length;
+    this.setState({ isApplyEnabled: false, activeKey: totalLabels });
 
     if (this.dropdown && this.dropdown.dropdown) {
       this.dropdown.dropdown.componentNode.timeline.reverse();
