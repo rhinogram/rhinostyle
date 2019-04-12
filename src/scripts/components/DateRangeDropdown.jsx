@@ -18,6 +18,15 @@ class DateRangeDropdown extends React.Component {
     this.setState({ isApplyEnabled: false, startDate: moment(this.props.startDate), endDate: moment(this.props.endDate) });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.endDate !== this.state.endDate) {
+      this.endDatePickerInput.datePickerInput.input.setRawValue(this.state.endDate.format('MM/DD/YYYY'));
+    }
+    if (prevState.startDate !== this.state.startDate) {
+      this.startDatePickerInput.datePickerInput.input.setRawValue(this.state.startDate.format('MM/DD/YYYY'));
+    }
+  }
+
   handleDropdownClick = () => {
     if (this.props.isCustomDate) {
       const startInputValue = this.startDatePickerInput.datePickerInput.input.element.value;
@@ -52,11 +61,12 @@ class DateRangeDropdown extends React.Component {
     const { minDate, maxDate } = this.props;
     let from = moment(this.state.startDate);
     let to = moment(date);
+    const endDate = to.format('YYYY-MM-DD');
+
     if (!(date && date.isValid())) {
       to = moment(this.state.endDate);
     }
-
-    if (to.isBefore(moment(minDate)) || to.isAfter(moment(maxDate))) {
+    if (to.isBefore(moment(minDate)) || moment(endDate).isAfter(maxDate.format('YYYY-MM-DD'))) {
       to = from.clone();
     }
     if (from.isAfter(to)) {
@@ -84,7 +94,7 @@ class DateRangeDropdown extends React.Component {
     if (this.dropdown && this.dropdown.dropdown) {
       this.dropdown.dropdown.componentNode.timeline.reverse();
     }
-    this.props.selectDate({ startDate: this.state.startDate, endDate: this.state.endDate, activeKey: 6 });
+    this.props.selectDate({ startDate: this.state.startDate, endDate: this.state.endDate, activeKey: totalLabels });
   };
 
   render() {
