@@ -11,7 +11,6 @@ class DateRangeDropdown extends React.Component {
     minDate: moment(this.props.minDate),
     maxDate: moment(this.props.maxDate),
     dropdownMenuItems: this.props.dropdownMenuItems || [],
-    activeKey: this.props.activeKey,
   };
 
   componentDidMount() {
@@ -77,19 +76,19 @@ class DateRangeDropdown extends React.Component {
 
   handleChange = (duration, activeKey) => {
     const { startDate, endDate } = this.props.selectDateRange(duration, activeKey);
-    this.setState({ startDate: moment(startDate), endDate: moment(endDate), activeKey });
+    this.setState({ startDate: moment(startDate), endDate: moment(endDate) });
     this.props.selectDate({ startDate: moment(startDate), endDate: moment(endDate), activeKey });
   };
 
   getLabel(activeKey) {
     const { dropdownMenuItems } = this.state;
     return `${(dropdownMenuItems[activeKey - 1] && dropdownMenuItems[activeKey - 1].label) || ''} 
-    (${moment(this.state.startDate).format('MMM DD, YYYY')} - ${moment(this.state.endDate).format('MMM DD, YYYY')})`;
+    (${moment(this.props.startDate).format('MMM DD, YYYY')} - ${moment(this.props.endDate).format('MMM DD, YYYY')})`;
   }
 
   applyDates = () => {
     const totalLabels = this.props.dropdownMenuItems.length;
-    this.setState({ isApplyEnabled: false, activeKey: totalLabels });
+    this.setState({ isApplyEnabled: false });
 
     if (this.dropdown && this.dropdown.dropdown) {
       this.dropdown.dropdown.componentNode.timeline.reverse();
@@ -98,8 +97,8 @@ class DateRangeDropdown extends React.Component {
   };
 
   render() {
-    const { name, position = 'center', isCustomDate } = this.props;
-    const { startDate, endDate, dropdownMenuItems, activeKey, minDate, maxDate } = this.state;
+    const { name, position = 'center', isCustomDate, activeKey } = this.props;
+    const { startDate, endDate, dropdownMenuItems, minDate, maxDate } = this.state;
     return (
       <div className="daterange__dropdown">
         <Dropdown
