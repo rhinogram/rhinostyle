@@ -11,11 +11,19 @@ class DateRangeDropdown extends React.Component {
     minDate: moment(this.props.minDate),
     maxDate: moment(this.props.maxDate),
     dropdownMenuItems: this.props.dropdownMenuItems || [],
-    activeKey: this.props.activeKey,
   };
 
   componentDidMount() {
     this.setState({ isApplyEnabled: false, startDate: moment(this.props.startDate), endDate: moment(this.props.endDate) });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.endDate !== this.state.endDate) {
+      this.endDatePickerInput.datePickerInput.input.setRawValue(this.state.endDate.format('MM/DD/YYYY'));
+    }
+    if (prevState.startDate !== this.state.startDate) {
+      this.startDatePickerInput.datePickerInput.input.setRawValue(this.state.startDate.format('MM/DD/YYYY'));
+    }
   }
 
   handleDropdownClick = () => {
@@ -52,11 +60,12 @@ class DateRangeDropdown extends React.Component {
     const { minDate, maxDate } = this.props;
     let from = moment(this.state.startDate);
     let to = moment(date);
+    const endDate = to.format('YYYY-MM-DD');
+
     if (!(date && date.isValid())) {
       to = moment(this.state.endDate);
     }
-
-    if (to.isBefore(moment(minDate)) || to.isAfter(moment(maxDate))) {
+    if (to.isBefore(moment(minDate)) || moment(endDate).isAfter(maxDate.format('YYYY-MM-DD'))) {
       to = from.clone();
     }
     if (from.isAfter(to)) {
@@ -67,29 +76,29 @@ class DateRangeDropdown extends React.Component {
 
   handleChange = (duration, activeKey) => {
     const { startDate, endDate } = this.props.selectDateRange(duration, activeKey);
-    this.setState({ startDate: moment(startDate), endDate: moment(endDate), activeKey });
+    this.setState({ startDate: moment(startDate), endDate: moment(endDate) });
     this.props.selectDate({ startDate: moment(startDate), endDate: moment(endDate), activeKey });
   };
 
   getLabel(activeKey) {
     const { dropdownMenuItems } = this.state;
     return `${(dropdownMenuItems[activeKey - 1] && dropdownMenuItems[activeKey - 1].label) || ''} 
-    (${moment(this.state.startDate).format('MMM DD, YYYY')} - ${moment(this.state.endDate).format('MMM DD, YYYY')})`;
+    (${moment(this.props.startDate).format('MMM DD, YYYY')} - ${moment(this.props.endDate).format('MMM DD, YYYY')})`;
   }
 
   applyDates = () => {
     const totalLabels = this.props.dropdownMenuItems.length;
-    this.setState({ isApplyEnabled: false, activeKey: totalLabels });
+    this.setState({ isApplyEnabled: false });
 
     if (this.dropdown && this.dropdown.dropdown) {
       this.dropdown.dropdown.componentNode.timeline.reverse();
     }
-    this.props.selectDate({ startDate: this.state.startDate, endDate: this.state.endDate, activeKey: 6 });
+    this.props.selectDate({ startDate: this.state.startDate, endDate: this.state.endDate, activeKey: totalLabels });
   };
 
   render() {
-    const { name, position = 'center', isCustomDate } = this.props;
-    const { startDate, endDate, dropdownMenuItems, activeKey, minDate, maxDate } = this.state;
+    const { name, position = 'center', isCustomDate, activeKey } = this.props;
+    const { startDate, endDate, dropdownMenuItems, minDate, maxDate } = this.state;
     return (
       <div className="daterange__dropdown">
         <Dropdown
