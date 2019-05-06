@@ -33,14 +33,14 @@ class SlidingRadio extends Component {
 
 
   render() {
-    const { disabled, options, className, label, required, name } = this.props;
+    const { disabled, options, className, label, required, name, activeUserId } = this.props;
     const { selectedValue } = this.state;
     const classes = cx('rhinoslidingradio', {
       [UtilitySystem.config.classes.disabled]: disabled,
     });
     return (
       <div className="form__group">
-        <FormLabel id="" required={required}>{label}</FormLabel>
+        <FormLabel id={activeUserId} required={required}>{label}</FormLabel>
         <div className={classes}>
           {options.map(option => (
             <div key={option.value} className={className}>
