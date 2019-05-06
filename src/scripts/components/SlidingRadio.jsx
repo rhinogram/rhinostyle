@@ -76,6 +76,7 @@ SlidingRadio.propTypes = {
   required: PropTypes.bool,
   onChange: PropTypes.func,
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  activeUserId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   options: PropTypes.array.isRequired,
 };
 
