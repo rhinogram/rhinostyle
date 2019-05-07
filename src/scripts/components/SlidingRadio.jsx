@@ -6,7 +6,7 @@ import { UtilitySystem, FormLabel } from '.';
 
 class SlidingRadio extends Component {
   state={
-    selectedValue: '',
+    selectedValue: this.props.selectedValue || '',
   }
 
   componentDidUpdate = (prevProps) => {
