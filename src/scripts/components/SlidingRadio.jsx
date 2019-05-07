@@ -9,6 +9,12 @@ class SlidingRadio extends Component {
     selectedValue: this.props.selectedValue || '',
   }
 
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.selectedValue !== this.props.selectedValue) {
+      this.setState({ selectedValue: this.props.selectedValue });
+    }
+  }
+
   handleChange = (value) => {
     this.setState({ selectedValue: value });
     if (this.props.onChange) this.props.onChange(value);
