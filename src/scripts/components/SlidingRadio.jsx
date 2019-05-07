@@ -45,7 +45,7 @@ class SlidingRadio extends Component {
       [UtilitySystem.config.classes.disabled]: disabled,
     });
     return (
-      <div className="form__group fart">
+      <div className="form__group">
         <FormLabel id="" required={required}>{label}</FormLabel>
         <div className={classes}>
           {options.map(option => (
