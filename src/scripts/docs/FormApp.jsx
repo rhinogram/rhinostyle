@@ -39,6 +39,7 @@ const InputDocs = {
   customHTMLAttributes: `Any additional attributes you want to pass down to the <code>< input ></code> selector.
     <br><br>These should be contained in an object, with each item in the object formatted as <code>'data-test': 'my input'</code>
     <br><br><strong>NOTE:</strong> Only traditional custom attributes such as 'data-' or  'aria-' attributes will be rendered to the DOM`,
+  customInputClasses: 'Add any custom classes directly to the <code>< input ></code> element of the component',
   disabled: 'Disable the input',
   format: 'Accepts object with custom formatting/mask operations',
   initialValue: 'Any initial value for the input',
