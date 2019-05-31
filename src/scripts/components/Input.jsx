@@ -91,6 +91,7 @@ class Input extends React.Component {
       className,
       clear,
       customHTMLAttributes,
+      customInputClasses,
       disabled,
       explanationMessage,
       format,
@@ -107,7 +108,7 @@ class Input extends React.Component {
       validationMessage,
     } = this.props;
 
-    const inputClasses = cx('form__control', {
+    const inputClasses = cx('form__control', customInputClasses, {
       'form__control--clear': clear,
       'form__control--naked': naked,
       'form__control--error': validationMessage,
@@ -253,6 +254,7 @@ Input.propTypes = {
   className: PropTypes.string,
   clear: PropTypes.bool,
   customHTMLAttributes: PropTypes.object,
+  customInputClasses: PropTypes.string,
   disabled: PropTypes.bool,
   explanationMessage: PropTypes.string,
   focus: PropTypes.bool,
