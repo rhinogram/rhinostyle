@@ -69,7 +69,10 @@ class Input extends React.Component {
     this.setState({ value: '' }, () => this.input.focus());
   }
 
-  handleFocus = () => {
+  handleFocus = (event) => {
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
     this.input.closest('.form__group').classList.add('has-focus');
   }
 
@@ -264,6 +267,7 @@ Input.propTypes = {
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onInit: PropTypes.func,
   onKeyPress: PropTypes.func,
   onClear: PropTypes.func,
