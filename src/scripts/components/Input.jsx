@@ -67,6 +67,12 @@ class Input extends React.Component {
     }
   }
 
+  handleKeyUp = (event) => {
+    if (this.props.onKeyUp) {
+      this.props.onKeyUp(event);
+    }
+  }
+
   handleClear = (event) => {
     if (this.props.onClear) {
       this.props.onClear(event);
@@ -156,6 +162,7 @@ class Input extends React.Component {
               onBlur={this.handleBlur}
               onKeyDown={this.handleKeyDown}
               onKeyPress={this.handleKeyPress}
+              onKeyUp={this.handleKeyUp}
               onChange={this.handleChange}
               onMouseDown={this.handleMouseDown}
               readOnly={readOnly}
@@ -187,6 +194,7 @@ class Input extends React.Component {
             onBlur={this.handleBlur}
             onKeyDown={this.handleKeyDown}
             onKeyPress={this.handleKeyPress}
+            onKeyUp={this.handleKeyUp}
             onChange={this.handleChange}
             onMouseDown={this.handleMouseDown}
             readOnly={readOnly}
@@ -279,6 +287,7 @@ Input.propTypes = {
   onInit: PropTypes.func,
   onKeyDown: PropTypes.func,
   onKeyPress: PropTypes.func,
+  onKeyUp: PropTypes.func,
   onClear: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
