@@ -61,6 +61,18 @@ class Input extends React.Component {
     }
   }
 
+  handleKeyDown = (event) => {
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown(event);
+    }
+  }
+
+  handleKeyUp = (event) => {
+    if (this.props.onKeyUp) {
+      this.props.onKeyUp(event);
+    }
+  }
+
   handleClear = (event) => {
     if (this.props.onClear) {
       this.props.onClear(event);
@@ -69,7 +81,10 @@ class Input extends React.Component {
     this.setState({ value: '' }, () => this.input.focus());
   }
 
-  handleFocus = () => {
+  handleFocus = (event) => {
+    if (this.props.onFocus) {
+      this.props.onFocus(event);
+    }
     this.input.closest('.form__group').classList.add('has-focus');
   }
 
@@ -145,7 +160,9 @@ class Input extends React.Component {
               value={this.state.value}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
+              onKeyDown={this.handleKeyDown}
               onKeyPress={this.handleKeyPress}
+              onKeyUp={this.handleKeyUp}
               onChange={this.handleChange}
               onMouseDown={this.handleMouseDown}
               readOnly={readOnly}
@@ -175,7 +192,9 @@ class Input extends React.Component {
             value={this.state.value}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
+            onKeyDown={this.handleKeyDown}
             onKeyPress={this.handleKeyPress}
+            onKeyUp={this.handleKeyUp}
             onChange={this.handleChange}
             onMouseDown={this.handleMouseDown}
             readOnly={readOnly}
@@ -264,8 +283,11 @@ Input.propTypes = {
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onInit: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onKeyPress: PropTypes.func,
+  onKeyUp: PropTypes.func,
   onClear: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
