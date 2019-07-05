@@ -52,7 +52,6 @@ class ComponentExample extends React.Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <Fragment>
         <section className="site-section">

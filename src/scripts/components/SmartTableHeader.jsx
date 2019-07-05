@@ -53,9 +53,9 @@ class SmartTableHeader extends React.Component {
 }
 
 SmartTableHeader.propTypes = {
-  headerName: PropTypes.string,
-  sortKey: PropTypes.string,
-  headers: PropTypes.object,
+  headerName: PropTypes.string.isRequired,
+  sortKey: PropTypes.string.isRequired,
+  headers: PropTypes.object.isRequired,
 };
 
 export default SmartTableHeader;
