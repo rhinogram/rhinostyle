@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Table, SmartTable, Icon } from '../components';
+import { Button, Table, SmartTable, Icon, SmartTableHeader } from '../components';
 import { Live } from './components';
 import TableExample from './examples/Table.example.txt';
 import SmartTableExample from './examples/SmartTable.example.txt';
+import SmartTableHeaderExample from './examples/SmartTableHeader.example.txt';
 
 const TableDocs = {};
 const TableScope = {
@@ -13,6 +14,7 @@ const TableScope = {
   Button,
   Table,
   SmartTable,
+  SmartTableHeader,
   Icon,
 };
 
@@ -27,6 +29,13 @@ const SmartTableDocs = {
   striped: 'Show table rows in striped manner',
   sticky: 'Apply css for sticky column',
   SubComponent: 'Show details on expanding the row',
+};
+
+const SmartTableHeaderDocs = {
+  ...SmartTableDocs,
+  headerName: 'Name of Header.',
+  sortKey: 'Define the unique key which you have given in headers config.',
+  headers: 'Pass the total header config as props.',
 };
 
 const LabelApp = () => (
@@ -385,6 +394,23 @@ const LabelApp = () => (
         scope={TableScope}
         component={SmartTable}
         propDescriptions={SmartTableDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">React Table With Sortable Header Icons</h3>
+      <div className="u-m-b-large">
+        <h5 className="site-miniheadline">Header Config</h5>
+        <p className="site-copy">
+          To make sorting icons work we have to provide headers config (object  ) into it, which contains key (as unique header name) with below props into it.
+        </p>
+      </div>
+
+      <Live
+        code={SmartTableHeaderExample}
+        scope={TableScope}
+        component={SmartTableHeader}
+        propDescriptions={SmartTableHeaderDocs}
       />
     </section>
 
