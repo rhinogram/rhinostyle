@@ -24,14 +24,14 @@ class ModalHeader extends React.Component {
   }
 
   render() {
-    const { dismissable, title, titleSub } = this.props;
+    const { dismissable, title, titleSub, titleClass } = this.props;
     const classes = cx('modal__header');
-
+    const titleClasses = titleClass ? `modal__header__title ${titleClass}` : 'modal__header__title';
     return (
       <div className={classes}>
         {dismissable ? (<Close onClick={this.closeModal} className="modal__header__close" />) : null}
         <div className="modal__header__title-wrapper">
-          <h3 className="modal__header__title">
+          <h3 className={titleClasses}>
             {title}
           </h3>
           {titleSub && <div className="modal__header__subtitle">{titleSub}</div>}
@@ -46,6 +46,7 @@ ModalHeader.propTypes = {
   onClose: PropTypes.func,
   title: PropTypes.string.isRequired,
   titleSub: PropTypes.string,
+  titleClass: PropTypes.string,
 };
 
 ModalHeader.defaultProps = {
