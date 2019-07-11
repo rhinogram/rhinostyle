@@ -7,13 +7,13 @@ import {
 class SmartTableHeader extends React.Component {
   state = {
     sortKey: this.props.sortKey,
-    activeCaretClassName: 'u-text-body',
     headers: this.props.headers,
   };
+  static activeCaretClassName = 'u-text-body';
 
-  headerHandler = (headerClicked) => {
+  headerHandler = (selectedHeader) => {
     const { headers } = this.state;
-    const oldDirection = this.state.headers[headerClicked].direction;
+    const currentDirection = this.state.headers[selectedHeader].direction;
     const lastActiveHeader = Object.keys(headers).find(header => (headers[header].default === true));
 
     Object.keys(headers).forEach((key) => {
@@ -21,11 +21,11 @@ class SmartTableHeader extends React.Component {
       headers[key].default = false;
     });
 
-    headers[headerClicked].default = true;
-    if (lastActiveHeader === headerClicked) {
-      headers[headerClicked].direction = oldDirection * -1;
+    headers[selectedHeader].default = true;
+    if (lastActiveHeader === selectedHeader) {
+      headers[selectedHeader].direction = currentDirection * -1;
     } else {
-      headers[headerClicked].direction = 1;
+      headers[selectedHeader].direction = 1;
     }
     return headers;
   };
@@ -36,7 +36,8 @@ class SmartTableHeader extends React.Component {
   }
 
   render() {
-    const { sortKey, activeCaretClassName, headers } = this.state;
+    const { sortKey, headers } = this.state;
+    const { activeCaretClassName } = SmartTableHeader;
     const caretUpClass = headers[sortKey].default && headers[sortKey].direction === 1 ? activeCaretClassName : ''; // ascending
     const caretDownClass = headers[sortKey].default && headers[sortKey].direction === -1 ? activeCaretClassName : ''; // descending
 
