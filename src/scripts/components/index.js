@@ -70,6 +70,7 @@ import UtilityList from './UtilityList';
 import UtilityListItem from './UtilityListItem';
 import VariableMessage from './VariableMessage';
 import DropdownMultiSelectAdvanced from './DropdownMultiSelectAdvanced';
+import SmartTableHeader from './SmartTableHeader';
 
 import { NotificationActions } from '../NotificationSystem';
 
@@ -150,4 +151,5 @@ export {
   UtilitySystem,
   VariableMessage,
   DropdownMultiSelectAdvanced,
+  SmartTableHeader,
 };
