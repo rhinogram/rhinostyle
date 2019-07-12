@@ -1,15 +1,4 @@
 class ComponentExample extends React.Component {
-  headersConfig = {
-    date: {
-      default: false,
-      direction: 1,
-    },
-    member: {
-      default: true,
-      direction: -1,
-    },
-  };
-
   state = {
     data: [
       { date: '1545897645871', member: 'member A'},
@@ -18,33 +7,73 @@ class ComponentExample extends React.Component {
       { date: '1545897645874', member: 'member Z'},
       { date: '1545897645875', member: 'member 10'}
     ],
-    columns: [
+    headersConfig : {
+      date: {
+        isActive: false,
+        ascending: 1,
+      },
+      member: {
+        isActive: true,
+        ascending: -1,
+      },
+    }
+  };
+
+   headerHandler = (selectedHeader) => {
+    const { headersConfig } = this.state;
+    const currentDirection = this.state.headersConfig[selectedHeader].ascending;
+    const lastActiveHeader = Object.keys(headersConfig).find(header => (headersConfig[header].isActive === true));
+
+    Object.keys(headersConfig).forEach((key) => {
+      headersConfig[key].ascending = -1;
+      headersConfig[key].isActive = false;
+    });
+
+    headersConfig[selectedHeader].isActive = true;
+    if (lastActiveHeader === selectedHeader) {
+      headersConfig[selectedHeader].ascending = currentDirection * -1;
+    } else {
+      headersConfig[selectedHeader].ascending = 1;
+    }
+    return headersConfig;
+  };
+
+  getColumns = () => {
+    return [
       {
-          Header: () => (
-            <SmartTableHeader
-              headerName="Date"
-              sortKey="date"
-              headers={this.headersConfig}
-            />
-          ),
-          accessor: 'date',
-          sortMethod: (current, next) => this.sortTableData(current, next),
+        Header: () => (
+          <SmartTableHeader
+            headerName="Date"
+            sortKey="date"
+            ascending={this.state.headersConfig.date.ascending}
+            isActive={this.state.headersConfig.date.isActive}
+            customHeaderSort={this.customHeaderSort}
+          />
+        ),
+        accessor: 'date',
+        sortMethod: (current, next) => this.sortTableData(current, next),
       }, {
           Header: () => (
             <SmartTableHeader
               headerName="Member"
               sortKey="member"
-              headers={this.headersConfig}
+              ascending={this.state.headersConfig.member.ascending}
+              isActive={this.state.headersConfig.member.isActive}
+              customHeaderSort={this.customHeaderSort}
             />
           ),
           accessor: 'member',
           sortMethod: (current, next) => this.sortTableData(current, next),
       },
-    ],
-  };
+    ];
+  }
+
+  customHeaderSort = (sortKey) => {
+    const headers = this.headerHandler(sortKey);
+    this.setState({ headersConfig });
+  }
 
   sortTableData = (current, next) => {
-    console.log(current, next);
     if (current === next) {
       return 0;
     }
@@ -58,7 +87,7 @@ class ComponentExample extends React.Component {
           <SmartTable
             showPagination={false}
             data={this.state.data}
-            columns={this.state.columns}
+            columns={this.getColumns()}
             minRows={0}
             sortable={true}
             striped
