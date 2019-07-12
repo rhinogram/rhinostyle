@@ -35,7 +35,6 @@ const SmartTableHeaderDocs = {
   ...SmartTableDocs,
   headerName: 'Name of Header.',
   sortKey: 'Define the unique key which you have given in headers config.',
-  headers: 'Pass the total header config as props.',
   ascending: 'Pass the ascending value as number. 1 for ascending and -1 for descending.',
   isActive: 'Pass value as boolean, caret will glow up when true.',
   customHeaderSort: 'Handler function with will called when header is clicked.',
