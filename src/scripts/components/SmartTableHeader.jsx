@@ -5,6 +5,9 @@ import {
 } from '.';
 
 const SmartTableHeader = (props) => {
+  // console should be remove in future.
+  // eslint-disable-next-line no-console
+  console.log(`SmartTableHeader props - ${JSON.stringify(props)}`);
   const activeCaretClassName = 'u-text-body';
   const { headerName, ascending, isActive, sortKey, customHeaderSort } = props;
   const caretUpClass = isActive && ascending === 1 ? activeCaretClassName : ''; // ascending
