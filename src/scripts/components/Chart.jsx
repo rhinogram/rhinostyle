@@ -66,30 +66,29 @@ class Chart extends React.Component {
   );
 
   render() {
-    const { ...ChartProperties } = this.props;
     return (
       <div className="chart">
         <div className="chart__header">
           <div className="header__title">
-            {ChartProperties.title}
-            {ChartProperties.info && (
-              <Tooltip content={ChartProperties.info}>
+            {this.props.title}
+            {this.props.info && (
+              <Tooltip content={this.props.info}>
                 <Icon className="header__icon--info" icon="info-circle" />
               </Tooltip>
             )}
           </div>
-          {this.state.hasChartData && ChartProperties.header && ChartProperties.header.text && (
-            <div className={`header__subtitle ${ChartProperties.header.color}`}>
-              {ChartProperties.header.text}
-              {ChartProperties.subHeader && (
+          {this.state.hasChartData && this.props.header && this.props.header.text && (
+            <div className={`header__subtitle ${this.props.header.color}`}>
+              {this.props.header.text}
+              {this.props.subHeader && (
                 <span className="subtitle--muted">
-                  {ChartProperties.subHeader}
+                  {this.props.subHeader}
                 </span>
               )}
             </div>
           )}
         </div>
-        {this.state.hasChartData ? this.renderChart(ChartProperties) : this.renderNoData()}
+        {this.state.hasChartData ? this.renderChart(this.props) : this.renderNoData()}
       </div>
     );
   }
