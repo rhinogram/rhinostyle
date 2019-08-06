@@ -9,7 +9,7 @@ import Tooltip from './Tooltip';
 
 class Chart extends React.Component {
   state = {
-    hasChartData: false,
+    hasChartData: true,
   };
 
   legendCallback = (chart) => {
@@ -30,7 +30,7 @@ class Chart extends React.Component {
   componentDidMount() {
     const { data } = this.props;
     if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || data.datasets.length === 0) {
-      this.setState({ hasChartData: true });
+      this.setState({ hasChartData: false });
     }
     this.forceUpdate();
   }
@@ -78,7 +78,7 @@ class Chart extends React.Component {
               </Tooltip>
             )}
           </div>
-          {!this.state.hasChartData && ChartProperties.header && ChartProperties.header.text && (
+          {this.state.hasChartData && ChartProperties.header && ChartProperties.header.text && (
             <div className={`header__subtitle ${ChartProperties.header.color}`}>
               {ChartProperties.header.text}
               {ChartProperties.subHeader && (
@@ -89,7 +89,7 @@ class Chart extends React.Component {
             </div>
           )}
         </div>
-        {this.state.hasChartData ? this.renderNoData() : this.renderChart(ChartProperties)}
+        {this.state.hasChartData ? this.renderChart(ChartProperties) : this.renderNoData()}
       </div>
     );
   }
