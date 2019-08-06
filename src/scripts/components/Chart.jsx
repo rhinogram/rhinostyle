@@ -8,9 +8,6 @@ import { Icon } from '.';
 import Tooltip from './Tooltip';
 
 class Chart extends React.Component {
-  state = {
-    hasChartData: true,
-  };
 
   legendCallback = (chart) => {
     const { labels, datasets } = chart.data;
@@ -26,14 +23,6 @@ class Chart extends React.Component {
     text.push('</ul>');
     return text.join('');
   };
-
-  componentDidMount() {
-    const { data } = this.props;
-    if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || data.datasets.length === 0) {
-      this.setState({ hasChartData: false });
-    }
-    this.forceUpdate();
-  }
 
   renderChart = (properties) => {
     const { type } = properties;
@@ -66,6 +55,10 @@ class Chart extends React.Component {
   );
 
   render() {
+    let hasData = true;
+    if (typeof this.props.data === 'undefined' || this.props.data === null || Object.keys(this.props.data).length === 0 || this.props.data.datasets.length === 0) {
+      hasData = false;
+    }
     return (
       <div className="chart">
         <div className="chart__header">
@@ -77,7 +70,7 @@ class Chart extends React.Component {
               </Tooltip>
             )}
           </div>
-          {this.state.hasChartData && this.props.header && this.props.header.text && (
+          {hasData && this.props.header && this.props.header.text && (
             <div className={`header__subtitle ${this.props.header.color}`}>
               {this.props.header.text}
               {this.props.subHeader && (
@@ -88,7 +81,7 @@ class Chart extends React.Component {
             </div>
           )}
         </div>
-        {this.state.hasChartData ? this.renderChart(this.props) : this.renderNoData()}
+        {hasData ? this.renderChart(this.props) : this.renderNoData()}
       </div>
     );
   }
