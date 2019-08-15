@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
 
-import { Avatar, Icon, UtilitySystem } from '.';
+import { Avatar, Button, Icon, UtilitySystem } from '.';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {
@@ -69,13 +69,13 @@ class DropdownMenuItem extends React.Component {
     } else {
       markup = (
         <div className={classes}>
-          <a
-            href
+          <Button
+            reset
             className="dropdown__menu__item__link"
             onClick={this.handleClick}
           >
             {renderContent()}
-          </a>
+          </Button>
         </div>
       );
     }
