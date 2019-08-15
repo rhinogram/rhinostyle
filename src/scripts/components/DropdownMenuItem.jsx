@@ -69,8 +69,8 @@ class DropdownMenuItem extends React.Component {
     } else {
       markup = (
         <div className={classes}>
-          <a // eslint-disable-line jsx-a11y/anchor-is-valid
-            href="javascript:void(0)"
+          <a
+            href
             className="dropdown__menu__item__link"
             onClick={this.handleClick}
           >
