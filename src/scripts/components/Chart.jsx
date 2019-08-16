@@ -8,7 +8,6 @@ import { Icon } from '.';
 import Tooltip from './Tooltip';
 
 class Chart extends React.Component {
-
   legendCallback = (chart) => {
     const { labels, datasets } = chart.data;
     const [dataset] = datasets;
