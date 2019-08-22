@@ -53,6 +53,10 @@ class Chart extends React.Component {
     </div>
   );
 
+  componentDidMount() {
+    this.forceUpdate();
+  }
+
   render() {
     const hasData = this.props.data && Object.keys(this.props.data).length && this.props.data.datasets && this.props.data.datasets.length;
     return (
