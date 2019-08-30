@@ -14,7 +14,7 @@ class DropdownCheckbox extends React.Component {
     checked: this.props.isChecked,
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
     React.Children.map(this.props.children, (child) => {
       if (!child) return;
       if (child.type === DropdownFilter) {
@@ -23,7 +23,7 @@ class DropdownCheckbox extends React.Component {
     });
   }
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) { // eslint-disable-line camelcase
     if (newProps.activeKey !== this.props.activeKey) {
       this.setState({
         activeKey: newProps.activeKey,

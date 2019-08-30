@@ -10,7 +10,7 @@ class Input extends React.Component {
     value: '',
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
     if (this.props.initialValue) {
       this.setState({ value: this.props.initialValue.trimRight() });
     }
@@ -20,7 +20,7 @@ class Input extends React.Component {
     this.checkFocus();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         value: nextProps.initialValue,

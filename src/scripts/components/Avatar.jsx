@@ -9,7 +9,7 @@ class Avatar extends React.Component {
     imageError: false,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
     if (nextProps.src !== this.props.image) {
       this.setState({
         imageError: false,

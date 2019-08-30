@@ -19,7 +19,7 @@ class ComponentExample extends React.Component {
     itemsCopy: {},    
   }
 
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
     this.setState({ itemsIds: Object.keys(this.state.items), itemsCopy: this.state.items });
   }
 

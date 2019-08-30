@@ -11,7 +11,7 @@ class Modal extends React.Component {
     renderModal: false,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
     if (!this.props.open && nextProps.open) {
       this.setState({
         renderModal: true,

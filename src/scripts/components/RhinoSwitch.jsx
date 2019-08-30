@@ -9,7 +9,7 @@ class RhinoSwitch extends React.Component {
     checked: this.props.isChecked,
   };
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) { // eslint-disable-line camelcase
     if (newProps.isChecked !== this.props.isChecked) {
       this.setState({
         checked: newProps.isChecked,

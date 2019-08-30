@@ -11,7 +11,7 @@ class Cover extends React.Component {
     renderCover: false,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
     if (!this.props.open && nextProps.open) {
       this.setState({
         renderCover: true,
