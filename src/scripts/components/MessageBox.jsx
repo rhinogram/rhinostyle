@@ -58,6 +58,10 @@ class MessageBox extends React.Component {
     }
   }
 
+  handleFocus = () => {
+    document.getElementById('convo__footer__actions__scroll').scrollIntoView({ block: 'center' });
+  }
+
   render() {
     const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight } = this.props;
 
@@ -84,6 +88,7 @@ class MessageBox extends React.Component {
           onHeightChange={this.handleHeightChange}
           disabled={disabled}
           inputRef={ref => (this.rhinoTextArea = ref)}
+          onFocus={() => this.handleFocus}
         />
       </div>
     );
