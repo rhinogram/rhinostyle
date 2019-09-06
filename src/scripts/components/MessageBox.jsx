@@ -59,7 +59,10 @@ class MessageBox extends React.Component {
   }
 
   handleFocus = () => {
-    document.getElementById('convo__footer__actions__scroll').scrollIntoView({ block: 'center' });
+    const inboxThreadActive = this.props.messageBoxType ? document.getElementById(`convo__footer__scroll__${this.props.messageBoxType}`) : null;
+    if (inboxThreadActive) {
+      inboxThreadActive.scrollIntoView({ block: 'center' });
+    }
   }
 
   render() {
@@ -88,7 +91,7 @@ class MessageBox extends React.Component {
           onHeightChange={this.handleHeightChange}
           disabled={disabled}
           inputRef={ref => (this.rhinoTextArea = ref)}
-          onFocus={() => this.handleFocus}
+          onFocus={this.handleFocus}
         />
       </div>
     );
@@ -111,6 +114,7 @@ MessageBox.propTypes = {
   initialValue: PropTypes.string,
   focus: PropTypes.bool,
   rows: PropTypes.number,
+  messageBoxType: PropTypes.string,
 };
 
 MessageBox.defaultProps = {
