@@ -61,7 +61,7 @@ class MessageBox extends React.Component {
   handleFocus = () => {
     const inboxThreadActive = this.props.messageBoxType ? document.getElementById(`convo__footer__scroll__${this.props.messageBoxType}`) : null;
     if (inboxThreadActive) {
-      inboxThreadActive.scrollIntoView({ block: 'center' });
+      inboxThreadActive.scrollIntoView({ block: 'center', behavior: 'smooth' });
     }
   }
 
