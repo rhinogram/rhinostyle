@@ -32,8 +32,9 @@ class Avatar extends React.Component {
   }
 
   renderStatusIcon() {
-    const { size, onlineStatus } = this.props;
+    const { size, onlineStatus, className } = this.props;
     const classes = cx('avatar-status', {
+      'avatar-status--header': className === 'app-header__avatar',
       'avatar-status--xsmall': size === 'xsmall',
       'avatar-status--small': size === 'small',
       'avatar-status--large': size === 'large',
@@ -95,10 +96,19 @@ class Avatar extends React.Component {
       </svg>
     );
   }
+
   render() {
-    const { showOnlineStatus } = this.props;
+    const { size, type, className, showOnlineStatus } = this.props;
+    const sizeClasses = cx('avatar-status-container', {
+      'avatar--xsmall': size === 'xsmall',
+      'avatar--small': size === 'small',
+      'avatar--large': size === 'large',
+      'avatar--xlarge': size === 'xlarge',
+      'avatar--default': type === 'default',
+      'avatar--member': type === 'member',
+    }, className);
     return (
-      <div style={{ position: 'relative' }}>
+      <div className={sizeClasses}>
         {this.renderIcon()}
         {showOnlineStatus && this.renderStatusIcon()}
       </div>
