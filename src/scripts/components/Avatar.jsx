@@ -114,7 +114,7 @@ Avatar.propTypes = {
   src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   type: PropTypes.oneOf(['default', 'member']),
   showOnlineStatus: PropTypes.bool,
-  onlineStatus: PropTypes.oneOf(['idle', 'offline', 'online']),
+  onlineStatus: PropTypes.string,
 };
 
 Avatar.defaultProps = {
