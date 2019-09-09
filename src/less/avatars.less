@@ -11,6 +11,11 @@
 @avatar-size-large: 7.2rem;
 @avatar-size-small: 4rem;
 @avatar-size-xsmall: 2rem;
+@avatar-status-size-default: 1.5rem;
+@avatar-status-size-xsmall: 1rem;
+
+@avatar-bg-online: @global-color-secondary; // one-off color that may need to become variable
+@avatar-bg-idle: @global-color-warning; // one-off color that may need to become variable
 
 
 //
@@ -93,6 +98,43 @@
   width: @avatar-size-xsmall;
 }
 
+//
+// Avatar Online Status Indicator Modifiers
+//
+
+
+.avatar-status {
+  height: @avatar-status-size-default;
+  width:  @avatar-status-size-default;
+  position: absolute;
+  border: 2px solid white;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+.avatar-status--large {
+  bottom: 2px;
+  right: 2px;
+}
+
+.avatar-status--xlarge {
+  bottom: 5px;
+  right: 5px;
+}
+
+.avatar-status--small {
+  bottom: -2px;
+  right: -2px;
+}
+
+.avatar-status--xsmall {
+  bottom: -2px;
+  right: -2px;
+  border: 1px solid white;
+  height:  @avatar-status-size-xsmall;
+  width:  @avatar-status-size-xsmall;
+}
 
 //
 // Avatar Icon

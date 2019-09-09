@@ -21,7 +21,30 @@ class Avatar extends React.Component {
     this.setState({ imageError: true });
   };
 
-  render() {
+  getStatusColor(onlineStatus) {
+    if (onlineStatus === 'online') {
+      return 'u-bg-secondary';
+    }
+    if (onlineStatus === 'idle') {
+      return 'u-bg-warning';
+    }
+    return 'u-bg-gray-light';
+  }
+
+  renderStatusIcon() {
+    const { size, onlineStatus } = this.props;
+    const classes = cx('avatar-status', {
+      'avatar-status--xsmall': size === 'xsmall',
+      'avatar-status--small': size === 'small',
+      'avatar-status--large': size === 'large',
+      'avatar-status--xlarge': size === 'xlarge',
+    });
+    return (
+      <div className={`${classes} ${this.getStatusColor(onlineStatus)}`} />
+    );
+  }
+
+  renderIcon() {
     const { className, image, size, type } = this.props;
     const name = this.props.name ? this.props.name.trim() : '';
 
@@ -72,6 +95,15 @@ class Avatar extends React.Component {
       </svg>
     );
   }
+  render() {
+    const { showOnlineStatus } = this.props;
+    return (
+      <div style={{ position: 'relative' }}>
+        {this.renderIcon()}
+        {showOnlineStatus && this.renderStatusIcon()}
+      </div>
+    );
+  }
 }
 
 Avatar.propTypes = {
@@ -81,6 +113,8 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(['xsmall', 'small', 'default', 'large', 'xlarge']),
   src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   type: PropTypes.oneOf(['default', 'member']),
+  showOnlineStatus: PropTypes.bool,
+  onlineStatus: PropTypes.oneOf(['idle', 'offline', 'online']),
 };
 
 Avatar.defaultProps = {
