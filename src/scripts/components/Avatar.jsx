@@ -99,20 +99,22 @@ class Avatar extends React.Component {
 
   render() {
     const { size, type, className, showOnlineStatus } = this.props;
-    const sizeClasses = cx('avatar-status-container', {
-      'avatar--xsmall': size === 'xsmall',
-      'avatar--small': size === 'small',
-      'avatar--large': size === 'large',
-      'avatar--xlarge': size === 'xlarge',
-      'avatar--default': type === 'default',
-      'avatar--member': type === 'member',
-    }, className);
-    return (
-      <div className={sizeClasses}>
-        {this.renderIcon()}
-        {showOnlineStatus && this.renderStatusIcon()}
-      </div>
-    );
+    if (showOnlineStatus) {
+      const sizeClasses = cx('avatar-status-container', {
+        'avatar--xsmall': size === 'xsmall',
+        'avatar--small': size === 'small',
+        'avatar--large': size === 'large',
+        'avatar--xlarge': size === 'xlarge',
+        'avatar--default': type === 'default',
+        'avatar--member': type === 'member',
+      }, className);
+      return (
+        <div className={sizeClasses}>
+          {this.renderIcon()}
+          {this.renderStatusIcon()}
+        </div>
+      );
+    } return this.renderIcon();
   }
 }
 
