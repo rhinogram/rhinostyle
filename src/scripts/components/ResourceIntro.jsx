@@ -67,6 +67,8 @@ class ResourceIntro extends React.Component {
           name={avatar.name}
           type={avatar.type}
           image={avatar.image}
+          showOnlineStatus={avatar.showOnlineStatus}
+          onlineStatus={avatar.onlineStatus}
         />
       );
     } else if (checkbox) {
@@ -135,6 +137,8 @@ ResourceIntro.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.oneOf(['default', 'member']),
+    showOnlineStatus: PropTypes.bool,
+    onlineStatus: PropTypes.string,
   }),
   icon: PropTypes.shape({
     icon: PropTypes.string,
