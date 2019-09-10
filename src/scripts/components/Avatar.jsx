@@ -45,7 +45,7 @@ class Avatar extends React.Component {
     );
   }
 
-  renderIcon() {
+  renderAvatar() {
     const { className, image, size, type } = this.props;
     const name = this.props.name ? this.props.name.trim() : '';
 
@@ -110,11 +110,11 @@ class Avatar extends React.Component {
       }, className);
       return (
         <div className={sizeClasses}>
-          {this.renderIcon()}
+          {this.renderAvatar()}
           {this.renderStatusIcon()}
         </div>
       );
-    } return this.renderIcon();
+    } return this.renderAvatar();
   }
 }
 
