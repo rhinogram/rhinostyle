@@ -36,6 +36,7 @@ const ButtonApp = () => (
         <Button type="accent">Accent</Button>
         <Button type="input">Input</Button>
         <Button type="outline-primary">Outline Primary</Button>
+        <Button type="outline-secondary">Outline Secondary</Button>
         <Button type="link">Link</Button>
         <Button type="link-muted">Link Muted</Button>
         <Button type="danger">Danger</Button>
