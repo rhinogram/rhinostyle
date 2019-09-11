@@ -58,6 +58,9 @@
 @badge-horizontal-padding: @global-whitespace-xsmall;
 @badge-vertical-padding: (@global-whitespace-xsmall / 2);
 
+@button-outline-secondary-color: @global-color-secondary;
+@button-outline-secondary-border: @global-color-secondary;
+@button-outline-secondary-hover-bg: fade(@global-color-secondary, 10%);
 
 //
 // Component
@@ -193,6 +196,20 @@
 
 .button--outline-primary {
   .mixin-button-outline-variant(@button-outline-primary-color; @button-outline-primary-border; @global-color-primary; @button-outline-primary-hover-bg);
+
+  // Override for hover/focus state since that is different than default
+  &.is-loading {
+    &:hover,
+    &:focus {
+      .loader-circle {
+        border-color: @global-color-white;
+      }
+    }
+  }
+}
+
+.button--outline-secondary {
+  .mixin-button-outline-variant(@button-outline-secondary-color; @button-outline-secondary-border; @global-color-secondary; @button-outline-secondary-hover-bg);
 
   // Override for hover/focus state since that is different than default
   &.is-loading {
