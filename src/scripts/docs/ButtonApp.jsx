@@ -28,7 +28,9 @@ const ButtonApp = () => (
   <Fragment>
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
-      <p className="site-copy"><code>type=&quot;default | primary | secondary | accent | input | outline-primary | outline-secondary | link | link-muted | danger&quot;</code></p>
+      <p className="site-copy">
+        <code>type=&quot;default |primary | secondary | accent | input | outline-primary | outline-secondary | link | link-muted | danger&quot;</code>
+      </p>
       <UtilityInlineGrid>
         <Button>Default</Button>
         <Button type="primary">Primary</Button>
@@ -117,6 +119,7 @@ const ButtonApp = () => (
           <Button type="primary">Primary</Button>
           <Button type="primary" active>Primary Active</Button>
           <Button type="primary" disabled>Primary Disabled</Button>
+          <Button type="primary" outlined>Primary outlined</Button>
         </UtilityInlineGrid>
       </div>
       <div className="u-m-b">
@@ -124,6 +127,7 @@ const ButtonApp = () => (
           <Button type="secondary">Secondary</Button>
           <Button type="secondary" active>Secondary Active</Button>
           <Button type="secondary" disabled>Secondary Disabled</Button>
+          <Button type="secondary" outlined>Secondary outlined</Button>
         </UtilityInlineGrid>
       </div>
       <div className="u-m-b">
@@ -151,6 +155,8 @@ const ButtonApp = () => (
           <Button>Default &nbsp;<span className="button__badge">12</span></Button>
           <Button type="primary">Primary &nbsp;<span className="button__badge">12</span></Button>
           <Button type="secondary">Secondary &nbsp;<span className="button__badge">2</span></Button>
+          <Button type="primary" outlined>Primary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="secondary" outlined>Secondary &nbsp;<span className="button__badge">2</span></Button>
           <Button type="outline-primary">Outline Primary &nbsp;<span className="button__badge">12</span></Button>
           <Button type="outline-secondary">Outline Secondary &nbsp;<span className="button__badge">12</span></Button>
           <Button type="link">Link &nbsp;<span className="button__badge">12</span></Button>

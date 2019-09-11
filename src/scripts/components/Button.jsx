@@ -41,6 +41,7 @@ class Button extends React.Component {
       url,
       loading,
       hasClickableChildren,
+      outlined,
       ...opts
     } = this.props;
 
@@ -73,6 +74,7 @@ class Button extends React.Component {
       ...buttonStyleClasses,
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.loading]: loading,
+      [UtilitySystem.config.classes.outlined]: outlined,
     });
     let markup = '';
 
@@ -122,6 +124,7 @@ Button.propTypes = {
   route: PropTypes.string,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
+  outlined: PropTypes.bool,
   type: PropTypes.oneOf([
     'default',
     'primary',
