@@ -40,45 +40,13 @@
 
     .button__badge {
       background: @background-color;
-      color: @global-color-white;
+      color: contrast(@color, @global-color-white, @color, 30%);
     }
 
     &.button--outline-reversed {
       .button__badge {
         color: @global-font-color;
       }
-    }
-  }
-}
-
-.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true) {
-  background: transparent;
-  border-color: @border;
-  color: @color;
-
-  & when (@shadow = true) {
-    box-shadow: @button-box-shadow;
-  }
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.is-active {
-    background: @hover-bg;
-    color: @hover-color;
-  }
-
-  // 1. http://lesscss.org/functions/#color-operations-contrast
-  .button__badge {
-    background: @color;
-    // 1
-    color: @global-color-white;
-  }
-
-  // 1. Override color on badge for reversed button
-  &.button--outline-reversed {
-    .button__badge {
-      color: @global-font-color;
     }
   }
 }

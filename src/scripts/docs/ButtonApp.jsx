@@ -11,7 +11,7 @@ const ButtonDocs = {
   route: '<code>react-router</code> route',
   size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   title: 'Represents advisory information on hover',
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-secondary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
   loading: 'Specify a loading-state for the button to denote a background-action is in-progress',
   reset: 'Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
 };
@@ -29,7 +29,7 @@ const ButtonApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy">
-        <code>type=&quot;default |primary | secondary | accent | input | outline-primary | outline-secondary | link | link-muted | danger&quot;</code>
+        <code>type=&quot;default |primary | secondary | accent | input | link | link-muted | danger&quot;</code>
       </p>
       <UtilityInlineGrid>
         <Button>Default</Button>
@@ -37,8 +37,6 @@ const ButtonApp = () => (
         <Button type="secondary">Secondary</Button>
         <Button type="accent">Accent</Button>
         <Button type="input">Input</Button>
-        <Button type="outline-primary">Outline Primary</Button>
-        <Button type="outline-secondary">Outline Secondary</Button>
         <Button type="link">Link</Button>
         <Button type="link-muted">Link Muted</Button>
         <Button type="danger">Danger</Button>
@@ -89,7 +87,7 @@ const ButtonApp = () => (
           <Button iconOnly><Icon icon="chat" /></Button>
           <Button type="primary" iconOnly><Icon icon="email" /></Button>
           <Button type="secondary" iconOnly><Icon icon="cog" /></Button>
-          <Button type="outline-primary" iconOnly><Icon icon="star" /></Button>
+          <Button type="primary" outlined iconOnly><Icon icon="star" /></Button>
         </UtilityInlineGrid>
         <h5 className="site-miniheadline">Avatar-Only Buttons</h5>
         <p className="site-copy">
@@ -119,7 +117,9 @@ const ButtonApp = () => (
           <Button type="primary">Primary</Button>
           <Button type="primary" active>Primary Active</Button>
           <Button type="primary" disabled>Primary Disabled</Button>
-          <Button type="primary" outlined>Primary outlined</Button>
+          <Button type="primary" outlined>Outline Primary</Button>
+          <Button type="primary" outlined active>Outline Primary Active</Button>
+          <Button type="primary" outlined disabled>Outline Primary Disabled</Button>
         </UtilityInlineGrid>
       </div>
       <div className="u-m-b">
@@ -127,21 +127,9 @@ const ButtonApp = () => (
           <Button type="secondary">Secondary</Button>
           <Button type="secondary" active>Secondary Active</Button>
           <Button type="secondary" disabled>Secondary Disabled</Button>
-          <Button type="secondary" outlined>Secondary outlined</Button>
-        </UtilityInlineGrid>
-      </div>
-      <div className="u-m-b">
-        <UtilityInlineGrid>
-          <Button type="outline-primary">Outline Primary</Button>
-          <Button type="outline-primary" active>Outline Primary Active</Button>
-          <Button type="outline-primary" disabled>Outline Primary Disabled</Button>
-        </UtilityInlineGrid>
-      </div>
-      <div className="u-m-b">
-        <UtilityInlineGrid>
-          <Button type="outline-secondary">Outline Secondary</Button>
-          <Button type="outline-secondary" active>Outline Secondary Active</Button>
-          <Button type="outline-secondary" disabled>Outline Secondary Disabled</Button>
+          <Button type="secondary" outlined>Outline Secondary outlined</Button>
+          <Button type="secondary" outlined active>Outline Secondary Active</Button>
+          <Button type="secondary" outlined disabled>Outline Secondary Disabled</Button>
         </UtilityInlineGrid>
       </div>
     </section>
@@ -155,10 +143,8 @@ const ButtonApp = () => (
           <Button>Default &nbsp;<span className="button__badge">12</span></Button>
           <Button type="primary">Primary &nbsp;<span className="button__badge">12</span></Button>
           <Button type="secondary">Secondary &nbsp;<span className="button__badge">2</span></Button>
-          <Button type="primary" outlined>Primary &nbsp;<span className="button__badge">12</span></Button>
-          <Button type="secondary" outlined>Secondary &nbsp;<span className="button__badge">2</span></Button>
-          <Button type="outline-primary">Outline Primary &nbsp;<span className="button__badge">12</span></Button>
-          <Button type="outline-secondary">Outline Secondary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="primary" outlined>Outline Primary &nbsp;<span className="button__badge">12</span></Button>
+          <Button type="secondary" outlined>Outline Secondary &nbsp;<span className="button__badge">2</span></Button>
           <Button type="link">Link &nbsp;<span className="button__badge">12</span></Button>
           <Button type="danger">Danger &nbsp;<span className="button__badge">12</span></Button>
         </UtilityInlineGrid>

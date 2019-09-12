@@ -15,7 +15,7 @@ class ToggleButton extends Component {
     const buttonBaseClass = 'toggle-button';
     const toggleButtonStyleClasses = {
       'toggle-button--strikethrough': !available,
-      'button--outline-primary': available,
+      'button--primary is-outlined': available,
 
     };
 
