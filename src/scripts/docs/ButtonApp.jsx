@@ -127,7 +127,7 @@ const ButtonApp = () => (
           <Button type="secondary">Secondary</Button>
           <Button type="secondary" active>Secondary Active</Button>
           <Button type="secondary" disabled>Secondary Disabled</Button>
-          <Button type="secondary" outlined>Outline Secondary outlined</Button>
+          <Button type="secondary" outlined>Outline Secondary</Button>
           <Button type="secondary" outlined active>Outline Secondary Active</Button>
           <Button type="secondary" outlined disabled>Outline Secondary Disabled</Button>
         </UtilityInlineGrid>
