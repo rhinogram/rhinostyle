@@ -189,12 +189,23 @@ class DropdownMultiSelectAdvanced extends React.Component {
     const searchTitle = `Search ${filterName}`;
     // let returnValue = '';
     let dropdownType = 'input';
+    let outlined = false;
     if (selectedItemsIds.length > 0) {
-      dropdownType = 'outline-primary';
+      dropdownType = 'primary';
+      outlined = true;
     }
     return (
       this.state.isViewAllItems ? (
-        <Dropdown wide autoFocusInput={false} label={dropdownLabel} onClick={this.clearSearch} className={dropDownClass} type={dropdownType} disableScroll>
+        <Dropdown
+          wide
+          autoFocusInput={false}
+          label={dropdownLabel}
+          onClick={this.clearSearch}
+          className={dropDownClass}
+          type={dropdownType}
+          outlined={outlined}
+          disableScroll
+        >
           <div className="dropdown__menu__container">
             <div className="search__group">
               {selectedItemsIds.length > 0 ? (

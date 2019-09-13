@@ -41,10 +41,11 @@ const DropdownDocs = {
   position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
   size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   onSelect: 'Callback when a DropdownMenuItem is selected',
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
   wide: 'Sets a min-width on dropdown menu',
   manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.', // eslint-disable-line max-len
   noChangeLabel: 'Displays default label in place of currently selected label.',
+  outlined: 'Displays button having border.',
 };
 
 const DropdownCheckboxDocs = {
@@ -57,7 +58,7 @@ const DropdownCheckboxDocs = {
   position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>", // eslint-disable-line single-quotes
   size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
   onSelect: 'Callback when a DropdownMenuItem is selected',
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'checkbox', 'checkbox-muted'])</code>", // eslint-disable-line single-quotes, max-len
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'link', 'link-muted', 'checkbox', 'checkbox-muted'])</code>", // eslint-disable-line single-quotes, max-len
   wide: 'Sets a min-width on dropdown menu',
   manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.', // eslint-disable-line max-len
   isCheckbox: 'Enable the checkbox.',
@@ -152,7 +153,7 @@ const DropdownApp = () => (
           <DropdownMenuItem label="A third item" />
           <DropdownMenuDivider />
           <DropdownMenuItem label="Separated Item" />
-          <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Log Out</Button></div>
+          <div className="dropdown__menu__container"><Button block type="primary" size="small" outlined>Log Out</Button></div>
         </Dropdown>
 
         <Dropdown label="Input" type="input">
@@ -182,7 +183,7 @@ const DropdownApp = () => (
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown label="Outline Primary" type="outline-primary">
+        <Dropdown label="Outline Primary" type="primary" outlined>
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
@@ -236,7 +237,7 @@ const DropdownApp = () => (
           <DropdownMenuItem label="Separated Item" />
         </Dropdown>
 
-        <Dropdown type="outline-primary" icon="lock">
+        <Dropdown type="primary" icon="lock" outlined>
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem label="Item" />
           <DropdownMenuItem label="Another Item" />
