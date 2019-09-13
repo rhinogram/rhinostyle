@@ -45,7 +45,7 @@ const DropdownDocs = {
   wide: 'Sets a min-width on dropdown menu',
   manualClose: 'Disables the default action of closing on an outside click. <code>&lt;Close /&gt;</code> must appear in <code>&lt;DropdownMenuItemWild /&gt;</code> component to close. Refer to example below.', // eslint-disable-line max-len
   noChangeLabel: 'Displays default label in place of currently selected label.',
-  outlined: 'Displays button having border.'
+  outlined: 'Displays button having border.',
 };
 
 const DropdownCheckboxDocs = {
