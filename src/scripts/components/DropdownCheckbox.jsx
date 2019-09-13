@@ -292,7 +292,6 @@ DropdownCheckbox.propTypes = {
     'secondary',
     'accent',
     'input',
-    'outline-primary',
     'outline-reversed',
     'link',
     'link-muted',
