@@ -32,11 +32,12 @@ gulp.task('docs:site', pages);
 gulp.task('styles:lint', linter);
 gulp.task('icons', icons);
 gulp.task('watch', watch);
+gulp.task('server', server);
 gulp.task('media', media);
 gulp.task('docs:scripts', gulp.series('copy', docsScripts, done => done()));
 gulp.task('docs:styles', gulp.series('styles:lint', docsStyles, done => done()));
 gulp.task('dist:scripts', gulp.series('copy', distScripts, done => done()));
-gulp.task('serve', gulp.series('watch', server, done => done()));
+gulp.task('serve', gulp.series('watch', 'server', done => done()));
 
 //
 // Bundled tasks

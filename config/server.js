@@ -5,6 +5,7 @@ import browserSync from 'browser-sync';
  * @return {void}
  */
 export default function server() {
+  console.log('HEREEEREREE');
   browserSync.init({
     server: {
       baseDir: './docs',
