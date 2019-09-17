@@ -1,6 +1,6 @@
 import webpack from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
 import path from 'path';
-
 import paths from './paths';
 
 const nodeEnv = process.env.NODE_ENV || 'development';
@@ -9,6 +9,10 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     rhinostyle: paths.scripts.distEntry,
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   output: {
     filename: '[name].min.js',
