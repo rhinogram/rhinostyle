@@ -10,7 +10,6 @@ const { reload } = browserSync;
  * @return {void}
  */
 export default function watch(cb) {
-  console.log('WHATCHHHHH');
   gulp.watch(paths.svg.src, gulp.series('icons', reload));
   gulp.watch(paths.styles.docAll, gulp.series('dist:styles', 'docs:styles', reload));
   gulp.watch(paths.scripts.src, gulp.series('dist:scripts', 'docs:scripts', reload));
