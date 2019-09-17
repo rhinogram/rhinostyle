@@ -13,7 +13,7 @@
     "build": "gulp build",
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
-    "start": "./node_modules/.bin/babel src -d dist && yarn && gulp docs && gulp serve",
+    "start": "./node_modules/.bin/babel src -d dist/rhinostyle.min.js && yarn && gulp docs && gulp serve",
     "eslint": "eslint src/**/*.jsx"
   },
   "peerDependencies": {
