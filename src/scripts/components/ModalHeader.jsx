@@ -10,7 +10,6 @@ class ModalHeader extends React.Component {
     if (this.props.dismissable) {
       returnVal = <button onClick={this.handleCloseClick} type="button" className="modal__header__close" aria-label="Close"><Icon icon="close" /></button>;
     }
-    console.log('doot');
     return returnVal;
   }
 
