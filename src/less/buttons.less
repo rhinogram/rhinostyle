@@ -45,10 +45,6 @@
 @button-danger-bg-color: @global-color-danger;
 @button-danger-border: darken(@global-color-danger, 5%);
 
-@button-outline-primary-color: @global-color-primary;
-@button-outline-primary-border: @global-color-primary;
-@button-outline-primary-hover-bg: fade(@global-color-primary, 10%);
-
 @button-outline-reversed-color: @global-color-white;
 @button-outline-reversed-border: @global-color-white;
 @button-outline-reversed-hover-bg: fade(@global-color-white, 10%);
@@ -57,7 +53,6 @@
 @badge-border-radius: @global-border-radius;
 @badge-horizontal-padding: @global-whitespace-xsmall;
 @badge-vertical-padding: (@global-whitespace-xsmall / 2);
-
 
 //
 // Component
@@ -135,7 +130,7 @@
 
   // Disabled
   &[disabled] {
-    &:not(.button--outline-primary):not(.button--outline-reversed):not(.button--link):not(.button--link-muted) {
+    &:not(.button--outline-reversed):not(.button--link):not(.button--link-muted):not(.is-outlined) {
       .mixin-button-variant(@button-default-color; @button-default-bg-color; @button-default-border);
     }
 
@@ -189,20 +184,6 @@
 
 .button--danger {
   .mixin-button-variant(@button-danger-color; @button-danger-bg-color; @button-danger-border);
-}
-
-.button--outline-primary {
-  .mixin-button-outline-variant(@button-outline-primary-color; @button-outline-primary-border; @global-color-primary; @button-outline-primary-hover-bg);
-
-  // Override for hover/focus state since that is different than default
-  &.is-loading {
-    &:hover,
-    &:focus {
-      .loader-circle {
-        border-color: @global-color-white;
-      }
-    }
-  }
 }
 
 .button--input {

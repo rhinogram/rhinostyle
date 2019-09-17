@@ -25,6 +25,7 @@ export const config = {
     hidden: 'is-hidden',
     uHidden: 'u-hidden',
     loading: 'is-loading',
+    outlined: 'is-outlined',
   },
   resourceSizes: {
     small: 250,

@@ -58,6 +58,12 @@ class MessageBox extends React.Component {
     }
   }
 
+  handleFocus = () => {
+    if (this.props.handleFocus) {
+      this.props.handleFocus();
+    }
+  }
+
   render() {
     const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight } = this.props;
 
@@ -84,6 +90,7 @@ class MessageBox extends React.Component {
           onHeightChange={this.handleHeightChange}
           disabled={disabled}
           inputRef={ref => (this.rhinoTextArea = ref)}
+          onFocus={this.handleFocus}
         />
       </div>
     );
@@ -106,6 +113,7 @@ MessageBox.propTypes = {
   initialValue: PropTypes.string,
   focus: PropTypes.bool,
   rows: PropTypes.number,
+  handleFocus: PropTypes.func,
 };
 
 MessageBox.defaultProps = {

@@ -24,6 +24,31 @@
     background: @color;
     color: contrast(@color, darken(@background-color, 7.5%), @color);
   }
+
+  &.is-outlined {
+    background: transparent;
+    border-color: @background-color;
+    color: @background-color;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.is-active {
+      background: fade(@background-color, 10%);
+      color: @border;
+    }
+
+    .button__badge {
+      background: @background-color;
+      color: contrast(@color, @global-color-white, @color, 30%);
+    }
+
+    &.button--outline-reversed {
+      .button__badge {
+        color: @global-font-color;
+      }
+    }
+  }
 }
 
 .mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true) {
@@ -47,7 +72,7 @@
   .button__badge {
     background: @color;
     // 1
-    color: contrast(@color, @global-color-white, @color, 30%);
+    color: @global-color-white;
   }
 
   // 1. Override color on badge for reversed button

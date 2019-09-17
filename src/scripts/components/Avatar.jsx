@@ -21,7 +21,31 @@ class Avatar extends React.Component {
     this.setState({ imageError: true });
   };
 
-  render() {
+  getStatusColor(onlineStatus) {
+    if (onlineStatus === 'online') {
+      return 'u-bg-secondary';
+    }
+    if (onlineStatus === 'idle') {
+      return 'u-bg-warning';
+    }
+    return 'u-bg-gray-light';
+  }
+
+  renderStatusIcon() {
+    const { size, onlineStatus, className } = this.props;
+    const classes = cx('avatar-status', {
+      'avatar-status--header': className === 'app-header__avatar',
+      'avatar-status--xsmall': size === 'xsmall',
+      'avatar-status--small': size === 'small',
+      'avatar-status--large': size === 'large',
+      'avatar-status--xlarge': size === 'xlarge',
+    });
+    return (
+      <div className={`${classes} ${this.getStatusColor(onlineStatus)}`} />
+    );
+  }
+
+  renderAvatar() {
     const { className, image, size, type } = this.props;
     const name = this.props.name ? this.props.name.trim() : '';
 
@@ -72,6 +96,26 @@ class Avatar extends React.Component {
       </svg>
     );
   }
+
+  render() {
+    const { size, type, className, showOnlineStatus } = this.props;
+    if (showOnlineStatus) {
+      const sizeClasses = cx('avatar-status-container', {
+        'avatar--xsmall': size === 'xsmall',
+        'avatar--small': size === 'small',
+        'avatar--large': size === 'large',
+        'avatar--xlarge': size === 'xlarge',
+        'avatar--default': type === 'default',
+        'avatar--member': type === 'member',
+      }, className);
+      return (
+        <div className={sizeClasses}>
+          {this.renderAvatar()}
+          {this.renderStatusIcon()}
+        </div>
+      );
+    } return this.renderAvatar();
+  }
 }
 
 Avatar.propTypes = {
@@ -81,6 +125,8 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(['xsmall', 'small', 'default', 'large', 'xlarge']),
   src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   type: PropTypes.oneOf(['default', 'member']),
+  showOnlineStatus: PropTypes.bool,
+  onlineStatus: PropTypes.string,
 };
 
 Avatar.defaultProps = {

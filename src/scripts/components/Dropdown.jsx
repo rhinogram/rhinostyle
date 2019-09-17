@@ -158,6 +158,7 @@ class Dropdown extends React.Component {
       showOverflow,
       wrapperClassName,
       noChangeLabel,
+      outlined,
     } = this.props;
     const { activeKey, hasFilter } = this.state;
 
@@ -240,6 +241,7 @@ class Dropdown extends React.Component {
           className={dropdownToggleClasses}
           disabled={disabled}
           title={title}
+          outlined={outlined}
         >
           {selectedIcon || icon ?
             <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
@@ -280,7 +282,7 @@ Dropdown.propTypes = {
   reset: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-primary', 'outline-reversed', 'link', 'link-muted', 'danger']),
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'link', 'link-muted', 'danger']),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
   onComplete: PropTypes.func,
@@ -290,6 +292,7 @@ Dropdown.propTypes = {
   manualClose: PropTypes.bool,
   wrapperClassName: PropTypes.string,
   noChangeLabel: PropTypes.string,
+  outlined: PropTypes.bool,
   avatar: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
