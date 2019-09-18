@@ -9,5 +9,6 @@ export default function server() {
     server: {
       baseDir: './docs',
     },
+    port: 3002,
   });
 }
