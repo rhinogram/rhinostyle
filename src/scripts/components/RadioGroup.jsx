@@ -9,13 +9,13 @@ class RadioGroup extends React.Component {
     selectedValue: '',
   };
 
-  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+  componentWillMount() {
     this.setState({
       selectedValue: this.props.selectedValue,
     });
   }
 
-  UNSAFE_componentWillReceiveProps(newProps) { // eslint-disable-line camelcase
+  componentWillReceiveProps(newProps) {
     if (newProps.selectedValue !== this.props.selectedValue) {
       this.setState({
         selectedValue: newProps.selectedValue,

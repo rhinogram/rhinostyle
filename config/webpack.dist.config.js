@@ -1,6 +1,6 @@
 import webpack from 'webpack';
-import TerserPlugin from 'terser-webpack-plugin';
 import path from 'path';
+
 import paths from './paths';
 
 const nodeEnv = process.env.NODE_ENV || 'development';
@@ -9,10 +9,6 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     rhinostyle: paths.scripts.distEntry,
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
   },
   output: {
     filename: '[name].min.js',
@@ -60,6 +56,8 @@ module.exports = {
     // Causing an issue within main application
     // ***** 2/28/2019 UPDATE *****
     // Re-enabling UglifyJs since conflict seems to be resolved. Keeping original comment above in case issue re-surfaces. -- Juan Fabrega
+    new webpack.optimize.UglifyJsPlugin(),
+
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.

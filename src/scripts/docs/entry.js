@@ -1,7 +1,7 @@
 /*  eslint-disable global-require */
 
 // Patch IE11 missing ES6 features that aren't bundled in Babel core.
-import '@babel/polyfill';
+import 'babel-polyfill';
 
 // Figure out current URL
 const url = window.location.pathname;

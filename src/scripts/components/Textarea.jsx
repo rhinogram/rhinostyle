@@ -10,7 +10,7 @@ class Textarea extends React.Component {
     value: '',
   };
 
-  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+  componentWillMount() {
     if (this.props.initialValue) {
       this.setState({ value: this.props.initialValue.trimRight() });
     }
@@ -22,7 +22,7 @@ class Textarea extends React.Component {
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+  componentWillReceiveProps(nextProps) {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         value: nextProps.initialValue,

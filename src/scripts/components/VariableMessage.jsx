@@ -23,7 +23,7 @@ class VariableMessage extends React.Component {
     available: [],
   };
 
-  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+  componentWillMount() {
     if (this.props.initialValue) {
       this.setState({
         message: this.props.initialValue,
@@ -38,7 +38,7 @@ class VariableMessage extends React.Component {
     }
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+  componentWillReceiveProps(nextProps) {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         message: nextProps.initialValue,
