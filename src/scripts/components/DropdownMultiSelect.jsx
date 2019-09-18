@@ -13,7 +13,7 @@ class DropdownMultiSelect extends React.Component {
     items: this.props.children,
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
     const activeKeysHaveChanged = !UtilitySystem.compareFlatArray(this.props.activeKeys, nextProps.activeKeys);
 
     if (activeKeysHaveChanged) {

@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import svgSprite  from 'gulp-svg-sprite';
+import svgSprite from 'gulp-svg-sprite';
 import browserSync from 'browser-sync';
 
 import paths from './paths';

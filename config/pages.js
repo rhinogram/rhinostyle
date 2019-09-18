@@ -44,7 +44,7 @@ srcDirectories.forEach((item) => {
  * Build documentation pages through `metalsmith`
  * @return {stream}
  */
-export default function pages() {
+export default function pages(cb) {
   return metalsmith(process.cwd())
     .source('./src')
     .clean(false)
@@ -68,6 +68,7 @@ export default function pages() {
         throw err;
       } else {
         reload();
+        cb();
       }
     });
 }

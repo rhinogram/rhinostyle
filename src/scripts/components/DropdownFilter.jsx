@@ -8,7 +8,7 @@ class DropdownFilter extends React.Component {
     items: this.props.children,
   };
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() { // eslint-disable-line camelcase
     this.setState({
       items: this.getChildren(),
     });

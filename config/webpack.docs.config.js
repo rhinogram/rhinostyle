@@ -58,13 +58,16 @@ module.exports = {
     },
     extensions: ['.js', '.jsx'],
   },
-  plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
+  mode: nodeEnv,
+  optimization: {
+    splitChunks: {
       name: 'vendor',
       filename: 'vendor.bundle.js',
-      minChuncks: 3,
-    }),
+      minChunks: 3,
+    },
+  },
+  plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) },
     }),

@@ -27,24 +27,25 @@ gulp.task('animation:time', animationTime);
 gulp.task('audio', audio);
 gulp.task('copy', copyModernizr);
 gulp.task('clean', clean);
-gulp.task('dist:scripts', ['copy'], distScripts);
 gulp.task('dist:styles', distStyles);
-gulp.task('docs:scripts', ['copy'], docsScripts);
 gulp.task('docs:site', pages);
-gulp.task('docs:styles', ['styles:lint'], docsStyles);
-gulp.task('icons', icons);
-gulp.task('media', media);
-gulp.task('serve', ['watch'], server);
 gulp.task('styles:lint', linter);
+gulp.task('icons', icons);
 gulp.task('watch', watch);
+gulp.task('server', server);
+gulp.task('media', media);
+gulp.task('docs:scripts', gulp.series('copy', docsScripts, done => done()));
+gulp.task('docs:styles', gulp.series('styles:lint', docsStyles, done => done()));
+gulp.task('dist:scripts', gulp.series('copy', distScripts, done => done()));
+gulp.task('serve', gulp.series('watch', 'server', done => done()));
 
 //
 // Bundled tasks
 //
 
-gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site', 'media']);
-gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'media']);
-gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'media']);
-gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
-gulp.task('build', ['styles', 'docs', 'dist', 'default', 'animations']);
+gulp.task('animations', gulp.series('animation:flag', 'animation:login', 'animation:secure', 'animation:time', done => done()));
+gulp.task('default', gulp.series('audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site', 'media', done => done()));
+gulp.task('dist', gulp.series('audio', 'icons', 'dist:scripts', 'dist:styles', 'media', done => done()));
+gulp.task('docs', gulp.series('icons', 'docs:scripts', 'docs:styles', 'docs:site', 'media', done => done()));
+gulp.task('styles', gulp.series('docs:styles', 'dist:styles', 'styles:lint', done => done()));
+gulp.task('build', gulp.series('styles', 'docs', 'dist', 'default', 'animations', done => done()));
