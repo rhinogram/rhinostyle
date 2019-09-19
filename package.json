@@ -107,6 +107,7 @@
     "recursive-readdir-sync": "1.0.6",
     "rhino-react-image-lightbox-rotate": "1.2.4",
     "rsvp": "4.8.3",
-    "svgo": "1.0.5"
+    "svgo": "1.0.5",
+    "uuid": "3.3.3"
   }
 }

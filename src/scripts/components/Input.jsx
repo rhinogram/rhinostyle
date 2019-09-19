@@ -89,6 +89,9 @@ class Input extends React.Component {
   }
 
   handleBlur = () => {
+    if (this.props.onBlur) {
+      this.props.onBlur();
+    }
     this.input.closest('.form__group').classList.remove('has-focus');
   }
 
@@ -289,6 +292,7 @@ Input.propTypes = {
   onKeyPress: PropTypes.func,
   onKeyUp: PropTypes.func,
   onClear: PropTypes.func,
+  onBlur: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,

@@ -15,6 +15,7 @@ import {
   Select,
   SlidingRadio,
   Textarea,
+  TagInput,
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
@@ -28,6 +29,7 @@ import MessageBoxExample from './examples/MessageBox.example.txt';
 import CheckboxExample from './examples/Checkbox.example.txt';
 import RadioExample from './examples/Radio.example.txt';
 import SlidingRadioExample from './examples/SlidingRadio.example.txt';
+import TagInputExample from './examples/TagInput.example.txt';
 import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
 const InputDocs = {
@@ -59,6 +61,23 @@ const InputScope = {
   Icon,
   Input,
 };
+
+const TagInputDocs = {
+
+};
+
+const TagInputScope = {
+  React,
+  ReactDOM,
+  TagInput,
+  Button,
+};
+
+const tagInputTags = [
+  'Hello world!',
+  'Rhinostylee',
+  'O\'Doyle Rules!',
+];
 
 const SelectDocs = {
   label: 'A label for the select',
@@ -328,6 +347,23 @@ const FormApp = () => (
         scope={TextareaScope}
         component={Textarea}
         propDescriptions={TextareaDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Tag Input</h3>
+      <p className="site-copy">An input component to display an array of added tags</p>
+      <TagInput name="myTags" tags={tagInputTags} initialTagInputValue="" />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Tag Input Playground</h3>
+
+      <Live
+        code={TagInputExample}
+        scope={TagInputScope}
+        component={TagInput}
+        propDescriptions={TagInputDocs}
       />
     </section>
 

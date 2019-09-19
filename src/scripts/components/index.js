@@ -59,6 +59,7 @@ import SlidingRadio from './SlidingRadio';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
 import Table from './Table';
+import TagInput from './TagInput';
 import SmartTable from './SmartTable';
 import TabsContent from './TabsContent';
 import Textarea from './Textarea';
@@ -139,6 +140,7 @@ export {
   SystemAlert,
   TabContentPane,
   SmartTable,
+  TagInput,
   Table,
   TabsContent,
   Textarea,

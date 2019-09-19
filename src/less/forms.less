@@ -524,6 +524,15 @@ input[type='checkbox']:focus {
     padding-bottom: @textarea-vertical-padding;
     padding-top: @textarea-vertical-padding;
   }
+
+  &--is-focused {
+    .mixin-tab-focus();
+  }
+
+  &--tag-input {
+    height: auto;
+    min-height: @input-height-large;
+  }
 }
 
 .form__control--large {

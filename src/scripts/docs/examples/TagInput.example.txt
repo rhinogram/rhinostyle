@@ -1,0 +1,30 @@
+class TagInputComponentExample extends React.Component {
+  state = {
+    tags: ['Hello world!', 'Rhinostylee', 'O\'Doyle Rules!'],
+    tagInputValue: '',
+  };
+
+  handleChange = (name, value) => {
+    this.setState({ tagInputValue: value });
+  };
+
+  handleAddTag = () => {
+    this.setState((prevState) => ({ tags: [...prevState.tags, prevState.tagInputValue], tagInputValue: '' }));
+  }
+
+  render() {
+    return (
+      <div>
+        <TagInput
+          initialTagInputValue={this.state.tagInputValue}
+          onChange={this.handleChange}
+          tags={this.state.tags}
+          name="myTags"
+        />
+        <div>
+          <Button onClick={this.handleAddTag}>Add New Tag</Button>
+        </div>
+      </div>
+    );
+  }
+}
