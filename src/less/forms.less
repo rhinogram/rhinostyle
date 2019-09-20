@@ -528,11 +528,6 @@ input[type='checkbox']:focus {
   &--is-focused {
     .mixin-tab-focus();
   }
-
-  &--tag-input {
-    height: auto;
-    min-height: @input-height-large;
-  }
 }
 
 .form__control--large {
@@ -1204,3 +1199,34 @@ input[type='checkbox']:focus {
 .rhinorange::-ms-fill-upper {
   .mixin-rhinorange-track();
 }
+
+
+//
+// Tag Input
+//
+@tag-container-spacing: 0.4rem;
+
+.tag-input__container {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 0.6rem;
+  height: auto !important;
+}
+
+.tag-input__tag-container {
+  margin-right: @global-whitespace-small;
+  margin-top: 0.6rem;
+}
+
+.tag-input__input-container {
+  flex: 1;
+  min-width: 150px;
+  margin-bottom: -0.6rem;
+  
+  & input {
+    height: @global-height-small;
+  }
+  // margin-top: @global-whitespace-small;
+}
+

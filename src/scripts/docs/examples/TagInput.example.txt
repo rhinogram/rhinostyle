@@ -14,7 +14,7 @@ class TagInputComponentExample extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form__group" style={{ display: 'flex' }}>
         <TagInput
           initialTagInputValue={this.state.tagInputValue}
           onChange={this.handleChange}
@@ -22,7 +22,7 @@ class TagInputComponentExample extends React.Component {
           name="myTags"
         />
         <div>
-          <Button onClick={this.handleAddTag}>Add New Tag</Button>
+          <Button className="u-m-l" size="large" type="secondary" onClick={this.handleAddTag}>Add New Tag</Button>
         </div>
       </div>
     );

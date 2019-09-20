@@ -6,6 +6,8 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Dropdown,
+  DropdownMenuItem,
   FormLabel,
   Icon,
   Input,
@@ -71,6 +73,8 @@ const TagInputScope = {
   ReactDOM,
   TagInput,
   Button,
+  Dropdown,
+  DropdownMenuItem,
 };
 
 const tagInputTags = [

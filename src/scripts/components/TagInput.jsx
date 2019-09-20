@@ -5,7 +5,6 @@ import uuid from 'uuid';
 
 import Input from './Input';
 import Pill from './Pill';
-import UtilityInlineGrid from './UtilityInlineGrid';
 
 class TagInput extends React.Component {
   state = {
@@ -27,11 +26,13 @@ class TagInput extends React.Component {
   render() {
     const renderTags = () => (
       this.props.tags.map(tag => (
-        <Pill type="primary" label={tag} key={uuid()} />
+        <div className="tag-input__tag-container">
+          <Pill type="primary" label={tag} key={uuid()} />
+        </div>
       ))
     );
 
-    const tagInputClasses = cx('form__control', 'form__control--tag-input', {
+    const tagInputClasses = cx('form__control', 'tag-input__container', {
       'form__control--is-focused': this.state.isTagInputFocused,
     });
 
@@ -41,8 +42,8 @@ class TagInput extends React.Component {
         ref={this.divRef}
         onClick={() => this.setTagInputFocusState(true)}
       >
-        <UtilityInlineGrid>
-          {renderTags()}
+        {renderTags()}
+        <div className="tag-input__input-container">
           <Input
             naked
             onChange={this.handleChange}
@@ -52,7 +53,7 @@ class TagInput extends React.Component {
             onBlur={() => this.setTagInputFocusState(false)}
             initialValue={this.props.initialTagInputValue}
           />
-        </UtilityInlineGrid>
+        </div>
       </div>
     );
   }
