@@ -138,3 +138,16 @@ Avatar.defaultProps = {
 };
 
 export default Avatar;
+
+
+<div className="multi__avatars">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="avatar avatar--member background__avatar">
+            <circle cx="50" cy="50" r="30" />
+            <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="30">TK</text>
+          </svg>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="avatar avatar--member foreground__avatar">
+            <circle cx="50" cy="50" r="30" />
+            <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="30">TK</text>
+          </svg>
+        </div>
+        // ktodo clean this shit up
