@@ -56,6 +56,7 @@ class Avatar extends React.Component {
       'avatar--xlarge': size === 'xlarge',
       'avatar--default': type === 'default',
       'avatar--member': type === 'member',
+      'avatar--multi': type === 'multi',
     });
     const styles = {
       backgroundImage: `url(${image})`,
@@ -78,6 +79,8 @@ class Avatar extends React.Component {
         </figure>
       );
     }
+
+    if (classes)
 
     let splitName = null;
     let initials = null;

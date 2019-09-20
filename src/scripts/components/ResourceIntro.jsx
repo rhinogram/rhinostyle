@@ -60,7 +60,8 @@ class ResourceIntro extends React.Component {
           </div>
         );
       }
-    } else if (avatar) {
+      // render one avatar
+    } else if (avatar && avatar.type !== 'multi') {
       output = (
         <Avatar
           size="small"
@@ -70,6 +71,28 @@ class ResourceIntro extends React.Component {
           showOnlineStatus={avatar.showOnlineStatus}
           onlineStatus={avatar.onlineStatus}
         />
+      );
+      // render multiple avatars
+    } else if (avatar && avatar.type === 'multi') {
+      output = (
+        <div>
+          <Avatar
+            className="avatar avatar--member"
+            name={avatar.name} // ktodo: first persons name
+            type={avatar.type}
+            image={avatar.image}
+            showOnlineStatus={avatar.showOnlineStatus}
+            onlineStatus={avatar.onlineStatus}
+          />
+          <Avatar
+            className="avatar avatar--member"
+            name={avatar.name} // ktodo: second persons name
+            type={avatar.type}
+            image={avatar.image}
+            showOnlineStatus={avatar.showOnlineStatus}
+            onlineStatus={avatar.onlineStatus}
+          />
+        </div>
       );
     } else if (checkbox) {
       output = (
