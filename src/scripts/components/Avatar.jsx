@@ -150,4 +150,40 @@ export default Avatar;
             <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="30">TK</text>
           </svg>
         </div>
-        // ktodo clean this shit up
+        // ktodo what you had in ChatInbox
+
+        .multi__avatars {
+          display: inline-flex;
+          flex-direction: row-reverse;
+          width: 40px;
+          height: 40px;
+          position: relative;
+          margin-right: 0.8rem;
+        }
+        
+        .foreground__avatar {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          border: 1.5px solid #fff;
+          border-radius: 50%;
+          overflow: hidden;
+          width: 25px;
+          height: 25px;
+          flex-shrink: 0;
+        }
+        
+        .background__avatar {
+          position: absolute;
+          right: 0;
+          top: 0;
+          border: 1.5px solid #fff;
+          border-radius: 50%;
+          overflow: hidden;
+          width: 25px;
+          height: 25px;
+          flex-shrink: 0;
+        }
+
+        // ktodo what you had for styling
+        
