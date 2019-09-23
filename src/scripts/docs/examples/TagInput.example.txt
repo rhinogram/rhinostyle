@@ -19,6 +19,7 @@ class TagInputComponentExample extends React.Component {
           initialTagInputValue={this.state.tagInputValue}
           onChange={this.handleChange}
           tags={this.state.tags}
+          tagCloseIconClassName="u-text-muted"
           name="myTags"
         />
         <div>
