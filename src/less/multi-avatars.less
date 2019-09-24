@@ -1,0 +1,32 @@
+.multi-avatars {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin-right: 0.8rem;
+}
+
+.multi-avatars__background-avatar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.multi-avatars__foreground-avatar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}

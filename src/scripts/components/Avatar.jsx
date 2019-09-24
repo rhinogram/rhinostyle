@@ -56,7 +56,6 @@ class Avatar extends React.Component {
       'avatar--xlarge': size === 'xlarge',
       'avatar--default': type === 'default',
       'avatar--member': type === 'member',
-      'avatar--multi': type === 'multi',
     });
     const styles = {
       backgroundImage: `url(${image})`,
@@ -79,8 +78,6 @@ class Avatar extends React.Component {
         </figure>
       );
     }
-
-    if (classes)
 
     let splitName = null;
     let initials = null;
@@ -138,52 +135,3 @@ Avatar.defaultProps = {
 };
 
 export default Avatar;
-
-
-<div className="multi__avatars">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="avatar avatar--member background__avatar">
-            <circle cx="50" cy="50" r="30" />
-            <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="30">TK</text>
-          </svg>
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="avatar avatar--member foreground__avatar">
-            <circle cx="50" cy="50" r="30" />
-            <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="30">TK</text>
-          </svg>
-        </div>
-        // ktodo what you had in ChatInbox
-
-        .multi__avatars {
-          display: inline-flex;
-          flex-direction: row-reverse;
-          width: 40px;
-          height: 40px;
-          position: relative;
-          margin-right: 0.8rem;
-        }
-        
-        .foreground__avatar {
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          border: 1.5px solid #fff;
-          border-radius: 50%;
-          overflow: hidden;
-          width: 25px;
-          height: 25px;
-          flex-shrink: 0;
-        }
-        
-        .background__avatar {
-          position: absolute;
-          right: 0;
-          top: 0;
-          border: 1.5px solid #fff;
-          border-radius: 50%;
-          overflow: hidden;
-          width: 25px;
-          height: 25px;
-          flex-shrink: 0;
-        }
-
-        // ktodo what you had for styling
-        

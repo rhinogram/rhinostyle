@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import { Avatar, Button, Checkbox, Icon } from '.';
+import { Avatar, Button, Checkbox, Icon, MultiAvatar } from '.';
 
 class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
@@ -75,24 +75,10 @@ class ResourceIntro extends React.Component {
       // render multiple avatars
     } else if (avatar && avatar.type === 'multi') {
       output = (
-        <div>
-          <Avatar
-            className="avatar avatar--member"
-            name={avatar.name} // ktodo: first persons name
-            type={avatar.type}
-            image={avatar.image}
-            showOnlineStatus={avatar.showOnlineStatus}
-            onlineStatus={avatar.onlineStatus}
-          />
-          <Avatar
-            className="avatar avatar--member"
-            name={avatar.name} // ktodo: second persons name
-            type={avatar.type}
-            image={avatar.image}
-            showOnlineStatus={avatar.showOnlineStatus}
-            onlineStatus={avatar.onlineStatus}
-          />
-        </div>
+        <MultiAvatar
+          images={avatar.images}
+          names={avatar.names}
+        />
       );
     } else if (checkbox) {
       output = (
@@ -158,8 +144,10 @@ class ResourceIntro extends React.Component {
 ResourceIntro.propTypes = {
   avatar: PropTypes.shape({
     image: PropTypes.string,
+    images: PropTypes.array, // used for multi avatars
     name: PropTypes.string,
-    type: PropTypes.oneOf(['default', 'member']),
+    names: PropTypes.array, // used for multi avatars
+    type: PropTypes.oneOf(['default', 'member', 'multi']),
     showOnlineStatus: PropTypes.bool,
     onlineStatus: PropTypes.string,
   }),
