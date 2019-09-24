@@ -8,17 +8,16 @@ class MultiAvatar extends React.Component {
     );
   }
 
-  renderAvatars() {
-    const { images, names } = this.props;
-    let firstUserIntitials;
-    let secondUserInitials;
-    if (names) {
-      firstSplitName = names[0].split(' ');
-      firstUserInitials = firstSplitName[0][0] + firstSplitName[firstSplitName.length - 1][0];
+  formatInitials(name) {
+    splitName = name.split(' ');
+    return splitName[0][0] + splitName[splitName.length - 1][0];
+  }
 
-      secondSplitName = names[0].split(' ');
-      secondUserInitials = secondSplitName[0][0] + secondSplitName[secondSplitName.length - 1][0];
-    }
+  renderAvatars() {
+    const { foregroundImageUrl, backgroundImageUrl, foregroundName, backgroundName, } = this.props;
+
+    foregroundInitials = this.formatInitials(foregroundName);
+    backgroundInitials = this.formatInitials(backgroundName);
 
     const firstUserProfileImageUrl = images[0];
     const secondUserProfileImageUrl = images[1];
@@ -32,7 +31,7 @@ class MultiAvatar extends React.Component {
           className="avatar avatar--member multi-avatars__background-avatar"
           style={firstUserProfileImageUrl ? { backgroundImage: `url(${firstUserProfileImageUrl})` } : {}}
         >
-          {firstUserProfileImageUrl === '' && this.renderInitials(firstUserIntitials)}
+          {firstUserProfileImageUrl === '' && this.renderInitials(backgroundInitials)}
         </svg>
         <svg
           viewBox="0 0 100 100"
@@ -41,7 +40,7 @@ class MultiAvatar extends React.Component {
           className="avatar avatar--member multi-avatars__foreground-avatar"
           style={secondUserProfileImageUrl ? { backgroundImage: `url(${secondUserProfileImageUrl})` } : {}}
         >
-          {secondUserProfileImageUrl === '' && this.renderInitials(secondUserInitials)}
+          {secondUserProfileImageUrl === '' && this.renderInitials(foregroundInitials)}
         </svg>
       </div>
     );
@@ -53,8 +52,10 @@ class MultiAvatar extends React.Component {
 }
 
 MultiAvatar.propTypes = {
-  images: PropTypes.array,
-  names: PropTypes.array,
+  foregroundImageUrl: PropTypes.string,
+  backgroundImageUrl: PropTypes.string,
+  foregroundName: PropTypes.string,
+  backgroundName: PropTypes.string,
 };
 
 export default MultiAvatar;

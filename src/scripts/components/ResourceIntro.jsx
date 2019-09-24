@@ -144,12 +144,16 @@ class ResourceIntro extends React.Component {
 ResourceIntro.propTypes = {
   avatar: PropTypes.shape({
     image: PropTypes.string,
-    images: PropTypes.array, // used for multi avatars
     name: PropTypes.string,
-    names: PropTypes.array, // used for multi avatars
-    type: PropTypes.oneOf(['default', 'member', 'multi']),
+    type: PropTypes.oneOf(['default', 'member']),
     showOnlineStatus: PropTypes.bool,
     onlineStatus: PropTypes.string,
+  }),
+  multiAvatar: PropTypes.shape({
+    foregroundImageUrl: PropTypes.string,
+    backgroundImageUrl: PropTypes.string,
+    foregroundName: PropTypes.string,
+    backgroundName: PropTypes.string,
   }),
   icon: PropTypes.shape({
     icon: PropTypes.string,
