@@ -10,8 +10,15 @@ class MultiAvatar extends React.Component {
 
   renderAvatars() {
     const { images, names } = this.props;
-    const firstUserIntitials = names[0];
-    const secondUserInitials = names[1];
+    let firstUserIntitials;
+    let secondUserInitials;
+    if (names) {
+      firstSplitName = names[0].split(' ');
+      firstUserInitials = firstSplitName[0][0] + firstSplitName[firstSplitName.length - 1][0];
+
+      secondSplitName = names[0].split(' ');
+      secondUserInitials = secondSplitName[0][0] + secondSplitName[secondSplitName.length - 1][0];
+    }
 
     const firstUserProfileImageUrl = images[0];
     const secondUserProfileImageUrl = images[1];
