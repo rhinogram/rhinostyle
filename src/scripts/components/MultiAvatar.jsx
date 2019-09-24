@@ -9,18 +9,18 @@ class MultiAvatar extends React.Component {
   }
 
   formatInitials(name) {
-    splitName = name.split(' ');
+    const splitName = name.split(' ');
     return splitName[0][0] + splitName[splitName.length - 1][0];
   }
 
   renderAvatars() {
-    const { foregroundImageUrl, backgroundImageUrl, foregroundName, backgroundName, } = this.props;
+    const { foregroundImageUrl, backgroundImageUrl, foregroundName, backgroundName } = this.props;
 
-    foregroundInitials = this.formatInitials(foregroundName);
-    backgroundInitials = this.formatInitials(backgroundName);
+    const foregroundInitials = this.formatInitials(foregroundName);
+    const backgroundInitials = this.formatInitials(backgroundName);
 
-    const firstUserProfileImageUrl = images[0];
-    const secondUserProfileImageUrl = images[1];
+    const foregroundImage = foregroundImageUrl;
+    const backgroundImage = backgroundImageUrl;
 
     return (
       <div className="multi-avatars">
@@ -29,18 +29,18 @@ class MultiAvatar extends React.Component {
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
           className="avatar avatar--member multi-avatars__background-avatar"
-          style={firstUserProfileImageUrl ? { backgroundImage: `url(${firstUserProfileImageUrl})` } : {}}
+          style={backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {}}
         >
-          {firstUserProfileImageUrl === '' && this.renderInitials(backgroundInitials)}
+          {backgroundImage === '' && this.renderInitials(backgroundInitials)}
         </svg>
         <svg
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
           className="avatar avatar--member multi-avatars__foreground-avatar"
-          style={secondUserProfileImageUrl ? { backgroundImage: `url(${secondUserProfileImageUrl})` } : {}}
+          style={foregroundImage ? { backgroundImage: `url(${foregroundImage})` } : {}}
         >
-          {secondUserProfileImageUrl === '' && this.renderInitials(foregroundInitials)}
+          {foregroundImage === '' && this.renderInitials(foregroundInitials)}
         </svg>
       </div>
     );

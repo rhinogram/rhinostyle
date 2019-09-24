@@ -24,7 +24,7 @@ class ResourceIntro extends React.Component {
   }
 
   renderMedia = () => {
-    const { icon, avatar, checkbox } = this.props;
+    const { icon, avatar, multiAvatar, checkbox } = this.props;
     let output = null;
     const validIcon = icon && icon.icon;
 
@@ -60,8 +60,7 @@ class ResourceIntro extends React.Component {
           </div>
         );
       }
-      // render one avatar
-    } else if (avatar && avatar.type !== 'multi') {
+    } else if (avatar) {
       output = (
         <Avatar
           size="small"
@@ -72,12 +71,13 @@ class ResourceIntro extends React.Component {
           onlineStatus={avatar.onlineStatus}
         />
       );
-      // render multiple avatars
-    } else if (avatar && avatar.type === 'multi') {
+    } else if (multiAvatar) {
       output = (
         <MultiAvatar
-          images={avatar.images}
-          names={avatar.names}
+          foregroundImageUrl={multiAvatar.foregroundImageUrl}
+          backgroundImageUrl={multiAvatar.backgroundImageUrl}
+          foregroundName={multiAvatar.foregroundName}
+          backgroundName={multiAvatar.backgroundName}
         />
       );
     } else if (checkbox) {
