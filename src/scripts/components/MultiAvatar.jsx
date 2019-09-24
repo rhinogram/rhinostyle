@@ -32,7 +32,7 @@ class MultiAvatar extends React.Component {
           className="avatar avatar--member multi-avatars__background-avatar"
           style={firstUserProfileImageUrl ? { backgroundImage: `url(${firstUserProfileImageUrl})` } : {}}
         >
-          {firstUserProfileImageUrl === {} && this.renderInitials(firstUserIntitials)}
+          {firstUserProfileImageUrl === '' && this.renderInitials(firstUserIntitials)}
         </svg>
         <svg
           viewBox="0 0 100 100"
@@ -41,7 +41,7 @@ class MultiAvatar extends React.Component {
           className="avatar avatar--member multi-avatars__foreground-avatar"
           style={secondUserProfileImageUrl ? { backgroundImage: `url(${secondUserProfileImageUrl})` } : {}}
         >
-          {secondUserProfileImageUrl === {} && this.renderInitials(secondUserInitials)}
+          {secondUserProfileImageUrl === '' && this.renderInitials(secondUserInitials)}
         </svg>
       </div>
     );
