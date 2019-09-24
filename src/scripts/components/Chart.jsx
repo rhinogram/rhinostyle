@@ -58,7 +58,7 @@ class Chart extends React.Component {
   }
 
   render() {
-    const hasData = this.props.data && Object.keys(this.props.data).length && this.props.data.datasets && this.props.data.datasets.length;
+    const hasData = this.props.data && Object.keys(this.props.data).length > 0 && this.props.data.datasets && this.props.data.datasets.length > 0;
     return (
       <div className="chart">
         <div className="chart__header">
