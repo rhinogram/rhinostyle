@@ -189,8 +189,6 @@ class VariableMessage extends React.Component {
   handleVariableSelection = (variable) => {
     const name = variable.variable;
     const value = variable.id;
-    // eslint-disable-next-line no-console
-    console.log(name, value);
 
     if (name) {
       // Get variable value
