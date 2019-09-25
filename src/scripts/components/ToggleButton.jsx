@@ -17,17 +17,15 @@ class ToggleButton extends Component {
 
   render() {
     const { available, className, draggable = false, id } = this.props;
-
     const buttonBaseClass = 'toggle-button';
     const toggleButtonStyleClasses = {
       'toggle-button--strikethrough': !available,
       'button--primary is-outlined': available,
-
     };
-
     const classes = cx(buttonBaseClass, className, {
       ...toggleButtonStyleClasses,
     });
+
     return (
       <button
         type="button"
