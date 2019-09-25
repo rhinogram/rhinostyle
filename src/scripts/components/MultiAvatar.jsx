@@ -9,6 +9,7 @@ class MultiAvatar extends React.Component {
   }
 
   formatInitials(name) {
+    console.log('dogness', name);
     const splitName = name.split(' ');
     return splitName[0][0] + splitName[splitName.length - 1][0];
   }
