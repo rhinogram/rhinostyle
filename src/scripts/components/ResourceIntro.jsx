@@ -129,7 +129,7 @@ class ResourceIntro extends React.Component {
 
   render() {
     const classes = cx('resource__intro', {
-      'has-avatar': this.props.avatar,
+      'has-avatar': this.props.avatar || this.props.multiAvatar,
     });
 
     return (
