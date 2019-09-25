@@ -33,7 +33,7 @@ class VariableMessage extends React.Component {
 
   componentDidMount() {
     if (this.props.initialValue) {
-      this.compose.textContent = this.props.initialValue;
+      this.compose.value = this.props.initialValue;
       this.handleInitValue();
     }
   }
@@ -186,12 +186,13 @@ class VariableMessage extends React.Component {
    * @param  {string} value input[value]
    * @return {void}
    */
-  handleVariableSelection = (name, value) => {
-    // Get flat-level list of all variables
-    // and variable context
-    const variable = this.getVariables(this.props.variables).find(el => el.id === value);
-    // If we're on a valid variable
-    if (variable.variable) {
+  handleVariableSelection = (variable) => {
+    const name = variable.variable;
+    const value = variable.id;
+    // eslint-disable-next-line no-console
+    console.log(name, value);
+
+    if (name) {
       // Get variable value
       this.setState((prevState) => {
         const index = prevState.available.indexOf(value);
@@ -316,9 +317,35 @@ class VariableMessage extends React.Component {
    */
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
+  onDragStart = (event, variable) => {
+    const name = variable.variable;
+    const data = this.transformVar(name);
+    event.persist();
+    event.dataTransfer.setData('text/html', data.outerHTML);
+    event.dataTransfer.setData('variableId', variable.id);
+  }
+
+  onDropStart = (event) => {
+    const variableId = event.dataTransfer.getData('variableId');
+
+    if (variableId) {
+      this.setState((prevState) => {
+        const index = prevState.available.indexOf(Number(variableId));
+        if (index > -1) {
+          prevState.available.splice(index, 1);
+        } else {
+          prevState.available.push(Number(variableId));
+        }
+        return ({ available: prevState.available });
+      });
+      event.dataTransfer.clearData();
+    }
+  }
+
   renderToggleButtons = variables => (
     variables.filter(variable => variable.id !== -1)
       .map((v) => {
+        const isDraggable = this.state.available.indexOf(v.id) >= 0;
         if (v.options) {
           return this.renderToggleButtons(v.options);
         }
@@ -328,6 +355,9 @@ class VariableMessage extends React.Component {
             variable={v}
             key={v.id}
             onClick={this.handleVariableSelection}
+            draggable={isDraggable}
+            id={v.value}
+            onDragStart={this.onDragStart}
           >
             {v.value}
           </ToggleButton>
@@ -374,6 +404,7 @@ class VariableMessage extends React.Component {
         )}
         <div style={{ position: 'relative' }}>
           <div
+            onDrop={event => this.onDropStart(event)}
             id={variableMessageInputName}
             className="variable-message__compose"
             contentEditable={!readOnly}
