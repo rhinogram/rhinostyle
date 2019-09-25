@@ -13,7 +13,7 @@ class MultiAvatar extends React.Component {
     return splitName[0][0] + splitName[splitName.length - 1][0];
   }
 
-  renderAvatars() {
+  render() {
     const { foregroundImageUrl, backgroundImageUrl, foregroundName, backgroundName } = this.props;
 
     const foregroundInitials = this.formatInitials(foregroundName);
@@ -45,17 +45,18 @@ class MultiAvatar extends React.Component {
       </div>
     );
   }
-
-  render() {
-    return this.renderAvatars();
-  }
 }
 
 MultiAvatar.propTypes = {
   foregroundImageUrl: PropTypes.string,
   backgroundImageUrl: PropTypes.string,
-  foregroundName: PropTypes.string,
-  backgroundName: PropTypes.string,
+  foregroundName: PropTypes.string.isRequired,
+  backgroundName: PropTypes.string.isRequired,
+};
+
+MultiAvatar.defaultProps = {
+  foregroundImageUrl: '',
+  backgroundImageUrl: '',
 };
 
 export default MultiAvatar;
