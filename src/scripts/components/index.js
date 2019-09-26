@@ -41,6 +41,7 @@ import Modal from './Modal';
 import ModalBody from './ModalBody';
 import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
+import MultiAvatar from './MultiAvatar';
 import NavTabs from './NavTabs';
 import NavTabsItem from './NavTabsItem';
 import Pill from './Pill';
@@ -120,6 +121,7 @@ export {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  MultiAvatar,
   NavTabs,
   NavTabsItem,
   NotificationActions,
