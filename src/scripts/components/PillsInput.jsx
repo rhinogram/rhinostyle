@@ -16,7 +16,7 @@ class PillsInput extends React.Component {
     }
   }
 
-  divRef = React.createRef();
+  inputContainerDivRef = React.createRef();
 
   setInputFocusState = (isInputFocused) => {
     this.setState({ isInputFocused });
@@ -44,7 +44,7 @@ class PillsInput extends React.Component {
     return (
       <div
         className={inputClasses}
-        ref={this.divRef}
+        ref={this.inputContainerDivRef}
         onClick={() => this.setInputFocusState(true)}
       >
         {renderPills()}

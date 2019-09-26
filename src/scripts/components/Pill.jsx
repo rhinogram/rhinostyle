@@ -17,7 +17,7 @@ const Pill = (props) => {
 
   const handleCloseButtonClick = ($event) => {
     $event.stopPropagation();
-    if (onCloseIconClick) {
+    if (onCloseIconClick && id) {
       onCloseIconClick(id);
     }
   };
