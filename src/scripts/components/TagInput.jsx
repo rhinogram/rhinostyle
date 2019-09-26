@@ -27,7 +27,13 @@ class TagInput extends React.Component {
     const renderTags = () => (
       this.props.tags.map(tag => (
         <div className="tag-input__tag-container">
-          <Pill type={this.props.tagType} label={tag} key={uuid()} closeIconClassName={this.props.tagCloseIconClassName} />
+          <Pill
+            type={this.props.tagType}
+            label={tag}
+            key={uuid()}
+            closeIconClassName={this.props.tagCloseIconClassName}
+            onCloseIconClick={this.props.onTagCloseIconClick}
+          />
         </div>
       ))
     );
@@ -63,6 +69,7 @@ TagInput.propTypes = {
   name: PropTypes.string.isRequired,
   tags: PropTypes.array,
   onChange: PropTypes.func,
+  onTagCloseIconClick: PropTypes.func,
   initialTagInputValue: PropTypes.string.isRequired,
   tagType: PropTypes.string,
   tagCloseIconClassName: PropTypes.string,
@@ -70,6 +77,7 @@ TagInput.propTypes = {
 
 TagInput.defaultProps = {
   tagType: 'powder-blue',
+  onTagCloseIconClick: () => {},
 };
 
 export default TagInput;
