@@ -17,7 +17,7 @@ import {
   Select,
   SlidingRadio,
   Textarea,
-  TagInput,
+  PillsInput,
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
@@ -31,7 +31,7 @@ import MessageBoxExample from './examples/MessageBox.example.txt';
 import CheckboxExample from './examples/Checkbox.example.txt';
 import RadioExample from './examples/Radio.example.txt';
 import SlidingRadioExample from './examples/SlidingRadio.example.txt';
-import TagInputExample from './examples/TagInput.example.txt';
+import PillsInputExample from './examples/PillsInput.example.txt';
 import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
 const InputDocs = {
@@ -64,23 +64,23 @@ const InputScope = {
   Input,
 };
 
-const TagInputDocs = {
+const PillsInputDocs = {
 
 };
 
-const TagInputScope = {
+const PillsInputScope = {
   React,
   ReactDOM,
-  TagInput,
+  PillsInput,
   Button,
   Dropdown,
   DropdownMenuItem,
 };
 
-const tagInputTags = [
-  'Hello world!',
-  'Rhinostylee',
-  'O\'Doyle Rules!',
+const pillsInputPills = [
+  { label: 'Hello World', id: '1' },
+  { label: 'Rhinostylee', id: '2' },
+  { label: 'O Doyle Rules!', id: '3' },
 ];
 
 const SelectDocs = {
@@ -355,19 +355,19 @@ const FormApp = () => (
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Tag Input</h3>
-      <p className="site-copy">An input component to display an array of added tags</p>
-      <TagInput name="myTags" tags={tagInputTags} initialTagInputValue="" />
+      <h3 className="site-subheadline">Pills Input</h3>
+      <p className="site-copy">An input component to display an array of added data as pills</p>
+      <PillsInput name="myTags" pills={pillsInputPills} initialInputValue="" />
     </section>
 
     <section className="site-section">
-      <h3 className="site-subheadline">Tag Input Playground</h3>
+      <h3 className="site-subheadline">Pills Input Playground</h3>
 
       <Live
-        code={TagInputExample}
-        scope={TagInputScope}
-        component={TagInput}
-        propDescriptions={TagInputDocs}
+        code={PillsInputExample}
+        scope={PillsInputScope}
+        component={PillsInput}
+        propDescriptions={PillsInputDocs}
       />
     </section>
 

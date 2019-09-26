@@ -5,7 +5,7 @@ import React from 'react';
 import { Button, Icon } from '.';
 
 const Pill = (props) => {
-  const { className, disabled, icon, hideClose, onClick, label, type, closeIconClassName, onCloseIconClick } = props;
+  const { className, disabled, icon, hideClose, onClick, label, type, closeIconClassName, onCloseIconClick, id } = props;
 
   const pillClasses = cx('pill', className, {
     'pill--default': type === 'default',
@@ -15,13 +15,20 @@ const Pill = (props) => {
 
   const closeIconClasses = cx('pill__close', closeIconClassName);
 
+  const handleCloseButtonClick = ($event) => {
+    $event.stopPropagation();
+    if (onCloseIconClick) {
+      onCloseIconClick(id);
+    }
+  };
+
   return (
     <Button reset className={pillClasses} onClick={onClick} disabled={disabled}>
       {icon && (
         <Icon icon={icon} className="pill__icon" />
       )}
       {label}
-      {(!disabled && !hideClose) && <Icon icon="close" className={closeIconClasses} onClick={() => onCloseIconClick(label)} />}
+      {(!disabled && !hideClose) && <Icon icon="close" className={closeIconClasses} onClick={handleCloseButtonClick} />}
     </Button>
   );
 };
@@ -32,6 +39,7 @@ Pill.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   hideClose: PropTypes.bool,
+  id: PropTypes.string,
   onClick: PropTypes.func,
   onCloseIconClick: PropTypes.func,
   label: PropTypes.string.isRequired,
@@ -40,7 +48,6 @@ Pill.propTypes = {
 
 Pill.defaultProps = {
   onClick: () => {},
-  onCloseIconClick: () => {},
   type: 'default',
   hideClose: false,
 };
