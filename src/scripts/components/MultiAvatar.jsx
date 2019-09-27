@@ -4,7 +4,7 @@ import React from 'react';
 class MultiAvatar extends React.Component {
   renderInitials(initials) {
     return (
-      <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="30">{initials}</text>
+      <text x="50" y="50" textAnchor="middle" dy="0.35em" fontSize="40">{initials}</text>
     );
   }
 

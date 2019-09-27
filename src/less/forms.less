@@ -524,6 +524,10 @@ input[type='checkbox']:focus {
     padding-bottom: @textarea-vertical-padding;
     padding-top: @textarea-vertical-padding;
   }
+
+  &--is-focused {
+    .mixin-tab-focus();
+  }
 }
 
 .form__control--large {
@@ -1195,3 +1199,32 @@ input[type='checkbox']:focus {
 .rhinorange::-ms-fill-upper {
   .mixin-rhinorange-track();
 }
+
+
+//
+// pill Input
+//
+@pill-container-spacing: 0.4rem;
+
+.pill-input__container {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 0.6rem;
+}
+
+.pill-input__pill-container {
+  margin-right: @global-whitespace-small;
+  margin-top: 0.6rem;
+}
+
+.pill-input__input-container {
+  flex: 1;
+  min-width: 150px;
+  margin-bottom: -0.6rem;
+
+  & input {
+    height: @global-height-small;
+  }
+}
+

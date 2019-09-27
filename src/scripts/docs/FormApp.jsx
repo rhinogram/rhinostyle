@@ -6,6 +6,8 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Dropdown,
+  DropdownMenuItem,
   FormLabel,
   Icon,
   Input,
@@ -15,6 +17,7 @@ import {
   Select,
   SlidingRadio,
   Textarea,
+  PillsInput,
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
@@ -28,6 +31,7 @@ import MessageBoxExample from './examples/MessageBox.example.txt';
 import CheckboxExample from './examples/Checkbox.example.txt';
 import RadioExample from './examples/Radio.example.txt';
 import SlidingRadioExample from './examples/SlidingRadio.example.txt';
+import PillsInputExample from './examples/PillsInput.example.txt';
 import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
 const InputDocs = {
@@ -59,6 +63,25 @@ const InputScope = {
   Icon,
   Input,
 };
+
+const PillsInputDocs = {
+
+};
+
+const PillsInputScope = {
+  React,
+  ReactDOM,
+  PillsInput,
+  Button,
+  Dropdown,
+  DropdownMenuItem,
+};
+
+const pillsInputPills = [
+  { label: 'Hello World', id: '1' },
+  { label: 'Rhinostylee', id: '2' },
+  { label: 'O Doyle Rules!', id: '3' },
+];
 
 const SelectDocs = {
   label: 'A label for the select',
@@ -328,6 +351,23 @@ const FormApp = () => (
         scope={TextareaScope}
         component={Textarea}
         propDescriptions={TextareaDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Pills Input</h3>
+      <p className="site-copy">An input component to display an array of added data as pills</p>
+      <PillsInput name="myTags" pills={pillsInputPills} initialInputValue="" />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Pills Input Playground</h3>
+
+      <Live
+        code={PillsInputExample}
+        scope={PillsInputScope}
+        component={PillsInput}
+        propDescriptions={PillsInputDocs}
       />
     </section>
 
