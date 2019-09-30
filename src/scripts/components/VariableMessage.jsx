@@ -21,14 +21,32 @@ class VariableMessage extends React.Component {
   state = {
     message: '',
     available: [],
+    variables: [],
+    variablesOfCategory: [],
+    categories: [],
+    selectedCategory: '',
   };
 
   componentWillMount() {
-    if (this.props.initialValue) {
-      this.setState({
-        message: this.props.initialValue,
-      });
+    const toUpdateState = {
+      categories: [],
+    };
+
+    if (this.props.isCategoryAvailable) {
+      toUpdateState.selectedCategory = this.props.defaultSelectedCategory;
+      toUpdateState.variablesOfCategory =
+        this.props.data.filter((item) => {
+          if (!toUpdateState.categories.includes(item.category)) {
+            toUpdateState.categories.push(item.category);
+          }
+          return (item.category === this.props.defaultSelectedCategory);
+        });
     }
+    if (this.props.initialValue) {
+      toUpdateState.message = this.props.initialValue;
+    }
+    toUpdateState.variables = this.props.data;
+    this.setState(toUpdateState);
   }
 
   componentDidMount() {
@@ -131,7 +149,7 @@ class VariableMessage extends React.Component {
   }
 
   removeVariable = (text) => {
-    const variables = this.getVariables(this.props.variables);
+    const variables = this.getVariables(this.state.variables);
     const split = this.state.message.split(text).join('').split(/({.*?})/);
     const lowercaseSplit = split.map(e => e.toLowerCase());
 
@@ -148,10 +166,10 @@ class VariableMessage extends React.Component {
     this.compose.innerHTML = split.join('');
   }
 
-  handleInitValue = () => {
-    const { initialValue } = this.props;
+  handleInitValue = (message = this.props.initialValue) => {
+    const initialValue = message;
     // Get flat-level list of all variables
-    const variables = this.getVariables(this.props.variables);
+    const variables = this.getVariables(this.state.variables);
     // Split `initialValue` to target variables
     const split = initialValue.split(/({.*?})/);
 
@@ -227,7 +245,7 @@ class VariableMessage extends React.Component {
       const available = [];
       const split = this.state.message.split(/({.*?})/);
       const lowercaseSplit = split.map(e => e.toLowerCase());
-      const variables = this.getVariables(this.props.variables);
+      const variables = this.getVariables(this.state.variables);
       variables.forEach((value) => {
         const { variable } = value;
         const foundVariable = lowercaseSplit.indexOf(variable.toLowerCase());
@@ -279,7 +297,7 @@ class VariableMessage extends React.Component {
       message,
     });
     // Search text to determine if variables are found in it
-    this.getVariables(this.props.variables).forEach((value) => {
+    this.getVariables(this.state.variables).forEach((value) => {
       const { variable } = value;
 
       if (variable) {
@@ -363,28 +381,109 @@ class VariableMessage extends React.Component {
       })
   )
 
-  render() {
+  changeCategoryHandler = (category) => {
+    this.setState({
+      variablesOfCategory: this.props.data.filter(item => item.category === category),
+      selectedCategory: category,
+    }, () => this.handleInitValue(this.state.message));
+  }
+
+  categoryView = () => {
     const {
       characterCountTitle,
-      characterCountWarningLength,
-      className,
-      composeLabel,
-      explanationMessage,
       variableExplanationMessage,
-      previewLabel,
-      name,
-      variables,
-      readOnly,
-      required,
       showCharacterCounter,
-      validationMessage,
+      characterCountWarningLength,
     } = this.props;
-    const classes = cx('form__group variable-message', className);
-    const { message } = this.state;
+    const {
+      message,
+      variablesOfCategory,
+      selectedCategory,
+    } = this.state;
     const characterCounterClasses = cx('variable-message__character-count', {
       'variable-message__character-count--warning': message.length >= characterCountWarningLength,
     });
 
+    return (
+      <Fragment>
+        <FormLabel className="u-block u-m-t" id="Variables">Variables</FormLabel>
+        <div className="category-message__footer">
+          <div className="column-4 category-message__footer__category__list">
+            {this.state.categories.map((item) => {
+              const activeClass = selectedCategory === item ? 'category-message__footer__category__active' : '';
+              return (
+                <div
+                  key={item}
+                  className={`u-p-a-small category-message__footer__category ${activeClass}`}
+                  onClick={() => this.changeCategoryHandler(item)}
+                >
+                  <span>{item}</span>
+                </div>);
+            })}
+          </div>
+          <div className="column-8">
+            {variableExplanationMessage && (
+              <div className="category-message__explanation">{variableExplanationMessage}</div>
+            )}
+            <div className="category-message__footer__variable__list">
+              {this.renderToggleButtons(variablesOfCategory)}
+            </div>
+          </div>
+        </div>
+        {showCharacterCounter && (
+          <div title={characterCountTitle} className={characterCounterClasses}>
+            {message.length}
+          </div>
+        )}
+      </Fragment>);
+  };
+
+  variableView = () => {
+    const {
+      characterCountTitle,
+      variableExplanationMessage,
+      showCharacterCounter,
+      characterCountWarningLength,
+    } = this.props;
+    const { message } = this.state;
+    const characterCounterClasses = cx('variable-message__character-count', {
+      'variable-message__character-count--warning': message.length >= characterCountWarningLength,
+    });
+    const {
+      variables,
+    } = this.state;
+
+    return (
+      <Fragment>
+        <div className="variable-message__footer">
+          {variableExplanationMessage &&
+          <div className="variable-message__explanation">{variableExplanationMessage}</div>
+            }
+          <div className="variable-message__footer__variable__list">
+            {this.renderToggleButtons(variables)}
+          </div>
+        </div>
+        {showCharacterCounter && (
+          <div title={characterCountTitle} className={characterCounterClasses}>
+            {message.length}
+          </div>
+        )}
+      </Fragment>);
+  };
+
+  render() {
+    const {
+      className,
+      composeLabel,
+      explanationMessage,
+      previewLabel,
+      name,
+      readOnly,
+      required,
+      validationMessage,
+      isCategoryAvailable,
+    } = this.props;
+    const classes = cx('form__group variable-message', className);
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
 
@@ -419,19 +518,7 @@ class VariableMessage extends React.Component {
         <FormValidationMessage validationMessage={validationMessage} />
         {!readOnly && (
         <Fragment>
-          <div className="variable-message__footer">
-            {variableExplanationMessage &&
-            <div className="variable-message__explanation">{variableExplanationMessage}</div>
-              }
-            <div className="variable-message__footer__left">
-              {this.renderToggleButtons(variables)}
-            </div>
-          </div>
-          {showCharacterCounter && (
-          <div title={characterCountTitle} className={characterCounterClasses}>
-            {message.length}
-          </div>
-          )}
+          {isCategoryAvailable === true ? this.categoryView() : this.variableView() }
           <div className="variable-message__preview">
             <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
             <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
@@ -453,7 +540,9 @@ VariableMessage.propTypes = {
   previewLabel: PropTypes.string,
   name: PropTypes.string.isRequired,
   reset: PropTypes.bool,
-  variables: PropTypes.array.isRequired,
+  data: PropTypes.array,
+  defaultSelectedCategory: PropTypes.string,
+  isCategoryAvailable: PropTypes.bool,
   onInput: PropTypes.func,
   initialValue: PropTypes.string,
   readOnly: PropTypes.bool,
@@ -466,6 +555,17 @@ VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
   variableExplanationMessage: 'Click to add/remove variables into your message:',
+  isCategoryAvailable: false,
+  data: [
+    { id: 1, category: 'demographics', value: 'First Name', variable: '{First_Name}', variableValue: 'John' },
+    { id: 2, category: 'demographics', value: 'Last Name', variable: '{Last_Name}', variableValue: 'Smith' },
+    { id: 3, category: 'demographics', value: 'Preferred Name', variable: '{Preferred_Name}', variableValue: 'dd' },
+    { id: 4, category: 'appointment', value: 'Appointment Date Time', variable: '{Appointment_Date_Time}', variableValue: 'dd' },
+    { id: 5, category: 'organization', value: 'Organization Name', variable: '{Organization_Name}', variableValue: 'John' },
+    { id: 6, category: 'organization', value: 'Sending Member First Name', variable: '{Sending_Member_First_Name}', variableValue: 'Smith' },
+    { id: 7, category: 'organization', value: 'Sending Member Last Name', variable: '{Sending_Member_Last_Name}', variableValue: 'dasd' },
+  ],
+  defaultSelectedCategory: 'demographics',
 };
 
 export default VariableMessage;
