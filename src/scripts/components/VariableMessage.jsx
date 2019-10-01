@@ -555,17 +555,6 @@ VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
   variableExplanationMessage: 'Click to add/remove variables into your message:',
-  isCategoryAvailable: false,
-  data: [
-    { id: 1, category: 'demographics', value: 'First Name', variable: '{First_Name}', variableValue: 'John' },
-    { id: 2, category: 'demographics', value: 'Last Name', variable: '{Last_Name}', variableValue: 'Smith' },
-    { id: 3, category: 'demographics', value: 'Preferred Name', variable: '{Preferred_Name}', variableValue: 'dd' },
-    { id: 4, category: 'appointment', value: 'Appointment Date Time', variable: '{Appointment_Date_Time}', variableValue: 'dd' },
-    { id: 5, category: 'organization', value: 'Organization Name', variable: '{Organization_Name}', variableValue: 'John' },
-    { id: 6, category: 'organization', value: 'Sending Member First Name', variable: '{Sending_Member_First_Name}', variableValue: 'Smith' },
-    { id: 7, category: 'organization', value: 'Sending Member Last Name', variable: '{Sending_Member_Last_Name}', variableValue: 'dasd' },
-  ],
-  defaultSelectedCategory: 'demographics',
 };
 
 export default VariableMessage;

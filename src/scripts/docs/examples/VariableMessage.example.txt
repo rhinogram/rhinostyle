@@ -25,8 +25,9 @@ class ComponentExample extends React.Component {
         onInput={this.handleInput}
         reset
         name="message"
-        variables={variableOpts}
-        initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office. {REPLY_‘1’_to_CONFIRM}, {REPLY_‘2’_to_CANCEL}"
+        isCategoryAvailable={false}
+        data={variableOpts}
+        initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office."
       />
     );
   }

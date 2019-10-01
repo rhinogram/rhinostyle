@@ -29,13 +29,17 @@ class ToggleButton extends Component {
     return (
       <button
         type="button"
-        id={id}
         className={classes}
         onClick={this.handleClick}
-        draggable={draggable}
-        onDragStart={event => this.handleDrag(event)}
       >
-        <span className="button__text-wrapper">{this.props.children}</span>
+        <span
+          draggable={draggable}
+          onDragStart={event => this.handleDrag(event)}
+          id={id}
+          className="button__text-wrapper"
+        >
+          {this.props.children}
+        </span>
       </button>
     );
   }
