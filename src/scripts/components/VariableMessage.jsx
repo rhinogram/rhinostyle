@@ -51,10 +51,8 @@ class VariableMessage extends React.Component {
   }
 
   componentDidMount() {
-    // if (this.props.initialValue) {
-    this.compose.value = this.props.initialValue;
+    this.compose.textContent = this.props.initialValue;
     this.handleInitValue();
-    // }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -108,7 +106,8 @@ class VariableMessage extends React.Component {
   insertTextAtCursorOnDrag = (text) => {
     const sel = window.getSelection();
     let range = document.createRange();
-
+    // eslint-disable-next-line no-param-reassign
+    text.innerHTML += '&nbsp;';
     // Make sure we're focused on the compose element
     this.compose.focus();
 
