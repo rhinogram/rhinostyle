@@ -18,6 +18,7 @@ import {
 } from '../constants';
 
 class VariableMessage extends React.Component {
+  currentDraggedSpanId = '';
   state = {
     message: '',
     available: [],
@@ -50,10 +51,10 @@ class VariableMessage extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.initialValue) {
-      this.compose.value = this.props.initialValue;
-      this.handleInitValue();
-    }
+    // if (this.props.initialValue) {
+    this.compose.value = this.props.initialValue;
+    this.handleInitValue();
+    // }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -104,12 +105,31 @@ class VariableMessage extends React.Component {
     }
   }
 
+  insertTextAtCursorOnDrag = (text) => {
+    const sel = window.getSelection();
+    let range = document.createRange();
+
+    // Make sure we're focused on the compose element
+    this.compose.focus();
+
+    if (sel.getRangeAt && sel.rangeCount) {
+      range = sel.getRangeAt(0);
+      range.deleteContents();
+
+      // Move caret
+      range.setStartAfter(text);
+      range.setEndAfter(text);
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  }
+
   /**
    * Transform `{}` into styled component
    * @param  {string} text
    * @return {node}
    */
-  transformVar = (text) => {
+  transformVar = (text, draggableValue) => {
     // Re-assign text value for processing
     let value = text;
     // Replace text contents of variable to hide squigglies
@@ -126,6 +146,7 @@ class VariableMessage extends React.Component {
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
     $variable.setAttribute('contenteditable', false);
+    $variable.setAttribute('id', `span-${draggableValue}`);
     $variable.classList.add('variable-message__variable');
     $variable.innerHTML = value;
 
@@ -143,25 +164,27 @@ class VariableMessage extends React.Component {
    * @param  {string} text
    * @return {void}
    */
-  insertVariable = (text) => {
-    const $variable = this.transformVar(text);
+  insertVariable = (text, value) => {
+    const $variable = this.transformVar(text, value);
     this.insertTextAtCursor($variable);
   }
 
-  removeVariable = (text) => {
+  removeVariable = (text, val) => {
     const variables = this.getVariables(this.state.variables);
     const split = this.state.message.split(text).join('').split(/({.*?})/);
     const lowercaseSplit = split.map(e => e.toLowerCase());
 
-    variables.filter(v => v.value !== text).forEach((value) => {
-      const { variable } = value;
-      const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
-      // See if we've found one in our `initialValue`
-      if (isVariablePresent) {
-        const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
-        split[variableIndex] = this.transformVar(variable).outerHTML;
-      }
-    });
+    variables
+      .filter(variable => variable.value !== text)
+      .forEach((value) => {
+        const { variable } = value;
+        const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
+        // See if we've found one in our `initialValue`
+        if (isVariablePresent) {
+          const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
+          split[variableIndex] = this.transformVar(variable, val).outerHTML;
+        }
+      });
 
     this.compose.innerHTML = split.join('');
   }
@@ -176,16 +199,16 @@ class VariableMessage extends React.Component {
     const lowercaseSplit = split.map(e => e.toLowerCase());
     const available = [];
     // Loop through variables
-    variables.forEach((value) => {
-      const { variable } = value;
+    variables.forEach((item) => {
+      const { variable, id, value } = item;
       const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
         // If so, transform the variable into HTML
         const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
-        split[variableIndex] = this.transformVar(variable).outerHTML;
+        split[variableIndex] = this.transformVar(variable, value).outerHTML;
       } else {
-        available.push(value.id);
+        available.push(id);
       }
     });
 
@@ -204,20 +227,19 @@ class VariableMessage extends React.Component {
    * @param  {string} value input[value]
    * @return {void}
    */
-  handleVariableSelection = (variable) => {
-    const name = variable.variable;
-    const value = variable.id;
+  handleVariableSelection = (variableSet) => {
+    const { id, variable, value } = variableSet;
 
-    if (name) {
+    if (variable) {
       // Get variable value
       this.setState((prevState) => {
-        const index = prevState.available.indexOf(value);
+        const index = prevState.available.indexOf(id);
         if (index > -1) {
           prevState.available.splice(index, 1);
-          this.insertVariable(name);
+          this.insertVariable(variable, value);
         } else {
-          prevState.available.push(value);
-          this.removeVariable(name);
+          prevState.available.push(id);
+          this.removeVariable(variable);
         }
         return ({ available: prevState.available });
       }, () => {
@@ -335,7 +357,8 @@ class VariableMessage extends React.Component {
 
   onDragStart = (event, variable) => {
     const name = variable.variable;
-    const data = this.transformVar(name);
+    const data = this.transformVar(name, variable.value);
+    this.currentDraggedSpanId = variable.value;
     event.persist();
     event.dataTransfer.setData('text/html', data.outerHTML);
     event.dataTransfer.setData('variableId', variable.id);
@@ -343,6 +366,11 @@ class VariableMessage extends React.Component {
 
   onDropStart = (event) => {
     const variableId = event.dataTransfer.getData('variableId');
+
+    setTimeout(() => {
+      const text = document.getElementById(`span-${this.currentDraggedSpanId}`);
+      this.insertTextAtCursorOnDrag(text);
+    }, 0);
 
     if (variableId) {
       this.setState((prevState) => {
