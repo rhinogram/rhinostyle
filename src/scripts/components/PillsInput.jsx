@@ -39,6 +39,7 @@ class PillsInput extends React.Component {
 
     const inputClasses = cx('form__control', 'pill-input__container', {
       'form__control--is-focused': this.state.isInputFocused,
+      'pill-input__container--scroll': this.props.hasInputScroller,
     });
 
     return (
@@ -75,11 +76,13 @@ PillsInput.propTypes = {
   initialInputValue: PropTypes.string.isRequired,
   pillType: PropTypes.string,
   pillCloseIconClassName: PropTypes.string,
+  hasInputScroller: PropTypes.bool,
 };
 
 PillsInput.defaultProps = {
   pillType: 'powder-blue',
   onPillCloseIconClick: () => {},
+  hasInputScroller: false,
 };
 
 export default PillsInput;
