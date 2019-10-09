@@ -12,23 +12,53 @@ class ComponentExample extends React.Component {
   }
 
   render() {
-    const variableOpts = [
-          { id: 1, value: 'First Name', variable: '{First_Name}', variableValue: 'Craig' },
-          { id: 2, value: 'Last Name', variable: '{Last_Name}', variableValue: 'Anthony' },
-          { id: 3, value: 'Office Location', variable: '{Office_Location}', variableValue: 'Mount Pleasant' },
-          { id: 4, value: 'REPLY ‘1’ to CONFIRM', variable: '{REPLY_‘1’_to_CONFIRM}', variableValue: 'REPLY ‘1’ to CONFIRM' },
-          { id: 5, value: 'REPLY ‘2’ to CANCEL', variable: '{REPLY_‘2’_to_CANCEL}', variableValue: 'REPLY ‘2’ to CANCEL' },
-        ]
+    const categoryVariableOpts =  [
+   { id: 1, category: 'demographics', value: 'First Name', variable: '{First_Name}', variableValue: 'John' },
+   { id: 2, category: 'demographics', value: 'Last Name', variable: '{Last_Name}', variableValue: 'Smith' },
+   { id: 3, category: 'demographics', value: 'Preferred Name', variable: '{Preferred_Name}', variableValue: 'dd' },
+   { id: 4, category: 'appointment', value: 'Appointment Date Time', variable: '{Appointment_Date_Time}', variableValue: 'dd' },
+   { id: 5, category: 'organization', value: 'Organization Name', variable: '{Organization_Name}', variableValue: 'John' },
+   { id: 6, category: 'organization', value: 'Sending Member First Name', variable: '{Sending_Member_First_Name}', variableValue: 'Smith' },
+   { id: 7, category: 'organization', value: 'Sending Member Last Name', variable: '{Sending_Member_Last_Name}', variableValue: 'organization' },
+ ];
+   const variableOpts = [
+      { id: 1, value: 'First Name', variable: '{First_Name}', variableValue: 'Craig' },
+      { id: 2, value: 'Last Name', variable: '{Last_Name}', variableValue: 'Anthony' },
+      { id: 3, value: 'Office Location', variable: '{Office_Location}', variableValue: 'Mount Pleasant' },
+      { id: 4, value: 'REPLY ‘1’ to CONFIRM', variable: '{REPLY_‘1’_to_CONFIRM}', variableValue: 'REPLY ‘1’ to CONFIRM' },
+      { id: 5, value: 'REPLY ‘2’ to CANCEL', variable: '{REPLY_‘2’_to_CANCEL}', variableValue: 'REPLY ‘2’ to CANCEL' },
+    ]
 
     return (
-      <VariableMessage
-        onInput={this.handleInput}
-        reset
-        name="message"
-        isCategoryAvailable={false}
-        data={variableOpts}
-        initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office."
-      />
+      <div>
+        <div>
+        <h5 class="u-m-y-large">Variables Only</h5>
+
+        <VariableMessage
+          onInput={this.handleInput}
+          reset
+          name="message"
+          isCategoryAvailable={false}
+          data={variableOpts}
+          initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office."
+        />
+        </div>
+        <hr/>
+        <div>
+        <h5 class="u-m-y-large">Variables with Category</h5>
+
+        <VariableMessage
+          onInput={this.handleInput}
+          reset
+          name="message"
+          isCategoryAvailable={false}
+          data={categoryVariableOpts}
+          isCategoryAvailable ={true}
+          defaultSelectedCategory={'demographics'}
+          initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our office."
+        />
+        </div>
+      </div>
     );
   }
 }

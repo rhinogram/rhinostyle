@@ -9,6 +9,8 @@ import { Button,
   Message,
   ToggleButton,
   UtilitySystem,
+  Dropdown,
+  DropdownMenuItem,
 } from '.';
 
 import {
@@ -19,6 +21,7 @@ import {
 
 class VariableMessage extends React.Component {
   currentDraggedSpanId = '';
+  isCategoryMobileViewVisible = false;
   state = {
     message: '',
     available: [],
@@ -34,6 +37,7 @@ class VariableMessage extends React.Component {
     };
 
     if (this.props.isCategoryAvailable) {
+      this.isCategoryMobileViewVisible = window.outerWidth <= 767; //  for mobile view
       toUpdateState.selectedCategory = this.props.defaultSelectedCategory;
       toUpdateState.variablesOfCategory =
         this.props.data.filter((item) => {
@@ -415,7 +419,54 @@ class VariableMessage extends React.Component {
     }, () => this.handleInitValue(this.state.message));
   }
 
-  categoryView = () => {
+  categoryMobileView = () => {
+    const {
+      characterCountTitle,
+      variableExplanationMessage,
+      showCharacterCounter,
+      characterCountWarningLength,
+    } = this.props;
+    const {
+      message,
+      variablesOfCategory,
+      selectedCategory,
+    } = this.state;
+    const characterCounterClasses = cx('variable-message__character-count', {
+      'variable-message__character-count--warning': message.length >= characterCountWarningLength,
+    });
+
+    return (
+      <div className="category-mobile-view">
+        <FormLabel className="u-block u-m-t" id="Variables">Variables</FormLabel>
+        <div className="category-dropdown">
+          <Dropdown label={selectedCategory} wide block>
+            {this.state.categories.map(item => (
+              <DropdownMenuItem
+                key={item}
+                id={item}
+                label={item}
+                onClick={() => this.changeCategoryHandler(item)}
+              />))}
+          </Dropdown>
+        </div>
+        <div className="category-variable-list u-m-y u-p-a">
+          {variableExplanationMessage && (
+            <div className="u-text-muted u-text-small">{variableExplanationMessage}</div>
+          )}
+          <div className="category-message__footer__variable__list">
+            {this.renderToggleButtons(variablesOfCategory)}
+          </div>
+        </div>
+        {showCharacterCounter && (
+          <div title={characterCountTitle} className={characterCounterClasses}>
+            {message.length}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  categoryDesktopView = () => {
     const {
       characterCountTitle,
       variableExplanationMessage,
@@ -448,9 +499,9 @@ class VariableMessage extends React.Component {
                 </div>);
             })}
           </div>
-          <div className="column-8">
+          <div className="column-8 u-p-a">
             {variableExplanationMessage && (
-              <div className="category-message__explanation">{variableExplanationMessage}</div>
+              <div className="u-text-muted u-text-small">{variableExplanationMessage}</div>
             )}
             <div className="category-message__footer__variable__list">
               {this.renderToggleButtons(variablesOfCategory)}
@@ -513,6 +564,7 @@ class VariableMessage extends React.Component {
     const classes = cx('form__group variable-message', className);
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
+    const categoryView = this.isCategoryMobileViewVisible ? this.categoryMobileView : this.categoryDesktopView;
 
     return (
       <div className={classes}>
@@ -521,7 +573,7 @@ class VariableMessage extends React.Component {
           <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
           {this.showReset() && (
           <div className="variable-message__reset">
-            <Button reset className="u-text-muted u-text-small" onClick={this.handleInitValue}>Undo</Button>
+            <Button reset className="u-text-muted u-text-small" onClick={() => this.handleInitValue()}>Undo</Button>
           </div>
           )}
         </div>
@@ -545,7 +597,7 @@ class VariableMessage extends React.Component {
         <FormValidationMessage validationMessage={validationMessage} />
         {!readOnly && (
         <Fragment>
-          {isCategoryAvailable === true ? this.categoryView() : this.variableView() }
+          {isCategoryAvailable === true ? categoryView() : this.variableView() }
           <div className="variable-message__preview">
             <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
             <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
