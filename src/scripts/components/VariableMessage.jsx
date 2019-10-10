@@ -466,7 +466,7 @@ class VariableMessage extends React.Component {
     );
   }
 
-  categoryDesktopView = () => {
+  categoryWebView = () => {
     const {
       characterCountTitle,
       variableExplanationMessage,
@@ -564,7 +564,7 @@ class VariableMessage extends React.Component {
     const classes = cx('form__group variable-message', className);
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
-    const categoryView = this.isCategoryMobileViewVisible ? this.categoryMobileView : this.categoryDesktopView;
+    const categoryView = this.isCategoryMobileViewVisible ? this.categoryMobileView : this.categoryWebView;
 
     return (
       <div className={classes}>
