@@ -33,7 +33,8 @@
 }
 
 .variable-message__compose {
-  &[contenteditable='true'] {
+  &[contenteditable='true'],
+  &[contenteditable='false'] {
     background-color: @variable-message-compose-bg;
     border: 1px solid @variable-message-compose-border-color;
     border-top-left-radius: @variable-message-compose-border-radius;

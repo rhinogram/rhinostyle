@@ -20,7 +20,7 @@ import {
 } from '../constants';
 
 class VariableMessage extends React.Component {
-  currentDraggedSpanId = '';
+  currentDraggedSpanVariable = '';
   isCategoryMobileViewVisible = false;
   state = {
     message: '',
@@ -132,26 +132,34 @@ class VariableMessage extends React.Component {
    * @param  {string} text
    * @return {node}
    */
-  transformVar = (text, draggableValue) => {
+  transformVar = (variableSet) => {
     // Re-assign text value for processing
-    let value = text;
+    let { variable } = variableSet;
+    const { value } = variableSet;
+
     // Replace text contents of variable to hide squigglies
     const regexSquiggles = /{(.*)?}/g;
-    value = value.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
+    variable = variable.replace(regexSquiggles, '<i>{</i><div>$1</div><i>}</i>');
 
     // Replace text contents of variable to hide underscore
     const regexUnderscores = /_/g;
-    value = value.replace(regexUnderscores, '</div><b>_</b><div>');
+    variable = variable.replace(regexUnderscores, '</div><b>_</b><div>');
 
     // Build variable UI
     const $variable = document.createElement('span');
-    // Disable spell-checker
+
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
     $variable.setAttribute('contenteditable', false);
-    $variable.setAttribute('id', `span-${draggableValue}`);
+    $variable.setAttribute('draggable', true);
+    document.addEventListener('dragstart', (event) => {
+      if (event.target.id === `span-${value}`) {
+        this.onVariableDragStart(event, variableSet);
+      }
+    });
+    $variable.setAttribute('id', `span-${value}`);
     $variable.classList.add('variable-message__variable');
-    $variable.innerHTML = value;
+    $variable.innerHTML = variable;
 
     if (!this.props.readOnly) {
       const $close = document.createElement('span');
@@ -167,12 +175,12 @@ class VariableMessage extends React.Component {
    * @param  {string} text
    * @return {void}
    */
-  insertVariable = (text, value) => {
-    const $variable = this.transformVar(text, value);
+  insertVariable = (variableSet) => {
+    const $variable = this.transformVar(variableSet);
     this.insertTextAtCursor($variable);
   }
 
-  removeVariable = (text, val) => {
+  removeVariable = (text) => {
     const variables = this.getVariables(this.state.variables);
     const split = this.state.message.split(text).join('').split(/({.*?})/);
     const lowercaseSplit = split.map(e => e.toLowerCase());
@@ -185,7 +193,7 @@ class VariableMessage extends React.Component {
         // See if we've found one in our `initialValue`
         if (isVariablePresent) {
           const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
-          split[variableIndex] = this.transformVar(variable, val).outerHTML;
+          split[variableIndex] = this.transformVar(value).outerHTML;
         }
       });
 
@@ -203,13 +211,13 @@ class VariableMessage extends React.Component {
     const available = [];
     // Loop through variables
     variables.forEach((item) => {
-      const { variable, id, value } = item;
+      const { variable, id } = item;
       const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
       // See if we've found one in our `initialValue`
       if (isVariablePresent) {
         // If so, transform the variable into HTML
         const variableIndex = lowercaseSplit.indexOf(variable.toLowerCase());
-        split[variableIndex] = this.transformVar(variable, value).outerHTML;
+        split[variableIndex] = this.transformVar(item).outerHTML;
       } else {
         available.push(id);
       }
@@ -231,7 +239,7 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleVariableSelection = (variableSet) => {
-    const { id, variable, value } = variableSet;
+    const { id, variable } = variableSet;
 
     if (variable) {
       // Get variable value
@@ -239,7 +247,7 @@ class VariableMessage extends React.Component {
         const index = prevState.available.indexOf(id);
         if (index > -1) {
           prevState.available.splice(index, 1);
-          this.insertVariable(variable, value);
+          this.insertVariable(variableSet);
         } else {
           prevState.available.push(id);
           this.removeVariable(variable);
@@ -358,20 +366,18 @@ class VariableMessage extends React.Component {
    */
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
-  onDragStart = (event, variable) => {
-    const name = variable.variable;
-    const data = this.transformVar(name, variable.value);
-    this.currentDraggedSpanId = variable.value;
-    event.persist();
+  onVariableDragStart = (event, variable) => {
+    const data = this.transformVar(variable);
+    this.currentDraggedSpanVariable = variable;
+    if (event.persist) event.persist();
     event.dataTransfer.setData('text/html', data.outerHTML);
     event.dataTransfer.setData('variableId', variable.id);
   }
 
-  onDropStart = (event) => {
+  composeMessageDropHandler = (event) => {
     const variableId = event.dataTransfer.getData('variableId');
-
     setTimeout(() => {
-      const text = document.getElementById(`span-${this.currentDraggedSpanId}`);
+      const text = document.getElementById(`span-${this.currentDraggedSpanVariable.value}`);
       this.insertTextAtCursorOnDrag(text);
     }, 0);
 
@@ -389,6 +395,22 @@ class VariableMessage extends React.Component {
     }
   }
 
+  variableStackDropHandler(event) {
+    const variableId = event.dataTransfer.getData('variableId');
+    const variableSet = this.state.variables.find(item => item.id === Number(variableId));
+
+    this.setState((prevState) => {
+      prevState.available.push(Number(variableId));
+      this.removeVariable(variableSet.variable);
+      return ({ available: prevState.available });
+    }, () => {
+      // Focus back on compose element
+      this.compose.focus();
+      this.handleComposeInput();
+      this.composeMessageViewHandler('true');
+    });
+  }
+
   renderToggleButtons = variables => (
     variables.filter(variable => variable.id !== -1)
       .map((v) => {
@@ -404,7 +426,7 @@ class VariableMessage extends React.Component {
             onClick={this.handleVariableSelection}
             draggable={isDraggable}
             id={v.value}
-            onDragStart={this.onDragStart}
+            onDragStart={this.onVariableDragStart}
           >
             {v.value}
           </ToggleButton>
@@ -499,7 +521,11 @@ class VariableMessage extends React.Component {
                 </div>);
             })}
           </div>
-          <div className="column-8 u-p-a">
+          <div
+            className="column-8 u-p-a"
+            onDrop={event => this.variableStackDropHandler(event)}
+            onDragOver={event => event.preventDefault()}
+          >
             {variableExplanationMessage && (
               <div className="u-text-muted u-text-small">{variableExplanationMessage}</div>
             )}
@@ -533,7 +559,11 @@ class VariableMessage extends React.Component {
 
     return (
       <Fragment>
-        <div className="variable-message__footer">
+        <div
+          onDrop={event => this.variableStackDropHandler(event)}
+          onDragOver={event => event.preventDefault()}
+          className="variable-message__footer"
+        >
           {variableExplanationMessage &&
           <div className="variable-message__explanation">{variableExplanationMessage}</div>
             }
@@ -548,6 +578,18 @@ class VariableMessage extends React.Component {
         )}
       </Fragment>);
   };
+
+  composeMessageViewHandler = (contentEditable = null) => {
+    if (contentEditable) {
+      this.compose.contentEditable = contentEditable;
+      return;
+    }
+    if (this.state.available.indexOf(Number(this.currentDraggedSpanVariable.id)) < 0) {
+      this.compose.contentEditable = 'false';
+    } else {
+      this.compose.contentEditable = 'true';
+    }
+  }
 
   render() {
     const {
@@ -580,7 +622,9 @@ class VariableMessage extends React.Component {
         )}
         <div style={{ position: 'relative' }}>
           <div
-            onDrop={event => this.onDropStart(event)}
+            onDrop={event => this.composeMessageDropHandler(event)}
+            onDragOver={() => this.composeMessageViewHandler()}
+            onDragLeave={() => this.composeMessageViewHandler('true')}
             id={variableMessageInputName}
             className="variable-message__compose"
             contentEditable={!readOnly}
