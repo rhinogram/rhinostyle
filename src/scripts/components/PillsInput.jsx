@@ -37,7 +37,7 @@ class PillsInput extends React.Component {
       ))
     );
 
-    const inputClasses = cx('form__control', 'pill-input__container', {
+    const inputClasses = cx('form__control', 'pill-input__container', this.props.className, {
       'form__control--is-focused': this.state.isInputFocused,
     });
 
@@ -65,6 +65,7 @@ class PillsInput extends React.Component {
 }
 
 PillsInput.propTypes = {
+  className: PropTypes.string,
   name: PropTypes.string.isRequired,
   pills: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
