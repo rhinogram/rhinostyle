@@ -83,6 +83,7 @@ PillsInput.propTypes = {
 PillsInput.defaultProps = {
   pillType: 'powder-blue',
   onPillCloseIconClick: () => {},
+  inputFormat: null,
 };
 
 export default PillsInput;
