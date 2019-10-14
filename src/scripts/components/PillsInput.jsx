@@ -50,6 +50,7 @@ class PillsInput extends React.Component {
         {renderPills()}
         <div className="pill-input__input-container">
           <Input
+            format={this.props.inputFormat}
             naked
             onChange={this.handleChange}
             name={this.props.name}
@@ -76,6 +77,7 @@ PillsInput.propTypes = {
   initialInputValue: PropTypes.string.isRequired,
   pillType: PropTypes.string,
   pillCloseIconClassName: PropTypes.string,
+  inputFormat: PropTypes.object,
 };
 
 PillsInput.defaultProps = {
