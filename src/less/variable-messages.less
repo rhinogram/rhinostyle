@@ -169,7 +169,17 @@
   margin-top: @form-group-spacing;
 }
 
+.category-web-view {
+  display: block;
+
+  @media (max-width: @global-screen-small-max) {
+    display: none;
+  }
+}
+
 .category-mobile-view {
+  display: none;
+
   .category-dropdown {
     .button__text-wrapper {
       justify-content: space-between;
@@ -180,5 +190,9 @@
   }
   .category-variable-list {
     border: 1px solid @variable-message-compose-border-color;
+  }
+
+  @media (max-width: @global-screen-small-max) {
+    display: block;
   }
 }

@@ -21,14 +21,13 @@ import {
 
 class VariableMessage extends React.Component {
   currentDraggedSpanVariable = '';
-  isCategoryMobileViewVisible = false;
   state = {
-    message: '',
+    message: this.props.initialValue || '',
     available: [],
-    variables: [],
+    variables: this.props.variables || [],
     variablesOfCategory: [],
     categories: [],
-    selectedCategory: '',
+    selectedCategory: this.props.defaultSelectedCategory || '',
   };
 
   componentWillMount() {
@@ -37,20 +36,14 @@ class VariableMessage extends React.Component {
     };
 
     if (this.props.isCategoryAvailable) {
-      this.isCategoryMobileViewVisible = window.outerWidth <= 767; //  for mobile view
-      toUpdateState.selectedCategory = this.props.defaultSelectedCategory;
       toUpdateState.variablesOfCategory =
-        this.props.data.filter((item) => {
+        this.props.variables.filter((item) => {
           if (!toUpdateState.categories.includes(item.category)) {
             toUpdateState.categories.push(item.category);
           }
           return (item.category === this.props.defaultSelectedCategory);
         });
     }
-    if (this.props.initialValue) {
-      toUpdateState.message = this.props.initialValue;
-    }
-    toUpdateState.variables = this.props.data;
     this.setState(toUpdateState);
   }
 
@@ -436,12 +429,12 @@ class VariableMessage extends React.Component {
 
   changeCategoryHandler = (category) => {
     this.setState({
-      variablesOfCategory: this.props.data.filter(item => item.category === category),
+      variablesOfCategory: this.props.variables.filter(item => item.category === category),
       selectedCategory: category,
     }, () => this.handleInitValue(this.state.message));
   }
 
-  categoryMobileView = () => {
+  renderCategoryMobileView = () => {
     const {
       characterCountTitle,
       variableExplanationMessage,
@@ -488,7 +481,7 @@ class VariableMessage extends React.Component {
     );
   }
 
-  categoryWebView = () => {
+  renderCategoryWebView = () => {
     const {
       characterCountTitle,
       variableExplanationMessage,
@@ -505,7 +498,7 @@ class VariableMessage extends React.Component {
     });
 
     return (
-      <Fragment>
+      <div className="category-web-view">
         <FormLabel className="u-block u-m-t" id="Variables">Variables</FormLabel>
         <div className="category-message__footer">
           <div className="column-4 category-message__footer__category__list">
@@ -539,10 +532,10 @@ class VariableMessage extends React.Component {
             {message.length}
           </div>
         )}
-      </Fragment>);
+      </div>);
   };
 
-  variableView = () => {
+  renderVariableView = () => {
     const {
       characterCountTitle,
       variableExplanationMessage,
@@ -606,7 +599,6 @@ class VariableMessage extends React.Component {
     const classes = cx('form__group variable-message', className);
     const variableMessageInputName = `variable-message-input-${this.id}`;
     const variableMessagePreviewName = `variable-message-preview-${this.id}`;
-    const categoryView = this.isCategoryMobileViewVisible ? this.categoryMobileView : this.categoryWebView;
 
     return (
       <div className={classes}>
@@ -641,7 +633,13 @@ class VariableMessage extends React.Component {
         <FormValidationMessage validationMessage={validationMessage} />
         {!readOnly && (
         <Fragment>
-          {isCategoryAvailable === true ? categoryView() : this.variableView() }
+          {isCategoryAvailable === true ? (
+            <Fragment>
+              {/* play with css via display property. */}
+              {this.renderCategoryMobileView()}
+              {this.renderCategoryWebView()}
+            </Fragment>
+          ) : this.renderVariableView() }
           <div className="variable-message__preview">
             <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
             <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
@@ -663,7 +661,7 @@ VariableMessage.propTypes = {
   previewLabel: PropTypes.string,
   name: PropTypes.string.isRequired,
   reset: PropTypes.bool,
-  data: PropTypes.array,
+  variables: PropTypes.array.isRequired,
   defaultSelectedCategory: PropTypes.string,
   isCategoryAvailable: PropTypes.bool,
   onInput: PropTypes.func,

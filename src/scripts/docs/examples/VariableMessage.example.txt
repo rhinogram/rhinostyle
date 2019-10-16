@@ -39,7 +39,7 @@ class ComponentExample extends React.Component {
           reset
           name="message"
           isCategoryAvailable={false}
-          data={variableOpts}
+          variables={variableOpts}
           initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office."
         />
         </div>
@@ -52,7 +52,7 @@ class ComponentExample extends React.Component {
           reset
           name="message"
           isCategoryAvailable={false}
-          data={categoryVariableOpts}
+          variables={categoryVariableOpts}
           isCategoryAvailable ={true}
           defaultSelectedCategory={'demographics'}
           initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our office."
