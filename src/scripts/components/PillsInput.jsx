@@ -39,6 +39,17 @@ class PillsInput extends React.Component {
 
     const { inputProps } = this.props;
 
+    const propsForInput = {
+      naked: inputProps.naked || true,
+      onChange: inputProps.oneChange || this.handleChange,
+      name: inputProps.name || this.props.name,
+      focus: inputProps.focus || this.state.isInputFocused,
+      onFocus: inputProps.onFocus || this.setInputFocusState(true),
+      onBlur: inputProps.onBlur || this.setInputFocusState(false),
+      initialValue: inputProps.intiialValue || this.props.initialInputValue,
+      ...this.props.inputProps,
+    };
+
     const inputClasses = cx('form__control', 'pill-input__container', this.props.className, {
       'form__control--is-focused': this.state.isInputFocused,
     });
@@ -51,16 +62,7 @@ class PillsInput extends React.Component {
       >
         {renderPills()}
         <div className="pill-input__input-container">
-          <Input
-            format={inputProps.format}
-            naked
-            onChange={this.handleChange}
-            name={this.props.name}
-            focus={this.state.isInputFocused}
-            onFocus={() => this.setInputFocusState(true)}
-            onBlur={() => this.setInputFocusState(false)}
-            initialValue={this.props.initialInputValue}
-          />
+          <Input {...propsForInput} />
         </div>
       </div>
     );
@@ -79,13 +81,44 @@ PillsInput.propTypes = {
   initialInputValue: PropTypes.string.isRequired,
   pillType: PropTypes.string,
   pillCloseIconClassName: PropTypes.string,
-  inputProps: PropTypes.object,
+  inputProps: PropTypes.shape({
+    addon: PropTypes.oneOf(['left', 'right', 'both']),
+    autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
+    autoComplete: PropTypes.oneOf(['off', 'on']),
+    children: PropTypes.node,
+    className: PropTypes.string,
+    clear: PropTypes.bool,
+    customHTMLAttributes: PropTypes.object,
+    customInputClasses: PropTypes.string,
+    disabled: PropTypes.bool,
+    explanationMessage: PropTypes.string,
+    focus: PropTypes.bool,
+    format: PropTypes.object,
+    initialValue: PropTypes.string,
+    label: PropTypes.string,
+    naked: PropTypes.bool,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onInit: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    onKeyUp: PropTypes.func,
+    onClear: PropTypes.func,
+    onBlur: PropTypes.func,
+    onMouseDown: PropTypes.func,
+    placeholder: PropTypes.string,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    size: PropTypes.oneOf(['large']),
+    type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
+    validationMessage: PropTypes.string,
+  }),
 };
 
 PillsInput.defaultProps = {
   pillType: 'powder-blue',
   onPillCloseIconClick: () => {},
-  inputProps: null,
 };
 
 export default PillsInput;
