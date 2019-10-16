@@ -97,7 +97,7 @@ PillsInput.propTypes = {
     initialValue: PropTypes.string,
     label: PropTypes.string,
     naked: PropTypes.bool,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onInit: PropTypes.func,
