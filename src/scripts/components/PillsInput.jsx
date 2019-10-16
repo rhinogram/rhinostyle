@@ -37,6 +37,8 @@ class PillsInput extends React.Component {
       ))
     );
 
+    const { inputProps } = this.props;
+
     const inputClasses = cx('form__control', 'pill-input__container', this.props.className, {
       'form__control--is-focused': this.state.isInputFocused,
     });
@@ -50,7 +52,7 @@ class PillsInput extends React.Component {
         {renderPills()}
         <div className="pill-input__input-container">
           <Input
-            format={this.props.inputFormat}
+            format={inputProps.format}
             naked
             onChange={this.handleChange}
             name={this.props.name}
@@ -77,13 +79,13 @@ PillsInput.propTypes = {
   initialInputValue: PropTypes.string.isRequired,
   pillType: PropTypes.string,
   pillCloseIconClassName: PropTypes.string,
-  inputFormat: PropTypes.object,
+  inputProps: PropTypes.object,
 };
 
 PillsInput.defaultProps = {
   pillType: 'powder-blue',
   onPillCloseIconClick: () => {},
-  inputFormat: null,
+  inputProps: null,
 };
 
 export default PillsInput;
