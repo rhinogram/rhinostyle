@@ -42,7 +42,6 @@ class PillsInput extends React.Component {
     const propsForInput = {
       naked: inputProps.naked || true,
       onChange: inputProps.onChange || this.handleChange,
-      name: inputProps.name || this.props.name,
       focus: inputProps.focus || this.state.isInputFocused,
       onFocus: inputProps.onFocus || this.setInputFocusState(true),
       onBlur: inputProps.onBlur || this.setInputFocusState(false),
@@ -70,7 +69,6 @@ class PillsInput extends React.Component {
 
 PillsInput.propTypes = {
   className: PropTypes.string,
-  name: PropTypes.string.isRequired,
   pills: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
