@@ -41,12 +41,11 @@ class PillsInput extends React.Component {
 
     const propsForInput = {
       naked: inputProps.naked || true,
-      onChange: inputProps.oneChange || this.handleChange,
+      onChange: inputProps.onChange || this.handleChange,
       name: inputProps.name || this.props.name,
       focus: inputProps.focus || this.state.isInputFocused,
       onFocus: inputProps.onFocus || this.setInputFocusState(true),
       onBlur: inputProps.onBlur || this.setInputFocusState(false),
-      initialValue: inputProps.intiialValue || this.props.initialInputValue,
       ...this.props.inputProps,
     };
 
@@ -78,7 +77,6 @@ PillsInput.propTypes = {
   })),
   onChange: PropTypes.func,
   onPillCloseIconClick: PropTypes.func,
-  initialInputValue: PropTypes.string.isRequired,
   pillType: PropTypes.string,
   pillCloseIconClassName: PropTypes.string,
   inputProps: PropTypes.shape({
@@ -94,7 +92,7 @@ PillsInput.propTypes = {
     explanationMessage: PropTypes.string,
     focus: PropTypes.bool,
     format: PropTypes.object,
-    initialValue: PropTypes.string,
+    initialValue: PropTypes.string.isRequired,
     label: PropTypes.string,
     naked: PropTypes.bool,
     name: PropTypes.string,
