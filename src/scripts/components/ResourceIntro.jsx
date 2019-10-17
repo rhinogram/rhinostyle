@@ -23,6 +23,27 @@ class ResourceIntro extends React.Component {
     }
   }
 
+  renderCheckbox = () => {
+    const { checkbox } = this.props;
+    const classes = cx('resource__intro__media', {
+      'resource__intro__media--checkbox': checkbox,
+      'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
+    });
+    const output = (
+      <Checkbox
+        label={checkbox.label}
+        name={checkbox.name}
+        isChecked={checkbox.isChecked}
+        onChange={this.handleCheckboxClick}
+      />
+    );
+    return (
+      <div className={classes}>
+        {output}
+      </div>
+    );
+  }
+
   renderMedia = () => {
     const { icon, avatar, multiAvatar, checkbox } = this.props;
     let output = null;
@@ -93,7 +114,7 @@ class ResourceIntro extends React.Component {
 
     if (output) {
       const classes = cx('resource__intro__media', {
-        'resource__intro__media--checkbox': checkbox,
+        'resource__intro__media--checkbox': checkbox && !this.props.avatar && !this.props.multiAvatar,
         'resource__intro__media--icon': validIcon,
         'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
       });
@@ -134,6 +155,7 @@ class ResourceIntro extends React.Component {
 
     return (
       <div className={classes}>
+        {this.props.checkbox && this.props.checkbox.hasAvatar && this.renderCheckbox()}
         {this.renderMedia()}
         {this.renderTitle()}
       </div>
@@ -165,6 +187,7 @@ ResourceIntro.propTypes = {
     label: PropTypes.string,
     name: PropTypes.string,
     onChange: PropTypes.func,
+    hasAvatar: PropTypes.bool,
   }),
   children: PropTypes.node,
   title: PropTypes.any,
