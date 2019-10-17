@@ -26,7 +26,6 @@ class ResourceIntro extends React.Component {
   renderCheckbox = () => {
     const { checkbox } = this.props;
     const classes = cx('resource__intro__media', {
-      'resource__intro__media--checkbox': checkbox,
       'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
     });
     const output = (
@@ -114,7 +113,7 @@ class ResourceIntro extends React.Component {
 
     if (output) {
       const classes = cx('resource__intro__media', {
-        'resource__intro__media--checkbox': checkbox && !this.props.avatar && !this.props.multiAvatar,
+        'resource__intro__media--checkbox': checkbox && !checkbox.hasAvatar,
         'resource__intro__media--icon': validIcon,
         'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
       });
