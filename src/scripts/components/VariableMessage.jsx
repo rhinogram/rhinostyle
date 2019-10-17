@@ -33,16 +33,18 @@ class VariableMessage extends React.Component {
   componentWillMount() {
     const toUpdateState = {
       categories: [],
+      variablesOfCategory: [],
     };
 
     if (this.props.isCategoryAvailable) {
-      toUpdateState.variablesOfCategory =
-        this.props.variables.filter((item) => {
-          if (!toUpdateState.categories.includes(item.category)) {
-            toUpdateState.categories.push(item.category);
-          }
-          return (item.category === this.props.defaultSelectedCategory);
-        });
+      this.props.variables.forEach((item) => {
+        if (!toUpdateState.categories.includes(item.category)) {
+          toUpdateState.categories.push(item.category);
+        }
+        if (item.category === this.props.defaultSelectedCategory) {
+          toUpdateState.variablesOfCategory.push(item);
+        }
+      });
     }
     this.setState(toUpdateState);
   }
