@@ -28,17 +28,14 @@ class ResourceIntro extends React.Component {
     const classes = cx('resource__intro__media', {
       'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
     });
-    const output = (
-      <Checkbox
-        label={checkbox.label}
-        name={checkbox.name}
-        isChecked={checkbox.isChecked}
-        onChange={this.handleCheckboxClick}
-      />
-    );
     return (
       <div className={classes}>
-        {output}
+        <Checkbox
+          label={checkbox.label}
+          name={checkbox.name}
+          isChecked={checkbox.isChecked}
+          onChange={this.handleCheckboxClick}
+        />
       </div>
     );
   }
