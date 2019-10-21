@@ -24,13 +24,12 @@ class VariableMessage extends React.Component {
   state = {
     message: this.props.initialValue || '',
     available: [],
-    variables: this.props.variables || [],
     variablesOfCategory: [],
     categories: [],
     selectedCategory: this.props.defaultSelectedCategory || '',
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const toUpdateState = {
       categories: [],
       variablesOfCategory: [],
@@ -46,19 +45,24 @@ class VariableMessage extends React.Component {
         }
       });
     }
-    this.setState(toUpdateState);
-  }
 
-  componentDidMount() {
     this.compose.textContent = this.props.initialValue;
-    this.handleInitValue();
+    this.setState(toUpdateState, () => this.handleInitValue());
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.initialValue !== this.props.initialValue) {
-      this.setState({
-        message: nextProps.initialValue,
-      }, this.handleInitValue); // we need to run the init function everytime the component receives props to properly set the content edittable values.
+  static getDerivedStateFromProps(props, state) {
+    let toUpdateState = null;
+    if (props.initialValue !== state.message) {
+      toUpdateState = {
+        message: props.initialValue,
+      };
+    }
+    return toUpdateState;
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.initialValue !== prevProps.initialValue) {
+      this.handleInitValue();
     }
   }
 
@@ -176,7 +180,7 @@ class VariableMessage extends React.Component {
   }
 
   removeVariable = (text) => {
-    const variables = this.getVariables(this.state.variables);
+    const variables = this.getVariables(this.props.variables);
     const split = this.state.message.split(text).join('').split(/({.*?})/);
     const lowercaseSplit = split.map(e => e.toLowerCase());
 
@@ -198,7 +202,7 @@ class VariableMessage extends React.Component {
   handleInitValue = (message = this.props.initialValue) => {
     const initialValue = message;
     // Get flat-level list of all variables
-    const variables = this.getVariables(this.state.variables);
+    const variables = this.getVariables(this.props.variables);
     // Split `initialValue` to target variables
     const split = initialValue.split(/({.*?})/);
 
@@ -273,7 +277,7 @@ class VariableMessage extends React.Component {
       const available = [];
       const split = this.state.message.split(/({.*?})/);
       const lowercaseSplit = split.map(e => e.toLowerCase());
-      const variables = this.getVariables(this.state.variables);
+      const variables = this.getVariables(this.props.variables);
       variables.forEach((value) => {
         const { variable } = value;
         const foundVariable = lowercaseSplit.indexOf(variable.toLowerCase());
@@ -325,7 +329,7 @@ class VariableMessage extends React.Component {
       message,
     });
     // Search text to determine if variables are found in it
-    this.getVariables(this.state.variables).forEach((value) => {
+    this.getVariables(this.props.variables).forEach((value) => {
       const { variable } = value;
 
       if (variable) {
@@ -392,7 +396,7 @@ class VariableMessage extends React.Component {
 
   variableStackDropHandler(event) {
     const variableId = event.dataTransfer.getData('variableId');
-    const variableSet = this.state.variables.find(item => item.id === Number(variableId));
+    const variableSet = this.props.variables.find(item => item.id === Number(variableId));
 
     this.setState((prevState) => {
       prevState.available.push(Number(variableId));
@@ -543,14 +547,12 @@ class VariableMessage extends React.Component {
       variableExplanationMessage,
       showCharacterCounter,
       characterCountWarningLength,
+      variables,
     } = this.props;
     const { message } = this.state;
     const characterCounterClasses = cx('variable-message__character-count', {
       'variable-message__character-count--warning': message.length >= characterCountWarningLength,
     });
-    const {
-      variables,
-    } = this.state;
 
     return (
       <Fragment>
