@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import { Avatar, Button, Checkbox, Icon } from '.';
+import { Avatar, Button, Checkbox, Icon, MultiAvatar } from '.';
 
 class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
@@ -24,7 +24,7 @@ class ResourceIntro extends React.Component {
   }
 
   renderMedia = () => {
-    const { icon, avatar, checkbox } = this.props;
+    const { icon, avatar, multiAvatar, checkbox } = this.props;
     let output = null;
     const validIcon = icon && icon.icon;
 
@@ -69,6 +69,15 @@ class ResourceIntro extends React.Component {
           image={avatar.image}
           showOnlineStatus={avatar.showOnlineStatus}
           onlineStatus={avatar.onlineStatus}
+        />
+      );
+    } else if (multiAvatar) {
+      output = (
+        <MultiAvatar
+          foregroundImageUrl={multiAvatar.foregroundImageUrl}
+          backgroundImageUrl={multiAvatar.backgroundImageUrl}
+          foregroundName={multiAvatar.foregroundName}
+          backgroundName={multiAvatar.backgroundName}
         />
       );
     } else if (checkbox) {
@@ -120,7 +129,7 @@ class ResourceIntro extends React.Component {
 
   render() {
     const classes = cx('resource__intro', {
-      'has-avatar': this.props.avatar,
+      'has-avatar': this.props.avatar || this.props.multiAvatar,
     });
 
     return (
@@ -139,6 +148,12 @@ ResourceIntro.propTypes = {
     type: PropTypes.oneOf(['default', 'member']),
     showOnlineStatus: PropTypes.bool,
     onlineStatus: PropTypes.string,
+  }),
+  multiAvatar: PropTypes.shape({
+    foregroundImageUrl: PropTypes.string,
+    backgroundImageUrl: PropTypes.string,
+    foregroundName: PropTypes.string,
+    backgroundName: PropTypes.string,
   }),
   icon: PropTypes.shape({
     icon: PropTypes.string,
