@@ -350,6 +350,7 @@ class VariableMessage extends React.Component {
       required,
       showCharacterCounter,
       validationMessage,
+      displayMessageAreaOnly,
     } = this.props;
     const classes = cx('form__group variable-message', className);
     const { message } = this.state;
@@ -376,7 +377,7 @@ class VariableMessage extends React.Component {
           <div
             id={variableMessageInputName}
             className="variable-message__compose"
-            contentEditable={!readOnly}
+            contentEditable={!readOnly || displayMessageAreaOnly}
             onInput={this.handleComposeInput}
             onFocus={this.handleComposeInput}
             onKeyPress={this.handleComposeKeypress}
@@ -384,6 +385,7 @@ class VariableMessage extends React.Component {
             onPaste={this.handlePaste}
             name={name}
             ref={ref => (this.compose = ref)}
+            placeholder={this.props.placeholder}
           />
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
@@ -431,11 +433,15 @@ VariableMessage.propTypes = {
   required: PropTypes.bool,
   showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
+  displayMessageAreaOnly: PropTypes.displayMessageAreaOnly.bool
+  placeholder: PropTypes.string
 };
 
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
+  displayMessageAreaOnly: false,
+  placeholder: '',
   variableExplanationMessage: 'Click to add/remove variables into your message:',
 };
 
