@@ -262,6 +262,7 @@
   font-weight: normal;
   line-height: @global-line-height-base;
   padding: @dropdown-padding;
+  width: 100%;
 
   &:hover,
   &:focus {
@@ -280,6 +281,7 @@
   align-items: center;
   display: flex;
   position: relative;
+  width: 100%;
 }
 
 //
@@ -452,13 +454,9 @@
   text-align: center;
 
   .dropdown {
-    .date-range__buttons {
-      .button {
-        background-color: @global-color-gray-lightest;
-        box-shadow: none;
-        font-size: @global-font-size-small;
-        height: @global-whitespace-large;
-      }
+    .dropdown__toggle {
+      background-color: @global-color-gray-lightest;
+      box-shadow: none;
     }
 
     .menu__divider {

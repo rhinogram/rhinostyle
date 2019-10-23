@@ -8,10 +8,6 @@ import { Icon } from '.';
 import Tooltip from './Tooltip';
 
 class Chart extends React.Component {
-  state = {
-    hasChartData: false,
-  };
-
   legendCallback = (chart) => {
     const { labels, datasets } = chart.data;
     const [dataset] = datasets;
@@ -26,14 +22,6 @@ class Chart extends React.Component {
     text.push('</ul>');
     return text.join('');
   };
-
-  componentDidMount() {
-    const { data } = this.props;
-    if (typeof data === 'undefined' || data === null || Object.keys(data).length === 0 || data.datasets.length === 0) {
-      this.setState({ hasChartData: true });
-    }
-    this.forceUpdate();
-  }
 
   renderChart = (properties) => {
     const { type } = properties;
@@ -65,31 +53,35 @@ class Chart extends React.Component {
     </div>
   );
 
+  componentDidMount() {
+    this.forceUpdate();
+  }
+
   render() {
-    const { ...ChartProperties } = this.props;
+    const hasData = this.props.data && Object.keys(this.props.data).length > 0 && this.props.data.datasets && this.props.data.datasets.length > 0;
     return (
       <div className="chart">
         <div className="chart__header">
           <div className="header__title">
-            {ChartProperties.title}
-            {ChartProperties.info && (
-              <Tooltip content={ChartProperties.info}>
+            {this.props.title}
+            {this.props.info && (
+              <Tooltip content={this.props.info}>
                 <Icon className="header__icon--info" icon="info-circle" />
               </Tooltip>
             )}
           </div>
-          {!this.state.hasChartData && ChartProperties.header && ChartProperties.header.text && (
-            <div className={`header__subtitle ${ChartProperties.header.color}`}>
-              {ChartProperties.header.text}
-              {ChartProperties.subHeader && (
+          {hasData && this.props.header && this.props.header.text && (
+            <div className={`header__subtitle ${this.props.header.color}`}>
+              {this.props.header.text}
+              {this.props.subHeader && (
                 <span className="subtitle--muted">
-                  {ChartProperties.subHeader}
+                  {this.props.subHeader}
                 </span>
               )}
             </div>
           )}
         </div>
-        {this.state.hasChartData ? this.renderNoData() : this.renderChart(ChartProperties)}
+        {hasData ? this.renderChart(this.props) : this.renderNoData()}
       </div>
     );
   }

@@ -41,6 +41,7 @@ class Button extends React.Component {
       url,
       loading,
       hasClickableChildren,
+      outlined,
       ...opts
     } = this.props;
 
@@ -54,7 +55,6 @@ class Button extends React.Component {
       'button--secondary': type === 'secondary',
       'button--link': type === 'link',
       'button--link-muted': type === 'link-muted',
-      'button--outline-primary': type === 'outline-primary',
       'button--outline-reversed': type === 'outline-reversed',
       'button--accent': type === 'accent',
       'button--input': type === 'input',
@@ -72,6 +72,7 @@ class Button extends React.Component {
       ...buttonStyleClasses,
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.loading]: loading,
+      [UtilitySystem.config.classes.outlined]: outlined,
     });
     let markup = '';
 
@@ -121,19 +122,20 @@ Button.propTypes = {
   route: PropTypes.string,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
+  outlined: PropTypes.bool,
   type: PropTypes.oneOf([
     'default',
     'primary',
     'secondary',
     'accent',
     'input',
-    'outline-primary',
     'outline-reversed',
     'link',
     'link-muted',
     'danger',
     'checkbox',
     'checkbox-muted',
+    'outline-secondary',
   ]),
   url: PropTypes.string,
   loading: PropTypes.bool,

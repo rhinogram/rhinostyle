@@ -14,18 +14,18 @@ class ComponentExample extends React.Component {
           <DropdownMenuDivider />
           <DropdownMenuItem label="Separated Item" />
           <DropdownMenuDivider />
-          <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
+          <div className="dropdown__menu__container"><Button block type="primary" size="small" outlined>Button</Button></div>
         </Dropdown>
-        <Dropdown label="Dropdown Select" type="outline-primary" onSelect={this.optionalCallbackFunction}>
+        <Dropdown label="Dropdown Select" type="primary" onSelect={this.optionalCallbackFunction} outlined>
           <DropdownMenuHeader label="Menu Header" />
           <DropdownMenuItem id={1} label="Item" />
           <DropdownMenuItem id={2} label="Another item" />
           <DropdownMenuItem id={3} label="A third item" />
           <DropdownMenuDivider />
           <DropdownMenuItem id={4} label="A fourth item" />
-          <div className="dropdown__menu__container"><Button block type="outline-primary" size="small">Button</Button></div>
+          <div className="dropdown__menu__container"><Button block type="primary" size="small" outlined>Button</Button></div>
         </Dropdown>
-        <Dropdown wide label="Dropdown Select with Filter" type="outline-primary">
+        <Dropdown wide label="Dropdown Select with Filter" type="primary" outlined>
           <DropdownFilter placeholder="Filter Contact">
             <DropdownMenuItem id={1} label="Item" />
             <DropdownMenuItem id={2} label="Another item" />
@@ -37,7 +37,7 @@ class ComponentExample extends React.Component {
             <DropdownMenuItem id={8} label="An eighth item" />
           </DropdownFilter>
         </Dropdown>
-        <Dropdown wide label="Dropdown Select with noChange" type="outline-primary" noChangeLabel="Another item">
+        <Dropdown wide label="Dropdown Select with noChange" type="primary" noChangeLabel="Another item" outlined>
           <DropdownMenuItem id={1} label="Item" />
           <DropdownMenuItem id={2} label="Another item" />
           <DropdownMenuItem id={3} label="A third item" />
@@ -47,7 +47,7 @@ class ComponentExample extends React.Component {
           <DropdownMenuItem id={7} label="A seventh item" />
           <DropdownMenuItem id={8} label="An eighth item" />
         </Dropdown>
-        <Dropdown wide label="Dropdown Select with Filter & Avatar" type="outline-primary">
+        <Dropdown wide label="Dropdown Select with Filter & Avatar" type="primary" outlined>
           <DropdownFilter placeholder="Filter Member">
             <DropdownMenuItem id={1} label="Ben Bruning With Really Long Name" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Ben Bruning', type: 'member' }} />
             <DropdownMenuItem id={2} label="Blake Guilloud" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Blake Guilloud', type: 'member' }} />
@@ -62,7 +62,7 @@ class ComponentExample extends React.Component {
             <DropdownMenuItem id={11} label="Terry Kennair" avatar={{ image: '//source.unsplash.com/category/people/200x200', name: 'Terry Kennair', type: 'member' }} />
           </DropdownFilter>
         </Dropdown>
-        <Dropdown wide label="Dropdown Select with Filter & Icon" type="outline-primary">
+        <Dropdown wide label="Dropdown Select with Filter & Icon" type="primary" outlined>
           <DropdownFilter placeholder="Filter Icon">
             <DropdownMenuItem id={1} label="Item One" icon="cog" />
             <DropdownMenuItem id={2} label="Item Two" icon="alert-triangle" />
@@ -95,7 +95,7 @@ class ComponentExample extends React.Component {
           </DropdownMenuItemWild>
           <DropdownMenuItemWild toggleDropdown>
             <p>DropdownMenuItemWild with a paragraph and button. Clicking this will toggle the dropdown menu to close.</p>
-            <Button block type="outline-primary" size="small" onClick={() => alert('clicked!')}>Button Up In Here</Button>
+            <Button block type="primary" size="small" onClick={() => alert('clicked!')} outlined>Button Up In Here</Button>
           </DropdownMenuItemWild>
         </Dropdown>
         <Dropdown manualClose label="Dropdown with manual close" wide>
