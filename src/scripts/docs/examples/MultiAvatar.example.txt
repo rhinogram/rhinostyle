@@ -1,0 +1,26 @@
+<UtilityInlineGrid>
+  <MultiAvatar
+    foregroundImageUrl="//source.unsplash.com/category/people/200x200"
+    backgroundImageUrl="//bit.ly/1UfJ6KF"
+    foregroundName="Stevie Wonder"
+    backgroundName="Greg Olsen"
+  />
+  <MultiAvatar
+    foregroundImageUrl=""
+    backgroundImageUrl="//bit.ly/1UfJ6KF"
+    foregroundName="Stevie Wonder"
+    backgroundName="Greg Olsen"
+  />
+  <MultiAvatar
+    foregroundImageUrl="//bit.ly/1UfJ6KF"
+    backgroundImageUrl=""
+    foregroundName="Stevie Wonder"
+    backgroundName="Greg Olsen"
+  />
+  <MultiAvatar
+    foregroundImageUrl=""
+    backgroundImageUrl=""
+    foregroundName="Stevie Wonder"
+    backgroundName="Greg Olsen"
+  />
+</UtilityInlineGrid>

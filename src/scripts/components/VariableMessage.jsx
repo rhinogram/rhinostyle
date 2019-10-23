@@ -50,19 +50,12 @@ class VariableMessage extends React.Component {
     this.setState(toUpdateState, () => this.handleInitValue());
   }
 
-  static getDerivedStateFromProps(props, state) {
-    let toUpdateState = null;
-    if (props.initialValue !== state.message) {
-      toUpdateState = {
-        message: props.initialValue,
-      };
-    }
-    return toUpdateState;
-  }
-
   componentDidUpdate(prevProps) {
     if (this.props.initialValue !== prevProps.initialValue) {
-      this.handleInitValue();
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({
+        message: this.props.initialValue,
+      }, this.handleInitValue);
     }
   }
 
@@ -85,6 +78,8 @@ class VariableMessage extends React.Component {
     const sel = window.getSelection();
     let range = document.createRange();
 
+    // eslint-disable-next-line no-param-reassign
+    text.innerHTML += '&nbsp;';
     // Make sure we're focused on the compose element
     this.compose.focus();
 
