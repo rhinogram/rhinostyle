@@ -516,7 +516,7 @@ class VariableMessage extends React.Component {
             })}
           </div>
           <div
-            className="column-8 u-p-a"
+            className="column-8 u-p-a category-variables__section"
             onDrop={event => this.variableStackDropHandler(event)}
             onDragOver={event => event.preventDefault()}
           >
