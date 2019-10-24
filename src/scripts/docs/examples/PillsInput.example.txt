@@ -31,11 +31,15 @@ class TagInputComponentExample extends React.Component { // eslint-disable-line 
     return (
       <div className="form__group" style={{ display: 'flex' }}>
         <PillsInput
-          initialInputValue={this.state.inputValue}
-          onChange={this.handleChange}
+          inputProps={{
+            initialValue: this.state.inputValue,
+            name: 'myPills',
+            focus: false,
+            naked: true,
+            onChange: this.handleChange,
+          }}
           pills={this.state.pills}
           pillCloseIconClassName="u-text-muted"
-          name="myPills"
           onPillCloseIconClick={this.handleRemovePill}
         />
         <div>

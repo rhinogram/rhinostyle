@@ -65,7 +65,12 @@ const InputScope = {
 };
 
 const PillsInputDocs = {
-
+  className: 'A class to be passed to the pill input container. <strong>NOTE:</strong> there is a separate class for the actual input, which is passed via the inputProps object.', // eslint-disable-line max-len
+  pills: 'an array of objects with each object representing a pill. Each object must include a "label" and a unique "id".',
+  onPillCloseIconClick: 'A function that gets triggered when a user clicks the "close" button on an individual pill. Typically use this to remove an item from the pills array.', // eslint-disable-line max-len
+  pillType: 'The type of pills to use across the board, these are not customizable on an individual basis, the same type will be used for all.',
+  pillCloseIconClassName: 'Class to be passed to the closeIcon on all pills',
+  inputProps: 'Custom object shaped exactly like the props object on the Input component. Refer to that component\'s docs for reference',
 };
 
 const PillsInputScope = {
@@ -357,7 +362,7 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Pills Input</h3>
       <p className="site-copy">An input component to display an array of added data as pills</p>
-      <PillsInput name="myTags" pills={pillsInputPills} initialInputValue="" />
+      <PillsInput inputProps={{ name: 'myPillsInput', initialValue: '' }} pills={pillsInputPills} />
     </section>
 
     <section className="site-section">
@@ -437,7 +442,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Checkbox
             name="exampleCheckbox98"
@@ -446,7 +451,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Checkbox
             name="exampleCheckbox99"
@@ -455,7 +460,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           >
             I only show up when Checkbox 3 is selected!
           </Checkbox>
@@ -514,7 +519,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Radio 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Radio
             value="2"
@@ -523,7 +528,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Radio 2</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Radio
             value="3"
@@ -532,7 +537,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Radio 3</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           >
             I only show up when Radio 3 is selected!
           </Radio>
