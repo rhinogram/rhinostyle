@@ -674,8 +674,8 @@ VariableMessage.propTypes = {
   required: PropTypes.bool,
   showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
-  displayMessageAreaOnly: PropTypes.displayMessageAreaOnly.bool
-  placeholder: PropTypes.string
+  displayMessageAreaOnly: PropTypes.bool,
+  placeholder: PropTypes.string,
 };
 
 VariableMessage.defaultProps = {
