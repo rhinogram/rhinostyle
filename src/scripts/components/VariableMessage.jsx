@@ -78,15 +78,12 @@ class VariableMessage extends React.Component {
     const sel = window.getSelection();
     let range = document.createRange();
 
-    // eslint-disable-next-line no-param-reassign
-    text.innerHTML += '&nbsp;';
     // Make sure we're focused on the compose element
     this.compose.focus();
 
     if (sel.getRangeAt && sel.rangeCount) {
       range = sel.getRangeAt(0);
       range.deleteContents();
-      // range.insertNode($space);
       if (paste) {
         range.insertNode(document.createTextNode(text));
       } else {
@@ -102,10 +99,8 @@ class VariableMessage extends React.Component {
   }
 
   insertTextAtCursorOnDrag = (text) => {
-    const sel = window.getSelection();
     let range = document.createRange();
-    // eslint-disable-next-line no-param-reassign
-    text.innerHTML += '&nbsp;';
+    const sel = window.getSelection();
     // Make sure we're focused on the compose element
     this.compose.focus();
 
@@ -119,6 +114,22 @@ class VariableMessage extends React.Component {
       sel.removeAllRanges();
       sel.addRange(range);
     }
+  }
+
+  addSpaceAfterAction = (text) => {
+    const spanSpace = document.createElement('span');
+    const sel = window.getSelection();
+    const range = document.createRange();
+
+    spanSpace.innerHTML = '&nbsp;';
+    text.insertAdjacentElement('afterend', spanSpace);
+
+    this.handleComposeInput();
+    // Move caret
+    range.setStartAfter(spanSpace);
+    range.setEndAfter(spanSpace);
+    sel.removeAllRanges();
+    sel.addRange(range);
   }
 
   /**
@@ -172,6 +183,7 @@ class VariableMessage extends React.Component {
   insertVariable = (variableSet) => {
     const $variable = this.transformVar(variableSet);
     this.insertTextAtCursor($variable);
+    this.addSpaceAfterAction($variable);
   }
 
   removeVariable = (text) => {
@@ -312,7 +324,7 @@ class VariableMessage extends React.Component {
    */
   handleComposeInput = () => {
     // Get the rawMessage content to return onInput
-    const rawMessage = this.compose.textContent.trim();
+    const rawMessage = this.compose.textContent;
 
     // Get only the text representation of the message
     // so we can update our DB with it
@@ -373,6 +385,7 @@ class VariableMessage extends React.Component {
     setTimeout(() => {
       const text = document.getElementById(`span-${this.currentDraggedSpanVariable.value}`);
       this.insertTextAtCursorOnDrag(text);
+      this.addSpaceAfterAction(text);
     }, 0);
 
     if (variableId) {
@@ -516,7 +529,7 @@ class VariableMessage extends React.Component {
             })}
           </div>
           <div
-            className="column-8 u-p-a"
+            className="column-8 u-p-a category-variables__section"
             onDrop={event => this.variableStackDropHandler(event)}
             onDragOver={event => event.preventDefault()}
           >
