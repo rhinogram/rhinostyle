@@ -88,9 +88,9 @@ class Input extends React.Component {
     this.input.closest('.form__group').classList.add('has-focus');
   }
 
-  handleBlur = () => {
+  handleBlur = (event) => {
     if (this.props.onBlur) {
-      this.props.onBlur();
+      this.props.onBlur(event);
     }
     this.input.closest('.form__group').classList.remove('has-focus');
   }

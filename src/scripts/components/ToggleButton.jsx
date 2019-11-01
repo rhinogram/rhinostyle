@@ -5,26 +5,41 @@ import React, { Component } from 'react';
 class ToggleButton extends Component {
   handleClick = () => {
     if (this.props.onClick) {
-      this.props.onClick(this.props.variable.variable, this.props.variable.id);
+      this.props.onClick(this.props.variable);
+    }
+  }
+
+  handleDrag = (event) => {
+    if (this.props.onDragStart) {
+      this.props.onDragStart(event, this.props.variable);
     }
   }
 
   render() {
-    const { available, className } = this.props;
-
+    const { available, className, draggable = false, id } = this.props;
     const buttonBaseClass = 'toggle-button';
     const toggleButtonStyleClasses = {
       'toggle-button--strikethrough': !available,
       'button--primary is-outlined': available,
-
     };
-
     const classes = cx(buttonBaseClass, className, {
       ...toggleButtonStyleClasses,
     });
+
     return (
-      <button type="button" className={classes} onClick={this.handleClick}>
-        <span className="button__text-wrapper">{this.props.children}</span>
+      <button
+        type="button"
+        className={classes}
+        onClick={this.handleClick}
+      >
+        <span
+          draggable={draggable}
+          onDragStart={event => this.handleDrag(event)}
+          id={id}
+          className="button__text-wrapper"
+        >
+          {this.props.children}
+        </span>
       </button>
     );
   }
@@ -34,8 +49,11 @@ ToggleButton.propTypes = {
   available: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  draggable: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   variable: PropTypes.object.isRequired,
+  onDragStart: PropTypes.func,
+  id: PropTypes.string,
 };
 
 export default ToggleButton;
