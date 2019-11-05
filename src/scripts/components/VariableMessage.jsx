@@ -124,7 +124,7 @@ class VariableMessage extends React.Component {
     spanSpace.innerHTML = '&nbsp;';
     text.insertAdjacentElement('afterend', spanSpace);
 
-    this.handleComposeInput();
+    // this.handleComposeInput();
     // Move caret
     range.setStartAfter(spanSpace);
     range.setEndAfter(spanSpace);
@@ -156,12 +156,12 @@ class VariableMessage extends React.Component {
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
     $variable.setAttribute('contenteditable', false);
-    $variable.setAttribute('draggable', true);
-    document.addEventListener('dragstart', (event) => {
-      if (event.target.id === `span-${value}`) {
-        this.onVariableDragStart(event, variableSet);
-      }
-    });
+    // $variable.setAttribute('draggable', true);
+    // document.addEventListener('dragstart', (event) => {
+    //   if (event.target.id === `span-${value}`) {
+    //     this.onVariableDragStart(event, variableSet);
+    //   }
+    // });
     $variable.setAttribute('id', `span-${value}`);
     $variable.classList.add('variable-message__variable');
     $variable.innerHTML = variable;
@@ -372,56 +372,56 @@ class VariableMessage extends React.Component {
    */
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
-  onVariableDragStart = (event, variable) => {
-    const data = this.transformVar(variable);
-    this.currentDraggedSpanVariable = variable;
-    if (event.persist) event.persist();
-    event.dataTransfer.setData('text/html', data.outerHTML);
-    event.dataTransfer.setData('variableId', variable.id);
-  }
+  // onVariableDragStart = (event, variable) => {
+  //   const data = this.transformVar(variable);
+  //   this.currentDraggedSpanVariable = variable;
+  //   if (event.persist) event.persist();
+  //   event.dataTransfer.setData('text/html', data.outerHTML);
+  //   event.dataTransfer.setData('variableId', variable.id);
+  // }
 
-  composeMessageDropHandler = (event) => {
-    const variableId = event.dataTransfer.getData('variableId');
-    setTimeout(() => {
-      const text = document.getElementById(`span-${this.currentDraggedSpanVariable.value}`);
-      this.insertTextAtCursorOnDrag(text);
-      this.addSpaceAfterAction(text);
-    }, 0);
+  // composeMessageDropHandler = (event) => {
+  //   const variableId = event.dataTransfer.getData('variableId');
+  //   setTimeout(() => {
+  //     const text = document.getElementById(`span-${this.currentDraggedSpanVariable.value}`);
+  //     this.insertTextAtCursorOnDrag(text);
+  //     this.addSpaceAfterAction(text);
+  //   }, 0);
 
-    if (variableId) {
-      this.setState((prevState) => {
-        const index = prevState.available.indexOf(Number(variableId));
-        if (index > -1) {
-          prevState.available.splice(index, 1);
-        } else {
-          prevState.available.push(Number(variableId));
-        }
-        return ({ available: prevState.available });
-      });
-      event.dataTransfer.clearData();
-    }
-  }
+  //   if (variableId) {
+  //     this.setState((prevState) => {
+  //       const index = prevState.available.indexOf(Number(variableId));
+  //       if (index > -1) {
+  //         prevState.available.splice(index, 1);
+  //       } else {
+  //         prevState.available.push(Number(variableId));
+  //       }
+  //       return ({ available: prevState.available });
+  //     });
+  //     event.dataTransfer.clearData();
+  //   }
+  // }
 
-  variableStackDropHandler(event) {
-    const variableId = event.dataTransfer.getData('variableId');
-    const variableSet = this.props.variables.find(item => item.id === Number(variableId));
+  // variableStackDropHandler(event) {
+  //   const variableId = event.dataTransfer.getData('variableId');
+  //   const variableSet = this.props.variables.find(item => item.id === Number(variableId));
 
-    this.setState((prevState) => {
-      prevState.available.push(Number(variableId));
-      this.removeVariable(variableSet.variable);
-      return ({ available: prevState.available });
-    }, () => {
-      // Focus back on compose element
-      this.compose.focus();
-      this.handleComposeInput();
-      this.composeMessageViewHandler('true');
-    });
-  }
+  //   this.setState((prevState) => {
+  //     prevState.available.push(Number(variableId));
+  //     this.removeVariable(variableSet.variable);
+  //     return ({ available: prevState.available });
+  //   }, () => {
+  //     // Focus back on compose element
+  //     this.compose.focus();
+  //     this.handleComposeInput();
+  //     this.composeMessageViewHandler('true');
+  //   });
+  // }
 
   renderToggleButtons = variables => (
     variables.filter(variable => variable.id !== -1)
       .map((v) => {
-        const isDraggable = this.state.available.indexOf(v.id) >= 0;
+        // const isDraggable = this.state.available.indexOf(v.id) >= 0;
         if (v.options) {
           return this.renderToggleButtons(v.options);
         }
@@ -431,9 +431,9 @@ class VariableMessage extends React.Component {
             variable={v}
             key={v.id}
             onClick={this.handleVariableSelection}
-            draggable={isDraggable}
+            // draggable={isDraggable}
             id={v.value}
-            onDragStart={this.onVariableDragStart}
+            // onDragStart={this.onVariableDragStart}
           >
             {v.value}
           </ToggleButton>
@@ -565,8 +565,8 @@ class VariableMessage extends React.Component {
     return (
       <Fragment>
         <div
-          onDrop={event => this.variableStackDropHandler(event)}
-          onDragOver={event => event.preventDefault()}
+          // onDrop={event => this.variableStackDropHandler(event)}
+          // onDragOver={event => event.preventDefault()}
           className="variable-message__footer"
         >
           {variableExplanationMessage &&
@@ -584,17 +584,17 @@ class VariableMessage extends React.Component {
       </Fragment>);
   };
 
-  composeMessageViewHandler = (contentEditable = null) => {
-    if (contentEditable) {
-      this.compose.contentEditable = contentEditable;
-      return;
-    }
-    if (this.state.available.indexOf(Number(this.currentDraggedSpanVariable.id)) < 0) {
-      this.compose.contentEditable = 'false';
-    } else {
-      this.compose.contentEditable = 'true';
-    }
-  }
+  // composeMessageViewHandler = (contentEditable = null) => {
+  //   if (contentEditable) {
+  //     this.compose.contentEditable = contentEditable;
+  //     return;
+  //   }
+  //   if (this.state.available.indexOf(Number(this.currentDraggedSpanVariable.id)) < 0) {
+  //     this.compose.contentEditable = 'false';
+  //   } else {
+  //     this.compose.contentEditable = 'true';
+  //   }
+  // }
 
   render() {
     const {
@@ -626,9 +626,9 @@ class VariableMessage extends React.Component {
         )}
         <div style={{ position: 'relative' }}>
           <div
-            onDrop={event => this.composeMessageDropHandler(event)}
-            onDragOver={() => this.composeMessageViewHandler()}
-            onDragLeave={() => this.composeMessageViewHandler('true')}
+            // onDrop={event => this.composeMessageDropHandler(event)}
+            // onDragOver={() => this.composeMessageViewHandler()}
+            // onDragLeave={() => this.composeMessageViewHandler('true')}
             id={variableMessageInputName}
             className="variable-message__compose"
             contentEditable={!readOnly}
