@@ -47,6 +47,11 @@
   &:focus {
     outline: 0;
   }
+  &[contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    position: absolute;
+    color: @input-color-placeholder;
+  }
 }
 
 .variable-message__footer {

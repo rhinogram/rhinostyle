@@ -607,6 +607,7 @@ class VariableMessage extends React.Component {
       required,
       validationMessage,
       isCategoryAvailable,
+      placeholder,
     } = this.props;
     const classes = cx('form__group variable-message', className);
     const variableMessageInputName = `variable-message-input-${this.id}`;
@@ -639,6 +640,7 @@ class VariableMessage extends React.Component {
             onPaste={this.handlePaste}
             name={name}
             ref={ref => (this.compose = ref)}
+            placeholder={placeholder}
           />
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
@@ -682,6 +684,7 @@ VariableMessage.propTypes = {
   required: PropTypes.bool,
   showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 VariableMessage.defaultProps = {
