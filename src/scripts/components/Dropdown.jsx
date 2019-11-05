@@ -23,7 +23,7 @@ class Dropdown extends React.Component {
     hasFilter: false,
   };
 
-  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+  componentWillMount() {
     React.Children.map(this.props.children, (child) => {
       if (!child) return;
       if (child.type === DropdownFilter) {
@@ -32,7 +32,7 @@ class Dropdown extends React.Component {
     });
   }
 
-  UNSAFE_componentWillReceiveProps(newProps) { // eslint-disable-line camelcase
+  componentWillReceiveProps(newProps) {
     if (newProps.activeKey !== this.props.activeKey) {
       this.setState({
         activeKey: newProps.activeKey,

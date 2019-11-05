@@ -1,0 +1,51 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/react-in-jsx-scope */
+
+// eslint-disable-next-line no-undef
+class TagInputComponentExample extends React.Component { // eslint-disable-line no-unused-vars
+  state = {
+    pills: [
+      { label: 'Hello World', id: '1' },
+      { label: 'Rhinostylee', id: '2' },
+      { label: 'O Doyle Rules!', id: '3' },
+    ],
+    inputValue: '',
+  };
+
+  handleChange = (name, value) => {
+    this.setState({ inputValue: value });
+  };
+
+  handleAddPill = () => {
+    const newPill = { label: this.state.inputValue, id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) };
+    this.setState(prevState => ({ pills: [...prevState.pills, newPill], inputValue: '' }));
+  }
+
+  handleRemovePill = (pillId) => {
+    const newPills = this.state.pills.filter(pill => pill.id !== pillId);
+    this.setState({ pills: newPills });
+  }
+
+  render() {
+    return (
+      <div className="form__group" style={{ display: 'flex' }}>
+        <PillsInput
+          inputProps={{
+            initialValue: this.state.inputValue,
+            name: 'myPills',
+            focus: false,
+            naked: true,
+            onChange: this.handleChange,
+          }}
+          pills={this.state.pills}
+          pillCloseIconClassName="u-text-muted"
+          onPillCloseIconClick={this.handleRemovePill}
+        />
+        <div>
+          <Button className="u-m-l" size="large" type="secondary" onClick={this.handleAddPill}>Add New Pill</Button>
+        </div>
+      </div>
+    );
+  }
+}

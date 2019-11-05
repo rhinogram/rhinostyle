@@ -6,6 +6,8 @@ import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Dropdown,
+  DropdownMenuItem,
   FormLabel,
   Icon,
   Input,
@@ -15,6 +17,7 @@ import {
   Select,
   SlidingRadio,
   Textarea,
+  PillsInput,
   UtilityInlineGrid,
   UtilityList,
   UtilityListItem,
@@ -28,6 +31,7 @@ import MessageBoxExample from './examples/MessageBox.example.txt';
 import CheckboxExample from './examples/Checkbox.example.txt';
 import RadioExample from './examples/Radio.example.txt';
 import SlidingRadioExample from './examples/SlidingRadio.example.txt';
+import PillsInputExample from './examples/PillsInput.example.txt';
 import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
 const InputDocs = {
@@ -59,6 +63,30 @@ const InputScope = {
   Icon,
   Input,
 };
+
+const PillsInputDocs = {
+  className: 'A class to be passed to the pill input container. <strong>NOTE:</strong> there is a separate class for the actual input, which is passed via the inputProps object.', // eslint-disable-line max-len
+  pills: 'an array of objects with each object representing a pill. Each object must include a "label" and a unique "id".',
+  onPillCloseIconClick: 'A function that gets triggered when a user clicks the "close" button on an individual pill. Typically use this to remove an item from the pills array.', // eslint-disable-line max-len
+  pillType: 'The type of pills to use across the board, these are not customizable on an individual basis, the same type will be used for all.',
+  pillCloseIconClassName: 'Class to be passed to the closeIcon on all pills',
+  inputProps: 'Custom object shaped exactly like the props object on the Input component. Refer to that component\'s docs for reference',
+};
+
+const PillsInputScope = {
+  React,
+  ReactDOM,
+  PillsInput,
+  Button,
+  Dropdown,
+  DropdownMenuItem,
+};
+
+const pillsInputPills = [
+  { label: 'Hello World', id: '1' },
+  { label: 'Rhinostylee', id: '2' },
+  { label: 'O Doyle Rules!', id: '3' },
+];
 
 const SelectDocs = {
   label: 'A label for the select',
@@ -332,6 +360,23 @@ const FormApp = () => (
     </section>
 
     <section className="site-section">
+      <h3 className="site-subheadline">Pills Input</h3>
+      <p className="site-copy">An input component to display an array of added data as pills</p>
+      <PillsInput inputProps={{ name: 'myPillsInput', initialValue: '' }} pills={pillsInputPills} />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Pills Input Playground</h3>
+
+      <Live
+        code={PillsInputExample}
+        scope={PillsInputScope}
+        component={PillsInput}
+        propDescriptions={PillsInputDocs}
+      />
+    </section>
+
+    <section className="site-section">
       <h3 className="site-subheadline">Message Box </h3>
       <p className="site-copy">We are using the
         <a
@@ -397,7 +442,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Checkbox
             name="exampleCheckbox98"
@@ -406,7 +451,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Checkbox
             name="exampleCheckbox99"
@@ -415,7 +460,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           >
             I only show up when Checkbox 3 is selected!
           </Checkbox>
@@ -474,7 +519,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Radio 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Radio
             value="2"
@@ -483,7 +528,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Radio 2</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           />
           <Radio
             value="3"
@@ -492,7 +537,7 @@ const FormApp = () => (
                 <span className="form__block-group__label">Radio 3</span>
                 <span className="form__block-group__desc">This is a test description</span>
               </Fragment>
-)}
+            )}
           >
             I only show up when Radio 3 is selected!
           </Radio>

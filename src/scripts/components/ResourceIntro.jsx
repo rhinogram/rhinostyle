@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import { Avatar, Button, Checkbox, Icon } from '.';
+import { Avatar, Button, Checkbox, Icon, MultiAvatar } from '.';
 
 class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
@@ -23,8 +23,25 @@ class ResourceIntro extends React.Component {
     }
   }
 
+  renderCheckbox = () => {
+    const { checkbox } = this.props;
+    const classes = cx('resource__intro__media', {
+      'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
+    });
+    return (
+      <div className={classes}>
+        <Checkbox
+          label={checkbox.label}
+          name={checkbox.name}
+          isChecked={checkbox.isChecked}
+          onChange={this.handleCheckboxClick}
+        />
+      </div>
+    );
+  }
+
   renderMedia = () => {
-    const { icon, avatar, checkbox } = this.props;
+    const { icon, avatar, multiAvatar, checkbox } = this.props;
     let output = null;
     const validIcon = icon && icon.icon;
 
@@ -71,6 +88,15 @@ class ResourceIntro extends React.Component {
           onlineStatus={avatar.onlineStatus}
         />
       );
+    } else if (multiAvatar) {
+      output = (
+        <MultiAvatar
+          foregroundImageUrl={multiAvatar.foregroundImageUrl}
+          backgroundImageUrl={multiAvatar.backgroundImageUrl}
+          foregroundName={multiAvatar.foregroundName}
+          backgroundName={multiAvatar.backgroundName}
+        />
+      );
     } else if (checkbox) {
       output = (
         <Checkbox
@@ -84,7 +110,7 @@ class ResourceIntro extends React.Component {
 
     if (output) {
       const classes = cx('resource__intro__media', {
-        'resource__intro__media--checkbox': checkbox,
+        'resource__intro__media--checkbox': checkbox && !checkbox.hasAvatar,
         'resource__intro__media--icon': validIcon,
         'resource__intro__media--hidden@xsmall': this.props.hideMediaXsmall,
       });
@@ -120,11 +146,12 @@ class ResourceIntro extends React.Component {
 
   render() {
     const classes = cx('resource__intro', {
-      'has-avatar': this.props.avatar,
+      'has-avatar': this.props.avatar || this.props.multiAvatar,
     });
 
     return (
       <div className={classes}>
+        {this.props.checkbox && this.props.checkbox.hasAvatar && this.renderCheckbox()}
         {this.renderMedia()}
         {this.renderTitle()}
       </div>
@@ -140,6 +167,12 @@ ResourceIntro.propTypes = {
     showOnlineStatus: PropTypes.bool,
     onlineStatus: PropTypes.string,
   }),
+  multiAvatar: PropTypes.shape({
+    foregroundImageUrl: PropTypes.string,
+    backgroundImageUrl: PropTypes.string,
+    foregroundName: PropTypes.string,
+    backgroundName: PropTypes.string,
+  }),
   icon: PropTypes.shape({
     icon: PropTypes.string,
     bump: PropTypes.string,
@@ -150,6 +183,7 @@ ResourceIntro.propTypes = {
     label: PropTypes.string,
     name: PropTypes.string,
     onChange: PropTypes.func,
+    hasAvatar: PropTypes.bool,
   }),
   children: PropTypes.node,
   title: PropTypes.any,

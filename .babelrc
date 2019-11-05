@@ -1,14 +1,14 @@
 {
   "presets": [
-    ["@babel/preset-env", {
+    ["env", {
       "targets": {
         "browsers": [">0.25%", "ie 11", "not op_mini all"]
       }
     }],
-    "@babel/preset-react"
+    "stage-0",
+    "react"
   ],
   "plugins": [
-    "@babel/plugin-transform-strict-mode",
-    "@babel/plugin-proposal-class-properties"
+    "transform-strict-mode"
   ]
 }

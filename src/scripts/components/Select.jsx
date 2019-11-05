@@ -9,7 +9,7 @@ class Select extends React.Component {
     selected: this.props.selected ? this.props.selected : -1,
   }
 
-  UNSAFE_componentWillReceiveProps(newProps) { // eslint-disable-line camelcase
+  componentWillReceiveProps(newProps) {
     if (newProps.selected !== this.props.selected) {
       this.setState({
         selected: newProps.selected,

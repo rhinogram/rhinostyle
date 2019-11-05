@@ -10,7 +10,7 @@ class Input extends React.Component {
     value: '',
   };
 
-  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+  componentWillMount() {
     if (this.props.initialValue) {
       this.setState({ value: this.props.initialValue.trimRight() });
     }
@@ -20,7 +20,7 @@ class Input extends React.Component {
     this.checkFocus();
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+  componentWillReceiveProps(nextProps) {
     if (nextProps.initialValue !== this.props.initialValue) {
       this.setState({
         value: nextProps.initialValue,
@@ -88,7 +88,10 @@ class Input extends React.Component {
     this.input.closest('.form__group').classList.add('has-focus');
   }
 
-  handleBlur = () => {
+  handleBlur = (event) => {
+    if (this.props.onBlur) {
+      this.props.onBlur(event);
+    }
     this.input.closest('.form__group').classList.remove('has-focus');
   }
 
@@ -289,6 +292,7 @@ Input.propTypes = {
   onKeyPress: PropTypes.func,
   onKeyUp: PropTypes.func,
   onClear: PropTypes.func,
+  onBlur: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
