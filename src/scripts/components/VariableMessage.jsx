@@ -691,6 +691,7 @@ VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
   variableExplanationMessage: 'Click to add/remove variables into your message:',
+  placeholder: '',
 };
 
 export default VariableMessage;
