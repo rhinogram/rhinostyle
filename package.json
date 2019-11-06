@@ -13,33 +13,14 @@
     "build": "gulp build",
     "version": "git pull --tags && gulp && git add -A",
     "postversion": "git push --tags && git push",
-<<<<<<< HEAD
-    "start": "./node_modules/.bin/babel src -d dist/scripts/rhinostyle.min.js && yarn && gulp docs && gulp serve",
-    "eslint": "eslint src/**/*.jsx"
-=======
     "start": "yarn && gulp docs && gulp serve",
     "lint": "eslint src/**/*.jsx"
->>>>>>> 31f0f114009da81e3496554d098d77c38a9214ba
   },
   "peerDependencies": {
     "react": ">=16.4.1",
     "react-dom": ">=16.4.1"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@babel/cli": "7.5.5",
-    "@babel/core": "7.5.5",
-    "@babel/plugin-transform-strict-mode": "7.2.0",
-    "@babel/preset-env": "7.5.5",
-    "@babel/preset-react": "7.0.0",
-    "@babel/preset-stage-0": "7.0.0",
-    "@babel/register": "7.5.5",
-    "autoprefixer": "9.6.1",
-    "babel-loader": "8.0.6",
-    "browser-sync": "2.26.7",
-    "cssnano": "4.1.10",
-    "del": "5.1.0",
-=======
     "autoprefixer": "9.6.1",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
@@ -52,7 +33,6 @@
     "browser-sync": "2.24.6",
     "cssnano": "3.10.0",
     "del": "3.0.0",
->>>>>>> 31f0f114009da81e3496554d098d77c38a9214ba
     "eslint-config-rhinogram": "https://github.com/rhinogram/eslint-config-rhinogram.git#0.0.14",
     "gulp": "3.9.1",
     "gulp-changed": "3.2.0",
@@ -97,15 +77,8 @@
     "url": "https://github.com/rhinogram/rhinostyle"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@babel/node": "7.5.5",
-    "@babel/plugin-proposal-class-properties": "7.5.5",
-    "@babel/polyfill": "7.4.4",
-    "chart.js": "2.8.0",
-=======
     "babel-polyfill": "6.26.0",
     "chart.js": "2.7.3",
->>>>>>> 31f0f114009da81e3496554d098d77c38a9214ba
     "classnames": "2.2.6",
     "cleave.js": "1.4.3",
     "fancy-log": "1.3.2",
@@ -115,11 +88,6 @@
     "gulp-size": "3.0.0",
     "gulp-sourcemaps": "2.6.4",
     "gulp-svg-sprite": "1.5.0",
-<<<<<<< HEAD
-    "jstransformer-handlebars": "1.1.0",
-    "jstransformer-nunjucks": "1.0.0",
-=======
->>>>>>> 31f0f114009da81e3496554d098d77c38a9214ba
     "keymirror": "0.1.1",
     "moment": "2.22.2",
     "parse5": "5.1.0",
@@ -138,14 +106,7 @@
     "react-textarea-autosize": "7.0.4",
     "recursive-readdir-sync": "1.0.6",
     "rhino-react-image-lightbox-rotate": "1.2.4",
-<<<<<<< HEAD
-    "rsvp": "4.8.5",
-    "svgo": "1.3.0",
-    "terser-webpack-plugin": "2.1.0",
-    "webpack-cli": "3.3.7"
-=======
     "rsvp": "4.8.3",
     "svgo": "1.0.5"
->>>>>>> 31f0f114009da81e3496554d098d77c38a9214ba
   }
 }
