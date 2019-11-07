@@ -370,7 +370,7 @@ class VariableMessage extends React.Component {
    */
   handleComposeInput = () => {
     // Get the rawMessage content to return onInput
-    const rawMessage = this.compose.textContent;
+    const rawMessage = this.compose && this.compose.textContent;
 
     // Get only the text representation of the message
     // so we can update our DB with it
@@ -387,7 +387,7 @@ class VariableMessage extends React.Component {
 
       if (variable) {
         // We found the text
-        if (message.search(variable) !== -1) {
+        if (message && message.search(variable) !== -1) {
           // Swap out variables for data
           const regex = new RegExp(variable);
           message = message.replace(regex, value.variableValue);
