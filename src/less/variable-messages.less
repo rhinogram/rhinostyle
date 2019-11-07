@@ -98,7 +98,7 @@
 }
 
 .category-message__footer__category {
-  border-bottom: 1px solid @variable-message-compose-border-color; 
+  border-bottom: 1px solid @variable-message-compose-border-color;
   border-left: none;
   border-top: none;
   cursor: pointer;
@@ -158,9 +158,12 @@
   background-color: @variable-message-compose-bg;
   padding: 0; // 1
   margin-bottom: 0.1rem; // 2
-  cursor: default;
+  cursor: pointer;
+  pointer-events: none;
   user-select: none;
   vertical-align: baseline;
+  margin-bottom: 0.1rem; // 2
+  white-space: nowrap;
 
   // Hide squigglies
   i {

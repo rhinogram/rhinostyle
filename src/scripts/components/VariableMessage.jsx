@@ -27,9 +27,11 @@ class VariableMessage extends React.Component {
     variablesOfCategory: [],
     categories: [],
     selectedCategory: this.props.defaultSelectedCategory || '',
+    precedingChar: '',
   };
 
   componentDidMount() {
+    this.handleCursorSet();
     const toUpdateState = {
       categories: [],
       variablesOfCategory: [],
@@ -76,60 +78,71 @@ class VariableMessage extends React.Component {
    */
   insertTextAtCursor = (text, paste = false) => {
     const sel = window.getSelection();
-    let range = document.createRange();
-
     // Make sure we're focused on the compose element
     this.compose.focus();
 
     if (sel.getRangeAt && sel.rangeCount) {
-      range = sel.getRangeAt(0);
+      const range = sel.getRangeAt(0);
       range.deleteContents();
       if (paste) {
         range.insertNode(document.createTextNode(text));
+        range.selectNode(document.createTextNode(text));
       } else {
         range.insertNode(text);
+        range.selectNode(text);
+      }
+      // calling deleteContents and replacing with HTML leaves behind an empty node, so here we clean discard it.
+      const newRange = range.cloneRange();
+      range.setEndBefore(text);
+      newRange.setStartAfter(text);
+      newRange.setEndAfter(text);
+      sel.removeAllRanges();
+      sel.addRange(newRange);
+    }
+    // get newly added character preceding caret
+    this.getCharacterPrecedingCaret(this.compose);
+  }
+
+  handleBackspace = async (e) => {
+    // fix backspace bug in FF
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=685445
+    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    const isNewWord = this.state.precedingChar.trim() === '';
+
+    if (!isNewWord && isFirefox && e && window.getSelection && (e.which === BACKSPACE_KEY || e.which === DELETE_KEY)) {
+      const selection = window.getSelection();
+      if (!selection.isCollapsed || !selection.rangeCount) {
+        return;
       }
 
-      // Move caret
-      range.setStartAfter(text);
-      range.setEndAfter(text);
-      sel.removeAllRanges();
-      sel.addRange(range);
+      const curRange = selection.getRangeAt(0);
+      // checking if we are deleting in the middle of a text string, in which case FF will handle backspace as expected
+      if (curRange.commonAncestorContainer.nodeType === 3 && curRange.startOffset > 0) {
+        return;
+      }
+
+      const range = document.createRange();
+      if (selection.anchorNode !== this.compose) {
+      // selection is in character mode. expand it to the whole editable field
+        range.selectNodeContents(this.compose);
+        range.setEndBefore(selection.anchorNode);
+      } else if (selection.anchorOffset > 0) {
+        range.setEnd(this.compose, selection.anchorOffset);
+      } else {
+      // reached the beginning of editable field
+        return;
+      }
+      range.setStart(this.compose, range.endOffset - 1);
+      const previousNode = range.cloneContents().lastChild;
+      // checking if we are actually deleting an HTML node
+      if (previousNode && previousNode.contentEditable === 'false') {
+        // do not fire the backspace event, otherwise two characters will be deleted
+        e.preventDefault();
+        range.deleteContents();
+        const message = this.compose.textContent;
+        await new Promise(resolve => this.setState({ message }, resolve));
+      }
     }
-  }
-
-  insertTextAtCursorOnDrag = (text) => {
-    let range = document.createRange();
-    const sel = window.getSelection();
-    // Make sure we're focused on the compose element
-    this.compose.focus();
-
-    if (sel.getRangeAt && sel.rangeCount) {
-      range = sel.getRangeAt(0);
-      range.deleteContents();
-
-      // Move caret
-      range.setStartAfter(text);
-      range.setEndAfter(text);
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-  }
-
-  addSpaceAfterAction = (text) => {
-    const spanSpace = document.createElement('span');
-    const sel = window.getSelection();
-    const range = document.createRange();
-
-    spanSpace.innerHTML = '&nbsp;';
-    text.insertAdjacentElement('afterend', spanSpace);
-
-    this.handleComposeInput();
-    // Move caret
-    range.setStartAfter(spanSpace);
-    range.setEndAfter(spanSpace);
-    sel.removeAllRanges();
-    sel.addRange(range);
   }
 
   /**
@@ -155,13 +168,22 @@ class VariableMessage extends React.Component {
 
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
-    $variable.setAttribute('contenteditable', false);
-    $variable.setAttribute('draggable', true);
-    document.addEventListener('dragstart', (event) => {
-      if (event.target.id === `span-${value}`) {
-        this.onVariableDragStart(event, variableSet);
-      }
-    });
+    // Added this check for IE and Edge support
+    const ua = window.navigator.userAgent;
+    const msie = ua.indexOf('MSIE ');
+    const trident = ua.indexOf('Trident/');
+    const edge = ua.indexOf('Edge/');
+    if (msie > 0 || trident > 0 || edge > 0) {
+      $variable.setAttribute('contenteditable', true);
+    } else {
+      $variable.setAttribute('contenteditable', false);
+    }
+    // $variable.setAttribute('draggable', true);
+    // document.addEventListener('dragstart', (event) => {
+    //   if (event.target.id === `span-${value}`) {
+    //     this.onVariableDragStart(event, variableSet);
+    //   }
+    // });
     $variable.setAttribute('id', `span-${value}`);
     $variable.classList.add('variable-message__variable');
     $variable.innerHTML = variable;
@@ -183,7 +205,6 @@ class VariableMessage extends React.Component {
   insertVariable = (variableSet) => {
     const $variable = this.transformVar(variableSet);
     this.insertTextAtCursor($variable);
-    this.addSpaceAfterAction($variable);
   }
 
   removeVariable = (text) => {
@@ -278,26 +299,51 @@ class VariableMessage extends React.Component {
     }
   }
 
-  handleKeyUp = (k) => {
-    // check if delete key or backspace is pressed to see if a variable was removed
-    if (k.which === BACKSPACE_KEY || k.which === DELETE_KEY) {
-      const available = [];
-      const split = this.state.message.split(/({.*?})/);
-      const lowercaseSplit = split.map(e => e.toLowerCase());
-      const variables = this.getVariables(this.props.variables);
-      variables.forEach((value) => {
-        const { variable } = value;
-        const foundVariable = lowercaseSplit.indexOf(variable.toLowerCase());
-
-        // See if we've found one in our current message
-        if (foundVariable === -1) {
-          // If so, transform the variable into HTML
-          available.push(value.id);
-        }
-      });
-
-      this.setState({ available });
+  getCharacterPrecedingCaret = (containerEl) => {
+    let precedingChar = '';
+    let sel;
+    let range;
+    let precedingRange;
+    if (window.getSelection) {
+      sel = window.getSelection();
+      if (sel.rangeCount > 0) {
+        range = sel.getRangeAt(0).cloneRange();
+        range.collapse(true);
+        range.setStart(containerEl, 0);
+        precedingChar = range.toString().slice(-1);
+      }
+    } else if ((sel === document.selection) && sel.type !== 'Control') {
+      range = sel.createRange();
+      precedingRange = range.duplicate();
+      precedingRange.moveToElementText(containerEl);
+      precedingRange.setEndPoint('EndToStart', range);
+      precedingChar = precedingRange.text.slice(-1);
     }
+    this.setState({ precedingChar });
+  }
+
+  handleCursorSet = async (e) => {
+    this.compose.focus();
+    this.getCharacterPrecedingCaret(this.compose);
+    await this.handleBackspace(e);
+    const available = [];
+    const split = this.state.message.split(/({.*?})/);
+    const lowercaseSplit = split.map(el => el.toLowerCase());
+    const variables = this.getVariables(this.props.variables);
+    variables.forEach((value) => {
+      const { variable } = value;
+      const foundVariable = lowercaseSplit.indexOf(variable.toLowerCase());
+
+      // See if we've found one in our current message
+      if (foundVariable === -1) {
+        // If so, transform the variable into HTML
+        available.push(value.id);
+      }
+    });
+
+    this.setState({ available });
+    // update the parent with the new text contents
+    this.handleComposeInput();
   }
 
   /**
@@ -372,56 +418,10 @@ class VariableMessage extends React.Component {
    */
   showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
 
-  onVariableDragStart = (event, variable) => {
-    const data = this.transformVar(variable);
-    this.currentDraggedSpanVariable = variable;
-    if (event.persist) event.persist();
-    event.dataTransfer.setData('text/html', data.outerHTML);
-    event.dataTransfer.setData('variableId', variable.id);
-  }
-
-  composeMessageDropHandler = (event) => {
-    const variableId = event.dataTransfer.getData('variableId');
-    setTimeout(() => {
-      const text = document.getElementById(`span-${this.currentDraggedSpanVariable.value}`);
-      this.insertTextAtCursorOnDrag(text);
-      this.addSpaceAfterAction(text);
-    }, 0);
-
-    if (variableId) {
-      this.setState((prevState) => {
-        const index = prevState.available.indexOf(Number(variableId));
-        if (index > -1) {
-          prevState.available.splice(index, 1);
-        } else {
-          prevState.available.push(Number(variableId));
-        }
-        return ({ available: prevState.available });
-      });
-      event.dataTransfer.clearData();
-    }
-  }
-
-  variableStackDropHandler(event) {
-    const variableId = event.dataTransfer.getData('variableId');
-    const variableSet = this.props.variables.find(item => item.id === Number(variableId));
-
-    this.setState((prevState) => {
-      prevState.available.push(Number(variableId));
-      this.removeVariable(variableSet.variable);
-      return ({ available: prevState.available });
-    }, () => {
-      // Focus back on compose element
-      this.compose.focus();
-      this.handleComposeInput();
-      this.composeMessageViewHandler('true');
-    });
-  }
-
   renderToggleButtons = variables => (
     variables.filter(variable => variable.id !== -1)
       .map((v) => {
-        const isDraggable = this.state.available.indexOf(v.id) >= 0;
+        // const isDraggable = this.state.available.indexOf(v.id) >= 0;
         if (v.options) {
           return this.renderToggleButtons(v.options);
         }
@@ -431,9 +431,9 @@ class VariableMessage extends React.Component {
             variable={v}
             key={v.id}
             onClick={this.handleVariableSelection}
-            draggable={isDraggable}
+            // draggable={isDraggable}
             id={v.value}
-            onDragStart={this.onVariableDragStart}
+            // onDragStart={this.onVariableDragStart}
           >
             {v.value}
           </ToggleButton>
@@ -565,8 +565,8 @@ class VariableMessage extends React.Component {
     return (
       <Fragment>
         <div
-          onDrop={event => this.variableStackDropHandler(event)}
-          onDragOver={event => event.preventDefault()}
+          // onDrop={event => this.variableStackDropHandler(event)}
+          // onDragOver={event => event.preventDefault()}
           className="variable-message__footer"
         >
           {variableExplanationMessage &&
@@ -584,17 +584,98 @@ class VariableMessage extends React.Component {
       </Fragment>);
   };
 
-  composeMessageViewHandler = (contentEditable = null) => {
-    if (contentEditable) {
-      this.compose.contentEditable = contentEditable;
-      return;
-    }
-    if (this.state.available.indexOf(Number(this.currentDraggedSpanVariable.id)) < 0) {
-      this.compose.contentEditable = 'false';
-    } else {
-      this.compose.contentEditable = 'true';
-    }
-  }
+  // onVariableDragStart = (event, variable) => {
+  //   const data = this.transformVar(variable);
+  //   this.currentDraggedSpanVariable = variable;
+  //   if (event.persist) event.persist();
+  //   event.dataTransfer.setData('text/html', data.outerHTML);
+  //   event.dataTransfer.setData('variableId', variable.id);
+  // }
+
+  // composeMessageDropHandler = (event) => {
+  //   const variableId = event.dataTransfer.getData('variableId');
+  //   setTimeout(() => {
+  //     const text = document.getElementById(`span-${this.currentDraggedSpanVariable.value}`);
+  //     this.insertTextAtCursorOnDrag(text);
+  //     this.addSpaceAfterAction(text);
+  //   }, 0);
+
+  //   if (variableId) {
+  //     this.setState((prevState) => {
+  //       const index = prevState.available.indexOf(Number(variableId));
+  //       if (index > -1) {
+  //         prevState.available.splice(index, 1);
+  //       } else {
+  //         prevState.available.push(Number(variableId));
+  //       }
+  //       return ({ available: prevState.available });
+  //     });
+  //     event.dataTransfer.clearData();
+  //   }
+  // }
+
+  // variableStackDropHandler(event) {
+  //   const variableId = event.dataTransfer.getData('variableId');
+  //   const variableSet = this.props.variables.find(item => item.id === Number(variableId));
+
+  //   this.setState((prevState) => {
+  //     prevState.available.push(Number(variableId));
+  //     this.removeVariable(variableSet.variable);
+  //     return ({ available: prevState.available });
+  //   }, () => {
+  //     // Focus back on compose element
+  //     this.compose.focus();
+  //     this.handleComposeInput();
+  //     this.composeMessageViewHandler('true');
+  //   });
+  // }
+
+  //
+  // insertTextAtCursorOnDrag = (text) => {
+  //   let range = document.createRange();
+  //   const sel = window.getSelection();
+  //   // Make sure we're focused on the compose element
+  //   this.compose.focus();
+  //
+  //   if (sel.getRangeAt && sel.rangeCount) {
+  //     range = sel.getRangeAt(0);
+  //     range.deleteContents();
+  //
+  //     // Move caret
+  //     range.setStartAfter(text);
+  //     range.setEndAfter(text);
+  //     sel.removeAllRanges();
+  //     sel.addRange(range);
+  //   }
+  // }
+  //
+  // addSpaceAfterAction = (text) => {
+  //   const spanSpace = document.createElement('span');
+  //   const sel = window.getSelection();
+  //   const range = document.createRange();
+  //
+  //   spanSpace.innerHTML = ' ';
+  //   text.insertAdjacentElement('afterend', spanSpace);
+  //
+  //   // this.handleComposeInput();
+  //   // Move caret
+  //   range.setStartAfter(spanSpace);
+  //   range.setEndAfter(spanSpace);
+  //   sel.removeAllRanges();
+  //   sel.addRange(range);
+  // }
+
+  // composeMessageViewHandler = (contentEditable = null) => {
+  //   if (contentEditable) {
+  //     this.compose.contentEditable = contentEditable;
+  //     return;
+  //   }
+  //   if (this.state.available.indexOf(Number(this.currentDraggedSpanVariable.id)) < 0) {
+  //     this.compose.contentEditable = 'false';
+  //   } else {
+  //     this.compose.contentEditable = 'true';
+  //   }
+  // }
 
   render() {
     const {
@@ -627,16 +708,17 @@ class VariableMessage extends React.Component {
         )}
         <div style={{ position: 'relative' }}>
           <div
-            onDrop={event => this.composeMessageDropHandler(event)}
-            onDragOver={() => this.composeMessageViewHandler()}
-            onDragLeave={() => this.composeMessageViewHandler('true')}
+            // onDrop={event => this.composeMessageDropHandler(event)}
+            // onDragOver={() => this.composeMessageViewHandler()}
+            // onDragLeave={() => this.composeMessageViewHandler('true')}
             id={variableMessageInputName}
             className="variable-message__compose"
             contentEditable={!readOnly}
             onInput={this.handleComposeInput}
+            onClick={this.handleCursorSet}
             onFocus={this.handleComposeInput}
             onKeyPress={this.handleComposeKeypress}
-            onKeyUp={this.handleKeyUp}
+            onKeyUp={this.handleCursorSet}
             onPaste={this.handlePaste}
             name={name}
             ref={ref => (this.compose = ref)}
