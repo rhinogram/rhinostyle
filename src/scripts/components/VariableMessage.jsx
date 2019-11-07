@@ -168,7 +168,15 @@ class VariableMessage extends React.Component {
 
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
-    $variable.setAttribute('contenteditable', false);
+    const ua = window.navigator.userAgent;
+    const msie = ua.indexOf('MSIE ');
+    const trident = ua.indexOf('Trident/');
+    const edge = ua.indexOf('Edge/');
+    if (msie > 0 || trident > 0 || edge > 0) {
+      $variable.setAttribute('contenteditable', true);
+    } else {
+      $variable.setAttribute('contenteditable', false);
+    }
     // $variable.setAttribute('draggable', true);
     // document.addEventListener('dragstart', (event) => {
     //   if (event.target.id === `span-${value}`) {
