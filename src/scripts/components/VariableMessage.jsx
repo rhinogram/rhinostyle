@@ -28,6 +28,7 @@ class VariableMessage extends React.Component {
     categories: [],
     selectedCategory: this.props.defaultSelectedCategory || '',
     precedingChar: '',
+    placeholder: this.props.placeholder,
   };
 
   componentDidMount() {
@@ -172,8 +173,7 @@ class VariableMessage extends React.Component {
     const ua = window.navigator.userAgent;
     const msie = ua.indexOf('MSIE ');
     const trident = ua.indexOf('Trident/');
-    const edge = ua.indexOf('Edge/');
-    if (msie > 0 || trident > 0 || edge > 0) {
+    if (msie > 0 || trident > 0) {
       $variable.setAttribute('contenteditable', true);
     } else {
       $variable.setAttribute('contenteditable', false);
@@ -369,9 +369,11 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
+    if (this.state.message === '') {
+      this.setState({ placeholder: this.props.placeholder });
+    }
     // Get the rawMessage content to return onInput
     const rawMessage = this.compose && this.compose.textContent;
-
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;
@@ -442,6 +444,9 @@ class VariableMessage extends React.Component {
   )
 
   changeCategoryHandler = (category) => {
+    if (this.state.message !== '') {
+      this.setState({ placeholder: '' });
+    }
     this.setState({
       variablesOfCategory: this.props.variables.filter(item => item.category === category),
       selectedCategory: category,
@@ -688,7 +693,6 @@ class VariableMessage extends React.Component {
       required,
       validationMessage,
       isCategoryAvailable,
-      placeholder,
     } = this.props;
     const classes = cx('form__group variable-message', className);
     const variableMessageInputName = `variable-message-input-${this.id}`;
@@ -722,7 +726,7 @@ class VariableMessage extends React.Component {
             onPaste={this.handlePaste}
             name={name}
             ref={ref => (this.compose = ref)}
-            placeholder={placeholder}
+            placeholder={this.state.placeholder}
           />
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
