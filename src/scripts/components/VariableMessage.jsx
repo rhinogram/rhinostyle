@@ -29,6 +29,7 @@ class VariableMessage extends React.Component {
     selectedCategory: this.props.defaultSelectedCategory || '',
     precedingChar: '',
     isSafariBrowser: false,
+    placeholder: this.props.placeholder,
   };
 
   componentDidMount() {
@@ -218,8 +219,7 @@ class VariableMessage extends React.Component {
     const ua = window.navigator.userAgent;
     const msie = ua.indexOf('MSIE ');
     const trident = ua.indexOf('Trident/');
-    const edge = ua.indexOf('Edge/');
-    if (msie > 0 || trident > 0 || edge > 0) {
+    if (msie > 0 || trident > 0) {
       $variable.setAttribute('contenteditable', true);
     } else {
       $variable.setAttribute('contenteditable', false);
@@ -415,9 +415,11 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
+    if (this.state.message === '') {
+      this.setState({ placeholder: this.props.placeholder });
+    }
     // Get the rawMessage content to return onInput
-    const rawMessage = this.compose.textContent;
-
+    const rawMessage = this.compose && this.compose.textContent;
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;
@@ -433,7 +435,7 @@ class VariableMessage extends React.Component {
 
       if (variable) {
         // We found the text
-        if (message.search(variable) !== -1) {
+        if (message && message.search(variable) !== -1) {
           // Swap out variables for data
           const regex = new RegExp(variable);
           message = message.replace(regex, value.variableValue);
@@ -488,6 +490,9 @@ class VariableMessage extends React.Component {
   )
 
   changeCategoryHandler = (category) => {
+    if (this.state.message !== '') {
+      this.setState({ placeholder: '' });
+    }
     this.setState({
       variablesOfCategory: this.props.variables.filter(item => item.category === category),
       selectedCategory: category,
@@ -767,6 +772,7 @@ class VariableMessage extends React.Component {
             onPaste={this.handlePaste}
             name={name}
             ref={ref => (this.compose = ref)}
+            placeholder={this.state.placeholder}
           />
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
@@ -810,12 +816,14 @@ VariableMessage.propTypes = {
   required: PropTypes.bool,
   showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
   variableExplanationMessage: 'Click to add/remove variables into your message:',
+  placeholder: '',
 };
 
 export default VariableMessage;

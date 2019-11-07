@@ -47,6 +47,10 @@
   &:focus {
     outline: 0;
   }
+  &[contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    color: @input-color-placeholder;
+  }
 }
 
 .variable-message__footer {
@@ -151,6 +155,7 @@
 .variable-message__variable {
   &:extend(.pill--primary);
 
+  background-color: @variable-message-compose-bg;
   padding: 0; // 1
   margin-bottom: 0.1rem; // 2
   cursor: pointer;
@@ -159,6 +164,7 @@
   vertical-align: baseline;
   margin-bottom: 0.1rem; // 2
   white-space: nowrap;
+  display: inline-block;
 
   // Hide squigglies
   i {
