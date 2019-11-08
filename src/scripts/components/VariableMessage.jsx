@@ -605,7 +605,7 @@ class VariableMessage extends React.Component {
 
     return (
       <div className={classes}>
-        {!readOnly && (
+        {!displayMessageAreaOnly && (
         <div className="variable-message__header">
           <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
           {this.showReset() && (
@@ -622,7 +622,7 @@ class VariableMessage extends React.Component {
             onDragLeave={() => this.composeMessageViewHandler('true')}
             id={variableMessageInputName}
             className="variable-message__compose"
-            contentEditable={!readOnly || displayMessageAreaOnly}
+            contentEditable={!readOnly}
             onInput={this.handleComposeInput}
             onFocus={this.handleComposeInput}
             onKeyPress={this.handleComposeKeypress}
@@ -635,7 +635,7 @@ class VariableMessage extends React.Component {
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
         <FormValidationMessage validationMessage={validationMessage} />
-        {!readOnly && (
+        {!displayMessageAreaOnly && (
         <Fragment>
           {isCategoryAvailable === true ? (
             <Fragment>
