@@ -33,6 +33,8 @@
 }
 
 .variable-message__compose {
+  word-break: break-all;
+
   &[contenteditable='true'],
   &[contenteditable='false'] {
     background-color: @variable-message-compose-bg;
@@ -47,7 +49,8 @@
   &:focus {
     outline: 0;
   }
-  &[contenteditable][placeholder]:empty:before {
+
+  &[contenteditable][placeholder]:empty::before {
     content: attr(placeholder);
     color: @input-color-placeholder;
   }
@@ -81,6 +84,7 @@
 
 .category-message__footer__variable__list {
   padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+
   > button:not(:last-child) {
     margin-right: @global-whitespace-small;
   }
@@ -88,6 +92,7 @@
 
 .variable-message__footer__variable__list {
   padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+
   > button:not(:last-child) {
     margin-right: @global-whitespace-small;
   }
@@ -157,7 +162,6 @@
 
   background-color: @variable-message-compose-bg;
   padding: 0; // 1
-  margin-bottom: 0.1rem; // 2
   cursor: pointer;
   pointer-events: none;
   user-select: none;
@@ -185,6 +189,10 @@
 
 .variable-message__preview {
   margin-top: @form-group-spacing;
+
+  .msg--inbound {
+    word-break: break-all;
+  }
 }
 
 .category-web-view {
@@ -202,10 +210,12 @@
     .button__text-wrapper {
       justify-content: space-between;
     }
+
     .icon {
       margin: 0 !important;
     }
   }
+
   .category-variable-list {
     border: 1px solid @variable-message-compose-border-color;
   }
