@@ -215,7 +215,7 @@ class VariableMessage extends React.Component {
 
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
-    // Added this check for IE and Edge support
+    /* Added this check for IE and Edge support */
     const ua = window.navigator.userAgent;
     const msie = ua.indexOf('MSIE ');
     const trident = ua.indexOf('Trident/');
@@ -224,6 +224,8 @@ class VariableMessage extends React.Component {
     } else {
       $variable.setAttribute('contenteditable', false);
     }
+    /* Added this check for IE and Edge support */
+
     // $variable.setAttribute('draggable', true);
     // document.addEventListener('dragstart', (event) => {
     //   if (event.target.id === `span-${value}`) {
@@ -415,9 +417,12 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
+    /* Reverting Placeholder to it's original value when there is no text in template message area */
     if (this.state.message === '') {
       this.setState({ placeholder: this.props.placeholder });
     }
+    /* Reverting Placeholder to it's original value when there is no text in template message area */
+
     // Get the rawMessage content to return onInput
     const rawMessage = this.compose && this.compose.textContent;
     // Get only the text representation of the message
@@ -490,9 +495,11 @@ class VariableMessage extends React.Component {
   )
 
   changeCategoryHandler = (category) => {
+    /* placeholder added in template message when switch the category, So removing placeholder by emppty string */
     if (this.state.message !== '') {
       this.setState({ placeholder: '' });
     }
+    /* placeholder added in template message when switch the category, So removing placeholder by emppty string */
     this.setState({
       variablesOfCategory: this.props.variables.filter(item => item.category === category),
       selectedCategory: category,
