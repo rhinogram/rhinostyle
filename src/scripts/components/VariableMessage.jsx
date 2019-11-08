@@ -86,21 +86,33 @@ class VariableMessage extends React.Component {
       range.deleteContents();
       if (paste) {
         range.insertNode(document.createTextNode(text));
-        range.selectNode(document.createTextNode(text));
       } else {
         range.insertNode(text);
-        range.selectNode(text);
       }
+
+      if (!paste) {
+        const spanSpace = document.createElement('span');
+        spanSpace.innerHTML = '&nbsp;';
+        text.insertAdjacentElement('afterend', spanSpace);
+        // calling deleteContents and replacing with HTML leaves behind an empty node, so here we clean discard it.
+        const newRange = range.cloneRange();
+        range.setEndBefore(spanSpace);
+        newRange.setStartAfter(spanSpace);
+        newRange.setEndAfter(spanSpace);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+      } else {
       // calling deleteContents and replacing with HTML leaves behind an empty node, so here we clean discard it.
-      const newRange = range.cloneRange();
-      range.setEndBefore(text);
-      newRange.setStartAfter(text);
-      newRange.setEndAfter(text);
-      sel.removeAllRanges();
-      sel.addRange(newRange);
+        const newRange = range.cloneRange();
+        range.setEndBefore(text);
+        newRange.setStartAfter(text);
+        newRange.setEndAfter(text);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+      }
+      // get newly added character preceding caret
+      this.getCharacterPrecedingCaret(this.compose);
     }
-    // get newly added character preceding caret
-    this.getCharacterPrecedingCaret(this.compose);
   }
 
   handleBackspace = async (e) => {
