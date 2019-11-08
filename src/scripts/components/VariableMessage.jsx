@@ -190,6 +190,7 @@ class VariableMessage extends React.Component {
         await new Promise(resolve => this.setState({ message }, resolve));
       }
     }
+    this.handleComposeInput();
   }
 
   /**
