@@ -28,10 +28,14 @@ class VariableMessage extends React.Component {
     categories: [],
     selectedCategory: this.props.defaultSelectedCategory || '',
     precedingChar: '',
+    isSafariBrowser: false,
+    placeholder: this.props.placeholder,
   };
 
   componentDidMount() {
     this.handleCursorSet();
+    this.checkForSafariBrowser();
+
     const toUpdateState = {
       categories: [],
       variablesOfCategory: [],
@@ -58,6 +62,49 @@ class VariableMessage extends React.Component {
       this.setState({
         message: this.props.initialValue,
       }, this.handleInitValue);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.state.isSafariBrowser) {
+      window.removeEventListener('touchmove', (event) => {
+        const editorDivId = `variable-message-input-${this.id}`;
+
+        if (event.target.id === editorDivId) {
+          this.compose.focus();
+        } else {
+          this.compose.blur();
+        }
+      });
+    }
+  }
+
+  checkForSafariBrowser = () => {
+    const ua = navigator.userAgent.toLowerCase();
+    let isSafariBrowser = false;
+    if (ua.indexOf('safari') !== -1) {
+      if (ua.indexOf('chrome') > -1) {
+        // Chrome
+        isSafariBrowser = false;
+      } else {
+        // Safari
+        isSafariBrowser = true;
+      }
+    }
+    this.setState({ isSafariBrowser }, () => this.addScrollEventForSafari());
+  }
+
+  addScrollEventForSafari() {
+    if (this.state.isSafariBrowser) {
+      window.addEventListener('touchmove', (event) => {
+        const editorDivId = `variable-message-input-${this.id}`;
+
+        if (event.target.id === editorDivId) {
+          this.compose.focus();
+        } else {
+          this.compose.blur();
+        }
+      });
     }
   }
 
@@ -155,6 +202,7 @@ class VariableMessage extends React.Component {
         await new Promise(resolve => this.setState({ message }, resolve));
       }
     }
+    this.handleComposeInput();
   }
 
   /**
@@ -180,7 +228,17 @@ class VariableMessage extends React.Component {
 
     $variable.setAttribute('spellcheck', false);
     // Do not allow the variable to be edited
-    $variable.setAttribute('contenteditable', false);
+    /* Added this check for IE and Edge support */
+    const ua = window.navigator.userAgent;
+    const msie = ua.indexOf('MSIE ');
+    const trident = ua.indexOf('Trident/');
+    if (msie > 0 || trident > 0) {
+      $variable.setAttribute('contenteditable', true);
+    } else {
+      $variable.setAttribute('contenteditable', false);
+    }
+    /* Added this check for IE and Edge support */
+
     // $variable.setAttribute('draggable', true);
     // document.addEventListener('dragstart', (event) => {
     //   if (event.target.id === `span-${value}`) {
@@ -372,9 +430,14 @@ class VariableMessage extends React.Component {
    * @return {void}
    */
   handleComposeInput = () => {
-    // Get the rawMessage content to return onInput
-    const rawMessage = this.compose.textContent;
+    /* Reverting Placeholder to it's original value when there is no text in template message area */
+    if (this.state.message === '') {
+      this.setState({ placeholder: this.props.placeholder });
+    }
+    /* Reverting Placeholder to it's original value when there is no text in template message area */
 
+    // Get the rawMessage content to return onInput
+    const rawMessage = this.compose && this.compose.textContent;
     // Get only the text representation of the message
     // so we can update our DB with it
     let message = rawMessage;
@@ -390,7 +453,7 @@ class VariableMessage extends React.Component {
 
       if (variable) {
         // We found the text
-        if (message.search(variable) !== -1) {
+        if (message && message.search(variable) !== -1) {
           // Swap out variables for data
           const regex = new RegExp(variable);
           message = message.replace(regex, value.variableValue);
@@ -445,6 +508,11 @@ class VariableMessage extends React.Component {
   )
 
   changeCategoryHandler = (category) => {
+    /* placeholder added in template message when switch the category, So removing placeholder by emppty string */
+    if (this.state.message !== '') {
+      this.setState({ placeholder: '' });
+    }
+    /* placeholder added in template message when switch the category, So removing placeholder by emppty string */
     this.setState({
       variablesOfCategory: this.props.variables.filter(item => item.category === category),
       selectedCategory: category,
@@ -724,6 +792,7 @@ class VariableMessage extends React.Component {
             onPaste={this.handlePaste}
             name={name}
             ref={ref => (this.compose = ref)}
+            placeholder={this.state.placeholder}
           />
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
@@ -767,12 +836,14 @@ VariableMessage.propTypes = {
   required: PropTypes.bool,
   showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
   variableExplanationMessage: 'Click to add/remove variables into your message:',
+  placeholder: '',
 };
 
 export default VariableMessage;
