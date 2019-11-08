@@ -137,38 +137,22 @@ class VariableMessage extends React.Component {
         range.insertNode(text);
       }
 
-      if (!paste) {
-        const spanSpace = document.createElement('span');
-        spanSpace.innerHTML = '&nbsp;';
-        text.insertAdjacentElement('afterend', spanSpace);
-        // calling deleteContents and replacing with HTML leaves behind an empty node, so here we clean discard it.
-        const newRange = range.cloneRange();
-        range.setEndBefore(spanSpace);
-        newRange.setStartAfter(spanSpace);
-        newRange.setEndAfter(spanSpace);
-        sel.removeAllRanges();
-        sel.addRange(newRange);
-      } else {
       // calling deleteContents and replacing with HTML leaves behind an empty node, so here we clean discard it.
-        const newRange = range.cloneRange();
-        range.setEndBefore(text);
-        newRange.setStartAfter(text);
-        newRange.setEndAfter(text);
-        sel.removeAllRanges();
-        sel.addRange(newRange);
-      }
+      const newRange = range.cloneRange();
+      range.setEndBefore(text);
+      newRange.setStartAfter(text);
+      newRange.setEndAfter(text);
+      sel.removeAllRanges();
+      sel.addRange(newRange);
       // get newly added character preceding caret
       this.getCharacterPrecedingCaret(this.compose);
     }
   }
 
   handleBackspace = async (e) => {
-    // fix backspace bug in FF
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=685445
-    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
     const isNewWord = this.state.precedingChar.trim() === '';
 
-    if (!isNewWord && isFirefox && e && window.getSelection && (e.which === BACKSPACE_KEY || e.which === DELETE_KEY)) {
+    if (!isNewWord && e && window.getSelection && (e.which === BACKSPACE_KEY || e.which === DELETE_KEY)) {
       const selection = window.getSelection();
       if (!selection.isCollapsed || !selection.rangeCount) {
         return;
