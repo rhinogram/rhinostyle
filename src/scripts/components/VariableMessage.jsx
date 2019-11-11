@@ -760,7 +760,7 @@ class VariableMessage extends React.Component {
           )}
         </div>
         )}
-        <div style={{ position: 'relative' }}>
+        <div className="variable-compose__container">
           <div
             // onDrop={event => this.composeMessageDropHandler(event)}
             // onDragOver={() => this.composeMessageViewHandler()}

@@ -2,7 +2,6 @@
 // Variables
 //
 
-
 @variable-message-compose-bg: @input-bg;
 @variable-message-compose-border-color: @input-border;
 @variable-message-compose-color: @input-color;
@@ -38,13 +37,14 @@
   &[contenteditable='true'],
   &[contenteditable='false'] {
     // white-space: pre-wrap;
-    background-color: @variable-message-compose-bg;
-    border: 1px solid @variable-message-compose-border-color;
-    border-top-left-radius: @variable-message-compose-border-radius;
-    border-top-right-radius: @variable-message-compose-border-radius;
+    display: inline-block;
     color: @variable-message-compose-color;
     min-height: @variable-message-compose-min-height;
     padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+  }
+
+  &:empty {
+    display: block;
   }
 
   &:focus {
@@ -55,6 +55,14 @@
     content: attr(placeholder);
     color: @input-color-placeholder;
   }
+}
+
+.variable-compose__container {
+  position: relative;
+  background-color: @variable-message-compose-bg;
+  border: 1px solid @variable-message-compose-border-color;
+  border-top-left-radius: @variable-message-compose-border-radius;
+  border-top-right-radius: @variable-message-compose-border-radius;
 }
 
 .variable-message__footer {
