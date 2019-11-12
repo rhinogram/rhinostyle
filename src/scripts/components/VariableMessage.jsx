@@ -151,7 +151,7 @@ class VariableMessage extends React.Component {
 
   handleBackspace = async (e) => {
     const isNewWord = this.state.precedingChar.trim() === '';
-
+    this.handleComposeInput();
     if (!isNewWord && e && window.getSelection && (e.which === BACKSPACE_KEY || e.which === DELETE_KEY)) {
       const selection = window.getSelection();
       if (!selection.isCollapsed || !selection.rangeCount) {
@@ -186,7 +186,6 @@ class VariableMessage extends React.Component {
         await new Promise(resolve => this.setState({ message }, resolve));
       }
     }
-    this.handleComposeInput();
   }
 
   /**
