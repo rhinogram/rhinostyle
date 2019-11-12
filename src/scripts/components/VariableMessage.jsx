@@ -28,13 +28,13 @@ class VariableMessage extends React.Component {
     categories: [],
     selectedCategory: this.props.defaultSelectedCategory || '',
     precedingChar: '',
-    isSafariBrowser: false,
+    // isSafariBrowser: false,
     placeholder: this.props.placeholder,
   };
 
   componentDidMount() {
     this.handleCursorSet();
-    this.checkForSafariBrowser();
+    // this.checkForSafariBrowser();
 
     const toUpdateState = {
       categories: [],
@@ -65,48 +65,48 @@ class VariableMessage extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    if (this.state.isSafariBrowser) {
-      window.removeEventListener('touchmove', (event) => {
-        const editorDivId = `variable-message-input-${this.id}`;
+  // componentWillUnmount() {
+  //   if (this.state.isSafariBrowser) {
+  //     window.removeEventListener('touchmove', (event) => {
+  //       const editorDivId = `variable-message-input-${this.id}`;
 
-        if (event.target.id === editorDivId) {
-          this.compose.focus();
-        } else {
-          this.compose.blur();
-        }
-      });
-    }
-  }
+  //       if (event.target.id === editorDivId) {
+  //         this.compose.focus();
+  //       } else {
+  //         this.compose.blur();
+  //       }
+  //     });
+  //   }
+  // }
 
-  checkForSafariBrowser = () => {
-    const ua = navigator.userAgent.toLowerCase();
-    let isSafariBrowser = false;
-    if (ua.indexOf('safari') !== -1) {
-      if (ua.indexOf('chrome') > -1) {
-        // Chrome
-        isSafariBrowser = false;
-      } else {
-        // Safari
-        isSafariBrowser = true;
-      }
-    }
-    this.setState({ isSafariBrowser }, () => this.addScrollEventForSafari());
-  }
+  // checkForSafariBrowser = () => {
+  //   const ua = navigator.userAgent.toLowerCase();
+  //   let isSafariBrowser = false;
+  //   if (ua.indexOf('safari') !== -1) {
+  //     if (ua.indexOf('chrome') > -1) {
+  //       // Chrome
+  //       isSafariBrowser = false;
+  //     } else {
+  //       // Safari
+  //       isSafariBrowser = true;
+  //     }
+  //   }
+  //   this.setState({ isSafariBrowser }, () => this.addScrollEventForSafari());
+  // }
 
-  addScrollEventForSafari() {
-    if (this.state.isSafariBrowser) {
-      window.addEventListener('touchmove', (event) => {
-        const editorDivId = `variable-message-input-${this.id}`;
+  // addScrollEventForSafari() {
+  //   if (this.state.isSafariBrowser) {
+  //     window.addEventListener('touchmove', (event) => {
+  //       const editorDivId = `variable-message-input-${this.id}`;
 
-        if (event.target.id === editorDivId) {
-          this.compose.focus();
-        } else {
-          this.compose.blur();
-        }
-      });
-    }
-  }
+  //       if (event.target.id === editorDivId) {
+  //         this.compose.focus();
+  //       } else {
+  //         this.compose.blur();
+  //       }
+  //     });
+  //   }
+  // }
 
   /**
    * Retrieves variables
