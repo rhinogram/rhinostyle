@@ -742,6 +742,7 @@ class VariableMessage extends React.Component {
       readOnly,
       required,
       validationMessage,
+      displayMessageAreaOnly,
       isCategoryAvailable,
     } = this.props;
     const classes = cx('form__group variable-message', className);
@@ -750,7 +751,7 @@ class VariableMessage extends React.Component {
 
     return (
       <div className={classes}>
-        {!readOnly && (
+        {!displayMessageAreaOnly && (
         <div className="variable-message__header">
           <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
           {this.showReset() && (
@@ -781,7 +782,7 @@ class VariableMessage extends React.Component {
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
         <FormValidationMessage validationMessage={validationMessage} />
-        {!readOnly && (
+        {!displayMessageAreaOnly && (
         <Fragment>
           {isCategoryAvailable === true ? (
             <Fragment>
@@ -820,14 +821,16 @@ VariableMessage.propTypes = {
   required: PropTypes.bool,
   showCharacterCounter: PropTypes.bool,
   validationMessage: PropTypes.string,
+  displayMessageAreaOnly: PropTypes.bool,
   placeholder: PropTypes.string,
 };
 
 VariableMessage.defaultProps = {
   composeLabel: 'Message',
   previewLabel: 'Preview',
-  variableExplanationMessage: 'Click to add/remove variables into your message:',
+  displayMessageAreaOnly: false,
   placeholder: '',
+  variableExplanationMessage: 'Click to add/remove variables into your message:',
 };
 
 export default VariableMessage;
