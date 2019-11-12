@@ -33,8 +33,11 @@
 }
 
 .variable-message__compose {
+  word-break: break-all;
+
   &[contenteditable='true'],
   &[contenteditable='false'] {
+    // white-space: pre-wrap;
     background-color: @variable-message-compose-bg;
     border: 1px solid @variable-message-compose-border-color;
     border-top-left-radius: @variable-message-compose-border-radius;
@@ -46,6 +49,11 @@
 
   &:focus {
     outline: 0;
+  }
+
+  &[contenteditable][placeholder]:empty::before {
+    content: attr(placeholder);
+    color: @input-color-placeholder;
   }
 }
 
@@ -77,6 +85,7 @@
 
 .category-message__footer__variable__list {
   padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+
   > button:not(:last-child) {
     margin-right: @global-whitespace-small;
   }
@@ -84,13 +93,18 @@
 
 .variable-message__footer__variable__list {
   padding: @variable-message-compose-vertical-padding @variable-message-compose-horizontal-padding;
+
   > button:not(:last-child) {
     margin-right: @global-whitespace-small;
   }
 }
 
+.category-message__footer__category__list {
+  border-right: 1px solid @variable-message-compose-border-color;
+}
+
 .category-message__footer__category {
-  border: 1px solid @variable-message-compose-border-color;
+  border-bottom: 1px solid @variable-message-compose-border-color;
   border-left: none;
   border-top: none;
   cursor: pointer;
@@ -98,6 +112,11 @@
 
 .category-message__footer__category:last-child {
   border-bottom: none;
+}
+
+.category-variables__section {
+  overflow-y: scroll;
+  max-height: 117px;
 }
 
 .category-message__footer__category__active {
@@ -142,11 +161,15 @@
 .variable-message__variable {
   &:extend(.pill--primary);
 
+  background-color: @variable-message-compose-bg;
   padding: 0; // 1
-  margin-bottom: 0.1rem; // 2
-  cursor: default;
+  cursor: pointer;
+  pointer-events: none;
   user-select: none;
   vertical-align: baseline;
+  margin-bottom: 0.1rem; // 2
+  white-space: nowrap;
+  display: inline-block;
 
   // Hide squigglies
   i {
@@ -167,6 +190,10 @@
 
 .variable-message__preview {
   margin-top: @form-group-spacing;
+
+  .msg--inbound {
+    word-break: break-all;
+  }
 }
 
 .category-web-view {
@@ -184,10 +211,12 @@
     .button__text-wrapper {
       justify-content: space-between;
     }
+
     .icon {
       margin: 0 !important;
     }
   }
+
   .category-variable-list {
     border: 1px solid @variable-message-compose-border-color;
   }

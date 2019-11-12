@@ -7,19 +7,30 @@ import Pill from './Pill';
 
 class PillsInput extends React.Component {
   state = {
-    isInputFocused: false,
+    // The actual Input field inside our Pills container has its own focus state. Although they should be kept in sync, it's best to differentiate via name.
+    isInputContainerFocused: this.props.inputProps && this.props.inputProps.focus ? this.props.inputProps.focus : false,
   }
 
   handleChange = (name, value) => {
-    if (this.props.onChange) {
-      this.props.onChange(name, value);
+    if (this.props.inputProps && this.props.inputProps.onChange) {
+      this.props.inputProps.onChange(name, value);
     }
   }
 
   inputContainerDivRef = React.createRef();
 
-  setInputFocusState = (isInputFocused) => {
-    this.setState({ isInputFocused });
+  handleFocus = (event) => {
+    if (this.props.inputProps && this.props.inputProps.onFocus) {
+      this.props.inputProps.onFocus(event);
+    }
+    this.setState({ isInputContainerFocused: true });
+  }
+
+  handleBlur = (event) => {
+    if (this.props.inputProps && this.props.inputProps.onBlur) {
+      this.props.inputProps.onBlur(event);
+    }
+    this.setState({ isInputContainerFocused: false });
   }
 
   render() {
@@ -40,23 +51,22 @@ class PillsInput extends React.Component {
     const { inputProps } = this.props;
 
     const propsForInput = {
-      naked: inputProps.naked || true,
-      onChange: inputProps.onChange || this.handleChange,
-      focus: inputProps.focus || this.state.isInputFocused,
-      onFocus: inputProps.onFocus || this.setInputFocusState(true),
-      onBlur: inputProps.onBlur || this.setInputFocusState(false),
-      ...this.props.inputProps,
+      ...inputProps,
+      onChange: this.handleChange,
+      focus: this.state.isInputContainerFocused,
+      onFocus: this.handleFocus,
+      onBlur: this.handleBlur,
     };
 
     const inputClasses = cx('form__control', 'pill-input__container', this.props.className, {
-      'form__control--is-focused': this.state.isInputFocused,
+      'form__control--is-focused': this.state.isInputContainerFocused,
     });
 
     return (
       <div
         className={inputClasses}
         ref={this.inputContainerDivRef}
-        onClick={() => this.setInputFocusState(true)}
+        onClick={this.handleFocus}
       >
         {renderPills()}
         <div className="pill-input__input-container">
@@ -73,7 +83,6 @@ PillsInput.propTypes = {
     label: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   })),
-  onChange: PropTypes.func,
   onPillCloseIconClick: PropTypes.func,
   pillType: PropTypes.string,
   pillCloseIconClassName: PropTypes.string,
@@ -93,7 +102,7 @@ PillsInput.propTypes = {
     initialValue: PropTypes.string.isRequired,
     label: PropTypes.string,
     naked: PropTypes.bool,
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onInit: PropTypes.func,

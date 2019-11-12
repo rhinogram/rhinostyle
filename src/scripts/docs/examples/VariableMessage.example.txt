@@ -41,6 +41,7 @@ class ComponentExample extends React.Component {
           isCategoryAvailable={false}
           variables={variableOpts}
           initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our {office_location} office."
+          placeholder="ex. This is a reminder that you have an appointment today. If you have any questions, just text us back. Thanks!"
         />
         </div>
         <hr/>
@@ -56,6 +57,7 @@ class ComponentExample extends React.Component {
           isCategoryAvailable ={true}
           defaultSelectedCategory={'demographics'}
           initialValue="Hi {first_name}, This is just a friendly reminder for your upcoming appointment at our office."
+          placeholder="ex. This is a reminder that you have an appointment today. If you have any questions, just text us back. Thanks!"
         />
         </div>
       </div>

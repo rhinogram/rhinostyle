@@ -9,14 +9,14 @@ class ToggleButton extends Component {
     }
   }
 
-  handleDrag = (event) => {
-    if (this.props.onDragStart) {
-      this.props.onDragStart(event, this.props.variable);
-    }
-  }
+  // handleDrag = (event) => {
+  //   if (this.props.onDragStart) {
+  //     this.props.onDragStart(event, this.props.variable);
+  //   }
+  // }
 
   render() {
-    const { available, className, draggable = false, id } = this.props;
+    const { available, className, id } = this.props;
     const buttonBaseClass = 'toggle-button';
     const toggleButtonStyleClasses = {
       'toggle-button--strikethrough': !available,
@@ -33,8 +33,8 @@ class ToggleButton extends Component {
         onClick={this.handleClick}
       >
         <span
-          draggable={draggable}
-          onDragStart={event => this.handleDrag(event)}
+          // draggable={draggable}
+          // onDragStart={event => this.handleDrag(event)}
           id={id}
           className="button__text-wrapper"
         >
@@ -49,10 +49,10 @@ ToggleButton.propTypes = {
   available: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  draggable: PropTypes.bool,
+  // draggable: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   variable: PropTypes.object.isRequired,
-  onDragStart: PropTypes.func,
+  // onDragStart: PropTypes.func,
   id: PropTypes.string,
 };
 
