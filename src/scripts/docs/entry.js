@@ -24,6 +24,9 @@ switch (currentUrl) { // eslint-disable-line default-case
   case 'close':
     require('./CloseApp');
     break;
+  case 'collapse':
+    require('./CollapseApp');
+    break;
   case 'covers':
     require('./CoverApp');
     break;

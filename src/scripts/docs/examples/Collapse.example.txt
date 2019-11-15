@@ -1,0 +1,29 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/react-in-jsx-scope */
+
+// eslint-disable-next-line no-undef
+class CollapseExample extends React.Component { // eslint-disable-line no-unused-vars
+  state = {
+    isOpen: false,
+  };
+
+  handleToggleCollapse = () => {
+    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  };
+
+  render() {
+    return (
+      <div>
+        <Button onClick={this.handleToggleCollapse}>{this.state.isOpen ? 'Close Me' : 'Open Me'}</Button>
+        <Collapse isOpen={this.state.isOpen}>
+          <div className="u-p-a-large">
+            <h1>Hello world!</h1>
+            <p>You&apos;ve just revealed all this awesome content!</p>
+          </div>
+        </Collapse>
+        <div className="u-m-y-large" />
+      </div>
+    );
+  }
+}
