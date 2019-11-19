@@ -57,12 +57,11 @@ class Dropdown extends React.Component {
               this.updateActiveKey(child.props.id);
             }
           }
+          this.handleToggle();
 
           if (child.props.onClick) {
             child.props.onClick();
           }
-
-          this.handleToggle();
         };
 
         returnChild = React.cloneElement(child, {
