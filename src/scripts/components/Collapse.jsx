@@ -31,7 +31,7 @@ class Collapse extends React.Component {
   collapseContainerRef = React.createRef();
 
   // There is no synthetic event available for a transition start.
-  // We have to simulated it by triggering an event when the user changes the 'isOpen' prop.
+  // We have to simulate it by triggering an event when the user changes the 'isOpen' prop.
   handleTransitionStart = () => {
     if (this.props.onTransitionStart) {
       this.props.onTransitionStart();
