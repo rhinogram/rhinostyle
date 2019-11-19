@@ -11,6 +11,7 @@ import Chart from './Chart';
 import Checkbox from './Checkbox';
 import CheckboxGroup from './CheckboxGroup';
 import Close from './Close';
+import Collapse from './Collapse';
 import Cover from './Cover';
 import CoverBody from './CoverBody';
 import CoverFooter from './CoverFooter';
@@ -90,6 +91,7 @@ export {
   Checkbox,
   CheckboxGroup,
   Close,
+  Collapse,
   Cover,
   CoverBody,
   CoverFooter,

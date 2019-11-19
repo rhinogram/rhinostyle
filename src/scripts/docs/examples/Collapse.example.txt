@@ -1,0 +1,188 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/react-in-jsx-scope */
+
+// eslint-disable-next-line no-undef
+class CollapseExample extends React.Component { // eslint-disable-line no-unused-vars
+  state = {
+    basicExample: false,
+    multipleOne: false,
+    multipleTwo: true,
+    accordeon: {
+      accordeonOne: false,
+      accordeonTwo: false,
+      accordeonThree: false,
+    },
+    scrollingContent: false,
+    isModalActive: false,
+  };
+
+  handleToggleCollapse = (name) => {
+    this.setState(prevState => ({ [name]: !prevState[name] }));
+  };
+
+  handleToggleAccordeonSection = (name) => {
+    const newAccordeonState = {};
+
+    Object.keys(this.state.accordeon).forEach((key) => {
+      newAccordeonState[key] = false;
+    });
+
+    newAccordeonState[name] = this.state.accordeon[name] ? newAccordeonState[name] : true;
+
+    this.setState({ accordeon: newAccordeonState });
+  }
+
+  handleTransitionEnd = () => {
+    if (this.state.multipleOne) {
+      this.setState({ isModalActive: true });
+    }
+  }
+
+  handleCloseModal = () => {
+    this.setState({ isModalActive: false });
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="u-m-y-large u-p-y-large">
+          <h3>Basic Example</h3>
+          <Button type="primary" onClick={() => this.handleToggleCollapse('basicExample')}>{this.state.basicExample ? 'Close Me' : 'Open Me'}</Button>
+          <Collapse isOpen={this.state.basicExample}>
+            <div className="u-p-a-large">
+              <h1>Hello world!</h1>
+              <p>You&apos;ve just revealed all this awesome content!</p>
+            </div>
+          </Collapse>
+        </div>
+        <div className="u-m-y-large u-p-y-large">
+          <h3>Multiple Independent Collapsed Sections</h3>
+          <Modal open={this.state.isModalActive}>
+            <ModalHeader title="Hello" titleSub="I'm a modal!" />
+            <ModalBody>
+              <p>Your collapse panel is done transitioning!</p>
+            </ModalBody>
+            <ModalFooter>
+              <Button type="secondary" onClick={this.handleCloseModal}>Ok, cool!</Button>
+            </ModalFooter>
+          </Modal>
+          <Bucket>
+            <BucketHeader className="u-flex-justify-between" title="This one launches a modal when transition completes" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.multipleOne ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleCollapse('multipleOne')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.multipleOne} onTransitionEnd={this.handleTransitionEnd}>
+              <BucketBody>
+                The modal will only show when opening the collapsed panel, but not when user closes it.
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+          <Bucket>
+            <BucketHeader className="u-flex-justify-between" title="This one starts out open!" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.multipleTwo ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleCollapse('multipleTwo')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.multipleTwo}>
+              <BucketBody>
+                Bucket body. Etiam eu condimentum sem. Etiam a blandit erat.
+                Nullam a sem at leo finibus rutrum pulvinar vel mauris.
+                Nam purus velit, laoreet in mattis congue, consectetur in eros.
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+        </div>
+        <div className="u-m-y-large u-p-y-large">
+          <h3>Accordeon Style</h3>
+          <p>(The logic for showing only one active is handled outside the component itself. It is meant to be flexible.)</p>
+          <Bucket>
+            <BucketHeader className="u-flex-justify-between" title="My Header" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.accordeon.accordeonOne ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleAccordeonSection('accordeonOne')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.accordeon.accordeonOne}>
+              <BucketBody>
+                Bucket body. Etiam eu condimentum sem. Etiam a blandit erat.
+                Nullam a sem at leo finibus rutrum pulvinar vel mauris.
+                Nam purus velit, laoreet in mattis congue, consectetur in eros.
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+          <Bucket className="u-m-t-0">
+            <BucketHeader className="u-flex-justify-between" title="My Other Header" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.accordeon.accordeonTwo ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleAccordeonSection('accordeonTwo')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.accordeon.accordeonTwo}>
+              <BucketBody>
+                Bucket body. Etiam eu condimentum sem. Etiam a blandit erat.
+                Nullam a sem at leo finibus rutrum pulvinar vel mauris.
+                Nam purus velit, laoreet in mattis congue, consectetur in eros.
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+          <Bucket className="u-m-t-0">
+            <BucketHeader className="u-flex-justify-between" title="My Other Header" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.accordeon.accordeonThree ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleAccordeonSection('accordeonThree')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.accordeon.accordeonThree}>
+              <BucketBody>
+                Bucket body. Etiam eu condimentum sem. Etiam a blandit erat.
+                Nullam a sem at leo finibus rutrum pulvinar vel mauris.
+                Nam purus velit, laoreet in mattis congue, consectetur in eros.
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+        </div>
+        <div className="u-m-y-large u-p-y-large">
+          <h3>With Scrolling Content</h3>
+          <Bucket>
+            <BucketHeader className="u-flex-justify-between" title="My Header" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.scrollingContent ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleCollapse('scrollingContent')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.scrollingContent}>
+              <BucketBody>
+                <Scrollbars style={{ height: 200, maxWidth: 600 }} className="u-bg-gray-lightest">
+                  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> {/* eslint-disable-line */}
+                  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> {/* eslint-disable-line */}
+                </Scrollbars>
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+        </div>
+      </div>
+    );
+  }
+}
