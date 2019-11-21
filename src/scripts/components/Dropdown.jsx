@@ -59,9 +59,9 @@ class Dropdown extends React.Component {
           }
           this.handleToggle();
 
-          // if (child.props.onClick) {
-          //   child.props.onClick();
-          // }
+          if (child.props.onClick) {
+            child.props.onClick();
+          }
         };
 
         returnChild = React.cloneElement(child, {
@@ -89,6 +89,7 @@ class Dropdown extends React.Component {
   }
 
   handleToggle = () => {
+    console.log('toggling...', this.state.isOpen);
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
 
     if (this.state.isOpen) {
