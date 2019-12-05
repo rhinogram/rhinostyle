@@ -89,7 +89,7 @@ class Button extends React.Component {
         <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>
           {loading && this.loadingRender()}
-          {labelRaised && (<span className={`button--label--raised--${labelRaisedColor}`}>{labelRaised}</span>)}
+          {labelRaised && (<span className={`button-label-${labelRaisedColor}`}>{labelRaised}</span>)}
         </Link>
       );
     } else if (hasClickableChildren) {
@@ -97,7 +97,7 @@ class Button extends React.Component {
         <div className={classes} disabled={disabled || loading} onClick={this.handleClick} title={this.props.title} {...opts}>
           <span className="button__text-wrapper">{this.props.children}</span>
           {loading && this.loadingRender()}
-          {labelRaised && (<span className={`button--label--raised--${labelRaisedColor}`}>{labelRaised}</span>)}
+          {labelRaised && (<span className={`button-label-${labelRaisedColor}`}>{labelRaised}</span>)}
         </div>
       );
     } else {
