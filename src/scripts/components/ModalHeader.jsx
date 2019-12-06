@@ -33,6 +33,7 @@ class ModalHeader extends React.Component {
         <div className="modal__header__title-wrapper">
           <h3 className={titleClasses}>
             {title}
+            {this.props.children}
           </h3>
           {titleSub && <div className="modal__header__subtitle">{titleSub}</div>}
         </div>
@@ -43,6 +44,7 @@ class ModalHeader extends React.Component {
 
 ModalHeader.propTypes = {
   dismissable: PropTypes.bool,
+  children: PropTypes.node,
   onClose: PropTypes.func,
   title: PropTypes.string.isRequired,
   titleSub: PropTypes.string,
