@@ -42,6 +42,8 @@ class Button extends React.Component {
       loading,
       hasClickableChildren,
       outlined,
+      labelRaised,
+      labelRaisedColor,
       ...opts
     } = this.props;
 
@@ -87,6 +89,7 @@ class Button extends React.Component {
         <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>
           {loading && this.loadingRender()}
+          {labelRaised && (<span className={`button-label-${labelRaisedColor}`}>{labelRaised}</span>)}
         </Link>
       );
     } else if (hasClickableChildren) {
@@ -94,6 +97,7 @@ class Button extends React.Component {
         <div className={classes} disabled={disabled || loading} onClick={this.handleClick} title={this.props.title} {...opts}>
           <span className="button__text-wrapper">{this.props.children}</span>
           {loading && this.loadingRender()}
+          {labelRaised && (<span className={`button-label-${labelRaisedColor}`}>{labelRaised}</span>)}
         </div>
       );
     } else {
@@ -101,6 +105,7 @@ class Button extends React.Component {
         <button type="button" className={classes} disabled={disabled || loading} onClick={this.handleClick} title={this.props.title} {...opts}>
           <span className="button__text-wrapper">{this.props.children}</span>
           {loading && this.loadingRender()}
+          {labelRaised && (<span className={`button-label-${labelRaisedColor}`}>{labelRaised}</span>)}
         </button>
       );
     }
@@ -140,6 +145,8 @@ Button.propTypes = {
   url: PropTypes.string,
   loading: PropTypes.bool,
   hasClickableChildren: PropTypes.bool,
+  labelRaised: PropTypes.string,
+  labelRaisedColor: PropTypes.string,
 };
 
 Button.defaultProps = {

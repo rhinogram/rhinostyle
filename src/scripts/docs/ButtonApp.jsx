@@ -14,6 +14,8 @@ const ButtonDocs = {
   type: "<code>oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'link', 'link-muted'])</code>", // eslint-disable-line single-quotes, max-len
   loading: 'Specify a loading-state for the button to denote a background-action is in-progress',
   reset: 'Removes any/all formatting attached to a button to inherit the surrounding text. Overrides type, block, and iconOnly props to avoid conflicts',
+  labelRaised: 'Represents raised label on button',
+  labelRaisedColor: "<code>oneOf(['green', 'white'])</code>",
 };
 const ButtonScope = {
   React,
@@ -165,6 +167,20 @@ const ButtonApp = () => (
         <br />
         <Button><Icon icon="lock" />&nbsp;<span className="u-text-overflow">Button With Really Long Name and Icon</span></Button>
       </div>
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Button with raised label</h3>
+      <p className="site-copy">
+        <code>labelRaised=&quot;BETA&quot;</code>
+      </p>
+      <p className="site-copy">
+        <code>labelRaisedColor=&quot;green | white&quot;</code>
+      </p>
+      <UtilityInlineGrid>
+        <Button labelRaised="BETA" labelRaisedColor="green" outlined type="primary" className="u-text-overflow">Outline Primary</Button>
+        <Button labelRaised="BETA" labelRaisedColor="white" type="primary" className="u-text-overflow">Primary</Button>
+      </UtilityInlineGrid>
     </section>
 
     <section className="site-section">
