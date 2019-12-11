@@ -20,20 +20,24 @@ class DropdownMenuItem extends React.Component {
   handleClick = () => {
     let returnVal = null;
     if (this.props.url) {
+      console.log('1');
       if (!this.props.blankWindow) {
+        console.log('2');
         window.location = this.props.url;
       } else {
+        console.log('3');
         window.open(this.props.url);
       }
       returnVal = null;
     } else if (this.props.onClick) {
+      console.log('4');
       returnVal = this.props.onClick();
     }
     return returnVal;
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised, url } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -64,6 +68,21 @@ class DropdownMenuItem extends React.Component {
           >
             {renderContent()}
           </Link>
+        </div>
+      );
+    } else if (url) {
+      markup = (
+        <div className={classes}>
+          <Button
+            url={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            reset
+            className="dropdown__menu__item__link"
+            onClick={this.handleClick}
+          >
+            {renderContent()}
+          </Button>
         </div>
       );
     } else {
