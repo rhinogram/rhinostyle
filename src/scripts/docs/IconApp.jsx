@@ -72,6 +72,7 @@ const icons = [
   'contacts',
   'rhinopay',
   'preview',
+  'multi-user',
 ];
 
 const IconApp = () => (
