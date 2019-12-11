@@ -19,18 +19,7 @@ function customValidator(props, propName, componentName) {
 class DropdownMenuItem extends React.Component {
   handleClick = () => {
     let returnVal = null;
-    if (this.props.url) {
-      console.log('1');
-      if (!this.props.blankWindow) {
-        console.log('2');
-        window.location = this.props.url;
-      } else {
-        console.log('3');
-        window.open(this.props.url);
-      }
-      returnVal = null;
-    } else if (this.props.onClick) {
-      console.log('4');
+    if (this.props.onClick) {
       returnVal = this.props.onClick();
     }
     return returnVal;
