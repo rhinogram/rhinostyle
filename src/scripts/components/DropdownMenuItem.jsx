@@ -26,7 +26,7 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised, url } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised, url, blankWindow } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -64,7 +64,7 @@ class DropdownMenuItem extends React.Component {
         <div className={classes}>
           <Button
             url={url}
-            target="_blank"
+            target={blankWindow ? '_blank' : '_self'}
             rel="noopener noreferrer"
             reset
             className="dropdown__menu__item__link"
@@ -99,6 +99,7 @@ DropdownMenuItem.propTypes = {
     name: PropTypes.string,
     type: PropTypes.oneOf(['default', 'member']),
   }),
+  blankWindow: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
   disabled: PropTypes.bool,
