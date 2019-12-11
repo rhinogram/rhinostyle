@@ -99,7 +99,6 @@ DropdownMenuItem.propTypes = {
     name: PropTypes.string,
     type: PropTypes.oneOf(['default', 'member']),
   }),
-  blankWindow: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
   disabled: PropTypes.bool,
