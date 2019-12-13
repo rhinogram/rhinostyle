@@ -19,14 +19,21 @@ function customValidator(props, propName, componentName) {
 class DropdownMenuItem extends React.Component {
   handleClick = () => {
     let returnVal = null;
-    if (this.props.onClick) {
+    if (this.props.url) {
+      if (!this.props.blankWindow) {
+        window.location = this.props.url;
+      } else {
+        window.open(this.props.url);
+      }
+      returnVal = null;
+    } else if (this.props.onClick) {
       returnVal = this.props.onClick();
     }
     return returnVal;
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised, url, blankWindow } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -57,21 +64,6 @@ class DropdownMenuItem extends React.Component {
           >
             {renderContent()}
           </Link>
-        </div>
-      );
-    } else if (url) {
-      markup = (
-        <div className={classes}>
-          <Button
-            url={url}
-            target={blankWindow ? '_blank' : '_self'}
-            rel="noopener noreferrer"
-            reset
-            className="dropdown__menu__item__link"
-            onClick={this.handleClick}
-          >
-            {renderContent()}
-          </Button>
         </div>
       );
     } else {
