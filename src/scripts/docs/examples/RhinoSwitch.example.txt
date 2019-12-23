@@ -9,7 +9,7 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-      <RhinoSwitch isChecked={this.state.exampleSwitch4} onChange={this.handleChange} label="Switcher" name="exampleSwitch4" />
+      <RhinoSwitch isChecked={this.state.exampleSwitch4} onChange={this.handleChange} label="Switcher" name="exampleSwitch4" isBetaLabeled />
     );
   }
 }
