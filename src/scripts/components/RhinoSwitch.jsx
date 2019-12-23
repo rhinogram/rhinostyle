@@ -66,7 +66,7 @@ RhinoSwitch.propTypes = {
   label: PropTypes.string,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
-  betaLabel: PropTypes.bool,
+  isBetaLabeled: PropTypes.bool,
 };
 
 RhinoSwitch.defaultProps = {
