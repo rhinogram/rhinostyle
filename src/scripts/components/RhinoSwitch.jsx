@@ -34,7 +34,7 @@ class RhinoSwitch extends React.Component {
   }
 
   render() {
-    const { className, disabled, name, label } = this.props;
+    const { className, disabled, name, label, isBetaLabeled } = this.props;
     const { checked } = this.state;
     const classes = cx('rhinoswitcher', className);
 
@@ -48,6 +48,9 @@ class RhinoSwitch extends React.Component {
           />
         </div>
         <FormLabel className="rhinoswitcher__text" id={this.id}>{label}</FormLabel>
+        {isBetaLabeled && (
+          <span className="title-adjacent-beta-label">BETA</span>
+        )}
       </div>
     );
   }
@@ -63,6 +66,7 @@ RhinoSwitch.propTypes = {
   label: PropTypes.string,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
+  isBetaLabeled: PropTypes.bool,
 };
 
 RhinoSwitch.defaultProps = {
