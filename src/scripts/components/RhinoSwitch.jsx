@@ -47,10 +47,12 @@ class RhinoSwitch extends React.Component {
             htmlFor={this.id}
           />
         </div>
-        <FormLabel className="rhinoswitcher__text" id={this.id}>{label}</FormLabel>
-        {isBetaLabeled && (
-          <span className="title-adjacent-beta-label">BETA</span>
-        )}
+        <FormLabel className="rhinoswitcher__text" id={this.id}>
+          {label}
+          {isBetaLabeled && (
+            <span className="title-adjacent-beta-label">BETA</span>
+          )}
+        </FormLabel>
       </div>
     );
   }
