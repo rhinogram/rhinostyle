@@ -3,14 +3,10 @@
 //
 
 
-.mixin-button-variant(@color; @background-color; @border; @shadow: true) {
+.mixin-button-variant(@color; @background-color; @border;) {
   background: @background-color;
   border-color: @border;
   color: @color;
-
-  & when (@shadow = true) {
-    box-shadow: @button-box-shadow;
-  }
 
   &:hover,
   &:focus,
