@@ -3,14 +3,10 @@
 //
 
 
-.mixin-button-variant(@color; @background-color; @border; @shadow: true) {
+.mixin-button-variant(@color; @background-color; @border) {
   background: @background-color;
   border-color: @border;
   color: @color;
-
-  & when (@shadow = true) {
-    box-shadow: @button-box-shadow;
-  }
 
   &:hover,
   &:focus,
@@ -51,14 +47,10 @@
   }
 }
 
-.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg; @shadow: true) {
+.mixin-button-outline-variant(@color; @border; @hover-color; @hover-bg) {
   background: transparent;
   border-color: @border;
   color: @color;
-
-  & when (@shadow = true) {
-    box-shadow: @button-box-shadow;
-  }
 
   &:hover,
   &:focus,

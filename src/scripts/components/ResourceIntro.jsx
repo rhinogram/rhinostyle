@@ -187,7 +187,7 @@ ResourceIntro.propTypes = {
   }),
   children: PropTypes.node,
   title: PropTypes.any,
-  titleSub: PropTypes.string,
+  titleSub: PropTypes.any,
   hideMediaXsmall: PropTypes.bool,
   hideTitleSubXsmall: PropTypes.bool,
 };
