@@ -1,5 +1,7 @@
 import { Back, Expo } from 'gsap/TweenMax';
 
+export * as ResizeListener from './ResizeListener';
+
 /**
  * Default configuration
  * @type {Object}
@@ -54,7 +56,7 @@ export function forEach(array, callback, scope) {
 }
 
 /**
- * Resize listener
+ * Window Resize listener
  * @return {function}
  */
 export const optimizedResize = (function () { // eslint-disable-line func-names
