@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import cx from 'classnames';
+import * as UtilitySystem from '../UtilitySystem/helpers';
 
 class Collapse extends React.Component {
   state = {
@@ -10,7 +12,9 @@ class Collapse extends React.Component {
   componentDidMount() {
     const { isOpen } = this.props;
 
-    this.setState({ collapseContainerHeight: isOpen ? this.collapseContainerRef.current.scrollHeight : '0px' });
+    this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
+
+    UtilitySystem.ResizeListener.add(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -23,16 +27,18 @@ class Collapse extends React.Component {
 
       this.setState({ isTransitioning: true }, () => { // eslint-disable-line react/no-did-update-set-state
         this.handleTransitionStart();
-        this.setState({ collapseContainerHeight: isOpen ? this.collapseContainerRef.current.scrollHeight : '0px' });
+        this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
       });
     }
   }
 
-  collapseContainerRef = React.createRef();
+  collapseChildrenWrapperRef = React.createRef();
 
   // There is no synthetic event available for a transition start.
   // We have to simulate it by triggering an event when the user changes the 'isOpen' prop.
   handleTransitionStart = () => {
+    this.setState({ isTransitioning: true });
+
     if (this.props.onTransitionStart) {
       this.props.onTransitionStart();
     }
@@ -52,17 +58,26 @@ class Collapse extends React.Component {
     }
   }
 
+  handleCollapseChildrenWrapperResize = () => {
+    const { isOpen } = this.props;
+    this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
+  }
+
   render() {
     const { children } = this.props;
 
+    const collapseContainerClasses = cx('collapse__container', this.props.containerClassName);
+    const collapseChildrenWrapperClasses = cx('collapse__children-wrapper', this.props.childrenWrapperClassName);
+
     return (
       <div
-        className={`collapse__container ${this.props.className}`}
-        ref={this.collapseContainerRef}
+        className={collapseContainerClasses}
         onTransitionEnd={this.handleTransitionEnd}
         style={{ height: this.state.collapseContainerHeight }}
       >
-        {children}
+        <div className={collapseChildrenWrapperClasses} ref={this.collapseChildrenWrapperRef}>
+          {children}
+        </div>
       </div>
     );
   }
@@ -70,7 +85,8 @@ class Collapse extends React.Component {
 
 Collapse.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
+  containerClassName: PropTypes.string,
+  childrenWrapperClassName: PropTypes.string,
   isOpen: PropTypes.bool.isRequired,
   onTransitionStart: PropTypes.func,
   onTransitionEnd: PropTypes.func,

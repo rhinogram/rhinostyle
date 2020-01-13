@@ -14,6 +14,8 @@ class CollapseExample extends React.Component { // eslint-disable-line no-unused
       accordeonThree: false,
     },
     scrollingContent: false,
+    isDynamicHeightContainerOpen: false,
+    isMoreContentVisible: false,
     isModalActive: false,
   };
 
@@ -41,6 +43,10 @@ class CollapseExample extends React.Component { // eslint-disable-line no-unused
 
   handleCloseModal = () => {
     this.setState({ isModalActive: false });
+  }
+
+  handleClickReadMore = () => {
+    this.setState(prevState => ({ isMoreContentVisible: !prevState.isMoreContentVisible }));
   }
 
   render() {
@@ -178,6 +184,35 @@ class CollapseExample extends React.Component { // eslint-disable-line no-unused
                   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> {/* eslint-disable-line */}
                   <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> {/* eslint-disable-line */}
                 </Scrollbars>
+              </BucketBody>
+            </Collapse>
+          </Bucket>
+        </div>
+        <div className="u-m-y-large u-p-y-large">
+          <h3>With Dynamic Height</h3>
+          <Bucket>
+            <BucketHeader className="u-flex-justify-between" title="My Header" icon="star">
+              <div>
+                <Icon
+                  icon={this.state.isDynamicHeightContainerOpen ? 'caret-up' : 'caret-down'}
+                  onClick={() => this.handleToggleCollapse('isDynamicHeightContainerOpen')}
+                  style={{ cursor: 'pointer' }}
+                />
+              </div>
+            </BucketHeader>
+            <Collapse isOpen={this.state.isDynamicHeightContainerOpen}>
+              <BucketBody>
+                Bucket body. Etiam eu condimentum sem. Etiam a blandit erat.
+                Nullam a sem at leo finibus rutrum pulvinar vel mauris.
+                Nam purus velit, laoreet in mattis congue, consectetur in eros.
+                {this.state.isMoreContentVisible && (
+                  <div>More content dude!</div>
+                )}
+                <div>
+                  <Button reset className="u-text-primary" onClick={this.handleClickReadMore}>
+                    {this.state.isMoreContentVisible ? 'Read Less' : 'Read More'}
+                  </Button>
+                </div>
               </BucketBody>
             </Collapse>
           </Bucket>
