@@ -123,18 +123,19 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { children, className, size } = this.props;
-    const modalClasses = cx('modal__dialog', {
+    const { children, modalDialogClass, modalClass, size } = this.props;
+    const modalClasses = cx('modal', modalClass);
+    const modalDialogClasses = cx('modal__dialog', {
       'modal__dialog--small': size === 'small',
       'modal__dialog--large': size === 'large',
-    }, className);
+    }, modalDialogClass);
     const { renderModal } = this.state;
 
     return (
       renderModal &&
         ReactDOM.createPortal(
-          <div className="modal" ref={ref => (this.modal = ref)}>
-            <div className={modalClasses}>
+          <div className={modalClasses} ref={ref => (this.modal = ref)}>
+            <div className={modalDialogClasses}>
               <div className="modal__content">
                 {children}
               </div>
@@ -148,7 +149,8 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
+  modalClass: PropTypes.string,
+  modalDialogClass: PropTypes.string,
   size: PropTypes.string,
   open: PropTypes.bool,
   onComplete: PropTypes.func,
