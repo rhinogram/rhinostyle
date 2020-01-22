@@ -73,6 +73,7 @@ const icons = [
   'rhinopay',
   'preview',
   'empty-state-mentions',
+  'globe',
 ];
 
 const IconApp = () => (
