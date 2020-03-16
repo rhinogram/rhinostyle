@@ -10,7 +10,7 @@ class Avatar extends React.Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.src !== this.props.image) {
+    if (nextProps.image !== this.props.image) {
       this.setState({
         imageError: false,
       });
@@ -123,7 +123,6 @@ Avatar.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
   size: PropTypes.oneOf(['xsmall', 'small', 'default', 'large', 'xlarge']),
-  src: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   type: PropTypes.oneOf(['default', 'member']),
   showOnlineStatus: PropTypes.bool,
   onlineStatus: PropTypes.string,
