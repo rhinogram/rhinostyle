@@ -1,4 +1,3 @@
-#test
 # RhinoStyle <img src="http://rhinogram.github.io/rhinostyle/media/rhinogram-logo.svg" height="30px;">
 
 ## Documentation
@@ -32,6 +31,13 @@ In [Rhinofront](https://github.com/rhinogram/rhinofront.git), edit `package.json
 "rhinostyle": "https://github.com/rhinogram/rhinostyle.git#<TAG_NUMBER>",
 ```
 Test locally to ensure that your changes are coming through, then submit a PR to [Rhinofront](https://github.com/rhinogram/rhinofront.git) with the updated `package.json`.
+
+To run your local version of rhinostyle, use `yarn link`, as follows:
+Go to your rhinostyle folder and run: `yarn link`
+Then go to the folder in your project and run: `yarn link rhinostyle`
+NOTE: that `rhinostyle` must be the name on the `package.json` inside the `rhinostyle` folder
+
+Then you can require your `rhinostyle` code as usual:
 
 
 ## Browser Support
