@@ -17,6 +17,10 @@ class Collapse extends React.Component {
     UtilitySystem.ResizeListener.add(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
   }
 
+  componentWillUnmount() {
+    UtilitySystem.ResizeListener.remove(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const { isOpen } = this.props;
 
@@ -60,7 +64,7 @@ class Collapse extends React.Component {
 
   handleCollapseChildrenWrapperResize = () => {
     const { isOpen } = this.props;
-    this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
+    this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current && this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
   }
 
   render() {
