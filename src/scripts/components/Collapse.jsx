@@ -64,7 +64,7 @@ class Collapse extends React.Component {
 
   handleCollapseChildrenWrapperResize = () => {
     const { isOpen } = this.props;
-    this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current && this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
+    this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
   }
 
   render() {
