@@ -17,6 +17,10 @@ class Collapse extends React.Component {
     UtilitySystem.ResizeListener.add(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
   }
 
+  componentWillUnmount() {
+    UtilitySystem.ResizeListener.remove(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const { isOpen } = this.props;
 
