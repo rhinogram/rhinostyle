@@ -1,0 +1,8 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" class="icon-stroke" stroke="#000000" fill="none" fill-rule="evenodd" stroke-width="1" >
+  <g class="icon-stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="13.8696289" y1="14.4247983" x2="22.7669973" y2="23.3221667" stroke="#000000"></line>
+    <polyline stroke="#000000" transform="translate(18.318313, 18.873482) rotate(-90.000000) translate(-18.318313, -18.873482) " points="22.7669973 23.3221667 13.8696289 23.3221667 13.8696289 14.4247983"></polyline>
+    <line x1="9.81696001" y1="10.0396387" x2="1.07622719" y2="0.988344928" id="Stroke-73" stroke="#000000"></line>
+    <polyline stroke="#000000" transform="translate(5.463317, 5.362747) rotate(-90.000000) translate(-5.463317, -5.362747) " points="1.01463302 0.9140625 9.91200144 0.9140625 9.91200144 9.81143092"></polyline>
+  </g>
+</svg>
