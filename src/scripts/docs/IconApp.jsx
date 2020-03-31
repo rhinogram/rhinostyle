@@ -57,6 +57,9 @@ const icons = [
   'log-in',
   'log-out',
   'marketing',
+  'maximize',
+  'microphone',
+  'minimize',
   'minor',
   'mobile',
   'note',
@@ -76,6 +79,7 @@ const icons = [
   'upload',
   'user',
   'user-group',
+  'video',
 ];
 
 const IconApp = () => (
