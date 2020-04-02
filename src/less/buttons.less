@@ -190,6 +190,10 @@
   .mixin-button-variant(@input-color; @input-bg; @input-border);
 }
 
+.button--outline {
+  .mixin-button-variant(@button-default-color; transparent; @button-default-color);
+}
+
 .button--link {
   .mixin-button-outline-variant(@base-link-color; transparent; @base-link-hover-color; transparent);
 }

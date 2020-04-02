@@ -42,6 +42,7 @@ const ButtonApp = () => (
         <Button type="link">Link</Button>
         <Button type="link-muted">Link Muted</Button>
         <Button type="danger">Danger</Button>
+        <Button type="outline">Outline</Button>
       </UtilityInlineGrid>
       <p className="site-copy u-m-t"><code>type=&quot;outline-reversed&quot;</code></p>
       <div className="u-p-a u-bg-primary">
