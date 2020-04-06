@@ -142,6 +142,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
 
   renderViewSelectedItems = (classes, dropdownType) => (
     <Dropdown
+      dataCy={this.props.dataCy}
       wide
       onClick={this.clearSearch}
       autoFocusInput={false}
@@ -179,7 +180,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
   );
 
   render() {
-    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName, className, dropDownClass } = this.props;
+    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName, className, dropDownClass, dataCy } = this.props;
     let classes = 'resource-group__scroll';
     if (className) {
       classes = `resource-group__scroll ${className}`;
@@ -204,6 +205,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
           className={dropDownClass}
           type={dropdownType}
           outlined={outlined}
+          dataCy={dataCy}
           disableScroll
         >
           <div className="dropdown__menu__container">
@@ -226,6 +228,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
                 addon="left"
                 type="text"
                 name="preloadedMembers"
+                dataCy={searchTitle}
                 autoComplete="off"
               >
                 <Icon icon="search" />
@@ -251,6 +254,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
 }
 
 DropdownMultiSelectAdvanced.propTypes = {
+  dataCy: PropTypes.string,
   fetchAllItems: PropTypes.func.isRequired,
   handleUpdateSelectedIds: PropTypes.func.isRequired,
   handleClearAllSelectedItems: PropTypes.func.isRequired,
