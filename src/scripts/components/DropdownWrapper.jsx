@@ -97,7 +97,7 @@ class DropdownWrapper extends React.Component {
         aria-expanded="false"
         ref={ref => (this.dropdown = ref)}
         className={this.props.className}
-        data-cy={this.props.dataCy}
+        data-cypress={this.props.dataCypress}
       >
         {this.props.children}
       </div>
@@ -106,7 +106,7 @@ class DropdownWrapper extends React.Component {
 }
 
 DropdownWrapper.propTypes = {
-  dataCy: PropTypes.string,
+  dataCypress: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   handleClick: PropTypes.func,

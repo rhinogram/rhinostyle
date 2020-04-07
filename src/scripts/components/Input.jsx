@@ -124,7 +124,7 @@ class Input extends React.Component {
       size,
       type,
       validationMessage,
-      dataCy,
+      dataCypress,
     } = this.props;
 
     const inputClasses = cx('form__control', customInputClasses, {
@@ -169,7 +169,7 @@ class Input extends React.Component {
               onKeyUp={this.handleKeyUp}
               onChange={this.handleChange}
               onMouseDown={this.handleMouseDown}
-              data-cy={dataCy}
+              data-cypress={dataCypress}
               readOnly={readOnly}
               htmlRef={ref => (this.input = ref)}
               {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
@@ -202,7 +202,7 @@ class Input extends React.Component {
             onKeyUp={this.handleKeyUp}
             onChange={this.handleChange}
             onMouseDown={this.handleMouseDown}
-            data-cy={dataCy}
+            data-cypress={dataCypress}
             readOnly={readOnly}
             ref={ref => (this.input = ref)}
             {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
@@ -300,7 +300,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
-  dataCy: PropTypes.string,
+  dataCypress: PropTypes.string,
   size: PropTypes.oneOf(['large']),
   type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
   validationMessage: PropTypes.string,

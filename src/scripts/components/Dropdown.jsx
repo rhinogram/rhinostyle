@@ -159,7 +159,7 @@ class Dropdown extends React.Component {
       wrapperClassName,
       noChangeLabel,
       outlined,
-      dataCy,
+      dataCypress,
     } = this.props;
     const { activeKey, hasFilter } = this.state;
 
@@ -230,7 +230,7 @@ class Dropdown extends React.Component {
         onComplete={onComplete}
         onReverseComplete={onReverseComplete}
         onReverseStart={onReverseStart}
-        dataCy={dataCy}
+        dataCypress={dataCypress}
         ref={ref => (this.dropdown = ref)}
       >
         <Button
@@ -266,7 +266,7 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  dataCy: PropTypes.string,
+  dataCypress: PropTypes.string,
   autoFocusInput: PropTypes.bool,
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   block: PropTypes.bool,

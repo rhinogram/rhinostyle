@@ -97,10 +97,10 @@ class DateRangeDropdown extends React.Component {
   };
 
   render() {
-    const { name, position = 'center', isCustomDate, activeKey, dataCy } = this.props;
+    const { name, position = 'center', isCustomDate, activeKey, dataCypress } = this.props;
     const { startDate, endDate, dropdownMenuItems, minDate, maxDate } = this.state;
     return (
-      <div className="daterange__dropdown" data-cy={dataCy}>
+      <div className="daterange__dropdown" data-cypress={dataCypress}>
         <Dropdown
           label={this.getLabel(activeKey)}
           lockLabel
@@ -159,7 +159,7 @@ class DateRangeDropdown extends React.Component {
                 {this.state.isApplyEnabled && (
                   <div className="menu__divider">
                     <ResourceRight>
-                      <Button dataCy="apply" type="primary" size="small" onClick={this.applyDates}>Apply</Button>
+                      <Button data-cypress="apply" type="primary" size="small" onClick={this.applyDates}>Apply</Button>
                     </ResourceRight>
                   </div>)
                 }
@@ -173,7 +173,7 @@ class DateRangeDropdown extends React.Component {
 }
 
 DateRangeDropdown.propTypes = {
-  dataCy: PropTypes.string,
+  dataCypress: PropTypes.string,
   position: PropTypes.string,
   name: PropTypes.string.isRequired,
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

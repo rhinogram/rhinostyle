@@ -44,7 +44,7 @@ class DropdownMenuItem extends React.Component {
         {avatar && (<Avatar size="small" name={avatar.name} type={avatar.type} image={avatar.image} className="u-m-r-small" />)}
         <div className="dropdown__menu__item__content__container">
           <div className="dropdown__menu__item__content__label">
-            {icon && (<Icon icon={icon} className="u-m-r-small" />)}<span className="u-text-overflow" data-cy={label}>{label}</span>
+            {icon && (<Icon icon={icon} className="u-m-r-small" />)}<span className="u-text-overflow" data-cypress={label}>{label}</span>
             {labelRaised && (<div className="u-inline-block"><span className="dropdown__menu__item__content__raised">{labelRaised}</span></div>)}
           </div>
           {labelDesc && (<div className="dropdown__menu__item__content__desc">{labelDesc}</div>)}
