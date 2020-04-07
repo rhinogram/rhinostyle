@@ -92,12 +92,21 @@ class DropdownWrapper extends React.Component {
 
   render() {
     return (
-      <div aria-haspopup="true" aria-expanded="false" ref={ref => (this.dropdown = ref)} className={this.props.className}>{this.props.children}</div>
+      <div
+        aria-haspopup="true"
+        aria-expanded="false"
+        ref={ref => (this.dropdown = ref)}
+        className={this.props.className}
+        data-cypress={this.props.dataCypress}
+      >
+        {this.props.children}
+      </div>
     );
   }
 }
 
 DropdownWrapper.propTypes = {
+  dataCypress: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   handleClick: PropTypes.func,
