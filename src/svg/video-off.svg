@@ -1,0 +1,9 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g class="icon-stroke" stroke="#000000" fill="none" fill-rule="evenodd" stroke-width="1">
+        <g class="icon-stroke" transform="translate(1.000000, 4.000000)" stroke="#000000">
+            <rect fill-opacity="0" fill="#D8D8D8" x="1.04761905" y="2.16666667" width="13.6190476" height="11.6111111" rx="2"></rect>
+            <polygon stroke-linecap="round" stroke-linejoin="round" points="22 11.6666667 17.8095238 8.5 17.8095238 6.38888889 22 3.22222222"></polygon>
+            <line x1="16.2053223" y1="0.860107422" x2="0.938476562" y2="16.1269531" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>

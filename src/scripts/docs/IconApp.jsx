@@ -26,6 +26,7 @@ const icons = [
   'assign',
   'attachment',
   'calendar',
+  'call-end',
   'camera',
   'caret-down',
   'caret-left',
@@ -59,6 +60,7 @@ const icons = [
   'marketing',
   'maximize',
   'microphone',
+  'microphone-off',
   'minimize',
   'minor',
   'mobile',
@@ -80,6 +82,7 @@ const icons = [
   'user',
   'user-group',
   'video',
+  'video-off',
 ];
 
 const IconApp = () => (
