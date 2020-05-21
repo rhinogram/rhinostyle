@@ -9,11 +9,15 @@ class Select extends React.Component {
     selected: this.props.selected ? this.props.selected : -1,
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.selected !== this.props.selected) {
-      this.setState({
-        selected: newProps.selected,
-      });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.selected !== prevState.selected) {
+      return { selected: nextProps.selected };
+    } else return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.selected !== this.props.selected) {
+      this.setState({ selected: this.props.selected }); // eslint-disable-line react/no-did-update-set-state
     }
   }
 
