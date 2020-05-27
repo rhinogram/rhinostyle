@@ -5,7 +5,7 @@ import React from 'react';
 import { UtilitySystem } from '.';
 
 const Radio = (props) => {
-  const { children, className, disabled, label, name, onChange, selectedValue, value } = props;
+  const { children, className, disabled, label, name, onChange, selectedValue, value, dataCypress } = props;
   const id = `${name}-${UtilitySystem.generateUUID()}`;
   const classes = cx('rhinodio', className, {
     [UtilitySystem.config.classes.disabled]: disabled,
@@ -18,6 +18,7 @@ const Radio = (props) => {
         <label // eslint-disable-line jsx-a11y/label-has-for
           className="rhinodio__label"
           htmlFor={id}
+          data-cypress={dataCypress}
         >
           {label}
         </label>
@@ -40,6 +41,7 @@ Radio.propTypes = {
   onChange: PropTypes.func,
   selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  dataCypress: PropTypes.string,
 };
 
 Radio.defaultProps = {
