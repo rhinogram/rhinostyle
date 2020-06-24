@@ -12,6 +12,13 @@ class PillsInput extends React.Component {
 
   inputContainerDivRef = React.createRef();
 
+  componentDidUpdate(prevProps) {
+    const inputContainer = this.inputContainerDivRef.current;
+    if (this.props.pills !== prevProps.pills) {
+      inputContainer.scrollTo(0, inputContainer.scrollHeight);
+    }
+  }
+
   setInputFocusState = (isInputFocused) => {
     this.setState({ isInputFocused });
   }
