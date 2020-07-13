@@ -137,7 +137,7 @@ class ResourceIntro extends React.Component {
     return (
       <div className="resource__intro__title-wrapper">
         <div className="resource__intro__title">
-          <span className={titleClasses}>{title}</span>{titleSub && <span className={titleSubClasses}>{titleSub}</span>}
+          <span className={titleClasses} data-cypress={title}>{title}</span>{titleSub && <span className={titleSubClasses}>{titleSub}</span>}
         </div>
         {children && <div className="resource__intro__title__meta">{children}</div>}
       </div>
