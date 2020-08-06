@@ -61,7 +61,7 @@ class Resource extends React.Component {
   }
 
   render() {
-    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName, unavailable } = this.props;
+    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName, unavailable, dataCypress } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
@@ -80,7 +80,7 @@ class Resource extends React.Component {
     });
 
     return (
-      <div role="button" tabIndex={0} className={wrapperClasses} onClick={this.handleClick} disabled={disabled}>
+      <div role="button" tabIndex={0} className={wrapperClasses} onClick={this.handleClick} disabled={disabled} data-cypress={dataCypress}>
         <div className={resourceClasses}>
           {this.getChildren()}
         </div>
@@ -101,6 +101,7 @@ Resource.propTypes = {
   onClick: PropTypes.func,
   unread: PropTypes.bool,
   wrapperClassName: PropTypes.string,
+  dataCypress: PropTypes.string,
 };
 
 export default Resource;
