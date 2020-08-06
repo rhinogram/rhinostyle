@@ -5,7 +5,7 @@ import React from 'react';
 import { Button, Icon } from '.';
 
 const Pill = (props) => {
-  const { className, disabled, icon, hideClose, onClick, label, type, closeIconClassName, onCloseIconClick, id } = props;
+  const { className, disabled, icon, hideClose, onClick, label, type, closeIconClassName, onCloseIconClick, id, dataCypress } = props;
 
   const pillClasses = cx('pill', className, {
     'pill--default': type === 'default',
@@ -23,7 +23,7 @@ const Pill = (props) => {
   };
 
   return (
-    <Button reset className={pillClasses} onClick={onClick} disabled={disabled}>
+    <Button reset className={pillClasses} onClick={onClick} disabled={disabled} data-cypress={dataCypress}>
       {icon && (
         <Icon icon={icon} className="pill__icon" />
       )}
@@ -44,10 +44,11 @@ Pill.propTypes = {
   onCloseIconClick: PropTypes.func,
   label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['default', 'primary', 'powder-blue']),
+  dataCypress: PropTypes.string,
 };
 
 Pill.defaultProps = {
-  onClick: () => {},
+  onClick: () => { },
   type: 'default',
   hideClose: false,
 };
