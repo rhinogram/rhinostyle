@@ -49,6 +49,7 @@ class ComponentExample extends React.Component {
           onChange={this.handleChecked}
           checkboxClassName={this.state.checkboxClassName}
           activeKey={this.state.activeKey}
+          title="caret btn"
         >
           {itemArray.map(item => 
             <DropdownMenuItem
