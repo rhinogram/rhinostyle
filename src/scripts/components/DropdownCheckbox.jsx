@@ -253,7 +253,7 @@ class DropdownCheckbox extends React.Component {
             ) : (
               // This icon needs to be wrapped in a <Button/>, because IE11 will only fire onClick event on the actual path of an SVG
               // and not it's container. If we remove the <Button/> wrapper and just use the <Icon/>, it's near impossible to click it.
-              <Button reset onClick={this.handleToggle}>
+              <Button reset onClick={this.handleToggle} data-cypress={title}>
                 <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
               </Button>
             )}
