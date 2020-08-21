@@ -83,6 +83,9 @@ const icons = [
   'user-group',
   'video',
   'video-off',
+  'video-stop',
+  'video-pause',
+  'video-resume',
 ];
 
 const IconApp = () => (
