@@ -88,7 +88,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     }
     return (
       <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)}>
-        {this.props.type === 'member' ? <ResourceIntro avatar={avatarDetails} title={listItem.title} />
+        {this.props.type === 'member' ? <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
           :
           listItem.title
         }
