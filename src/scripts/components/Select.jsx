@@ -15,7 +15,7 @@ class Select extends React.Component {
     } else return null;
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.selected !== this.props.selected) {
       this.setState({ selected: this.props.selected }); // eslint-disable-line react/no-did-update-set-state
     }

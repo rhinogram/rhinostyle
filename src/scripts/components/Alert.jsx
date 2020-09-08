@@ -5,7 +5,7 @@ import React from 'react';
 import { Close, Icon } from '.';
 
 const Alert = (props) => {
-  const { className, onDismiss, solid, title, titleIcon, type } = props;
+  const { className, onDismiss, solid, title, titleIcon, type, dataCypress } = props;
   const classes = cx('alert', className, {
     'alert--danger': type === 'danger',
     'alert--default': type === 'default',
@@ -33,7 +33,7 @@ const Alert = (props) => {
   };
 
   return (
-    <div className={classes}>
+    <div className={classes} data-cypress={dataCypress}>
       {renderClose()}
       {title && (
         <div className="alert__title">
@@ -55,6 +55,7 @@ Alert.propTypes = {
   titleIcon: PropTypes.string,
   children: PropTypes.node,
   solid: PropTypes.bool,
+  dataCypress: PropTypes.string,
   type: PropTypes.oneOf(['danger', 'default', 'info', 'success', 'warning']),
 };
 
