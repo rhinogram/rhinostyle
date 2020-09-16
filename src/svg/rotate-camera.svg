@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
-    <title>Icon_Flip-Camera</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Icon_Flip-Camera" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g class="icon-stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
         <polygon id="Stroke-4147" stroke="#000000" points="23 20.1333333 1 20.1333333 1 6.93333333 6.86666667 6.93333333 9.06666667 4 14.2 4 16.4 6.93333333 23 6.93333333"></polygon>
         <path d="M7.28621546,12.8904102 C7.28621546,10.5761391 9.25221378,8.69993399 11.6772434,8.69993399 C13.4469966,8.69993399 14.5605537,9.29336714 15.2556872,10.7326345" id="Stroke-25" stroke="#000000" transform="translate(11.270951, 10.795172) rotate(4.000000) translate(-11.270951, -10.795172) "></path>
         <polyline id="Stroke-255" stroke="#000000" points="15.9138649 9.0550944 15.6664137 11.1503325 13.8186268 10.8696073"></polyline>

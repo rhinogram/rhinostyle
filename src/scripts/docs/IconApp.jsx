@@ -70,6 +70,7 @@ const icons = [
   'question-circle',
   'rhinopay',
   'rotate',
+  'rotate-camera',
   'search',
   'send',
   'star',
