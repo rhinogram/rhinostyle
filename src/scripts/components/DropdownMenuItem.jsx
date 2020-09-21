@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { Avatar, Button, Icon, UtilitySystem } from '.';
 
@@ -33,7 +32,7 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, route, labelRaised } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, labelRaised } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -52,33 +51,17 @@ class DropdownMenuItem extends React.Component {
       </div>
     );
 
-    let markup = '';
-
-    if (route) {
-      markup = (
-        <div className={classes}>
-          <Link // eslint-disable-line jsx-a11y/anchor-is-valid
-            to={route}
-            className="dropdown__menu__item__link"
-            onClick={this.handleClick}
-          >
-            {renderContent()}
-          </Link>
-        </div>
-      );
-    } else {
-      markup = (
-        <div className={classes}>
-          <Button
-            reset
-            className="dropdown__menu__item__link"
-            onClick={this.handleClick}
-          >
-            {renderContent()}
-          </Button>
-        </div>
-      );
-    }
+    const markup = (
+      <div className={classes}>
+        <Button
+          reset
+          className="dropdown__menu__item__link"
+          onClick={this.handleClick}
+        >
+          {renderContent()}
+        </Button>
+      </div>
+    );
 
     return markup;
   }
@@ -98,7 +81,6 @@ DropdownMenuItem.propTypes = {
   icon: customValidator,
   label: PropTypes.any,
   labelDesc: PropTypes.any,
-  route: PropTypes.string,
   url: PropTypes.string,
   labelRaised: PropTypes.any,
 };
