@@ -67,6 +67,7 @@ const icons = [
   'note',
   'phone',
   'preview',
+  'pin',
   'question-circle',
   'rhinopay',
   'rotate',
