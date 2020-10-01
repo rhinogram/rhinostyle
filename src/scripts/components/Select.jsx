@@ -1,12 +1,15 @@
+/* eslint-disable no-debugger */
+/* eslint-disable no-console */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
+import { FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
 
 class Select extends React.Component {
   state = {
     selected: this.props.selected ? this.props.selected : -1,
+    isSelectorOpen: false,
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -21,6 +24,23 @@ class Select extends React.Component {
     }
   }
 
+  onBlur = () => {
+    this.selectRef.size = 0;
+    this.setState({
+      isSelectorOpen: false,
+    });
+    this.selectRef.classList.remove('rhinoselect__open');
+  }
+
+  onFocus = () => {
+    // debugger;
+    this.selectRef.size = 6;
+    this.setState({
+      isSelectorOpen: true,
+    });
+    this.selectRef.classList.add('rhinoselect__open');
+  }
+
   onChange = (event) => {
     const selected = parseInt(event.target.value, 10) ? parseInt(event.target.value, 10) : event.target.value;
 
@@ -31,6 +51,11 @@ class Select extends React.Component {
     if (this.props.onSelect) {
       this.props.onSelect(event.target.name, selected);
     }
+    this.selectRef.blur();
+  }
+
+  onClick = () => {
+    this.selectRef.size = 6;
   }
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
@@ -38,7 +63,7 @@ class Select extends React.Component {
   render() {
     const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
 
-    const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron', {
+    const classes = cx('rhinoselect__select', 'form__control', {
       'form__control--error': validationMessage,
       [UtilitySystem.config.classes.disabled]: disabled,
     });
@@ -57,15 +82,33 @@ class Select extends React.Component {
 
       // We're in a default single-level `<option>`
       return (
-        <option key={option.id} value={option.id}>{option.value}</option>
+        <option className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''} key={option.id} value={option.id}>{option.value}</option>
       );
     };
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel id={this.id} required={required}>{label}</FormLabel>
+        <label // eslint-disable-line jsx-a11y/label-has-for
+          htmlFor={this.id}
+          ref={(ref) => { this.selectLabelRef = ref; }}
+          className="rhinoselect__label"
+          onClick={this.onClick}
+        >
+          {label} {required && <span className="form__asterisk">*</span>}
+        </label>
         <div className="rhinoselect">
-          <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this.onChange}>
+          <select
+            ref={(ref) => { this.selectRef = ref; }}
+            // onMouseDown={() => { if (options.length > 6) { this.selectRef.size = 6; } }}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
+            className={classes}
+            disabled={disabled}
+            id={this.id}
+            name={name}
+            value={this.state.selected}
+            onChange={this.onChange}
+          >
             {options.map(renderOpts)}
           </select>
         </div>
@@ -94,6 +137,5 @@ Select.defaultProps = {
   required: false,
   selected: -1,
 };
-
 
 export default Select;

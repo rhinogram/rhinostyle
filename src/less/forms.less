@@ -597,6 +597,7 @@ input[type='checkbox']:focus {
 
 
 .form__group {
+  position: relative;
   & + & {
     margin-top: @form-group-spacing;
   }
@@ -985,6 +986,17 @@ input[type='checkbox']:focus {
   .mixin-chevron-down();  // add chevron
 }
 
+.rhinoselect__label {
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: #ccc solid 1px;
+  padding: 8px;
+  width: 100%;
+  font-weight: normal;
+  background-color: #fefefe;
+}
+
 
 //
 // Rhinoselect Select
@@ -992,9 +1004,20 @@ input[type='checkbox']:focus {
 
 .rhinoselect__select {
   cursor: pointer;
-  overflow: hidden;
+  // overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  opacity: 0;
+}
+
+.rhinoselect__open {
+  z-index: 1;
+  top: 37px;
+  left: 0;
+  padding: 0;
+  min-height: 40px;
+  opacity: 1;
+  position: absolute;
 }
 
 
