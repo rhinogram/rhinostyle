@@ -597,9 +597,18 @@ input[type='checkbox']:focus {
 
 
 .form__group {
-  position: relative;
   & + & {
     margin-top: @form-group-spacing;
+  }
+}
+
+.form__group--wrapper {
+  position: relative;
+  min-height: 4rem;
+  .rhinoselect {
+    &:after {
+      top:20px !important 
+    }
   }
 }
 
@@ -986,7 +995,7 @@ input[type='checkbox']:focus {
   .mixin-chevron-down();  // add chevron
 }
 
-.rhinoselect__label {
+.select__label {
   top: 0;
   left: 0;
   position: absolute;
@@ -1008,6 +1017,11 @@ input[type='checkbox']:focus {
   text-overflow: ellipsis;
   white-space: nowrap;
   opacity: 0;
+  height: 4rem;
+
+  option {
+    padding: 5px 10px;
+ } 
 }
 
 .rhinoselect__open {
