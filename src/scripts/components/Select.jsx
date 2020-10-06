@@ -76,10 +76,13 @@ class Select extends React.Component {
     const { isSelectorOpen } = this.state;
 
     const classes = cx('rhinoselect__select', 'form__control', {
-      'form__control--error': validationMessage,
       // eslint-disable-next-line quote-props
       'rhinoselect__open': !!isSelectorOpen,
       [UtilitySystem.config.classes.disabled]: disabled,
+    });
+
+    const selectLabelClasses = cx('select__label', {
+      'form__control--error': validationMessage,
     });
 
     const formGroupClasses = cx('form__group', className);
@@ -106,7 +109,7 @@ class Select extends React.Component {
         <div className="form__group--wrapper">
           <span
             ref={(ref) => { this.selectLabelRef = ref; }}
-            className="select__label"
+            className={selectLabelClasses}
             onClick={this.onClick}
           >
             {this.state.selectedOptionValue}
