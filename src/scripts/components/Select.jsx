@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { FormExplanationMessage, FormValidationMessage, FormLabel, UtilitySystem } from '.';
 
@@ -126,12 +126,12 @@ class Select extends React.Component {
               {options.map(renderOpts)}
             </select>
           </div>
-          {(validationMessage || explanationMessage) && (
-          <div className="u-m-t">
+        </div>
+        {(validationMessage || explanationMessage) && (
+          <Fragment>
             <FormValidationMessage validationMessage={validationMessage} />
             <FormExplanationMessage explanationMessage={explanationMessage} />
-          </div>)}
-        </div>
+          </Fragment>)}
       </div>
     );
   }
