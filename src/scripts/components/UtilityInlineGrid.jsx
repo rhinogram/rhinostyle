@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const UtilityInlineGrid = (props) => {
-  const { align, className, size } = props;
+  const { align, className, size, dataCypress } = props;
   const classes = cx('u-inline-grid', className, {
     'u-inline-grid--small': size === 'small',
     '': size === 'regular',
@@ -14,7 +14,7 @@ const UtilityInlineGrid = (props) => {
   });
 
   return (
-    <div className={classes}>
+    <div className={classes} data-cypress={dataCypress}>
       {props.children}
     </div>
   );
@@ -25,6 +25,7 @@ UtilityInlineGrid.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   size: PropTypes.oneOf(['small', 'regular', 'large']),
+  dataCypress: PropTypes.string,
 };
 
 UtilityInlineGrid.defaultProps = {
