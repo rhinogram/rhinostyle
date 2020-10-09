@@ -88,6 +88,7 @@ const icons = [
   'video-stop',
   'video-pause',
   'video-resume',
+  'close-conversation',
 ];
 
 const IconApp = () => (
