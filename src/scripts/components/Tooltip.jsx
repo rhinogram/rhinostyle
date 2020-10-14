@@ -32,6 +32,7 @@ class Tooltip extends React.Component {
     if (!Modernizr.touchevents) {
       tooltipTrigger.addEventListener('mouseenter', this.createTooltip);
       tooltipTrigger.addEventListener('mouseleave', this.closeTooltip);
+      tooltipTrigger.addEventListener('click', this.closeTooltip);
     }
     if (Modernizr.touchevents || Modernizr.pointerevents) {
       tooltipTrigger.addEventListener('click', this.toggleTooltip);
