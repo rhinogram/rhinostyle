@@ -67,6 +67,7 @@ const icons = [
   'note',
   'phone',
   'preview',
+  'pin',
   'question-circle',
   'rhinopay',
   'rotate',
@@ -87,6 +88,7 @@ const icons = [
   'video-stop',
   'video-pause',
   'video-resume',
+  'close-conversation',
 ];
 
 const IconApp = () => (

@@ -1,0 +1,9 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g class="icon-stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <polygon stroke="#000000" points="0.513244629 4.39618716 20.4768066 4.33898926 18.2645211 0.542724609 2.76728091 0.542724609"></polygon>
+        <polyline stroke="#000000" points="0.513244629 4.33898926 0.513244629 7.33898926 20.4768066 7.33898926 20.4768066 4.33898926"></polyline>
+        <polyline stroke="#000000" points="1.44369905 7.50161345 1.44369905 20.5016135 19.4893852 20.5016135 19.4893852 7.50161345"></polyline>
+        <line x1="14.8223037" y1="13.2761887" x2="7" y2="13" id="Path" stroke="#000000" transform="translate(10.911152, 13.138094) rotate(267.977849) translate(-10.911152, -13.138094) "></line>
+        <polyline stroke="#000000" transform="translate(11.000000, 16.000000) rotate(-90.000000) translate(-11.000000, -16.000000) " points="13 20 9 16 13 12"></polyline>
+    </g>
+</svg>

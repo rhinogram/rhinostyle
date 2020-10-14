@@ -1,17 +1,31 @@
+/* eslint-disable no-debugger */
+/* eslint-disable no-console */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
+import { FormExplanationMessage, FormValidationMessage, FormLabel, UtilitySystem } from '.';
 
 class Select extends React.Component {
   state = {
     selected: this.props.selected ? this.props.selected : -1,
+    isSelectorOpen: false,
+  }
+
+  componentDidMount() {
+    const selectedOption = this.props.options.find(option => option.id === this.state.selected);
+    if (selectedOption) this.setState({ selectedOptionValue: selectedOption.value });
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.selected !== prevState.selected) {
-      return { selected: nextProps.selected };
+      const selectedOption = nextProps.options.find(option => option.id === nextProps.selected);
+      const toUpdateState = {
+        selected: nextProps.selected,
+      };
+
+      if (selectedOption) toUpdateState.selectedOptionValue = selectedOption.value;
+      return toUpdateState;
     } else return null;
   }
 
@@ -21,26 +35,54 @@ class Select extends React.Component {
     }
   }
 
+  onBlur = () => {
+    this.selectRef.size = 0;
+    this.setState({
+      isSelectorOpen: false,
+    });
+  }
+
+  onFocus = () => {
+    this.selectRef.size = 6;
+    this.setState({
+      isSelectorOpen: true,
+    });
+  }
+
   onChange = (event) => {
     const selected = parseInt(event.target.value, 10) ? parseInt(event.target.value, 10) : event.target.value;
+    const selectedOption = this.props.options.find(option => option.id === selected);
 
     this.setState({
       selected,
+      selectedOptionValue: selectedOption.value,
     });
 
     if (this.props.onSelect) {
       this.props.onSelect(event.target.name, selected);
     }
+    this.selectRef.blur();
+  }
+
+  onClick = () => {
+    this.selectRef.focus();
+    this.onFocus();
   }
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   render() {
     const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
+    const { isSelectorOpen } = this.state;
 
-    const classes = cx('rhinoselect__select', 'form__control', 'form__control--chevron', {
-      'form__control--error': validationMessage,
+    const classes = cx('rhinoselect__select', 'form__control', {
+      // eslint-disable-next-line quote-props
+      'rhinoselect__open': !!isSelectorOpen,
       [UtilitySystem.config.classes.disabled]: disabled,
+    });
+
+    const selectLabelClasses = cx('select__label', {
+      'form__control--error': validationMessage,
     });
 
     const formGroupClasses = cx('form__group', className);
@@ -57,20 +99,42 @@ class Select extends React.Component {
 
       // We're in a default single-level `<option>`
       return (
-        <option key={option.id} value={option.id}>{option.value}</option>
+        <option className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''} key={option.id} value={option.id}>{option.value}</option>
       );
     };
 
     return (
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
-        <div className="rhinoselect">
-          <select className={classes} disabled={disabled} id={this.id} name={name} value={this.state.selected} onChange={this.onChange}>
-            {options.map(renderOpts)}
-          </select>
+        <div className="form__group--wrapper">
+          <span
+            ref={(ref) => { this.selectLabelRef = ref; }}
+            className={selectLabelClasses}
+            onClick={this.onClick}
+          >
+            {this.state.selectedOptionValue}
+          </span>
+          <div className="rhinoselect">
+            <select
+              ref={(ref) => { this.selectRef = ref; }}
+              onBlur={this.onBlur}
+              onFocus={this.onFocus}
+              className={classes}
+              disabled={disabled}
+              id={this.id}
+              name={name}
+              value={this.state.selected}
+              onChange={this.onChange}
+            >
+              {options.map(renderOpts)}
+            </select>
+          </div>
         </div>
-        <FormValidationMessage validationMessage={validationMessage} />
-        <FormExplanationMessage explanationMessage={explanationMessage} />
+        {(validationMessage || explanationMessage) && (
+          <Fragment>
+            <FormValidationMessage validationMessage={validationMessage} />
+            <FormExplanationMessage explanationMessage={explanationMessage} />
+          </Fragment>)}
       </div>
     );
   }
@@ -94,6 +158,5 @@ Select.defaultProps = {
   required: false,
   selected: -1,
 };
-
 
 export default Select;
