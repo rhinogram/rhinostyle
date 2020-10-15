@@ -43,7 +43,7 @@ class Select extends React.Component {
   }
 
   onFocus = () => {
-    this.selectRef.size = 6;
+    this.selectRef.size = this.props.options.length > this.props.visibleOptionLength ? this.props.visibleOptionLength : this.props.options.length;
     this.setState({
       isSelectorOpen: true,
     });
@@ -107,13 +107,14 @@ class Select extends React.Component {
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>{label}</FormLabel>
         <div className="form__group--wrapper">
+          {!disabled && (
           <span
             ref={(ref) => { this.selectLabelRef = ref; }}
             className={selectLabelClasses}
             onClick={this.onClick}
           >
             {this.state.selectedOptionValue}
-          </span>
+          </span>)}
           <div className="rhinoselect">
             <select
               ref={(ref) => { this.selectRef = ref; }}
@@ -143,6 +144,7 @@ class Select extends React.Component {
 Select.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  visibleOptionLength: PropTypes.number,
   explanationMessage: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -157,6 +159,7 @@ Select.defaultProps = {
   disabled: false,
   required: false,
   selected: -1,
+  visibleOptionLength: 6,
 };
 
 export default Select;
