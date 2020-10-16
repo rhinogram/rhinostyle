@@ -6,6 +6,7 @@ import React, { Fragment } from 'react';
 import { FormExplanationMessage, FormValidationMessage, FormLabel, UtilitySystem } from '.';
 
 class Select extends React.Component {
+  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
   state = {
     isSelectorOpen: false,
   }
@@ -51,7 +52,7 @@ class Select extends React.Component {
   }
 
   onBlur = () => {
-    this.selectRef.size = 0;
+    this.selectRef.size = 1;
     this.setState({
       isSelectorOpen: false,
     });
@@ -59,7 +60,7 @@ class Select extends React.Component {
 
   onFocus = () => {
     const totalSize = this.getTotalVisbleOptions();
-    this.selectRef.size = totalSize > this.props.visibleOptionLength ? this.props.visibleOptionLength : totalSize;
+    this.selectRef.size = totalSize > this.props.visibleOptionLength ? this.props.visibleOptionLength : (totalSize === 1 ? 2 : totalSize);
     this.setState({
       isSelectorOpen: true,
     });
@@ -70,7 +71,6 @@ class Select extends React.Component {
     const selectedOption = Select.getSelectedOption(this.props.options, selected);
 
     this.setState({
-      // selected,
       selectedOptionValue: selectedOption.value,
     });
 
@@ -80,12 +80,7 @@ class Select extends React.Component {
     this.selectRef.blur();
   }
 
-  onClick = () => {
-    this.selectRef.focus();
-    this.onFocus();
-  }
-
-  id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
+  onClick = () => this.selectRef.focus();
 
   render() {
     const { className, disabled, explanationMessage, label, name, options, required, validationMessage, position } = this.props;
