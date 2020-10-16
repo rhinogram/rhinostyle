@@ -1,5 +1,4 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-console */
+/* eslint-disable quote-props */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
@@ -8,31 +7,47 @@ import { FormExplanationMessage, FormValidationMessage, FormLabel, UtilitySystem
 
 class Select extends React.Component {
   state = {
-    selected: this.props.selected ? this.props.selected : -1,
     isSelectorOpen: false,
   }
 
   componentDidMount() {
-    const selectedOption = this.props.options.find(option => option.id === this.state.selected);
+    const selectedOption = Select.getSelectedOption(this.props.options, this.props.selected);
     if (selectedOption) this.setState({ selectedOptionValue: selectedOption.value });
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.selected !== prevState.selected) {
-      const selectedOption = nextProps.options.find(option => option.id === nextProps.selected);
-      const toUpdateState = {
-        selected: nextProps.selected,
-      };
+  static getDerivedStateFromProps(nextProps) {
+    const selectedOption = Select.getSelectedOption(nextProps.options, nextProps.selected);
+    const toUpdateState = {};
 
-      if (selectedOption) toUpdateState.selectedOptionValue = selectedOption.value;
+    if (selectedOption) {
+      toUpdateState.selectedOptionValue = selectedOption.value;
       return toUpdateState;
-    } else return null;
+    }
+    return null;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.selected !== this.props.selected) {
-      this.setState({ selected: this.props.selected }); // eslint-disable-line react/no-did-update-set-state
-    }
+  static getSelectedOption = (options, optionId) => {
+    let totalOptions = [];
+    options.forEach((option) => {
+      if (option.options) {
+        totalOptions = [...totalOptions, ...option.options];
+      } else {
+        totalOptions.push(option);
+      }
+    });
+
+    return totalOptions.find(option => option.id === optionId);
+  }
+
+  getTotalVisbleOptions = () => {
+    let count = 0;
+    this.props.options.forEach((option) => {
+      count += 1;
+      if (option.options) {
+        count += option.options.length;
+      }
+    });
+    return count;
   }
 
   onBlur = () => {
@@ -43,7 +58,8 @@ class Select extends React.Component {
   }
 
   onFocus = () => {
-    this.selectRef.size = this.props.options.length > this.props.visibleOptionLength ? this.props.visibleOptionLength : this.props.options.length;
+    const totalSize = this.getTotalVisbleOptions();
+    this.selectRef.size = totalSize > this.props.visibleOptionLength ? this.props.visibleOptionLength : totalSize;
     this.setState({
       isSelectorOpen: true,
     });
@@ -51,10 +67,10 @@ class Select extends React.Component {
 
   onChange = (event) => {
     const selected = parseInt(event.target.value, 10) ? parseInt(event.target.value, 10) : event.target.value;
-    const selectedOption = this.props.options.find(option => option.id === selected);
+    const selectedOption = Select.getSelectedOption(this.props.options, selected);
 
     this.setState({
-      selected,
+      // selected,
       selectedOptionValue: selectedOption.value,
     });
 
@@ -72,12 +88,12 @@ class Select extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
   render() {
-    const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
+    const { className, disabled, explanationMessage, label, name, options, required, validationMessage, position } = this.props;
     const { isSelectorOpen } = this.state;
 
     const classes = cx('rhinoselect__select', 'form__control', {
-      // eslint-disable-next-line quote-props
       'rhinoselect__open': !!isSelectorOpen,
+      'rhinoselect__open__top': !!(isSelectorOpen && position === 'top'),
       [UtilitySystem.config.classes.disabled]: disabled,
     });
 
@@ -91,8 +107,13 @@ class Select extends React.Component {
       // If the option has options as well we're in an `<optgroup>`
       if (option.options) {
         return (
-          <optgroup key={option.id} label={option.value}>
-            {option.options.map(childOption => <option key={childOption.id} value={childOption.id}>{childOption.value}</option>)}
+          <optgroup key={option.id} label={option.value} className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''}>
+            {option.options.map(childOption =>
+              (
+                <option className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''} key={childOption.id} value={childOption.id}>
+                  {childOption.value}
+                </option>
+              ))}
           </optgroup>
         );
       }
@@ -124,7 +145,7 @@ class Select extends React.Component {
               disabled={disabled}
               id={this.id}
               name={name}
-              value={this.state.selected}
+              value={this.props.selected}
               onChange={this.onChange}
             >
               {options.map(renderOpts)}
@@ -153,13 +174,14 @@ Select.propTypes = {
   required: PropTypes.bool,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   validationMessage: PropTypes.string,
+  position: PropTypes.string,
 };
 
 Select.defaultProps = {
   disabled: false,
   required: false,
-  selected: -1,
   visibleOptionLength: 6,
+  position: 'bottom',
 };
 
 export default Select;
