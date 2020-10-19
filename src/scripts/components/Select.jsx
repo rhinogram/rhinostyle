@@ -40,7 +40,7 @@ class Select extends React.Component {
     return totalOptions.find(option => option.id === optionId);
   }
 
-  getTotalVisbleOptions = () => {
+  getTotalVisibleOptions = () => {
     let count = 0;
     this.props.options.forEach((option) => {
       count += 1;
@@ -59,8 +59,12 @@ class Select extends React.Component {
   }
 
   onFocus = () => {
-    const totalSize = this.getTotalVisbleOptions();
-    this.selectRef.size = totalSize > this.props.visibleOptionLength ? this.props.visibleOptionLength : (totalSize === 1 ? 2 : totalSize);
+    const totalSize = this.getTotalVisibleOptions();
+    if (totalSize > this.props.visibleOptionLength) {
+      this.selectRef.size = this.props.visibleOptionLength;
+    } else {
+      this.selectRef.size = (totalSize === 1 ? 2 : totalSize);
+    }
     this.setState({
       isSelectorOpen: true,
     });
@@ -78,6 +82,11 @@ class Select extends React.Component {
       this.props.onSelect(event.target.name, selected);
     }
     this.selectRef.blur();
+  }
+
+  getViewLabel = (label = '') => {
+    if (label.length > 25) return `${label.substr(0, 25)}...`;
+    return label;
   }
 
   onClick = () => this.selectRef.focus();
@@ -129,7 +138,7 @@ class Select extends React.Component {
             className={selectLabelClasses}
             onClick={this.onClick}
           >
-            {this.state.selectedOptionValue}
+            {this.getViewLabel(this.state.selectedOptionValue)}
           </span>)}
           <div className="rhinoselect">
             <select
