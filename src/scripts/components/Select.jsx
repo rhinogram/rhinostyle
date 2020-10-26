@@ -1,3 +1,4 @@
+/* global Modernizr */
 /* eslint-disable quote-props */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
@@ -13,7 +14,10 @@ class Select extends React.Component {
 
   componentDidMount() {
     const selectedOption = Select.getSelectedOption(this.props.options, this.props.selected);
-    if (selectedOption) this.setState({ selectedOptionValue: selectedOption.value });
+
+    if (selectedOption) {
+      this.setState({ selectedOptionValue: selectedOption.value });
+    }
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -65,6 +69,7 @@ class Select extends React.Component {
     } else {
       this.selectRef.size = (totalSize === 1 ? 2 : totalSize);
     }
+    this.selectRef.selectedIndex = 1;
     this.setState({
       isSelectorOpen: true,
     });
@@ -84,11 +89,6 @@ class Select extends React.Component {
     this.selectRef.blur();
   }
 
-  getViewLabel = (label = '') => {
-    if (label.length > 25) return `${label.substr(0, 25)}...`;
-    return label;
-  }
-
   onClick = () => this.selectRef.focus();
 
   render() {
@@ -96,8 +96,8 @@ class Select extends React.Component {
     const { isSelectorOpen } = this.state;
 
     const classes = cx('rhinoselect__select', 'form__control', {
-      'rhinoselect__open': !!isSelectorOpen,
-      'rhinoselect__open__top': !!(isSelectorOpen && position === 'top'),
+      'rhinoselect__open': !!(isSelectorOpen && !Modernizr.touchevents),
+      'rhinoselect__open__top': !!(isSelectorOpen && !Modernizr.touchevents && position === 'top'),
       [UtilitySystem.config.classes.disabled]: disabled,
     });
 
@@ -138,7 +138,7 @@ class Select extends React.Component {
             className={selectLabelClasses}
             onClick={this.onClick}
           >
-            {this.getViewLabel(this.state.selectedOptionValue)}
+            {this.state.selectedOptionValue}
           </span>)}
           <div className="rhinoselect">
             <select
