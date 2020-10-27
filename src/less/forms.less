@@ -1004,6 +1004,10 @@ input[type='checkbox']:focus {
   padding: 8px;
   width: 100%;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: @global-font-size-large;
   background-color: @input-bg;
   border: 1px solid @input-border;
   min-height: @global-height;
