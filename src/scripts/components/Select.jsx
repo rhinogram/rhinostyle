@@ -1,6 +1,5 @@
 /* global Modernizr */
 /* eslint-disable quote-props */
-/* global Modernizr */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
