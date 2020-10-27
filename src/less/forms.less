@@ -607,12 +607,10 @@ input[type='checkbox']:focus {
   min-height: @global-height;
 
   .rhinoselect {
-    &:after {
-      top:20px !important 
+    &::after {
+      top: 20px !important;
     }
-
   }
-
 }
 
 // Used when we need to apply `.form__group` spacing to adjacent items that do not fall within usual structure
@@ -1006,6 +1004,10 @@ input[type='checkbox']:focus {
   padding: 8px;
   width: 100%;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: @global-font-size-large;
   background-color: @input-bg;
   border: 1px solid @input-border;
   min-height: @global-height;
@@ -1025,7 +1027,7 @@ input[type='checkbox']:focus {
 
   option {
     padding: 5px 10px;
- } 
+  }
 }
 
 .rhinoselect__open {
