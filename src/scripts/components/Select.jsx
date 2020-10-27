@@ -1,3 +1,4 @@
+/* global Modernizr */
 /* eslint-disable quote-props */
 /* global Modernizr */
 import cx from 'classnames';
@@ -14,7 +15,10 @@ class Select extends React.Component {
 
   componentDidMount() {
     const selectedOption = Select.getSelectedOption(this.props.options, this.props.selected);
-    if (selectedOption) this.setState({ selectedOptionValue: selectedOption.value });
+
+    if (selectedOption) {
+      this.setState({ selectedOptionValue: selectedOption.value });
+    }
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -66,6 +70,7 @@ class Select extends React.Component {
     } else {
       this.selectRef.size = (totalSize === 1 ? 2 : totalSize);
     }
+    this.selectRef.selectedIndex = 1;
     this.setState({
       isSelectorOpen: true,
     });
@@ -83,11 +88,6 @@ class Select extends React.Component {
       this.props.onSelect(event.target.name, selected);
     }
     this.selectRef.blur();
-  }
-
-  getViewLabel = (label = '') => {
-    if (label.length > 25) return `${label.substr(0, 25)}...`;
-    return label;
   }
 
   onClick = () => this.selectRef.focus();
@@ -139,7 +139,7 @@ class Select extends React.Component {
             className={selectLabelClasses}
             onClick={this.onClick}
           >
-            {this.getViewLabel(this.state.selectedOptionValue)}
+            {this.state.selectedOptionValue}
           </span>)}
           <div className="rhinoselect">
             <select
