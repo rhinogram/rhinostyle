@@ -1,4 +1,5 @@
 /* eslint-disable quote-props */
+/* global Modernizr */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
@@ -96,8 +97,8 @@ class Select extends React.Component {
     const { isSelectorOpen } = this.state;
 
     const classes = cx('rhinoselect__select', 'form__control', {
-      'rhinoselect__open': !!isSelectorOpen,
-      'rhinoselect__open__top': !!(isSelectorOpen && position === 'top'),
+      'rhinoselect__open': !!(isSelectorOpen && !Modernizr.touchevents),
+      'rhinoselect__open__top': !!(isSelectorOpen && !Modernizr.touchevents && position === 'top'),
       [UtilitySystem.config.classes.disabled]: disabled,
     });
 
