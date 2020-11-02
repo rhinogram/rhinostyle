@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'react-router';
 
 import { LoaderCircle, UtilitySystem } from '.';
 
@@ -84,14 +83,6 @@ class Button extends React.Component {
         <a href={url} className={classes} onClick={this.handleClick} {...opts} title={this.props.title}>
           <span className="button__text-wrapper">{this.props.children}</span>
         </a>
-      );
-    } else if (route) {
-      markup = (
-        <Link to={route} className={classes} onClick={this.handleClick} disabled={disabled || loading} {...opts} title={this.props.title}>
-          <span className="button__text-wrapper">{this.props.children}</span>
-          {loading && this.loadingRender()}
-          {labelRaised && (<span className={`button-label-${labelRaisedColor}`}>{labelRaised}</span>)}
-        </Link>
       );
     } else if (hasClickableChildren) {
       markup = (
