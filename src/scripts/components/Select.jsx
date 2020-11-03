@@ -112,6 +112,7 @@ class Select extends React.Component {
     const classes = cx('rhinoselect__select', 'form__control', {
       'rhinoselect__open': !!(isSelectorOpen && !Modernizr.touchevents),
       'rhinoselect__open__top': !!(isSelectorOpen && !Modernizr.touchevents && openPosition === 'top'),
+      'rhinoselect__single-option': isSelectorOpen && this.getTotalVisibleOptions() === 1,
       [UtilitySystem.config.classes.disabled]: disabled,
     });
 
