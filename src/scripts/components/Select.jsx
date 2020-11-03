@@ -10,6 +10,7 @@ class Select extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
   state = {
     isSelectorOpen: false,
+    openPosition: 'bottom',
   }
 
   componentDidMount() {
@@ -62,16 +63,29 @@ class Select extends React.Component {
     });
   }
 
+  getPosition = (optionLength) => {
+    const selectHeight = this.selectRef.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const menuHeight = Math.min(selectHeight, (optionLength * 36));
+    const instOffsetWithMenu = this.selectRef.getBoundingClientRect().bottom + menuHeight;
+
+    if (instOffsetWithMenu >= windowHeight) return 'top';
+    return 'bottom';
+  }
+
   onFocus = () => {
     const totalSize = this.getTotalVisibleOptions();
+
     if (totalSize > this.props.visibleOptionLength) {
       this.selectRef.size = this.props.visibleOptionLength;
     } else {
       this.selectRef.size = (totalSize === 1 ? 2 : totalSize);
     }
+
     this.selectRef.selectedIndex = 1;
     this.setState({
       isSelectorOpen: true,
+      openPosition: this.getPosition(this.selectRef.size),
     });
   }
 
@@ -92,12 +106,12 @@ class Select extends React.Component {
   onClick = () => this.selectRef.focus();
 
   render() {
-    const { className, disabled, explanationMessage, label, name, options, required, validationMessage, position } = this.props;
-    const { isSelectorOpen } = this.state;
+    const { className, disabled, explanationMessage, label, name, options, required, validationMessage } = this.props;
+    const { isSelectorOpen, openPosition } = this.state;
 
     const classes = cx('rhinoselect__select', 'form__control', {
       'rhinoselect__open': !!(isSelectorOpen && !Modernizr.touchevents),
-      'rhinoselect__open__top': !!(isSelectorOpen && !Modernizr.touchevents && position === 'top'),
+      'rhinoselect__open__top': !!(isSelectorOpen && !Modernizr.touchevents && openPosition === 'top'),
       'rhinoselect__single-option': isSelectorOpen && this.getTotalVisibleOptions() === 1,
       [UtilitySystem.config.classes.disabled]: disabled,
     });
@@ -179,14 +193,12 @@ Select.propTypes = {
   required: PropTypes.bool,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   validationMessage: PropTypes.string,
-  position: PropTypes.string,
 };
 
 Select.defaultProps = {
   disabled: false,
   required: false,
   visibleOptionLength: 6,
-  position: 'bottom',
 };
 
 export default Select;
