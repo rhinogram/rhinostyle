@@ -73,6 +73,12 @@ class Input extends React.Component {
     }
   }
 
+  handleOnInput = (event) => {
+    if (this.props.onInput) {
+      this.props.onInput(event);
+    }
+  }
+
   handleClear = (event) => {
     if (this.props.onClear) {
       this.props.onClear(event);
@@ -161,7 +167,7 @@ class Input extends React.Component {
               onInit={onInit}
               options={format}
               placeholder={placeholder}
-              input={this.props.onInput}
+              input={this.handleOnInput}
               value={this.state.value}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
