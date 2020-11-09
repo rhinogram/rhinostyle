@@ -161,6 +161,7 @@ class Input extends React.Component {
               onInit={onInit}
               options={format}
               placeholder={placeholder}
+              input={this.props.onInput}
               value={this.state.value}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
