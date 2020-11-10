@@ -73,7 +73,7 @@ class Input extends React.Component {
     }
   }
 
-  handleInput = (event) => {
+  handleOnInput = (event) => {
     if (this.props.onInput) {
       this.props.onInput(event);
     }
@@ -168,7 +168,7 @@ class Input extends React.Component {
               options={format}
               placeholder={placeholder}
               value={this.state.value}
-              onInput={this.handleInput}
+              onInput={this.handleOnInput}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
               onKeyDown={this.handleKeyDown}
