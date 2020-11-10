@@ -303,6 +303,7 @@ Input.propTypes = {
   onKeyUp: PropTypes.func,
   onClear: PropTypes.func,
   onBlur: PropTypes.func,
+  onInput: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
