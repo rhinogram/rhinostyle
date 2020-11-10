@@ -102,7 +102,8 @@ class Select extends React.Component {
   getPosition = (optionLength) => {
     const selectHeight = this.selectRef.offsetHeight;
     const windowHeight = window.innerHeight;
-    const menuHeight = Math.min(selectHeight, (optionLength * 36));
+    const optionHeight = this.selectRef.options[0].offsetHeight;
+    const menuHeight = Math.min(selectHeight, (optionLength * optionHeight));
     const instOffsetWithMenu = this.selectRef.getBoundingClientRect().bottom + menuHeight;
 
     if (instOffsetWithMenu >= windowHeight) return 'top';
@@ -120,8 +121,8 @@ class Select extends React.Component {
     } else {
       this.selectRef.size = (totalSize === 1 ? 2 : totalSize);
     }
-
-    this.selectRef.selectedIndex = 1;
+    const optionHeight = this.selectRef.options[0].offsetHeight;
+    this.selectRef.scrollTop = this.selectRef.selectedIndex * optionHeight;
     this.setState({
       isSelectorOpen: true,
       openPosition: this.getPosition(this.selectRef.size),
@@ -166,10 +167,10 @@ class Select extends React.Component {
       // If the option has options as well we're in an `<optgroup>`
       if (option.options) {
         return (
-          <optgroup key={option.id} label={option.value} className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''}>
+          <optgroup key={option.id} label={option.value} className="u-p-t-small u-p-b-small">
             {option.options.map(childOption =>
               (
-                <option className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''} key={childOption.id} value={childOption.id}>
+                <option className="u-p-t-small u-p-b-small" key={childOption.id} value={childOption.id}>
                   {childOption.value}
                 </option>
               ))}
@@ -179,7 +180,7 @@ class Select extends React.Component {
 
       // We're in a default single-level `<option>`
       return (
-        <option className={this.state.isSelectorOpen ? 'u-p-t-small u-p-b-small' : ''} key={option.id} value={option.id}>{option.value}</option>
+        <option className="u-p-t-small u-p-b-small" key={option.id} value={option.id}>{option.value}</option>
       );
     };
 
