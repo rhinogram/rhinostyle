@@ -74,6 +74,7 @@ const icons = [
   'rotate-camera',
   'search',
   'send',
+  'signature',
   'star',
   'to-from',
   'touchid',

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+   <g
+      id="g1550"
+      transform="translate(236.26507,35.120677)">
+      <g
+         id="g2125">
+         <g
+            transform="matrix(0.9280469,-0.69721795,0.90261931,0.71685921,-265.5433,250.97196)"
+            id="g1546">
+         </g>
+         <g
+            id="g2801"
+            transform="matrix(0.03082859,0,0,0.0302065,-228.01231,-33.090011)">
+            <g
+               transform="rotate(26.342483,203.46723,296.13483)"
+               id="g2130" />
+            <path
+               class="icon-stroke"
+               fill="none"
+               stroke="#000000"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               d="m -108.9915,531.28334 -80.76162,80.76162 m 0,-80.76162 80.76162,80.76162" />
+            <path
+               class="icon-stroke"
+               d="M -220.26086,678.50471 H 463.30732"
+               fill="none"
+               stroke="#000000"
+               stroke-width="2"
+               stroke-linecap="round"
+               stroke-linejoin="round" />
+         </g>
+      </g>
+   </g>
+   <g
+      id="g2269"
+      transform="matrix(0.03241754,-0.00775996,0.00775996,0.03241754,18.258703,0.98450979)">
+      <path
+         class="icon-stroke"
+         fill="none"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         d="m -102.31596,59.0116 c 112.274002,112.9884 0,0 112.274002,112.9884" />
+      <path
+         class="icon-stroke"
+         fill="none"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         d="m -417.04196,486 140.51,-369.775 174.216,-57.2134 L -48.754043,5.9661776 64.69817,118.55072 10.522042,174.133 c -55.958,172.218 -0.564,-2.133 -55.958,172.218 L -417.04196,486" />
+      <path
+         class="icon-stroke"
+         fill="none"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         d="M -417.04196,486 -201.98422,274.00791" />
+      <circle
+         class="icon-stroke"
+         fill="none"
+         stroke="#000000"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         r="47.658009"
+         cy="226.56653"
+         cx="-151.47304" />
+   </g>
+</svg>
