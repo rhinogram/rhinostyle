@@ -285,7 +285,7 @@ Dropdown.propTypes = {
   reset: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'link', 'link-muted', 'danger']),
+  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'outline', 'link', 'link-muted', 'danger']),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
   onComplete: PropTypes.func,

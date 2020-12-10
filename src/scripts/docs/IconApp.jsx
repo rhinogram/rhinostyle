@@ -74,6 +74,7 @@ const icons = [
   'rotate-camera',
   'search',
   'send',
+  'share',
   'signature',
   'star',
   'to-from',
