@@ -4,7 +4,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { UtilitySystem } from '../UtilitySystem';
-import { DropdownMenuItem, DropdownMenuHeader, DropdownMenuScroll, DropdownWrapper, FormExplanationMessage, FormValidationMessage, Pill, UtilityInlineGrid } from '.';
+import {
+  DropdownMenuItem,
+  DropdownMenuHeader,
+  DropdownMenuScroll,
+  DropdownWrapper,
+  FormExplanationMessage,
+  FormValidationMessage,
+  Pill,
+  UtilityInlineGrid,
+} from '.';
 
 class DropdownMultiSelect extends React.Component {
   state = {
@@ -37,7 +46,7 @@ class DropdownMultiSelect extends React.Component {
 
       return returnChild;
     });
-  }
+  };
 
   clearInput = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
@@ -50,7 +59,7 @@ class DropdownMultiSelect extends React.Component {
     });
 
     this.filterInput.value = '';
-  }
+  };
 
   handleToggle = (e) => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
@@ -85,7 +94,7 @@ class DropdownMultiSelect extends React.Component {
 
       this.filterInput.value = '';
     }
-  }
+  };
 
   itemClick = (id, toggle) => {
     if (this.props.onSelect) {
@@ -111,7 +120,7 @@ class DropdownMultiSelect extends React.Component {
         });
       }
     }
-  }
+  };
 
   handleFilter = (e) => {
     if (!this.state.isOpen) {
@@ -133,11 +142,13 @@ class DropdownMultiSelect extends React.Component {
       if (child.type === DropdownMenuItem) {
         const searchText = child.props.label;
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-          items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child.props.id, false),
-            active: this.props.activeKeys.indexOf(child.props.id) > -1,
-            key: child.props.id,
-          }));
+          items.push(
+            React.cloneElement(child, {
+              onClick: () => this.itemClick(child.props.id, false),
+              active: this.props.activeKeys.indexOf(child.props.id) > -1,
+              key: child.props.id,
+            }),
+          );
         }
       }
     });
@@ -145,11 +156,11 @@ class DropdownMultiSelect extends React.Component {
     this.setState({
       items,
     });
-  }
+  };
 
   handleClickOutside = () => {
     this.clearInput();
-  }
+  };
 
   updateActiveKeys = (index) => {
     const currentKeys = this.state.activeKeys;
@@ -169,10 +180,19 @@ class DropdownMultiSelect extends React.Component {
     });
 
     return [action, index, currentKeys];
-  }
+  };
 
   render() {
-    const { block, children, disabled, explanationMessage, placeholder, position, wide, validationMessage } = this.props;
+    const {
+      block,
+      children,
+      disabled,
+      explanationMessage,
+      placeholder,
+      position,
+      wide,
+      validationMessage,
+    } = this.props;
     const { items, activeKeys, isOpen } = this.state;
 
     const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
@@ -201,9 +221,7 @@ class DropdownMultiSelect extends React.Component {
         }
       });
 
-      return (
-        <Pill type="primary" label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} />
-      );
+      return <Pill type="primary" label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} />;
     };
 
     return (
@@ -213,11 +231,11 @@ class DropdownMultiSelect extends React.Component {
           handleClick={this.handleClickOutside}
           disableOnClickOutside={!isOpen}
           enableOnClickOutside={isOpen}
-          ref={ref => (this.dropdown = ref)}
+          ref={(ref) => (this.dropdown = ref)}
         >
           <input
             onClick={this.handleToggle}
-            ref={ref => (this.filterInput = ref)}
+            ref={(ref) => (this.filterInput = ref)}
             type="text"
             className={dropdownToggleClasses}
             placeholder={placeholder}
@@ -226,7 +244,7 @@ class DropdownMultiSelect extends React.Component {
           />
           <div className={dropdownMenuClasses}>
             <DropdownMenuScroll>
-              { items.length > 0 ? items : <DropdownMenuHeader label="No results" /> }
+              {items.length > 0 ? items : <DropdownMenuHeader label="No results" />}
             </DropdownMenuScroll>
           </div>
         </DropdownWrapper>
@@ -234,9 +252,7 @@ class DropdownMultiSelect extends React.Component {
         <FormExplanationMessage explanationMessage={explanationMessage} />
         {activeKeys.length && (
           <div className="u-p-t-small">
-            <UtilityInlineGrid>
-              {activeKeys.map(renderPill)}
-            </UtilityInlineGrid>
+            <UtilityInlineGrid>{activeKeys.map(renderPill)}</UtilityInlineGrid>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Button, Table, SmartTable, Icon, SmartTableHeader } from '../components';
@@ -41,7 +41,7 @@ const SmartTableHeaderDocs = {
 };
 
 const LabelApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Table Types</h3>
       <div className="site-example-tables">
@@ -416,7 +416,7 @@ const LabelApp = () => (
       />
     </section>
 
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<LabelApp />, document.getElementById('root'));

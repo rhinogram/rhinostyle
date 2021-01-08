@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Label, UtilityInlineGrid } from '../components';
@@ -6,8 +6,8 @@ import { Live } from './components';
 import LabelExample from './examples/Label.example.txt';
 
 const LabelDocs = {
-  iconBump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>", // eslint-disable-line single-quotes
-  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent'])</code>", // eslint-disable-line single-quotes
+  iconBump: "Move icon up or down slightly for precise positioning <code>oneOf(['down', 'up'])</code>",
+  type: "<code>oneOf(['default', 'primary', 'secondary', 'accent'])</code>",
 };
 const LabelScope = {
   React,
@@ -17,7 +17,7 @@ const LabelScope = {
 };
 
 const LabelApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Label Types</h3>
       <div className="u-m-b">
@@ -50,15 +50,9 @@ const LabelApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
 
-      <Live
-        code={LabelExample}
-        scope={LabelScope}
-        component={Label}
-        propDescriptions={LabelDocs}
-      />
+      <Live code={LabelExample} scope={LabelScope} component={Label} propDescriptions={LabelDocs} />
     </section>
-
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<LabelApp />, document.getElementById('root'));

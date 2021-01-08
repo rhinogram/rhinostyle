@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Alert, Button, Checkbox, Icon, NotificationActions, SystemAlert, Toast } from '../components';
@@ -9,7 +9,7 @@ import SystemAlertExample from './examples/SystemAlert.example.txt';
 
 const AlertDocs = {
   onDismiss: 'Called when dimissed',
-  type: "<code>oneOf(['danger', 'default', 'info', 'success'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['danger', 'default', 'info', 'success'])</code>",
 };
 const AlertScope = {
   React,
@@ -22,7 +22,7 @@ const AlertScope = {
 
 const ToastDocs = {
   onDismiss: 'Called when dismissed',
-  type: "<code>oneOf(['danger', 'default', 'success'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['danger', 'default', 'success'])</code>",
 };
 const ToastScope = {
   React,
@@ -33,7 +33,7 @@ const ToastScope = {
 
 const SystemAlertDocs = {
   onDismiss: 'Called when dismissed',
-  type: "<code>oneOf(['danger', 'default', 'info', 'success'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['danger', 'default', 'info', 'success'])</code>",
   urlText: 'Defaults to "More Information"',
 };
 const SystemAlertScope = {
@@ -54,41 +54,47 @@ class FeedbackApp extends React.Component {
         console.log('I run when the notification was dismissed');
       },
     });
-  }
+  };
 
   /* eslint-disable no-alert */
   render() {
     return (
-      <Fragment>
+      <>
         <section className="site-section">
           <h3 className="site-subheadline">Feedback</h3>
-          <p className="site-text-lead">Numberous components make up our feedback system: Alert, SystemAlert, and Toast.</p>
+          <p className="site-text-lead">
+            Numberous components make up our feedback system: Alert, SystemAlert, and Toast.
+          </p>
         </section>
 
         <section className="site-section">
           <h3 className="site-subheadline">Alert</h3>
           <div className="u-m-b-large">
             <Alert title="This is a danger alert!" titleIcon="star" type="danger" onDismiss={() => alert('dismissed!')}>
-              This is a danger alert for dangerous stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a>
+              This is a danger alert for dangerous stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> |{' '}
+              <a href="https://www.rhinogram.com">rhinogram.com</a>
             </Alert>
             <Alert title="This is a default  alert!" titleIcon="star" onDismiss={() => alert('dismissed!')}>
-              This is a default alert for default stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a>
+              This is a default alert for default stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> |{' '}
+              <a href="https://www.rhinogram.com">rhinogram.com</a>
             </Alert>
             <Alert title="This is a info alert!" titleIcon="star" type="info" onDismiss={() => alert('dismissed!')}>
-              This is a info alert for info stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a>
+              This is a info alert for info stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> |{' '}
+              <a href="https://www.rhinogram.com">rhinogram.com</a>
             </Alert>
-            <Alert title="This is a success alert!" titleIcon="star" type="success" onDismiss={() => alert('dismissed!')}>
-              This is a success alert for success stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> | <a href="https://www.rhinogram.com">rhinogram.com</a>
+            <Alert
+              title="This is a success alert!"
+              titleIcon="star"
+              type="success"
+              onDismiss={() => alert('dismissed!')}
+            >
+              This is a success alert for success stuff. <a href="https://www.rhinogram.com">rhinogram.com</a> |{' '}
+              <a href="https://www.rhinogram.com">rhinogram.com</a>
             </Alert>
           </div>
           <h3 className="site-subheadline">Alert Playground</h3>
 
-          <Live
-            code={AlertExample}
-            scope={AlertScope}
-            component={Alert}
-            propDescriptions={AlertDocs}
-          />
+          <Live code={AlertExample} scope={AlertScope} component={Alert} propDescriptions={AlertDocs} />
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">SystemAlert</h3>
@@ -111,7 +117,13 @@ class FeedbackApp extends React.Component {
         </section>
         <section className="site-section">
           <h3 className="site-subheadline">Toast</h3>
-          <p className="site-copy">To see a toast in action, <Button reset className="u-text-primary" onClick={this.onClick}>click here</Button>.</p>
+          <p className="site-copy">
+            To see a toast in action,{' '}
+            <Button reset className="u-text-primary" onClick={this.onClick}>
+              click here
+            </Button>
+            .
+          </p>
           <div className="site-example-toasts u-m-b-large">
             <Toast type="default" body="Default toast notification" />
             <Toast type="success" body="Success toast notification" />
@@ -119,14 +131,9 @@ class FeedbackApp extends React.Component {
           </div>
           <h3 className="site-subheadline">Toast Playground</h3>
 
-          <Live
-            code={ToastExample}
-            scope={ToastScope}
-            component={Toast}
-            propDescriptions={ToastDocs}
-          />
+          <Live code={ToastExample} scope={ToastScope} component={Toast} propDescriptions={ToastDocs} />
         </section>
-      </Fragment>
+      </>
     );
   }
 }

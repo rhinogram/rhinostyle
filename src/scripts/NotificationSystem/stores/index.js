@@ -31,13 +31,13 @@ class NotificationStoreClass extends EventEmitter {
 const NotificationStore = new NotificationStoreClass();
 
 function _addNotification(notification) {
-  const _notification = Object.assign({}, notification, { id: _id += 1 });
+  const _notification = { ...notification, id: _id += 1 };
 
   _notifications.unshift(_notification);
 }
 
 function _removeNotification(id) {
-  const index = _notifications.map(notification => notification.id).indexOf(id);
+  const index = _notifications.map((notification) => notification.id).indexOf(id);
 
   if (index !== -1 && _notifications[index]) {
     const dismissEvent = _notifications[index].onDismiss;

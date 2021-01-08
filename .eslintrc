@@ -1,6 +1,9 @@
 {
   "extends": "rhinogram",
-  "globals": {
-    "Babel": true
+  "rules": {
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0,
+    "import/no-cycle": 0, // Temporary
+    "react/no-deprecated": 0 // Temporary
   }
 }

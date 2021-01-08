@@ -135,7 +135,7 @@ class Cover extends React.Component {
     return (
       renderCover &&
         ReactDOM.createPortal(
-          <div className={classes} ref={ref => (this.cover = ref)}>
+          <div className={classes} ref={(ref) => (this.cover = ref)}>
             {children}
           </div>,
           document.body,

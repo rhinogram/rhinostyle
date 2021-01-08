@@ -25,7 +25,7 @@ class MessageBox extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if ((prevProps.focus !== this.props.focus) && this.props.focus) {
+    if (prevProps.focus !== this.props.focus && this.props.focus) {
       this.rhinoTextArea.focus();
     }
   }
@@ -38,31 +38,31 @@ class MessageBox extends React.Component {
     if (this.props.onInput) {
       this.props.onInput(event.target.name, event.target.value);
     }
-  }
+  };
 
   handleClick = (event) => {
     if (this.props.onClick) {
       this.props.onClick(event.target.name, event.target.value);
     }
-  }
+  };
 
   handleKeyPress = (event) => {
     if (this.props.onKeyPress) {
       this.props.onKeyPress(event);
     }
-  }
+  };
 
   handleHeightChange = (height, instance) => {
     if (this.props.onHeightChange) {
       this.props.onHeightChange(height, instance);
     }
-  }
+  };
 
   handleFocus = () => {
     if (this.props.handleFocus) {
       this.props.handleFocus();
     }
-  }
+  };
 
   render() {
     const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight } = this.props;
@@ -75,7 +75,9 @@ class MessageBox extends React.Component {
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel id={this.id} required={required}>{label}</FormLabel>
+        <FormLabel id={this.id} required={required}>
+          {label}
+        </FormLabel>
         <Textarea
           name={name}
           id={this.id}
@@ -89,7 +91,7 @@ class MessageBox extends React.Component {
           onClick={this.handleClick}
           onHeightChange={this.handleHeightChange}
           disabled={disabled}
-          inputRef={ref => (this.rhinoTextArea = ref)}
+          inputRef={(ref) => (this.rhinoTextArea = ref)}
           onFocus={this.handleFocus}
         />
       </div>

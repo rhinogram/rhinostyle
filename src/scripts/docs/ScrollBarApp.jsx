@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Label, Scrollbars } from '../components';
@@ -14,7 +14,7 @@ const ScrollbarScope = {
 };
 
 const ScrollbarApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Scrollbar <Label className="u-m-l-small" type="accent" label="third party" /></h3>
       <p className="site-copy">
@@ -80,7 +80,7 @@ const ScrollbarApp = () => (
         propDescriptions={ScrollbarDocs}
       />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<ScrollbarApp />, document.getElementById('root'));

@@ -39,7 +39,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       selectedIds = selectedIds.concat(id);
       selectedItems[id] = selectedItem;
     } else {
-      selectedIds = selectedIds.filter(selectedId => selectedId !== id);
+      selectedIds = selectedIds.filter((selectedId) => selectedId !== id);
       delete selectedItems[id];
     }
     if (selectedIds.length === 0) {
@@ -53,7 +53,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       this.setState({ searchText: '' });
       this.props.fetchAllItems('', this.props.filterName.toLowerCase());
     }
-    this.setState(prevState => ({ isViewAllItems: !prevState.isViewAllItems }));
+    this.setState((prevState) => ({ isViewAllItems: !prevState.isViewAllItems }));
   };
 
   handleClearAll = () => {
@@ -88,10 +88,11 @@ class DropdownMultiSelectAdvanced extends React.Component {
     }
     return (
       <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)}>
-        {this.props.type === 'member' ? <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
-          :
+        {this.props.type === 'member' ? (
+          <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
+        ) : (
           listItem.title
-        }
+        )}
       </Resource>
     );
   };
@@ -103,7 +104,11 @@ class DropdownMultiSelectAdvanced extends React.Component {
 
   renderSearchHelp = (idArray = this.props.itemsIds, loading = this.props.itemSearchLoading) => {
     if ((this.state.searchText.length === 0 || this.state.searchText.length > 2) && loading) {
-      return <div className="u-text-center"><LoaderPulse type="secondary" /></div>;
+      return (
+        <div className="u-text-center">
+          <LoaderPulse type="secondary" />
+        </div>
+      );
     } else if (this.state.searchText.length > 2 && !idArray.length && !loading) {
       return <div className="search__no-results">No results</div>;
     }
@@ -117,12 +122,8 @@ class DropdownMultiSelectAdvanced extends React.Component {
   };
 
   renderClearButton = () => (
-    <Button
-      size="small"
-      type="link"
-      onClick={this.handleClearAll}
-      title="Clear All"
-    >Clear All
+    <Button size="small" type="link" onClick={this.handleClearAll} title="Clear All">
+      Clear All
     </Button>
   );
 
@@ -135,7 +136,8 @@ class DropdownMultiSelectAdvanced extends React.Component {
         onClick={this.handleToggle}
         disabled={this.props.selectedItemsIds.length === 0}
         title={title}
-      >{title}
+      >
+        {title}
       </Button>
     );
   };
@@ -156,12 +158,8 @@ class DropdownMultiSelectAdvanced extends React.Component {
           <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
             {this.renderClearButton()}
             <div>
-              <Button
-                size="small"
-                type="link"
-                onClick={this.handleToggle}
-                title="Back"
-              >Back
+              <Button size="small" type="link" onClick={this.handleToggle} title="Back">
+                Back
               </Button>
             </div>
           </UtilityInlineGrid>
@@ -172,15 +170,23 @@ class DropdownMultiSelectAdvanced extends React.Component {
               {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
             </ResourceGroup>
           </Scrollbars>
-        ) :
+        ) : (
           'No items Added'
-        }
+        )}
       </div>
     </Dropdown>
   );
 
   render() {
-    const { itemSearchLoading, dropdownLabel, selectedItemsIds, filterName, className, dropDownClass, dataCypress } = this.props;
+    const {
+      itemSearchLoading,
+      dropdownLabel,
+      selectedItemsIds,
+      filterName,
+      className,
+      dropDownClass,
+      dataCypress,
+    } = this.props;
     let classes = 'resource-group__scroll';
     if (className) {
       classes = `resource-group__scroll ${className}`;
@@ -195,60 +201,55 @@ class DropdownMultiSelectAdvanced extends React.Component {
       dropdownType = 'primary';
       outlined = true;
     }
-    return (
-      this.state.isViewAllItems ? (
-        <Dropdown
-          wide
-          autoFocusInput={false}
-          label={dropdownLabel}
-          onClick={this.clearSearch}
-          className={dropDownClass}
-          type={dropdownType}
-          outlined={outlined}
-          dataCypress={dataCypress}
-          disableScroll
-        >
-          <div className="dropdown__menu__container">
-            <div className="search__group">
-              {selectedItemsIds.length > 0 ? (
-                <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-                  {this.renderClearButton()}
-                  {this.renderViewSelected()}
-                </UtilityInlineGrid>
-              ) : (
-                <ResourceRight>
-                  {this.renderViewSelected()}
-                </ResourceRight>)
-              }
-              <Input
-                placeholder={searchTitle}
-                className="search__input"
-                onChange={this.handleSearch}
-                initialValue={this.state.searchText}
-                addon="left"
-                type="text"
-                name="preloadedMembers"
-                dataCypress={searchTitle}
-                autoComplete="off"
-              >
-                <Icon icon="search" />
-              </Input>
-            </div>
+    return this.state.isViewAllItems ? (
+      <Dropdown
+        wide
+        autoFocusInput={false}
+        label={dropdownLabel}
+        onClick={this.clearSearch}
+        className={dropDownClass}
+        type={dropdownType}
+        outlined={outlined}
+        dataCypress={dataCypress}
+        disableScroll
+      >
+        <div className="dropdown__menu__container">
+          <div className="search__group">
+            {selectedItemsIds.length > 0 ? (
+              <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+                {this.renderClearButton()}
+                {this.renderViewSelected()}
+              </UtilityInlineGrid>
+            ) : (
+              <ResourceRight>{this.renderViewSelected()}</ResourceRight>
+            )}
+            <Input
+              placeholder={searchTitle}
+              className="search__input"
+              onChange={this.handleSearch}
+              initialValue={this.state.searchText}
+              addon="left"
+              type="text"
+              name="preloadedMembers"
+              dataCypress={searchTitle}
+              autoComplete="off"
+            >
+              <Icon icon="search" />
+            </Input>
           </div>
-          <div className="dropdown__menu__container">
-            {itemsIds.length > 0 ? (
-              <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-                <ResourceGroup interfaceMode="checkbox">
-                  {itemsIds.map(this.renderList)}
-                </ResourceGroup>
-              </Scrollbars>
-            ) :
-              this.renderSearchHelp(itemsIds, itemSearchLoading)
-            }
-          </div>
-        </Dropdown>
-      ) :
-        this.renderViewSelectedItems(classes, dropdownType)
+        </div>
+        <div className="dropdown__menu__container">
+          {itemsIds.length > 0 ? (
+            <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
+              <ResourceGroup interfaceMode="checkbox">{itemsIds.map(this.renderList)}</ResourceGroup>
+            </Scrollbars>
+          ) : (
+            this.renderSearchHelp(itemsIds, itemSearchLoading)
+          )}
+        </div>
+      </Dropdown>
+    ) : (
+      this.renderViewSelectedItems(classes, dropdownType)
     );
   }
 }

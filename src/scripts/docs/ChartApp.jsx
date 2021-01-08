@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Chart } from '../components';
@@ -23,10 +23,10 @@ const BarDocs = {
        data: [65, 59, 80, 81, 56, 55, 40],
       }
     ]
-  }</code>`, // eslint-disable-line single-quotes
-  width: 'Adjust the settings of bar width <code>600</code>', // eslint-disable-line single-quotes
-  height: 'Adjust the settings of bar height <code>300</code>', // eslint-disable-line single-quotes
-  type: '<code>\'bar\'</code>',
+  }</code>`,
+  width: 'Adjust the settings of bar width <code>600</code>',
+  height: 'Adjust the settings of bar height <code>300</code>',
+  type: "<code>'bar'</code>",
   legend: `<code>{
   position: 'right'
  }</code>`,
@@ -57,9 +57,9 @@ const MixLineDocs = {
        borderWidth: 1
        }
      ]
-    }</code>`, // eslint-disable-line single-quotes
-  width: 'Adjust the settings of bar width <code>600</code>', // eslint-disable-line single-quotes
-  height: 'Adjust the settings of bar height <code>300</code>', // eslint-disable-line single-quotes
+    }</code>`,
+  width: 'Adjust the settings of bar width <code>600</code>',
+  height: 'Adjust the settings of bar height <code>300</code>',
   type: '<code>"line"</code>',
   legend: `<code>{
     position: 'right'
@@ -106,9 +106,9 @@ const MixBarDocs = {
       hoverBackgroundColor: '#71B37C',
       hoverBorderColor: '#71B37C',
     }]
-}</code>`, // eslint-disable-line single-quotes
-  width: 'Adjust the settings of bar width <code>600</code>', // eslint-disable-line single-quotes
-  height: 'Adjust the settings of bar height <code>300</code>', // eslint-disable-line single-quotes
+}</code>`,
+  width: 'Adjust the settings of bar width <code>600</code>',
+  height: 'Adjust the settings of bar height <code>300</code>',
   type: '<code>"bar"</code>',
   legend: `<code>{
   position: 'right'
@@ -160,83 +160,68 @@ const ChartScope = {
 };
 
 const ChartApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
-      <h3 className="site-subheadline">Charts <Label className="u-m-l-small" type="accent" label="third party" /></h3>
-      <p className="site-copy">We are using
-        <a
-          href="https://www.chartjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        > Chart.js
-        </a>. We have wrapped it within our own
-        to provide sensible defaults for our application. Refer to that repos documentation about everything else
-        available, but be aware we only include a subset of styles to meet our needs, instead of including and
-        overriding the entire stylesheet provided.
+      <h3 className="site-subheadline">
+        Charts <Label className="u-m-l-small" type="accent" label="third party" />
+      </h3>
+      <p className="site-copy">
+        We are using
+        <a href="https://www.chartjs.org/" target="_blank" rel="noopener noreferrer">
+          {' '}
+          Chart.js
+        </a>
+        . We have wrapped it within our own to provide sensible defaults for our application. Refer to that repos
+        documentation about everything else available, but be aware we only include a subset of styles to meet our
+        needs, instead of including and overriding the entire stylesheet provided.
       </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Bar Chart</h3>
-      <p className="site-text-lead">A bar chart provides a way of showing data values represented as vertical bars. It
-        is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+      <p className="site-text-lead">
+        A bar chart provides a way of showing data values represented as vertical bars. It is sometimes used to show
+        trend data, and the comparison of multiple data sets side by side.
       </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Bar Chart Playground</h3>
 
-      {<Live
-        code={BarChartExample}
-        scope={ChartScope}
-        component={Chart}
-        propDescriptions={BarDocs}
-      />}
+      <Live code={BarChartExample} scope={ChartScope} component={Chart} propDescriptions={BarDocs} />
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Doughnut Chart</h3>
-      <p className="site-text-lead">Doughnut charts are probably the most commonly used charts. They are divided into
-        segments, the arc of each segment shows the proportional value of each piece of data.
+      <p className="site-text-lead">
+        Doughnut charts are probably the most commonly used charts. They are divided into segments, the arc of each
+        segment shows the proportional value of each piece of data.
       </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Doughtnut Chart Playground</h3>
-      {<Live
-        code={DoughnutChartExample}
-        scope={ChartScope}
-        component={Chart}
-        propDescriptions={DoughnutDocs}
-      />}
+      <Live code={DoughnutChartExample} scope={ChartScope} component={Chart} propDescriptions={DoughnutDocs} />
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Bar-Line Chart</h3>
       <p className="site-text-lead">
-        Mix bar-line charts are probably the most commonly used charts.  It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+        Mix bar-line charts are probably the most commonly used charts. It is sometimes used to show trend data, and the
+        comparison of multiple data sets side by side.
       </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Bar Line Chart Playground</h3>
-      {<Live
-        code={BarLineChartExample}
-        scope={ChartScope}
-        component={Chart}
-        propDescriptions={MixBarDocs}
-      />}
+      <Live code={BarLineChartExample} scope={ChartScope} component={Chart} propDescriptions={MixBarDocs} />
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Line Chart</h3>
       <p className="site-text-lead">
-        Mix Line charts are probably the most commonly used charts.  It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+        Mix Line charts are probably the most commonly used charts. It is sometimes used to show trend data, and the
+        comparison of multiple data sets side by side.
       </p>
     </section>
     <section className="site-section">
       <h3 className="site-subheadline">Mix Line Chart Playground</h3>
-      {<Live
-        code={AreaLineMixChartExample}
-        scope={ChartScope}
-        component={Chart}
-        propDescriptions={MixLineDocs}
-      />}
+      <Live code={AreaLineMixChartExample} scope={ChartScope} component={Chart} propDescriptions={MixLineDocs} />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<ChartApp />, document.getElementById('root'));

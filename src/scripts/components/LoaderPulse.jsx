@@ -40,7 +40,7 @@ class LoaderPulse extends React.Component {
     });
 
     return (
-      <div className={classes} ref={ref => (this.loader = ref)}>
+      <div className={classes} ref={(ref) => (this.loader = ref)}>
         <span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" /><span className="loader-pulse__pulse" />
       </div>
     );
@@ -57,6 +57,5 @@ LoaderPulse.defaultProps = {
   pause: false,
   type: 'default',
 };
-
 
 export default LoaderPulse;

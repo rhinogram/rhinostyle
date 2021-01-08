@@ -1,8 +1,9 @@
+import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-import { Button,
+import {
+  Button,
   FormLabel,
   FormExplanationMessage,
   FormValidationMessage,
@@ -13,11 +14,7 @@ import { Button,
   DropdownMenuItem,
 } from '.';
 
-import {
-  BACKSPACE_KEY,
-  DELETE_KEY,
-  ENTER_KEY,
-} from '../constants';
+import { BACKSPACE_KEY, DELETE_KEY, ENTER_KEY } from '../constants';
 
 class VariableMessage extends React.Component {
   currentDraggedSpanVariable = '';
@@ -59,9 +56,12 @@ class VariableMessage extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.initialValue !== prevProps.initialValue) {
       // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({
-        message: this.props.initialValue,
-      }, this.handleInitValue);
+      this.setState(
+        {
+          message: this.props.initialValue,
+        },
+        this.handleInitValue,
+      );
     }
   }
 
@@ -114,7 +114,7 @@ class VariableMessage extends React.Component {
    * @param  {array} array
    * @return {array}
    */
-  getVariables = array => array.filter(item => item.id !== -1).reduce((a, b) => a.concat(b.options || b), []);
+  getVariables = (array) => array.filter((item) => item.id !== -1).reduce((a, b) => a.concat(b.options || b), []);
 
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;
 
@@ -147,7 +147,7 @@ class VariableMessage extends React.Component {
       // get newly added character preceding caret
       this.getCharacterPrecedingCaret(this.compose);
     }
-  }
+  };
 
   handleBackspace = async (e) => {
     const isNewWord = this.state.precedingChar.trim() === '';
@@ -166,13 +166,13 @@ class VariableMessage extends React.Component {
 
       const range = document.createRange();
       if (selection.anchorNode !== this.compose) {
-      // selection is in character mode. expand it to the whole editable field
+        // selection is in character mode. expand it to the whole editable field
         range.selectNodeContents(this.compose);
         range.setEndBefore(selection.anchorNode);
       } else if (selection.anchorOffset > 0) {
         range.setEnd(this.compose, selection.anchorOffset);
       } else {
-      // reached the beginning of editable field
+        // reached the beginning of editable field
         return;
       }
       range.setStart(this.compose, range.endOffset - 1);
@@ -183,10 +183,10 @@ class VariableMessage extends React.Component {
         e.preventDefault();
         range.deleteContents();
         const message = this.compose.textContent;
-        await new Promise(resolve => this.setState({ message }, resolve));
+        await new Promise((resolve) => this.setState({ message }, resolve));
       }
     }
-  }
+  };
 
   /**
    * Transform `{}` into styled component
@@ -239,7 +239,7 @@ class VariableMessage extends React.Component {
     }
 
     return $variable;
-  }
+  };
 
   /**
    * Insert variable in cursor position
@@ -249,15 +249,18 @@ class VariableMessage extends React.Component {
   insertVariable = (variableSet) => {
     const $variable = this.transformVar(variableSet);
     this.insertTextAtCursor($variable);
-  }
+  };
 
   removeVariable = (text) => {
     const variables = this.getVariables(this.props.variables);
-    const split = this.state.message.split(text).join('').split(/({.*?})/);
-    const lowercaseSplit = split.map(e => e.toLowerCase());
+    const split = this.state.message
+      .split(text)
+      .join('')
+      .split(/({.*?})/);
+    const lowercaseSplit = split.map((e) => e.toLowerCase());
 
     variables
-      .filter(variable => variable.value !== text)
+      .filter((variable) => variable.value !== text)
       .forEach((value) => {
         const { variable } = value;
         const isVariablePresent = lowercaseSplit.includes(variable.toLowerCase());
@@ -269,7 +272,7 @@ class VariableMessage extends React.Component {
       });
 
     this.compose.innerHTML = split.join('');
-  }
+  };
 
   handleInitValue = (message = this.props.initialValue) => {
     const initialValue = message;
@@ -278,7 +281,7 @@ class VariableMessage extends React.Component {
     // Split `initialValue` to target variables
     const split = initialValue.split(/({.*?})/);
 
-    const lowercaseSplit = split.map(e => e.toLowerCase());
+    const lowercaseSplit = split.map((e) => e.toLowerCase());
     const available = [];
     // Loop through variables
     variables.forEach((item) => {
@@ -301,7 +304,7 @@ class VariableMessage extends React.Component {
 
     // Manually trigger `input` update
     this.handleComposeInput();
-  }
+  };
 
   /**
    * Handle variable selection from `<Select>`
@@ -314,23 +317,26 @@ class VariableMessage extends React.Component {
 
     if (variable) {
       // Get variable value
-      this.setState((prevState) => {
-        const index = prevState.available.indexOf(id);
-        if (index > -1) {
-          prevState.available.splice(index, 1);
-          this.insertVariable(variableSet);
-        } else {
-          prevState.available.push(id);
-          this.removeVariable(variable);
-        }
-        return ({ available: prevState.available });
-      }, () => {
-        // Focus back on compose element
-        this.compose.focus();
-        this.handleComposeInput();
-      });
+      this.setState(
+        (prevState) => {
+          const index = prevState.available.indexOf(id);
+          if (index > -1) {
+            prevState.available.splice(index, 1);
+            this.insertVariable(variableSet);
+          } else {
+            prevState.available.push(id);
+            this.removeVariable(variable);
+          }
+          return { available: prevState.available };
+        },
+        () => {
+          // Focus back on compose element
+          this.compose.focus();
+          this.handleComposeInput();
+        },
+      );
     }
-  }
+  };
 
   /**
    * Disable `<enter>` within compose window
@@ -341,7 +347,7 @@ class VariableMessage extends React.Component {
     if (e.which === ENTER_KEY) {
       e.preventDefault();
     }
-  }
+  };
 
   getCharacterPrecedingCaret = (containerEl) => {
     let precedingChar = '';
@@ -356,7 +362,7 @@ class VariableMessage extends React.Component {
         range.setStart(containerEl, 0);
         precedingChar = range.toString().slice(-1);
       }
-    } else if ((sel === document.selection) && sel.type !== 'Control') {
+    } else if (sel === document.selection && sel.type !== 'Control') {
       range = sel.createRange();
       precedingRange = range.duplicate();
       precedingRange.moveToElementText(containerEl);
@@ -364,7 +370,7 @@ class VariableMessage extends React.Component {
       precedingChar = precedingRange.text.slice(-1);
     }
     this.setState({ precedingChar });
-  }
+  };
 
   handleCursorSet = async (e) => {
     this.compose.focus();
@@ -372,7 +378,7 @@ class VariableMessage extends React.Component {
     await this.handleBackspace(e);
     const available = [];
     const split = this.state.message.split(/({.*?})/);
-    const lowercaseSplit = split.map(el => el.toLowerCase());
+    const lowercaseSplit = split.map((el) => el.toLowerCase());
     const variables = this.getVariables(this.props.variables);
     variables.forEach((value) => {
       const { variable } = value;
@@ -388,7 +394,7 @@ class VariableMessage extends React.Component {
     this.setState({ available });
     // update the parent with the new text contents
     this.handleComposeInput();
-  }
+  };
 
   /**
    * Make sure we force plain-text on paste
@@ -406,7 +412,7 @@ class VariableMessage extends React.Component {
 
       this.insertTextAtCursor(text, true);
     }
-  }
+  };
 
   /**
    * Handle updating live-preview and variable swap
@@ -458,17 +464,18 @@ class VariableMessage extends React.Component {
     if (this.props.onInput) {
       this.props.onInput(this.props.name, rawMessage, message);
     }
-  }
+  };
 
   /**
    * Determine if we should show reset option
    * Tests for both the reset prop and if the initialValue is not equal to the current message state
    * @return {boolean}
    */
-  showReset = () => this.props.reset && this.props.initialValue && (this.props.initialValue !== this.state.message);
+  showReset = () => this.props.reset && this.props.initialValue && this.props.initialValue !== this.state.message;
 
-  renderToggleButtons = variables => (
-    variables.filter(variable => variable.id !== -1)
+  renderToggleButtons = (variables) =>
+    variables
+      .filter((variable) => variable.id !== -1)
       .map((v) => {
         // const isDraggable = this.state.available.indexOf(v.id) >= 0;
         if (v.options) {
@@ -487,8 +494,7 @@ class VariableMessage extends React.Component {
             {v.value}
           </ToggleButton>
         );
-      })
-  )
+      });
 
   changeCategoryHandler = (category) => {
     /* placeholder added in template message when switch the category, So removing placeholder by emppty string */
@@ -496,11 +502,14 @@ class VariableMessage extends React.Component {
       this.setState({ placeholder: '' });
     }
     /* placeholder added in template message when switch the category, So removing placeholder by emppty string */
-    this.setState({
-      variablesOfCategory: this.props.variables.filter(item => item.category === category),
-      selectedCategory: category,
-    }, () => this.handleInitValue(this.state.message));
-  }
+    this.setState(
+      {
+        variablesOfCategory: this.props.variables.filter((item) => item.category === category),
+        selectedCategory: category,
+      },
+      () => this.handleInitValue(this.state.message),
+    );
+  };
 
   renderCategoryMobileView = () => {
     const {
@@ -509,33 +518,25 @@ class VariableMessage extends React.Component {
       showCharacterCounter,
       characterCountWarningLength,
     } = this.props;
-    const {
-      message,
-      variablesOfCategory,
-      selectedCategory,
-    } = this.state;
+    const { message, variablesOfCategory, selectedCategory } = this.state;
     const characterCounterClasses = cx('variable-message__character-count', {
       'variable-message__character-count--warning': message.length >= characterCountWarningLength,
     });
 
     return (
       <div className="category-mobile-view">
-        <FormLabel className="u-block u-m-t" id="Variables">Variables</FormLabel>
+        <FormLabel className="u-block u-m-t" id="Variables">
+          Variables
+        </FormLabel>
         <div className="category-dropdown">
           <Dropdown label={selectedCategory} wide block>
-            {this.state.categories.map(item => (
-              <DropdownMenuItem
-                key={item}
-                id={item}
-                label={item}
-                onClick={() => this.changeCategoryHandler(item)}
-              />))}
+            {this.state.categories.map((item) => (
+              <DropdownMenuItem key={item} id={item} label={item} onClick={() => this.changeCategoryHandler(item)} />
+            ))}
           </Dropdown>
         </div>
         <div className="category-variable-list u-m-y u-p-a">
-          {variableExplanationMessage && (
-            <div className="u-text-muted u-text-small">{variableExplanationMessage}</div>
-          )}
+          {variableExplanationMessage && <div className="u-text-muted u-text-small">{variableExplanationMessage}</div>}
           <div className="category-message__footer__variable__list">
             {this.renderToggleButtons(variablesOfCategory)}
           </div>
@@ -547,7 +548,7 @@ class VariableMessage extends React.Component {
         )}
       </div>
     );
-  }
+  };
 
   renderCategoryWebView = () => {
     const {
@@ -556,18 +557,16 @@ class VariableMessage extends React.Component {
       showCharacterCounter,
       characterCountWarningLength,
     } = this.props;
-    const {
-      message,
-      variablesOfCategory,
-      selectedCategory,
-    } = this.state;
+    const { message, variablesOfCategory, selectedCategory } = this.state;
     const characterCounterClasses = cx('variable-message__character-count', {
       'variable-message__character-count--warning': message.length >= characterCountWarningLength,
     });
 
     return (
       <div className="category-web-view">
-        <FormLabel className="u-block u-m-t" id="Variables">Variables</FormLabel>
+        <FormLabel className="u-block u-m-t" id="Variables">
+          Variables
+        </FormLabel>
         <div className="category-message__footer">
           <div className="column-4 category-message__footer__category__list">
             {this.state.categories.map((item) => {
@@ -579,13 +578,14 @@ class VariableMessage extends React.Component {
                   onClick={() => this.changeCategoryHandler(item)}
                 >
                   <span>{item}</span>
-                </div>);
+                </div>
+              );
             })}
           </div>
           <div
             className="column-8 u-p-a category-variables__section"
-            onDrop={event => this.variableStackDropHandler(event)}
-            onDragOver={event => event.preventDefault()}
+            onDrop={(event) => this.variableStackDropHandler(event)}
+            onDragOver={(event) => event.preventDefault()}
           >
             {variableExplanationMessage && (
               <div className="u-text-muted u-text-small">{variableExplanationMessage}</div>
@@ -600,7 +600,8 @@ class VariableMessage extends React.Component {
             {message.length}
           </div>
         )}
-      </div>);
+      </div>
+    );
   };
 
   renderVariableView = () => {
@@ -617,25 +618,24 @@ class VariableMessage extends React.Component {
     });
 
     return (
-      <Fragment>
+      <>
         <div
           // onDrop={event => this.variableStackDropHandler(event)}
           // onDragOver={event => event.preventDefault()}
           className="variable-message__footer"
         >
-          {variableExplanationMessage &&
-          <div className="variable-message__explanation">{variableExplanationMessage}</div>
-            }
-          <div className="variable-message__footer__variable__list">
-            {this.renderToggleButtons(variables)}
-          </div>
+          {variableExplanationMessage && (
+            <div className="variable-message__explanation">{variableExplanationMessage}</div>
+          )}
+          <div className="variable-message__footer__variable__list">{this.renderToggleButtons(variables)}</div>
         </div>
         {showCharacterCounter && (
           <div title={characterCountTitle} className={characterCounterClasses}>
             {message.length}
           </div>
         )}
-      </Fragment>);
+      </>
+    );
   };
 
   // onVariableDragStart = (event, variable) => {
@@ -751,14 +751,18 @@ class VariableMessage extends React.Component {
     return (
       <div className={classes}>
         {!displayMessageAreaOnly && (
-        <div className="variable-message__header">
-          <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>{composeLabel}</FormLabel>
-          {this.showReset() && (
-          <div className="variable-message__reset">
-            <Button reset className="u-text-muted u-text-small" onClick={() => this.handleInitValue()}>Undo</Button>
+          <div className="variable-message__header">
+            <FormLabel className="variable-message__label" id={variableMessageInputName} required={required}>
+              {composeLabel}
+            </FormLabel>
+            {this.showReset() && (
+              <div className="variable-message__reset">
+                <Button reset className="u-text-muted u-text-small" onClick={() => this.handleInitValue()}>
+                  Undo
+                </Button>
+              </div>
+            )}
           </div>
-          )}
-        </div>
         )}
         <div style={{ position: 'relative' }}>
           <div
@@ -775,26 +779,30 @@ class VariableMessage extends React.Component {
             onKeyUp={this.handleCursorSet}
             onPaste={this.handlePaste}
             name={name}
-            ref={ref => (this.compose = ref)}
+            ref={(ref) => (this.compose = ref)}
             placeholder={this.state.placeholder}
           />
         </div>
         <FormExplanationMessage explanationMessage={explanationMessage} />
         <FormValidationMessage validationMessage={validationMessage} />
         {!displayMessageAreaOnly && (
-        <Fragment>
-          {isCategoryAvailable === true ? (
-            <Fragment>
-              {/* play with css via display property. */}
-              {this.renderCategoryMobileView()}
-              {this.renderCategoryWebView()}
-            </Fragment>
-          ) : this.renderVariableView() }
-          <div className="variable-message__preview">
-            <FormLabel className="u-block" id={variableMessagePreviewName}>{previewLabel}</FormLabel>
-            <Message type="primary" direction="inbound" ref={ref => (this.preview = ref)} />
-          </div>
-        </Fragment>
+          <>
+            {isCategoryAvailable === true ? (
+              <>
+                {/* play with css via display property. */}
+                {this.renderCategoryMobileView()}
+                {this.renderCategoryWebView()}
+              </>
+            ) : (
+              this.renderVariableView()
+            )}
+            <div className="variable-message__preview">
+              <FormLabel className="u-block" id={variableMessagePreviewName}>
+                {previewLabel}
+              </FormLabel>
+              <Message type="primary" direction="inbound" ref={(ref) => (this.preview = ref)} />
+            </div>
+          </>
         )}
       </div>
     );

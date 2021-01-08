@@ -32,7 +32,7 @@ class Date extends React.Component {
           showYearDropdown
           showMonthDropdown
           dropdownMode="select"
-          ref={inputRef => (this.datePickerInput = inputRef)}
+          ref={(inputRef) => (this.datePickerInput = inputRef)}
           {...opts}
         />
         <FormValidationMessage validationMessage={validationMessage} />

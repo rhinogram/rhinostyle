@@ -112,13 +112,13 @@ class DateRangeDropdown extends React.Component {
           hideCaret
           wide
           autoFocusInput={false}
-          ref={dropdown => (this.dropdown = dropdown)}
+          ref={(dropdown) => (this.dropdown = dropdown)}
         >
           {dropdownMenuItems.map((menuItem, index) => (
             (index !== dropdownMenuItems.length - 1) &&
               <DropdownMenuItem key={menuItem.label} id={menuItem.id} label={menuItem.label} onClick={() => this.handleChange(menuItem.duration, menuItem.id)} />))}
           {isCustomDate && (
-            <Fragment>
+            <>
               <DropdownMenuDivider />
               <DropdownMenuItemWild id={5}>
                 <div className="date-range__label">
@@ -136,8 +136,8 @@ class DateRangeDropdown extends React.Component {
                       minDate={minDate}
                       maxDate={maxDate}
                       label="From:"
-                      onBlur={event => this.handleStartDateChange(moment(event.target.value, 'MM/DD/YYYY'))}
-                      ref={inputRef => (this.startDatePickerInput = inputRef)}
+                      onBlur={(event) => this.handleStartDateChange(moment(event.target.value, 'MM/DD/YYYY'))}
+                      ref={(inputRef) => (this.startDatePickerInput = inputRef)}
                     />
                   </div>
                   <div className="column-6@small">
@@ -151,8 +151,8 @@ class DateRangeDropdown extends React.Component {
                       minDate={startDate}
                       maxDate={maxDate}
                       label="To:"
-                      onBlur={event => this.handleEndDateChange(moment(event.target.value, 'MM/DD/YYYY'))}
-                      ref={inputRef => (this.endDatePickerInput = inputRef)}
+                      onBlur={(event) => this.handleEndDateChange(moment(event.target.value, 'MM/DD/YYYY'))}
+                      ref={(inputRef) => (this.endDatePickerInput = inputRef)}
                     />
                   </div>
                 </div>
@@ -161,10 +161,10 @@ class DateRangeDropdown extends React.Component {
                     <ResourceRight>
                       <Button data-cypress="apply" type="primary" size="small" onClick={this.applyDates}>Apply</Button>
                     </ResourceRight>
-                  </div>)
-                }
+                  </div>
+                )}
               </DropdownMenuItemWild>
-            </Fragment>
+            </>
           )}
         </Dropdown>
       </div>

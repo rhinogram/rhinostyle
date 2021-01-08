@@ -7,12 +7,19 @@
 ## Setup
 
 * Make sure you have the following installed:
-  * [NodeJS](http://nodejs.org) `>= 6.9.1`
+  * [NodeJS](http://nodejs.org) `10.x`
   * [yarn](https://www.npmjs.com/) `>= 0.23.4`
   * [Gulp](http://gulpjs.com) `yarn global add gulp-cli`
 
 
 ## Development Workflow
+
+## IMPORTANT!
+
+Because the build process uses outdated Gulp 3, you must use Node 10. If you have Node 10 installed via Brew, you can use it like:
+```
+PATH=\"/usr/local/Cellar/node@10/10.23.0/bin/:$PATH\" yarn build
+```
 
 Individual gulp tasks can be found in [gulpfile.babel.js](gulpfile.babel.js), but for development you will run:
 
