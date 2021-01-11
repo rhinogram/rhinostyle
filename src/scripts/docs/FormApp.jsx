@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {
@@ -35,10 +35,11 @@ import PillsInputExample from './examples/PillsInput.example.txt';
 import RhinoSwitchExample from './examples/RhinoSwitch.example.txt';
 
 const InputDocs = {
-  addon: "Display an add-on on the input, as a string <code>oneOf(['left', 'right', 'both'])</code>", // eslint-disable-line single-quotes
-  autoCapitalize: 'Adjust the capitalization settings of an input ' + // eslint-disable-line single-quotes
-    "<code>oneOf(['none', 'sentences', 'words', 'characters'])</code>", // eslint-disable-line single-quotes
-  autoComplete: "Adjust the completion settings on an input <code>oneOf(['off', 'on'])</code>", // eslint-disable-line single-quotes
+  addon: "Display an add-on on the input, as a string <code>oneOf(['left', 'right', 'both'])</code>",
+  autoCapitalize:
+    'Adjust the capitalization settings of an input ' +
+    "<code>oneOf(['none', 'sentences', 'words', 'characters'])</code>",
+  autoComplete: "Adjust the completion settings on an input <code>oneOf(['off', 'on'])</code>",
   clear: 'Form control gets a clear value button',
   customHTMLAttributes: `Any additional attributes you want to pass down to the <code>< input ></code> selector.
     <br><br>These should be contained in an object, with each item in the object formatted as <code>'data-test': 'my input'</code>
@@ -54,8 +55,9 @@ const InputDocs = {
   placeholder: 'Any placeholder text you want in the input',
   required: 'Field is required and asterisk is added to label',
   size: 'Impacts size of input - [large]',
-  type: 'As a string, what type of input you are creating - ' + // eslint-disable-line single-quotes
-    "<code>oneOf(['email', 'password', 'number', 'search', 'tel'])</code>", // eslint-disable-line single-quotes
+  type:
+    'As a string, what type of input you are creating - ' +
+    "<code>oneOf(['email', 'password', 'number', 'search', 'tel'])</code>",
 };
 const InputScope = {
   React,
@@ -65,12 +67,17 @@ const InputScope = {
 };
 
 const PillsInputDocs = {
-  className: 'A class to be passed to the pill input container. <strong>NOTE:</strong> there is a separate class for the actual input, which is passed via the inputProps object.', // eslint-disable-line max-len
-  pills: 'an array of objects with each object representing a pill. Each object must include a "label" and a unique "id".',
-  onPillCloseIconClick: 'A function that gets triggered when a user clicks the "close" button on an individual pill. Typically use this to remove an item from the pills array.', // eslint-disable-line max-len
-  pillType: 'The type of pills to use across the board, these are not customizable on an individual basis, the same type will be used for all.',
+  className:
+    'A class to be passed to the pill input container. <strong>NOTE:</strong> there is a separate class for the actual input, which is passed via the inputProps object.', // eslint-disable-line max-len
+  pills:
+    'an array of objects with each object representing a pill. Each object must include a "label" and a unique "id".',
+  onPillCloseIconClick:
+    'A function that gets triggered when a user clicks the "close" button on an individual pill. Typically use this to remove an item from the pills array.', // eslint-disable-line max-len
+  pillType:
+    'The type of pills to use across the board, these are not customizable on an individual basis, the same type will be used for all.',
   pillCloseIconClassName: 'Class to be passed to the closeIcon on all pills',
-  inputProps: 'Custom object shaped exactly like the props object on the Input component. Refer to that component\'s docs for reference',
+  inputProps:
+    "Custom object shaped exactly like the props object on the Input component. Refer to that component's docs for reference",
 };
 
 const PillsInputScope = {
@@ -91,7 +98,8 @@ const pillsInputPills = [
 const SelectDocs = {
   label: 'A label for the select',
   name: 'An id for the label and the select, use if you want clicking the label to activate the select',
-  options: 'Array of objects that contain the values and text for the options, with an optional selected key, { id: number|string, value: string }',
+  options:
+    'Array of objects that contain the values and text for the options, with an optional selected key, { id: number|string, value: string }',
   disabled: 'Disable the select',
   required: 'Field is required and asterisk is added to label',
   onSelect: 'Function that returns the name of the Select and the value that was selected',
@@ -148,7 +156,8 @@ const CheckboxDocs = {
   name: 'An id, and label for the checkbox',
   onClick: 'A function you want to trigger when the checkbox is toggled',
   onChange: 'A function that returns the name and value of the checkbox',
-  children: '(Currently) only for use when <code>&lt;CheckboxGroup /&gt;</code> has blockGroup prop; shows content based on select state of option',
+  children:
+    '(Currently) only for use when <code>&lt;CheckboxGroup /&gt;</code> has blockGroup prop; shows content based on select state of option',
 };
 const CheckboxScope = {
   React,
@@ -168,7 +177,8 @@ const RadioDocs = {
   onChange: 'A function you which to trigger when you change the selection',
   selectedValue: 'The radio you want selected, when used in a group',
   value: 'A value for the radio',
-  children: '(Currently) only for use when <code>&lt;RadioGroup /&gt;</code> has blockGroup prop; shows content based on select state of option',
+  children:
+    '(Currently) only for use when <code>&lt;RadioGroup /&gt;</code> has blockGroup prop; shows content based on select state of option',
 };
 const RadioScope = {
   React,
@@ -182,8 +192,9 @@ const RadioScope = {
 const SlidingRadioDocs = {
   label: 'Text visible to user above component',
   disabled: 'Disable the component',
-  options: 'An array of objects consisting of <code>name, value, and type</code>.&nbsp;'
-    + 'The <code>type</code> value is string identifyer for color class selections - <code>oneOf(["warning", "danger", "secondary"])</code>',
+  options:
+    'An array of objects consisting of <code>name, value, and type</code>.&nbsp;' +
+    'The <code>type</code> value is string identifyer for color class selections - <code>oneOf(["warning", "danger", "secondary"])</code>',
   onChange: 'A function you which to trigger when you change the selection',
   selectedValue: 'The sliding radio you want selected',
   className: 'Class to be applied to the individual sliding radios',
@@ -212,13 +223,14 @@ const RhinoSwitchScope = {
 };
 
 const FormApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Forms</h3>
-      <p className="site-text-lead">Forms are assembled using our suite of custom form components. It is important to
-        understand that form components have a <code>form__control</code> class for consistent appearance. Form
-        components are also wrapped in a <code>form__group</code> class which provides vertical spacing. Finally,
-        you may use the <code>form__section</code> class to provide vertical spacing between sections of a form.
+      <p className="site-text-lead">
+        Forms are assembled using our suite of custom form components. It is important to understand that form
+        components have a <code>form__control</code> class for consistent appearance. Form components are also wrapped
+        in a <code>form__group</code> class which provides vertical spacing. Finally, you may use the{' '}
+        <code>form__section</code> class to provide vertical spacing between sections of a form.
       </p>
     </section>
 
@@ -261,8 +273,9 @@ const FormApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">Input</h3>
-      <p className="site-copy">We are using the <a href="http://nosir.github.io/cleave.js/">cleave</a> package to
-        enhance inputs with formatting/masking ability.
+      <p className="site-copy">
+        We are using the <a href="http://nosir.github.io/cleave.js/">cleave</a> package to enhance inputs with
+        formatting/masking ability.
       </p>
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Common Input</h5>
@@ -273,7 +286,9 @@ const FormApp = () => (
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Input Add-On</h5>
         <div className="site-copy">
-          <p>Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.</p>
+          <p>
+            Use the <code>addon</code> property on Inputs with add-ons. Pass the addons as renderable nodes.
+          </p>
         </div>
         <Input name="example34534534453" addon="left" type="text" placeholder="Encrypted">
           <Icon icon="lock" />
@@ -282,7 +297,9 @@ const FormApp = () => (
           <Icon icon="search" />
         </Input>
         <Input name="example2342323" addon="right" type="text">
-          <Button reset className="u-text-primary">Go For It!</Button>
+          <Button reset className="u-text-primary">
+            Go For It!
+          </Button>
         </Input>
         <Input name="example235436345" addon="both" type="text" placeholder="Lorem ipsum dolor sit">
           <span>Amount $</span>
@@ -292,21 +309,27 @@ const FormApp = () => (
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Clear Input</h5>
         <div className="site-copy">
-          <p>Use the <code>clear</code> property on Inputs to include a clear value button.</p>
+          <p>
+            Use the <code>clear</code> property on Inputs to include a clear value button.
+          </p>
         </div>
         <Input name="exampleInputText111" label="Clear Input" type="text" clear />
       </div>
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Naked Input</h5>
         <div className="site-copy">
-          <p>Use the <code>naked</code> property on Inputs to strip it of background, border, height, and padding.</p>
+          <p>
+            Use the <code>naked</code> property on Inputs to strip it of background, border, height, and padding.
+          </p>
         </div>
         <Input name="exampleInputText999" placeholder="Naked Input" type="text" naked />
       </div>
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Large Input</h5>
         <div className="site-copy">
-          <p>Use the <code>size</code> property on Inputs increase its size.</p>
+          <p>
+            Use the <code>size</code> property on Inputs increase its size.
+          </p>
         </div>
         <Input addon="left" size="large" name="exampleInputText999" placeholder="Large Input" type="text">
           <Icon icon="search" />
@@ -316,10 +339,10 @@ const FormApp = () => (
       <div className="u-m-b-large">
         <h5 className="site-miniheadline">Input Masking</h5>
         <div className="site-copy">
-          <p>Use <code>format</code> property alongside options from
-            <a href="https://github.com/nosir/cleave.js">
-            Cleave.js
-            </a> to mask inputs for easier masking/validation. <em>Date example below.</em>
+          <p>
+            Use <code>format</code> property alongside options from
+            <a href="https://github.com/nosir/cleave.js">Cleave.js</a> to mask inputs for easier masking/validation.{' '}
+            <em>Date example below.</em>
           </p>
         </div>
         <Input
@@ -335,12 +358,7 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Input Playground</h3>
 
-      <Live
-        code={InputExample}
-        scope={InputScope}
-        component={Input}
-        propDescriptions={InputDocs}
-      />
+      <Live code={InputExample} scope={InputScope} component={Input} propDescriptions={InputDocs} />
     </section>
 
     <section className="site-section">
@@ -351,12 +369,7 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Text Area Playground</h3>
 
-      <Live
-        code={TextareaExample}
-        scope={TextareaScope}
-        component={Textarea}
-        propDescriptions={TextareaDocs}
-      />
+      <Live code={TextareaExample} scope={TextareaScope} component={Textarea} propDescriptions={TextareaDocs} />
     </section>
 
     <section className="site-section">
@@ -368,22 +381,15 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Pills Input Playground</h3>
 
-      <Live
-        code={PillsInputExample}
-        scope={PillsInputScope}
-        component={PillsInput}
-        propDescriptions={PillsInputDocs}
-      />
+      <Live code={PillsInputExample} scope={PillsInputScope} component={PillsInput} propDescriptions={PillsInputDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Message Box </h3>
-      <p className="site-copy">We are using the
-        <a
-          href="https://github.com/andreypopp/react-textarea-autosize"
-          target="_blank"
-          rel="noopener noreferrer"
-        >react-textarea-autosize
+      <p className="site-copy">
+        We are using the
+        <a href="https://github.com/andreypopp/react-textarea-autosize" target="_blank" rel="noopener noreferrer">
+          react-textarea-autosize
         </a>
         package, with custom styling for the autogrow functionality.
       </p>
@@ -393,18 +399,15 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Message Box Playground</h3>
 
-      <Live
-        code={MessageBoxExample}
-        scope={MessageBoxScope}
-        component={MessageBox}
-        propDescriptions={MessageBoxDocs}
-      />
+      <Live code={MessageBoxExample} scope={MessageBoxScope} component={MessageBox} propDescriptions={MessageBoxDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox</h3>
       <h5 className="site-miniheadline">Rhinobox</h5>
-      <p className="site-copy">Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.</p>
+      <p className="site-copy">
+        Our custom checkbox element is called <code>rhinobox</code>. By default, these are stacked.
+      </p>
       <p>
         <strong>Note:</strong> Regardless of the amount, always wrap checkboxes in the
         <code>&lt;CheckboxGroup&gt;</code> component for proper spacing and the availability of the <code>label</code>
@@ -418,7 +421,8 @@ const FormApp = () => (
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Inline</h5>
-        <p className="site-copy">To place checkboxes inline that wrap with automagic spacing, you can add the
+        <p className="site-copy">
+          To place checkboxes inline that wrap with automagic spacing, you can add the
           <code>inline</code> property to the <code>&lt;CheckboxGroup&gt;</code> component.
         </p>
         <CheckboxGroup inline>
@@ -430,7 +434,8 @@ const FormApp = () => (
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Block Group</h5>
-        <p className="site-copy">To place checkboxes inside a contained block, you can add the <code>blockGroup</code>
+        <p className="site-copy">
+          To place checkboxes inside a contained block, you can add the <code>blockGroup</code>
           property to the <code>&lt;CheckboxGroup&gt;</code> component.
         </p>
         <CheckboxGroup blockGroup label="Checkboxes (block group)">
@@ -438,28 +443,28 @@ const FormApp = () => (
             isChecked
             name="exampleCheckbox97"
             label={(
-              <Fragment>
+              <>
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
-              </Fragment>
+              </>
             )}
           />
           <Checkbox
             name="exampleCheckbox98"
             label={(
-              <Fragment>
+              <>
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
-              </Fragment>
+              </>
             )}
           />
           <Checkbox
             name="exampleCheckbox99"
             label={(
-              <Fragment>
+              <>
                 <span className="form__block-group__label">Checkbox 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
-              </Fragment>
+              </>
             )}
           >
             I only show up when Checkbox 3 is selected!
@@ -471,19 +476,17 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Checkbox Playground</h3>
 
-      <Live
-        code={CheckboxExample}
-        scope={CheckboxScope}
-        component={Checkbox}
-        propDescriptions={CheckboxDocs}
-      />
+      <Live code={CheckboxExample} scope={CheckboxScope} component={Checkbox} propDescriptions={CheckboxDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Radio</h3>
       <h5 className="site-miniheadline">Rhinodio</h5>
-      <p className="site-copy">Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.</p>
-      <p><strong>Note:</strong> Regardless of the amount, always wrap radio options in the
+      <p className="site-copy">
+        Our custom radio element is called <code>rhinodio</code>. By default, these are stacked.
+      </p>
+      <p>
+        <strong>Note:</strong> Regardless of the amount, always wrap radio options in the
         <code>&lt;RadioGroup&gt;</code> component for proper spacing, <code>name</code> attribute, and the availability
         of the <code>label</code> property.
       </p>
@@ -495,7 +498,8 @@ const FormApp = () => (
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Inline</h5>
-        <p className="site-copy">To place radios inline that wrap with automagic spacing, you can add the
+        <p className="site-copy">
+          To place radios inline that wrap with automagic spacing, you can add the
           <code>inline</code> property to the <code>&lt;RadioGroup&gt;</code> component.
         </p>
         <RadioGroup inline name="exampleRadio4" selectedValue="2">
@@ -507,7 +511,8 @@ const FormApp = () => (
 
       <div className="u-m-t-large">
         <h5 className="site-miniheadline">Block Group</h5>
-        <p className="site-copy">To place radios inside a contained block, you can add the
+        <p className="site-copy">
+          To place radios inside a contained block, you can add the
           <code>blockGroup</code> property to the
           <code>&lt;RadioGroup&gt;</code> component.
         </p>
@@ -515,28 +520,28 @@ const FormApp = () => (
           <Radio
             value="1"
             label={(
-              <Fragment>
+              <>
                 <span className="form__block-group__label">Radio 1</span>
                 <span className="form__block-group__desc">This is a test description</span>
-              </Fragment>
+              </>
             )}
           />
           <Radio
             value="2"
             label={(
-              <Fragment>
+              <>
                 <span className="form__block-group__label">Radio 2</span>
                 <span className="form__block-group__desc">This is a test description</span>
-              </Fragment>
+              </>
             )}
           />
           <Radio
             value="3"
             label={(
-              <Fragment>
+              <>
                 <span className="form__block-group__label">Radio 3</span>
                 <span className="form__block-group__desc">This is a test description</span>
-              </Fragment>
+              </>
             )}
           >
             I only show up when Radio 3 is selected!
@@ -548,19 +553,16 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Radio Playground</h3>
 
-      <Live
-        code={RadioExample}
-        scope={RadioScope}
-        component={Radio}
-        propDescriptions={RadioDocs}
-      />
+      <Live code={RadioExample} scope={RadioScope} component={Radio} propDescriptions={RadioDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Select</h3>
       <div>
         <h5 className="site-miniheadline">Rhinoselect</h5>
-        <p className="site-copy">Our custom select element is called <strong>rhinoselect</strong>.</p>
+        <p className="site-copy">
+          Our custom select element is called <strong>rhinoselect</strong>.
+        </p>
         <Select name="exampleSelect2" label="Select" options={selectOpts} />
       </div>
     </section>
@@ -568,19 +570,15 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Select Playground</h3>
 
-      <Live
-        code={SelectExample}
-        scope={SelectScope}
-        component={Select}
-        propDescriptions={SelectDocs}
-      />
+      <Live code={SelectExample} scope={SelectScope} component={Select} propDescriptions={SelectDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">Switcher</h3>
       <h5 className="site-miniheadline">Rhinoswitcher</h5>
-      <p className="site-copy">Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher
-        using the <code>disabled</code> property.
+      <p className="site-copy">
+        Our custom switcher element is called <code>rhinoswitcher</code>. Disable the switcher using the{' '}
+        <code>disabled</code> property.
       </p>
       <UtilityInlineGrid>
         <RhinoSwitch name="rhinoswitch2" isChecked />
@@ -602,9 +600,12 @@ const FormApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Sliding Radio</h3>
       <h5 className="site-miniheadline">Rhinoslidingradio</h5>
-      <p className="site-copy">Our custom radio element is called <code>rhinoslidingradio</code>.</p>
-      <p><strong>Note:</strong> The <code>SlidingRadio</code> component is automatically set to full width.
-       To limit it&#39;s size, wrap the component in a <code>div</code> tag (or similar HTML tag) with a set width.
+      <p className="site-copy">
+        Our custom radio element is called <code>rhinoslidingradio</code>.
+      </p>
+      <p>
+        <strong>Note:</strong> The <code>SlidingRadio</code> component is automatically set to full width. To limit
+        it&#39;s size, wrap the component in a <code>div</code> tag (or similar HTML tag) with a set width.
       </p>
       <div className="u-m-t" style={{ width: '30rem' }}>
         <SlidingRadio
@@ -629,7 +630,7 @@ const FormApp = () => (
         propDescriptions={SlidingRadioDocs}
       />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<FormApp />, document.getElementById('root'));

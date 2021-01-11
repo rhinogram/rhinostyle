@@ -95,7 +95,7 @@ class DropdownWrapper extends React.Component {
       <div
         aria-haspopup="true"
         aria-expanded="false"
-        ref={ref => (this.dropdown = ref)}
+        ref={(ref) => (this.dropdown = ref)}
         className={this.props.className}
         data-cypress={this.props.dataCypress}
       >

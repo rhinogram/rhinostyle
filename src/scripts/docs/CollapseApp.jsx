@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {
@@ -23,7 +23,8 @@ const CollapseDocs = {
   isOpen: 'Control the state of the collapse',
   onTransitionStart: 'Optional function that will be run when the transition begins',
   onTransitionEnd: 'Optional function that will be run when the transition ends',
-  onTransitionCancelled: 'Optional function that will be run if the collapse is toggled mid-transition, this is helpful when wanting to reverse anything done at onTransitionStart event since we will not see a onTransitionEnd here.', // eslint-disable-line max-len
+  onTransitionCancelled:
+    'Optional function that will be run if the collapse is toggled mid-transition, this is helpful when wanting to reverse anything done at onTransitionStart event since we will not see a onTransitionEnd here.', // eslint-disable-line max-len
 };
 const CollapseScope = {
   React,
@@ -42,7 +43,7 @@ const CollapseScope = {
 };
 
 const CollapseApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Collapse</h3>
       <p className="site-text-lead">Toggle the visibility of content across your project.</p>
@@ -51,14 +52,9 @@ const CollapseApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Playground</h3>
 
-      <Live
-        code={CollapseExample}
-        scope={CollapseScope}
-        component={Collapse}
-        propDescriptions={CollapseDocs}
-      />
+      <Live code={CollapseExample} scope={CollapseScope} component={Collapse} propDescriptions={CollapseDocs} />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<CollapseApp />, document.getElementById('root'));

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Button, Icon, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
@@ -7,8 +7,8 @@ import UtilityInlineGridExample from './examples/UtilityInlineGrid.example.txt';
 import UtilityListExample from './examples/UtilityList.example.txt';
 
 const UtilityInlineGridDocs = {
-  align: "Align grid along x-axis <code>oneOf([middle', 'right', 'between'])</code>", // eslint-disable-line single-quotes
-  size: "Gutter size for list <code>oneOf(['small', 'regular', 'large'])</code>", // eslint-disable-line single-quotes
+  align: "Align grid along x-axis <code>oneOf([middle', 'right', 'between'])</code>",
+  size: "Gutter size for list <code>oneOf(['small', 'regular', 'large'])</code>",
 };
 const UtilityInlineGridScope = {
   React,
@@ -30,7 +30,7 @@ const UtilityListScope = {
 };
 
 const UtilityComponentsApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Utility Components</h3>
       <p className="site-text-lead">Helpers that can be used in conjunction with our components.</p>
@@ -75,7 +75,7 @@ const UtilityComponentsApp = () => (
         propDescriptions={UtilityListDocs}
       />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<UtilityComponentsApp />, document.getElementById('root'));

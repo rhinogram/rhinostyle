@@ -98,7 +98,7 @@ class DropdownCheckbox extends React.Component {
     }
 
     // Update state
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
 
     if (this.props.onClick) {
       this.props.onClick();
@@ -233,7 +233,7 @@ class DropdownCheckbox extends React.Component {
         onComplete={onComplete}
         onReverseComplete={onReverseComplete}
         onReverseStart={onReverseStart}
-        ref={ref => (this.dropdown = ref)}
+        ref={(ref) => (this.dropdown = ref)}
       >
         <Button
           reset={reset}

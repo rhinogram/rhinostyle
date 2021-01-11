@@ -101,7 +101,6 @@ export const optimizedResize = (function () { // eslint-disable-line func-names
       addCallback(callback);
     },
   };
-
 }()); // eslint-disable-line
 
 /**
@@ -151,7 +150,6 @@ export function checkVectorEffectSupport() {
     document.body.classList.add('no-vectorEffect-support');
   }
 }
-
 
 /**
  * Taken from https://www.npmjs.com/package/uuid

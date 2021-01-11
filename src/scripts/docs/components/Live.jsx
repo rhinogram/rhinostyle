@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import {
-  LiveProvider,
-  LiveEditor,
-  LiveError,
-  LivePreview,
-} from 'react-live';
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import { transform } from '@babel/core';
 
 import Docs from './Docs';
 
@@ -15,13 +11,23 @@ const Live = (props) => {
   scopeProps.Fragment = Fragment;
 
   return (
+    // eslint-disable-next-line react/jsx-fragments
     <Fragment>
       <Docs component={props.component} propDescriptions={props.propDescriptions} />
       <LiveProvider
         scope={scopeProps}
         code={props.code}
         mountStylesheet={false}
-        transformCode={input => Babel.transform(input, { presets: ['stage-0', 'react'] }).code}
+        transformCode={(input) =>
+          transform(input, {
+            plugins: [
+              require('@babel/plugin-syntax-jsx'), // eslint-disable-line global-require
+              [
+                require('@babel/plugin-proposal-class-properties'), // eslint-disable-line global-require
+                { loose: true },
+              ],
+            ],
+          }).code}
       >
         <LiveEditor />
         <LivePreview />

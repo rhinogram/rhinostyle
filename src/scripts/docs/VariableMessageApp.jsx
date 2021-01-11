@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { VariableMessage } from '../components';
@@ -22,7 +22,7 @@ const VariableMessageScope = {
 };
 
 const VariableMessageApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Variable Messages</h3>
       <p className="site-text-lead">Variable Messages are a composition tool that uses placeholders to create templates that substitute the actual values when in-use.</p>
@@ -38,7 +38,7 @@ const VariableMessageApp = () => (
         propDescriptions={VariableMessageDocs}
       />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<VariableMessageApp />, document.getElementById('root'));

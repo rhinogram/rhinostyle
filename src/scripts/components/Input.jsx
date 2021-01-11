@@ -178,7 +178,7 @@ class Input extends React.Component {
               onMouseDown={this.handleMouseDown}
               data-cypress={dataCypress}
               readOnly={readOnly}
-              htmlRef={ref => (this.input = ref)}
+              htmlRef={(ref) => (this.input = ref)}
               {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
             />
             {input && clear && (
@@ -211,7 +211,7 @@ class Input extends React.Component {
             onMouseDown={this.handleMouseDown}
             data-cypress={dataCypress}
             readOnly={readOnly}
-            ref={ref => (this.input = ref)}
+            ref={(ref) => (this.input = ref)}
             {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
           />
           {input && clear && (
@@ -311,6 +311,8 @@ Input.propTypes = {
   size: PropTypes.oneOf(['large']),
   type: PropTypes.oneOf(['email', 'password', 'text', 'number', 'search', 'tel']),
   validationMessage: PropTypes.string,
+  onInput: PropTypes.func,
+  id: PropTypes.string,
 };
 
 Input.defaultProps = {

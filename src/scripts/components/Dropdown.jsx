@@ -3,14 +3,27 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Avatar, Button, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '.';
+import {
+  Avatar,
+  Button,
+  DropdownMenuItem,
+  DropdownMenuItemWild,
+  DropdownMenuScroll,
+  DropdownFilter,
+  DropdownWrapper,
+  Icon,
+} from '.';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {
     return new Error(`Only one of \`avatar\` or \`icon\` can be supplied to \`${componentName}\`.`);
   } else if (props[propName]) {
     if (typeof props[propName] !== 'string') {
-      return new Error(`Invalid prop \`${props[propName]}\` of type \`${typeof props[propName]}\` supplied to \`${componentName}\`, expected \`string\`.`);
+      return new Error(
+        `Invalid prop \`${props[propName]}\` of type \`${typeof props[
+          propName
+        ]}\` supplied to \`${componentName}\`, expected \`string\`.`,
+      );
     }
   }
   return null;
@@ -67,7 +80,7 @@ class Dropdown extends React.Component {
 
         returnChild = React.cloneElement(child, {
           onClick,
-          active: this.state.activeKey && (child.props.id === this.state.activeKey) ? true : false, // eslint-disable-line
+          active: this.state.activeKey && child.props.id === this.state.activeKey ? true : false, // eslint-disable-line
         });
       } else if (child.type === DropdownFilter) {
         returnChild = React.cloneElement(child, {
@@ -87,7 +100,7 @@ class Dropdown extends React.Component {
 
       return returnChild;
     });
-  }
+  };
 
   handleToggle = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
@@ -121,7 +134,7 @@ class Dropdown extends React.Component {
     if (this.props.onClick) {
       this.props.onClick();
     }
-  }
+  };
 
   updateActiveKey = (index) => {
     if (this.props.hideActive) {
@@ -131,7 +144,7 @@ class Dropdown extends React.Component {
     this.setState({
       activeKey: index,
     });
-  }
+  };
 
   render() {
     const {
@@ -163,9 +176,13 @@ class Dropdown extends React.Component {
     } = this.props;
     const { activeKey, hasFilter } = this.state;
 
-    const dropdownClasses = cx('dropdown', {
-      'dropdown--block': block,
-    }, wrapperClassName);
+    const dropdownClasses = cx(
+      'dropdown',
+      {
+        'dropdown--block': block,
+      },
+      wrapperClassName,
+    );
 
     const dropdownToggleClasses = cx('dropdown__toggle', className);
 
@@ -231,7 +248,7 @@ class Dropdown extends React.Component {
         onReverseComplete={onReverseComplete}
         onReverseStart={onReverseStart}
         dataCypress={dataCypress}
-        ref={ref => (this.dropdown = ref)}
+        ref={(ref) => (this.dropdown = ref)}
       >
         <Button
           reset={reset}
@@ -245,20 +262,28 @@ class Dropdown extends React.Component {
           title={title}
           outlined={outlined}
         >
-          {selectedIcon || icon ?
-            <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null
-          }
-          {avatar &&
-            <Avatar name={avatar.name} type={avatar.type} image={avatar.image} size={avatar.size} className="app-header__avatar" onClick={this.handleToggle} />
-          }
+          {selectedIcon || icon ? <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} /> : null}
+          {avatar && (
+            <Avatar
+              name={avatar.name}
+              type={avatar.type}
+              image={avatar.image}
+              size={avatar.size}
+              className="app-header__avatar"
+              onClick={this.handleToggle}
+            />
+          )}
           {showLabel()}
-          {hideCaret || (icon && avatar && !label && !selectedLabel) ?
-            null :
+          {hideCaret || (icon && avatar && !label && !selectedLabel) ? null : (
             <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
-          }
+          )}
         </Button>
         <div className={dropdownMenuClasses}>
-          {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
+          {hasFilter || disableScroll ? (
+            this.getChildren()
+          ) : (
+            <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>
+          )}
         </div>
       </DropdownWrapper>
     );
@@ -285,7 +310,18 @@ Dropdown.propTypes = {
   reset: PropTypes.bool,
   size: PropTypes.oneOf(['small', 'large']),
   title: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'primary', 'secondary', 'accent', 'input', 'outline-reversed', 'outline', 'link', 'link-muted', 'danger']),
+  type: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'accent',
+    'input',
+    'outline-reversed',
+    'outline',
+    'link',
+    'link-muted',
+    'danger',
+  ]),
   wide: PropTypes.bool,
   showOverflow: PropTypes.bool,
   onComplete: PropTypes.func,
@@ -300,6 +336,7 @@ Dropdown.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.oneOf(['default', 'member']),
+    size: PropTypes.string,
   }),
 };
 

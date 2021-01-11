@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { LoaderCircle, LoaderPulse, UtilityInlineGrid, UtilityList, UtilityListItem } from '../components';
@@ -8,7 +8,7 @@ import LoaderPulseExample from './examples/LoaderPulse.example.txt';
 
 const LoaderCircleDocs = {
   pause: 'Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  size: "<code>oneOf(['xsmall', 'small', 'large'])</code>", // eslint-disable-line single-quotes
+  size: "<code>oneOf(['xsmall', 'small', 'large'])</code>",
 };
 const LoaderCircleScope = {
   React,
@@ -19,7 +19,7 @@ const LoaderCircleScope = {
 
 const LoaderPulseDocs = {
   pause: 'Pause animation. This is normally used if the loader is in the DOM, but not visible - to save on performance',
-  type: "<code>oneOf(['default', 'accent', 'secondary'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['default', 'accent', 'secondary'])</code>",
 };
 const LoaderPulseScope = {
   React,
@@ -28,10 +28,12 @@ const LoaderPulseScope = {
 };
 
 const LoaderApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">LoaderCircle Sizes</h3>
-      <p className="site-copy"><code>size=&quot;xsmall | small | large&quot;</code></p>
+      <p className="site-copy">
+        <code>size=&quot;xsmall | small | large&quot;</code>
+      </p>
       <UtilityInlineGrid>
         <LoaderCircle size="xsmall" />
         <LoaderCircle size="small" />
@@ -53,11 +55,19 @@ const LoaderApp = () => (
 
     <section className="site-section">
       <h3 className="site-subheadline">LoaderPulse Types</h3>
-      <p className="site-copy"><code>type=&quot;default | secondary | accent&quot;</code></p>
+      <p className="site-copy">
+        <code>type=&quot;default | secondary | accent&quot;</code>
+      </p>
       <UtilityList space>
-        <UtilityListItem><LoaderPulse /></UtilityListItem>
-        <UtilityListItem><LoaderPulse type="accent" /></UtilityListItem>
-        <UtilityListItem><LoaderPulse type="secondary" /></UtilityListItem>
+        <UtilityListItem>
+          <LoaderPulse />
+        </UtilityListItem>
+        <UtilityListItem>
+          <LoaderPulse type="accent" />
+        </UtilityListItem>
+        <UtilityListItem>
+          <LoaderPulse type="secondary" />
+        </UtilityListItem>
       </UtilityList>
     </section>
 
@@ -71,7 +81,7 @@ const LoaderApp = () => (
         propDescriptions={LoaderPulseDocs}
       />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<LoaderApp />, document.getElementById('root'));

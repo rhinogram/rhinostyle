@@ -134,7 +134,7 @@ class Modal extends React.Component {
     return (
       renderModal &&
         ReactDOM.createPortal(
-          <div className={modalClasses} ref={ref => (this.modal = ref)}>
+          <div className={modalClasses} ref={(ref) => (this.modal = ref)}>
             <div className={modalDialogClasses}>
               <div className="modal__content">
                 {children}

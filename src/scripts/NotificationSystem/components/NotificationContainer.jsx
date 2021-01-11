@@ -105,7 +105,7 @@ class NotificationContainer extends React.Component {
     const { body, type } = this.props.notification;
 
     return (
-      <Toast ref={ref => (this.toast = ref)} type={type} body={body} onDismiss={this.hideNotification} />
+      <Toast ref={(ref) => (this.toast = ref)} type={type} body={body} onDismiss={this.hideNotification} />
     );
   }
 }

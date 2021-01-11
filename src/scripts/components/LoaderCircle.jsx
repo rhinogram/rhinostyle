@@ -37,7 +37,7 @@ class LoaderCircle extends React.Component {
     });
 
     return (
-      <div className={classes} ref={ref => (this.loader = ref)} />
+      <div className={classes} ref={(ref) => (this.loader = ref)} />
     );
   }
 }

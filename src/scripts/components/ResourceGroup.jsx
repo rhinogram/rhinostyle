@@ -40,7 +40,7 @@ class ResourceGroup extends React.Component {
       <div className="resource-group__container">
         { separator && <div className="resource-group__separator">{separator}</div> }
         <ContainerQuery query={containerQueryParams}>
-          {params => (
+          {(params) => (
             <div className={cx('resource-group', className, {
               ...params,
             })}

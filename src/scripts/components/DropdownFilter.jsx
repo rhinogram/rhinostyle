@@ -24,7 +24,7 @@ class DropdownFilter extends React.Component {
       if (child.type === DropdownMenuItem) {
         returnChild = React.cloneElement(child, {
           onClick: () => this.itemClick(child),
-          active: this.props.activeKey && (child.props.id === this.props.activeKey),
+          active: this.props.activeKey && child.props.id === this.props.activeKey,
           key: child.props.id,
         });
       } else if (child.type === DropdownMenuItemWild) {
@@ -36,11 +36,11 @@ class DropdownFilter extends React.Component {
       }
       return returnChild;
     });
-  }
+  };
 
   itemClick2 = () => {
     this.props.handleToggle();
-  }
+  };
 
   itemClick = (child) => {
     const { id, icon, onClick } = child.props;
@@ -59,7 +59,7 @@ class DropdownFilter extends React.Component {
     }
 
     this.props.handleToggle();
-  }
+  };
 
   handleFilter = (e) => {
     const query = e.target.value;
@@ -71,11 +71,13 @@ class DropdownFilter extends React.Component {
         const searchText = child.props.label;
 
         if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-          items.push(React.cloneElement(child, {
-            onClick: () => this.itemClick(child),
-            active: this.props.activeKey && (child.props.id === this.props.activeKey),
-            key: child.props.id,
-          }));
+          items.push(
+            React.cloneElement(child, {
+              onClick: () => this.itemClick(child),
+              active: this.props.activeKey && child.props.id === this.props.activeKey,
+              key: child.props.id,
+            }),
+          );
         }
       } else {
         items.push(child);
@@ -85,21 +87,25 @@ class DropdownFilter extends React.Component {
     this.setState({
       items,
     });
-  }
+  };
 
   render() {
     const { placeholder } = this.props;
     const { items } = this.state;
 
     return (
-      <Fragment>
+      <>
         <div className="dropdown__menu__container">
-          <input type="text" className="form__control" ref={ref => (this.filterInput = ref)} placeholder={placeholder} onChange={this.handleFilter} />
+          <input
+            type="text"
+            className="form__control"
+            ref={(ref) => (this.filterInput = ref)}
+            placeholder={placeholder}
+            onChange={this.handleFilter}
+          />
         </div>
-        <DropdownMenuScroll>
-          {items}
-        </DropdownMenuScroll>
-      </Fragment>
+        <DropdownMenuScroll>{items}</DropdownMenuScroll>
+      </>
     );
   }
 }

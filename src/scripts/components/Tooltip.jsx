@@ -244,7 +244,7 @@ class Tooltip extends React.Component {
   removeTooltip(tooltip) {
     this.tooltipId = undefined;
 
-    // Using removeChild as remove function do not works in IE
+    // Using removeChild as remove function does not work in IE
     tooltip.parentNode.removeChild(tooltip);
   }
 

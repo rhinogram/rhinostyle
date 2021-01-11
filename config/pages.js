@@ -25,11 +25,11 @@ nunjucks.configure(['./src/templates', './dist/svg'], {
  */
 function getDirectories(srcPath) {
   return fs.readdirSync(srcPath)
-    .filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
+    .filter((file) => fs.statSync(path.join(srcPath, file)).isDirectory());
 }
 
 // Get source directories
-const srcDirectories = getDirectories('./src').filter(item => item !== 'pages');
+const srcDirectories = getDirectories('./src').filter((item) => item !== 'pages');
 // Will hold final, mutated directories
 const ignoreDirectories = [];
 // Loop through source directories and adjust paths based on `metalsmith-ignore` needs

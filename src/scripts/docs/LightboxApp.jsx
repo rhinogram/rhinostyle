@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Button, Label, Lightbox } from '../components';
@@ -14,12 +14,16 @@ const LightboxScope = {
 };
 
 const LightboxApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
-      <h3 className="site-subheadline">Lightbox <Label className="u-m-l-small" type="accent" label="third party" /></h3>
+      <h3 className="site-subheadline">
+        Lightbox <Label className="u-m-l-small" type="accent" label="third party" />
+      </h3>
       <p className="site-copy">
         We are using
-        <a href="https://github.com/fritz-c/react-image-lightbox" target="_blank" rel="noopener noreferrer">react-image-lightbox</a>
+        <a href="https://github.com/fritz-c/react-image-lightbox" target="_blank" rel="noopener noreferrer">
+          react-image-lightbox
+        </a>
         for lightbox images/galleries.
       </p>
     </section>
@@ -27,14 +31,9 @@ const LightboxApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Lightbox Playground</h3>
 
-      <Live
-        code={LightboxExample}
-        scope={LightboxScope}
-        component={Lightbox}
-        propDescriptions={LightboxDocs}
-      />
+      <Live code={LightboxExample} scope={LightboxScope} component={Lightbox} propDescriptions={LightboxDocs} />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<LightboxApp />, document.getElementById('root'));

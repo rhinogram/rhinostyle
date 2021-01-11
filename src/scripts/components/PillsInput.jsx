@@ -41,7 +41,7 @@ class PillsInput extends React.Component {
 
   render() {
     const renderPills = () => (
-      this.props.pills.map(pill => (
+      this.props.pills.map((pill) => (
         <div className="pill-input__pill-container" key={pill.id}>
           <Pill
             type={this.props.pillType}

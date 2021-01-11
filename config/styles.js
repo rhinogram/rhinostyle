@@ -31,7 +31,7 @@ export function distStyles() {
     .pipe($.changed(path.dist))
     .pipe($.sourcemaps.init())
     // Do not compress to allow importing as 'less' in other projects.
-    .pipe($.less({ compress: false }).on('error', function(err) { // eslint-disable-line func-names
+    .pipe($.less({ compress: false }).on('error', function (err) { // eslint-disable-line func-names
       // Show error in console
       console.error(err.message); // eslint-disable-line no-console
       // Display error in the browser
@@ -61,7 +61,7 @@ export function docsStyles() {
   return gulp.src(path.docSrc)
     .pipe($.changed(path.build))
     .pipe($.sourcemaps.init())
-    .pipe($.less({ compress: false }).on('error', function(err) { // eslint-disable-line func-names
+    .pipe($.less({ compress: false }).on('error', function (err) { // eslint-disable-line func-names
       // Show error in console
       console.error(err.message); // eslint-disable-line no-console
       // Display error in the browser

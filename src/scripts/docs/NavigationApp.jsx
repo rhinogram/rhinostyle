@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { NavTabs, NavTabsItem } from '../components';
@@ -7,7 +7,7 @@ import NavTabsExample from './examples/NavTabs.example.txt';
 
 const NavTabsDocs = {
   activeKey: 'Include active key',
-  justified: "<code>oneOf(['auto', 'equal', 'none'])</code>", // eslint-disable-line single-quotes
+  justified: "<code>oneOf(['auto', 'equal', 'none'])</code>",
   onSelect: 'On select of nav item',
 };
 const NavTabsScope = {
@@ -51,12 +51,13 @@ class NavigationApp extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <section className="site-section">
           <h3 className="site-subheadline">Navigation</h3>
-          <p className="site-text-lead">Below you will find our set of navigation components. This page exists to
-            demonstrate the UI of each - appearance, layout, animation, and active states.
-           Some of these components may be used in conjunction with other components - see <a href="../tabs"> Tabs</a>
+          <p className="site-text-lead">
+            Below you will find our set of navigation components. This page exists to demonstrate the UI of each -
+            appearance, layout, animation, and active states. Some of these components may be used in conjunction with
+            other components - see <a href="../tabs"> Tabs</a>
             for example.
           </p>
         </section>
@@ -64,7 +65,9 @@ class NavigationApp extends React.Component {
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Types</h3>
           <div className="u-m-b-large">
-            <p className="site-copy"><code>type=&quot;default&quot;</code></p>
+            <p className="site-copy">
+              <code>type=&quot;default&quot;</code>
+            </p>
             <NavTabs activeKey={this.state.activeKey} onSelect={this.updateActiveKey}>
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>
@@ -77,7 +80,9 @@ class NavigationApp extends React.Component {
           <h3 className="site-subheadline">NavTabs Modifiers</h3>
           <div className="u-m-b-large">
             <h5 className="site-miniheadline">Justifed, Equal Width</h5>
-            <p className="site-copy"><code>justified=&quot;equal&quot;</code></p>
+            <p className="site-copy">
+              <code>justified=&quot;equal&quot;</code>
+            </p>
             <NavTabs activeKey={this.state.activeEqualKey} onSelect={this.updateActiveEqualKey} justified="equal">
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>
@@ -87,7 +92,9 @@ class NavigationApp extends React.Component {
 
           <div className="u-m-b-large">
             <h5 className="site-miniheadline">Justified, Auto Width</h5>
-            <p className="site-copy"><code>justified=&quot;auto&quot;</code></p>
+            <p className="site-copy">
+              <code>justified=&quot;auto&quot;</code>
+            </p>
             <NavTabs activeKey={this.state.activeAutoKey} onSelect={this.updateActiveAutoKey} justified="auto">
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>
@@ -98,11 +105,16 @@ class NavigationApp extends React.Component {
 
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Helper Class</h3>
-          <p className="site-copy">Use <code>.nav-tabs--stacked</code> helper/modifier class (with CSS media queries)
-            when necessary to collapse tabs into stacked layout. This is particularly useful on small screens.
+          <p className="site-copy">
+            Use <code>.nav-tabs--stacked</code> helper/modifier class (with CSS media queries) when necessary to
+            collapse tabs into stacked layout. This is particularly useful on small screens.
           </p>
           <div style={{ maxWidth: '32rem' }}>
-            <NavTabs activeKey={this.state.activeStackedKey} onSelect={this.updateActiveStackedKey} className="nav-tabs--stacked">
+            <NavTabs
+              activeKey={this.state.activeStackedKey}
+              onSelect={this.updateActiveStackedKey}
+              className="nav-tabs--stacked"
+            >
               <NavTabsItem id={1}>Code</NavTabsItem>
               <NavTabsItem id={2}>Issues</NavTabsItem>
               <NavTabsItem id={3}>Pull Requests</NavTabsItem>
@@ -113,14 +125,9 @@ class NavigationApp extends React.Component {
         <section className="site-section">
           <h3 className="site-subheadline">NavTabs Playground</h3>
 
-          <Live
-            code={NavTabsExample}
-            scope={NavTabsScope}
-            component={NavTabs}
-            propDescriptions={NavTabsDocs}
-          />
+          <Live code={NavTabsExample} scope={NavTabsScope} component={NavTabs} propDescriptions={NavTabsDocs} />
         </section>
-      </Fragment>
+      </>
     );
   }
 }

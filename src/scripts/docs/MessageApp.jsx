@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Message, UtilityInlineGrid } from '../components';
@@ -6,8 +6,8 @@ import { Live } from './components';
 import MessageExample from './examples/Message.example.txt';
 
 const MessageDocs = {
-  type: "<code>oneOf(['primary', 'note'])</code>", // eslint-disable-line single-quotes
-  direction: "Message tail direction <code>oneOf(['inbound', 'outbound'])</code>", // eslint-disable-line single-quotes
+  type: "<code>oneOf(['primary', 'note'])</code>",
+  direction: "Message tail direction <code>oneOf(['inbound', 'outbound'])</code>",
 };
 const MessageScope = {
   React,
@@ -17,7 +17,7 @@ const MessageScope = {
 };
 
 const MessageApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Message Types</h3>
       <p className="site-copy"><code>type=&quot;default | primary | note&quot;</code></p>
@@ -95,7 +95,7 @@ const MessageApp = () => (
         propDescriptions={MessageDocs}
       />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<MessageApp />, document.getElementById('root'));

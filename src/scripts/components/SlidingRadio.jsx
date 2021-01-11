@@ -5,20 +5,20 @@ import React, { Component } from 'react';
 import { UtilitySystem, FormLabel } from '.';
 
 class SlidingRadio extends Component {
-  state={
+  state = {
     selectedValue: this.props.selectedValue || '',
-  }
+  };
 
   componentDidUpdate = (prevProps) => {
     if (prevProps.selectedValue !== this.props.selectedValue) {
       this.setState({ selectedValue: this.props.selectedValue });
     }
-  }
+  };
 
   handleChange = (value) => {
     this.setState({ selectedValue: value });
     if (this.props.onChange) this.props.onChange(value);
-  }
+  };
 
   getLabelStyle = ({ value, type }) => {
     const isChecked = value === this.state.selectedValue;
@@ -35,8 +35,7 @@ class SlidingRadio extends Component {
     }
 
     return style;
-  }
-
+  };
 
   render() {
     const { disabled, options, className, label, required, name } = this.props;
@@ -46,9 +45,11 @@ class SlidingRadio extends Component {
     });
     return (
       <div className="form__group">
-        <FormLabel id="" required={required}>{label}</FormLabel>
+        <FormLabel id="" required={required}>
+          {label}
+        </FormLabel>
         <div className={classes}>
-          {options.map(option => (
+          {options.map((option) => (
             <div key={option.value} className={className}>
               <input
                 className="rhinoslidingradio__input"

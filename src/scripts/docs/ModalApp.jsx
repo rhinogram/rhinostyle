@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Icon, UtilityInlineGrid } from '../components';
@@ -9,7 +9,7 @@ import ModalBodyExample from './examples/ModalBody.example.txt';
 import ModalFooterExample from './examples/ModalFooter.example.txt';
 
 const ModalDocs = {
-  size: "<code>oneOf(['small', 'large'])</code>", // eslint-disable-line single-quotes
+  size: "<code>oneOf(['small', 'large'])</code>",
 };
 const ModalHeaderDocs = {
   onClose: 'Callback function to execute in addition to closing the modal',
@@ -32,54 +32,35 @@ const ModalScope = {
 };
 
 const ModalApp = () => (
-  <Fragment>
+  <>
     <section className="site-section">
       <h3 className="site-subheadline">Modal Example</h3>
       <p className="site-copy">
-        Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main application to retain proper styling.
+        Although the <code>&lt;Modal /&gt;</code> component is written inline, it actually renders outside of the main
+        application to retain proper styling.
       </p>
 
-      <Live
-        code={ModalExample}
-        scope={ModalScope}
-        component={Modal}
-        propDescriptions={ModalDocs}
-      />
+      <Live code={ModalExample} scope={ModalScope} component={Modal} propDescriptions={ModalDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalHeader</h3>
 
-      <Live
-        code={ModalHeaderExample}
-        scope={ModalScope}
-        component={ModalHeader}
-        propDescriptions={ModalHeaderDocs}
-      />
+      <Live code={ModalHeaderExample} scope={ModalScope} component={ModalHeader} propDescriptions={ModalHeaderDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalBody</h3>
 
-      <Live
-        code={ModalBodyExample}
-        scope={ModalScope}
-        component={ModalBody}
-        propDescriptions={ModalBodyDocs}
-      />
+      <Live code={ModalBodyExample} scope={ModalScope} component={ModalBody} propDescriptions={ModalBodyDocs} />
     </section>
 
     <section className="site-section">
       <h3 className="site-subheadline">ModalFooter</h3>
 
-      <Live
-        code={ModalFooterExample}
-        scope={ModalScope}
-        component={ModalFooter}
-        propDescriptions={ModalFooterDocs}
-      />
+      <Live code={ModalFooterExample} scope={ModalScope} component={ModalFooter} propDescriptions={ModalFooterDocs} />
     </section>
-  </Fragment>
+  </>
 );
 
 ReactDOM.render(<ModalApp />, document.getElementById('root'));

@@ -3,9 +3,10 @@ import path from 'path';
 
 import paths from './paths';
 
-const nodeEnv = process.env.NODE_ENV || 'development';
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
+  mode: 'production',
   devtool: 'source-map',
   entry: {
     rhinostyle: paths.scripts.distEntry,
@@ -34,9 +35,6 @@ module.exports = {
               cacheDirectory: true,
             },
           },
-          {
-            loader: 'eslint-loader',
-          },
         ],
       },
     ],
@@ -48,22 +46,16 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(nodeEnv) },
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
     }),
-    // Disabling until https://github.com/fritz-c/react-image-lightbox/issues/88 is resolved
-    // Causing an issue within main application
-    // ***** 2/28/2019 UPDATE *****
-    // Re-enabling UglifyJs since conflict seems to be resolved. Keeping original comment above in case issue re-surfaces. -- Juan Fabrega
-    new webpack.optimize.UglifyJsPlugin(),
-
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new ESLintPlugin(),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

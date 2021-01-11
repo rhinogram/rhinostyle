@@ -26,17 +26,19 @@ class DateApp extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <section className="site-section">
-          <h3 className="site-subheadline">DatePicker <Label className="u-m-l-small" type="accent" label="third party" /></h3>
+          <h3 className="site-subheadline">
+            DatePicker <Label className="u-m-l-small" type="accent" label="third party" />
+          </h3>
           <p className="site-copy">
             We are using
             <a href="https://hacker0x01.github.io/react-datepicker/" target="_blank" rel="noopener noreferrer">
               react-datepicker
             </a>
             with custom styling. We have wrapped it within our own to provide sensible defaults for our application.
-            Refer to that repos documentation about everything else available, but be aware we only include a subset
-            of styles to meet our needs, instead of including and overriding the entire stylesheet provided.
+            Refer to that repos documentation about everything else available, but be aware we only include a subset of
+            styles to meet our needs, instead of including and overriding the entire stylesheet provided.
           </p>
 
           <div className="row">
@@ -56,14 +58,9 @@ class DateApp extends React.Component {
         <section className="site-section">
           <h3 className="site-subheadline">Playground</h3>
 
-          <Live
-            code={DateExample}
-            scope={DateScope}
-            component={Date}
-            propDescriptions={DateDocs}
-          />
+          <Live code={DateExample} scope={DateScope} component={Date} propDescriptions={DateDocs} />
         </section>
-      </Fragment>
+      </>
     );
   }
 }

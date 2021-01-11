@@ -1,5 +1,4 @@
 /* global Modernizr */
-/* eslint-disable quote-props */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
@@ -12,7 +11,7 @@ class Select extends React.Component {
     isSelectorOpen: false,
     openPosition: 'bottom',
     isParentScrollEventsAdded: false, // will remove this if we got better solution
-  }
+  };
 
   componentDidMount() {
     const selectedOption = Select.getSelectedOption(this.props.options, this.props.selected);
@@ -49,7 +48,7 @@ class Select extends React.Component {
         });
       }
     });
-  }
+  };
 
   // will remove this if we got better solution
   removeParentScrollEvents = () => {
@@ -66,7 +65,7 @@ class Select extends React.Component {
         });
       }
     });
-  }
+  };
 
   static getSelectedOption = (options, optionId) => {
     let totalOptions = [];
@@ -78,8 +77,8 @@ class Select extends React.Component {
       }
     });
 
-    return totalOptions.find(option => option.id === optionId);
-  }
+    return totalOptions.find((option) => option.id === optionId);
+  };
 
   getTotalVisibleOptions = () => {
     let count = 0;
@@ -90,25 +89,25 @@ class Select extends React.Component {
       }
     });
     return count;
-  }
+  };
 
   onBlur = () => {
     this.selectRef.size = 1;
     this.setState({
       isSelectorOpen: false,
     });
-  }
+  };
 
   getPosition = (optionLength) => {
     const selectHeight = this.selectRef.offsetHeight;
     const windowHeight = window.innerHeight;
     const optionHeight = this.selectRef.options[0].offsetHeight;
-    const menuHeight = Math.min(selectHeight, (optionLength * optionHeight));
+    const menuHeight = Math.min(selectHeight, optionLength * optionHeight);
     const instOffsetWithMenu = this.selectRef.getBoundingClientRect().bottom + menuHeight;
 
     if (instOffsetWithMenu >= windowHeight) return 'top';
     return 'bottom';
-  }
+  };
 
   onFocus = () => {
     // will remove this if we got better solution
@@ -119,7 +118,7 @@ class Select extends React.Component {
     if (totalSize > this.props.visibleOptionLength) {
       this.selectRef.size = this.props.visibleOptionLength;
     } else {
-      this.selectRef.size = (totalSize === 1 ? 2 : totalSize);
+      this.selectRef.size = totalSize === 1 ? 2 : totalSize;
     }
     const optionHeight = this.selectRef.options[0].offsetHeight;
     this.selectRef.scrollTop = this.selectRef.selectedIndex * optionHeight;
@@ -128,7 +127,7 @@ class Select extends React.Component {
       openPosition: this.getPosition(this.selectRef.size),
       isParentScrollEventsAdded: true,
     });
-  }
+  };
 
   onChange = (event) => {
     const selected = parseInt(event.target.value, 10) ? parseInt(event.target.value, 10) : event.target.value;
@@ -142,7 +141,7 @@ class Select extends React.Component {
       this.props.onSelect(event.target.name, selected);
     }
     this.selectRef.blur();
-  }
+  };
 
   onClick = () => this.selectRef.focus();
 
@@ -151,8 +150,8 @@ class Select extends React.Component {
     const { isSelectorOpen, openPosition } = this.state;
 
     const classes = cx('rhinoselect__select', 'form__control', {
-      'rhinoselect__open': !!(isSelectorOpen && !Modernizr.touchevents),
-      'rhinoselect__open__top': !!(isSelectorOpen && !Modernizr.touchevents && openPosition === 'top'),
+      rhinoselect__open: !!(isSelectorOpen && !Modernizr.touchevents),
+      rhinoselect__open__top: !!(isSelectorOpen && !Modernizr.touchevents && openPosition === 'top'),
       'rhinoselect__single-option': isSelectorOpen && this.getTotalVisibleOptions() === 1,
       [UtilitySystem.config.classes.disabled]: disabled,
     });
@@ -168,37 +167,45 @@ class Select extends React.Component {
       if (option.options) {
         return (
           <optgroup key={option.id} label={option.value} className="u-p-t-small u-p-b-small">
-            {option.options.map(childOption =>
-              (
-                <option className="u-p-t-small u-p-b-small" key={childOption.id} value={childOption.id}>
-                  {childOption.value}
-                </option>
-              ))}
+            {option.options.map((childOption) => (
+              <option className="u-p-t-small u-p-b-small" key={childOption.id} value={childOption.id}>
+                {childOption.value}
+              </option>
+            ))}
           </optgroup>
         );
       }
 
       // We're in a default single-level `<option>`
       return (
-        <option className="u-p-t-small u-p-b-small" key={option.id} value={option.id}>{option.value}</option>
+        <option className="u-p-t-small u-p-b-small" key={option.id} value={option.id}>
+          {option.value}
+        </option>
       );
     };
 
     return (
       <div className={formGroupClasses}>
-        <FormLabel id={this.id} required={required}>{label}</FormLabel>
+        <FormLabel id={this.id} required={required}>
+          {label}
+        </FormLabel>
         <div className="form__group--wrapper">
           {!disabled && (
-          <span
-            ref={(ref) => { this.selectLabelRef = ref; }}
-            className={selectLabelClasses}
-            onClick={this.onClick}
-          >
-            {this.state.selectedOptionValue}
-          </span>)}
+            <span
+              ref={(ref) => {
+                this.selectLabelRef = ref;
+              }}
+              className={selectLabelClasses}
+              onClick={this.onClick}
+            >
+              {this.state.selectedOptionValue}
+            </span>
+          )}
           <div className="rhinoselect">
             <select
-              ref={(ref) => { this.selectRef = ref; }}
+              ref={(ref) => {
+                this.selectRef = ref;
+              }}
               onBlur={this.onBlur}
               onFocus={this.onFocus}
               className={classes}
@@ -213,10 +220,11 @@ class Select extends React.Component {
           </div>
         </div>
         {(validationMessage || explanationMessage) && (
-          <Fragment>
+          <>
             <FormValidationMessage validationMessage={validationMessage} />
             <FormExplanationMessage explanationMessage={explanationMessage} />
-          </Fragment>)}
+          </>
+        )}
       </div>
     );
   }
