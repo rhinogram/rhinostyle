@@ -5,7 +5,7 @@ import React from 'react';
 import { UtilitySystem } from '.';
 
 const NavTabsItem = (props) => {
-  const { className, active, onClick } = props;
+  const { className, active, onClick, dataCypress } = props;
   const itemClasses = cx('nav-tabs__item', className, {
     [UtilitySystem.config.classes.active]: active,
   });
@@ -13,7 +13,7 @@ const NavTabsItem = (props) => {
 
   return (
     <li className={itemClasses}>
-      <div className={linkClasses} onClick={onClick}>
+      <div className={linkClasses} onClick={onClick} data-cypress={dataCypress}>
         {props.children}
       </div>
     </li>
@@ -25,6 +25,7 @@ NavTabsItem.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   onClick: PropTypes.func,
+  dataCypress: PropTypes.string,
 };
 
 NavTabsItem.defaultProps = {
