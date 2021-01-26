@@ -40,6 +40,7 @@ const icons = [
   'cog',
   'connected-parties',
   'contacts',
+  'create',
   'desktop',
   'dots-horizontal',
   'dots-vertical',
