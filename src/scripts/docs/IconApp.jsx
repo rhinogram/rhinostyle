@@ -21,6 +21,7 @@ const icons = [
   'alert-triangle',
   'analytics',
   'announce',
+  'appointment-created',
   'arrow-left',
   'arrow-right',
   'assign',
