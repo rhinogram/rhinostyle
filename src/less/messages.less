@@ -78,8 +78,24 @@
     border-color: @msg-primary-bg;
   }
 
+  &::selection {
+    background: @global-color-info;
+  }
+
+  &::-moz-selection {
+    background: @global-color-info;
+  }
+
   a {
     color: inherit;
+
+    &::selection {
+      background: @global-color-info;
+    }
+
+    &::-moz-selection {
+      background: @global-color-info;
+    }
   }
 }
 
