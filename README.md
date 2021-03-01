@@ -6,7 +6,7 @@
 
 ## Setup
 
-* Make sure you have the following installed:
+Make sure you have the following installed:
   * [NodeJS](http://nodejs.org) `10.x`
   * [yarn](https://www.npmjs.com/) `>= 0.23.4`
   * [Gulp](http://gulpjs.com) `yarn global add gulp-cli`
