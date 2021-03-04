@@ -73,6 +73,7 @@ const icons = [
   'pin',
   'question-circle',
   'rhinopay',
+  'rhino',
   'rotate',
   'rotate-camera',
   'search',
@@ -116,7 +117,7 @@ const IconApp = () => (
       </div>
 
       <div className="row">
-        {icons.map(value => (
+        {icons.map((value) => (
           <div key={value} className="column-6@xsmall column-4@small column-3@medium">
             <div className="site-swatch">
               <div className="site-swatch__sample">
