@@ -14,7 +14,7 @@ class DropdownCheckbox extends React.Component {
     checked: this.props.isChecked,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     React.Children.map(this.props.children, (child) => {
       if (!child) return;
       if (child.type === DropdownFilter) {
@@ -23,15 +23,15 @@ class DropdownCheckbox extends React.Component {
     });
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.activeKey !== this.props.activeKey) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.activeKey !== this.props.activeKey) {
       this.setState({
-        activeKey: newProps.activeKey,
+        activeKey: this.props.activeKey,
       });
     }
-    if (newProps.isChecked !== this.props.isChecked) {
+    if (prevProps.isChecked !== this.props.isChecked) {
       this.setState({
-        checked: newProps.isChecked,
+        checked: this.props.isChecked,
       });
     }
   }

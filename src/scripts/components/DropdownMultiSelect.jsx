@@ -22,11 +22,11 @@ class DropdownMultiSelect extends React.Component {
     items: this.props.children,
   };
 
-  componentWillReceiveProps(nextProps) {
-    const activeKeysHaveChanged = !UtilitySystem.compareFlatArray(this.props.activeKeys, nextProps.activeKeys);
+  componentDidUpdate(prevProps) {
+    const activeKeysHaveChanged = !UtilitySystem.compareFlatArray(prevProps.activeKeys, this.props.activeKeys);
 
     if (activeKeysHaveChanged) {
-      this.setState({ activeKeys: nextProps.activeKeys });
+      this.setState({ activeKeys: this.props.activeKeys });
     }
   }
 

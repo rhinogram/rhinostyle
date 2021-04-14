@@ -10,7 +10,7 @@ class Textarea extends React.Component {
     value: '',
   };
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.initialValue) {
       this.setState({ value: this.props.initialValue.trimRight() });
     }
@@ -22,11 +22,11 @@ class Textarea extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.initialValue !== this.props.initialValue) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.initialValue !== this.props.initialValue) {
       this.setState({
-        value: nextProps.initialValue,
-        charactersLeft: this.props.maxCharacters - nextProps.initialValue.length,
+        value: this.props.initialValue,
+        charactersLeft: this.props.maxCharacters - this.props.initialValue.length,
       });
     }
   }
