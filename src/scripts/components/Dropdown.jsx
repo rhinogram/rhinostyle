@@ -36,7 +36,7 @@ class Dropdown extends React.Component {
     hasFilter: false,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     React.Children.map(this.props.children, (child) => {
       if (!child) return;
       if (child.type === DropdownFilter) {
@@ -45,10 +45,10 @@ class Dropdown extends React.Component {
     });
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.activeKey !== this.props.activeKey) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.activeKey !== this.props.activeKey) {
       this.setState({
-        activeKey: newProps.activeKey,
+        activeKey: this.props.activeKey,
       });
     }
   }

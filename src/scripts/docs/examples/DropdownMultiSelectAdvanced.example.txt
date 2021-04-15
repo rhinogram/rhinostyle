@@ -14,12 +14,12 @@ class ComponentExample extends React.Component {
           8: { id: 8, title: 'Paul Griffin', name: 'PG', profileImageUrl: '' },
           9: { id: 9, title: 'Rob Whelan', name: 'RW', profileImageUrl: '' },
           10: { id: 10, title: 'Terry Kennair', name: 'TK', profileImageUrl: '' },
-        },    
+        },
     itemsIds: [],
-    itemsCopy: {},    
+    itemsCopy: {},
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.setState({ itemsIds: Object.keys(this.state.items), itemsCopy: this.state.items });
   }
 
@@ -79,7 +79,7 @@ class ComponentExample extends React.Component {
         filterName="Contacts"
         type="member"
         className={classes}
-      />  
+      />
     );
   }
 }

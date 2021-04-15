@@ -9,16 +9,16 @@ class RadioGroup extends React.Component {
     selectedValue: '',
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       selectedValue: this.props.selectedValue,
     });
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.selectedValue !== this.props.selectedValue) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectedValue !== this.props.selectedValue) {
       this.setState({
-        selectedValue: newProps.selectedValue,
+        selectedValue: this.props.selectedValue,
       });
     }
   }

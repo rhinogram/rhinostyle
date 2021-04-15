@@ -9,8 +9,8 @@ class Avatar extends React.Component {
     imageError: false,
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.image !== this.props.image) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.image !== this.props.image) {
       this.setState({
         imageError: false,
       });
