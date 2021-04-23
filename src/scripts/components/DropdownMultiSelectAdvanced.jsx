@@ -63,6 +63,13 @@ class DropdownMultiSelectAdvanced extends React.Component {
     this.props.handleClearAllSelectedItems();
   };
 
+  handleSelectAll = () => {
+    this.setState({
+      isViewAllItems: true,
+    });
+    this.props.handleUpdateSelectedIds(this.props.itemsIds, this.props.items, this.props.filterName.toLowerCase());
+  };
+
   handleSearch = (id, value) => {
     const { fetchAllItems } = this.props;
     const searchValue = value;
@@ -125,6 +132,12 @@ class DropdownMultiSelectAdvanced extends React.Component {
     <Button size="small" type="link" onClick={this.handleClearAll} title="Clear All">
       Clear All
     </Button>
+  )
+
+  renderSelectAllButton = () => (
+    <Button size="small" type="link" onClick={this.handleSelectAll} title="Select All">
+      Select All
+    </Button>
   );
 
   renderViewSelected = () => {
@@ -155,7 +168,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     >
       <div className="dropdown__menu__container">
         <div className="search__group">
-          <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+          <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-0 u-text-small">
             {this.renderClearButton()}
             <div>
               <Button size="small" type="link" onClick={this.handleToggle} title="Back">
@@ -176,6 +189,15 @@ class DropdownMultiSelectAdvanced extends React.Component {
       </div>
     </Dropdown>
   );
+
+  renderOptions = () => (
+    <>
+      <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-0 u-text-small">
+        {this.props.selectedItemsIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
+        {this.renderViewSelected()}
+      </UtilityInlineGrid>
+    </>
+  )
 
   render() {
     const {
@@ -215,14 +237,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       >
         <div className="dropdown__menu__container">
           <div className="search__group">
-            {selectedItemsIds.length > 0 ? (
-              <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-                {this.renderClearButton()}
-                {this.renderViewSelected()}
-              </UtilityInlineGrid>
-            ) : (
-              <ResourceRight>{this.renderViewSelected()}</ResourceRight>
-            )}
+            {this.renderOptions()}
             <Input
               placeholder={searchTitle}
               className="search__input"
