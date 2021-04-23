@@ -63,6 +63,13 @@ class DropdownMultiSelectAdvanced extends React.Component {
     this.props.handleClearAllSelectedItems();
   };
 
+  handleSelectAll = () => {
+    this.setState({
+      isViewAllItems: true,
+    });
+    this.props.handleUpdateSelectedIds(this.props.itemsIds, this.props.items, this.props.filterName.toLowerCase());
+  };
+
   handleSearch = (id, value) => {
     const { fetchAllItems } = this.props;
     const searchValue = value;
@@ -124,6 +131,12 @@ class DropdownMultiSelectAdvanced extends React.Component {
   renderClearButton = () => (
     <Button size="small" type="link" onClick={this.handleClearAll} title="Clear All">
       Clear All
+    </Button>
+  )
+
+  renderSelectAllButton = () => (
+    <Button size="small" type="link" onClick={this.handleSelectAll} title="Select All">
+      Select All
     </Button>
   );
 
@@ -215,14 +228,10 @@ class DropdownMultiSelectAdvanced extends React.Component {
       >
         <div className="dropdown__menu__container">
           <div className="search__group">
-            {selectedItemsIds.length > 0 ? (
-              <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-                {this.renderClearButton()}
-                {this.renderViewSelected()}
-              </UtilityInlineGrid>
-            ) : (
-              <ResourceRight>{this.renderViewSelected()}</ResourceRight>
-            )}
+            <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+              {selectedItemsIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
+              {this.renderViewSelected()}
+            </UtilityInlineGrid>
             <Input
               placeholder={searchTitle}
               className="search__input"
