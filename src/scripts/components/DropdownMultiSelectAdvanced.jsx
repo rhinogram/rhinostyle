@@ -168,7 +168,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     >
       <div className="dropdown__menu__container">
         <div className="search__group">
-          <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-0 u-text-small">
+          <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
             {this.renderClearButton()}
             <div>
               <Button size="small" type="link" onClick={this.handleToggle} title="Back">
@@ -189,15 +189,6 @@ class DropdownMultiSelectAdvanced extends React.Component {
       </div>
     </Dropdown>
   );
-
-  renderOptions = () => (
-    <>
-      <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-0 u-text-small">
-        {this.props.selectedItemsIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
-        {this.renderViewSelected()}
-      </UtilityInlineGrid>
-    </>
-  )
 
   render() {
     const {
@@ -237,7 +228,10 @@ class DropdownMultiSelectAdvanced extends React.Component {
       >
         <div className="dropdown__menu__container">
           <div className="search__group">
-            {this.renderOptions()}
+            <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+              {selectedItemsIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
+              {this.renderViewSelected()}
+            </UtilityInlineGrid>
             <Input
               placeholder={searchTitle}
               className="search__input"
