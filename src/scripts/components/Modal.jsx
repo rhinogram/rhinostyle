@@ -17,12 +17,11 @@ class Modal extends React.Component {
         renderModal: true,
       }, () => {
         this.attachTimeline();
+        this.openModal();
       });
     }
     if (prevProps.open !== this.props.open) {
-      if (this.props.open) {
-        this.openModal();
-      } else {
+      if (!this.props.open) {
         this.closeModal();
       }
     }
