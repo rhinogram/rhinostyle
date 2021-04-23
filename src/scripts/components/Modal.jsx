@@ -11,25 +11,17 @@ class Modal extends React.Component {
     renderModal: false,
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.open && nextProps.open) {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.open && this.props.open) {
       this.setState({
         renderModal: true,
       });
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (!prevProps.open && this.props.open) {
       this.attachTimeline();
+      this.openModal();
     }
 
-    if (prevProps.open !== this.props.open) {
-      if (this.props.open) {
-        this.openModal();
-      } else {
-        this.closeModal();
-      }
+    if (!prevProps.open && !this.props.open) {
+      this.closeModal();
     }
   }
 

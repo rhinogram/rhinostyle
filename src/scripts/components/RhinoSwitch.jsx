@@ -9,10 +9,10 @@ class RhinoSwitch extends React.Component {
     checked: this.props.isChecked,
   };
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.isChecked !== this.props.isChecked) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.isChecked !== this.props.isChecked) {
       this.setState({
-        checked: newProps.isChecked,
+        checked: this.props.isChecked,
       });
     }
   }
