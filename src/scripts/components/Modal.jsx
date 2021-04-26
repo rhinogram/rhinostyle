@@ -15,13 +15,15 @@ class Modal extends React.Component {
     if (!prevProps.open && this.props.open) {
       this.setState({
         renderModal: true,
+      }, () => {
+        this.attachTimeline();
+        this.openModal();
       });
-      this.attachTimeline();
-      this.openModal();
     }
-
-    if (!prevProps.open && !this.props.open) {
-      this.closeModal();
+    if (prevProps.open !== this.props.open) {
+      if (!this.props.open) {
+        this.closeModal();
+      }
     }
   }
 
