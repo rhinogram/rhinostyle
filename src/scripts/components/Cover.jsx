@@ -15,8 +15,10 @@ class Cover extends React.Component {
     if (!prevProps.open && this.props.open) {
       this.setState({
         renderCover: true,
+      }, () => {
+        this.attachTimeline();
+        this.openCover();
       });
-      this.attachTimeline();
     }
 
     if (prevProps.open && !this.props.open) {
