@@ -68,7 +68,7 @@
     "metalsmith-permalinks": "2.2.0",
     "metalsmith-rootpath": "1.0.4",
     "nunjucks": "3.2.2",
-    "postcss": "7.0.35",
+    "postcss": "8.2.10",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-inline-svg": "4.1.0",
     "postcss-less": "1.1.5",
