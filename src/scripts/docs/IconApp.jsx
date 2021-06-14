@@ -43,6 +43,7 @@ const icons = [
   'contacts',
   'create',
   'desktop',
+  'dialpad',
   'dots-horizontal',
   'dots-vertical',
   'download',
