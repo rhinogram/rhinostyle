@@ -131,7 +131,6 @@ class Select extends React.Component {
 
   onChange = (event) => {
     const selected = typeof event.target.value === 'string' && Number(event.target.value) ? parseInt(event.target.value, 10) : event.target.value;
-    console.log('selected', selected);
     const selectedOption = Select.getSelectedOption(this.props.options, selected);
 
     this.setState({
