@@ -26,7 +26,9 @@ class Textarea extends React.Component {
     if (prevProps.initialValue !== this.props.initialValue) {
       this.setState({
         value: this.props.initialValue,
-        charactersLeft: this.props.maxCharacters - this.props.initialValue.length,
+        ...this.props.maxCharacters && {
+          charactersLeft: this.props.maxCharacters - (this.props.initialValue?.length || 0),
+        },
       });
     }
   }
