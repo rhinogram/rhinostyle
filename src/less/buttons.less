@@ -45,6 +45,10 @@
 @button-danger-bg-color: @global-color-danger;
 @button-danger-border: darken(@global-color-danger, 5%);
 
+@button-education-color: @global-color-white;
+@button-education-bg-color: @global-color-education;
+@button-education-border: darken(@global-color-education, 5%);
+
 @button-outline-reversed-color: @global-color-white;
 @button-outline-reversed-border: @global-color-white;
 @button-outline-reversed-hover-bg: fade(@global-color-white, 10%);
@@ -184,6 +188,10 @@
 
 .button--danger {
   .mixin-button-variant(@button-danger-color; @button-danger-bg-color; @button-danger-border);
+}
+
+.button--education {
+  .mixin-button-variant(@button-education-color; @button-education-bg-color; @button-education-border);
 }
 
 .button--input {

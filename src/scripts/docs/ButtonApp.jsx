@@ -33,7 +33,7 @@ const ButtonApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Button Types</h3>
       <p className="site-copy">
-        <code>type=&quot;default |primary | secondary | accent | input | link | link-muted | danger&quot;</code>
+        <code>type=&quot;default |primary | secondary | accent | input | link | link-muted | danger | education&quot;</code>
       </p>
       <UtilityInlineGrid>
         <Button>Default</Button>
@@ -44,6 +44,7 @@ const ButtonApp = () => (
         <Button type="link">Link</Button>
         <Button type="link-muted">Link Muted</Button>
         <Button type="danger">Danger</Button>
+        <Button type="education">Education</Button>
         <Button type="outline">Outline</Button>
       </UtilityInlineGrid>
       <p className="site-copy u-m-t">
