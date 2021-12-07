@@ -56,11 +56,13 @@ export default function pages() {
     .use(msRootpath())
     .use(msInPlace({
       engine: 'nunjucks',
+      suppressNoFilesError: true,
     }))
     .use(msLayouts({
       engine: 'nunjucks',
       directory: './src/templates',
       default: 'default.html',
+      suppressNoFilesError: true,
     }))
     .destination('./docs')
     .build((err) => {
