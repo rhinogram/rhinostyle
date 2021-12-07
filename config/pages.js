@@ -9,6 +9,7 @@ import msLayouts from 'metalsmith-layouts';
 import msIgnore from 'metalsmith-ignore';
 import nunjucks from 'nunjucks';
 import browserSync from 'browser-sync';
+import { resolve } from 'rsvp';
 
 const { reload } = browserSync;
 
@@ -44,7 +45,7 @@ srcDirectories.forEach((item) => {
  * Build documentation pages through `metalsmith`
  * @return {stream}
  */
-export default function pages() {
+function runMetalsmith(resolve, reject) {
   return metalsmith(process.cwd())
     .source('./src')
     .clean(false)
@@ -67,9 +68,16 @@ export default function pages() {
     .destination('./docs')
     .build((err) => {
       if (err) {
-        throw err;
+        reject(err);
       } else {
         reload();
+        resolve();
       }
     });
+}
+
+export default function pages() {
+  return new Promise(function(resolve, reject) {
+    runMetalsmith(resolve, reject);
+  });
 }

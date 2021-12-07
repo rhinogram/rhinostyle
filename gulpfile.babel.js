@@ -27,24 +27,25 @@ gulp.task('animation:time', animationTime);
 gulp.task('audio', audio);
 gulp.task('copy', copyModernizr);
 gulp.task('clean', clean);
-gulp.task('dist:scripts', ['copy'], distScripts);
 gulp.task('dist:styles', distStyles);
-gulp.task('docs:scripts', ['copy'], docsScripts);
 gulp.task('docs:site', pages);
-gulp.task('docs:styles', ['styles:lint'], docsStyles);
+gulp.task('styles:lint', linter);
 gulp.task('icons', icons);
 gulp.task('media', media);
-gulp.task('serve', ['watch'], server);
-gulp.task('styles:lint', linter);
 gulp.task('watch', watch);
+
+gulp.task('dist:scripts', gulp.parallel('copy', distScripts));
+gulp.task('docs:scripts', gulp.parallel('copy', docsScripts));
+gulp.task('docs:styles', gulp.parallel('styles:lint', docsStyles));
+gulp.task('serve', gulp.parallel('watch', server));
 
 //
 // Bundled tasks
 //
 
-gulp.task('animations', ['animation:flag', 'animation:login', 'animation:secure', 'animation:time']);
-gulp.task('default', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site', 'media']);
-gulp.task('dist', ['audio', 'icons', 'dist:scripts', 'dist:styles', 'media']);
-gulp.task('docs', ['icons', 'docs:scripts', 'docs:styles', 'docs:site', 'media']);
-gulp.task('styles', ['docs:styles', 'dist:styles', 'styles:lint']);
-gulp.task('build', ['styles', 'docs', 'dist', 'default', 'animations']);
+gulp.task('animations', gulp.parallel('animation:flag', 'animation:login', 'animation:secure', 'animation:time'));
+gulp.task('default', gulp.parallel('audio', 'icons', 'dist:scripts', 'dist:styles', 'docs:scripts', 'docs:styles', 'docs:site', 'media'));
+gulp.task('dist', gulp.parallel('audio', 'icons', 'dist:scripts', 'dist:styles', 'media'));
+gulp.task('docs', gulp.parallel('icons', 'docs:scripts', 'docs:styles', 'docs:site', 'media'));
+gulp.task('styles', gulp.parallel('docs:styles', 'dist:styles', 'styles:lint'));
+gulp.task('build', gulp.parallel('styles', 'docs', 'dist', 'default', 'animations'));
