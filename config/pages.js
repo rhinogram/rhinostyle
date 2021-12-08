@@ -41,10 +41,6 @@ srcDirectories.forEach((item) => {
   );
 });
 
-/**
- * Build documentation pages through `metalsmith`
- * @return {stream}
- */
 function runMetalsmith(resolve, reject) {
   return metalsmith(process.cwd())
     .source('./src')
@@ -76,6 +72,12 @@ function runMetalsmith(resolve, reject) {
     });
 }
 
+/**
+ * Build documentation pages through `metalsmith` *
+ * as of gulp v4+ all asynchronous tasks must signal completion, this is accomplished by returning a promise
+ * refer to this link for more information https://stackoverflow.com/questions/36897877/gulp-error-the-following-tasks-did-not-complete-did-you-forget-to-signal-async
+ * @return {Promise}
+ */
 export default function pages() {
   return new Promise(function(resolve, reject) {
     runMetalsmith(resolve, reject);
