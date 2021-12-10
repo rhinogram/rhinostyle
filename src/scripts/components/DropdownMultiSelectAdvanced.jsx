@@ -12,7 +12,6 @@ import {
   UtilitySystem,
   Dropdown,
   UtilityInlineGrid,
-  ResourceRight,
 } from '.';
 
 class DropdownMultiSelectAdvanced extends React.Component {
