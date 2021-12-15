@@ -9,6 +9,7 @@ import msLayouts from 'metalsmith-layouts';
 import msIgnore from 'metalsmith-ignore';
 import nunjucks from 'nunjucks';
 import browserSync from 'browser-sync';
+import { resolve } from 'rsvp';
 
 const { reload } = browserSync;
 
@@ -40,11 +41,7 @@ srcDirectories.forEach((item) => {
   );
 });
 
-/**
- * Build documentation pages through `metalsmith`
- * @return {stream}
- */
-export default function pages() {
+function runMetalsmith(resolve, reject) {
   return metalsmith(process.cwd())
     .source('./src')
     .clean(false)
@@ -56,18 +53,33 @@ export default function pages() {
     .use(msRootpath())
     .use(msInPlace({
       engine: 'nunjucks',
+      suppressNoFilesError: true,
     }))
     .use(msLayouts({
       engine: 'nunjucks',
       directory: './src/templates',
       default: 'default.html',
+      suppressNoFilesError: true,
     }))
     .destination('./docs')
     .build((err) => {
       if (err) {
-        throw err;
+        reject(err);
       } else {
         reload();
+        resolve();
       }
     });
+}
+
+/**
+ * Build documentation pages through `metalsmith` *
+ * as of gulp v4+ all asynchronous tasks must signal completion, this is accomplished by returning a promise
+ * refer to this link for more information https://stackoverflow.com/questions/36897877/gulp-error-the-following-tasks-did-not-complete-did-you-forget-to-signal-async
+ * @return {Promise}
+ */
+export default function pages() {
+  return new Promise(function(resolve, reject) {
+    runMetalsmith(resolve, reject);
+  });
 }
