@@ -4,7 +4,10 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import Cleave from 'cleave.js/react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilitySystem } from '.';
+import FormLabel from './FormLabel';
+import FormExplanationMessage from './FormExplanationMessage';
+import FormValidationMessage from './FormValidationMessage';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Date extends React.Component {
   datePickerInput = undefined;

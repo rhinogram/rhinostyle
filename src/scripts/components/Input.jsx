@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Cleave from 'cleave.js/react';
 
-import { Button, FormLabel, FormExplanationMessage, FormValidationMessage, Icon, UtilitySystem } from '.';
+import Button from './Button';
+import FormLabel from './FormLabel';
+import FormExplanationMessage from './FormExplanationMessage';
+import FormValidationMessage from './FormValidationMessage';
+import Icon from './Icon';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Input extends React.Component {
   state = {

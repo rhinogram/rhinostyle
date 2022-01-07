@@ -2,7 +2,10 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormValidationMessage, FormExplanationMessage, UtilitySystem } from '.';
+import FormLabel from './FormLabel';
+import FormValidationMessage from './FormValidationMessage';
+import FormExplanationMessage from './FormExplanationMessage';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Textarea extends React.Component {
   state = {

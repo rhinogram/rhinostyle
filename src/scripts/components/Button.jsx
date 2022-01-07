@@ -2,7 +2,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { LoaderCircle, UtilitySystem } from '.';
+import LoaderCircle from './LoaderCircle';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Button extends React.Component {
   handleClick = (e) => {

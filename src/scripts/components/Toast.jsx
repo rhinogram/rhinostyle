@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Icon } from '.';
+import Icon from './Icon';
 
 // This needs to be a proper component because we reference refs in other portions of the app
 class Toast extends React.Component { // eslint-disable-line react/prefer-stateless-function

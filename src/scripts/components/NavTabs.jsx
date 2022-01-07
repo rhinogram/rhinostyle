@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { NavTabsItem } from '.';
+import NavTabsItem from './NavTabsItem';
 
 class NavTabs extends React.Component {
   getChildren = () => {

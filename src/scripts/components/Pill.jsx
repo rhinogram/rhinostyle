@@ -2,7 +2,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Button, Icon } from '.';
+import Button from './Button';
+import Icon from './Icon';
 
 const Pill = (props) => {
   const { className, disabled, icon, hideClose, onClick, label, type, closeIconClassName, onCloseIconClick, id, dataCypress } = props;

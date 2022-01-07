@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Button, Checkbox, DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll, DropdownFilter, DropdownWrapper, Icon } from '.';
+import Button from './Button';
+import Checkbox from './Checkbox';
+import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuItemWild from './DropdownMenuItemWild';
+import DropdownMenuScroll from './DropdownMenuScroll';
+import DropdownFilter from './DropdownFilter';
+import DropdownWrapper from './DropdownWrapper';
+import Icon from './Icon';
 
 class DropdownCheckbox extends React.Component {
   state = {

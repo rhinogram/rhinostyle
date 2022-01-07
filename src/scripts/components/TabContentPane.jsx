@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { UtilitySystem } from '.';
+import { UtilitySystem } from '../UtilitySystem';
 
 const TabContentPane = (props) => {
   const { className, active } = props;

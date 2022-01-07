@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Toast, UtilitySystem } from '../../components';
+import Toast from '../../components/Toast';
+import { UtilitySystem } from '../../UtilitySystem';
 import * as NotificationActions from '../actions';
 import NotificationConstants from '../constants';
 

@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
-import { DropdownMenuItem, DropdownMenuItemWild, DropdownMenuScroll } from '.';
+import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuItemWild from './DropdownMenuItemWild';
+import DropdownMenuScroll from './DropdownMenuScroll';
 
 class DropdownFilter extends React.Component {
   state = {

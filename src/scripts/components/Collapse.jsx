@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
-import * as UtilitySystem from '../UtilitySystem/helpers';
+import { ResizeListener } from '../UtilitySystem/helpers';
 
 class Collapse extends React.Component {
   state = {
@@ -14,11 +14,11 @@ class Collapse extends React.Component {
 
     this.setState({ collapseContainerHeight: isOpen ? this.collapseChildrenWrapperRef.current.scrollHeight : '0px' });
 
-    UtilitySystem.ResizeListener.add(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
+    ResizeListener.add(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
   }
 
   componentWillUnmount() {
-    UtilitySystem.ResizeListener.remove(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
+    ResizeListener.remove(this.collapseChildrenWrapperRef.current, this.handleCollapseChildrenWrapperResize); // eslint-disable-line no-undef
   }
 
   componentDidUpdate(prevProps, prevState) {

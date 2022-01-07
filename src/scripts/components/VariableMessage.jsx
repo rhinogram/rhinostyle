@@ -2,17 +2,16 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import {
-  Button,
-  FormLabel,
-  FormExplanationMessage,
-  FormValidationMessage,
-  Message,
-  ToggleButton,
-  UtilitySystem,
-  Dropdown,
-  DropdownMenuItem,
-} from '.';
+
+import Button from './Button';
+import FormLabel from './FormLabel';
+import FormExplanationMessage from './FormExplanationMessage';
+import FormValidationMessage from './FormValidationMessage';
+import Message from './Message';
+import ToggleButton from './ToggleButton';
+import Dropdown from './Dropdown';
+import DropdownMenuItem from './DropdownMenuItem';
+import { UtilitySystem } from '../UtilitySystem';
 
 import { BACKSPACE_KEY, DELETE_KEY, ENTER_KEY } from '../constants';
 

@@ -2,7 +2,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import { UtilitySystem, FormLabel } from '.';
+import FormLabel from './FormLabel';
+import { UtilitySystem } from '../UtilitySystem';
 
 class SlidingRadio extends Component {
   state = {

@@ -2,7 +2,6 @@
   "extends": "rhinogram",
   "rules": {
     "react/state-in-constructor": 0,
-    "react/jsx-props-no-spreading": 0,
-    "import/no-cycle": 0 // Temporary
+    "react/jsx-props-no-spreading": 0
   }
 }
