@@ -2,7 +2,10 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Avatar, Button, Icon, UtilitySystem } from '.';
+import Avatar from './Avatar';
+import Button from './Button';
+import Icon from './Icon';
+import { UtilitySystem } from '../UtilitySystem';
 
 function customValidator(props, propName, componentName) {
   if (props.icon && props.avatar) {

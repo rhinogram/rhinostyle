@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { UtilitySystem } from '.';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Modal extends React.Component {
   state = {

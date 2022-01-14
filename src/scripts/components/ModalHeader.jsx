@@ -2,7 +2,8 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Close, Icon } from '.';
+import Close from './Close';
+import Icon from './Icon';
 
 class ModalHeader extends React.Component {
   isDismissable = () => {

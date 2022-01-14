@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  LoaderPulse,
-  Input,
-  Button,
-  Icon,
-  Resource,
-  ResourceIntro,
-  ResourceGroup,
-  Scrollbars,
-  UtilitySystem,
-  Dropdown,
-  UtilityInlineGrid,
-} from '.';
+import { Scrollbars } from 'react-custom-scrollbars';
+
+import { UtilitySystem } from '../UtilitySystem';
+import LoaderPulse from './LoaderPulse';
+import Input from './Input';
+import Button from './Button';
+import Icon from './Icon';
+import Resource from './Resource';
+import ResourceIntro from './ResourceIntro';
+import ResourceGroup from './ResourceGroup';
+import Dropdown from './Dropdown';
+import UtilityInlineGrid from './UtilityInlineGrid';
 
 class DropdownMultiSelectAdvanced extends React.Component {
   state = {

@@ -1,9 +1,12 @@
 /* global Modernizr */
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import { FormExplanationMessage, FormValidationMessage, FormLabel, UtilitySystem } from '.';
+import FormExplanationMessage from './FormExplanationMessage';
+import FormValidationMessage from './FormValidationMessage';
+import FormLabel from './FormLabel';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Select extends React.Component {
   id = `${this.props.name}-${UtilitySystem.generateUUID()}`;

@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {
-  Icon,
-} from '.';
+import Icon from './Icon';
 
 const SmartTableHeader = (props) => {
   // console should be remove in future.

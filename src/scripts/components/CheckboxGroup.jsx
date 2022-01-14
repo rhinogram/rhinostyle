@@ -2,7 +2,12 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { FormLabel, FormExplanationMessage, FormValidationMessage, UtilityInlineGrid, UtilityList, UtilityListItem } from '.';
+import FormLabel from './FormLabel';
+import FormExplanationMessage from './FormExplanationMessage';
+import FormValidationMessage from './FormValidationMessage';
+import UtilityInlineGrid from './UtilityInlineGrid';
+import UtilityList from './UtilityList';
+import UtilityListItem from './UtilityListItem';
 
 class CheckboxGroup extends React.Component {
   renderChildren = () => {

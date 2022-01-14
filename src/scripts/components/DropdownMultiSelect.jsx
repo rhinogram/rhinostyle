@@ -4,16 +4,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { UtilitySystem } from '../UtilitySystem';
-import {
-  DropdownMenuItem,
-  DropdownMenuHeader,
-  DropdownMenuScroll,
-  DropdownWrapper,
-  FormExplanationMessage,
-  FormValidationMessage,
-  Pill,
-  UtilityInlineGrid,
-} from '.';
+import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuHeader from './DropdownMenuHeader';
+import DropdownMenuScroll from './DropdownMenuScroll';
+import DropdownWrapper from './DropdownWrapper';
+import FormExplanationMessage from './FormExplanationMessage';
+import FormValidationMessage from './FormValidationMessage';
+import Pill from './Pill';
+import UtilityInlineGrid from './UtilityInlineGrid';
 
 class DropdownMultiSelect extends React.Component {
   state = {

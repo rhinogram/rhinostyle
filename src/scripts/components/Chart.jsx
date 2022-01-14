@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 
-import { Icon } from '.';
+import Icon from './Icon';
 import Tooltip from './Tooltip';
 
 class Chart extends React.Component {

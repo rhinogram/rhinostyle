@@ -2,7 +2,7 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TabContentPane } from '.';
+import TabContentPane from './TabContentPane';
 
 class TabsContent extends React.Component {
   getChildren = () => {

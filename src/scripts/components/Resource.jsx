@@ -2,7 +2,9 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { ResourceBottom, ResourceRight, UtilitySystem } from '.';
+import ResourceBottom from './ResourceBottom';
+import ResourceRight from './ResourceRight';
+import { UtilitySystem } from '../UtilitySystem';
 
 class Resource extends React.Component {
   getChildren = () => {

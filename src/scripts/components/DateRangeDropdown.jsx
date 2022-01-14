@@ -1,7 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Dropdown, DropdownMenuItem, DropdownMenuDivider, DropdownMenuItemWild, Date, Button, ResourceRight } from '.';
+
+import Dropdown from './Dropdown';
+import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuDivider from './DropdownMenuDivider';
+import DropdownMenuItemWild from './DropdownMenuItemWild';
+import Date from './Date';
+import Button from './Button';
+import ResourceRight from './ResourceRight';
 
 class DateRangeDropdown extends React.Component {
   state = {
@@ -82,7 +89,7 @@ class DateRangeDropdown extends React.Component {
 
   getLabel(activeKey) {
     const { dropdownMenuItems } = this.state;
-    return `${(dropdownMenuItems[activeKey - 1] && dropdownMenuItems[activeKey - 1].label) || ''} 
+    return `${(dropdownMenuItems[activeKey - 1] && dropdownMenuItems[activeKey - 1].label) || ''}
     (${moment(this.props.startDate).format('MMM DD, YYYY')} - ${moment(this.props.endDate).format('MMM DD, YYYY')})`;
   }
 

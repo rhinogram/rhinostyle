@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import { Avatar, Button, Checkbox, Icon, MultiAvatar } from '.';
+import Avatar from './Avatar';
+import Button from './Button';
+import Checkbox from './Checkbox';
+import Icon from './Icon';
+import MultiAvatar from './MultiAvatar';
 
 class ResourceIntro extends React.Component {
   handleIconClick = (e) => {
