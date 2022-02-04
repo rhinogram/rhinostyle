@@ -81,6 +81,7 @@ const icons = [
   'send',
   'share',
   'signature',
+  'speaker',
   'star',
   'to-from',
   'touchid',
