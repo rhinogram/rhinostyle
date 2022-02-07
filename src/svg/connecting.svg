@@ -1,0 +1,11 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g class="icon-stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g class="icon-stroke" transform="translate(-1.000000, 1.587120)" stroke="#404040" stroke-width="1.2">
+            <g class="icon-stroke">
+                <path d="M-0.1581484,16.6731099 C-1.41873176,16.1403236 -1.64361487,14.5510697 -0.832797742,11.9053481 C0.383427953,7.93676564 15.0006052,4.94280031 20.7029785,11.5562123 C20.829095,12.2047035 22.2617851,13.5818871 20.6261902,16.3676548 C20.476571,16.3399424 17.0826446,16.4552405 14.8791302,16.4608256 C14.620598,16.3526675 14.6436999,14.9051385 14.9484358,12.1182387 L5.90099867,11.7961804 L5.83814632,15.7344183 L-0.1581484,16.6731099 Z" id="Path-2-Copy" stroke-linejoin="round" transform="translate(10.047474, 12.170257) rotate(-122.000000) translate(-10.047474, -12.170257) "></path>
+                <path d="M21.0404457,11.0244028 C21.7391652,5.65769147 18.9358649,3.86994365 15.9428321,2.95071719" id="Path-4" stroke-linecap="round"></path>
+                <path d="M23.8410354,11.8724338 C24.8685092,3.98063219 20.7462287,1.35173151 16.3449445,0" id="Path-4-Copy" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
