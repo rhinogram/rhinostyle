@@ -161,6 +161,7 @@ class Select extends React.Component {
 
     const selectLabelClasses = cx('select__label', {
       'form__control--error': validationMessage,
+      'select__label--placeholder': !this.state.selectedOptionValue && this.props.placeholder,
     });
 
     const formGroupClasses = cx('form__group', className);
@@ -186,7 +187,6 @@ class Select extends React.Component {
         </option>
       );
     };
-
     return (
       <div className={formGroupClasses}>
         <FormLabel id={this.id} required={required}>
@@ -201,7 +201,7 @@ class Select extends React.Component {
               className={selectLabelClasses}
               onClick={this.onClick}
             >
-              {this.state.selectedOptionValue}
+              {this.state.selectedOptionValue || this.props.placeholder}
             </span>
           )}
           <div className="rhinoselect">
@@ -245,6 +245,7 @@ Select.propTypes = {
   required: PropTypes.bool,
   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   validationMessage: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 Select.defaultProps = {

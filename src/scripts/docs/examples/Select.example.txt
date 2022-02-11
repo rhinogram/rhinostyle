@@ -20,7 +20,7 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-      <Select onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={this.selectOpts} />
+      <Select placeholder="hi" onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={this.selectOpts} />
     );
   }
 }
