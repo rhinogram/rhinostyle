@@ -1,6 +1,6 @@
 class ComponentExample extends React.Component {
   state = {
-    selected: 'test-string',
+    selected: '',
   };
 
   handleSelect = (name, value) => {
@@ -20,7 +20,7 @@ class ComponentExample extends React.Component {
 
   render() {
     return (
-      <Select placeholder="hi" onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={this.selectOpts} />
+      <Select placeholder="Select an option" onSelect={this.handleSelect} selected={this.state.selected} name="mySelect" label="Choose One" options={this.selectOpts} />
     );
   }
 }
