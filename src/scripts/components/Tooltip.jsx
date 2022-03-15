@@ -17,10 +17,11 @@ class Tooltip extends React.Component {
    * as well as the context of the currentTarget being incorrect.
    * */
   componentDidMount() {
-    window.addEventListener('scroll', this.closeTooltip, true);
-    const tooltipTrigger = this.getTooltipTrigger();
+    if (!this.props.isTour) {
+      window.addEventListener('scroll', this.closeTooltip, true);
+      const tooltipTrigger = this.getTooltipTrigger();
 
-    /**
+      /**
      * Add event listeners for tooltips triggers.
      * Using Modernizr we detect whether we're dealing with a touch device
      * in order to attach the correct event listener. The tooltip works with
@@ -29,29 +30,32 @@ class Tooltip extends React.Component {
      * @NOTE: We're not using native touch event sequence since touch devices will emulate a
      * click event and this is the most reliable way to toggle the tooltip.
      *  */
-    if (!Modernizr.touchevents) {
-      tooltipTrigger.addEventListener('mouseenter', this.createTooltip);
-      tooltipTrigger.addEventListener('mouseleave', this.closeTooltip);
-      tooltipTrigger.addEventListener('click', this.closeTooltip);
-    }
-    if (Modernizr.touchevents || Modernizr.pointerevents) {
-      tooltipTrigger.addEventListener('click', this.toggleTooltip);
-      tooltipTrigger.addEventListener('focusout', this.closeTooltip);
+      if (!Modernizr.touchevents) {
+        tooltipTrigger.addEventListener('mouseenter', this.createTooltip);
+        tooltipTrigger.addEventListener('mouseleave', this.closeTooltip);
+        tooltipTrigger.addEventListener('click', this.closeTooltip);
+      }
+      if (Modernizr.touchevents || Modernizr.pointerevents) {
+        tooltipTrigger.addEventListener('click', this.toggleTooltip);
+        tooltipTrigger.addEventListener('focusout', this.closeTooltip);
+      }
     }
   }
 
   componentWillUnmount() {
-    const tooltipTrigger = this.getTooltipTrigger();
-    window.removeEventListener('scroll', this.closeTooltip);
+    if (!this.props.isTour) {
+      const tooltipTrigger = this.getTooltipTrigger();
+      window.removeEventListener('scroll', this.closeTooltip);
 
-    // Remove event listeners from non-touch devices
-    if (!Modernizr.touchevents) {
-      tooltipTrigger.removeEventListener('mouseenter', this.createTooltip);
-      tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip);
-    }
-    if (Modernizr.touchevents || Modernizr.pointerevents) {
-      tooltipTrigger.removeEventListener('click', this.toggleTooltip);
-      tooltipTrigger.removeEventListener('focusout', this.closeTooltip);
+      // Remove event listeners from non-touch devices
+      if (!Modernizr.touchevents) {
+        tooltipTrigger.removeEventListener('mouseenter', this.createTooltip);
+        tooltipTrigger.removeEventListener('mouseleave', this.closeTooltip);
+      }
+      if (Modernizr.touchevents || Modernizr.pointerevents) {
+        tooltipTrigger.removeEventListener('click', this.toggleTooltip);
+        tooltipTrigger.removeEventListener('focusout', this.closeTooltip);
+      }
     }
   }
 
@@ -76,8 +80,9 @@ class Tooltip extends React.Component {
    * @return {void}
    */
   createTooltip = (e) => {
-    e.preventDefault();
-
+    if (e) {
+      e.preventDefault();
+    }
     if (this.tooltipId) {
       return;
     }
@@ -259,7 +264,15 @@ class Tooltip extends React.Component {
     if (!this.isTooltipOpen) {
       this.createTooltip(e);
     } else {
-      this.closeTooltip(e);
+      this.closeTooltip();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.isTour && this.props.isOpen && !prevProps.isOpen) {
+      this.createTooltip();
+    } else if (!this.props.isOpen && prevProps.isOpen) {
+      this.closeTooltip();
     }
   }
 
@@ -289,12 +302,16 @@ Tooltip.propTypes = {
   content: PropTypes.any.isRequired,
   placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   type: PropTypes.oneOf(['light', 'dark']),
+  isTour: PropTypes.bool,
+  isOpen: PropTypes.bool,
 };
 
 Tooltip.defaultProps = {
   delay: false,
   placement: 'top',
   type: 'light',
+  isOpen: false,
+  isTour: false,
 };
 
 export default Tooltip;
