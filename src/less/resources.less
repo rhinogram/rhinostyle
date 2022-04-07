@@ -4,7 +4,7 @@
 
 
 @resource-active-background: @global-color-primary-light;
-@resource-active-inset-shadow: 0 0.1rem 0.6rem  rgba(0, 0, 0, 0.1);
+@resource-active-inset-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.1);
 
 @resource-min-height: 50px;
 @resource-padding-horizontal: @global-whitespace-base;
@@ -40,7 +40,7 @@
 //
 
 .resource-group__container {
-  & + & {
+  &+& {
     margin-top: @global-whitespace-base;
   }
 }
@@ -134,6 +134,12 @@
       z-index: 1;
     }
 
+    &.interface-left {
+      .resource::after {
+        left: 0;
+      }
+    }
+
     &.is-radio {
       .resource::after {
         border: 1px solid @global-border-color;
@@ -144,6 +150,13 @@
       .resource::after {
         transform: none;
         top: 0;
+      }
+    }
+
+    &.interface-left {
+      .resource {
+        padding-right: 0;
+        padding-left: (@resource-interface-size + @global-whitespace-xsmall);
       }
     }
   }
@@ -169,6 +182,19 @@
         }
       }
     }
+
+    &.interface-left {
+      .resource::before {
+        content: '';
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: ((@resource-interface-active-decrease / 2));
+        transform: translateY(-50%);
+        width: (@resource-interface-size - @resource-interface-active-decrease);
+        height: (@resource-interface-size - @resource-interface-active-decrease);
+      }
+    }
   }
 
   @svg-load checkmark url(../svg/checkmark.svg) {
@@ -189,6 +215,12 @@
       .resource::after {
         background: @global-color-secondary;
         border-radius: 50%;
+      }
+
+      &.interface-left {
+        .resource::after {
+          background: @global-color-primary;
+        }
       }
     }
   }
@@ -218,7 +250,7 @@
   }
 
   // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
-  ~ .resource__wrapper {
+  ~.resource__wrapper {
     border-top: 1px solid @global-border-color;
   }
 }
@@ -229,6 +261,7 @@
   position: relative;
 
   &--is-unavailable {
+
     .resource__intro,
     .resource__body {
       opacity: @global-opacity-disabled;

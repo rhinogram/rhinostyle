@@ -92,7 +92,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       avatarDetails = { image: profileImageUrl, name: listItem.name, type: 'member' };
     }
     return (
-      <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)}>
+      <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)} interfacePosition={this.props.interfacePosition}>
         {this.props.type === 'member' ? (
           <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
         ) : (
@@ -277,6 +277,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   filterName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
+  interfacePosition: PropTypes.bool,
 };
 
 export default DropdownMultiSelectAdvanced;

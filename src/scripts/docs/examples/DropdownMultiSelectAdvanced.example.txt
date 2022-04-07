@@ -79,6 +79,7 @@ class ComponentExample extends React.Component {
         filterName="Contacts"
         type="member"
         className={classes}
+        interfacePosition="left"
       />
     );
   }

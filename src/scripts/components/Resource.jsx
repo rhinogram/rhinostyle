@@ -63,7 +63,7 @@ class Resource extends React.Component {
   }
 
   render() {
-    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName, unavailable, dataCypress } = this.props;
+    const { className, active, disabled, selected, interfaceMode, unread, wrapperClassName, unavailable, dataCypress, interfacePosition } = this.props;
 
     const interfaceClass = interfaceMode === 'radio' ? 'radio' : 'checkbox';
 
@@ -74,6 +74,7 @@ class Resource extends React.Component {
       [`is-${interfaceClass}`]: interfaceMode,
       'is-selected': selected && !active,
       'is-unread': unread,
+      'interface-left': interfacePosition === 'left',
     });
 
     const resourceClasses = cx('resource', className, {
@@ -104,6 +105,7 @@ Resource.propTypes = {
   unread: PropTypes.bool,
   wrapperClassName: PropTypes.string,
   dataCypress: PropTypes.string,
+  interfacePosition: PropTypes.bool,
 };
 
 export default Resource;
