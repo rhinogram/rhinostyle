@@ -49,6 +49,14 @@ class DropdownMultiSelectAdvanced extends React.Component {
     this.props.handleUpdateSelectedIds(selectedIds, selectedItems, this.props.filterName.toLowerCase());
   };
 
+  handleCheckboxClick = (name, value, event) => {
+    const { checkbox } = this.props;
+
+    if (checkbox.onChange) {
+      checkbox.onChange(event);
+    }
+  }
+
   handleToggle = () => {
     if (this.state.isViewAllItems && this.state.searchText.length > 0) {
       this.setState({ searchText: '' });
@@ -97,7 +105,9 @@ class DropdownMultiSelectAdvanced extends React.Component {
     if (this.props.type === 'forms') {
       return (
         <Checkbox
+          key={idx}
           isChecked={selected}
+          onChange={() => this.handleUpdateSelectedIds(id)}
           name={listItem.title}
           label={listItem.title}
           interfacePosition={this.props.interfacePosition}
@@ -137,7 +147,21 @@ class DropdownMultiSelectAdvanced extends React.Component {
 
   renderSelectedItemsList = (id, idx) => {
     const item = this.props.selectedItems[id];
-    return this.renderListItems(item, id, idx);
+    const selected = this.props.selectedItemsIds.includes(id);
+    if (this.props.type === 'forms') {
+      return (
+        <Checkbox
+          key={idx}
+          isChecked={selected}
+          onChange={() => this.handleUpdateSelectedIds(id)}
+          name={item.title}
+          label={item.title}
+          interfacePosition={this.props.interfacePosition}
+        />
+      );
+    } else {
+      return this.renderListItems(item, id, idx);
+    }
   };
 
   renderClearButton = () => (
@@ -191,9 +215,15 @@ class DropdownMultiSelectAdvanced extends React.Component {
         </div>
         {this.props.selectedItemsIds.length > 0 ? (
           <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-            <ResourceGroup interfaceMode="checkbox">
-              {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
-            </ResourceGroup>
+            {this.props.type === 'forms' ? (
+              <CheckboxGroup blockGroup>
+                {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
+              </CheckboxGroup>
+            ) : (
+              <ResourceGroup interfaceMode="checkbox">
+                {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
+              </ResourceGroup>
+            )}
           </Scrollbars>
         ) : (
           'No items Added'
@@ -296,6 +326,13 @@ DropdownMultiSelectAdvanced.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
   interfacePosition: PropTypes.string,
+  checkbox: PropTypes.shape({
+    isChecked: PropTypes.bool,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    hasAvatar: PropTypes.bool,
+  }),
 };
 
 export default DropdownMultiSelectAdvanced;
