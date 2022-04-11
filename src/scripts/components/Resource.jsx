@@ -105,7 +105,7 @@ Resource.propTypes = {
   unread: PropTypes.bool,
   wrapperClassName: PropTypes.string,
   dataCypress: PropTypes.string,
-  interfacePosition: PropTypes.bool,
+  interfacePosition: PropTypes.string,
 };
 
 export default Resource;

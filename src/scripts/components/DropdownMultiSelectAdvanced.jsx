@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -12,6 +13,8 @@ import ResourceIntro from './ResourceIntro';
 import ResourceGroup from './ResourceGroup';
 import Dropdown from './Dropdown';
 import UtilityInlineGrid from './UtilityInlineGrid';
+import Checkbox from './Checkbox';
+import CheckboxGroup from './CheckboxGroup';
 
 class DropdownMultiSelectAdvanced extends React.Component {
   state = {
@@ -91,15 +94,26 @@ class DropdownMultiSelectAdvanced extends React.Component {
       profileImageUrl = listItem.profileImageUrl ? `${this.props.avatarBaseUrl}${listItem.profileImageUrl}` : '';
       avatarDetails = { image: profileImageUrl, name: listItem.name, type: 'member' };
     }
-    return (
-      <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)} interfacePosition={this.props.interfacePosition}>
-        {this.props.type === 'member' ? (
-          <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
-        ) : (
-          listItem.title
-        )}
-      </Resource>
-    );
+    if (this.props.type === 'forms') {
+      return (
+        <Checkbox
+          isChecked={selected}
+          name={listItem.title}
+          label={listItem.title}
+          interfacePosition={this.props.interfacePosition}
+        />
+      );
+    } else {
+      return (
+        <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)} interfacePosition={this.props.interfacePosition}>
+          {this.props.type === 'member' ? (
+            <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
+          ) : (
+            listItem.title
+          )}
+        </Resource>
+      );
+    }
   };
 
   renderList = (id, idx) => {
@@ -248,7 +262,11 @@ class DropdownMultiSelectAdvanced extends React.Component {
         <div className="dropdown__menu__container">
           {itemsIds.length > 0 ? (
             <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-              <ResourceGroup interfaceMode="checkbox">{itemsIds.map(this.renderList)}</ResourceGroup>
+              {this.props.type === 'forms' ? (
+                <CheckboxGroup blockGroup>{itemsIds.map(this.renderList)}</CheckboxGroup>
+              ) : (
+                <ResourceGroup interfaceMode="checkbox">{itemsIds.map(this.renderList)}</ResourceGroup>
+              )}
             </Scrollbars>
           ) : (
             this.renderSearchHelp(itemsIds, itemSearchLoading)
@@ -277,7 +295,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   filterName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
-  interfacePosition: PropTypes.bool,
+  interfacePosition: PropTypes.string,
 };
 
 export default DropdownMultiSelectAdvanced;
