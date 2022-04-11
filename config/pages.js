@@ -9,7 +9,6 @@ import msLayouts from 'metalsmith-layouts';
 import msIgnore from 'metalsmith-ignore';
 import nunjucks from 'nunjucks';
 import browserSync from 'browser-sync';
-import { resolve } from 'rsvp';
 
 const { reload } = browserSync;
 
@@ -79,7 +78,7 @@ function runMetalsmith(resolve, reject) {
  * @return {Promise}
  */
 export default function pages() {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     runMetalsmith(resolve, reject);
   });
 }
