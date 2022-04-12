@@ -77,9 +77,9 @@ class ComponentExample extends React.Component {
         itemsIds={this.state.itemsIds}
         dropdownLabel={label}
         filterName="Contacts"
-        type="member"
+        type="forms"
         className={classes}
-        interfacePosition="left"
+        interfaceLeft
       />
     );
   }

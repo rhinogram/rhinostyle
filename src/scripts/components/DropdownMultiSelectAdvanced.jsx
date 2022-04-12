@@ -102,7 +102,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       profileImageUrl = listItem.profileImageUrl ? `${this.props.avatarBaseUrl}${listItem.profileImageUrl}` : '';
       avatarDetails = { image: profileImageUrl, name: listItem.name, type: 'member' };
     }
-    if (this.props.type === 'forms') {
+    if (this.props.interfaceLeft) {
       return (
         <Checkbox
           key={idx}
@@ -110,12 +110,12 @@ class DropdownMultiSelectAdvanced extends React.Component {
           onChange={() => this.handleUpdateSelectedIds(id)}
           name={listItem.title}
           label={listItem.title}
-          interfacePosition={this.props.interfacePosition}
+          interfaceLeft={this.props.interfaceLeft}
         />
       );
     } else {
       return (
-        <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)} interfacePosition={this.props.interfacePosition}>
+        <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)} interfaceLeft={this.props.interfaceLeft}>
           {this.props.type === 'member' ? (
             <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
           ) : (
@@ -148,7 +148,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
   renderSelectedItemsList = (id, idx) => {
     const item = this.props.selectedItems[id];
     const selected = this.props.selectedItemsIds.includes(id);
-    if (this.props.type === 'forms') {
+    if (this.props.interfaceLeft) {
       return (
         <Checkbox
           key={idx}
@@ -156,7 +156,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
           onChange={() => this.handleUpdateSelectedIds(id)}
           name={item.title}
           label={item.title}
-          interfacePosition={this.props.interfacePosition}
+          interfaceLeft={this.props.interfaceLeft}
         />
       );
     } else {
@@ -215,7 +215,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
         </div>
         {this.props.selectedItemsIds.length > 0 ? (
           <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-            {this.props.type === 'forms' ? (
+            {this.props.interfaceLeft ? (
               <CheckboxGroup blockGroup>
                 {this.props.selectedItemsIds.map(this.renderSelectedItemsList)}
               </CheckboxGroup>
@@ -292,7 +292,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
         <div className="dropdown__menu__container">
           {itemsIds.length > 0 ? (
             <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-              {this.props.type === 'forms' ? (
+              {this.props.interfaceLeft ? (
                 <CheckboxGroup blockGroup>{itemsIds.map(this.renderList)}</CheckboxGroup>
               ) : (
                 <ResourceGroup interfaceMode="checkbox">{itemsIds.map(this.renderList)}</ResourceGroup>
@@ -325,7 +325,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   filterName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
-  interfacePosition: PropTypes.string,
+  interfaceLeft: PropTypes.bool,
   checkbox: PropTypes.shape({
     isChecked: PropTypes.bool,
     label: PropTypes.string,

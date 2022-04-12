@@ -40,12 +40,12 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { children, className, label, disabled, name, title, value, type, dataCypress, interfacePosition } = this.props;
+    const { children, className, label, disabled, name, title, value, type, dataCypress, interfaceLeft } = this.props;
     const { checked } = this.state;
 
     const classes = cx('rhinobox', `rhinobox--${type}`, className, {
       [UtilitySystem.config.classes.disabled]: disabled,
-      'interface-left': interfacePosition === 'left',
+      'interface-left': interfaceLeft,
     });
 
     return (
@@ -95,7 +95,7 @@ Checkbox.propTypes = {
   value: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'secondary']),
   dataCypress: PropTypes.string,
-  interfacePosition: PropTypes.string,
+  interfaceLeft: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
