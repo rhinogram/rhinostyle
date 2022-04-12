@@ -49,14 +49,6 @@ class DropdownMultiSelectAdvanced extends React.Component {
     this.props.handleUpdateSelectedIds(selectedIds, selectedItems, this.props.filterName.toLowerCase());
   };
 
-  handleCheckboxClick = (name, value, event) => {
-    const { checkbox } = this.props;
-
-    if (checkbox.onChange) {
-      checkbox.onChange(event);
-    }
-  }
-
   handleToggle = () => {
     if (this.state.isViewAllItems && this.state.searchText.length > 0) {
       this.setState({ searchText: '' });
@@ -242,10 +234,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       dropDownClass,
       dataCypress,
     } = this.props;
-    let classes = 'resource-group__scroll';
-    if (className) {
-      classes = `resource-group__scroll ${className}`;
-    }
+    const classes = `resource-group__scroll${this.props.interfaceLeft && '--checkbox'} ${className && className}`;
 
     const itemsIds = [...this.props.itemsIds];
     const searchTitle = `Search ${filterName}`;
