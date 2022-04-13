@@ -86,7 +86,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     }
   };
 
-  renderListItems = (listItem, id, idx) => {
+  renderListItems = (listItem, id) => {
     const selected = this.props.selectedItemsIds.includes(id);
     let profileImageUrl = '';
     let avatarDetails = {};
@@ -97,7 +97,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     if (this.props.interfaceLeft) {
       return (
         <Checkbox
-          key={idx}
+          key={id}
           isChecked={selected}
           onChange={() => this.handleUpdateSelectedIds(id)}
           name={listItem.title}
@@ -107,7 +107,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
       );
     } else {
       return (
-        <Resource selected={selected} key={idx} onClick={() => this.handleUpdateSelectedIds(id)} interfaceLeft={this.props.interfaceLeft}>
+        <Resource selected={selected} key={id} onClick={() => this.handleUpdateSelectedIds(id)} interfaceLeft={this.props.interfaceLeft}>
           {this.props.type === 'member' ? (
             <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
           ) : (
@@ -139,12 +139,12 @@ class DropdownMultiSelectAdvanced extends React.Component {
 
   renderSelectedItemsList = (id, idx) => {
     const item = this.props.selectedItems[id];
-    const selected = this.props.selectedItemsIds.includes(id);
+    const isSelected = this.props.selectedItemsIds.includes(id);
     if (this.props.interfaceLeft) {
       return (
         <Checkbox
-          key={idx}
-          isChecked={selected}
+          key={id}
+          isChecked={isSelected}
           onChange={() => this.handleUpdateSelectedIds(id)}
           name={item.title}
           label={item.title}
@@ -315,13 +315,6 @@ DropdownMultiSelectAdvanced.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
   interfaceLeft: PropTypes.bool,
-  checkbox: PropTypes.shape({
-    isChecked: PropTypes.bool,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    hasAvatar: PropTypes.bool,
-  }),
 };
 
 export default DropdownMultiSelectAdvanced;
