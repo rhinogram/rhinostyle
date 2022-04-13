@@ -4,7 +4,7 @@
 
 
 @resource-active-background: @global-color-primary-light;
-@resource-active-inset-shadow: 0 0.1rem 0.6rem  rgba(0, 0, 0, 0.1);
+@resource-active-inset-shadow: 0 0.1rem 0.6rem rgba(0, 0, 0, 0.1);
 
 @resource-min-height: 50px;
 @resource-padding-horizontal: @global-whitespace-base;
@@ -40,7 +40,7 @@
 //
 
 .resource-group__container {
-  & + & {
+  &+& {
     margin-top: @global-whitespace-base;
   }
 }
@@ -54,6 +54,14 @@
 .resource-group__scroll {
   overflow-y: auto;
   border: 1px solid @global-border-color;
+
+  .resource-group {
+    border: 0;
+  }
+}
+
+.resource-group__scroll--checkbox {
+  overflow-y: auto;
 
   .resource-group {
     border: 0;
@@ -218,7 +226,7 @@
   }
 
   // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
-  ~ .resource__wrapper {
+  ~.resource__wrapper {
     border-top: 1px solid @global-border-color;
   }
 }
@@ -229,6 +237,7 @@
   position: relative;
 
   &--is-unavailable {
+
     .resource__intro,
     .resource__body {
       opacity: @global-opacity-disabled;

@@ -366,7 +366,7 @@ input[type='checkbox']:focus {
 
   // Class added to `.form__group` so we can pass input styles down
   .has-focus & {
-    border-color: @input-border-focus !important;
+    border-color: @input-border-focus  !important;
   }
 
   .form__addon--large & {
@@ -384,7 +384,7 @@ input[type='checkbox']:focus {
   border-top-left-radius: @input-border-radius;
   padding-right: 0 !important;
 
-  + .input__wrapper .form__control {
+  +.input__wrapper .form__control {
     border-left: 0;
   }
 }
@@ -535,7 +535,7 @@ input[type='checkbox']:focus {
 }
 
 .form__control--error {
-  border-color: @global-color-danger !important;
+  border-color: @global-color-danger  !important;
 }
 
 
@@ -546,12 +546,12 @@ input[type='checkbox']:focus {
 
 // form controls that need right padding to account for chevron-down
 .form__control--chevron {
-  padding-right: @form-control-chevron-padding !important;
+  padding-right: @form-control-chevron-padding  !important;
 }
 
 // form controls that need right padding to account for clear button
 .form__control--clear {
-  padding-right: @form-control-clear-padding !important;
+  padding-right: @form-control-clear-padding  !important;
 }
 
 // form controls that are stripped down in appearance
@@ -597,7 +597,7 @@ input[type='checkbox']:focus {
 
 
 .form__group {
-  & + & {
+  &+& {
     margin-top: @form-group-spacing;
   }
 }
@@ -642,7 +642,7 @@ input[type='checkbox']:focus {
 
 
 .form__section {
-  & + & {
+  &+& {
     margin-top: (@global-whitespace-base * 3);
   }
 }
@@ -702,7 +702,7 @@ input[type='checkbox']:focus {
   }
 
   input {
-    &:checked + label::before {
+    &:checked+label::before {
       background-image: svg-inline(checkmark);
       background-position: center;
       background-repeat: no-repeat;
@@ -712,12 +712,12 @@ input[type='checkbox']:focus {
 
   &.rhinobox--primary {
     input {
-      &:checked + label::before {
+      &:checked+label::before {
         background-color: @form-element-primary-color;
         border-color: @form-element-primary-color;
       }
 
-      &:focus + label::before {
+      &:focus+label::before {
         box-shadow: @rhinobox-rhinodio-focus-shadow-primary;
       }
     }
@@ -725,12 +725,12 @@ input[type='checkbox']:focus {
 
   &.rhinobox--secondary {
     input {
-      &:checked + label::before {
+      &:checked+label::before {
         background-color: @form-element-secondary-color;
         border-color: @form-element-secondary-color;
       }
 
-      &:focus + label::before {
+      &:focus+label::before {
         box-shadow: @rhinobox-rhinodio-focus-shadow-secondary;
       }
     }
@@ -738,7 +738,7 @@ input[type='checkbox']:focus {
 
   &.partially-checked {
     input {
-      &:checked + label::before {
+      &:checked+label::before {
         background-color: @form-element-primary-color;
         background-image: svg-inline(minus);
         border-color: @form-element-primary-color;
@@ -776,11 +776,11 @@ input[type='checkbox']:focus {
 }
 
 .rhinodio__input {
-  &:checked + .rhinodio__label::after {
+  &:checked+.rhinodio__label::after {
     transform: translateY(-50%) scale(1);
   }
 
-  &:focus + label::before {
+  &:focus+label::before {
     box-shadow: @rhinobox-rhinodio-focus-shadow-primary;
   }
 }
@@ -817,18 +817,18 @@ input[type='checkbox']:focus {
 }
 
 .rhinoslidingradio__input {
-  &:checked + .rhinoslidingradio__label::after {
+  &:checked+.rhinoslidingradio__label::after {
     transform-origin: center;
     transform: scale(1.5);
     transition: all @global-transition-speed-normal @global-trans-timing-cubic;
   }
 
-  &:checked + .rhinoslidingradio__label::before {
+  &:checked+.rhinoslidingradio__label::before {
     transform: scale(1);
     transition: all @global-transition-speed-normal @global-trans-timing-cubic;
   }
 
-  &:checked + .rhinoslidingradio__label.u-text-danger {
+  &:checked+.rhinoslidingradio__label.u-text-danger {
     &::after {
       border: 1px solid @global-color-danger;
     }
@@ -838,7 +838,7 @@ input[type='checkbox']:focus {
     }
   }
 
-  &:checked + .rhinoslidingradio__label.u-text-warning {
+  &:checked+.rhinoslidingradio__label.u-text-warning {
     &::after {
       border: 1px solid @global-color-warning;
     }
@@ -848,7 +848,7 @@ input[type='checkbox']:focus {
     }
   }
 
-  &:checked + .rhinoslidingradio__label.u-text-secondary {
+  &:checked+.rhinoslidingradio__label.u-text-secondary {
     &::after {
       border: 1px solid @global-color-secondary;
     }
@@ -901,7 +901,7 @@ input[type='checkbox']:focus {
   display: flex;
   border-bottom: 1px solid @global-border-color;
 
-  & > div {
+  &>div {
     position: relative;
   }
 }
@@ -914,7 +914,7 @@ input[type='checkbox']:focus {
   .rhinobox {
     display: block; // 1
 
-    + * {
+    +* {
       border-top: 1px solid @global-border-color;
     }
   }
@@ -940,8 +940,19 @@ input[type='checkbox']:focus {
     }
   }
 
-  .rhinodio__input:checked + .rhinodio__label::after {
+  .rhinodio__input:checked+.rhinodio__label::after {
     transform: scale(1);
+  }
+}
+
+&.interface-left {
+  .rhinobox__label {
+    padding: @global-whitespace-base @global-whitespace-base @global-whitespace-base (@global-whitespace-base + @rhinobox-rhinodio-size + @global-whitespace-small);
+
+    &::before {
+      left: @global-whitespace-base;
+      right: 0;
+    }
   }
 }
 
@@ -959,7 +970,8 @@ input[type='checkbox']:focus {
 * SO issue RE: pseudo-selector CSS on self-closing tags: https://stackoverflow.com/questions/2587669/can-i-use-a-before-or-after-pseudo-element-on-an-input-field
 * W3 Spec RE: pseudo-selector CSS on self-closing tags: https://www.w3.org/TR/CSS2/generate.html#before-after-content
 ** */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
   .rhinobox__label--ie11 {
     padding-top: 1.1rem;
   }
@@ -994,7 +1006,7 @@ input[type='checkbox']:focus {
   vertical-align: middle;
   min-height: @global-height;
 
-  .mixin-chevron-down();  // add chevron
+  .mixin-chevron-down(); // add chevron
 }
 
 .select__label {
@@ -1094,14 +1106,14 @@ input[type='checkbox']:focus {
   input {
     .mixin-sr-only();
 
-    &[disabled] + label {
+    &[disabled]+label {
       opacity: @global-opacity-disabled;
       cursor: not-allowed;
       pointer-events: none;
     }
 
     &:checked {
-      + label {
+      +label {
         background: @switcher-background-active;
 
         &::after {
@@ -1154,8 +1166,13 @@ input[type='checkbox']:focus {
 }
 
 // Focus
-.rhinorange:focus { outline: none; }
-.rhinorange::-moz-focus-outer { border: 0; }
+.rhinorange:focus {
+  outline: none;
+}
+
+.rhinorange::-moz-focus-outer {
+  border: 0;
+}
 
 // IE11 Reset
 .rhinorange::-ms-track {
@@ -1166,9 +1183,17 @@ input[type='checkbox']:focus {
 }
 
 // Improves consistency of cursor style for clickable elements
-.rhinorange:not(:disabled)::-webkit-slider-thumb { cursor: pointer; }
-.rhinorange:not(:disabled)::-moz-range-thumb { cursor: pointer; }
-.rhinorange:not(:disabled)::-ms-thumb { cursor: pointer; }
+.rhinorange:not(:disabled)::-webkit-slider-thumb {
+  cursor: pointer;
+}
+
+.rhinorange:not(:disabled)::-moz-range-thumb {
+  cursor: pointer;
+}
+
+.rhinorange:not(:disabled)::-ms-thumb {
+  cursor: pointer;
+}
 
 //
 // Thumb
@@ -1222,7 +1247,9 @@ input[type='checkbox']:focus {
 }
 
 // Edge + IE11
-.rhinorange::-ms-tooltip { display: none; }
+.rhinorange::-ms-tooltip {
+  display: none;
+}
 
 .rhinorange:focus::-ms-thumb {
   background: @rhinorange-thumb-background-active;
