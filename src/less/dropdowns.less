@@ -417,6 +417,18 @@
   * + & {
     margin-left: @global-whitespace-xsmall;
   }
+
+  &--display-only {
+    font-size: @global-font-size-small;
+    padding-left: @global-whitespace-small;
+
+    &--is-active {
+      font-size: @global-font-size-small;
+      color: @global-color-primary;
+      padding-left: @global-whitespace-small;
+      margin-bottom: @global-whitespace-small;
+    }
+  }
 }
 
 //
@@ -503,3 +515,7 @@
   }
 }
 
+.dropdown-checkbox-label__hide-menu {
+  display: flex;
+  align-items: center;
+}
