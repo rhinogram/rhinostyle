@@ -187,6 +187,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     <Dropdown
       dataCypress={this.props.dataCypress}
       wide
+      disabled={this.props.disabled}
       onClick={this.clearSearch}
       autoFocusInput={false}
       label={this.props.dropdownLabel}
@@ -248,6 +249,7 @@ class DropdownMultiSelectAdvanced extends React.Component {
     return this.state.isViewAllItems ? (
       <Dropdown
         wide
+        disabled={this.props.disabled}
         autoFocusInput={false}
         label={dropdownLabel}
         onClick={this.clearSearch}
@@ -315,6 +317,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
   interfaceLeft: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default DropdownMultiSelectAdvanced;
