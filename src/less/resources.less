@@ -40,7 +40,7 @@
 //
 
 .resource-group__container {
-  &+& {
+  & + & {
     margin-top: @global-whitespace-base;
   }
 }
@@ -226,7 +226,7 @@
   }
 
   // We need to be a bit more relaxed with our borders since the container query watcher can get mixed in next to each `<Resource />` as state changes
-  ~.resource__wrapper {
+  ~ .resource__wrapper {
     border-top: 1px solid @global-border-color;
   }
 }
@@ -237,7 +237,6 @@
   position: relative;
 
   &--is-unavailable {
-
     .resource__intro,
     .resource__body {
       opacity: @global-opacity-disabled;

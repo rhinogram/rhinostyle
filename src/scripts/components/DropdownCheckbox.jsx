@@ -142,6 +142,7 @@ class DropdownCheckbox extends React.Component {
       disabled,
       disableScroll,
       hideCaret,
+      hideDropdownMenu,
       label,
       icon,
       lockLabel,
@@ -203,20 +204,32 @@ class DropdownCheckbox extends React.Component {
 
     const enableClickOutside = this.props.manualClose ? false : this.state.isOpen;
 
+    const getLabelClass = () => {
+      const { checked } = this.state;
+      if (hideDropdownMenu) {
+        const displayOnlyClass = `--display-only${checked ? '--is-active' : ''}`;
+        return displayOnlyClass;
+      } else {
+        return '';
+      }
+    };
+
     const showLabel = () => {
       const { labelValueAssociated } = this.props;
+      const handleClick = !hideDropdownMenu ? this.handleToggle : undefined;
       if (showAssociatedLabel) {
-        return <span className="dropdown__toggle__text" onClick={this.handleToggle}>{labelValueAssociated}</span>;
+        return <span className={`dropdown__toggle__text${getLabelClass()}`} onClick={handleClick}>{labelValueAssociated}</span>;
       }
       if (selectedLabel || label) {
         if (showOverflow) {
           return selectedLabel || label;
         }
 
-        return <span className="dropdown__toggle__text" onClick={this.handleToggle}>{selectedLabel || label}</span>;
+        return <span className={`dropdown__toggle__text${getLabelClass()}`} onClick={handleClick}>{selectedLabel || label}</span>;
       }
       return false;
     };
+
     const showCheckbox = () => {
       const { isCheckbox, checked } = this.state;
       const { onChange } = this.props;
@@ -230,48 +243,57 @@ class DropdownCheckbox extends React.Component {
       return false;
     };
 
-    return (
-      <DropdownWrapper
-        className={dropdownClasses}
-        handleClick={this.handleClickOutside}
-        disableOnClickOutside={!enableClickOutside}
-        enableOnClickOutside={enableClickOutside}
-        onStart={onStart}
-        onComplete={onComplete}
-        onReverseComplete={onReverseComplete}
-        onReverseStart={onReverseStart}
-        ref={(ref) => (this.dropdown = ref)}
-      >
-        <Button
-          reset={reset}
-          size={size}
-          iconOnly={icon && !label}
-          type={type}
-          className={dropdownToggleClasses}
-          disabled={disabled}
-          title={title}
-          hasClickableChildren
-        >
-          {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}
+    if (hideDropdownMenu) {
+      return (
+        <div className="dropdown-checkbox-label__hide-menu">
           {showCheckbox()}
-          <Button reset hasClickableChildren>
-            {hideCaret || (icon && !label && !selectedLabel) ? (
-              null
-            ) : (
+          {showLabel()}
+        </div>
+      );
+    } else {
+      return (
+        <DropdownWrapper
+          className={dropdownClasses}
+          handleClick={this.handleClickOutside}
+          disableOnClickOutside={!enableClickOutside}
+          enableOnClickOutside={enableClickOutside}
+          onStart={onStart}
+          onComplete={onComplete}
+          onReverseComplete={onReverseComplete}
+          onReverseStart={onReverseStart}
+          ref={(ref) => (this.dropdown = ref)}
+        >
+          <Button
+            reset={reset}
+            size={size}
+            iconOnly={icon && !label}
+            type={type}
+            className={dropdownToggleClasses}
+            disabled={disabled}
+            title={title}
+            hasClickableChildren
+          >
+            {(selectedIcon || icon) && <Icon className="dropdown__toggle__icon" icon={selectedIcon || icon} />}
+            {showCheckbox()}
+            <Button reset hasClickableChildren>
+              {hideCaret || (icon && !label && !selectedLabel) ? (
+                null
+              ) : (
               // This icon needs to be wrapped in a <Button/>, because IE11 will only fire onClick event on the actual path of an SVG
               // and not it's container. If we remove the <Button/> wrapper and just use the <Icon/>, it's near impossible to click it.
-              <Button reset onClick={this.handleToggle} data-cypress={title}>
-                <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
-              </Button>
-            )}
-            {showLabel()}
+                <Button reset onClick={this.handleToggle} data-cypress={title}>
+                  <Icon size="small" icon="caret-down" className="dropdown__toggle__caret" />
+                </Button>
+              )}
+              {showLabel()}
+            </Button>
           </Button>
-        </Button>
-        <div className={dropdownMenuClasses}>
-          {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
-        </div>
-      </DropdownWrapper>
-    );
+          <div className={dropdownMenuClasses}>
+            {hasFilter || disableScroll ? this.getChildren() : <DropdownMenuScroll>{this.getChildren()}</DropdownMenuScroll>}
+          </div>
+        </DropdownWrapper>
+      );
+    }
   }
 }
 
@@ -284,6 +306,7 @@ DropdownCheckbox.propTypes = {
   disableScroll: PropTypes.bool,
   hideCaret: PropTypes.bool,
   hideActive: PropTypes.bool,
+  hideDropdownMenu: PropTypes.bool,
   icon: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   lockLabel: PropTypes.bool,
