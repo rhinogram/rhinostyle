@@ -88,14 +88,17 @@ const DateRangeDropdownDocs = {
 };
 
 const DropdownMultiSelectDocs = {
-  activeKey: 'The id of the currently selected DropdownMenuItem',
-  block: 'Block level',
+  dataCypress: 'for testing',
+  handleSelect: 'Callback when item is selected',
+  itemIds: 'Array of all item ids',
+  selectedItemIds: 'Array of selected item ids',
+  items: 'Items to be displayed as options',
   label: 'Text in dropdown when closed',
-  position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>",
-  size: "Size of Dropdown <code>oneOf(['small', 'large'])</code>",
-  onSelect: 'Callback when a DropdownMenuItem is selected',
-  placeholder: 'Any placeholder text you want in the dropdown',
+  dropdownClass: 'Custom class applied to Dropdown component',
+  getItemLabelValue: 'Custom format for items in dropdown',
   wide: 'Sets a min-width on dropdown menu',
+  name: 'Name of dropdown',
+  position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>",
 };
 
 const DropdownMenuHeaderDocs = {
