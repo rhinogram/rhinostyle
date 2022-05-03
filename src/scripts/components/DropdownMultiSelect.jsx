@@ -9,7 +9,7 @@ import CheckboxGroup from './CheckboxGroup';
 
 class DropdownMultiSelect extends React.Component {
   labelValue(item) {
-    return this.props.getItemLabelValue ? this.props.getItemLabelValue(item) : item.name;
+    return this.props.getItemLabelValue && typeof this.props.getItemLabelValue === 'function' ? this.props.getItemLabelValue(item) : item.name;
   }
 
   renderList = (id) => {
@@ -28,7 +28,7 @@ class DropdownMultiSelect extends React.Component {
   };
 
   renderLabel() {
-    if (this.props.selectedItemIds.length > 0) {
+    if (this.props.selectedItemIds?.length > 0) {
       const label = this.props.selectedItemIds.map((id) => this.labelValue(this.props.items[id])).join(', ');
       return <span className="dropdown__menu__label--selected">{label}</span>;
     }
@@ -44,9 +44,6 @@ class DropdownMultiSelect extends React.Component {
       label,
       wide,
     } = this.props;
-    const dropdownClasses = cx(`multi-select__dropdown ${dropdownClass || ''}`, {
-      'multi-select__dropdown--wide': this.props.wide,
-    });
 
     const itemIds = [...this.props.itemIds];
     let dropdownType = 'input';
@@ -55,6 +52,9 @@ class DropdownMultiSelect extends React.Component {
       dropdownType = 'primary';
       outlined = true;
     }
+    const dropdownClasses = cx(`dropdown__multi-select ${dropdownClass || ''}`, {
+      'dropdown__multi-select--wide': wide,
+    });
 
     return (
       <Dropdown
@@ -69,13 +69,13 @@ class DropdownMultiSelect extends React.Component {
         wide={wide}
       >
         <div className="dropdown__menu__container">
-          {itemIds.length > 0 ? (
+          {itemIds?.length > 0 ? (
             <Scrollbars
               className="resource-group__scroll--checkbox"
               autoHeight
               autoHeightMax={UtilitySystem.config.resourceSizes.large}
             >
-              <CheckboxGroup>
+              <CheckboxGroup className="dropdown__menu--checkbox">
                 {itemIds.map(this.renderList)}
               </CheckboxGroup>
             </Scrollbars>
