@@ -42,6 +42,7 @@ class DropdownMultiSelect extends React.Component {
       dataCypress,
       position,
       label,
+      wide,
     } = this.props;
     const dropdownClasses = cx(`multi-select__dropdown ${className || ''}`, {
       'multi-select__dropdown--wide': this.props.wide,
@@ -65,7 +66,7 @@ class DropdownMultiSelect extends React.Component {
         disableScroll
         className={dropdownClasses}
         position={position || 'right'}
-        wide={this.props.wide}
+        wide={wide}
       >
         <div className="dropdown__menu__container">
           {itemIds.length > 0 ? (
@@ -90,9 +91,9 @@ class DropdownMultiSelect extends React.Component {
 DropdownMultiSelect.propTypes = {
   name: PropTypes.string.isRequired,
   handleSelect: PropTypes.func.isRequired,
+  items: PropTypes.object.isRequired,
   itemIds: PropTypes.array.isRequired,
   selectedItemIds: PropTypes.array.isRequired,
-  items: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   dataCypress: PropTypes.string,
   className: PropTypes.string,

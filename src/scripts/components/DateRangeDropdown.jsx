@@ -120,6 +120,7 @@ class DateRangeDropdown extends React.Component {
           wide
           autoFocusInput={false}
           ref={(dropdown) => (this.dropdown = dropdown)}
+          disabled={this.props.disabled}
         >
           {dropdownMenuItems.map((menuItem, index) => (
             (index !== dropdownMenuItems.length - 1) &&
@@ -192,6 +193,7 @@ DateRangeDropdown.propTypes = {
   dropdownMenuItems: PropTypes.array.isRequired,
   selectDateRange: PropTypes.func.isRequired,
   isCustomDate: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default DateRangeDropdown;
