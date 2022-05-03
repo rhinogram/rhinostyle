@@ -38,13 +38,13 @@ class DropdownMultiSelect extends React.Component {
   render() {
     const {
       selectedItemIds,
-      className,
+      dropdownClass,
       dataCypress,
       position,
       label,
       wide,
     } = this.props;
-    const dropdownClasses = cx(`multi-select__dropdown ${className || ''}`, {
+    const dropdownClasses = cx(`multi-select__dropdown ${dropdownClass || ''}`, {
       'multi-select__dropdown--wide': this.props.wide,
     });
 
@@ -96,7 +96,7 @@ DropdownMultiSelect.propTypes = {
   selectedItemIds: PropTypes.array.isRequired,
   label: PropTypes.string.isRequired,
   dataCypress: PropTypes.string,
-  className: PropTypes.string,
+  dropdownClass: PropTypes.string,
   getItemLabelValue: PropTypes.func,
   wide: PropTypes.bool,
   position: PropTypes.string,
