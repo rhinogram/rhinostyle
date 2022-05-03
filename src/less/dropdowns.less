@@ -74,43 +74,15 @@
 // Dropdown Modifier (Multiselect)
 //
 
-.dropdown--multiselect {
-  .mixin-chevron-down(); // add chevron
+.multi-select__dropdown {
+  width: 16rem;
 
-  @svg-load checkmark url(../svg/checkmark.svg) {
-    .icon-stroke {
-      stroke: @global-color-secondary;
-    }
+  &--wide {
+    width: 26rem;
   }
 
-  .dropdown__menu__item.is-active > .dropdown__menu__item__link {
-    padding-right: 3.6rem;
-
-    &,
-    &:focus {
-      background: lighten(@dropdown-link-hover-bg, 1%);
-      color: @dropdown-link-color;
-
-      &::after {
-        background-image: svg-inline(checkmark);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: @icon-size @icon-size;
-        content: '';
-        height: @icon-size;
-        pointer-events: none;
-        position: absolute;
-        right: @global-whitespace-medium;
-        top: 50%;
-        transform: translateY(-50%);
-        width: @icon-size;
-      }
-    }
-
-    &:hover {
-      background: lighten(@dropdown-link-hover-bg, 1%);
-      color: @dropdown-link-color;
-    }
+  .button__text-wrapper {
+    justify-content: space-between;
   }
 }
 

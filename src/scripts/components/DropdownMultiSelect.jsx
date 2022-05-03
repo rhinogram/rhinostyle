@@ -1,280 +1,105 @@
-import cx from 'classnames';
+/* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import cx from 'classnames';
+import { Scrollbars } from 'react-custom-scrollbars';
+import Dropdown from './Dropdown';
 import { UtilitySystem } from '../UtilitySystem';
-import DropdownMenuItem from './DropdownMenuItem';
-import DropdownMenuHeader from './DropdownMenuHeader';
-import DropdownMenuScroll from './DropdownMenuScroll';
-import DropdownWrapper from './DropdownWrapper';
-import FormExplanationMessage from './FormExplanationMessage';
-import FormValidationMessage from './FormValidationMessage';
-import Pill from './Pill';
-import UtilityInlineGrid from './UtilityInlineGrid';
+import Checkbox from './Checkbox';
+import CheckboxGroup from './CheckboxGroup';
 
 class DropdownMultiSelect extends React.Component {
-  state = {
-    activeKeys: this.props.activeKeys,
-    isOpen: false,
-    items: this.props.children,
-  };
-
-  componentDidUpdate(prevProps) {
-    const activeKeysHaveChanged = !UtilitySystem.compareFlatArray(prevProps.activeKeys, this.props.activeKeys);
-
-    if (activeKeysHaveChanged) {
-      this.setState({ activeKeys: this.props.activeKeys });
-    }
+  labelValue(item) {
+    return this.props.getItemLabelValue ? this.props.getItemLabelValue(item) : item.name;
   }
 
-  getChildren = () => {
-    let returnChild = null;
-    const { children } = this.props;
-
-    return React.Children.map(children, (child) => {
-      if (child.type === DropdownMenuItem) {
-        returnChild = React.cloneElement(child, {
-          onClick: () => this.itemClick(child.props.id, false),
-          active: this.state.activeKeys.indexOf(child.props.id) > -1,
-        });
-      } else {
-        returnChild = child;
-      }
-
-      return returnChild;
-    });
+  renderList = (id) => {
+    const item = this.props.items[id];
+    const selected = this.props.selectedItemIds.includes(id);
+    return (
+      <Checkbox
+        key={id}
+        isChecked={selected}
+        onChange={() => this.props.handleSelect(this.props.name, id)}
+        name={this.labelValue(item)}
+        label={<span className="u-p-l-small">{this.labelValue(item)}</span>}
+        className="u-p-t-small"
+      />
+    );
   };
 
-  clearInput = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
-    // Close dropdown
-    $dropdown.timeline.reverse();
-
-    this.setState({
-      isOpen: false,
-    });
-
-    this.filterInput.value = '';
-  };
-
-  handleToggle = (e) => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
-    // If we're focusing on the input
-    if (e.target.tagName === 'INPUT') {
-      // If the dropdown is not already open
-      if (!this.state.isOpen) {
-        // Open dropdown
-        $dropdown.timeline.play();
-
-        this.setState({
-          isOpen: true,
-          items: this.getChildren(),
-        });
-      }
-      // Leave input open if it's already there
-    } else {
-      // Handle everything else as normal
-      if (this.state.isOpen) {
-        // Close dropdown
-        $dropdown.timeline.reverse();
-      } else {
-        // Open dropdown
-        $dropdown.timeline.play();
-      }
-
-      this.setState({
-        isOpen: !this.state.isOpen,
-        items: this.getChildren(),
-      });
-
-      this.filterInput.value = '';
+  renderLabel() {
+    if (this.props.selectedItemIds.length > 0) {
+      const label = this.props.selectedItemIds.map((id) => this.labelValue(this.props.items[id])).join(', ');
+      return <span className="dropdown__menu__label--selected">{label}</span>;
     }
-  };
-
-  itemClick = (id, toggle) => {
-    if (this.props.onSelect) {
-      const result = this.updateActiveKeys(id);
-      this.props.onSelect(...result);
-    } else {
-      this.updateActiveKeys(id);
-    }
-
-    if (toggle) {
-      this.handleToggle();
-    } else {
-      this.setState({
-        items: this.getChildren(),
-      });
-
-      const $input = this.filterInput;
-
-      if ($input.value !== '') {
-        // Mock event target
-        this.handleFilter({
-          target: $input,
-        });
-      }
-    }
-  };
-
-  handleFilter = (e) => {
-    if (!this.state.isOpen) {
-      const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
-      // Open dropdown
-      $dropdown.timeline.play();
-
-      this.setState({
-        isOpen: true,
-      });
-    }
-
-    const query = e.target.value;
-    const items = [];
-    const { children } = this.props;
-
-    React.Children.forEach(children, (child) => {
-      if (child.type === DropdownMenuItem) {
-        const searchText = child.props.label;
-        if (searchText.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-          items.push(
-            React.cloneElement(child, {
-              onClick: () => this.itemClick(child.props.id, false),
-              active: this.props.activeKeys.indexOf(child.props.id) > -1,
-              key: child.props.id,
-            }),
-          );
-        }
-      }
-    });
-
-    this.setState({
-      items,
-    });
-  };
-
-  handleClickOutside = () => {
-    this.clearInput();
-  };
-
-  updateActiveKeys = (index) => {
-    const currentKeys = this.state.activeKeys;
-    const currentIndex = currentKeys.indexOf(index);
-    let action = null;
-
-    if (currentIndex > -1) {
-      currentKeys.splice(currentIndex, 1);
-      action = 'remove';
-    } else {
-      currentKeys.push(index);
-      action = 'add';
-    }
-
-    this.setState({
-      activeKeys: currentKeys,
-    });
-
-    return [action, index, currentKeys];
-  };
+    return this.props.label;
+  }
 
   render() {
     const {
-      block,
-      children,
-      disabled,
-      explanationMessage,
-      placeholder,
+      selectedItemIds,
+      className,
+      dataCypress,
       position,
-      wide,
-      validationMessage,
+      label,
     } = this.props;
-    const { items, activeKeys, isOpen } = this.state;
-
-    const dropdownClasses = cx('dropdown', 'dropdown--multiselect', {
-      'dropdown--block': block,
+    const dropdownClasses = cx(`multi-select__dropdown ${className || ''}`, {
+      'multi-select__dropdown--wide': this.props.wide, // All filter
     });
 
-    const dropdownToggleClasses = cx('dropdown__input', 'form__control', 'form__control--chevron', {
-      'form__control--error': validationMessage,
-    });
-
-    const dropdownMenuClasses = cx('dropdown__menu', {
-      'dropdown__menu--right': position === 'right',
-      'dropdown__menu--top': position === 'top',
-      'dropdown__menu--top dropdown__menu--right': position === 'top-right',
-      'dropdown__menu--wide': wide,
-    });
-
-    const renderPill = (id) => {
-      let icon = '';
-      let label = '';
-
-      // Figure out label
-      React.Children.forEach(children, (child) => {
-        if (child.type === DropdownMenuItem && child.props.id === id) {
-          ({ icon, label } = child.props);
-        }
-      });
-
-      return <Pill type="primary" label={label} icon={icon} onClick={() => this.itemClick(id)} key={id} />;
-    };
+    const itemIds = [...this.props.itemIds];
+    let dropdownType = 'input';
+    let outlined = false;
+    if (selectedItemIds.length > 0) {
+      dropdownType = 'primary';
+      outlined = true;
+    }
 
     return (
-      <div className="form__group">
-        <DropdownWrapper
-          className={dropdownClasses}
-          handleClick={this.handleClickOutside}
-          disableOnClickOutside={!isOpen}
-          enableOnClickOutside={isOpen}
-          ref={(ref) => (this.dropdown = ref)}
-        >
-          <input
-            onClick={this.handleToggle}
-            ref={(ref) => (this.filterInput = ref)}
-            type="text"
-            className={dropdownToggleClasses}
-            placeholder={placeholder}
-            onChange={this.handleFilter}
-            disabled={disabled}
-          />
-          <div className={dropdownMenuClasses}>
-            <DropdownMenuScroll>
-              {items.length > 0 ? items : <DropdownMenuHeader label="No results" />}
-            </DropdownMenuScroll>
-          </div>
-        </DropdownWrapper>
-        <FormValidationMessage validationMessage={validationMessage} />
-        <FormExplanationMessage explanationMessage={explanationMessage} />
-        {activeKeys.length && (
-          <div className="u-p-t-small">
-            <UtilityInlineGrid>{activeKeys.map(renderPill)}</UtilityInlineGrid>
-          </div>
-        )}
-      </div>
+      <Dropdown
+        autoFocusInput={false}
+        label={this.renderLabel()}
+        type={dropdownType}
+        outlined={outlined}
+        dataCypress={dataCypress || `dropdownMultiSelect-${label}`}
+        disableScroll
+        className={dropdownClasses}
+        position={position || 'right'}
+        wide={this.props.wide}
+      >
+        <div className="dropdown__menu__container">
+          {itemIds.length > 0 ? (
+            <Scrollbars
+              className="resource-group__scroll--checkbox"
+              autoHeight
+              autoHeightMax={UtilitySystem.config.resourceSizes.large}
+            >
+              <CheckboxGroup>
+                {itemIds.map(this.renderList)}
+              </CheckboxGroup>
+            </Scrollbars>
+          ) : (
+            <div className="search__no-results">No results</div>
+          )}
+        </div>
+      </Dropdown>
     );
   }
 }
 
 DropdownMultiSelect.propTypes = {
-  activeKeys: PropTypes.arrayOf(PropTypes.number),
-  block: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
-  disabled: PropTypes.bool,
-  explanationMessage: PropTypes.string,
-  onSelect: PropTypes.func,
-  placeholder: PropTypes.string,
-  position: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  handleSelect: PropTypes.func.isRequired,
+  itemIds: PropTypes.array.isRequired,
+  selectedItemIds: PropTypes.array.isRequired,
+  items: PropTypes.object.isRequired,
+  label: PropTypes.string.isRequired,
+  dataCypress: PropTypes.string,
+  className: PropTypes.string,
+  getItemLabelValue: PropTypes.func,
   wide: PropTypes.bool,
-  validationMessage: PropTypes.string,
-};
-
-DropdownMultiSelect.defaultProps = {
-  activeKeys: [],
-  placeholder: 'Click or type to select more ...',
+  position: PropTypes.string,
 };
 
 export default DropdownMultiSelect;
