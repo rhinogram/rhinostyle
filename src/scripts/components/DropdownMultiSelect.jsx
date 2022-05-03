@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
@@ -45,7 +44,7 @@ class DropdownMultiSelect extends React.Component {
       label,
     } = this.props;
     const dropdownClasses = cx(`multi-select__dropdown ${className || ''}`, {
-      'multi-select__dropdown--wide': this.props.wide, // All filter
+      'multi-select__dropdown--wide': this.props.wide,
     });
 
     const itemIds = [...this.props.itemIds];
