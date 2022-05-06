@@ -21,6 +21,7 @@ class DropdownMultiSelect extends React.Component {
         isChecked={selected}
         onChange={() => this.props.handleSelect(this.props.name, id)}
         name={this.labelValue(item)}
+        dataCypress={`${this.props.name}-${item.id}`}
         label={<span className="u-p-l-small">{this.labelValue(item)}</span>}
         className="u-p-t-small"
       />
