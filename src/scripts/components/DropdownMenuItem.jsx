@@ -35,7 +35,7 @@ class DropdownMenuItem extends React.Component {
   }
 
   render() {
-    const { active, avatar, className, disabled, icon, label, labelDesc, labelRaised } = this.props;
+    const { active, avatar, className, disabled, icon, label, labelDesc, labelRaised, dataCypress } = this.props;
     const classes = cx('dropdown__menu__item', className, {
       [UtilitySystem.config.classes.active]: active,
       [UtilitySystem.config.classes.disabled]: disabled,
@@ -60,6 +60,7 @@ class DropdownMenuItem extends React.Component {
           reset
           className="dropdown__menu__item__link"
           onClick={this.handleClick}
+          data-cypress={dataCypress}
         >
           {renderContent()}
         </Button>
@@ -86,6 +87,7 @@ DropdownMenuItem.propTypes = {
   labelDesc: PropTypes.any,
   url: PropTypes.string,
   labelRaised: PropTypes.any,
+  dataCypress: PropTypes.string,
 };
 
 export default DropdownMenuItem;
