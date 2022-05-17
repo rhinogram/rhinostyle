@@ -43,6 +43,7 @@ class DropdownMultiSelect extends React.Component {
       position,
       label,
       wide,
+      disabled,
     } = this.props;
 
     const itemIds = [...this.props.itemIds];
@@ -67,6 +68,7 @@ class DropdownMultiSelect extends React.Component {
         className={dropdownClasses}
         position={position || 'right'}
         wide={wide}
+        disabled={disabled}
       >
         <div className="dropdown__menu__container">
           {itemIds?.length > 0 ? (
@@ -100,6 +102,7 @@ DropdownMultiSelect.propTypes = {
   getItemLabelValue: PropTypes.func,
   wide: PropTypes.bool,
   position: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 export default DropdownMultiSelect;
