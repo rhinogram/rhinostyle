@@ -10,7 +10,7 @@ class ComponentExample extends React.Component {
       { id: 5, label: 'Last 12 Months', duration: 'year' }, { id: 6, label: 'Custom Date' }],
   }
 
-  // This function is written for calculating start date and end date for selected option  
+  // This function is written for calculating start date and end date for selected option
   selectDateRange = (duration, activeKey) => {
 		let from = new Date();
     if (duration === 'year') {
@@ -37,13 +37,14 @@ class ComponentExample extends React.Component {
   };
 
   render() {
-    const { startDate, endDate, minDate, maxDate, datePickerDropdownLabels} = this.state;	
+    const { startDate, endDate, minDate, maxDate, datePickerDropdownLabels} = this.state;
     return (
       <DateRangeDropdown
         name="Date Range Dropdown"
         startDate={startDate}
         endDate={endDate}
         selectDate={this.selectDate}
+        dataLabelFormat={'MM/DD/YYYY'}
         minDate={minDate}
         maxDate={maxDate}
         activeKey={1}
@@ -51,7 +52,7 @@ class ComponentExample extends React.Component {
         dropdownMenuItems={datePickerDropdownLabels}
         selectDateRange={this.selectDateRange}
         isCustomDate
-      />  
+      />
     );
   }
 }
