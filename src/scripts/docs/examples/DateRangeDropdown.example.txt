@@ -44,7 +44,7 @@ class ComponentExample extends React.Component {
         startDate={startDate}
         endDate={endDate}
         selectDate={this.selectDate}
-        dataLabelFormat={'MM/DD/YYYY'}
+        dateLabelFormat={'MM/DD/YYYY'}
         minDate={minDate}
         maxDate={maxDate}
         activeKey={1}
