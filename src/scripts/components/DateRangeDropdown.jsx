@@ -89,7 +89,7 @@ class DateRangeDropdown extends React.Component {
   getLabel(activeKey) {
     const { dropdownMenuItems } = this.props;
     return `${(dropdownMenuItems[activeKey - 1] && dropdownMenuItems[activeKey - 1].label) || ''}
-    (${moment(this.props.startDate).format(this.props.dateLabelFormat || 'MMM D, YYYY')} - ${moment(this.props.endDate).format(this.props.dateLabelFormat || 'MMM DD, YYYY')})`;
+    (${moment(this.props.startDate).format(this.props.dateLabelFormat || 'MMM DD, YYYY')} - ${moment(this.props.endDate).format(this.props.dateLabelFormat || 'MMM DD, YYYY')})`;
   }
 
   applyDates = () => {
