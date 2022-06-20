@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {
-  Input,
   Button,
   Close,
   Dropdown,
@@ -15,19 +14,22 @@ import {
   DropdownMenuScroll,
   DropdownMultiSelect,
   Icon,
+  Input,
   UtilityInlineGrid,
 } from '../components';
 import { Live } from './components';
-import DropdownMultiSelectAdvanced from '../components/DropdownMultiSelectAdvanced';
 import DateRangeDropdown from '../components/DateRangeDropdown';
-import DropdownExample from './examples/Dropdown.example.txt';
+import DateRangeDropdownExample from './examples/DateRangeDropdown.example.txt';
 import DropdownCheckboxExample from './examples/DropdownCheckbox.example.txt';
-import DropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
+import DropdownExample from './examples/Dropdown.example.txt';
 import DropdownMenuHeaderExample from './examples/DropdownMenuHeader.example.txt';
 import DropdownMenuItemExample from './examples/DropdownMenuItem.example.txt';
 import DropdownMenuItemWildExample from './examples/DropdownMenuItemWild.example.txt';
+import DropdownMultiSelectAdvanced from '../components/DropdownMultiSelectAdvanced';
 import DropdownMultiSelectAdvancedExample from './examples/DropdownMultiSelectAdvanced.example.txt';
-import DateRangeDropdownExample from './examples/DateRangeDropdown.example.txt';
+import DropdownSearchSelectExample from './examples/DropdownSearchSelect.example.txt';
+import DropdownMultiSelectExample from './examples/DropdownMultiSelect.example.txt';
+import DropdownSearchSelect from '../components/DropdownSearchSelect';
 
 const DropdownDocs = {
   autoFocusInput:
@@ -119,10 +121,9 @@ const DropdownMenuItemWildDocs = {
 };
 
 const DropdownScope = {
-  React,
-  ReactDOM,
   Button,
   Close,
+  DateRangeDropdown,
   Dropdown,
   DropdownCheckbox,
   DropdownFilter,
@@ -132,10 +133,12 @@ const DropdownScope = {
   DropdownMenuItemWild,
   DropdownMenuScroll,
   DropdownMultiSelect,
-  Icon,
-  UtilityInlineGrid,
   DropdownMultiSelectAdvanced,
-  DateRangeDropdown,
+  DropdownSearchSelect,
+  Icon,
+  React,
+  ReactDOM,
+  UtilityInlineGrid,
 };
 
 const DropdownApp = () => (
@@ -466,6 +469,23 @@ const DropdownApp = () => (
         code={DropdownMultiSelectExample}
         scope={DropdownScope}
         component={DropdownMultiSelect}
+        propDescriptions={DropdownMultiSelectDocs}
+      />
+    </section>
+
+    <section className="site-section">
+      <h3 className="site-subheadline">Dropdown SearchSelect</h3>
+      <p className="site-copy">
+        Use <code>DropdownSearchSelect</code> component to create a multi-select list of items. This dropdown and
+        dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as
+        &quot;pills&quot; below the dropdown. This will allow you to select multiple items, search, preview of selected
+        items and clear all items.
+      </p>
+
+      <Live
+        code={DropdownSearchSelectExample}
+        scope={DropdownScope}
+        component={DropdownSearchSelect}
         propDescriptions={DropdownMultiSelectDocs}
       />
     </section>

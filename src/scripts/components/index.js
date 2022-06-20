@@ -17,20 +17,22 @@ import CoverBody from './CoverBody';
 import CoverFooter from './CoverFooter';
 import CoverHeader from './CoverHeader';
 import Date from './Date';
-import Dropdown from './Dropdown';
 import DateRangeDropdown from './DateRangeDropdown';
+import Dropdown from './Dropdown';
 import DropdownCheckbox from './DropdownCheckbox';
 import DropdownFilter from './DropdownFilter';
 import DropdownMenuDivider from './DropdownMenuDivider';
 import DropdownMenuHeader from './DropdownMenuHeader';
 import DropdownMenuItem from './DropdownMenuItem';
 import DropdownMenuItemWild from './DropdownMenuItemWild';
-import DropdownMultiSelect from './DropdownMultiSelect';
 import DropdownMenuScroll from './DropdownMenuScroll';
+import DropdownMultiSelect from './DropdownMultiSelect';
+import DropdownMultiSelectAdvanced from './DropdownMultiSelectAdvanced';
+import DropdownSearchSelect from './DropdownSearchSelect';
 import DropdownWrapper from './DropdownWrapper';
+import FormExplanationMessage from './FormExplanationMessage';
 import FormLabel from './FormLabel';
 import FormValidationMessage from './FormValidationMessage';
-import FormExplanationMessage from './FormExplanationMessage';
 import Icon from './Icon';
 import Input from './Input';
 import Label from './Label';
@@ -50,19 +52,20 @@ import PillsInput from './PillsInput';
 import ProgressBar from './ProgressBar';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
-import ResourceGroup from './ResourceGroup';
 import Resource from './Resource';
-import ResourceBottom from './ResourceBottom';
-import ResourceRight from './ResourceRight';
-import ResourceIntro from './ResourceIntro';
 import ResourceBody from './ResourceBody';
+import ResourceBottom from './ResourceBottom';
+import ResourceGroup from './ResourceGroup';
+import ResourceIntro from './ResourceIntro';
+import ResourceRight from './ResourceRight';
 import RhinoSwitch from './RhinoSwitch';
 import Select from './Select';
 import SlidingRadio from './SlidingRadio';
+import SmartTable from './SmartTable';
+import SmartTableHeader from './SmartTableHeader';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
 import Table from './Table';
-import SmartTable from './SmartTable';
 import TabsContent from './TabsContent';
 import Textarea from './Textarea';
 import Toast from './Toast';
@@ -72,8 +75,6 @@ import UtilityInlineGrid from './UtilityInlineGrid';
 import UtilityList from './UtilityList';
 import UtilityListItem from './UtilityListItem';
 import VariableMessage from './VariableMessage';
-import DropdownMultiSelectAdvanced from './DropdownMultiSelectAdvanced';
-import SmartTableHeader from './SmartTableHeader';
 
 import { NotificationActions } from '../NotificationSystem';
 
@@ -97,20 +98,22 @@ export {
   CoverFooter,
   CoverHeader,
   Date,
-  Dropdown,
   DateRangeDropdown,
+  Dropdown,
   DropdownCheckbox,
   DropdownFilter,
   DropdownMenuDivider,
   DropdownMenuHeader,
   DropdownMenuItem,
   DropdownMenuItemWild,
-  DropdownMultiSelect,
   DropdownMenuScroll,
+  DropdownMultiSelect,
+  DropdownMultiSelectAdvanced,
+  DropdownSearchSelect,
   DropdownWrapper,
+  FormExplanationMessage,
   FormLabel,
   FormValidationMessage,
-  FormExplanationMessage,
   Icon,
   Input,
   Label,
@@ -128,23 +131,24 @@ export {
   NavTabsItem,
   NotificationActions,
   Pill,
+  PillsInput,
   ProgressBar,
   Radio,
   RadioGroup,
-  ResourceGroup,
-  ResourceBottom,
-  ResourceRight,
-  ResourceIntro,
-  ResourceBody,
   Resource,
+  ResourceBody,
+  ResourceBottom,
+  ResourceGroup,
+  ResourceIntro,
+  ResourceRight,
   RhinoSwitch,
   Scrollbars,
   Select,
   SlidingRadio,
+  SmartTable,
+  SmartTableHeader,
   SystemAlert,
   TabContentPane,
-  SmartTable,
-  PillsInput,
   Table,
   TabsContent,
   Textarea,
@@ -156,6 +160,4 @@ export {
   UtilityListItem,
   UtilitySystem,
   VariableMessage,
-  DropdownMultiSelectAdvanced,
-  SmartTableHeader,
 };

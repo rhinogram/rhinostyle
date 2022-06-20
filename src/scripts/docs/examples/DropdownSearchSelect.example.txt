@@ -1,0 +1,85 @@
+class ComponentExample extends React.Component {
+  state = {
+    selectedItem: null,
+    selectedItemId: null,
+    itemSearchLoading: false,
+    items: {
+          1: { id: 1, title: 'Ben Bruning', name: 'BB', profileImageUrl: '' },
+          2: { id: 2, title: 'Blake Guilloud', name: 'BG', profileImageUrl: '' },
+          3: { id: 3, title: 'Craig Anthony', name: 'CA', profileImageUrl: '' },
+          4: { id: 4, title: 'Grady Rogers', name: 'GR', profileImageUrl: '' },
+          5: { id: 5, title: 'Keaton Foster', name: 'KF', profileImageUrl: '' },
+          6: { id: 6, title: 'Lauren Farr', name: 'LF', profileImageUrl: '' },
+          7: { id: 7, title: 'Keaton Foster',name: 'KF', profileImageUrl: '' },
+          8: { id: 8, title: 'Paul Griffin', name: 'PG', profileImageUrl: '' },
+          9: { id: 9, title: 'Rob Whelan', name: 'RW', profileImageUrl: '' },
+          10: { id: 10, title: 'Terry Kennair', name: 'TK', profileImageUrl: '' },
+        },
+    itemsIds: [],
+    itemsCopy: {},
+  }
+
+  componentDidMount(){
+    this.setState({ itemsIds: Object.keys(this.state.items), itemsCopy: this.state.items });
+  }
+
+  //This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
+  fetchAllItems = (searchText, filterName) => {
+  //console.log(filterName);
+    this.setState({ itemSearchLoading: true });
+    let searchedItems = {};
+    if (searchText.length > 0) {
+      Object.keys(this.state.itemsCopy).map((k) => {
+        if ((this.state.itemsCopy[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
+          searchedItems[k] = this.state.itemsCopy[k];
+        }
+      })
+    } else {
+      searchedItems = this.state.itemsCopy;
+    }
+    this.setState({ itemSearchLoading: false });
+    this.setState({
+      itemsIds: Object.keys(searchedItems),
+      items: searchedItems,
+    });
+  }
+
+  handleUpdateSelectedIds = (selectedIds, selectedItems) => {
+    this.setState({
+     selectedItemsIds: selectedIds,
+     selectedItems: selectedItems,
+    })
+  }
+
+  handleClearAllSelectedItems = () => {
+    this.setState({
+      selectedItems: {},
+      selectedItemsIds: [],
+    })
+  }
+
+  render() {
+    let label = 'Select Form';
+    if (this.state.selectedItemsIds.length > 0) {
+      label = `${this.state.selectedItemsIds.length} Contacts Selected`;
+    }
+    const classes = 'multi-select__dropdown--fixed-height';
+    return (
+      <DropdownSearchSelect
+        handleUpdateSelectedIds={this.handleUpdateSelectedIds}
+        itemSearchLoading={this.state.itemSearchLoading}
+        avatarBaseUrl="baseUrl"
+        items={this.state.items}
+        selectedItems={this.state.selectedItems}
+        selectedItemsIds={this.state.selectedItemsIds}
+        handleClearAllSelectedItems={this.handleClearAllSelectedItems}
+        fetchAllItems={this.fetchAllItems}
+        itemsIds={this.state.itemsIds}
+        dropdownLabel={label}
+        filterName="Contacts"
+        type="member"
+        className={classes}
+      />
+    );
+  }
+}
