@@ -2,7 +2,7 @@ function ComponentExample() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [selectedItemId, setSelectedItemId] = useState(null)
   const [itemSearchLoading, setItemSearchLoading] = useState(false)
-  const [items, seItems] = useState({
+  const [items, setItems] = useState({
           1: { id: 1, title: 'Ben Bruning', name: 'BB', profileImageUrl: '' },
           2: { id: 2, title: 'Blake Guilloud', name: 'BG', profileImageUrl: '' },
           3: { id: 3, title: 'Craig Anthony', name: 'CA', profileImageUrl: '' },
