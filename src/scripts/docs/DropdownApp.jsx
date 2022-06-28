@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import {
@@ -138,6 +138,8 @@ const DropdownScope = {
   Icon,
   React,
   ReactDOM,
+  useEffect,
+  useState,
   UtilityInlineGrid,
 };
 
@@ -476,10 +478,8 @@ const DropdownApp = () => (
     <section className="site-section">
       <h3 className="site-subheadline">Dropdown SearchSelect</h3>
       <p className="site-copy">
-        Use <code>DropdownSearchSelect</code> component to create a multi-select list of items. This dropdown and
-        dropdown menu will always have 100% width and the appearance of a form input. Selected items are shown as
-        &quot;pills&quot; below the dropdown. This will allow you to select multiple items, search, preview of selected
-        items and clear all items.
+        Use <code>DropdownSearchSelect</code> if you want a single-select dropdown with the ability to search for items in the list.
+        This dropdown and dropdown menu will always have 100% width and the appearance of a form input
       </p>
 
       <Live

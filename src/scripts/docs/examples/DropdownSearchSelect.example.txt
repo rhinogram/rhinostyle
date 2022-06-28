@@ -1,9 +1,8 @@
-class ComponentExample extends React.Component {
-  state = {
-    selectedItem: null,
-    selectedItemId: null,
-    itemSearchLoading: false,
-    items: {
+function ComponentExample() {
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedItemId, setSelectedItemId] = useState(null)
+  const [itemSearchLoading, setItemSearchLoading] = useState(false)
+  const [items, seItems] = useState({
           1: { id: 1, title: 'Ben Bruning', name: 'BB', profileImageUrl: '' },
           2: { id: 2, title: 'Blake Guilloud', name: 'BG', profileImageUrl: '' },
           3: { id: 3, title: 'Craig Anthony', name: 'CA', profileImageUrl: '' },
@@ -14,63 +13,58 @@ class ComponentExample extends React.Component {
           8: { id: 8, title: 'Paul Griffin', name: 'PG', profileImageUrl: '' },
           9: { id: 9, title: 'Rob Whelan', name: 'RW', profileImageUrl: '' },
           10: { id: 10, title: 'Terry Kennair', name: 'TK', profileImageUrl: '' },
-        },
-    itemsIds: [],
-    itemsCopy: {},
-  }
+        })
+  const [itemsIds, setItemsIds] = useState([])
+  const [itemsCopy, setItemsCopy] = useState({})
 
-  componentDidMount(){
-    this.setState({ itemsIds: Object.keys(this.state.items), itemsCopy: this.state.items });
-  }
+  useEffect(() => {
+    setItemsIds(Object.keys(items))
+    setItemsCopy(items)
+  }, [])
 
-  //This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
-  fetchAllItems = (searchText, filterName) => {
-    this.setState({ itemSearchLoading: true });
+  // This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
+  const fetchAllItems = (searchText, filterName) => {
+    setItemSearchLoading(true)
     let searchedItems = {};
     if (searchText.length > 0) {
-      Object.keys(this.state.itemsCopy).map((k) => {
-        if ((this.state.itemsCopy[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
-          searchedItems[k] = this.state.itemsCopy[k];
+      Object.keys(itemsCopy).map((k) => {
+        if ((itemsCopy[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
+          searchedItems[k] = itemsCopy[k];
         }
       })
     } else {
-      searchedItems = this.state.itemsCopy;
+      searchedItems = itemsCopy;
     }
-    this.setState({ itemSearchLoading: false });
-    this.setState({
-      itemsIds: Object.keys(searchedItems),
-      items: searchedItems,
-    });
+    setItemSearchLoading(false)
+    setItemsIds(Object.keys(searchedItems))
+    setItems(searchedItems)
   }
 
-  handleUpdateSelectedId = (selectedId, selectedItem) => {
-    this.setState({
-     selectedItemId: selectedId,
-     selectedItem: selectedItem,
-    })
+  const handleUpdateSelectedId = (selectedId, selectedItem) => {
+    setSelectedItemId(selectedId)
+    setSelectedItem(selectedItem)
   }
 
-  render() {
-    let label = 'Select Member';
-    if (this.state.selectedItemId) {
-      label = this.state.selectedItem.title;
-    }
-    const classes = 'multi-select__dropdown--fixed-height';
-    return (
-      <DropdownSearchSelect
-        handleUpdateSelectedId={this.handleUpdateSelectedId}
-        itemSearchLoading={this.state.itemSearchLoading}
-        avatarBaseUrl="baseUrl"
-        items={this.state.items}
-        itemsIds={this.state.itemsIds}
-        selectedItem={this.state.selectedItem}
-        selectedItemId={this.state.selectedItemId}
-        fetchAllItems={this.fetchAllItems}
-        dropdownLabel={label}
-        filterName="Contacts"
-        type="member"
-        className={classes}
-      />
-    );
+  let label = 'Select Member';
+  if (selectedItemId) {
+    label = selectedItem.title;
   }
+  const classes = 'multi-select__dropdown--fixed-height';
+
+  return (
+    <DropdownSearchSelect
+      handleUpdateSelectedId={handleUpdateSelectedId}
+      itemSearchLoading={itemSearchLoading}
+      avatarBaseUrl="baseUrl"
+      items={items}
+      itemsIds={itemsIds}
+      selectedItem={selectedItem}
+      selectedItemId={selectedItemId}
+      fetchAllItems={fetchAllItems}
+      dropdownLabel={label}
+      filterName="Contacts"
+      type="member"
+      className={classes}
+    />
+  );
 }
