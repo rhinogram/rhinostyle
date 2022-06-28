@@ -25,7 +25,6 @@ class ComponentExample extends React.Component {
 
   //This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
   fetchAllItems = (searchText, filterName) => {
-  //console.log(filterName);
     this.setState({ itemSearchLoading: true });
     let searchedItems = {};
     if (searchText.length > 0) {
@@ -44,37 +43,29 @@ class ComponentExample extends React.Component {
     });
   }
 
-  handleUpdateSelectedIds = (selectedIds, selectedItems) => {
+  handleUpdateSelectedId = (selectedId, selectedItem) => {
     this.setState({
-     selectedItemsIds: selectedIds,
-     selectedItems: selectedItems,
-    })
-  }
-
-  handleClearAllSelectedItems = () => {
-    this.setState({
-      selectedItems: {},
-      selectedItemsIds: [],
+     selectedItemId: selectedId,
+     selectedItem: selectedItem,
     })
   }
 
   render() {
-    let label = 'Select Form';
-    if (this.state.selectedItemsIds.length > 0) {
-      label = `${this.state.selectedItemsIds.length} Contacts Selected`;
+    let label = 'Select Member';
+    if (this.state.selectedItemId) {
+      label = this.state.selectedItem.title;
     }
     const classes = 'multi-select__dropdown--fixed-height';
     return (
       <DropdownSearchSelect
-        handleUpdateSelectedIds={this.handleUpdateSelectedIds}
+        handleUpdateSelectedId={this.handleUpdateSelectedId}
         itemSearchLoading={this.state.itemSearchLoading}
         avatarBaseUrl="baseUrl"
         items={this.state.items}
-        selectedItems={this.state.selectedItems}
-        selectedItemsIds={this.state.selectedItemsIds}
-        handleClearAllSelectedItems={this.handleClearAllSelectedItems}
-        fetchAllItems={this.fetchAllItems}
         itemsIds={this.state.itemsIds}
+        selectedItem={this.state.selectedItem}
+        selectedItemId={this.state.selectedItemId}
+        fetchAllItems={this.fetchAllItems}
         dropdownLabel={label}
         filterName="Contacts"
         type="member"
