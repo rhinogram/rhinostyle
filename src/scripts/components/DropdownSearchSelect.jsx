@@ -112,7 +112,7 @@ function DropdownSearchSelect(props) {
           </Input>
         </div>
       </div>
-      <div className="dropdown__menu__container">
+      <div className="dropdown__menu__container dropdown-search-select__list-item__container">
         {itemsIds.length > 0 ? (
           <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
             {renderListItems()}
