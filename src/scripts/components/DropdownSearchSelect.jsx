@@ -6,18 +6,11 @@ import { UtilitySystem } from '../UtilitySystem';
 import LoaderPulse from './LoaderPulse';
 import Input from './Input';
 import Icon from './Icon';
-import Resource from './Resource';
-import ResourceIntro from './ResourceIntro';
-import ResourceGroup from './ResourceGroup';
 import Dropdown from './Dropdown';
-import Checkbox from './Checkbox';
-import CheckboxGroup from './CheckboxGroup';
 import DropdownMenuItem from './DropdownMenuItem';
 
 function DropdownSearchSelect(props) {
   const [searchText, setSearchText] = useState('');
-
-  const useResourceGroup = true;
 
   const handleSearch = (id, value) => {
     const { fetchAllItems } = props;
@@ -49,60 +42,18 @@ function DropdownSearchSelect(props) {
     clearSearch();
   };
 
-  const renderListItem = (id, index) => {
+  const renderListItems = () => props.itemsIds.map((id) => {
     const listItem = props.items[id];
-    const selected = props.selectedItemId === id;
-    let profileImageUrl = '';
-    let avatarDetails = {};
-    if (props.type === 'member') {
-      profileImageUrl = listItem.profileImageUrl ? `${props.avatarBaseUrl}${listItem.profileImageUrl}` : '';
-      avatarDetails = { image: profileImageUrl, name: listItem.name, type: 'member' };
-    }
-    if (useResourceGroup) {
-      if (props.interfaceLeft) {
-        return (
-          <Checkbox
-            key={index}
-            isChecked={selected}
-            onChange={() => handleSelect(id)}
-            name={listItem.title}
-            label={listItem.title}
-            interfaceLeft={props.interfaceLeft}
-          />
-        );
-      } else {
-        return (
-          <Resource selected={selected} key={index} onClick={() => handleSelect(id)} interfaceLeft={props.interfaceLeft}>
-            {props.type === 'member' ? (
-              <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
-            ) : (
-              listItem.title
-            )}
-          </Resource>
-        );
-      }
-    } else {
-      return (
-        <DropdownMenuItem
-          key={index}
-          id={id}
-          label={listItem.title}
-          active={props.selectedItemId === id}
-          onClick={() => handleSelect(id)}
-        />
-      );
-    }
-  };
-
-  const renderMenuItems = () => {
-    if (useResourceGroup) {
-      return props.interfaceLeft
-        ? <CheckboxGroup blockGroup>{props.itemsIds.map(renderListItem)}</CheckboxGroup>
-        : <ResourceGroup interfaceMode="checkbox">{props.itemsIds.map(renderListItem)}</ResourceGroup>;
-    } else {
-      return props.itemsIds.map(renderListItem);
-    }
-  };
+    return (
+      <DropdownMenuItem
+        key={id}
+        id={id}
+        label={listItem.title}
+        active={props.selectedItemId === id}
+        onClick={() => handleSelect(id)}
+      />
+    );
+  });
 
   const renderSearchHelp = (idArray = props.itemsIds, loading = props.itemSearchLoading) => {
     if ((searchText.length === 0 || searchText.length > 2) && loading) {
@@ -171,7 +122,7 @@ function DropdownSearchSelect(props) {
       <div className="dropdown__menu__container">
         {itemsIds.length > 0 ? (
           <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-            {renderMenuItems()}
+            {renderListItems()}
           </Scrollbars>
         ) : (
           renderSearchHelp(itemsIds, itemSearchLoading)
@@ -188,13 +139,10 @@ DropdownSearchSelect.propTypes = {
   itemsIds: PropTypes.array.isRequired,
   itemSearchLoading: PropTypes.bool.isRequired,
   selectedItemId: PropTypes.string,
-  // selectedItem: PropTypes.object,
   items: PropTypes.object.isRequired,
-  avatarBaseUrl: PropTypes.string,
   dropdownLabel: PropTypes.string.isRequired,
   dropDownClass: PropTypes.string,
   filterName: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   className: PropTypes.string,
   interfaceLeft: PropTypes.bool,
   disabled: PropTypes.bool,
