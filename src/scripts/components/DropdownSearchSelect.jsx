@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -13,23 +12,12 @@ import ResourceGroup from './ResourceGroup';
 import Dropdown from './Dropdown';
 import Checkbox from './Checkbox';
 import CheckboxGroup from './CheckboxGroup';
+import DropdownMenuItem from './DropdownMenuItem';
 
 function DropdownSearchSelect(props) {
   const [searchText, setSearchText] = useState('');
 
-  const handleUpdateSelectedId = (id) => {
-    let selectedItemId = id
-    let selectedItem = props.items[id]
-
-    if (props.selectedItemId) {
-      if (id === props.selectedItemId) {
-        selectedItem = null
-        selectedItemId = null
-      }
-    }
-
-    props.handleUpdateSelectedId(selectedItemId, selectedItem, props.filterName.toLowerCase());
-  }
+  const useResourceGroup = true;
 
   const handleSearch = (id, value) => {
     const { fetchAllItems } = props;
@@ -46,7 +34,23 @@ function DropdownSearchSelect(props) {
     }
   };
 
-  const renderListItems = (listItem, id) => {
+  const handleSelect = (id) => {
+    let selectedItemId = id;
+    let selectedItem = props.items[id];
+
+    if (props.selectedItemId) {
+      if (id === props.selectedItemId) {
+        selectedItem = null;
+        selectedItemId = null;
+      }
+    }
+
+    props.handleUpdateSelectedId(selectedItemId, selectedItem, props.filterName.toLowerCase());
+    clearSearch();
+  };
+
+  const renderListItem = (id, index) => {
+    const listItem = props.items[id];
     const selected = props.selectedItemId === id;
     let profileImageUrl = '';
     let avatarDetails = {};
@@ -54,33 +58,50 @@ function DropdownSearchSelect(props) {
       profileImageUrl = listItem.profileImageUrl ? `${props.avatarBaseUrl}${listItem.profileImageUrl}` : '';
       avatarDetails = { image: profileImageUrl, name: listItem.name, type: 'member' };
     }
-    if (props.interfaceLeft) {
-      return (
-        <Checkbox
-          key={id}
-          isChecked={selected}
-          onChange={() => handleUpdateSelectedId(id)}
-          name={listItem.title}
-          label={listItem.title}
-          interfaceLeft={props.interfaceLeft}
-        />
-      );
+    if (useResourceGroup) {
+      if (props.interfaceLeft) {
+        return (
+          <Checkbox
+            key={index}
+            isChecked={selected}
+            onChange={() => handleSelect(id)}
+            name={listItem.title}
+            label={listItem.title}
+            interfaceLeft={props.interfaceLeft}
+          />
+        );
+      } else {
+        return (
+          <Resource selected={selected} key={index} onClick={() => handleSelect(id)} interfaceLeft={props.interfaceLeft}>
+            {props.type === 'member' ? (
+              <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
+            ) : (
+              listItem.title
+            )}
+          </Resource>
+        );
+      }
     } else {
       return (
-        <Resource selected={selected} key={id} onClick={() => handleUpdateSelectedId(id)} interfaceLeft={props.interfaceLeft}>
-          {props.type === 'member' ? (
-            <ResourceIntro avatar={avatarDetails} title={listItem.memberName ? listItem.memberName : listItem.title} />
-          ) : (
-            listItem.title
-          )}
-        </Resource>
+        <DropdownMenuItem
+          key={index}
+          id={id}
+          label={listItem.title}
+          active={props.selectedItemId === id}
+          onClick={() => handleSelect(id)}
+        />
       );
     }
   };
 
-  const renderList = (id, idx) => {
-    const item = props.items[id];
-    return renderListItems(item, id, idx);
+  const renderMenuItems = () => {
+    if (useResourceGroup) {
+      return props.interfaceLeft
+        ? <CheckboxGroup blockGroup>{props.itemsIds.map(renderListItem)}</CheckboxGroup>
+        : <ResourceGroup interfaceMode="checkbox">{props.itemsIds.map(renderListItem)}</ResourceGroup>;
+    } else {
+      return props.itemsIds.map(renderListItem);
+    }
   };
 
   const renderSearchHelp = (idArray = props.itemsIds, loading = props.itemSearchLoading) => {
@@ -116,6 +137,7 @@ function DropdownSearchSelect(props) {
     dropdownType = 'primary';
     outlined = true;
   }
+
   return (
     <Dropdown
       wide
@@ -149,11 +171,7 @@ function DropdownSearchSelect(props) {
       <div className="dropdown__menu__container">
         {itemsIds.length > 0 ? (
           <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-            {props.interfaceLeft ? (
-              <CheckboxGroup blockGroup>{itemsIds.map(renderList)}</CheckboxGroup>
-            ) : (
-              <ResourceGroup interfaceMode="checkbox">{itemsIds.map(renderList)}</ResourceGroup>
-            )}
+            {renderMenuItems()}
           </Scrollbars>
         ) : (
           renderSearchHelp(itemsIds, itemSearchLoading)
@@ -170,7 +188,7 @@ DropdownSearchSelect.propTypes = {
   itemsIds: PropTypes.array.isRequired,
   itemSearchLoading: PropTypes.bool.isRequired,
   selectedItemId: PropTypes.string,
-  selectedItem: PropTypes.object,
+  // selectedItem: PropTypes.object,
   items: PropTypes.object.isRequired,
   avatarBaseUrl: PropTypes.string,
   dropdownLabel: PropTypes.string.isRequired,
