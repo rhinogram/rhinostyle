@@ -28,15 +28,8 @@ function DropdownSearchSelect(props) {
   };
 
   const handleSelect = (id) => {
-    let selectedItemId = id;
-    let selectedItem = props.items[id];
-
-    if (props.selectedItemId) {
-      if (id === props.selectedItemId) {
-        selectedItem = null;
-        selectedItemId = null;
-      }
-    }
+    const selectedItemId = id;
+    const selectedItem = props.items[id];
 
     props.handleUpdateSelectedId(selectedItemId, selectedItem, props.filterName.toLowerCase());
     clearSearch();
