@@ -30,9 +30,7 @@ function DropdownSearchSelect(props) {
   const handleSelect = (id) => {
     const selectedItemId = id;
     const selectedItem = props.items[id];
-
     props.handleUpdateSelectedId(selectedItemId, selectedItem, props.filterName.toLowerCase());
-    clearSearch();
   };
 
   const renderListItems = () => props.itemsIds.map((id) => {
@@ -112,7 +110,7 @@ function DropdownSearchSelect(props) {
           </Input>
         </div>
       </div>
-      <div className="dropdown__menu__container dropdown-search-select__list-item__container">
+      <div className="dropdown__menu__container u-p-x-0">
         {itemsIds.length > 0 ? (
           <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
             {renderListItems()}

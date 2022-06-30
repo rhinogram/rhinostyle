@@ -55,7 +55,6 @@ function ComponentExample() {
     <DropdownSearchSelect
       handleUpdateSelectedId={handleUpdateSelectedId}
       itemSearchLoading={itemSearchLoading}
-      avatarBaseUrl="baseUrl"
       items={items}
       itemsIds={itemsIds}
       selectedItem={selectedItem}
