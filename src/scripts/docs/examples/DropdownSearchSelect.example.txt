@@ -15,11 +15,9 @@ function ComponentExample() {
           10: { id: 10, title: 'Terry Kennair', name: 'TK', profileImageUrl: '' },
         })
   const [itemsIds, setItemsIds] = useState([])
-  const [itemsCopy, setItemsCopy] = useState({})
 
   useEffect(() => {
     setItemsIds(Object.keys(items))
-    setItemsCopy(items)
   }, [])
 
   // This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
@@ -27,17 +25,17 @@ function ComponentExample() {
     setItemSearchLoading(true)
     let searchedItems = {};
     if (searchText.length > 0) {
-      Object.keys(itemsCopy).map((k) => {
-        if ((itemsCopy[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
-          searchedItems[k] = itemsCopy[k];
+      Object.keys(items).map((k) => {
+        if ((items[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
+          searchedItems[k] = items[k];
         }
       })
     } else {
-      searchedItems = itemsCopy;
+      searchedItems = items;
     }
     setItemSearchLoading(false)
     setItemsIds(Object.keys(searchedItems))
-    setItems(searchedItems)
+    // setItems(searchedItems)
   }
 
   const handleUpdateSelectedId = (selectedId, selectedItem) => {
