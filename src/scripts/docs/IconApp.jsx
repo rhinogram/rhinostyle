@@ -71,6 +71,7 @@ const icons = [
   'microphone',
   'minimize',
   'minor',
+  'minus',
   'mobile',
   'note',
   'pdfFile',
