@@ -73,6 +73,7 @@ const icons = [
   'minor',
   'mobile',
   'note',
+  'open-form',
   'pdfFile',
   'phone',
   'pin',
