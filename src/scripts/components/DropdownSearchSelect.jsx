@@ -60,7 +60,7 @@ function DropdownSearchSelect(props) {
         </div>
       );
     } else if (searchText.length > 2 && !idArray.length && !loading) {
-      return <div className="search__no-results">No results</div>;
+      return <div className="search__no-results u-p-x">No results</div>;
     }
 
     return null;
