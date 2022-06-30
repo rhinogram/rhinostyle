@@ -88,6 +88,7 @@ const icons = [
   'signature',
   'speaker',
   'star',
+  'subtract',
   'to-from',
   'touchid',
   'trash',
