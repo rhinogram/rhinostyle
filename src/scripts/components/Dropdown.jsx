@@ -105,20 +105,12 @@ class Dropdown extends React.Component {
   };
 
   handleToggle = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
     if (this.state.isOpen) {
       // Close dropdown
-      $dropdown.timeline.reverse();
+      this.handleCloseDropdown();
     } else {
-      // Open dropdown
-      $dropdown.timeline.play();
+      this.handleOpenDropdown();
     }
-
-    // Update state
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
 
     if (this.props.onClick) {
       this.props.onClick();
@@ -127,20 +119,20 @@ class Dropdown extends React.Component {
 
   handleCloseDropdown = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
     // Close dropdown
     $dropdown.timeline.reverse();
-
     this.setState({ isOpen: false });
   }
 
-  handleClickOutside = () => {
+  handleOpenDropdown = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
+    // Open dropdown
+    $dropdown.timeline.play();
+    this.setState({ isOpen: true });
+  }
 
-    // Close dropdown
-    $dropdown.timeline.reverse();
-
-    this.setState({ isOpen: false });
+  handleClickOutside = () => {
+    this.handleCloseDropdown();
 
     if (this.props.onClick) {
       this.props.onClick();
