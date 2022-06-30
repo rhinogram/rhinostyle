@@ -11,6 +11,11 @@ import DropdownMenuItem from './DropdownMenuItem';
 
 function DropdownSearchSelect(props) {
   const [searchText, setSearchText] = useState('');
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleSetIsOpen = (bool) => {
+    setIsOpen(bool);
+  };
 
   const handleSearch = (id, value) => {
     const { fetchAllItems } = props;
@@ -31,6 +36,7 @@ function DropdownSearchSelect(props) {
     const selectedItemId = id;
     const selectedItem = props.items[id];
     props.handleUpdateSelectedId(selectedItemId, selectedItem, props.filterName.toLowerCase());
+    handleSetIsOpen(false);
   };
 
   const renderListItems = () => props.itemsIds.map((id) => {
@@ -92,6 +98,8 @@ function DropdownSearchSelect(props) {
       outlined={outlined}
       dataCypress={dataCypress}
       disableScroll
+      isOpen={isOpen}
+      handleSetIsOpen={handleSetIsOpen}
     >
       <div className="dropdown__menu__container">
         <div className="search__group">

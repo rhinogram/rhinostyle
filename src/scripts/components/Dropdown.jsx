@@ -49,6 +49,10 @@ class Dropdown extends React.Component {
         activeKey: this.props.activeKey,
       });
     }
+    if (prevProps.isOpen !== this.props.isOpen) {
+      this.handleCloseDropdown();
+      this.props.handleSetIsOpen(true);
+    }
   }
 
   getChildren = () => {
@@ -120,6 +124,15 @@ class Dropdown extends React.Component {
       this.props.onClick();
     }
   };
+
+  handleCloseDropdown = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
+
+    // Close dropdown
+    $dropdown.timeline.reverse();
+
+    this.setState({ isOpen: false });
+  }
 
   handleClickOutside = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
@@ -336,6 +349,8 @@ Dropdown.propTypes = {
     type: PropTypes.oneOf(['default', 'member']),
     size: PropTypes.string,
   }),
+  isOpen: PropTypes.bool,
+  handleSetIsOpen: PropTypes.func,
 };
 
 Dropdown.defaultProps = {
