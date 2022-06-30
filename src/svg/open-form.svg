@@ -12,8 +12,8 @@
                             <path d="M11.1394774,0.6 L16.6404609,6.19232741 L16.6967961,21.5592212 L0.8,21.7592212 L0.6,0.8 L11.1394774,0.6 Z" id="Rectangle"></path>
                             <polyline id="Path-2" stroke-linejoin="round" points="11.2218529 0.396876177 11.2218529 6.68540715 17.3478015 6.68540715"></polyline>
                         </g>
-                        <ellipse class="icon-stroke icon-fill-white" id="Oval" stroke="#0075C9" fill="#FFFFFF" cx="17.1194539" cy="17.1186682" rx="6.38054608" ry="6.37976038"></ellipse>
-                        <path class="icon-fill" d="M17.3905292,13.3105802 L20.4465875,17.1760544 L18.794471,17.1755802 L18.7948617,20.4778157 L16.1753832,20.4778157 L16.174471,17.1755802 L14.334471,17.1760544 L17.3905292,13.3105802 Z" id="Combined-Shape" fill="#0075C9"></path>
+                        <ellipse class="icon-stroke icon-fill-white" id="Oval" stroke="#0075C9" fill="#FFFFFF" cx="16.1194539" cy="17.1186682" rx="6.38054608" ry="6.37976038"></ellipse>
+                        <path class="icon-fill" d="M16.3905292,13.3105802 L19.4465875,17.1760544 L17.794471,17.1755802 L17.7948617,20.4778157 L15.1753832,20.4778157 L15.174471,17.1755802 L13.334471,17.1760544 L16.3905292,13.3105802 Z" id="Combined-Shape" fill="#0075C9"></path>
                     </g>
                 </g>
             </g>
