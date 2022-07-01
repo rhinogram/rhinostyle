@@ -49,6 +49,10 @@ class Dropdown extends React.Component {
         activeKey: this.props.activeKey,
       });
     }
+    if (prevProps.isOpen !== this.props.isOpen) {
+      this.handleCloseDropdown();
+      this.props.handleSetIsOpen(true);
+    }
   }
 
   getChildren = () => {
@@ -101,33 +105,34 @@ class Dropdown extends React.Component {
   };
 
   handleToggle = () => {
-    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
     if (this.state.isOpen) {
       // Close dropdown
-      $dropdown.timeline.reverse();
+      this.handleCloseDropdown();
     } else {
-      // Open dropdown
-      $dropdown.timeline.play();
+      this.handleOpenDropdown();
     }
-
-    // Update state
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
 
     if (this.props.onClick) {
       this.props.onClick();
     }
   };
 
-  handleClickOutside = () => {
+  handleCloseDropdown = () => {
     const $dropdown = ReactDOM.findDOMNode(this.dropdown);
-
     // Close dropdown
     $dropdown.timeline.reverse();
-
     this.setState({ isOpen: false });
+  }
+
+  handleOpenDropdown = () => {
+    const $dropdown = ReactDOM.findDOMNode(this.dropdown);
+    // Open dropdown
+    $dropdown.timeline.play();
+    this.setState({ isOpen: true });
+  }
+
+  handleClickOutside = () => {
+    this.handleCloseDropdown();
 
     if (this.props.onClick) {
       this.props.onClick();
@@ -336,6 +341,8 @@ Dropdown.propTypes = {
     type: PropTypes.oneOf(['default', 'member']),
     size: PropTypes.string,
   }),
+  isOpen: PropTypes.bool,
+  handleSetIsOpen: PropTypes.func,
 };
 
 Dropdown.defaultProps = {

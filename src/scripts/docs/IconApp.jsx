@@ -74,6 +74,7 @@ const icons = [
   'minus',
   'mobile',
   'note',
+  'open-form',
   'pdfFile',
   'phone',
   'pin',

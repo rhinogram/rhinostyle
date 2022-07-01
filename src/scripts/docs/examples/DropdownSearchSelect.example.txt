@@ -1,0 +1,67 @@
+function ComponentExample() {
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedItemId, setSelectedItemId] = useState(null)
+  const [itemSearchLoading, setItemSearchLoading] = useState(false)
+  const [items, setItems] = useState({
+          1: { id: 1, title: 'Ben Bruning', name: 'BB', profileImageUrl: '' },
+          2: { id: 2, title: 'Blake Guilloud', name: 'BG', profileImageUrl: '' },
+          3: { id: 3, title: 'Craig Anthony', name: 'CA', profileImageUrl: '' },
+          4: { id: 4, title: 'Grady Rogers', name: 'GR', profileImageUrl: '' },
+          5: { id: 5, title: 'Keaton Foster', name: 'KF', profileImageUrl: '' },
+          6: { id: 6, title: 'Lauren Farr', name: 'LF', profileImageUrl: '' },
+          7: { id: 7, title: 'Keaton Foster',name: 'KF', profileImageUrl: '' },
+          8: { id: 8, title: 'Paul Griffin', name: 'PG', profileImageUrl: '' },
+          9: { id: 9, title: 'Rob Whelan', name: 'RW', profileImageUrl: '' },
+          10: { id: 10, title: 'Terry Kennair', name: 'TK', profileImageUrl: '' },
+        })
+  const [itemsIds, setItemsIds] = useState([])
+
+  useEffect(() => {
+    setItemsIds(Object.keys(items))
+  }, [])
+
+  // This code example is written for a case, If we are filtering with searchText from already stored data only and not making any call from api, but we can also fetch from api, when we will be using this component in Rhinofront
+  const fetchAllItems = (searchText, filterName) => {
+    setItemSearchLoading(true)
+    let searchedItems = {};
+    if (searchText.length > 0) {
+      Object.keys(items).map((k) => {
+        if ((items[k].title.toLowerCase()).includes(searchText.toLowerCase())) {
+          searchedItems[k] = items[k];
+        }
+      })
+    } else {
+      searchedItems = items;
+    }
+    setItemSearchLoading(false)
+    setItemsIds(Object.keys(searchedItems))
+    // setItems(searchedItems)
+  }
+
+  const handleUpdateSelectedId = (selectedId, selectedItem) => {
+    setSelectedItemId(selectedId)
+    setSelectedItem(selectedItem)
+  }
+
+  let label = 'Select Member';
+  if (selectedItemId) {
+    label = selectedItem.title;
+  }
+  const classes = 'multi-select__dropdown--fixed-height';
+
+  return (
+    <DropdownSearchSelect
+      handleUpdateSelectedId={handleUpdateSelectedId}
+      itemSearchLoading={itemSearchLoading}
+      items={items}
+      itemsIds={itemsIds}
+      selectedItem={selectedItem}
+      selectedItemId={selectedItemId}
+      fetchAllItems={fetchAllItems}
+      dropdownLabel={label}
+      filterName="Contacts"
+      type="member"
+      className={classes}
+    />
+  );
+}
