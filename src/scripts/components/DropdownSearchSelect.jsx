@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import { UtilitySystem } from '../UtilitySystem';
@@ -9,126 +9,130 @@ import Icon from './Icon';
 import Dropdown from './Dropdown';
 import DropdownMenuItem from './DropdownMenuItem';
 
-function DropdownSearchSelect(props) {
-  const [searchText, setSearchText] = useState('');
-  const [isOpen, setIsOpen] = useState(true);
+class DropdownSearchSelect extends React.Component {
+  state = {
+    searchText: '',
+    isOpen: true,
+  }
 
-  const handleSetIsOpen = (bool) => {
-    setIsOpen(bool);
+  handleSetIsOpen = (bool) => {
+    this.setState({ isOpen: bool });
   };
 
-  const handleSearch = (id, value) => {
-    const { fetchAllItems } = props;
+  handleSearch = (id, value) => {
+    const { fetchAllItems } = this.props;
     const searchValue = value;
-    if (searchValue.length > 2 || searchValue.length === 0) fetchAllItems(searchValue, props.filterName.toLowerCase());
+    if (searchValue.length > 2 || searchValue.length === 0) fetchAllItems(searchValue, this.props.filterName.toLowerCase());
 
-    setSearchText(searchValue);
+    this.setState({ searchText: searchValue });
   };
 
-  const clearSearch = () => {
-    if (searchText.length > 0) {
-      setSearchText('');
-      props.fetchAllItems('', props.filterName.toLowerCase());
+  clearSearch = () => {
+    if (this.state.searchText.length > 0) {
+      this.setState({ searchText: '' });
+      this.props.fetchAllItems('', this.props.filterName.toLowerCase());
     }
   };
 
-  const handleSelect = (id) => {
+  handleSelect = (id) => {
     const selectedItemId = id;
-    const selectedItem = props.items[id];
-    props.handleUpdateSelectedId(selectedItemId, selectedItem, props.filterName.toLowerCase());
-    handleSetIsOpen(false);
+    const selectedItem = this.props.items[id];
+    this.props.handleUpdateSelectedId(selectedItemId, selectedItem, this.props.filterName.toLowerCase());
+    this.handleSetIsOpen(false);
   };
 
-  const renderListItems = () => props.itemsIds.map((id) => {
-    const listItem = props.items[id];
+  renderListItems = () => this.props.itemsIds.map((id) => {
+    const listItem = this.props.items[id];
     return (
       <DropdownMenuItem
         key={id}
         id={id}
         label={listItem.title}
-        active={props.selectedItemId === id}
-        onClick={() => handleSelect(id)}
+        active={this.props.selectedItemId === id}
+        onClick={() => this.handleSelect(id)}
       />
     );
   });
 
-  const renderSearchHelp = (idArray = props.itemsIds, loading = props.itemSearchLoading) => {
-    if ((searchText.length === 0 || searchText.length > 2) && loading) {
+  renderSearchHelp = (idArray = this.props.itemsIds, loading = this.props.itemSearchLoading) => {
+    if ((this.state.searchText.length === 0 || this.state.searchText.length > 2) && loading) {
       return (
         <div className="u-text-center">
           <LoaderPulse type="secondary" />
         </div>
       );
-    } else if (searchText.length > 2 && !idArray.length && !loading) {
+    } else if (this.state.searchText.length > 2 && !idArray.length && !loading) {
       return <div className="search__no-results u-p-x">No results</div>;
     }
 
     return null;
   };
 
-  const {
-    itemSearchLoading,
-    dropdownLabel,
-    selectedItemId,
-    filterName,
-    className,
-    dropDownClass,
-    dataCypress,
-  } = props;
-  const classes = `resource-group__scroll${props.interfaceLeft && '--checkbox'} ${className && className}`;
+  render() {
+    const {
+      itemSearchLoading,
+      dropdownLabel,
+      selectedItemId,
+      filterName,
+      className,
+      dropDownClass,
+      dataCypress,
+    } = this.props;
+    const classes = `resource-group__scroll${this.props.interfaceLeft && '--checkbox'} ${className && className}`;
 
-  const itemsIds = [...props.itemsIds];
-  const searchTitle = `Search ${filterName}`;
-  let dropdownType = 'input';
-  let outlined = false;
-  if (selectedItemId) {
-    dropdownType = 'primary';
-    outlined = true;
-  }
+    const itemsIds = [...this.props.itemsIds];
+    const searchTitle = `Search ${filterName}`;
+    let dropdownType = 'input';
+    let outlined = false;
+    if (selectedItemId) {
+      dropdownType = 'primary';
+      outlined = true;
+    }
 
-  return (
-    <Dropdown
-      wide
-      disabled={props.disabled}
-      autoFocusInput={false}
-      label={dropdownLabel}
-      onClick={clearSearch}
-      className={dropDownClass}
-      type={dropdownType}
-      outlined={outlined}
-      dataCypress={dataCypress}
-      disableScroll
-      isOpen={isOpen}
-      handleSetIsOpen={handleSetIsOpen}
-    >
-      <div className="dropdown__menu__container">
-        <div className="search__group">
-          <Input
-            placeholder={searchTitle}
-            className="search__input"
-            onChange={handleSearch}
-            initialValue={searchText}
-            addon="left"
-            type="text"
-            name="preloadedMembers"
-            dataCypress={searchTitle}
-            autoComplete="off"
-          >
-            <Icon icon="search" />
-          </Input>
+    return (
+      <Dropdown
+        wide
+        disabled={this.props.disabled}
+        autoFocusInput={false}
+        label={dropdownLabel}
+        onClick={this.clearSearch}
+        className={dropDownClass}
+        type={dropdownType}
+        outlined={outlined}
+        dataCypress={dataCypress}
+        disableScroll
+        isOpen={this.state.isOpen}
+        handleSetIsOpen={this.handleSetIsOpen}
+      >
+        <div className="dropdown__menu__container">
+          <div className="search__group">
+            <Input
+              placeholder={searchTitle}
+              className="search__input"
+              onChange={this.handleSearch}
+              initialValue={this.state.searchText}
+              addon="left"
+              type="text"
+              name="preloadedMembers"
+              dataCypress={searchTitle}
+              autoComplete="off"
+            >
+              <Icon icon="search" />
+            </Input>
+          </div>
         </div>
-      </div>
-      <div className="dropdown__menu__container u-p-x-0">
-        {itemsIds.length > 0 ? (
-          <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
-            {renderListItems()}
-          </Scrollbars>
-        ) : (
-          renderSearchHelp(itemsIds, itemSearchLoading)
-        )}
-      </div>
-    </Dropdown>
-  );
+        <div className="dropdown__menu__container u-p-x-0">
+          {itemsIds.length > 0 ? (
+            <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
+              {this.renderListItems()}
+            </Scrollbars>
+          ) : (
+            this.renderSearchHelp(itemsIds, itemSearchLoading)
+          )}
+        </div>
+      </Dropdown>
+    );
+  }
 }
 
 DropdownSearchSelect.propTypes = {
