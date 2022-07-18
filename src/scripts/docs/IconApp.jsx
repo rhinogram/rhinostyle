@@ -65,6 +65,7 @@ const icons = [
   'lock',
   'log-in',
   'log-out',
+  'manager',
   'marketing',
   'maximize',
   'microphone-off',
