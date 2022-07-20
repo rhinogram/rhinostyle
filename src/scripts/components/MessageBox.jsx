@@ -12,6 +12,9 @@ class MessageBox extends React.Component {
   };
 
   componentDidMount() {
+    if (this.props.initialValue) {
+      this.setState({ value: this.props.initialValue });
+    }
     if (this.props.focus && this.rhinoTextArea) {
       this.rhinoTextArea.focus();
     }
