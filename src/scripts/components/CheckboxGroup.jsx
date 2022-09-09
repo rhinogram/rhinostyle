@@ -11,10 +11,10 @@ import UtilityListItem from './UtilityListItem';
 
 class CheckboxGroup extends React.Component {
   renderChildren = () => {
-    const { blockGroup, children, inline } = this.props;
+    const { blockGroup, children, inline, unstyled } = this.props;
 
     return React.Children.map(children, (child) => {
-      if (inline || blockGroup) {
+      if (inline || blockGroup || unstyled) {
         return child;
       }
 
@@ -23,7 +23,7 @@ class CheckboxGroup extends React.Component {
   };
 
   renderItems = () => {
-    const { blockGroup, inline } = this.props;
+    const { blockGroup, inline, unstyled } = this.props;
 
     if (inline) {
       return (
@@ -36,6 +36,12 @@ class CheckboxGroup extends React.Component {
         <div className="form__block-group--checkbox">
           {this.renderChildren()}
         </div>
+      );
+    } else if (unstyled) {
+      return (
+        <>
+          {this.renderChildren()}
+        </>
       );
     }
 
@@ -70,6 +76,7 @@ CheckboxGroup.propTypes = {
   label: PropTypes.string,
   required: PropTypes.bool,
   validationMessage: PropTypes.string,
+  unstyled: PropTypes.bool,
 };
 
 export default CheckboxGroup;
