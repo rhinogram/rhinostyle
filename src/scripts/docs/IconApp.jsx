@@ -18,6 +18,7 @@ const IconScope = {
 // Add new icons here
 const icons = [
   'add-circle',
+  'add-emoji',
   'alert-triangle',
   'analytics',
   'announce',

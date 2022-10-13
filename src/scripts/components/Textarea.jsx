@@ -69,6 +69,7 @@ class Textarea extends React.Component {
       readOnly,
       required,
       rows,
+      textareaRef,
       validationMessage,
     } = this.props;
 
@@ -107,6 +108,7 @@ class Textarea extends React.Component {
           onChange={this.handleChange}
           onMouseDown={this.handleMouseDown}
           disabled={disabled}
+          ref={textareaRef}
         />
         {(validationMessage || explanationMessage || showCharacterCount()) && (
           <div className="form__control-footer">
@@ -140,6 +142,7 @@ Textarea.propTypes = {
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
   rows: PropTypes.number,
+  textareaRef: PropTypes.object,
   validationMessage: PropTypes.string,
 };
 
