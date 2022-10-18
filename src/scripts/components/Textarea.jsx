@@ -65,6 +65,7 @@ class Textarea extends React.Component {
       maxCharacters,
       naked,
       name,
+      onKeyDown,
       placeholder,
       readOnly,
       required,
@@ -106,6 +107,7 @@ class Textarea extends React.Component {
           readOnly={readOnly}
           value={this.state.value}
           onChange={this.handleChange}
+          onKeyDown={onKeyDown}
           onMouseDown={this.handleMouseDown}
           disabled={disabled}
           ref={textareaRef}
@@ -137,6 +139,7 @@ Textarea.propTypes = {
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
