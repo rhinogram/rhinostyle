@@ -6,6 +6,7 @@ import FormLabel from './FormLabel';
 import FormValidationMessage from './FormValidationMessage';
 import FormExplanationMessage from './FormExplanationMessage';
 import { UtilitySystem } from '../UtilitySystem';
+import handleDeleteEmoji from '../helpers/handleDeleteEmoji';
 
 class Textarea extends React.Component {
   state = {
@@ -55,6 +56,13 @@ class Textarea extends React.Component {
     }
   }
 
+  handleKeyDown = (event) => {
+    const { textareaRef, name, initialValue, onChange } = this.props;
+    if (this.props.emojiSupport) {
+      handleDeleteEmoji(event, textareaRef, name, initialValue, onChange);
+    }
+  }
+
   render() {
     const {
       abbrMaxCharacters,
@@ -65,7 +73,6 @@ class Textarea extends React.Component {
       maxCharacters,
       naked,
       name,
-      onKeyDown,
       placeholder,
       readOnly,
       required,
@@ -107,7 +114,7 @@ class Textarea extends React.Component {
           readOnly={readOnly}
           value={this.state.value}
           onChange={this.handleChange}
-          onKeyDown={onKeyDown}
+          onKeyDown={this.handleKeyDown}
           onMouseDown={this.handleMouseDown}
           disabled={disabled}
           ref={textareaRef}
@@ -133,13 +140,13 @@ Textarea.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   explanationMessage: PropTypes.string,
+  emojiSupport: PropTypes.bool,
   initialValue: PropTypes.string,
   label: PropTypes.string,
   maxCharacters: PropTypes.number,
   naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  onKeyDown: PropTypes.func,
   onMouseDown: PropTypes.func,
   placeholder: PropTypes.string,
   readOnly: PropTypes.bool,
