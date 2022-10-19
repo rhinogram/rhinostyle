@@ -57,8 +57,8 @@ class Textarea extends React.Component {
   }
 
   handleKeyDown = (event) => {
-    const { textareaRef, name, initialValue, onChange } = this.props;
-    if (this.props.emojiSupport) {
+    const { textareaRef, name, initialValue, onChange, emojiSupport } = this.props;
+    if (emojiSupport) {
       handleDeleteEmoji(event, textareaRef, name, initialValue, onChange);
     }
   }

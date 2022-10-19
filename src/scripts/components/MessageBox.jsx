@@ -66,7 +66,7 @@ class MessageBox extends React.Component {
   };
 
   render() {
-    const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight } = this.props;
+    const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight, textareaRef, emojiSupport } = this.props;
 
     const textAreaClasses = cx('form__control u-overflow-y-auto', {
       'form__control--naked': naked,
@@ -94,6 +94,8 @@ class MessageBox extends React.Component {
           disabled={disabled}
           inputRef={(ref) => (this.rhinoTextArea = ref)}
           onFocus={this.handleFocus}
+          textareaRef={textareaRef}
+          emojiSupport={emojiSupport}
         />
       </div>
     );
@@ -117,6 +119,8 @@ MessageBox.propTypes = {
   focus: PropTypes.bool,
   rows: PropTypes.number,
   handleFocus: PropTypes.func,
+  textareaRef: PropTypes.object,
+  emojiSupport: PropTypes.bool,
 };
 
 MessageBox.defaultProps = {
