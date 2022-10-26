@@ -6,6 +6,7 @@ import FormLabel from './FormLabel';
 import FormValidationMessage from './FormValidationMessage';
 import FormExplanationMessage from './FormExplanationMessage';
 import { UtilitySystem } from '../UtilitySystem';
+import handleDeleteEmoji from '../helpers/handleDeleteEmoji';
 
 class Textarea extends React.Component {
   state = {
@@ -55,6 +56,13 @@ class Textarea extends React.Component {
     }
   }
 
+  handleKeyDown = (event) => {
+    const { textareaRef, name, initialValue, onChange, emojiSupport } = this.props;
+    if (emojiSupport) {
+      handleDeleteEmoji(event, textareaRef, name, initialValue, onChange);
+    }
+  }
+
   render() {
     const {
       abbrMaxCharacters,
@@ -69,6 +77,7 @@ class Textarea extends React.Component {
       readOnly,
       required,
       rows,
+      textareaRef,
       validationMessage,
     } = this.props;
 
@@ -105,8 +114,10 @@ class Textarea extends React.Component {
           readOnly={readOnly}
           value={this.state.value}
           onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
           onMouseDown={this.handleMouseDown}
           disabled={disabled}
+          ref={textareaRef}
         />
         {(validationMessage || explanationMessage || showCharacterCount()) && (
           <div className="form__control-footer">
@@ -129,6 +140,7 @@ Textarea.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   explanationMessage: PropTypes.string,
+  emojiSupport: PropTypes.bool,
   initialValue: PropTypes.string,
   label: PropTypes.string,
   maxCharacters: PropTypes.number,
@@ -140,6 +152,7 @@ Textarea.propTypes = {
   readOnly: PropTypes.bool,
   required: PropTypes.bool,
   rows: PropTypes.number,
+  textareaRef: PropTypes.object,
   validationMessage: PropTypes.string,
 };
 
