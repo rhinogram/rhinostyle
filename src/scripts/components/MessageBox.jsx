@@ -5,6 +5,7 @@ import Textarea from 'react-textarea-autosize';
 
 import FormLabel from './FormLabel';
 import { UtilitySystem } from '../UtilitySystem';
+import handleDeleteEmoji from '../helpers/handleDeleteEmoji';
 
 class MessageBox extends React.Component {
   state = {
@@ -53,6 +54,13 @@ class MessageBox extends React.Component {
     }
   };
 
+  handleKeyDown = (event) => {
+    const { textarearef, name, initialValue, onInput, emojisupport } = this.props;
+    if (emojisupport) {
+      handleDeleteEmoji(event, textarearef, name, initialValue, onInput);
+    }
+  }
+
   handleHeightChange = (height, instance) => {
     if (this.props.onHeightChange) {
       this.props.onHeightChange(height, instance);
@@ -66,7 +74,7 @@ class MessageBox extends React.Component {
   };
 
   render() {
-    const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight, textarearef, emojisupport } = this.props;
+    const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight, textarearef } = this.props;
 
     const textAreaClasses = cx('form__control u-overflow-y-auto', {
       'form__control--naked': naked,
@@ -94,8 +102,7 @@ class MessageBox extends React.Component {
           disabled={disabled}
           inputRef={textarearef}
           onFocus={this.handleFocus}
-          textarearef={textarearef}
-          emojisupport={emojisupport}
+          onKeyDown={this.handleKeyDown}
         />
       </div>
     );
