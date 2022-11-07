@@ -63,8 +63,8 @@ class MessageBox extends React.Component {
   };
 
   handleKeyDown = (event) => {
-    const { messageBoxRef, name, initialValue, onInput, emojisupport } = this.props;
-    if (emojisupport) {
+    const { messageBoxRef, name, initialValue, onInput, emojiSupport } = this.props;
+    if (emojiSupport) {
       handleDeleteEmoji(event, messageBoxRef, name, initialValue, onInput);
     }
   }
@@ -83,16 +83,16 @@ class MessageBox extends React.Component {
 
   render() {
     const {
-      required,
-      rows,
       className,
       disabled,
       label,
+      maxHeight,
+      messageBoxRef,
       naked,
       name,
       placeholder,
-      maxHeight,
-      messageBoxRef,
+      required,
+      rows,
     } = this.props;
 
     const textAreaClasses = cx('form__control u-overflow-y-auto', {
@@ -131,7 +131,7 @@ class MessageBox extends React.Component {
 MessageBox.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  emojisupport: PropTypes.bool,
+  emojiSupport: PropTypes.bool,
   focus: PropTypes.bool,
   handleFocus: PropTypes.func,
   initialValue: PropTypes.string,
