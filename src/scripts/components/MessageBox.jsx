@@ -15,8 +15,8 @@ class MessageBox extends React.Component {
     if (this.props.initialValue) {
       this.setState({ value: this.props.initialValue });
     }
-    if (this.props.focus && this.rhinoTextArea) {
-      this.rhinoTextArea.focus();
+    if (this.props.focus && this.props.textarearef) {
+      this.props.textarearef.current.focus();
     }
   }
 
@@ -27,7 +27,7 @@ class MessageBox extends React.Component {
       });
     }
     if (prevProps.focus !== this.props.focus && this.props.focus) {
-      this.rhinoTextArea.focus();
+      this.props.textarearef.current.focus();
     }
   }
 
@@ -92,7 +92,7 @@ class MessageBox extends React.Component {
           onClick={this.handleClick}
           onHeightChange={this.handleHeightChange}
           disabled={disabled}
-          inputRef={(ref) => (this.rhinoTextArea = ref)}
+          inputRef={textarearef}
           onFocus={this.handleFocus}
           textarearef={textarearef}
           emojisupport={emojisupport}
