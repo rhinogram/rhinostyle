@@ -5,6 +5,7 @@ import Textarea from 'react-textarea-autosize';
 
 import FormLabel from './FormLabel';
 import { UtilitySystem } from '../UtilitySystem';
+import handleDeleteEmoji from '../helpers/handleDeleteEmoji';
 
 class MessageBox extends React.Component {
   state = {
@@ -15,8 +16,12 @@ class MessageBox extends React.Component {
     if (this.props.initialValue) {
       this.setState({ value: this.props.initialValue });
     }
-    if (this.props.focus && this.rhinoTextArea) {
-      this.rhinoTextArea.focus();
+    if (this.props.focus) {
+      if (this.rhinoTextArea) {
+        this.rhinoTextArea.focus();
+      } else if (this.props.messageBoxRef) {
+        this.props.messageBoxRef.current.focus();
+      }
     }
   }
 
@@ -27,7 +32,11 @@ class MessageBox extends React.Component {
       });
     }
     if (prevProps.focus !== this.props.focus && this.props.focus) {
-      this.rhinoTextArea.focus();
+      if (this.props.messageBoxRef) {
+        this.props.messageBoxRef.current.focus();
+      } else {
+        this.rhinoTextArea.focus();
+      }
     }
   }
 
@@ -53,6 +62,13 @@ class MessageBox extends React.Component {
     }
   };
 
+  handleKeyDown = (event) => {
+    const { messageBoxRef, name, initialValue, onInput, emojiSupport } = this.props;
+    if (emojiSupport) {
+      handleDeleteEmoji(event, messageBoxRef, name, initialValue, onInput);
+    }
+  }
+
   handleHeightChange = (height, instance) => {
     if (this.props.onHeightChange) {
       this.props.onHeightChange(height, instance);
@@ -66,7 +82,18 @@ class MessageBox extends React.Component {
   };
 
   render() {
-    const { required, rows, className, disabled, label, naked, name, placeholder, maxHeight, textareaRef, emojiSupport } = this.props;
+    const {
+      className,
+      disabled,
+      label,
+      maxHeight,
+      messageBoxRef,
+      naked,
+      name,
+      placeholder,
+      required,
+      rows,
+    } = this.props;
 
     const textAreaClasses = cx('form__control u-overflow-y-auto', {
       'form__control--naked': naked,
@@ -92,10 +119,9 @@ class MessageBox extends React.Component {
           onClick={this.handleClick}
           onHeightChange={this.handleHeightChange}
           disabled={disabled}
-          inputRef={(ref) => (this.rhinoTextArea = ref)}
+          inputRef={messageBoxRef || ((ref) => (this.rhinoTextArea = ref))}
           onFocus={this.handleFocus}
-          textareaRef={textareaRef}
-          emojiSupport={emojiSupport}
+          onKeyDown={this.handleKeyDown}
         />
       </div>
     );
@@ -105,22 +131,22 @@ class MessageBox extends React.Component {
 MessageBox.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  emojiSupport: PropTypes.bool,
+  focus: PropTypes.bool,
+  handleFocus: PropTypes.func,
+  initialValue: PropTypes.string,
   label: PropTypes.string,
+  maxHeight: PropTypes.string,
+  messageBoxRef: PropTypes.object,
+  naked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
+  onHeightChange: PropTypes.func,
   onInput: PropTypes.func,
   onKeyPress: PropTypes.func,
-  onHeightChange: PropTypes.func,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
-  maxHeight: PropTypes.string,
-  naked: PropTypes.bool,
-  initialValue: PropTypes.string,
-  focus: PropTypes.bool,
   rows: PropTypes.number,
-  handleFocus: PropTypes.func,
-  textareaRef: PropTypes.object,
-  emojiSupport: PropTypes.bool,
 };
 
 MessageBox.defaultProps = {
