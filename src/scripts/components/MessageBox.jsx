@@ -63,9 +63,9 @@ class MessageBox extends React.Component {
   };
 
   handleKeyDown = (event) => {
-    const { messageBoxRef, name, initialValue, onInput, emojiSupport } = this.props;
+    const { messageBoxRef, name, onInput, emojiSupport } = this.props;
     if (emojiSupport) {
-      handleDeleteEmoji(event, messageBoxRef, name, initialValue, onInput);
+      handleDeleteEmoji(event, messageBoxRef, name, this.state.value, onInput);
     }
   }
 
