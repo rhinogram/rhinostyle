@@ -63,6 +63,7 @@ class Checkbox extends React.Component {
           onKeyUp={this.handleKeyUp}
           title={title}
           data-cypress={dataCypress}
+          data-id={dataCypress}
         />
         {label && (
           <label // eslint-disable-line jsx-a11y/label-has-for
