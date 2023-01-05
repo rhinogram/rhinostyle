@@ -87,13 +87,14 @@ class NotificationContainer extends React.Component {
      * and then play the animation after the interval
      * */
     $toast.timeline.progress(1, true).reverse();
-
-    setTimeout(() => {
-      // Only auto init close if it's not already closed (or in the process of closing)
-      if ($toast.timeline.progress() !== 1) {
-        $toast.timeline.play();
-      }
-    }, AUTO_DISMISS_TIME);
+    if (!this.props.notification.persistNotification) {
+      setTimeout(() => {
+        // Only auto init close if it's not already closed (or in the process of closing)
+        if ($toast.timeline.progress() !== 1) {
+          $toast.timeline.play();
+        }
+      }, AUTO_DISMISS_TIME);
+    }
   }
 
   hideNotification = () => {
