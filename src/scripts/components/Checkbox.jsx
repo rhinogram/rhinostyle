@@ -62,7 +62,8 @@ class Checkbox extends React.Component {
           onClick={this.handleClick}
           onKeyUp={this.handleKeyUp}
           title={title}
-          data-cypress={dataCypress}
+          data-cypress={dataCypress} // remove whhen we replace all cypress tag with data-id
+          data-id={dataCypress}
         />
         {label && (
           <label // eslint-disable-line jsx-a11y/label-has-for

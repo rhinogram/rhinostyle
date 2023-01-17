@@ -41,7 +41,7 @@ class RhinoSwitch extends React.Component {
 
     return (
       <div className="form__group rhinoswitcher__form-group">
-        <div className={classes} data-cypress={dataCypress}>
+        <div className={classes} data-cypress={dataCypress} data-id={dataCypress}>
           <input type="checkbox" className="rhinoswitcher__input" name={name} id={this.id} checked={checked} disabled={disabled} onChange={this.toggleChecked} />
           <label // eslint-disable-line jsx-a11y/label-has-for
             className="rhinoswitcher__label"
