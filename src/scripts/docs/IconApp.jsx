@@ -59,6 +59,7 @@ const icons = [
   'filter',
   'globe',
   'heart',
+  'heart-filled',
   'hipaa',
   'hyperlink',
   'inbox',
