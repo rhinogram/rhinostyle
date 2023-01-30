@@ -14,6 +14,9 @@ class ComponentExample extends React.Component {
         },
       ],
     },
+    options: {
+    legend: {},
+    },
     width: 300,
     height: 200,
     title: 'Total Messages',
@@ -24,6 +27,10 @@ class ComponentExample extends React.Component {
     subHeader: '(250 avg.)',
     info: 'info',
   };
+
+  onLegendClick(e, legendItem) {
+    console.log('Clicked', legendItem)
+  }
 
   render() {
     return (
@@ -40,6 +47,8 @@ class ComponentExample extends React.Component {
                 header={this.state.header}
                 subHeader={this.state.subHeader}
                 info={this.state.info}
+                options={this.state.options}
+                onLegendClick={this.onLegendClick}
               />
             </div>
           </div>
