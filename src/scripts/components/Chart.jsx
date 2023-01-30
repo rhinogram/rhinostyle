@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import ChartJS from 'chart.js';
 
 import Icon from './Icon';
 import Tooltip from './Tooltip';
@@ -23,14 +24,21 @@ class Chart extends React.Component {
   };
 
   renderChart = (properties) => {
-    const { type } = properties;
+    const { type, onLegendClick, options } = properties;
     if (type.toLowerCase() === 'bar') {
+      if (onLegendClick && options?.legend) {
+        const defaultClickHandler = ChartJS.defaults.global.legend.onClick;
+        // Add custom onClick handler without overwriting default behavior
+        properties.options.legend.onClick = function handleClick(e, legendItem) { // eslint-disable-line no-param-reassign
+          onLegendClick(e, legendItem);
+          defaultClickHandler.call(this, e, legendItem);
+        };
+      }
       return (<Bar {...properties} />);
     } else if (type.toLowerCase() === 'line') {
       return (<Line {...properties} />);
     }
-    /* eslint-disable no-param-reassign */
-    properties.options.legendCallback = this.legendCallback;
+    properties.options.legendCallback = this.legendCallback; // eslint-disable-line no-param-reassign
     return (
       <div className="row">
         <div className="column-8@medium column-12@xsmall">
@@ -97,6 +105,7 @@ Chart.propTypes = {
   header: PropTypes.object,
   subHeader: PropTypes.string,
   info: PropTypes.string,
+  onLegendClick: PropTypes.func,
 };
 
 export default Chart;
