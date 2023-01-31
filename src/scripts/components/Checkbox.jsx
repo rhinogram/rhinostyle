@@ -40,7 +40,7 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { children, className, label, disabled, name, title, value, type, dataCypress, interfaceLeft } = this.props;
+    const { children, className, label, disabled, name, title, value, type, dataFeatureTag, interfaceLeft } = this.props;
     const { checked } = this.state;
 
     const classes = cx('rhinobox', `rhinobox--${type}`, className, {
@@ -62,7 +62,8 @@ class Checkbox extends React.Component {
           onClick={this.handleClick}
           onKeyUp={this.handleKeyUp}
           title={title}
-          data-cypress={dataCypress}
+          data-cypress={dataFeatureTag}
+          data-feature-tag={dataFeatureTag}
         />
         {label && (
           <label // eslint-disable-line jsx-a11y/label-has-for
@@ -94,7 +95,7 @@ Checkbox.propTypes = {
   title: PropTypes.string,
   value: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'secondary']),
-  dataCypress: PropTypes.string,
+  dataFeatureTag: PropTypes.string,
   interfaceLeft: PropTypes.bool,
 };
 

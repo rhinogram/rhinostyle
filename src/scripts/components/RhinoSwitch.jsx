@@ -35,13 +35,13 @@ class RhinoSwitch extends React.Component {
   }
 
   render() {
-    const { className, disabled, name, label, isBetaLabeled, dataCypress } = this.props;
+    const { className, disabled, name, label, isBetaLabeled, dataFeatureTag } = this.props;
     const { checked } = this.state;
     const classes = cx('rhinoswitcher', className);
 
     return (
       <div className="form__group rhinoswitcher__form-group">
-        <div className={classes} data-cypress={dataCypress}>
+        <div className={classes} data-cypress={dataFeatureTag} data-feature-tag={dataFeatureTag}>
           <input type="checkbox" className="rhinoswitcher__input" name={name} id={this.id} checked={checked} disabled={disabled} onChange={this.toggleChecked} />
           <label // eslint-disable-line jsx-a11y/label-has-for
             className="rhinoswitcher__label"
@@ -70,7 +70,7 @@ RhinoSwitch.propTypes = {
   onClick: PropTypes.func,
   onChange: PropTypes.func,
   isBetaLabeled: PropTypes.bool,
-  dataCypress: PropTypes.string,
+  dataFeatureTag: PropTypes.string,
 };
 
 RhinoSwitch.defaultProps = {
