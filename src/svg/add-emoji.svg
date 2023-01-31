@@ -1,36 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g class="icon-stroke" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <g transform="translate(-9.0 -69.0)" class="icon-stroke" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <g class="icon-stroke__add-emoji" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(-9.0 -69.0)" class="icon-stroke_add-emoji" fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <g transform="translate(9.0 69.0)">
         <g transform="translate(1.0000000000013642 3.7074241638183594)">
           <g transform="translate(0.0 0.2925758361816406)">
             <g clip-path="url(#i0)">
+              <!-- Head (circle) -->
               <path d="M9,18 C13.9705627,18 18,13.9705627 18,9 C18,4.02943725 13.9705627,0 9,0 C4.02943725,0 0,4.02943725 0,9 C0,13.9705627 4.02943725,18 9,18 Z" stroke-width="2" fill="none" stroke-miterlimit="5"></path>
             </g>
           </g>
           <g transform="translate(5.0 4.292575836181641)">
             <g clip-path="url(#i1)">
+              <!-- Left eye -->
               <path d="M1.5,4 C2.32842712,4 3,3.1045695 3,2 C3,0.8954305 2.32842712,0 1.5,0 C0.671572875,0 0,0.8954305 0,2 C0,3.1045695 0.671572875,4 1.5,4 Z" stroke-width="2" fill="none" stroke-miterlimit="5">
               </path>
             </g>
             <g transform="translate(5.0 0.0)">
               <g clip-path="url(#i1)">
+                <!-- Right eye -->
                 <path d="M1.5,4 C2.32842712,4 3,3.1045695 3,2 C3,0.8954305 2.32842712,0 1.5,0 C0.671572875,0 0,0.8954305 0,2 C0,3.1045695 0.671572875,4 1.5,4 Z" stroke-width="2" fill="none" stroke-miterlimit="5"></path>
               </g>
             </g>
           </g>
           <g transform="translate(2.999999999999999 10.29257583618164)">
             <g clip-path="url(#i2)">
+              <!-- Mouth -->
               <path d="M11.8338029,-0.00100299392 C11.3575875,2.8365464 8.88969715,4.99866379 5.91681723,4.99866379 C2.94393731,4.99866379 0.476046967,2.8365464 -0.000168416419,-0.00100299392 Z" stroke-width="2" fill="none" stroke-miterlimit="5">
               </path>
             </g>
           </g>
-          <g transform="translate(16.58482038560396 0.0)">
+          <g class="icon-stroke__add-emoji__plus-symbol" transform="translate(16.78482038560396 0.0)">
             <g transform="translate(2.145884875625597 0.0)">
+              <!-- Vertical line (plus sign) -->
               <path d="M0.5,0 L0.5,5.29257584" stroke-width="2" fill="none" stroke-linecap="round" stroke-miterlimit="10"></path>
             </g>
             <g transform="translate(0.0 2.146287918090252)">
-              <path d="M5.29176975,0.453815908 L0,0.546184092" stroke-width="2" fill="none" stroke-linecap="round" stroke-miterlimit="10">
+              <!-- Horizonal line (plus sign) -->
+              <path d="M5.29176975,0.453815908 L0,0.546184092" stroke-width="2" fill="none" stroke-linecap="round" stroke-miterlimit="1">
               </path>
             </g>
           </g>
