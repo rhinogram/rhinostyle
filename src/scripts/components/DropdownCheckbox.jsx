@@ -160,7 +160,7 @@ class DropdownCheckbox extends React.Component {
       wrapperClassName,
       showAssociatedLabel,
       checkboxClassName,
-      dataCypress,
+      dataFeatureTag,
     } = this.props;
     const { activeKey, hasFilter } = this.state;
 
@@ -239,7 +239,7 @@ class DropdownCheckbox extends React.Component {
       const checkboxClasses = checkboxClassName ? `${checkboxClassName} rhinobox__label--ie11` : 'rhinobox__label--ie11';
 
       if (isCheckbox) {
-        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClasses} dataCypress={dataCypress} />;
+        return <Checkbox name="test" label=" " isChecked={checked} onChange={onChange} className={checkboxClasses} dataFeatureTag={dataFeatureTag} />;
       }
       return false;
     };
@@ -344,7 +344,7 @@ DropdownCheckbox.propTypes = {
   isChecked: PropTypes.bool,
   onChange: PropTypes.func,
   labelValueAssociated: PropTypes.string,
-  dataCypress: PropTypes.string,
+  dataFeatureTag: PropTypes.string,
 };
 
 DropdownCheckbox.defaultProps = {
