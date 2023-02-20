@@ -176,6 +176,7 @@ class Dropdown extends React.Component {
       noChangeLabel,
       outlined,
       dataCypress,
+      dataFeatureTag,
     } = this.props;
     const { activeKey, hasFilter } = this.state;
 
@@ -251,6 +252,7 @@ class Dropdown extends React.Component {
         onReverseComplete={onReverseComplete}
         onReverseStart={onReverseStart}
         dataCypress={dataCypress}
+        dataFeatureTag={dataFeatureTag}
         ref={(ref) => (this.dropdown = ref)}
       >
         <Button
@@ -295,6 +297,7 @@ class Dropdown extends React.Component {
 
 Dropdown.propTypes = {
   dataCypress: PropTypes.string,
+  dataFeatureTag: PropTypes.string,
   autoFocusInput: PropTypes.bool,
   activeKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   block: PropTypes.bool,
