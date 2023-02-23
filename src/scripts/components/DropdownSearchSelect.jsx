@@ -114,7 +114,7 @@ class DropdownSearchSelect extends React.Component {
               addon="left"
               type="text"
               name="preloadedMembers"
-              dataCypress={searchTitle}
+              dataFeatureTag={searchTitle}
               autoComplete="off"
             >
               <Icon icon="search" />
