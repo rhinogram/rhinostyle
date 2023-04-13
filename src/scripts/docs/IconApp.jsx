@@ -106,6 +106,7 @@ const icons = [
   'video-resume',
   'video-stop',
   'video',
+  'vcard',
 ];
 
 const IconApp = () => (
