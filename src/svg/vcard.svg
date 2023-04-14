@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 17</title>
+    <g id="Rosh-Pharm" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-17">
+            <g class="icon-stroke" id="Group-15" transform="translate(0.000000, 4.000000)">
+                <path d="M19.4003253,0.5 L23.5,3.87249087 L23.5,15.5 L0.5,15.5 L0.5,0.5 L19.4003253,0.5 Z" id="Combined-Shape" stroke="#9F9F9F"></path>
+                <ellipse id="Oval" stroke="#9F9F9F" cx="12.48" cy="5" rx="2.38" ry="2.5"></ellipse>
+                <path d="M17.5805828,12.9444656 C17.5805828,9.88893127 14.3505231,7.18544559 12,7.5 C9.64947693,7.81455441 7.54437012,9.88893127 7.54437012,12.9444656 C7.6111615,13.0420341 17.5467133,13.1406975 17.5805828,12.9444656 Z" id="Path-7" stroke="#979797"></path>
+                <polyline id="Path-10" stroke="#979797" points="19.5795557 1.03218079 19.5795557 4.03218079 23.3368726 4.03218079"></polyline>
+            </g>
+            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+        </g>
+    </g>
+</svg>
