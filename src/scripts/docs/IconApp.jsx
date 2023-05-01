@@ -64,6 +64,7 @@ const icons = [
   'hyperlink',
   'inbox',
   'info-circle',
+  'instagram',
   'lock',
   'log-in',
   'log-out',
