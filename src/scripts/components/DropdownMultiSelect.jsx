@@ -6,6 +6,8 @@ import Dropdown from './Dropdown';
 import { UtilitySystem } from '../UtilitySystem';
 import Checkbox from './Checkbox';
 import CheckboxGroup from './CheckboxGroup';
+import UtilityInlineGrid from './UtilityInlineGrid';
+import Button from './Button';
 
 class DropdownMultiSelect extends React.Component {
   labelValue(item) {
@@ -34,6 +36,17 @@ class DropdownMultiSelect extends React.Component {
     }
     return this.props.label;
   }
+  renderClearButton = () => (
+    <Button size="small" reset className="u-text-primary" onClick={this.props.handleClearAll} title="Clear All">
+      Clear All
+    </Button>
+  )
+
+  renderSelectAllButton = () => (
+    <Button size="small" reset className="u-text-primary" o onClick={this.props.handleSelectAll} title="Select All">
+      Select All
+    </Button>
+  );
 
   render() {
     const {
@@ -53,6 +66,7 @@ class DropdownMultiSelect extends React.Component {
       dropdownType = 'primary';
       outlined = true;
     }
+
     const dropdownClasses = cx(`dropdown__multi-select ${dropdownClass || ''}`, {
       'dropdown__multi-select--wide': wide,
     });
@@ -70,7 +84,14 @@ class DropdownMultiSelect extends React.Component {
         wide={wide}
         disabled={disabled}
       >
+
         <div className="dropdown__menu__container">
+          {this.props.showSelectAll && (
+          <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-b-small u-text-small">
+            {this.props.selectedItemIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
+          </UtilityInlineGrid>
+          )}
+
           {itemIds?.length > 0 ? (
             <Scrollbars
               className="resource-group__scroll--checkbox"
@@ -103,6 +124,9 @@ DropdownMultiSelect.propTypes = {
   wide: PropTypes.bool,
   position: PropTypes.string,
   disabled: PropTypes.bool,
+  showSelectAll: PropTypes.bool,
+  handleClearAll: PropTypes.func,
+  handleSelectAll: PropTypes.func,
 };
 
 export default DropdownMultiSelect;
