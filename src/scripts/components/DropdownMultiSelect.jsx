@@ -22,7 +22,7 @@ class DropdownMultiSelect extends React.Component {
         key={id}
         isChecked={selected}
         onChange={() => this.props.handleSelect(this.props.name, id)}
-        name={this.labelValue(item)}
+        name={this.labelValue(item, id)}
         label={<span className="u-p-l-small">{this.labelValue(item, id)}</span>}
         className="u-p-t-small"
       />
@@ -57,7 +57,8 @@ class DropdownMultiSelect extends React.Component {
       label,
       wide,
       disabled,
-      customHeader,
+      dropdownHeader,
+      dropdownLabel,
     } = this.props;
 
     const itemIds = [...this.props.itemIds];
@@ -75,7 +76,7 @@ class DropdownMultiSelect extends React.Component {
     return (
       <Dropdown
         autoFocusInput={false}
-        label={this.renderLabel()}
+        label={dropdownLabel || this.renderLabel()}
         type={dropdownType}
         outlined={outlined}
         dataCypress={dataCypress || `dropdownMultiSelect-${label}`}
@@ -92,7 +93,7 @@ class DropdownMultiSelect extends React.Component {
             {this.props.selectedItemIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
           </UtilityInlineGrid>
           )}
-          {customHeader || null}
+          {dropdownHeader || null}
           {itemIds?.length > 0 ? (
             <Scrollbars
               className="resource-group__scroll--checkbox"
@@ -128,7 +129,8 @@ DropdownMultiSelect.propTypes = {
   showSelectAll: PropTypes.bool,
   handleClearAll: PropTypes.func,
   handleSelectAll: PropTypes.func,
-  customHeader: PropTypes.node,
+  dropdownHeader: PropTypes.node,
+  dropdownLabel: PropTypes.string,
 };
 
 export default DropdownMultiSelect;
