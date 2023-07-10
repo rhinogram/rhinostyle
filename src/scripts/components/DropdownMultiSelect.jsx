@@ -10,8 +10,8 @@ import UtilityInlineGrid from './UtilityInlineGrid';
 import Button from './Button';
 
 class DropdownMultiSelect extends React.Component {
-  labelValue(item) {
-    return this.props.getItemLabelValue && typeof this.props.getItemLabelValue === 'function' ? this.props.getItemLabelValue(item) : item.name;
+  labelValue(item, id) {
+    return this.props.getItemLabelValue && typeof this.props.getItemLabelValue === 'function' ? this.props.getItemLabelValue(item, id) : item.name;
   }
 
   renderList = (id) => {
@@ -23,7 +23,7 @@ class DropdownMultiSelect extends React.Component {
         isChecked={selected}
         onChange={() => this.props.handleSelect(this.props.name, id)}
         name={this.labelValue(item)}
-        label={<span className="u-p-l-small">{this.labelValue(item)}</span>}
+        label={<span className="u-p-l-small">{this.labelValue(item, id)}</span>}
         className="u-p-t-small"
       />
     );
@@ -57,6 +57,7 @@ class DropdownMultiSelect extends React.Component {
       label,
       wide,
       disabled,
+      customHeader,
     } = this.props;
 
     const itemIds = [...this.props.itemIds];
@@ -91,7 +92,7 @@ class DropdownMultiSelect extends React.Component {
             {this.props.selectedItemIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
           </UtilityInlineGrid>
           )}
-
+          {customHeader || null}
           {itemIds?.length > 0 ? (
             <Scrollbars
               className="resource-group__scroll--checkbox"
@@ -127,6 +128,7 @@ DropdownMultiSelect.propTypes = {
   showSelectAll: PropTypes.bool,
   handleClearAll: PropTypes.func,
   handleSelectAll: PropTypes.func,
+  customHeader: PropTypes.node,
 };
 
 export default DropdownMultiSelect;
