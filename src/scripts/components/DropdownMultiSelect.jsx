@@ -10,8 +10,8 @@ import UtilityInlineGrid from './UtilityInlineGrid';
 import Button from './Button';
 
 class DropdownMultiSelect extends React.Component {
-  labelValue(item) {
-    return this.props.getItemLabelValue && typeof this.props.getItemLabelValue === 'function' ? this.props.getItemLabelValue(item) : item.name;
+  labelValue(item, id) {
+    return this.props.getItemLabelValue && typeof this.props.getItemLabelValue === 'function' ? this.props.getItemLabelValue(item, id) : item.name;
   }
 
   renderList = (id) => {
@@ -22,8 +22,8 @@ class DropdownMultiSelect extends React.Component {
         key={id}
         isChecked={selected}
         onChange={() => this.props.handleSelect(this.props.name, id)}
-        name={this.labelValue(item)}
-        label={<span className="u-p-l-small">{this.labelValue(item)}</span>}
+        name={this.labelValue(item, id)}
+        label={<span className="u-p-l-small">{this.labelValue(item, id)}</span>}
         className="u-p-t-small"
       />
     );
@@ -57,6 +57,8 @@ class DropdownMultiSelect extends React.Component {
       label,
       wide,
       disabled,
+      dropdownHeader,
+      dropdownLabel,
     } = this.props;
 
     const itemIds = [...this.props.itemIds];
@@ -74,7 +76,7 @@ class DropdownMultiSelect extends React.Component {
     return (
       <Dropdown
         autoFocusInput={false}
-        label={this.renderLabel()}
+        label={dropdownLabel || this.renderLabel()}
         type={dropdownType}
         outlined={outlined}
         dataCypress={dataCypress || `dropdownMultiSelect-${label}`}
@@ -91,7 +93,7 @@ class DropdownMultiSelect extends React.Component {
             {this.props.selectedItemIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
           </UtilityInlineGrid>
           )}
-
+          {dropdownHeader || null}
           {itemIds?.length > 0 ? (
             <Scrollbars
               className="resource-group__scroll--checkbox"
@@ -127,6 +129,8 @@ DropdownMultiSelect.propTypes = {
   showSelectAll: PropTypes.bool,
   handleClearAll: PropTypes.func,
   handleSelectAll: PropTypes.func,
+  dropdownHeader: PropTypes.node,
+  dropdownLabel: PropTypes.string,
 };
 
 export default DropdownMultiSelect;
