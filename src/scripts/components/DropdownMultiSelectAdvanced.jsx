@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -15,93 +15,91 @@ import ResourceGroup from './ResourceGroup';
 import ResourceIntro from './ResourceIntro';
 import UtilityInlineGrid from './UtilityInlineGrid';
 
-const DropdownMultiSelectAdvanced = ({
-  avatarBaseUrl,
-  blockGroup,
-  className,
-  dataCypress,
-  disabled,
-  dropDownClass,
-  dropDownItemClass,
-  dropdownLabel,
-  fetchAllItems,
-  filterName,
-  handleClearAllSelectedItems,
-  handleUpdateSelectedIds: handleUpdateSelected,
-  interfaceLeft,
-  itemSearchLoading,
-  items,
-  itemsIds,
-  selectedItems,
-  selectedItemsIds,
-  type,
-}) => {
-  const [searchText, setSearchText] = useState('');
-  const [isViewAllItems, setIsViewAllItems] = useState(true);
+class DropdownMultiSelectAdvanced extends Component {
+  state = {
+    searchText: '',
+    isViewAllItems: true,
+  };
 
-  const visibleItemsIds = isViewAllItems ? itemsIds : selectedItemsIds;
-  const visibleItems = isViewAllItems ? items : selectedItems;
-
-  useEffect(() => {
-    if (selectedItemsIds.length === 0) {
-      setIsViewAllItems(true);
+  static getDerivedStateFromProps(nextProps) {
+    if (nextProps.selectedItemsIds.length === 0) {
+      return { isViewAllItems: true };
     }
-  }, [selectedItemsIds]);
+    return null;
+  }
 
-  function handleUpdateSelectedIds(id) {
-    const selectedItemsIdsCopy = [...selectedItemsIds];
+  handleUpdateSelectedIds = (id) => {
+    const {
+      selectedItemsIds,
+      items,
+      handleUpdateSelectedIds,
+      filterName,
+    } = this.props;
+
+    const updatedArray = [...selectedItemsIds];
     const selectedItem = items[id];
-    const selectedItemsCopy = { ...selectedItems };
+    const selectedItemsCopy = { ...this.props.selectedItems };
 
     const idIndex = selectedItemsIds.indexOf(id);
     if (idIndex < 0) {
-      selectedItemsIdsCopy.push(id);
+      updatedArray.push(id);
       selectedItemsCopy[id] = selectedItem;
     } else {
-      selectedItemsIdsCopy.splice(idIndex, 1);
+      updatedArray.splice(idIndex, 1);
       delete selectedItemsCopy[id];
     }
-    if (selectedItemsIdsCopy.length === 0) {
-      setIsViewAllItems(selectedItemsIdsCopy.length === 0);
-    }
-    handleUpdateSelected(selectedItemsIdsCopy, selectedItemsCopy, filterName.toLowerCase());
-  }
+    const isViewAllItems = updatedArray.length === 0;
+    this.setState({ isViewAllItems });
+    handleUpdateSelectedIds(updatedArray, selectedItemsCopy, filterName.toLowerCase());
+  };
 
-  function handleToggle() {
+  handleToggle = () => {
+    const { isViewAllItems } = this.state;
+    const { fetchAllItems, filterName } = this.props;
+    const { searchText } = this.state;
+
     if (isViewAllItems && searchText.length > 0) {
-      setSearchText('');
+      this.setState({ searchText: '' });
       fetchAllItems('', filterName.toLowerCase());
     }
-    setIsViewAllItems(!isViewAllItems);
-  }
+    this.setState({ isViewAllItems: !isViewAllItems });
+  };
 
-  function handleClearAll() {
-    setIsViewAllItems(true);
+  handleClearAll = () => {
+    const { handleClearAllSelectedItems } = this.props;
+    this.setState({ isViewAllItems: true });
     handleClearAllSelectedItems();
-  }
+  };
 
-  function handleSelectAll() {
-    setIsViewAllItems(true);
-    handleUpdateSelected(itemsIds, items, filterName.toLowerCase());
-  }
+  handleSelectAll = () => {
+    const { handleUpdateSelectedIds, itemsIds, items, filterName } = this.props;
+    this.setState({ isViewAllItems: true });
+    handleUpdateSelectedIds(itemsIds, items, filterName.toLowerCase());
+  };
 
-  function handleSearch(inputName, value) {
+  handleSearch = (inputName, value) => {
+    const { fetchAllItems, filterName } = this.props;
     if (value.length > 2 || value.length === 0) fetchAllItems(value, filterName.toLowerCase());
-    setSearchText(value);
-  }
+    this.setState({ searchText: value });
+  };
 
-  function clearSearch() {
+  clearSearch = () => {
+    const { searchText } = this.state;
+    const { fetchAllItems, filterName } = this.props;
     if (searchText.length > 0) {
-      setSearchText('');
+      this.setState({ searchText: '' });
       fetchAllItems('', filterName.toLowerCase());
     }
-  }
-  function renderList(id, idx) {
+  };
+
+  renderList(id, idx) {
+    const visibleItems = this.state.isViewAllItems ? this.props.items : this.props.selectedItems;
     const item = visibleItems[id];
-    return renderListItem(item, id, idx);
+    return this.renderListItem(item, id, idx);
   }
 
-  function renderListItem(listItem, id) {
+  renderListItem(listItem, id) {
+    const { selectedItemsIds, avatarBaseUrl, type, interfaceLeft, dropDownItemClass } = this.props;
     const selected = selectedItemsIds.includes(id);
     if (type === 'member') {
       const profileImageUrl = listItem.profileImageUrl ? `${avatarBaseUrl}${listItem.profileImageUrl}` : '';
@@ -111,7 +109,7 @@ const DropdownMultiSelectAdvanced = ({
           className={dropDownItemClass}
           selected={selected}
           key={id}
-          onClick={() => handleUpdateSelectedIds(id)}
+          onClick={() => this.handleUpdateSelectedIds(id)}
         >
           <ResourceIntro
             avatar={avatarDetails}
@@ -125,7 +123,7 @@ const DropdownMultiSelectAdvanced = ({
         <Checkbox
           key={id}
           isChecked={selected}
-          onChange={() => handleUpdateSelectedIds(id)}
+          onChange={() => this.handleUpdateSelectedIds(id)}
           name={listItem.title}
           label={listItem.title}
           className={dropDownItemClass}
@@ -138,14 +136,15 @@ const DropdownMultiSelectAdvanced = ({
         className={dropDownItemClass}
         selected={selected}
         key={id}
-        onClick={() => handleUpdateSelectedIds(id)}
+        onClick={() => this.handleUpdateSelectedIds(id)}
       >
         {listItem.title}
       </Resource>
     );
   }
 
-  const renderSearchHelp = (idArray = itemsIds, loading = itemSearchLoading) => {
+  renderSearchHelp(idArray, loading) {
+    const { searchText } = this.state;
     if ((searchText.length === 0 || searchText.length > 2) && loading) {
       return (
         <div className="u-text-center">
@@ -157,121 +156,145 @@ const DropdownMultiSelectAdvanced = ({
     }
 
     return null;
-  };
+  }
 
-  const renderClearButton = () => (
-    <Button size="small" type="link" onClick={handleClearAll} title="Clear All">
-      Clear All
-    </Button>
-  );
+  renderClearButton() {
+    return (
+      <Button size="small" type="link" onClick={this.handleClearAll} title="Clear All">
+        Clear All
+      </Button>
+    );
+  }
 
-  const renderSelectAllButton = () => (
-    <Button size="small" type="link" onClick={handleSelectAll} title="Select All">
-      Select All
-    </Button>
-  );
+  renderSelectAllButton() {
+    return (
+      <Button size="small" type="link" onClick={this.handleSelectAll} title="Select All">
+        Select All
+      </Button>
+    );
+  }
 
-  const renderViewSelected = () => {
+  renderViewSelected() {
+    const { selectedItemsIds } = this.props;
     const title = `View Selected (${selectedItemsIds.length})`;
     return (
       <Button
         size="small"
         type="link"
-        onClick={handleToggle}
+        onClick={this.handleToggle}
         disabled={selectedItemsIds.length === 0}
         title={title}
       >
         {title}
       </Button>
     );
-  };
-
-  const classes = `resource-group__scroll${interfaceLeft && '--checkbox'} ${className || ''}`;
-
-  const searchTitle = `Search ${filterName}`;
-  let dropdownType = 'input';
-  let outlined = false;
-  if (selectedItemsIds.length > 0) {
-    dropdownType = 'primary';
-    outlined = true;
   }
 
-  return (
-    <Dropdown
-      wide
-      disabled={disabled}
-      autoFocusInput={false}
-      label={dropdownLabel}
-      onClick={clearSearch}
-      className={dropDownClass}
-      type={dropdownType}
-      outlined={outlined}
-      dataCypress={dataCypress}
-      disableScroll
-    >
-      <div className="dropdown__menu__container">
-        <div className="search__group">
-          <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
-            {isViewAllItems ? (
-              <>
-                {selectedItemsIds?.length > 0 ? renderClearButton() : renderSelectAllButton()}
-                {renderViewSelected()}
-              </>
-            ) : (
-              <>
-                {renderClearButton()}
-                <div>
-                  <Button size="small" type="link" onClick={handleToggle} title="Back">
-                    Back
-                  </Button>
-                </div>
-              </>
-            )}
-          </UtilityInlineGrid>
-          <Input
-            placeholder={searchTitle}
-            className="search__input"
-            onChange={handleSearch}
-            initialValue={searchText}
-            addon="left"
-            type="text"
-            name="preloadedMembers"
-            dataFeatureTag={searchTitle}
-            autoComplete="off"
-          >
-            <Icon icon="search" />
-          </Input>
+  render() {
+    const {
+      className,
+      dataCypress,
+      disabled,
+      dropDownClass,
+      dropdownLabel,
+      filterName,
+      selectedItemsIds,
+      itemsIds,
+      itemSearchLoading,
+      interfaceLeft,
+      blockGroup,
+    } = this.props;
+    const { isViewAllItems, searchText } = this.state;
+
+    const visibleItemsIds = isViewAllItems ? itemsIds : selectedItemsIds;
+
+    const classes = `resource-group__scroll${interfaceLeft && '--checkbox'} ${className || ''}`;
+
+    const searchTitle = `Search ${filterName}`;
+    let dropdownType = 'input';
+    let outlined = false;
+    if (selectedItemsIds.length > 0) {
+      dropdownType = 'primary';
+      outlined = true;
+    }
+
+    return (
+      <Dropdown
+        wide
+        disabled={disabled}
+        autoFocusInput={false}
+        label={dropdownLabel}
+        onClick={this.clearSearch}
+        className={dropDownClass}
+        type={dropdownType}
+        outlined={outlined}
+        dataCypress={dataCypress}
+        disableScroll
+      >
+        <div className="dropdown__menu__container">
+          <div className="search__group">
+            <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
+              {isViewAllItems ? (
+                <>
+                  {selectedItemsIds?.length > 0 ? this.renderClearButton() : this.renderSelectAllButton()}
+                  {this.renderViewSelected()}
+                </>
+              ) : (
+                <>
+                  {this.renderClearButton()}
+                  <div>
+                    <Button size="small" type="link" onClick={this.handleToggle} title="Back">
+                      Back
+                    </Button>
+                  </div>
+                </>
+              )}
+            </UtilityInlineGrid>
+            <Input
+              placeholder={searchTitle}
+              className="search__input"
+              onChange={this.handleSearch}
+              initialValue={searchText}
+              addon="left"
+              type="text"
+              name="preloadedMembers"
+              dataFeatureTag={searchTitle}
+              autoComplete="off"
+            >
+              <Icon icon="search" />
+            </Input>
+          </div>
         </div>
-      </div>
-      <div className="dropdown__menu__container">
-        {itemsIds.length > 0 ? (
-          <Scrollbars
-            className={classes}
-            autoHeight
-            autoHeightMax={UtilitySystem.config.resourceSizes.large}
-          >
-            {interfaceLeft ? (
-              <CheckboxGroup
-                blockGroup={blockGroup}
-                className="dropdown__menu--checkbox"
-              >
-                {visibleItemsIds.map(renderList)}
-              </CheckboxGroup>
-            ) : (
-              <ResourceGroup
-                interfaceMode="checkbox"
-              >
-                {visibleItemsIds.map(renderList)}
-              </ResourceGroup>
-            )}
-          </Scrollbars>
-        ) : (
-          renderSearchHelp(itemsIds, itemSearchLoading)
-        )}
-      </div>
-    </Dropdown>
-  );
-};
+        <div className="dropdown__menu__container">
+          {itemsIds.length > 0 ? (
+            <Scrollbars
+              className={classes}
+              autoHeight
+              autoHeightMax={UtilitySystem.config.resourceSizes.large}
+            >
+              {interfaceLeft ? (
+                <CheckboxGroup
+                  blockGroup={blockGroup}
+                  className="dropdown__menu--checkbox"
+                >
+                  {visibleItemsIds.map((id, idx) => this.renderList(id, idx))}
+                </CheckboxGroup>
+              ) : (
+                <ResourceGroup
+                  interfaceMode="checkbox"
+                >
+                  {visibleItemsIds.map((id, idx) => this.renderList(id, idx))}
+                </ResourceGroup>
+              )}
+            </Scrollbars>
+          ) : (
+            this.renderSearchHelp(itemsIds, itemSearchLoading)
+          )}
+        </div>
+      </Dropdown>
+    );
+  }
+}
 
 DropdownMultiSelectAdvanced.propTypes = {
   avatarBaseUrl: PropTypes.string,
@@ -287,12 +310,12 @@ DropdownMultiSelectAdvanced.propTypes = {
   handleClearAllSelectedItems: PropTypes.func.isRequired,
   handleUpdateSelectedIds: PropTypes.func.isRequired,
   interfaceLeft: PropTypes.bool,
-  itemSearchLoading: PropTypes.bool.isRequired,
+  itemSearchLoading: PropTypes.bool,
   items: PropTypes.object.isRequired,
   itemsIds: PropTypes.array.isRequired,
   selectedItems: PropTypes.object.isRequired,
   selectedItemsIds: PropTypes.array.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
 };
 
 DropdownMultiSelectAdvanced.defaultProps = {
