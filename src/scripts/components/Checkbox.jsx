@@ -45,7 +45,6 @@ class Checkbox extends React.Component {
 
     const classes = cx('rhinobox', `rhinobox--${type}`, className, {
       [UtilitySystem.config.classes.disabled]: disabled,
-      'interface-left': interfaceLeft,
     });
 
     return (

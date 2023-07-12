@@ -48,8 +48,9 @@ class DropdownMultiSelectAdvanced extends Component {
       updatedArray.splice(idIndex, 1);
       delete selectedItemsCopy[id];
     }
-    const isViewAllItems = updatedArray.length === 0;
-    this.setState({ isViewAllItems });
+    if (updatedArray.length === 0) {
+      this.setState({ isViewAllItems: true });
+    }
     handleUpdateSelectedIds(updatedArray, selectedItemsCopy, filterName.toLowerCase());
   };
 
@@ -125,9 +126,8 @@ class DropdownMultiSelectAdvanced extends Component {
           isChecked={selected}
           onChange={() => this.handleUpdateSelectedIds(id)}
           name={listItem.title}
-          label={listItem.title}
           className={dropDownItemClass}
-          interfaceLeft
+          label={listItem.label || listItem.title}
         />
       );
     }
