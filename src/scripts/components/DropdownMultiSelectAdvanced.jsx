@@ -100,7 +100,7 @@ class DropdownMultiSelectAdvanced extends Component {
   }
 
   renderListItem(listItem, id) {
-    const { selectedItemsIds, avatarBaseUrl, type, interfaceLeft, dropDownItemClass } = this.props;
+    const { selectedItemsIds, avatarBaseUrl, type, interfaceLeft, dropDownItemClass, blockGroup } = this.props;
     const selected = selectedItemsIds.includes(id);
     if (type === 'member') {
       const profileImageUrl = listItem.profileImageUrl ? `${avatarBaseUrl}${listItem.profileImageUrl}` : '';
@@ -128,6 +128,7 @@ class DropdownMultiSelectAdvanced extends Component {
           name={listItem.title}
           className={dropDownItemClass}
           label={listItem.label || listItem.title}
+          interfaceLeft={interfaceLeft && blockGroup}
         />
       );
     }
@@ -203,6 +204,7 @@ class DropdownMultiSelectAdvanced extends Component {
       itemSearchLoading,
       interfaceLeft,
       blockGroup,
+      dropdownWrapperClass,
     } = this.props;
     const { isViewAllItems, searchText } = this.state;
 
@@ -230,9 +232,10 @@ class DropdownMultiSelectAdvanced extends Component {
         outlined={outlined}
         dataCypress={dataCypress}
         disableScroll
+        wrapperClassName={dropdownWrapperClass}
       >
         <div className="dropdown__menu__container">
-          <div className="search__group u-p-b">
+          <div className="search__group">
             <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
               {isViewAllItems ? (
                 <>
@@ -265,34 +268,33 @@ class DropdownMultiSelectAdvanced extends Component {
               <Icon icon="search" />
             </Input>
             )}
-
           </div>
-          <div>
-            {itemsIds.length > 0 ? (
-              <Scrollbars
-                className={classes}
-                autoHeight
-                autoHeightMax={UtilitySystem.config.resourceSizes.large}
-              >
-                {interfaceLeft ? (
-                  <CheckboxGroup
-                    blockGroup={blockGroup}
-                    className="dropdown__menu--checkbox"
-                  >
-                    {visibleItemsIds.map((id, idx) => this.renderList(id, idx))}
-                  </CheckboxGroup>
-                ) : (
-                  <ResourceGroup
-                    interfaceMode="checkbox"
-                  >
-                    {visibleItemsIds.map((id, idx) => this.renderList(id, idx))}
-                  </ResourceGroup>
-                )}
-              </Scrollbars>
-            ) : (
-              this.renderSearchHelp(itemsIds, itemSearchLoading)
-            )}
-          </div>
+        </div>
+        <div className="dropdown__menu__container">
+          {itemsIds.length > 0 ? (
+            <Scrollbars
+              className={classes}
+              autoHeight
+              autoHeightMax={UtilitySystem.config.resourceSizes.large}
+            >
+              {interfaceLeft ? (
+                <CheckboxGroup
+                  blockGroup={blockGroup}
+                  className="dropdown__menu--checkbox"
+                >
+                  {visibleItemsIds.map((id, idx) => this.renderList(id, idx))}
+                </CheckboxGroup>
+              ) : (
+                <ResourceGroup
+                  interfaceMode="checkbox"
+                >
+                  {visibleItemsIds.map((id, idx) => this.renderList(id, idx))}
+                </ResourceGroup>
+              )}
+            </Scrollbars>
+          ) : (
+            this.renderSearchHelp(itemsIds, itemSearchLoading)
+          )}
         </div>
       </Dropdown>
     );
@@ -319,6 +321,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   selectedItems: PropTypes.object.isRequired,
   selectedItemsIds: PropTypes.array.isRequired,
   type: PropTypes.string,
+  dropdownWrapperClass: PropTypes.string,
 };
 
 DropdownMultiSelectAdvanced.defaultProps = {
@@ -329,6 +332,7 @@ DropdownMultiSelectAdvanced.defaultProps = {
   blockGroup: true,
   dropDownClass: '',
   dropDownItemClass: '',
+  dropdownWrapperClass: '',
   interfaceLeft: false,
 };
 

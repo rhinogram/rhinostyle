@@ -77,6 +77,7 @@ class DropdownSearchSelect extends React.Component {
       className,
       dropDownClass,
       dataCypress,
+      dropdownHeader,
     } = this.props;
     const classes = `resource-group__scroll${this.props.interfaceLeft && '--checkbox'} ${className && className}`;
 
@@ -105,6 +106,7 @@ class DropdownSearchSelect extends React.Component {
         handleSetIsOpen={this.handleSetIsOpen}
       >
         <div className="dropdown__menu__container">
+          {dropdownHeader || null}
           <div className="search__group">
             <Input
               placeholder={searchTitle}
@@ -143,6 +145,7 @@ DropdownSearchSelect.propTypes = {
   itemSearchLoading: PropTypes.bool.isRequired,
   selectedItemId: PropTypes.string,
   items: PropTypes.object.isRequired,
+  dropdownHeader: PropTypes.node,
   dropdownLabel: PropTypes.string.isRequired,
   dropDownClass: PropTypes.string,
   filterName: PropTypes.string.isRequired,
