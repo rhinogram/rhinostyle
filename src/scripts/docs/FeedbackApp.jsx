@@ -49,6 +49,7 @@ class FeedbackApp extends React.Component {
       body: 'This is an alert in a toast notification',
       icon: 'warning',
       type: 'danger',
+      subText: 'This will take time to update',
       onDismiss() {
         /* eslint no-console:0 */
         console.log('I run when the notification was dismissed');
@@ -126,7 +127,7 @@ class FeedbackApp extends React.Component {
           </p>
           <div className="site-example-toasts u-m-b-large">
             <Toast type="default" body="Default toast notification" />
-            <Toast type="success" body="Success toast notification" />
+            <Toast type="success" body="Success toast notification" subText="Please allow sometime before this activity is displayed" />
             <Toast type="danger" body="Danger toast notification" />
           </div>
           <h3 className="site-subheadline">Toast Playground</h3>

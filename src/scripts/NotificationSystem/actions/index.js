@@ -7,6 +7,7 @@ export function addNotification(notification) {
   NotificationDispatcher.handleViewAction({
     type: ActionTypes.ADD_NOTIFICATION,
     body: notification,
+    subText: notification?.subText || '',
   });
 }
 
