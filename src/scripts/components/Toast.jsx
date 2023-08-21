@@ -41,7 +41,9 @@ class Toast extends React.Component { // eslint-disable-line react/prefer-statel
         {renderIcon()}
         <div className="toast__text">
           {body}
+          {(subText && subText !== '') && (
           <p className="toast__info"> {subText}</p>
+          )}
         </div>
         <Icon icon="close" size="small" className="toast__close" />
       </div>
