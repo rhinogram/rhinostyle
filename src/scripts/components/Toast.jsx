@@ -7,7 +7,7 @@ import Icon from './Icon';
 // This needs to be a proper component because we reference refs in other portions of the app
 class Toast extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { body, className, onDismiss, type } = this.props;
+    const { body, className, onDismiss, type, subText } = this.props;
     const classes = cx('toast', className, {
       'toast--danger': type === 'danger',
       'toast--default': type === 'default',
@@ -41,6 +41,9 @@ class Toast extends React.Component { // eslint-disable-line react/prefer-statel
         {renderIcon()}
         <div className="toast__text">
           {body}
+          {(subText && subText !== '') && (
+          <p className="toast__info"> {subText}</p>
+          )}
         </div>
         <Icon icon="close" size="small" className="toast__close" />
       </div>
@@ -52,6 +55,7 @@ Toast.propTypes = {
   body: PropTypes.string.isRequired,
   className: PropTypes.string,
   onDismiss: PropTypes.func,
+  subText: PropTypes.string,
   type: PropTypes.oneOf(['danger', 'default', 'success']),
 };
 
