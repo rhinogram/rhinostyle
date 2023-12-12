@@ -88,12 +88,13 @@ class NotificationContainer extends React.Component {
      * */
     $toast.timeline.progress(1, true).reverse();
     if (!this.props.notification.persistNotification) {
+      const autoDismissTime = this.props.notification?.dismissTime || AUTO_DISMISS_TIME;
       setTimeout(() => {
         // Only auto init close if it's not already closed (or in the process of closing)
         if ($toast.timeline.progress() !== 1) {
           $toast.timeline.play();
         }
-      }, AUTO_DISMISS_TIME);
+      }, autoDismissTime);
     }
   }
 
