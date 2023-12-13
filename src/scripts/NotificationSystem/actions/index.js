@@ -8,6 +8,7 @@ export function addNotification(notification) {
     type: ActionTypes.ADD_NOTIFICATION,
     body: notification,
     subText: notification?.subText || '',
+    dismissTime: notification?.dismissTime,
   });
 }
 
