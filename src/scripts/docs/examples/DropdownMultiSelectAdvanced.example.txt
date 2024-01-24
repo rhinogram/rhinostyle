@@ -3,6 +3,7 @@ class ComponentExample extends React.Component {
     selectedItems: {},
     selectedItemsIds: [],
     itemSearchLoading: false,
+    sortDirection: 'asc',
     items: {
           1: { id: 1, title: 'Ben Bruning', name: 'BB', profileImageUrl: '' },
           2: { id: 2, title: 'Blake Guilloud', name: 'BG', profileImageUrl: '' },
@@ -58,6 +59,12 @@ class ComponentExample extends React.Component {
     })
   }
 
+  handleSort = () => {
+    this.setState((prevState) => ({
+      sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
+    }));
+  }
+
   render() {
     let label = 'Contact(s)';
     if (this.state.selectedItemsIds.length > 0) {
@@ -79,6 +86,9 @@ class ComponentExample extends React.Component {
         filterName="Contacts"
         type="member"
         className={classes}
+        sortable
+        handleSort={this.handleSort}
+        sortDirection={this.state.sortDirection}
       />
     );
   }
