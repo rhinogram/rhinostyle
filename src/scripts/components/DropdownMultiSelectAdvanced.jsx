@@ -14,6 +14,7 @@ import Resource from './Resource';
 import ResourceGroup from './ResourceGroup';
 import ResourceIntro from './ResourceIntro';
 import UtilityInlineGrid from './UtilityInlineGrid';
+import SortAZ from './SortAZ';
 
 class DropdownMultiSelectAdvanced extends Component {
   state = {
@@ -205,6 +206,9 @@ class DropdownMultiSelectAdvanced extends Component {
       interfaceLeft,
       blockGroup,
       dropdownWrapperClass,
+      handleSort,
+      sortDirection,
+      sortable,
     } = this.props;
     const { isViewAllItems, searchText } = this.state;
 
@@ -254,19 +258,27 @@ class DropdownMultiSelectAdvanced extends Component {
               )}
             </UtilityInlineGrid>
             {isViewAllItems && (
-            <Input
-              placeholder={searchTitle}
-              className="search__input"
-              onChange={this.handleSearch}
-              initialValue={searchText}
-              addon="left"
-              type="text"
-              name="preloadedMembers"
-              dataFeatureTag={searchTitle}
-              autoComplete="off"
-            >
-              <Icon icon="search" />
-            </Input>
+              <div className="u-flex u-flex-direction-row">
+                <Input
+                  placeholder={searchTitle}
+                  className="search__input"
+                  onChange={this.handleSearch}
+                  initialValue={searchText}
+                  addon="left"
+                  type="text"
+                  name="preloadedMembers"
+                  dataFeatureTag={searchTitle}
+                  autoComplete="off"
+                >
+                  <Icon icon="search" />
+                </Input>
+                {sortable && (
+                <SortAZ
+                  handleSort={handleSort}
+                  sortDirection={sortDirection}
+                />
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -322,6 +334,9 @@ DropdownMultiSelectAdvanced.propTypes = {
   selectedItemsIds: PropTypes.array.isRequired,
   type: PropTypes.string,
   dropdownWrapperClass: PropTypes.string,
+  sortable: PropTypes.bool,
+  handleSort: PropTypes.func,
+  sortDirection: PropTypes.string,
 };
 
 DropdownMultiSelectAdvanced.defaultProps = {
