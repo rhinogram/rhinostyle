@@ -60,7 +60,6 @@ class ComponentExample extends React.Component {
   }
 
   handleSort = () => {
-    console.log("hello")
     this.setState((prevState) => ({
       sortDirection: prevState.sortDirection === 'asc' ? 'desc' : 'asc',
     }));
