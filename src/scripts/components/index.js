@@ -63,6 +63,7 @@ import Select from './Select';
 import SlidingRadio from './SlidingRadio';
 import SmartTable from './SmartTable';
 import SmartTableHeader from './SmartTableHeader';
+import SortAZ from './SortAZ';
 import SystemAlert from './SystemAlert';
 import TabContentPane from './TabContentPane';
 import Table from './Table';
@@ -147,6 +148,7 @@ export {
   SlidingRadio,
   SmartTable,
   SmartTableHeader,
+  SortAZ,
   SystemAlert,
   TabContentPane,
   Table,
