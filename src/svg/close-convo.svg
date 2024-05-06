@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>close convo </title>
+        <g class="icon-stroke" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18,3.75 C19.1736051,3.75 20.2361051,4.22569745 21.0052038,4.99479618 C21.7743025,5.76389491 22.25,6.82639491 22.25,8 L22.25,11 C22.25,12.0428807 21.8745486,12.9981309 21.2510117,13.7375657 L21.2502791,18.9962907 L17.9895077,15.25 L5,15.25 C3.82639491,15.25 2.76389491,14.7743025 1.99479618,14.0052038 C1.22569745,13.2361051 0.75,12.1736051 0.75,11 L0.75,8 C0.75,6.82639491 1.22569745,5.76389491 1.99479618,4.99479618 C2.76389491,4.22569745 3.82639491,3.75 5,3.75 Z" id="Combined-Shape" stroke="#404040" stroke-width="1.5"></path>
+        <line x1="14.0869565" y1="6.91304348" x2="9.39130435" y2="11.6086957" id="Path-5" stroke="#404040" stroke-width="1.81629479" stroke-linecap="round"></line>
+        <line x1="9.39130435" y1="6.91304348" x2="14.0869565" y2="11.6086957" id="Path-5-Copy" stroke="#404040" stroke-width="1.81629479" stroke-linecap="round"></line>
+    </g>
+</svg>

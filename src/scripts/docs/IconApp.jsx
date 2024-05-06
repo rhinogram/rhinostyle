@@ -41,6 +41,7 @@ const icons = [
   'clock',
   'close-conversation',
   'close',
+  'close-convo',
   'cog',
   'connected-parties',
   'connecting',
