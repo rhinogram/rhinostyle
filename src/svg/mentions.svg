@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="24px" viewBox="0 0 20 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>@</title>
+            <g class="icon-fill" 
+            stroke="none" 
+            stroke-width="1" 
+            fill="none" 
+            fill-rule="evenodd" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+            font-family="Lato-Regular, Lato" 
+            font-size="22" 
+            font-weight="normal"
+            >
+        <g id="d:-1440---Global-Search---Modal---default--Copy-13" transform="translate(-20, -139)" fill="#404040" fill-rule="nonzero">
+            <text id="@">
+                <tspan x="20.958" y="157">@</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
