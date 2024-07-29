@@ -90,6 +90,7 @@ const icons = [
   'rhinopay',
   'rotate-camera',
   'rotate',
+  'run-report',
   'search',
   'send',
   'share',
