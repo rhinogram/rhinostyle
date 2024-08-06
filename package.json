@@ -92,7 +92,7 @@
     "grapheme-splitter": "^1.0.4",
     "gsap": "2.0.1",
     "keymirror": "0.1.1",
-    "moment": "2.29.1",
+    "moment": "2.29.4",
     "parse5": "5.1.1",
     "plugin-error": "1.0.1",
     "prop-types": "15.7.2",
