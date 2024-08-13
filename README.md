@@ -17,11 +17,15 @@ Make sure you have the following installed:
 
 Individual gulp tasks are in [gulpfile.babel.js](gulpfile.babel.js), but for development run:
 
-* `gulp serve` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser
+* `yarn start` Starts BrowserSync instance, watches for file changes, and automatically reloads your browser
 
-* If adding / deleting any of the media, audio, or animation files, run `gulp build` to capture the changes
+* If adding / deleting any of the media, audio, or animation files, run `yarn build` to capture the changes
 ### Yarn link
 Develop locally without having to push changes to Github using `yarn link`. From the rhinostyle directory, run: `yarn link`. Go to the directory of your project (rhinofront) and run: `yarn link rhinostyle`.
+
+### Yalc
+Alternatively, `yalc` can be used to develop locally without having to push changes to Github. Follow steps 1-3 here: [Shared library local development with Yalc](https://rhinogram.atlassian.net/wiki/spaces/EN/pages/694714476/Shared+library+rhinotilities+rhinosecure+etc.+local+development+with+Docker)
+
 
 ---
 ## Releasing
