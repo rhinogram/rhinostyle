@@ -112,6 +112,8 @@ const icons = [
   'video',
   'vcard',
   'mentions',
+  'to-channel',
+  'from-channel',
 ];
 
 const IconApp = () => (
