@@ -80,7 +80,7 @@
     "react-dom": "17.0.1",
     "stylelint": "9.4.0",
     "stylelint-config-standard": "18.2.0",
-    "webpack": "5.65.0",
+    "webpack": "5.94.0",
     "what-input": "5.2.10"
   },
   "dependencies": {
