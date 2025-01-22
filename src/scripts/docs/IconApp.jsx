@@ -97,6 +97,7 @@ const icons = [
   'signature',
   'speaker',
   'star',
+  'team-inbox',
   'to-from',
   'touchid',
   'trash',
