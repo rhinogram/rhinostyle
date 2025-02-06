@@ -23,7 +23,7 @@ jobs:
       - name: Run Dependabot
         uses: dependabot/dependabot-core@v1
         with:
-          package-ecosystem: 'yarn'
+          package-ecosystem: 'npm'
           directory: '/'
           target-branch: 'RHIN-11743/dep'
           open-pull-requests-limit: 5
