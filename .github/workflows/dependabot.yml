@@ -1,0 +1,30 @@
+name: Dependabot Updates
+
+on:
+  push:
+    branches:
+      - main
+      - RHIN-11743/dep
+  pull_request:
+    branches:
+      - main
+      - RHIN-11743/dep
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Dependabot
+        uses: dependabot/dependabot-core@v1
+        with:
+          package-ecosystem: 'yarn'
+          directory: '/'
+          target-branch: 'RHIN-11743/dep'
+          open-pull-requests-limit: 5
+          commit-message: 'chore(deps): update dependencies'
