@@ -44,7 +44,9 @@ class Input extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({ value: event.target.value });
+    if (!this.props.controlledInput) {
+      this.setState({ value: event.target.value });
+    }
     if (this.props.onChange) {
       if (this.props.format) {
         this.props.onChange(event.target.name, event.target.rawValue.trimLeft(), event.target.value);
@@ -130,6 +132,7 @@ class Input extends React.Component {
       type,
       validationMessage,
       dataFeatureTag,
+      controlledInput,
     } = this.props;
 
     const inputClasses = cx('form__control', customInputClasses, {
@@ -212,6 +215,7 @@ class Input extends React.Component {
             data-cypress={dataFeatureTag}
             data-feature-tag={dataFeatureTag}
             readOnly={readOnly}
+            controlledInput={controlledInput}
             ref={(ref) => (this.input = ref)}
             {...customHTMLAttributes} // Note, only 'standard' custom attributes such as 'data-' or 'aria-' will be passed to the DOM
           />
@@ -314,6 +318,7 @@ Input.propTypes = {
   validationMessage: PropTypes.string,
   onInput: PropTypes.func,
   id: PropTypes.string,
+  controlledInput: PropTypes.bool,
 };
 
 Input.defaultProps = {
