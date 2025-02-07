@@ -218,6 +218,7 @@ class Select extends React.Component {
               value={this.props.selected}
               onChange={this.onChange}
               data-cypress={this.props.dataCypress}
+              title={this.props.title || label}
             >
               {options.map(renderOpts)}
             </select>
@@ -248,6 +249,7 @@ Select.propTypes = {
   validationMessage: PropTypes.string,
   placeholder: PropTypes.string,
   dataCypress: PropTypes.string,
+  title: PropTypes.string,
 };
 
 Select.defaultProps = {
