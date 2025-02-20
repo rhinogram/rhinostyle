@@ -192,20 +192,15 @@ class DropdownMultiSelectAdvanced extends Component {
     );
   }
 
-  render() {
+  renderDropdownInside() {
     const {
       className,
-      dataCypress,
-      disabled,
-      dropDownClass,
-      dropdownLabel,
       filterName,
       selectedItemsIds,
       itemsIds,
       itemSearchLoading,
       interfaceLeft,
       blockGroup,
-      dropdownWrapperClass,
       handleSort,
       sortDirection,
       sortable,
@@ -217,27 +212,9 @@ class DropdownMultiSelectAdvanced extends Component {
     const classes = `resource-group__scroll${interfaceLeft && '--checkbox'} ${className || ''}`;
 
     const searchTitle = `Search ${filterName}`;
-    let dropdownType = 'input';
-    let outlined = false;
-    if (selectedItemsIds.length > 0) {
-      dropdownType = 'primary';
-      outlined = true;
-    }
 
     return (
-      <Dropdown
-        wide
-        disabled={disabled}
-        autoFocusInput={false}
-        label={dropdownLabel}
-        onClick={this.clearSearch}
-        className={dropDownClass}
-        type={dropdownType}
-        outlined={outlined}
-        dataCypress={dataCypress}
-        disableScroll
-        wrapperClassName={dropdownWrapperClass}
-      >
+      <div>
         <div className="dropdown__menu__container">
           <div className="search__group">
             <UtilityInlineGrid className="u-flex u-flex-justify-between u-m-t-small u-text-small">
@@ -258,27 +235,27 @@ class DropdownMultiSelectAdvanced extends Component {
               )}
             </UtilityInlineGrid>
             {isViewAllItems && (
-              <div className="u-flex u-flex-direction-row">
-                <Input
-                  placeholder={searchTitle}
-                  className="search__input"
-                  onChange={this.handleSearch}
-                  initialValue={searchText}
-                  addon="left"
-                  type="text"
-                  name="preloadedMembers"
-                  dataFeatureTag={searchTitle}
-                  autoComplete="off"
-                >
-                  <Icon icon="search" />
-                </Input>
-                {sortable && (
-                <SortAZ
-                  handleSort={handleSort}
-                  sortDirection={sortDirection}
-                />
-                )}
-              </div>
+            <div className="u-flex u-flex-direction-row">
+              <Input
+                placeholder={searchTitle}
+                className="search__input"
+                onChange={this.handleSearch}
+                initialValue={searchText}
+                addon="left"
+                type="text"
+                name="preloadedMembers"
+                dataFeatureTag={searchTitle}
+                autoComplete="off"
+              >
+                <Icon icon="search" />
+              </Input>
+              {sortable && (
+              <SortAZ
+                handleSort={handleSort}
+                sortDirection={sortDirection}
+              />
+              )}
+            </div>
             )}
           </div>
         </div>
@@ -308,8 +285,45 @@ class DropdownMultiSelectAdvanced extends Component {
             this.renderSearchHelp(itemsIds, itemSearchLoading)
           )}
         </div>
-      </Dropdown>
+      </div>
     );
+  }
+
+  render() {
+    const {
+      dataCypress,
+      disabled,
+      dropDownClass,
+      dropdownLabel,
+      selectedItemsIds,
+      dropdownWrapperClass,
+      inline,
+    } = this.props;
+
+    let dropdownType = 'input';
+    let outlined = false;
+    if (selectedItemsIds.length > 0) {
+      dropdownType = 'primary';
+      outlined = true;
+    }
+    return inline ? this.renderDropdownInside()
+      : (
+        <Dropdown
+          wide
+          disabled={disabled}
+          autoFocusInput={false}
+          label={dropdownLabel}
+          onClick={this.clearSearch}
+          className={dropDownClass}
+          type={dropdownType}
+          outlined={outlined}
+          dataCypress={dataCypress}
+          disableScroll
+          wrapperClassName={dropdownWrapperClass}
+        >
+          {this.renderDropdownInside()}
+        </Dropdown>
+      );
   }
 }
 
@@ -337,6 +351,7 @@ DropdownMultiSelectAdvanced.propTypes = {
   sortable: PropTypes.bool,
   handleSort: PropTypes.func,
   sortDirection: PropTypes.string,
+  inline: PropTypes.bool,
 };
 
 DropdownMultiSelectAdvanced.defaultProps = {
