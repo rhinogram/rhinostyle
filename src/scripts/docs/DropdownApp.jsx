@@ -103,6 +103,21 @@ const DropdownMultiSelectDocs = {
   position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>",
 };
 
+const DropdownMultiSelectAdvancedDocs = {
+  dataCypress: 'for testing',
+  handleSelect: 'Callback when item is selected',
+  itemIds: 'Array of all item ids',
+  selectedItemIds: 'Array of selected item ids',
+  items: 'Items to be displayed as options',
+  label: 'Text in dropdown when closed',
+  dropdownClass: 'Custom class applied to Dropdown component',
+  getItemLabelValue: 'Custom format for items in dropdown',
+  wide: 'Sets a min-width on dropdown menu',
+  name: 'Name of dropdown',
+  position: "Position of Dropdown <code>oneOf(['right', 'top', 'top-right'])</code>",
+  inline: 'Display items inline rather than as a dropdown',
+};
+
 const DropdownMenuHeaderDocs = {
   className: 'Include additional class name(s)',
 };
@@ -503,7 +518,7 @@ const DropdownApp = () => (
         code={DropdownMultiSelectAdvancedExample}
         scope={DropdownScope}
         component={DropdownMultiSelectAdvanced}
-        propDescriptions={DropdownMultiSelectDocs}
+        propDescriptions={DropdownMultiSelectAdvancedDocs}
       />
     </section>
 
