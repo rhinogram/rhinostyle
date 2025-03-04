@@ -67,7 +67,7 @@ class DropdownWrapper extends React.Component {
         lastTime = newTime;
       },
       onReverseComplete: () => {
-        $dropdown.style.display = 'none';
+        $dropdownMenu.style.display = 'none';
         // Fire off prop update
         if (this.props.onReverseComplete) this.props.onReverseComplete();
       },
