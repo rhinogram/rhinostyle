@@ -115,6 +115,7 @@ const icons = [
   'mentions',
   'to-channel',
   'from-channel',
+  'notification-settings',
 ];
 
 const IconApp = () => (
