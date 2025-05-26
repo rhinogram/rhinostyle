@@ -126,9 +126,9 @@ class DropdownMultiSelectAdvanced extends Component {
           key={id}
           isChecked={selected}
           onChange={() => this.handleUpdateSelectedIds(id)}
-          name={listItem.title}
+          name={listItem?.title}
           className={dropDownItemClass}
-          label={listItem.label || listItem.title}
+          label={listItem?.label || listItem?.title}
           interfaceLeft={interfaceLeft && blockGroup}
         />
       );
@@ -140,7 +140,7 @@ class DropdownMultiSelectAdvanced extends Component {
         key={id}
         onClick={() => this.handleUpdateSelectedIds(id)}
       >
-        {listItem.title}
+        {listItem?.title}
       </Resource>
     );
   }
