@@ -124,7 +124,7 @@ class DropdownSearchSelect extends React.Component {
           </div>
         </div>
         <div className="dropdown__menu__container u-p-x-0">
-          {itemsIds.length > 0 ? (
+          {itemsIds.length > 0 && (this.state.searchText.length === 0 || this.state.searchText.length > 2) ? (
             <Scrollbars className={classes} autoHeight autoHeightMax={UtilitySystem.config.resourceSizes.large}>
               {this.renderListItems()}
             </Scrollbars>
